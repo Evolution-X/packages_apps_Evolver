@@ -90,6 +90,8 @@
     <string name="status_bar_icons_category">Icons</string>
     <string name="status_bar_tuner_title">Status bar tuner</string>
     <string name="status_bar_tuner_summary">Choose which system icons can be shown</string>
+    <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
+    <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
     <string name="status_bar_colored_icons_title">Colored icons</string>
     <string name="status_bar_colored_icons_summary">Use launcher icons for app notifications</string>
     <string name="status_bar_notif_count_title">Notification count</string>
