@@ -18,11 +18,19 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import org.evolution.settings.utils.DeviceUtils;
+
 @SearchIndexable
 public class StatusBar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBar";
+
+    private static final String ICONS_CATEGORY_KEY = "status_bar_icons_category";
+    private static final String BLUETOOTH_BATTERY_STATUS_KEY = "bluetooth_show_battery";
+
+    private PreferenceCategory mIconsCategory;
+    private Preference mBluetoothBatteryStatus;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,13 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.evolution_settings_status_bar);
         Context mContext = getActivity().getApplicationContext();
+
+        mIconsCategory = (PreferenceCategory) findPreference(ICONS_CATEGORY_KEY);
+        mBluetoothBatteryStatus = (Preference) findPreference(BLUETOOTH_BATTERY_STATUS_KEY);
+
+        if (!DeviceUtils.deviceSupportsBluetooth(mContext)) {
+            mIconsCategory.removePreference(mBluetoothBatteryStatus);
+        }
     }
 
     @Override
