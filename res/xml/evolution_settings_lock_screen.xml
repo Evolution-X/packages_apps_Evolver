@@ -19,6 +19,12 @@
             android:title="@string/lock_screen_charging_stats_title"
             android:summary="@string/lock_screen_charging_stats_summary"
             android:defaultValue="true" />
+
+        <Preference
+            android:key="pulse_settings"
+            android:title="@string/lock_screen_pulse_settings_title"
+            android:summary="@string/lock_screen_pulse_settings_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.PulseSettings" />
     </PreferenceCategory>
 
     <PreferenceCategory
