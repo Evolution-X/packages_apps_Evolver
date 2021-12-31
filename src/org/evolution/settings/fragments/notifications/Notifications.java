@@ -29,6 +29,8 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
+import org.evolution.settings.utils.PreferenceUtils;
+
 @SearchIndexable
 public class Notifications extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -51,6 +53,12 @@ public class Notifications extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
     @Override

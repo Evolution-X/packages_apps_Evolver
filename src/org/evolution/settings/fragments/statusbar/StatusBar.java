@@ -31,6 +31,7 @@ import lineageos.preference.LineageSystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
+import org.evolution.settings.utils.PreferenceUtils;
 import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
@@ -184,6 +185,12 @@ public class StatusBar extends SettingsPreferenceFragment implements
                 break;
         }
         mQuickPulldown.setSummary(summary);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
     @Override
