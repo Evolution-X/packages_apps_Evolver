@@ -138,11 +138,12 @@
         android:key="video_wallpaper_category"
         android:title="@string/video_wallpaper_category">
 
-        <Preference
-            android:key="lock_glymps_settings"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="lock_glymps_enabled"
             android:title="@string/lock_glymps_title"
             android:summary="@string/lock_glymps_enable_summary"
-            android:fragment="org.evolution.settings.fragments.themes.LockGlympsSettings" />
+            android:fragment="org.evolution.settings.fragments.themes.LockGlympsSettings"
+            android:defaultValue="false" />
 
         <Preference
             android:key="video_wallpaper"
