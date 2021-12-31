@@ -28,6 +28,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import org.evolution.settings.utils.PreferenceUtils;
+
 @SearchIndexable
 public class Spoofing extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -187,6 +189,12 @@ public class Spoofing extends SettingsPreferenceFragment implements
         if (mHandler != null && mPendingKill != null) {
             mHandler.removeCallbacks(mPendingKill);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
     @Override

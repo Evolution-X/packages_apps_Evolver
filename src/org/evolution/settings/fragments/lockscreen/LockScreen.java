@@ -34,6 +34,7 @@ import java.util.List;
 
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
+import org.evolution.settings.utils.PreferenceUtils;
 import org.evolution.settings.utils.SystemUtils;
 import org.evolution.settings.utils.TelephonyUtils;
 // import org.evolution.settings.utils.ImageUtils;
@@ -144,6 +145,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     public void onResume() {
         super.onResume();
         updateWeatherSettings();
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
 //    @Override

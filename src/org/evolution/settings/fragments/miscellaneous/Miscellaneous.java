@@ -33,6 +33,7 @@ import lineageos.providers.LineageSettings;
 
 import org.evolution.settings.preferences.CustomSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
+import org.evolution.settings.utils.PreferenceUtils;
 
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
@@ -125,6 +126,12 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
     @Override

@@ -43,11 +43,12 @@
         android:title="@string/notifications_interface_category">
 
         <!-- Edge light -->
-        <Preference
-            android:key="edge_light_settings"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="edge_light_enabled"
             android:title="@string/edge_light_title"
             android:summary="@string/edge_light_summary"
-            android:fragment="org.evolution.settings.fragments.notifications.EdgeLightSettings" />
+            android:fragment="org.evolution.settings.fragments.notifications.EdgeLightSettings"
+            android:defaultValue="false" />
 
         <!-- Notification row transparency -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference

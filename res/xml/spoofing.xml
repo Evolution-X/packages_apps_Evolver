@@ -14,18 +14,20 @@
         android:title="@string/spoofing_integrity_category">
 
         <!-- TrickyStore -->
-        <Preference
-            android:key="tricky_store"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="spoof_trickystore_enabled"
             android:title="@string/tricky_store_title"
             android:summary="@string/tricky_store_summary"
-            android:fragment="org.evolution.settings.fragments.miscellaneous.TrickyStore" />
+            android:fragment="org.evolution.settings.fragments.miscellaneous.TrickyStore"
+            android:defaultValue="true" />
 
         <!-- Play Integrity Fix -->
-        <Preference
-            android:key="play_integrity_fix"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="spoof_pif_enabled"
             android:title="@string/play_integrity_fix_title"
             android:summary="@string/play_integrity_fix_summary"
-            android:fragment="org.evolution.settings.fragments.miscellaneous.PlayIntegrityFix" />
+            android:fragment="org.evolution.settings.fragments.miscellaneous.PlayIntegrityFix"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <!-- Device Identity -->
