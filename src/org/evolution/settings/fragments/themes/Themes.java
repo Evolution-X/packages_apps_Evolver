@@ -34,6 +34,7 @@ import org.evolution.settings.preferences.SoundPickerPreference;
 import org.evolution.settings.preferences.SystemPropertyListPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
+import org.evolution.settings.utils.PreferenceUtils;
 
 @SearchIndexable
 public class Themes extends SettingsPreferenceFragment implements
@@ -153,6 +154,12 @@ public class Themes extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
     @Override

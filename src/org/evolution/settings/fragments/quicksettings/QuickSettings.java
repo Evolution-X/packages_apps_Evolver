@@ -38,6 +38,7 @@ import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
+import org.evolution.settings.utils.PreferenceUtils;
 import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
@@ -300,6 +301,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         mMediaSquiggleAnimation.setVisible(!waveformEnabled);
         mMediaSquiggleAnimation.setEnabled(!waveformEnabled);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
     @Override

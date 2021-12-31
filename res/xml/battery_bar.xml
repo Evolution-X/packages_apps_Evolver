@@ -21,7 +21,8 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="statusbar_battery_bar"
-        android:title="@string/action_enable" />
+        android:title="@string/action_enable"
+        android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="statusbar_battery_bar_thickness"

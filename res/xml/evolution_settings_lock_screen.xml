@@ -33,25 +33,28 @@
         android:title="@string/lock_screen_media_category">
 
         <!-- Now Playing -->
-        <Preference
-            android:key="nowplaying_settings"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="nowplaying_enabled"
             android:title="@string/nowplaying_title"
             android:summary="@string/nowplaying_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.NowplayingSettings" />
+            android:fragment="org.evolution.settings.fragments.lockscreen.NowplayingSettings"
+            android:defaultValue="false" />
 
         <!-- Lockscreen Media Art -->
-        <Preference
-            android:key="media_art_settings"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="ls_media_art_enabled"
             android:title="@string/ls_media_art_title"
             android:summary="@string/ls_media_art_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.MediaArtSettings" />
+            android:fragment="org.evolution.settings.fragments.lockscreen.MediaArtSettings"
+            android:defaultValue="false" />
 
         <!-- Pulse music visualizer -->
-        <Preference
-            android:key="pulse_settings"
+        <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
+            android:key="lockscreen_pulse_enabled"
             android:title="@string/pulse_settings_title"
             android:summary="@string/pulse_settings_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.PulseSettings" />
+            android:fragment="org.evolution.settings.fragments.lockscreen.PulseSettings"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
@@ -67,11 +70,12 @@
             android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
 
         <!-- Depth wallpaper -->
-        <Preference
-            android:key="depth_wallpaper"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="depth_wallpaper_enabled"
             android:title="@string/dw_wallpaper_enabled_title"
             android:summary="@string/dw_wallpaper_enabled_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.WallpaperDepth" />
+            android:fragment="org.evolution.settings.fragments.lockscreen.WallpaperDepth"
+            android:defaultValue="false" />
 
         <!-- Charging stats -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -167,11 +171,12 @@
         android:key="lock_screen_charging_effects_category"
         android:title="@string/lock_screen_charging_effects_category">
 
-        <Preference
-            android:key="charging_animation_settings"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="charging_animation_enabled"
             android:title="@string/charging_animation_title"
             android:summary="@string/charging_animation_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.ChargingAnimationSettings" />
+            android:fragment="org.evolution.settings.fragments.lockscreen.ChargingAnimationSettings"
+            android:defaultValue="false" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="charging_animation"

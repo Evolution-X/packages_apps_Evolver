@@ -24,11 +24,12 @@
             android:min="1" />-->
 
         <!-- QS Header -->
-        <Preference
-            android:key="qs_header_image"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="status_bar_custom_header"
             android:title="@string/quick_settings_header_image_title"
             android:summary="@string/quick_settings_header_image_summary"
-            android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings" />
+            android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings"
+            android:defaultValue="false" />
 
         <!-- Single Tone QS -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference

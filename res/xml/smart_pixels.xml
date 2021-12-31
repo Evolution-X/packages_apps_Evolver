@@ -21,7 +21,8 @@
 
     <lineageos.preference.SecureSettingMainSwitchPreference
         android:key="smart_pixel_filter_enabled"
-        android:title="@string/action_enable" />
+        android:title="@string/action_enable"
+        android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference
         android:key="smart_pixel_filter_percent"
