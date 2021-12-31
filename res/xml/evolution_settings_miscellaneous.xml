@@ -33,11 +33,12 @@
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false" />
 
-        <Preference
-            android:key="gesture_shake_action"
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="shake_gestures_enabled"
             android:title="@string/shake_gestures_enabled_title"
             android:summary="@string/shake_gestures_enabled_summary"
-            android:fragment="org.evolution.settings.fragments.miscellaneous.ShakeGestures" />
+            android:fragment="org.evolution.settings.fragments.miscellaneous.ShakeGestures"
+            android:defaultValue="false" />
 
         <!-- Flashlight on call -->
         <org.evolution.settings.preferences.SystemSettingListPreference
@@ -91,11 +92,12 @@
             android:summary="@string/disable_flash_sms_summary"
             android:defaultValue="false"/>
 
-        <Preference
-            android:key="smart_pixels"
+        <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
+            android:key="smart_pixel_filter_enabled"
             android:title="@string/smart_pixels_title"
             android:summary="@string/smart_pixels_summary"
-            android:fragment="org.evolution.settings.fragments.miscellaneous.SmartPixels" />
+            android:fragment="org.evolution.settings.fragments.miscellaneous.SmartPixels"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
