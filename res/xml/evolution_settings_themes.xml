@@ -79,4 +79,17 @@
             android:summary="@string/themes_navigation_bar_icons_summary"
             android:fragment="org.evolution.settings.fragments.themes.NavigationBarIcons"/>
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="themes_animations_category"
+        android:title="@string/themes_animations_category">
+
+        <!-- Screen Off animation -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="screen_off_animation"
+            android:title="@string/themes_screen_off_animation_title"
+            android:entries="@array/themes_screen_off_animation_entries"
+            android:entryValues="@array/themes_screen_off_animation_values"
+            android:defaultValue="0" />
+    </PreferenceCategory>
 </PreferenceScreen>
