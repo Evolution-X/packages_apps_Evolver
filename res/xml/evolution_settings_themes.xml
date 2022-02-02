@@ -9,6 +9,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/themes_title">
 
+    <!-- Screen Off animation -->
+    <org.evolution.settings.preferences.SystemSettingListPreference
+        android:key="screen_off_animation"
+        android:title="@string/screen_off_animation_title"
+        android:dialogTitle="@string/screen_off_animation_title"
+        android:entries="@array/screen_off_animation_entries"
+        android:entryValues="@array/screen_off_animation_values"
+        android:defaultValue="0" />
+
     <PreferenceCategory
         android:key="themes_monet_category"
         android:title="@string/themes_monet_category">
