@@ -54,6 +54,10 @@
     <string name="themes_animations_category">Animations</string>
     <string name="themes_charging_animation_title">Charging animation</string>
     <string name="themes_charging_animation_summary">Display an animation when the device is plugged in</string>
+    <string name="themes_screen_off_animation_title">Screen off animation</string>
+    <string name="themes_screen_off_animation_default">Default</string>
+    <string name="themes_screen_off_animation_crt">CRT</string>
+    <string name="themes_screen_off_animation_scale">Scale</string>
     <string name="themes_udfps_animation_title">UDFPS animation</string>
     <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
 

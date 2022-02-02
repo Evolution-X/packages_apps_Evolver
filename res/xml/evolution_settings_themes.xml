@@ -98,6 +98,14 @@
             android:summary="@string/themes_charging_animation_summary"
             android:defaultValue="true" />
 
+        <!-- Screen Off animation -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="screen_off_animation"
+            android:title="@string/themes_screen_off_animation_title"
+            android:entries="@array/themes_screen_off_animation_entries"
+            android:entryValues="@array/themes_screen_off_animation_values"
+            android:defaultValue="0" />
+
         <!-- Udfps animation -->
         <Preference
             android:key="udfps_animation"
