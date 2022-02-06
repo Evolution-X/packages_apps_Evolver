@@ -91,6 +91,13 @@
         android:key="themes_animations_category"
         android:title="@string/themes_animations_category">
 
+        <!-- Charging animation -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="charging_animation"
+            android:title="@string/themes_charging_animation_title"
+            android:summary="@string/themes_charging_animation_summary"
+            android:defaultValue="true" />
+
         <!-- Udfps animation -->
         <Preference
             android:key="udfps_animation"
