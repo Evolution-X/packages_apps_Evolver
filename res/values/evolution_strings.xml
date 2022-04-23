@@ -91,6 +91,9 @@
 
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Spoofing</string>
+    <string name="miscellaneous_developer_options_category">Developer options</string>
+    <string name="miscellaneous_app_downgrade_title">Allow application downgrade</string>
+    <string name="miscellaneous_app_downgrade_summary">Allow downgrading system applications, which may result in crashes and data loss</string>
 
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Component spoofing</string>
