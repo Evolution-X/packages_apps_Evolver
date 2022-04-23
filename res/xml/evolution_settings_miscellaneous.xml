@@ -20,4 +20,16 @@
             android:summary="@string/spoofing_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.Spoofing" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="miscellaneous_developer_options_category"
+        android:title="@string/miscellaneous_developer_options_category">
+
+        <!-- Allow application downgrade -->
+        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
+            android:key="pm_downgrade_allowed"
+            android:title="@string/miscellaneous_app_downgrade_title"
+            android:summary="@string/miscellaneous_app_downgrade_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>
