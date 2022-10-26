@@ -87,6 +87,13 @@
             android:summary="@string/qs_compact_media_player_mode_summary"
             android:defaultValue="false" />
 
+        <!-- Squiggle animation -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="show_media_squiggle_animation"
+            android:title="@string/show_squiggle_animation_title"
+            android:summary="@string/show_squiggle_animation_summary"
+            android:defaultValue="true" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_header_clock_style"
             android:title="@string/qs_header_clock_style_title"
