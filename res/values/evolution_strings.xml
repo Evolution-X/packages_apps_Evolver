@@ -829,4 +829,8 @@
     <!-- Ongoing progress bar chip in statusbar --> 
     <string name="ongoing_action_chip_title">Ongoing progress bar chip</string>
     <string name="ongoing_action_chip_summary">Show progress bar chip in status bar which features ongoing action progress from a notification</string>
+ 
+    <!-- Squiggle animation -->
+    <string name="show_squiggle_animation_title">Show squiggle animation</string>
+    <string name="show_squiggle_animation_summary">Show media panel squiggle animation\nAfter change need to switch music, pause music or move the progress bar to apply</string>
 </resources>
