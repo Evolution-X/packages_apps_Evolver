@@ -21,6 +21,14 @@
             android:entryValues="@array/quick_settings_tile_ui_style_values"
             android:defaultValue="0" />
 
+        <!-- QS Panel Style -->
+        <ListPreference
+            android:key="qs_panel_style"
+            android:title="@string/quick_settings_panel_style_title"
+            android:entries="@array/quick_settings_panel_style_entries"
+            android:entryValues="@array/quick_settings_panel_style_values"
+            android:defaultValue="0" />
+
         <!-- Hide label -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_tile_label_hide"
