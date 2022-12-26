@@ -54,6 +54,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
     private static final String KEY_BLUETOOTH_AUTO_ON = "qs_bt_auto_on";
     private static final String KEY_QS_UI_STYLE  = "qs_tile_ui_style";
+    private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -70,6 +71,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mTileAnimationInterpolator;
     private PreferenceCategory mMiscellaneousCategory;
     private ListPreference mQsUI;
+    private ListPreference mQsPanelStyle;
 
     private static ThemeUtils mThemeUtils;
 
@@ -130,6 +132,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsUI = (ListPreference) findPreference(KEY_QS_UI_STYLE);
         mQsUI.setOnPreferenceChangeListener(this);
 
+        mQsPanelStyle = (ListPreference) findPreference(KEY_QS_PANEL_STYLE);
+        mQsPanelStyle.setOnPreferenceChangeListener(this);
+
         checkQSOverlays(context);
     }
 
@@ -157,6 +162,13 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver,
                     Settings.System.QS_TILE_UI_STYLE, value, UserHandle.USER_CURRENT);
             updateQsStyle(getActivity());
+            checkQSOverlays(getActivity());
+            return true;
+        } else if (preference == mQsPanelStyle) {
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.QS_PANEL_STYLE, value, UserHandle.USER_CURRENT);
+            updateQsPanelStyle(getActivity());
             checkQSOverlays(getActivity());
             return true;
         }
@@ -190,21 +202,96 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
     }
 
+    private static void updateQsPanelStyle(Context context) {
+        ContentResolver resolver = context.getContentResolver();
+
+        int qsPanelStyle = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
+
+        String qsPanelStyleCategory = "android.theme.customization.qs_panel";
+        String overlayThemeTarget  = "com.android.systemui";
+        String overlayThemePackage  = "com.android.systemui";
+
+        switch (qsPanelStyle) {
+            case 1:
+              overlayThemePackage = "com.android.system.qs.outline";
+              break;
+            case 2:
+            case 3:
+              overlayThemePackage = "com.android.system.qs.twotoneaccent";
+              break;
+            case 4:
+              overlayThemePackage = "com.android.system.qs.shaded";
+              break;
+            case 5:
+              overlayThemePackage = "com.android.system.qs.cyberpunk";
+              break;
+            case 6:
+              overlayThemePackage = "com.android.system.qs.neumorph";
+              break;
+            case 7:
+              overlayThemePackage = "com.android.system.qs.reflected";
+              break;
+            case 8:
+              overlayThemePackage = "com.android.system.qs.surround";
+              break;
+            case 9:
+              overlayThemePackage = "com.android.system.qs.thin";
+              break;
+            default:
+              break;
+        }
+
+        if (mThemeUtils == null) {
+            mThemeUtils = new ThemeUtils(context);
+        }
+
+        // reset all overlays before applying
+        mThemeUtils.setOverlayEnabled(qsPanelStyleCategory, overlayThemeTarget, overlayThemeTarget);
+
+        if (qsPanelStyle > 0) {
+            mThemeUtils.setOverlayEnabled(qsPanelStyleCategory, overlayThemePackage, overlayThemeTarget);
+        }
+    }
+
     private void checkQSOverlays(Context context) {
         ContentResolver resolver = context.getContentResolver();
         int isA11Style = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_TILE_UI_STYLE , 0, UserHandle.USER_CURRENT);
+        int qsPanelStyle = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_PANEL_STYLE , 0, UserHandle.USER_CURRENT);
 
         if (isA11Style > 0) {
             mQsUI.setEnabled(true);
+            mQsPanelStyle.setEnabled(false);
+            if (qsPanelStyle > 0) {
+                qsPanelStyle = 0;
+                Settings.System.putIntForUser(resolver,
+                        Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
+                updateQsPanelStyle(context);
+            }
+        } else if (qsPanelStyle > 0) {
+            mQsPanelStyle.setEnabled(true);
+            mQsUI.setEnabled(false);
+            if (isA11Style > 0) {
+                isA11Style = 0;
+                Settings.System.putIntForUser(resolver,
+                        Settings.System.QS_TILE_UI_STYLE, 0, UserHandle.USER_CURRENT);
+                updateQsStyle(context);
+            }
         } else {
             mQsUI.setEnabled(true);
+            mQsPanelStyle.setEnabled(true);
         }
 
         // Update summaries
         int index = mQsUI.findIndexOfValue(Integer.toString(isA11Style));
         mQsUI.setValue(Integer.toString(isA11Style));
         mQsUI.setSummary(mQsUI.getEntries()[index]);
+
+        index = mQsPanelStyle.findIndexOfValue(Integer.toString(qsPanelStyle));
+        mQsPanelStyle.setValue(Integer.toString(qsPanelStyle));
+        mQsPanelStyle.setSummary(mQsPanelStyle.getEntries()[index]);
     }
 
     @Override
