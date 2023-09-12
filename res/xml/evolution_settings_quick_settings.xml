@@ -42,6 +42,13 @@
             android:title="@string/quick_settings_auto_brightness_icon_title"
             android:summary="@string/quick_settings_auto_brightness_icon_summary"
             android:defaultValue="true" />
+
+        <!-- Brightness slider percentage -->
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_brightness_percentage"
+            android:title="@string/quick_settings_show_brightness_percentage_title"
+            android:summary="@string/quick_settings_show_brightness_percentage_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
