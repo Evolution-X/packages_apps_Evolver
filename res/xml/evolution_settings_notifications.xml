@@ -13,6 +13,13 @@
         android:key="notifications_interface_category"
         android:title="@string/notifications_interface_category">
 
+        <!-- Island notification -->
+        <Preference
+            android:key="island_notification"
+            android:title="@string/notifications_island_notification_title"
+            android:summary="@string/notifications_island_notification_summary"
+            android:fragment="org.evolution.settings.fragments.notifications.IslandSettings" />
+
         <!-- Kill app button -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_guts_kill_app_button"
