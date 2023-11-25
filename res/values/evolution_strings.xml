@@ -165,11 +165,18 @@
 
     <!-- Notifications -->
     <string name="notifications_interface_category">Interface</string>
+    <string name="notifications_island_notification_title">Island notification</string>
+    <string name="notifications_island_notification_summary">Display heads-up notification in IOS \'Dynamic Island\' style</string>
     <string name="notifications_kill_app_button_title">Kill app</string>
     <string name="notifications_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
     <string name="notifications_sounds_vibration_category">Sounds &amp; vibration</string>
     <string name="notifications_alert_display_on_title">Alert while display on</string>
     <string name="notifications_alert_display_on_summary">Play sound and vibration for notifications while the display is on</string>
+
+    <!-- Notifications/Island notification -->
+    <string name="island_notification_now_playing_title">Now playing</string>
+    <string name="island_notification_now_playing_summary">Display currently playing song in Dynamic Island style</string>
+    <string name="island_notification_footer_text">The Island notification feature, inspired by iOS\'s Dynamic Island, transforms Android\'s heads-up notifications into quick-access and compact notification utility.\n\nIsland Quick Access Controls includes the following features:\n1. Tap island notification to quick answer phone calls.\n2. Long press island notification to reject phone calls.\n3. Long press island notification to expand the island notification preview.</string>
 
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interface</string>
