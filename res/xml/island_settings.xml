@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023 The risingOS Android Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/notifications_island_notification_title">
+
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="island_notification"
+        android:title="@string/notifications_island_notification_title"
+        android:summary="@string/notifications_island_notification_summary"
+        android:defaultValue="false" />
+
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="island_notification_now_playing"
+        android:title="@string/island_notification_now_playing_title"
+        android:summary="@string/island_notification_now_playing_summary"
+        android:dependency="island_notification"
+        android:defaultValue="false" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="island_notification_footer"
+        android:title="@string/island_notification_footer_text"
+        android:selectable="false"
+        settings:searchable="false" />
+</PreferenceScreen>
