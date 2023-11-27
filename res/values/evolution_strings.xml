@@ -264,4 +264,9 @@
     <string name="dw_wallpaper_enabled_title">Depth wallpaper</string>
     <string name="dw_wallpaper_enabled_summary">Enable iOS-inspired depth wallpaper. Requires a subject image.</string>
     <string name="dw_wallpaper_opacity_title">Depth wallpaper opacity</string>
+
+    <!-- Data usage info in QS footer -->
+    <string name="quick_settings_footer_category">Footer</string>
+    <string name="qs_footer_data_usage_title">Data usage</string>
+    <string name="qs_footer_data_usage_summary">Display data usage summary in quick settings footer</string>
 </resources>

@@ -32,4 +32,15 @@
             android:summary="@string/quick_settings_secure_lock_screen_summary"
             android:defaultValue="false" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="quick_settings_footer_category"
+        android:title="@string/quick_settings_footer_category">
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_data_usage"
+            android:title="@string/qs_footer_data_usage_title"
+            android:summary="@string/qs_footer_data_usage_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>
