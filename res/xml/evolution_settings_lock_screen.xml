@@ -10,6 +10,22 @@
     android:title="@string/lock_screen_title">
 
     <PreferenceCategory
+        android:key="lockscreen_clock_category"
+        android:title="@string/lockscreen_clock_category_title">
+
+        <Preference
+            android:key="lockscreen_preview"
+            settings:layout="@layout/lockscreen_preview" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:entries="@array/clock_style_entries"
+            android:title="@string/custom_clock_style"
+            android:key="clock_style"
+            android:defaultValue="0"
+            android:entryValues="@array/clock_style_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="aod_display"
         android:title="@string/aod_display_category_title">
 

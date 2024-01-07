@@ -153,6 +153,10 @@
     <string name="pulse_custom_div">Bar spacing</string>
     <string name="pulse_filled_block_size">Block size</string>
     <string name="pulse_empty_block_size">Block spacing</string>
+    
+    <!-- Custom Clock Style -->
+    <string name="lockscreen_clock_category_title">Lockscreen Clock</string>
+    <string name="custom_clock_style">Custom Clock Style</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Gestures</string>
