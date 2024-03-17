@@ -106,7 +106,7 @@
             android:key="android.theme.customization.fonts"
             android:title="@string/themes_system_font_title"
             android:summary="@string/themes_system_font_summary"
-            android:fragment="org.evolution.settings.fragments.themes.Fonts"/>
+            android:fragment="org.evolution.settings.fragments.themes.fonts.FontPickerPreview"/>
 
         <!-- Lock screen clock font -->
         <Preference

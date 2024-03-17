@@ -729,4 +729,10 @@
     <string name="lockscreen_custom_image_summary">Set custom AOD image</string>
     <string name="lockscreen_custom_image_pick_summary">Select AOD image from gallery</string>
     <string name="custom_aod_image_not_supported">Clock style not supported</string>
+
+    <!-- Font styles -->
+    <string name="font_styles_title">Font Styles</string>
+    <string name="font_styles_summary">Change system font style</string>
+    <string name="font_preview_text">The quick brown\nfox jumps over the\nlazy dog\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
+    <string name="apply_button_text">Apply</string>
 </resources>
