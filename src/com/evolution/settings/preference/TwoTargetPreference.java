@@ -59,7 +59,8 @@ public class TwoTargetPreference extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
-        final View divider = holder.findViewById(R.id.two_target_divider);
+        final View divider = holder.findViewById(
+                com.android.settingslib.widget.preference.twotarget.R.id.two_target_divider);
         final View widgetFrame = holder.findViewById(android.R.id.widget_frame);
         final boolean shouldHideSecondTarget = shouldHideSecondTarget();
         if (divider != null) {

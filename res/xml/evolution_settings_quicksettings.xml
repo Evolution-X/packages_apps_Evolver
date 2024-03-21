@@ -13,15 +13,6 @@
         android:title="@string/qs_layout_category_title">
 
         <!--
-        <com.evolution.settings.preference.SystemSettingListPreference
-            android:key="qs_panel_style"
-            android:title="@string/qs_styles_title"
-            android:entries="@array/qs_styles_entries"
-            android:entryValues="@array/qs_styles_values"
-            android:summary="%s"
-            android:defaultValue="0" />
-        -->
-
         <ListPreference
             android:key="qs_tile_ui_style"
             android:title="@string/qs_tile_ui_style_title"
@@ -35,6 +26,7 @@
             android:entries="@array/qs_panel_style_entries"
             android:entryValues="@array/qs_panel_style_values"
             android:defaultValue="0" />
+        -->
 
         <com.evolution.settings.preference.SystemSettingSwitchPreference
             android:key="qs_tile_label_hide"
@@ -277,7 +269,6 @@
             android:title="@string/qs_footer_warnings_title"
             android:summary="@string/qs_footer_warnings_summary"
             android:defaultValue="true" />
-        -->
 
         <com.evolution.settings.preference.SystemSettingSwitchPreference
             android:key="qs_footer_data_usage"
@@ -285,7 +276,6 @@
             android:summary="@string/qs_show_data_usage_summary"
             android:defaultValue="false" />
 
-        <!--
         <com.evolution.settings.preference.SystemSettingSwitchPreference
             android:key="qs_footer_show_user"
             android:title="@string/qs_footer_users_icon_title"
