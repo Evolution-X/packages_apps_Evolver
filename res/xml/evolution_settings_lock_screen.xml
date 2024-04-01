@@ -65,8 +65,8 @@
         android:title="@string/lock_screen_miscellaneous_category">
 
         <!-- Pocket detection -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="pocket_judge"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pocket_mode_enabled"
             android:title="@string/lock_screen_pocket_detection_title"
             android:summary="@string/lock_screen_pocket_detection_summary"
             android:defaultValue="false" />
