@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016-2022 crDroid Android Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- ColorPicker -->
+    <declare-styleable name="ColorPickerPreference">
+        <attr name="alphaSlider" format="boolean" />
+        <attr name="showPreview" format="boolean" />
+        <attr name="showReset" format="boolean" />
+        <attr name="dividerAbove" format="boolean" />
+        <attr name="dividerBelow" format="boolean" />
+    </declare-styleable>
+
+    <!-- Base attributes available to CustomSeekBarPreference. -->
+    <declare-styleable name="CustomSeekBarPreference">
+        <attr name="defaultValueText" format="string" />
+        <attr name="interval" format="integer" />
+        <attr name="showSign" format="boolean" />
+        <attr name="units" format="string|reference" />
+        <attr name="continuousUpdates" format="boolean" />
+    </declare-styleable>
+</resources>
