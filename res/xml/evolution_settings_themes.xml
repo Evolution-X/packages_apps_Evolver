@@ -29,6 +29,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="themes_navigation_bar_category"
+        android:title="@string/themes_navigation_bar_category">
+
+        <!-- Navigation bar icons -->
+        <Preference
+            android:key="android.theme.customization.navbar"
+            android:title="@string/themes_navigation_bar_icons_title"
+            android:summary="@string/themes_navigation_bar_icons_summary"
+            android:fragment="org.evolution.settings.fragments.themes.NavBar"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="themes_icons_category"
         android:title="@string/themes_icons_category">
 
