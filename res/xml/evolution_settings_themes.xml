@@ -19,6 +19,13 @@
             android:title="@string/themes_system_font_title"
             android:summary="@string/themes_system_font_summary"
             android:fragment="org.evolution.settings.fragments.themes.Fonts"/>
+
+        <!-- Lock screen clock font -->
+        <Preference
+            android:key="android.theme.customization.lockscreen_clock_font"
+            android:title="@string/themes_lock_screen_clock_font_title"
+            android:summary="@string/themes_lock_screen_clock_font_summary"
+            android:fragment="org.evolution.settings.fragments.themes.LockScreenClockFonts"/>
     </PreferenceCategory>
 
     <PreferenceCategory
