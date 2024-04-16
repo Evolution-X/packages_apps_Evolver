@@ -10,6 +10,18 @@
     android:title="@string/themes_title">
 
     <PreferenceCategory
+        android:key="themes_monet_category"
+        android:title="@string/themes_monet_category">
+
+        <!-- Monet engine -->
+        <Preference
+            android:key="monet_engine"
+            android:title="@string/themes_monet_title"
+            android:summary="@string/themes_monet_summary"
+            android:fragment="org.evolution.settings.fragments.themes.MonetSettings" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="themes_fonts_category"
         android:title="@string/themes_fonts_category">
 
