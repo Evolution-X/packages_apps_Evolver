@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016-2024 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Monet theme styles  -->
+    <string-array name="monet_engine_style_entries">
+        <item>@string/monet_engine_style_tonal_spot</item>
+        <item>@string/monet_engine_style_vibrant</item>
+        <item>@string/monet_engine_style_expressive</item>
+        <item>@string/monet_engine_style_spritz</item>
+        <item>@string/monet_engine_style_rainbow</item>
+        <item>@string/monet_engine_style_fruit_salad</item>
+    </string-array>
+
+    <string-array name="monet_engine_style_values" translatable="false">
+        <item>TONAL_SPOT</item>
+        <item>VIBRANT</item>
+        <item>EXPRESSIVE</item>
+        <item>SPRITZ</item>
+        <item>RAINBOW</item>
+        <item>FRUIT_SALAD</item>
+    </string-array>
+
+    <!-- Monet color sources  -->
+    <string-array name="monet_engine_color_source_entries">
+        <item>@string/monet_engine_color_source_both</item>
+        <item>@string/monet_engine_color_source_home</item>
+        <item>@string/monet_engine_color_source_lock</item>
+        <item>@string/monet_engine_color_source_preset</item>
+    </string-array>
+
+    <string-array name="monet_engine_color_source_values" translatable="false">
+        <item>both</item>
+        <item>home_wallpaper</item>
+        <item>lock_wallpaper</item>
+        <item>preset</item>
+    </string-array>
+
+</resources>
