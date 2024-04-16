@@ -75,6 +75,11 @@
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
 
+    <!-- Status bar -->
+    <string name="status_bar_icons_category">Icons</string>
+    <string name="status_bar_tuner_title">Status bar tuner</string>
+    <string name="status_bar_tuner_summary">Choose which system icons can be shown</string>
+
     <!-- About -->
     <string name="about_info">Evolution X aims to provide users with a Pixel-like feel at first glance, with additional features at your disposal</string>
     <string name="about_website_title">Website</string>
