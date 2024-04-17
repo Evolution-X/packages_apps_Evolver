@@ -46,4 +46,23 @@
             android:summary="@string/themes_icon_shape_summary"
             android:fragment="org.evolution.settings.fragments.themes.IconShapes"/>
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="themes_status_bar_icons_category"
+        android:title="@string/themes_status_bar_icons_category">
+
+        <!-- Signal icon -->
+        <Preference
+            android:key="android.theme.customization.signal_icon"
+            android:title="@string/themes_signal_icon_title"
+            android:summary="@string/themes_signal_icon_summary"
+            android:fragment="org.evolution.settings.fragments.themes.SignalIcons"/>
+
+        <!-- Wifi icon -->
+        <Preference
+            android:key="android.theme.customization.wifi_icon"
+            android:title="@string/themes_wifi_icon_title"
+            android:summary="@string/themes_wifi_icon_summary"
+            android:fragment="org.evolution.settings.fragments.themes.WifiIcons"/>
+    </PreferenceCategory>
 </PreferenceScreen>

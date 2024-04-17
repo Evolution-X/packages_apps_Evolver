@@ -18,11 +18,19 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import org.evolution.settings.utils.DeviceUtils;
+
 @SearchIndexable
 public class Themes extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "Themes";
+
+    private static final String STATUS_BAR_ICONS_CATEGORY_KEY = "themes_status_bar_icons_category";
+    private static final String SIGNAL_ICON_KEY = "android.theme.customization.signal_icon";
+
+    private PreferenceCategory mStatusBarIconsCategory;
+    private Preference mSignalIcon;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,13 @@ public class Themes extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.evolution_settings_themes);
         Context mContext = getActivity().getApplicationContext();
+
+        mStatusBarIconsCategory = (PreferenceCategory) findPreference(STATUS_BAR_ICONS_CATEGORY_KEY);
+        mSignalIcon = (Preference) findPreference(SIGNAL_ICON_KEY);
+
+        if (!DeviceUtils.deviceSupportsMobileData(mContext)) {
+            mStatusBarIconsCategory.removePreference(mSignalIcon);
+        }
     }
 
     @Override
