@@ -23,11 +23,19 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
+import org.evolution.settings.utils.DeviceUtils;
+
 @SearchIndexable
 public class Themes extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "Themes";
+
+    private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
+    private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
+
+    private PreferenceCategory mIconsCategory;
+    private Preference mSignalIcon;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,13 @@ public class Themes extends SettingsPreferenceFragment implements
         final ContentResolver resolver = context.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
+
+        mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
+
+        if (!DeviceUtils.deviceSupportsMobileData(context)) {
+            mIconsCategory.removePreference(mSignalIcon);
+        }
     }
 
     @Override
@@ -59,6 +74,10 @@ public class Themes extends SettingsPreferenceFragment implements
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
+
+                if (!DeviceUtils.deviceSupportsMobileData(context)) {
+                    keys.add(KEY_SIGNAL_ICON);
+                }
                 return keys;
             }
         };
