@@ -75,6 +75,11 @@
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
 
+    <!-- Lock screen -->
+    <string name="lock_screen_interface_category">Interface</string>
+    <string name="lock_screen_charging_stats_title">Charging stats</string>
+    <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
+
     <!-- Status bar -->
     <string name="status_bar_icons_category">Icons</string>
     <string name="status_bar_tuner_title">Status bar tuner</string>
