@@ -9,4 +9,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/miscellaneous_title">
 
+    <PreferenceCategory
+        android:key="miscellaneous_spoofing_category"
+        android:title="@string/miscellaneous_spoofing_category">
+
+        <!-- Component spoofing -->
+        <Preference
+            android:key="spoofing"
+            android:title="@string/spoofing_title"
+            android:summary="@string/spoofing_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.Spoofing" />
+    </PreferenceCategory>
 </PreferenceScreen>

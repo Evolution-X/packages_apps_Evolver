@@ -36,6 +36,8 @@ import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
 import androidx.annotation.NonNull;
 
+import java.util.Arrays;
+
 public class DeviceUtils {
 
     /* returns whether the device has a centered display cutout or not. */
@@ -281,5 +283,10 @@ public class DeviceUtils {
     public static boolean isEdgeToEdgeEnabled(Context context) {
         return NAV_BAR_MODE_GESTURAL == context.getResources().getInteger(
                 com.android.internal.R.integer.config_navBarInteractionMode);
+    }
+
+    public static boolean isCurrentlySupportedPixel() {
+        boolean isPixelDevice = SystemProperties.get("ro.product.model").matches("Pixel [3-9][a-zA-Z ]*");
+        return isPixelDevice;
     }
 }
