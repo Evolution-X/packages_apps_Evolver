@@ -36,7 +36,11 @@ import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
 import androidx.annotation.NonNull;
 
+import java.util.Arrays;
+
 public class DeviceUtils {
+
+    private static final String DEVICE = "ro.evolution.device";
 
     /* returns whether the device has a centered display cutout or not. */
     public static boolean hasCenteredCutout(Context context) {
@@ -281,5 +285,25 @@ public class DeviceUtils {
     public static boolean isEdgeToEdgeEnabled(Context context) {
         return NAV_BAR_MODE_GESTURAL == context.getResources().getInteger(
                 com.android.internal.R.integer.config_navBarInteractionMode);
+    }
+
+    private static final String[] currentlySupportedPixels = {
+            "akita",
+            "husky",
+            "shiba",
+            "felix",
+            "tangorpro",
+            "lynx",
+            "cheetah",
+            "panther",
+            "bluejay",
+            "oriole",
+            "raven",
+            "barbet"
+    };
+
+    public static boolean isCurrentlySupportedPixel() {
+        String deviceCodename = SystemProperties.get(DEVICE);
+        return Arrays.asList(currentlySupportedPixels).contains(deviceCodename);
     }
 }
