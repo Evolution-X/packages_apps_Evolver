@@ -89,6 +89,8 @@
     <string name="status_bar_tuner_summary">Choose which system icons can be shown</string>
     <string name="status_bar_colored_icons_title">Colored icons</string>
     <string name="status_bar_colored_icons_summary">Use launcher icons for app notifications</string>
+    <string name="status_bar_notif_count_title">Notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of unread notifications on each app icon</string>
     <string name="status_bar_privacy_indicators_category">Privacy indicators</string>
     <string name="status_bar_mic_camera_privacy_indicator_title">Microphone &amp; camera</string>
     <string name="status_bar_mic_camera_privacy_indicator_summary">Display an indicator when an app accesses the microphone or camera</string>
