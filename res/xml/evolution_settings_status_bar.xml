@@ -33,4 +33,30 @@
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="status_bar_privacy_indicators_category"
+        android:title="@string/status_bar_privacy_indicators_category">
+
+        <!-- Mic/Camera privacy indicator -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="enable_camera_privacy_indicator"
+            android:title="@string/status_bar_mic_camera_privacy_indicator_title"
+            android:summary="@string/status_bar_mic_camera_privacy_indicator_summary"
+            android:defaultValue="true" />
+
+        <!-- Location privacy indicator -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="enable_location_privacy_indicator"
+            android:title="@string/status_bar_location_privacy_indicator_title"
+            android:summary="@string/status_bar_location_privacy_indicator_summary"
+            android:defaultValue="true" />
+
+        <!-- Projection privacy indicator -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="enable_projection_privacy_indicator"
+            android:title="@string/status_bar_projection_privacy_indicator_title"
+            android:summary="@string/status_bar_projection_privacy_indicator_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 </PreferenceScreen>
