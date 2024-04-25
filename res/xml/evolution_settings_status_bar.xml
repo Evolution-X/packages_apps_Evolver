@@ -32,6 +32,13 @@
             android:summary="@string/status_bar_tuner_summary">
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
+
+        <!-- Colored icons -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="statusbar_colored_icons"
+            android:title="@string/status_bar_colored_icons_title"
+            android:summary="@string/status_bar_colored_icons_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
