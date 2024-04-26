@@ -10,6 +10,18 @@
     android:title="@string/quick_settings_title">
 
     <PreferenceCategory
+        android:key="quick_settings_interface_category"
+        android:title="@string/quick_settings_interface_category">
+
+        <!-- Floating clear all -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="notification_material_dismiss"
+            android:title="@string/quick_settings_floating_clear_all_title"
+            android:summary="@string/quick_settings_floating_clear_all_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="quick_settings_lock_screen_category"
         android:title="@string/quick_settings_lock_screen_category">
 
