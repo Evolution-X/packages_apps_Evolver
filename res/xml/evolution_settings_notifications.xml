@@ -9,4 +9,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/notifications_title">
 
+    <PreferenceCategory
+        android:key="notifications_sounds_vibration_category"
+        android:title="@string/notifications_sounds_vibration_category">
+
+        <!-- Alert while display on -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="notification_sound_vib_screen_on"
+            android:title="@string/notifications_alert_display_on_title"
+            android:summary="@string/notifications_alert_display_on_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 </PreferenceScreen>
