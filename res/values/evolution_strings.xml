@@ -100,6 +100,9 @@
     <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
 
     <!-- Quick settings -->
+    <string name="quick_settings_interface_category">Interface</string>
+    <string name="quick_settings_floating_clear_all_title">Floating clear all button</string>
+    <string name="quick_settings_floating_clear_all_summary">Replace the \'clear all\' text button with a bottom-centered floating one</string>
     <string name="quick_settings_lock_screen_category">Lock screen</string>
     <string name="quick_settings_secure_lock_screen_title">Hide on secure lock screen</string>
     <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>
