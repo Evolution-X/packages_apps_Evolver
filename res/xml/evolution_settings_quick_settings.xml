@@ -9,4 +9,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quick_settings_title">
 
+    <PreferenceCategory
+        android:key="quick_settings_lock_screen_category"
+        android:title="@string/quick_settings_lock_screen_category">
+
+        <!-- Hide on secure lock screen -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="secure_lockscreen_qs_disabled"
+            android:title="@string/quick_settings_secure_lock_screen_title"
+            android:summary="@string/quick_settings_secure_lock_screen_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>
