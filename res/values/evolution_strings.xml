@@ -115,6 +115,8 @@
     <string name="lock_screen_miscellaneous_category">Miscellaneous</string>
     <string name="lock_screen_pocket_detection_title">Pocket detection</string>
     <string name="lock_screen_pocket_detection_summary">Block screen and button inputs when device is in pocket</string>
+    <string name="lock_screen_always_on_pocket_mode_title">Always on Pocket mode</string>
+    <string name="lock_screen_always_on_pocket_mode_summary">Always block screen and button inputs when screen is turned on</string>
 
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_help_policy_notice_title">About Pulse</string>
