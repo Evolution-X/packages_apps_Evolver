@@ -106,6 +106,9 @@
     <string name="lock_screen_battery_status_category">Charging status</string>
     <string name="lock_screen_show_stats_title">Show stats</string>
     <string name="lock_screen_show_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
+    <string name="lock_screen_fingerprint_category">Fingerprint</string>
+    <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
 
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Spoofing</string>

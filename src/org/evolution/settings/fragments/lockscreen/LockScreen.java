@@ -6,6 +6,7 @@
 package org.evolution.settings.fragments.lockscreen;
 
 import android.content.Context;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 
 import androidx.preference.Preference;
@@ -27,6 +28,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockScreen";
 
+    private static final String KEY_FINGERPRINT_CATEGORY = "lock_screen_fingerprint_category";
+    private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
+
+    private PreferenceCategory mFingerprintCategory;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +41,15 @@ public class LockScreen extends SettingsPreferenceFragment implements
         Context context = getContext();
 
         PreferenceScreen preferenceScreen = getPreferenceScreen();
+
+        FingerprintManager fingerprintManager = (FingerprintManager)
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+
+        mFingerprintCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_CATEGORY);
+
+        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            preferenceScreen.removePreference(mFingerprintCategory);
+        }
     }
 
     @Override
@@ -53,6 +68,13 @@ public class LockScreen extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+
+                FingerprintManager fingerprintManager = (FingerprintManager)
+                    context.getSystemService(Context.FINGERPRINT_SERVICE);
+
+                if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+                    keys.add(KEY_RIPPLE_EFFECT);
+                }
                 return keys;
             }
         };
