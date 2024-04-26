@@ -79,6 +79,9 @@
     <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_stats_title">Charging stats</string>
     <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
+    <string name="lock_screen_fingerprint_category">Fingerprint</string>
+    <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Gestures</string>
