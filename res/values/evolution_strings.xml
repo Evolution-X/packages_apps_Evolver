@@ -148,6 +148,11 @@
     <string name="notifications_alert_display_on_title">Alert while display on</string>
     <string name="notifications_alert_display_on_summary">Play sound and vibration for notifications while the display is on</string>
 
+    <!-- Power menu -->
+    <string name="power_menu_lock_screen_category">Lock screen</string>
+    <string name="power_menu_lock_screen_secure_title">Show on secure lock screen</string>
+    <string name="power_menu_lock_screen_secure_summary">Show the power menu while the device is locked</string>
+
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Spoofing</string>
     <string name="miscellaneous_developer_options_category">Developer options</string>
