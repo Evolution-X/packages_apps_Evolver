@@ -111,6 +111,9 @@
     <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>
 
     <!-- Notifications -->
+    <string name="notifications_interface_category">Interface</string>
+    <string name="notifications_kill_app_button_title">Kill app</string>
+    <string name="notifications_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
     <string name="notifications_sounds_vibration_category">Sounds &amp; vibration</string>
     <string name="notifications_alert_display_on_title">Alert while display on</string>
     <string name="notifications_alert_display_on_summary">Play sound and vibration for notifications while the display is on</string>
