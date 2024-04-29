@@ -94,6 +94,8 @@
     <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
     <string name="status_bar_colored_icons_title">Colored icons</string>
     <string name="status_bar_colored_icons_summary">Use launcher icons for app notifications</string>
+    <string name="status_bar_network_traffic_settings_title">Network traffic monitor</string>
+    <string name="status_bar_network_traffic_settings_summary">Display and customize current network traffic levels</string>
     <string name="status_bar_notif_count_title">Notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of unread notifications on each app icon</string>
     <string name="status_bar_privacy_indicators_category">Privacy indicators</string>
@@ -103,6 +105,32 @@
     <string name="status_bar_location_privacy_indicator_summary">Display an indicator when an app accesses your location</string>
     <string name="status_bar_projection_privacy_indicator_title">Screen projection</string>
     <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
+
+    <!-- Status bar/Network traffic -->
+    <string name="network_traffic_location_title">Location</string>
+    <string name="network_traffic_location_disable">Disabled</string>
+    <string name="network_traffic_location_statusbar">Statusbar</string>
+    <string name="network_traffic_location_quick_statusbar">Quick Statusbar</string>
+    <string name="network_traffic_mode_title">Display mode</string>
+    <string name="network_traffic_mode_up">Upload only</string>
+    <string name="network_traffic_mode_down">Download only</string>
+    <string name="network_traffic_mode_all">Upload and download</string>
+    <string name="network_traffic_autohide">Auto hide</string>
+    <string name="network_traffic_autohide_summary">Hide the traffic monitor when inactive</string>
+    <string name="network_traffic_autohide_kilobits" translatable="false">Kb/s</string>
+    <string name="network_traffic_autohide_kilobytes" translatable="false">KB/s</string>
+    <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
+    <string name="network_traffic_refresh_interval_title">Refresh interval</string>
+    <string name="network_traffic_refresh_interval_summary">Duration after which speed is remeasured</string>
+    <string name="network_traffic_units_title">Traffic measurement units</string>
+    <string name="network_traffic_units_bits">Bits per second (b/s)</string>
+    <string name="network_traffic_units_kilobits">Kilobits per second (kb/s)</string>
+    <string name="network_traffic_units_megabits">Megabits per second (Mb/s)</string>
+    <string name="network_traffic_units_bytes">Bytes per second (B/s)</string>
+    <string name="network_traffic_units_kilobytes">Kilobytes per second (kB/s)</string>
+    <string name="network_traffic_units_megabytes">Megabytes per second (MB/s)</string>
+    <string name="network_traffic_hidearrow">Hide arrows</string>
+    <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
 
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Interface</string>
@@ -181,4 +209,7 @@
     <string name="custom_seekbar_default_value">by default</string>
     <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
+
+    <!-- Units -->
+    <string name="unit_seconds">seconds</string>
 </resources>
