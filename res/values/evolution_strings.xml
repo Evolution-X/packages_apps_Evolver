@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Evolver -->
+    <string name="evolver_dashboard_title">Evolver</string>
+    <string name="evolver_dashboard_summary">Evolving like never before</string>
+
+    <!-- Categories -->
+    <string name="themes_title">Themes</string>
+    <string name="themes_summary">Monet, fonts, icons</string>
+    <string name="lock_screen_title">Lock screen</string>
+    <string name="lock_screen_summary">Interface, miscellaneous</string>
+    <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_summary">Gestures, Icons, privacy indicators</string>
+    <string name="quick_settings_title">Quick settings</string>
+    <string name="quick_settings_summary">Interface, lock screen</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_summary">Alerts, interface</string>
+    <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_summary">Actions, lock screen</string>
+    <string name="buttons_title">Buttons</string>
+    <string name="buttons_summary">Power button, volume buttons</string>
+    <string name="miscellaneous_title">Miscellaneous</string>
+    <string name="miscellaneous_summary">Developer options, spoofing</string>
+    <string name="about_title">About</string>
+    <string name="about_summary">About Evolution X</string>
+
+    <!-- About -->
+    <string name="about_info">Evolution X aims to provide users with a Pixel-like feel at first glance, with additional features at your disposal</string>
+    <string name="about_website_title">Website</string>
+    <string name="about_website_summary">Feel free to drop by our website</string>
+    <string name="about_twitter_title" translatable="false">Twitter</string>
+    <string name="about_twitter_summary">Come see our tweets</string>
+    <string name="about_discord_title" translatable="false">Discord</string>
+    <string name="about_discord_summary">Visit our community chat</string>
+    <string name="about_github_title" translatable="false">GitHub</string>
+    <string name="about_github_summary">Check out our GitHub</string>
+    <string name="about_contributors_title">Contributors</string>
+    <string name="about_contributor_1_title" translatable="false">Joey Huab</string>
+    <string name="about_contributor_1_summary" translatable="false">Founder/Lead Developer</string>
+    <string name="about_contributor_2_title" translatable="false">Anierin Bliss</string>
+    <string name="about_contributor_2_summary" translatable="false">Co-Founder/Co-Developer</string>
+    <string name="about_contributor_3_title" translatable="false">Akito Mizukito</string>
+    <string name="about_contributor_3_summary" translatable="false">Co-Founder/Project Manager</string>
+</resources>
