@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/about_title">
+
+    <!-- Evolution X logo -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="evolution_logo"
+        android:layout="@layout/evolution_logo"
+        android:clickable="false"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.EvolutionXLogoPreferenceController"/>
+
+    <!-- Info -->
+    <com.android.settingslib.widget.TopIntroPreference
+        android:title="@string/about_info" />
+
+    <!-- Website -->
+    <Preference
+        android:title="@string/about_website_title"
+        android:icon="@drawable/ic_about"
+        android:summary="@string/about_website_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://evolution-x.org" />
+    </Preference>
+
+    <!-- Discord -->
+    <Preference
+        android:title="@string/about_discord_title"
+        android:icon="@drawable/ic_discord"
+        android:summary="@string/about_discord_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://discord.gg/3qbSZHx" />
+    </Preference>
+
+    <!-- Twitter -->
+    <Preference
+        android:title="@string/about_twitter_title"
+        android:icon="@drawable/ic_twitter"
+        android:summary="@string/about_twitter_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://twitter.com/EvolutionXROM" />
+        </Preference>
+
+    <!-- Github -->
+    <Preference
+        android:title="@string/about_github_title"
+        android:icon="@drawable/ic_github"
+        android:summary="@string/about_github_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://github.com/Evolution-XYZ" />
+    </Preference>
+
+    <PreferenceCategory
+        android:key="contributors"
+        android:title="@string/about_contributors_title" />
+
+    <!-- Contributor 1 -->
+        <Preference
+            android:title="@string/about_contributor_1_title"
+            android:summary="@string/about_contributor_1_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://linktr.ee/joeyhuab" />
+        </Preference>
+
+    <!-- Contributor 2 -->
+        <Preference
+            android:title="@string/about_contributor_2_title"
+            android:summary="@string/about_contributor_2_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/AnierinB" />
+        </Preference>
+
+    <!-- Contributor 3 -->
+        <Preference
+            android:title="@string/about_contributor_3_title"
+            android:summary="@string/about_contributor_3_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/RealAkito" />
+        </Preference>
+
+</PreferenceScreen>
