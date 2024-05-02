@@ -145,9 +145,27 @@
     <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>
 
     <!-- Power menu -->
+    <string name="power_menu_interface_category">Interface</string>
+    <string name="power_menu_actions_title">Power menu actions</string>
+    <string name="power_menu_actions_summary">Choose which actions are displayed</string>
     <string name="power_menu_lock_screen_category">Lock screen</string>
     <string name="power_menu_lock_screen_secure_title">Show on secure lock screen</string>
     <string name="power_menu_lock_screen_secure_summary">Show the power menu while the device is locked</string>
+
+    <!-- Power menu/Power menu actions -->
+    <string name="power_menu_actions_advanced_reboot_title">Advanced reboot</string>
+    <string name="power_menu_actions_screenshot_title">Screenshot</string>
+    <string name="power_menu_actions_onthego_title">On-The-Go mode</string>
+    <string name="power_menu_actions_airplane_title">Airplane</string>
+    <string name="power_menu_actions_torch_title">Flashlight</string>
+    <string name="power_menu_actions_settings_title">Settings</string>
+    <string name="power_menu_actions_lockdown_title">Lockdown</string>
+    <string name="power_menu_actions_lockdown_unavailable">Lockdown is disabled as keyguard isn\'t secure</string>
+    <string name="power_menu_actions_soundpanel_title">Sound panel</string>
+    <string name="power_menu_actions_users_title">Users</string>
+    <string name="power_menu_actions_logout_title">Logout</string>
+    <string name="power_menu_actions_emergency_title">Emergency</string>
+    <string name="power_menu_actions_devicecontrols_title">Device controls</string>
 
     <!-- Lock screen -->
     <string name="lock_screen_battery_status_category">Charging status</string>
