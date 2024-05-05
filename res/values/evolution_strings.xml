@@ -90,6 +90,12 @@
     <string name="status_bar_gestures_category">Gestures</string>
     <string name="status_bar_brightness_control_title">Brightness control</string>
     <string name="status_bar_brightness_control_summary">Adjust brightness by swiping across the status bar</string>
+    <string name="status_bar_quick_pull_down_title">Quick pull down</string>
+    <string name="status_bar_quick_pull_down_summary">%1$s of the status bar pulls down quick settings</string>
+    <string name="status_bar_quick_pull_down_off">Off</string>
+    <string name="status_bar_quick_pull_down_right">Right side</string>
+    <string name="status_bar_quick_pull_down_left">Left side</string>
+    <string name="status_bar_quick_pull_down_both">Both sides</string>
     <string name="status_bar_icons_category">Icons</string>
     <string name="status_bar_tuner_title">Status bar tuner</string>
     <string name="status_bar_tuner_summary">Choose which system icons can be shown</string>
@@ -121,9 +127,27 @@
     <string name="notifications_alert_display_on_summary">Play sound and vibration for notifications while the display is on</string>
 
     <!-- Power menu -->
+    <string name="power_menu_interface_category">Interface</string>
+    <string name="power_menu_actions_title">Power menu actions</string>
+    <string name="power_menu_actions_summary">Choose which actions are displayed</string>
     <string name="power_menu_lock_screen_category">Lock screen</string>
     <string name="power_menu_lock_screen_secure_title">Show on secure lock screen</string>
     <string name="power_menu_lock_screen_secure_summary">Show the power menu while the device is locked</string>
+
+    <!-- Power menu/Power menu actions -->
+    <string name="power_menu_actions_advanced_reboot_title">Advanced reboot</string>
+    <string name="power_menu_actions_screenshot_title">Screenshot</string>
+    <string name="power_menu_actions_onthego_title">On-The-Go mode</string>
+    <string name="power_menu_actions_airplane_title">Airplane</string>
+    <string name="power_menu_actions_torch_title">Flashlight</string>
+    <string name="power_menu_actions_settings_title">Settings</string>
+    <string name="power_menu_actions_lockdown_title">Lockdown</string>
+    <string name="power_menu_actions_lockdown_unavailable">Lockdown is disabled as keyguard isn\'t secure</string>
+    <string name="power_menu_actions_soundpanel_title">Sound panel</string>
+    <string name="power_menu_actions_users_title">Users</string>
+    <string name="power_menu_actions_logout_title">Logout</string>
+    <string name="power_menu_actions_emergency_title">Emergency</string>
+    <string name="power_menu_actions_devicecontrols_title">Device controls</string>
 
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Spoofing</string>

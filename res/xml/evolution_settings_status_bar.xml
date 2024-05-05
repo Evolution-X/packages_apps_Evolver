@@ -19,6 +19,14 @@
             android:title="@string/status_bar_brightness_control_title"
             android:summary="@string/status_bar_brightness_control_summary"
             android:defaultValue="false" />
+
+        <!-- Quick pull down -->
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="qs_quick_pulldown"
+            android:title="@string/status_bar_quick_pull_down_title"
+            android:entries="@array/status_bar_quick_pull_down_entries"
+            android:entryValues="@array/status_bar_quick_pull_down_values"
+            android:defaultValue="0" />
     </PreferenceCategory>
 
     <PreferenceCategory
