@@ -7,6 +7,7 @@ package org.evolution.settings.fragments.statusbar;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -18,6 +19,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import lineageos.preference.LineageSystemSettingListPreference;
+
 import org.evolution.settings.utils.DeviceUtils;
 
 @SearchIndexable
@@ -26,8 +29,17 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private static final String TAG = "StatusBar";
 
+    private static final String QUICK_PULLDOWN_KEY = "qs_quick_pulldown";
+
     private static final String ICONS_CATEGORY_KEY = "status_bar_icons_category";
     private static final String BLUETOOTH_BATTERY_STATUS_KEY = "bluetooth_show_battery";
+
+    private static final int PULLDOWN_DIR_NONE = 0;
+    private static final int PULLDOWN_DIR_RIGHT = 1;
+    private static final int PULLDOWN_DIR_LEFT = 2;
+    private static final int PULLDOWN_DIR_BOTH = 3;
+
+    private LineageSystemSettingListPreference mQuickPulldown;
 
     private PreferenceCategory mIconsCategory;
     private Preference mBluetoothBatteryStatus;
@@ -39,6 +51,16 @@ public class StatusBar extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.evolution_settings_status_bar);
         Context mContext = getActivity().getApplicationContext();
 
+        mQuickPulldown =
+                (LineageSystemSettingListPreference) findPreference(QUICK_PULLDOWN_KEY);
+        mQuickPulldown.setOnPreferenceChangeListener(this);
+        updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+
+        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            mQuickPulldown.setEntries(R.array.status_bar_quick_pull_down_entries_rtl);
+            mQuickPulldown.setEntryValues(R.array.status_bar_quick_pull_down_values_rtl);
+        }
+
         mIconsCategory = (PreferenceCategory) findPreference(ICONS_CATEGORY_KEY);
         mBluetoothBatteryStatus = (Preference) findPreference(BLUETOOTH_BATTERY_STATUS_KEY);
 
@@ -49,7 +71,37 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mQuickPulldown) {
+            int value = Integer.parseInt((String) newValue);
+            updateQuickPulldownSummary(value);
+            return true;
+        }
         return false;
+    }
+
+    private void updateQuickPulldownSummary(int value) {
+        String summary = "";
+        switch (value) {
+            case PULLDOWN_DIR_NONE:
+                summary = getResources().getString(
+                    R.string.status_bar_quick_pull_down_off);
+                break;
+            case PULLDOWN_DIR_RIGHT:
+            case PULLDOWN_DIR_LEFT:
+            case PULLDOWN_DIR_BOTH:
+                summary = getResources().getString(
+                    R.string.status_bar_quick_pull_down_summary,
+                    getResources().getString(
+                        value == PULLDOWN_DIR_RIGHT
+                            ? R.string.status_bar_quick_pull_down_right
+                            : value == PULLDOWN_DIR_LEFT
+                                ? R.string.status_bar_quick_pull_down_left
+                                : R.string.status_bar_quick_pull_down_both
+                    )
+                );
+                break;
+        }
+        mQuickPulldown.setSummary(summary);
     }
 
     @Override
