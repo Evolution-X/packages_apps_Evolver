@@ -189,6 +189,7 @@
     <string name="lock_screen_fingerprint_category">Fingerprint</string>
     <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
     <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
+    <string name="lock_screen_interface_category">Interface</string>
 
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Spoofing</string>
@@ -256,4 +257,11 @@
 
     <!-- Units -->
     <string name="unit_seconds">seconds</string>
+
+    <!-- Depth wallpaper -->
+    <string name="dw_file_header_select_title">Select depth wallpaper subject</string>
+    <string name="dw_file_header_select_summary">Select image from storage</string>
+    <string name="dw_wallpaper_enabled_title">Depth wallpaper</string>
+    <string name="dw_wallpaper_enabled_summary">Enable iOS-inspired depth wallpaper. Requires a subject image.</string>
+    <string name="dw_wallpaper_opacity_title">Depth wallpaper opacity</string>
 </resources>
