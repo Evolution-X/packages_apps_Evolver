@@ -175,7 +175,7 @@
     <string name="miscellaneous_ignore_window_secure_title">Игнорировать флаги безопасности в окнах приложений</string>
     <string name="miscellaneous_ignore_window_secure_summary">Снятие ограничений на скриншоты и запись экрана для всех приложений, потенциально увеличивая риск утечки конфиденциальных данных</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Подделка компонентов</string>
+    <string name="spoofing_title">Подмена компонентов</string>
     <string name="spoofing_summary">Обход ограничений приложений с помощью подмены различных компонентов</string>
     <string name="spoofing_system_wide_category">Общесистемные</string>
     <string name="spoofing_pif_toggle_title">Исправление Play Integrity</string>
