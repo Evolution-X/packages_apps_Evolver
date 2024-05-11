@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Evolver -->
+    <string name="evolver_dashboard_title">Evolver</string>
+    <string name="evolver_dashboard_summary">Ewoluuj jak nigdy wcześniej</string>
+    <!-- Categories -->
+    <string name="themes_title">Motywy</string>
+    <string name="themes_summary">Ustawienia \"Monet\", czcionki, ikony</string>
+    <string name="status_bar_title">Pasek stanu</string>
+    <string name="status_bar_summary">Tuner na pasku stanu, wskaźniki prywatności</string>
+    <string name="notifications_title">Powiadomienia</string>
+    <string name="notifications_summary">Alarm podczas wyświetlania, przycisk zabijania aplikacji</string>
+    <string name="quick_settings_title">Szybkie ustawienia</string>
+    <string name="quick_settings_summary">Ukryj na zabezpieczonym ekranie blokady, pływający przycisk wyczyść wszystko</string>
+    <string name="power_menu_title">Menu zasilania</string>
+    <string name="power_menu_summary">Pokaż akcje menu zasilania na zablokowanym ekranie blokady</string>
+    <string name="lock_screen_title">Ekran blokady</string>
+    <string name="lock_screen_summary">Statystyki ładowania, animacja \"szumienia\"</string>
+    <string name="buttons_title">Przyciski</string>
+    <string name="buttons_summary">Odwróć układ paska nawigacyjnego, przenieś przyciski głośności</string>
+    <string name="miscellaneous_title">Różne</string>
+    <string name="miscellaneous_summary">Opcje programisty, spoofing</string>
+    <string name="about_title">O nas</string>
+    <string name="about_summary">O Evolution X</string>
+    <!-- Themes -->
+    <string name="themes_monet_category">Monet</string>
+    <string name="themes_monet_title">Ustawienia Monet</string>
+    <string name="themes_monet_summary">Dostosuj wbudowany silnik motywów Androida</string>
+    <string name="themes_fonts_category">Czcionki</string>
+    <string name="themes_system_font_title">Czcionka nagłówka / paragrafów</string>
+    <string name="themes_system_font_summary">Ustaw styl czcionki systemowej</string>
+    <string name="themes_lock_screen_clock_font_title">Czcionka zegara na ekranie blokady</string>
+    <string name="themes_lock_screen_clock_font_summary">Ustaw styl czcionki zegara ekranu blokady</string>
+    <string name="themes_icons_category">Ikony</string>
+    <string name="themes_system_icons_title">Ikony systemowe</string>
+    <string name="themes_system_icons_summary">Wybierz niestandardową paczkę ikon</string>
+    <string name="themes_icon_shape_title">Kształt ikon</string>
+    <string name="themes_icon_shape_summary">Ustaw kształt ikon systemowych</string>
+    <string name="themes_status_bar_icons_category">Ikony paska stanu</string>
+    <string name="themes_signal_icon_title">Styl ikony sygnału</string>
+    <string name="themes_signal_icon_summary">Ustaw niestandardowy wygląd ikony sygnału</string>
+    <string name="themes_wifi_icon_title">Styl ikony WiFi</string>
+    <string name="themes_wifi_icon_summary">Ustaw niestandardowy wygląd ikony wifi</string>
+    <string name="themes_navigation_bar_category">Pasek nawigacji</string>
+    <string name="themes_navigation_bar_icons_title">Styl paska nawigacji</string>
+    <string name="themes_navigation_bar_icons_summary">Ustaw własny styl paska nawigacji</string>
+    <!-- Themes/Monet Engine -->
+    <string name="monet_engine_custom_color_title">Kolor akcentu</string>
+    <string name="monet_engine_custom_color_summary">Wybierz niestandardowy kolor akcentu</string>
+    <string name="monet_engine_custom_bgcolor_title">Kolor tła</string>
+    <string name="monet_engine_custom_bgcolor_summary">Wybierz niestandardowy kolor tła</string>
+    <string name="monet_engine_color_override_title">Własny kolor</string>
+    <string name="monet_engine_luminance_factor_title">Luminancja</string>
+    <string name="monet_engine_luminance_factor_summary">Wyższe wartości dają jaśniejsze kolory</string>
+    <string name="monet_engine_chroma_factor_title">Współczynnik chroma</string>
+    <string name="monet_engine_chroma_factor_summary">Wyższe wartości tworzą silniejsze kolory</string>
+    <string name="monet_engine_tint_background_title">Akcentowane tło</string>
+    <string name="monet_engine_tint_background_summary">Spraw, aby jaskrawość i wybór barwy również wpływały na kolory tła</string>
+    <string name="monet_engine_style_title">Styl motywu</string>
+    <string name="monet_engine_style_tonal_spot">Punkt tonalny (domyślny)</string>
+    <string name="monet_engine_style_vibrant">Intensywny</string>
+    <string name="monet_engine_style_expressive">Ekspresywny</string>
+    <string name="monet_engine_style_spritz">Spritz</string>
+    <string name="monet_engine_style_rainbow">Tęcza</string>
+    <string name="monet_engine_style_fruit_salad">Sałatka owocowa</string>
+    <string name="monet_engine_style_muted">Wyciszony</string>
+    <string name="monet_engine_style_content">Zawartość</string>
+    <string name="monet_engine_color_source_title">Źródło kolorów</string>
+    <string name="monet_engine_color_source_both">Oba (domyślne)</string>
+    <string name="monet_engine_color_source_home">Tapeta domowa</string>
+    <string name="monet_engine_color_source_lock">Tapeta ekranu blokady</string>
+    <string name="monet_engine_color_source_preset">Predefiniowane</string>
+    <!-- Status bar -->
+    <string name="status_bar_gestures_category">Gesty</string>
+    <string name="status_bar_brightness_control_title">Kontrola jasności</string>
+    <string name="status_bar_brightness_control_summary">Dostosuj jasność, przeciągając palcem po pasku stanu</string>
+    <string name="status_bar_quick_pull_down_title">Szybkie rozwijanie</string>
+    <string name="status_bar_quick_pull_down_summary">%1$s Krawędzi paska statusu rozwija szybkie ustawienia</string>
+    <string name="status_bar_quick_pull_down_off">Wyłącz</string>
+    <string name="status_bar_quick_pull_down_right">Prawa strona</string>
+    <string name="status_bar_quick_pull_down_left">Lewa strona</string>
+    <string name="status_bar_quick_pull_down_both">Obie strony</string>
+    <string name="status_bar_icons_category">Ikony</string>
+    <string name="status_bar_tuner_title">Edytor paska stanu</string>
+    <string name="status_bar_tuner_summary">Wybierz, które ikony mogą być wyświetlane na pasku stanu</string>
+    <string name="status_bar_bluetooth_battery_title">Stan naładowania baterii Bluetooth</string>
+    <string name="status_bar_bluetooth_battery_summary">Pokaż aktualny stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępny</string>
+    <string name="status_bar_colored_icons_title">Kolorowe ikony</string>
+    <string name="status_bar_colored_icons_summary">Użyj ikon launchera do powiadomień aplikacji</string>
+    <string name="status_bar_network_traffic_settings_title">Monitor połączenia internetowego</string>
+    <string name="status_bar_network_traffic_settings_summary">Wyświetl i dostosuj wskaźnik ruchu sieci</string>
+    <string name="status_bar_notif_count_title">Licznik powiadomień</string>
+    <string name="status_bar_notif_count_summary">Wyświetlaj liczbę nieprzeczytanych powiadomień na każdej ikonie aplikacji</string>
+    <string name="status_bar_privacy_indicators_category">Wskaźniki prywatności</string>
+    <string name="status_bar_mic_camera_privacy_indicator_title">Mikrofon &amp; aparat</string>
+    <string name="status_bar_mic_camera_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do mikrofonu lub kamery</string>
+    <string name="status_bar_location_privacy_indicator_title">Lokalizacja</string>
+    <string name="status_bar_location_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do Twojej lokalizacji</string>
+    <string name="status_bar_projection_privacy_indicator_title">Projekcja ekranu</string>
+    <string name="status_bar_projection_privacy_indicator_summary">Wyświetlaj wskaźnik podczas wyświetlania ekranu</string>
+    <!-- Status bar/Network traffic -->
+    <string name="network_traffic_location_title">Lokalizacja</string>
+    <string name="network_traffic_location_disable">Wyłączone</string>
+    <string name="network_traffic_location_statusbar">Pasek stanu</string>
+    <string name="network_traffic_location_quick_statusbar">Panel Szybkich Ustawień</string>
+    <string name="network_traffic_mode_title">Tryb ekranu</string>
+    <string name="network_traffic_mode_up">Tylko wysyłanie</string>
+    <string name="network_traffic_mode_down">Tylko pobieranie</string>
+    <string name="network_traffic_mode_all">Wysyłanie i pobieranie</string>
+    <string name="network_traffic_autohide">Autoukrywanie</string>
+    <string name="network_traffic_autohide_summary">Ukryj monitor ruchu przy braku aktywności</string>
+    <string name="network_traffic_autohide_threshold">Próg bezczynności</string>
+    <string name="network_traffic_refresh_interval_title">Częstotliwość odświeżania</string>
+    <string name="network_traffic_refresh_interval_summary">Czas, po którym prędkość jest ponownie mierzona</string>
+    <string name="network_traffic_units_title">Jednostki pomiaru prędkości sieci</string>
+    <string name="network_traffic_units_bits">Bity na sekundę (b/s)</string>
+    <string name="network_traffic_units_kilobits">Kilobity na sekundę (kb/s)</string>
+    <string name="network_traffic_units_megabits">Megabity na sekundę (Mb/s)</string>
+    <string name="network_traffic_units_bytes">Bajty na sekundę (B/s)</string>
+    <string name="network_traffic_units_kilobytes">Kilobajty na sekundę (kB/s)</string>
+    <string name="network_traffic_units_megabytes">Megabajty na sekundę (MB/s)</string>
+    <string name="network_traffic_hidearrow">Ukryj strzałki</string>
+    <string name="network_traffic_hidearrow_summary">Ukryj strzałki wskaźnika ruchu sieciowego</string>
+    <!-- Notifications -->
+    <string name="notifications_sounds_vibration_category">Dźwięki &amp; Wibracje</string>
+    <string name="notifications_alert_display_on_title">Alarm podczas włączonego wyświetlacza</string>
+    <string name="notifications_alert_display_on_summary">Odtwarzaj dźwięk i wibracje dla powiadomień, gdy ekran jest włączony</string>
+    <string name="notifications_buttons_category">Przyciski</string>
+    <string name="notifications_kill_app_button_title">Zabij aplikację</string>
+    <string name="notifications_kill_app_button_summary">Pokaż przycisk wyłączania aplikacji po długim przytrzymaniu w menu powiadomień</string>
+    <!-- Quick settings -->
+    <string name="quick_settings_interface_category">Interfejs</string>
+    <string name="quick_settings_floating_clear_all_title">Pokazuj przycisk \"Wyczyść wszystkie ostatnie aplikacje\"</string>
+    <string name="quick_settings_floating_clear_all_summary">Zastąp przycisk \"wyczyść wszystkie\" zmiennym przyciskiem w środku dolnej przestrzeni ekranu</string>
+    <string name="quick_settings_lock_screen_category">Ekran blokady</string>
+    <string name="quick_settings_secure_lock_screen_title">Ukryj szybkie ustawienia z poziomu blokady ekranu</string>
+    <string name="quick_settings_secure_lock_screen_summary">Ukryj wszystkie szybkie ustawienia w cieniu powiadomień, gdy urządzenie jest zablokowane</string>
+    <!-- Power menu -->
+    <string name="power_menu_interface_category">Interfejs</string>
+    <string name="power_menu_actions_title">Opcje menu zasilania</string>
+    <string name="power_menu_actions_summary">Wybierz, które akcje są wyświetlane</string>
+    <string name="power_menu_lock_screen_category">Ekran blokady</string>
+    <string name="power_menu_lock_screen_secure_title">Pokaż na ekranie blokady</string>
+    <string name="power_menu_lock_screen_secure_summary">Pokaż menu zasilania, gdy urządzenie jest zablokowane</string>
+    <!-- Power menu/Power menu actions -->
+    <string name="power_menu_actions_advanced_reboot_title">Zaawansowane opcje restartu</string>
+    <string name="power_menu_actions_screenshot_title">Zrzut ekranu</string>
+    <string name="power_menu_actions_onthego_title">Tryb \"w ruchu\"</string>
+    <string name="power_menu_actions_airplane_title">Tryb samolotowy</string>
+    <string name="power_menu_actions_torch_title">Latarka</string>
+    <string name="power_menu_actions_settings_title">Ustawienia</string>
+    <string name="power_menu_actions_lockdown_title">Blokada</string>
+    <string name="power_menu_actions_lockdown_unavailable">Wyłączono możliwość blokowania, ponieważ blokada ekranu nie jest bezpieczna</string>
+    <string name="power_menu_actions_soundpanel_title">Panel Głośności</string>
+    <string name="power_menu_actions_users_title">Użytkownicy</string>
+    <string name="power_menu_actions_logout_title">Wyloguj się</string>
+    <string name="power_menu_actions_emergency_title">Nagły wypadek</string>
+    <string name="power_menu_actions_devicecontrols_title">Sterowanie urządzeniami</string>
+    <!-- Lock screen -->
+    <string name="lock_screen_battery_status_category">Status ładowania</string>
+    <string name="lock_screen_show_stats_title">Informacje o ładowaniu na ekranie blokady</string>
+    <string name="lock_screen_show_stats_summary">Wyświetlaj bieżącą wartość prądu ładowania, napięcia i temperatury baterii na ekranie blokady podczas ładowania</string>
+    <string name="lock_screen_fingerprint_category">Odcisk palca</string>
+    <string name="lock_screen_fingerprint_ripple_title">Powtórz animację</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Pokaż efekt fali podczas odblokowywania odciskiem palca</string>
+    <!-- Miscellaneous -->
+    <string name="miscellaneous_spoofing_category">Fałszowanie</string>
+    <string name="miscellaneous_developer_options_category">Opcje programistyczne</string>
+    <string name="miscellaneous_app_downgrade_title">Zezwalaj na powrót do poprzedniej wersji aplikacji</string>
+    <string name="miscellaneous_app_downgrade_summary">Zezwalaj na obniżanie jakości aplikacji systemowych, co może skutkować awariami i utratą danych</string>
+    <string name="miscellaneous_ignore_window_secure_title">Ignoruj bezpieczne flagi okna</string>
+    <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji, potencjalnie ryzykując wycieki prywatności</string>
+    <!-- Miscellaneous/Spoofing -->
+    <string name="spoofing_title">Spoofing</string>
+    <string name="spoofing_summary">Pomiń ograniczenia aplikacji przez spoofing komponentów</string>
+    <string name="spoofing_system_wide_category">Szerokość systemu</string>
+    <string name="spoofing_pif_toggle_title">Naprawa integralności Google Play</string>
+    <string name="spoofing_pif_toggle_summary">Użyj wbudowanych wartości ROM-u</string>
+    <string name="spoofing_pif_values_title">Wartości naprawy integralności Google Play</string>
+    <string name="spoofing_pif_values_summary">Zobacz aktualne wartości używane do spoof GMS dla certyfikacji Play Integrity API</string>
+    <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
+    <string name="spoofing_pixel_props_summary">Zgłoś jako Pixel 8 Pro dla wszystkich aplikacji Google</string>
+    <string name="spoofing_storage_encryption_title">Szyfrowanie pamięci</string>
+    <string name="spoofing_storage_encryption_summary">Status szyfrowanego przechowywania danych\'</string>
+    <string name="spoofing_app_specific_category">Specyficzne dla aplikacji</string>
+    <string name="spoofing_photos_title">Nielimitowane miejsce w aplikacji Google Zdjęcia</string>
+    <string name="spoofing_photos_summary">Zgłoś urządzenie jako Pixel XL dla aplikacji Google Photos w celu odblokowania nieograniczonej ilości miejsca w kopii zapasowych zdjęć</string>
+    <string name="spoofing_games_title">Wyższe FPS w grach</string>
+    <string name="spoofing_games_summary">Sprawia, że Twoje urządzenie jest postrzegane jako inny model, aby odblokować wyższą liczbę kl./s</string>
+    <string name="spoofing_netflix_title">Wyższa rozdzielczość Netflix</string>
+    <string name="spoofing_netflix_summary">Ustaw model telefonu jako Pixel 8 Pro dla Netflix w celu odblokowania wyższych rozdzielczości odtwarzania</string>
+    <string name="spoofing_snapchat_title">Wyższa jakość w aplikacji Snapchat</string>
+    <string name="spoofing_snapchat_summary">Podszywanie się pod Pixel 2 dla Snapchat, aby umożliwić oryginalną jakość ujęć</string>
+    <!-- About -->
+    <string name="about_info">Evolution X ma na celu zapewnienie użytkownikom poczucia podobnego do modelu Pixel na pierwszy rzut oka z dodatkowymi funkcjami, którymi dysponujesz</string>
+    <string name="about_website_title">Strona internetowa</string>
+    <string name="about_website_summary">Stuknij tutaj, aby odwiedzić naszą niesamowitą stronę</string>
+    <string name="about_twitter_summary">Dotknij tutaj, aby odwiedzić naszego Twittera</string>
+    <string name="about_discord_summary">Dołącz do naszej społeczności już teraz</string>
+    <string name="about_github_summary">Stuknij tutaj, aby otworzyć nasz GitHub</string>
+    <string name="about_contributors_title">Zespół Evolution X</string>
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Wybór kolorów</string>
+    <string name="press_color_to_apply">Naciśnij na kolor poniżej, aby zastosować</string>
+    <string name="set">Ustaw</string>
+    <string name="color_default">Domyślnie</string>
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Wartość: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">domyślnie</string>
+    <string name="custom_seekbar_default_value_to_set">Wartość domyślna: <xliff:g id="v">%s</xliff:g>\nDługie naciśnięcie aby ustawić</string>
+    <string name="custom_seekbar_default_value_is_set">Wartość domyślna jest ustawiona</string>
+    <!-- Units -->
+    <string name="unit_seconds">sekundy</string>
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Animacja wyłączania ekranu</string>
+    <string name="screen_off_animation_default">Domyślnie</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Skala</string>
+</resources>
