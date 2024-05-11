@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Evolver -->
+    <string name="evolver_dashboard_title">Evolver</string>
+    <string name="evolver_dashboard_summary">Развиваемся как никогда раньше</string>
+    <!-- Categories -->
+    <string name="themes_title">Темы</string>
+    <string name="themes_summary">Настройка движка Monet, шрифты, наборы иконок</string>
+    <string name="status_bar_title">Строка состояния</string>
+    <string name="status_bar_summary">Настройки строки состояния, индикаторов конфиденциальности</string>
+    <string name="notifications_title">Уведомления</string>
+    <string name="notifications_summary">Оповещение при включенном экране, кнопка «Закрыть приложение»</string>
+    <string name="quick_settings_title">Быстрые настройки</string>
+    <string name="quick_settings_summary">Скрытие на защищённом экране блокировки, плавающая кнопка «Очистить всё»</string>
+    <string name="power_menu_title">Меню питания</string>
+    <string name="power_menu_summary">Действия в меню питания, отображение на защищённом экране блокировки</string>
+    <string name="lock_screen_title">Экран блокировки</string>
+    <string name="lock_screen_summary">Данные о зарядке, эффект пульсации</string>
+    <string name="buttons_title">Кнопки</string>
+    <string name="buttons_summary">Инверсия положения кнопок на панели навигации, смена порядка кнопок громкости</string>
+    <string name="miscellaneous_title">Прочее</string>
+    <string name="miscellaneous_summary">Опции разработчика, подмена устройства</string>
+    <string name="about_title">О нас</string>
+    <string name="about_summary">Об Evolution X</string>
+    <!-- Themes -->
+    <string name="themes_monet_category">Monet</string>
+    <string name="themes_monet_title">Настройки Monet</string>
+    <string name="themes_monet_summary">Настройка встроенного движка тем Android</string>
+    <string name="themes_fonts_category">Шрифты</string>
+    <string name="themes_system_font_title">Заголовок / Основной шрифт</string>
+    <string name="themes_system_font_summary">Выберите системный шрифт</string>
+    <string name="themes_lock_screen_clock_font_title">Шрифт часов на экране блокировки</string>
+    <string name="themes_lock_screen_clock_font_summary">Выбрать стиль шрифта для часов на экране блокировки</string>
+    <string name="themes_icons_category">Иконки</string>
+    <string name="themes_system_icons_title">Системные иконки</string>
+    <string name="themes_system_icons_summary">Выберите пользовательский набор значков</string>
+    <string name="themes_icon_shape_title">Форма значков</string>
+    <string name="themes_icon_shape_summary">Выберите форму значков</string>
+    <string name="themes_status_bar_icons_category">Значки строки состояния</string>
+    <string name="themes_signal_icon_title">Стиль значка сети</string>
+    <string name="themes_signal_icon_summary">Выберите пользовательский значок сети</string>
+    <string name="themes_wifi_icon_title">Стиль значка WiFi</string>
+    <string name="themes_wifi_icon_summary">Выберите пользовательский значок wifi</string>
+    <string name="themes_navigation_bar_category">Панель навигации</string>
+    <string name="themes_navigation_bar_icons_title">Стиль панели навигации</string>
+    <string name="themes_navigation_bar_icons_summary">Установить пользовательский стиль панели навигации</string>
+    <!-- Themes/Monet Engine -->
+    <string name="monet_engine_custom_color_title">Цветовой акцент</string>
+    <string name="monet_engine_custom_color_summary">Выбрать пользовательский цвет акцента</string>
+    <string name="monet_engine_custom_bgcolor_title">Фоновый цвет</string>
+    <string name="monet_engine_custom_bgcolor_summary">Выбрать пользовательский цвет фона</string>
+    <string name="monet_engine_color_override_title">Пользовательский цвет</string>
+    <string name="monet_engine_luminance_factor_title">Яркость</string>
+    <string name="monet_engine_luminance_factor_summary">Чем больше значение, тем ярче цвета</string>
+    <string name="monet_engine_chroma_factor_title">Коэффициент цветности</string>
+    <string name="monet_engine_chroma_factor_summary">Чем больше значение, тем насыщеннее цвета</string>
+    <string name="monet_engine_tint_background_title">Окрасить фон</string>
+    <string name="monet_engine_tint_background_summary">Значения яркости и цветности будут влиять так же и на цвета фона</string>
+    <string name="monet_engine_style_title">Стиль темы</string>
+    <string name="monet_engine_style_tonal_spot">Тональная точка (по умолчанию)</string>
+    <string name="monet_engine_style_vibrant">Яркий</string>
+    <string name="monet_engine_style_expressive">Выразительный</string>
+    <string name="monet_engine_style_spritz">Брызги</string>
+    <string name="monet_engine_style_rainbow">Радуга</string>
+    <string name="monet_engine_style_fruit_salad">Фруктовый салат</string>
+    <string name="monet_engine_style_muted">Приглушенный</string>
+    <string name="monet_engine_style_content">Содержание</string>
+    <string name="monet_engine_color_source_title">Источник цвета</string>
+    <string name="monet_engine_color_source_both">Оба (по умолчанию)</string>
+    <string name="monet_engine_color_source_home">Обои домашнего экрана</string>
+    <string name="monet_engine_color_source_lock">Обои экрана блокировки</string>
+    <string name="monet_engine_color_source_preset">Пользовательский</string>
+    <!-- Status bar -->
+    <string name="status_bar_gestures_category">Жесты</string>
+    <string name="status_bar_brightness_control_title">Управление яркостью</string>
+    <string name="status_bar_brightness_control_summary">Регулировать яркость экрана движением пальца по строке состояния</string>
+    <string name="status_bar_quick_pull_down_title">Быстрый доступ</string>
+    <string name="status_bar_quick_pull_down_summary">Свайп с %1$s строки состояния сразу открывает быстрые настройки</string>
+    <string name="status_bar_quick_pull_down_off">Выкл.</string>
+    <string name="status_bar_quick_pull_down_right">правой стороны</string>
+    <string name="status_bar_quick_pull_down_left">левой стороны</string>
+    <string name="status_bar_quick_pull_down_both">обеих сторон</string>
+    <string name="status_bar_icons_category">Иконки</string>
+    <string name="status_bar_tuner_title">Настройка строки состояния</string>
+    <string name="status_bar_tuner_summary">Выберите значки, которые будут отображаться в строке состояния</string>
+    <string name="status_bar_bluetooth_battery_title">Уровень заряда Bluetooth</string>
+    <string name="status_bar_bluetooth_battery_summary">Отображение состояния батареи подключенных Bluetooth устройств, если доступно</string>
+    <string name="status_bar_colored_icons_title">Цветные значки</string>
+    <string name="status_bar_colored_icons_summary">Использовать цветные значки приложений для уведомлений</string>
+    <string name="status_bar_network_traffic_settings_title">Индикатор сетевого трафика</string>
+    <string name="status_bar_network_traffic_settings_summary">Отображение и настройка индикатора трафика</string>
+    <string name="status_bar_notif_count_title">Счётчик уведомлений</string>
+    <string name="status_bar_notif_count_summary">Показывать количество непрочитанных уведомлений на каждом значке приложения</string>
+    <string name="status_bar_privacy_indicators_category">Индикаторы конфиденциальности</string>
+    <string name="status_bar_mic_camera_privacy_indicator_title">Микрофон и камера</string>
+    <string name="status_bar_mic_camera_privacy_indicator_summary">Показывать индикатор, когда приложение использует камеру или микрофон</string>
+    <string name="status_bar_location_privacy_indicator_title">Расположение</string>
+    <string name="status_bar_location_privacy_indicator_summary">Показывать индикатор, когда приложение использует ваше местоположение</string>
+    <string name="status_bar_projection_privacy_indicator_title">Проекция экрана</string>
+    <string name="status_bar_projection_privacy_indicator_summary">Отображать индикатор, когда экран проецируется</string>
+    <!-- Status bar/Network traffic -->
+    <string name="network_traffic_location_title">Расположение</string>
+    <string name="network_traffic_location_disable">Отключено</string>
+    <string name="network_traffic_location_statusbar">Строка состояния</string>
+    <string name="network_traffic_location_quick_statusbar">Заголовок быстрых настроек</string>
+    <string name="network_traffic_mode_title">Режим отображения</string>
+    <string name="network_traffic_mode_up">Только исходящая</string>
+    <string name="network_traffic_mode_down">Только входящая</string>
+    <string name="network_traffic_mode_all">Входящая и исходящая</string>
+    <string name="network_traffic_autohide">Автоскрытие часов</string>
+    <string name="network_traffic_autohide_summary">Скрыть индикатор сетевого трафика при неактивности</string>
+    <string name="network_traffic_autohide_threshold">Порог неактивности</string>
+    <string name="network_traffic_refresh_interval_title">Интервал обновления</string>
+    <string name="network_traffic_refresh_interval_summary">Время, через которое скорость будет измеряться повторно</string>
+    <string name="network_traffic_units_title">Единицы измерения</string>
+    <string name="network_traffic_units_bits">Бит в секунду (б/с)</string>
+    <string name="network_traffic_units_kilobits">Килобит в секунду (кб/с)</string>
+    <string name="network_traffic_units_megabits">Мегабит в секунду (Мб/с)</string>
+    <string name="network_traffic_units_bytes">Байт в секунду (Б/с)</string>
+    <string name="network_traffic_units_kilobytes">Килобайт в секунду (кБ/с)</string>
+    <string name="network_traffic_units_megabytes">Мегабит в секунду (МБ/с)</string>
+    <string name="network_traffic_hidearrow">Скрыть стрелки</string>
+    <string name="network_traffic_hidearrow_summary">Скрыть стрелки индикатора трафика</string>
+    <!-- Notifications -->
+    <string name="notifications_sounds_vibration_category">Звуки и вибрация</string>
+    <string name="notifications_alert_display_on_title">Оповещение при включенном экране</string>
+    <string name="notifications_alert_display_on_summary">Звук и вибрация при получении уведомлений, когда экран включен</string>
+    <string name="notifications_buttons_category">Кнопки</string>
+    <string name="notifications_kill_app_button_title">Закрыть приложение</string>
+    <string name="notifications_kill_app_button_summary">Показывать кнопку принудительного закрытия приложения при долгом нажатии на уведомление</string>
+    <!-- Quick settings -->
+    <string name="quick_settings_interface_category">Интерфейс</string>
+    <string name="quick_settings_floating_clear_all_title">Плавающая кнопка «Очистить всё»</string>
+    <string name="quick_settings_floating_clear_all_summary">Заменить текстовую кнопку «Очистить все» на плавающую (по центру снизу)</string>
+    <string name="quick_settings_lock_screen_category">Экран блокировки</string>
+    <string name="quick_settings_secure_lock_screen_title">Скрывать на защищённом экране блокировки</string>
+    <string name="quick_settings_secure_lock_screen_summary">Скрывать все быстрые настройки в шторке уведомлений, пока устройство заблокировано</string>
+    <!-- Power menu -->
+    <string name="power_menu_interface_category">Интерфейс</string>
+    <string name="power_menu_actions_title">Настройка меню питания</string>
+    <string name="power_menu_actions_summary">Выберите, какие действия будут отображаться</string>
+    <string name="power_menu_lock_screen_category">Экран блокировки</string>
+    <string name="power_menu_lock_screen_secure_title">Показывать на защищённом экране блокировки</string>
+    <string name="power_menu_lock_screen_secure_summary">Отображать меню питания, пока устройство заблокировано</string>
+    <!-- Power menu/Power menu actions -->
+    <string name="power_menu_actions_advanced_reboot_title">Расширенная перезагрузка</string>
+    <string name="power_menu_actions_screenshot_title">Снимок экрана</string>
+    <string name="power_menu_actions_onthego_title">Режим «На ходу»</string>
+    <string name="power_menu_actions_airplane_title">Режим полета</string>
+    <string name="power_menu_actions_torch_title">Фонарик</string>
+    <string name="power_menu_actions_settings_title">Настройки</string>
+    <string name="power_menu_actions_lockdown_title">Блокировка</string>
+    <string name="power_menu_actions_lockdown_unavailable">Блокировка отключена, так как хранилище ключей небезопасно</string>
+    <string name="power_menu_actions_soundpanel_title">Панель громкости</string>
+    <string name="power_menu_actions_users_title">Пользователи</string>
+    <string name="power_menu_actions_logout_title">Выйти</string>
+    <string name="power_menu_actions_emergency_title">Экстренный вызов</string>
+    <string name="power_menu_actions_devicecontrols_title">Управление устройством</string>
+    <!-- Lock screen -->
+    <string name="lock_screen_battery_status_category">Статус зарядки</string>
+    <string name="lock_screen_show_stats_title">Информация о зарядке на экране блокировки</string>
+    <string name="lock_screen_show_stats_summary">Отображать максимальный ток зарядного устройства, напряжение и температуру батареи на экране блокировки во время зарядки</string>
+    <string name="lock_screen_fingerprint_category">Отпечаток пальца</string>
+    <string name="lock_screen_fingerprint_ripple_title">Эффект пульсации</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Показывать эффект пульсации при разблокировке с помощью отпечатка пальца</string>
+    <!-- Miscellaneous -->
+    <string name="miscellaneous_spoofing_category">Подмена</string>
+    <string name="miscellaneous_developer_options_category">Для разработчиков</string>
+    <string name="miscellaneous_app_downgrade_title">Разрешить понижение версии приложения</string>
+    <string name="miscellaneous_app_downgrade_summary">Разрешение на понижение версии системных приложений, однако это может привести к сбоям и повреждению данных</string>
+    <string name="miscellaneous_ignore_window_secure_title">Игнорировать флаги безопасности в окнах приложений</string>
+    <string name="miscellaneous_ignore_window_secure_summary">Снятие ограничений на скриншоты и запись экрана для всех приложений, потенциально увеличивая риск утечки конфиденциальных данных</string>
+    <!-- Miscellaneous/Spoofing -->
+    <string name="spoofing_title">Подделка компонентов</string>
+    <string name="spoofing_summary">Обход ограничений приложений с помощью подмены различных компонентов</string>
+    <string name="spoofing_system_wide_category">Общесистемные</string>
+    <string name="spoofing_pif_toggle_title">Исправление Play Integrity</string>
+    <string name="spoofing_pif_toggle_summary">Использовать исправления Play Integrity на стороне прошивки</string>
+    <string name="spoofing_pif_values_title">Текущие значения Play Integrity</string>
+    <string name="spoofing_pif_values_summary">Просмотр данных подмены для сервисов Google, необходимых для прохождения сертификации Play Integrity API</string>
+    <string name="spoofing_pixel_props_title">Свойства Pixel</string>
+    <string name="spoofing_pixel_props_summary">Подмена устройства на Pixel 8 Pro для всех приложений Google</string>
+    <string name="spoofing_storage_encryption_title">Шифрование хранилища</string>
+    <string name="spoofing_storage_encryption_summary">Подмена статуса шифрования хранилища на «Зашифровано»</string>
+    <string name="spoofing_app_specific_category">Для отдельных приложений</string>
+    <string name="spoofing_photos_title">Безлимитное «Google Фото»</string>
+    <string name="spoofing_photos_summary">Подмена устройства на Pixel XL для неограниченного резервного копирования фотографий в Google Фото</string>
+    <string name="spoofing_games_title">Повышенный FPS в играх</string>
+    <string name="spoofing_games_summary">Подмена устройства на другую модель для разблокировки более высокого FPS в некоторых играх</string>
+    <string name="spoofing_netflix_title">Повышенное качество в Netflix</string>
+    <string name="spoofing_netflix_summary">Подмена устройства на Pixel 8 Pro для разблокировки более высокого разрешения видео в Netflix</string>
+    <string name="spoofing_snapchat_title">Повышенное качество в Snapchat</string>
+    <string name="spoofing_snapchat_summary">Подмена устройства на Pixel 2 для разблокировки съёмки без потери качества в Snapchat</string>
+    <!-- About -->
+    <string name="about_info">Evolution X стремится предоставить пользователям ощущение опыта использования Pixel с большим количеством дополнительных функций для вашего удобства</string>
+    <string name="about_website_title">Сайт</string>
+    <string name="about_website_summary">Нажмите здесь, чтобы посетить наш потрясающий веб-сайт!</string>
+    <string name="about_twitter_summary">Нажмите здесь, чтобы посетить наш Twitter!</string>
+    <string name="about_discord_summary">Посетите чат нашего сообщества!</string>
+    <string name="about_github_summary">Нажмите здесь, чтобы посетить наш GitHub!</string>
+    <string name="about_contributors_title">Контрибьюторы</string>
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Выбор цвета</string>
+    <string name="press_color_to_apply">Нажмите на цвет ниже, чтобы применить</string>
+    <string name="set">Установить</string>
+    <string name="color_default">По умолчанию</string>
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значение: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">по умолчанию</string>
+    <string name="custom_seekbar_default_value_to_set">Значение по умолчанию: <xliff:g id="v">%s</xliff:g>\nДлительное нажатие для настройки</string>
+    <string name="custom_seekbar_default_value_is_set">Значение по умолчанию установлено</string>
+    <!-- Units -->
+    <string name="unit_seconds">секунд</string>
+</resources>
