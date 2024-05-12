@@ -215,4 +215,9 @@
     <string name="custom_seekbar_default_value_is_set">Varsayılan değer ayarlandı</string>
     <!-- Units -->
     <string name="unit_seconds">saniye</string>
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Ekran kapanma animasyonu</string>
+    <string name="screen_off_animation_default">Varsayılan</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Ölçek</string>
 </resources>
