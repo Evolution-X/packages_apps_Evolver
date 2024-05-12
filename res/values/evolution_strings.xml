@@ -103,6 +103,8 @@
     <string name="status_bar_tuner_summary">Choose which system icons can be shown</string>
     <string name="status_bar_data_disabled_icon_title">Data disabled indicator</string>
     <string name="status_bar_data_disabled_icon_summary">Display an indicator next to signal icon when data is disabled</string>
+    <string name="status_bar_4g_icon_title">4G icon</string>
+    <string name="status_bar_4g_icon_summary">Replace \'LTE\' icon with \'4G\'</string>
     <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
     <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
     <string name="status_bar_colored_icons_title">Colored icons</string>
