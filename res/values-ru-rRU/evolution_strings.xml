@@ -11,7 +11,7 @@
     <string name="themes_title">Темы</string>
     <string name="themes_summary">Настройка движка Monet, шрифты, наборы иконок</string>
     <string name="status_bar_title">Строка состояния</string>
-    <string name="status_bar_summary">Настройки строки состояния, индикаторов конфиденциальности</string>
+    <string name="status_bar_summary">Настройки строки состояния, индикаторы конфиденциальности</string>
     <string name="notifications_title">Уведомления</string>
     <string name="notifications_summary">Оповещение при включенном экране, кнопка «Закрыть приложение»</string>
     <string name="quick_settings_title">Быстрые настройки</string>
@@ -215,4 +215,9 @@
     <string name="custom_seekbar_default_value_is_set">Значение по умолчанию установлено</string>
     <!-- Units -->
     <string name="unit_seconds">секунд</string>
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Анимация выключения экрана</string>
+    <string name="screen_off_animation_default">По умолчанию</string>
+    <string name="screen_off_animation_crt">ЭЛТ</string>
+    <string name="screen_off_animation_scale">Масштабирование</string>
 </resources>
