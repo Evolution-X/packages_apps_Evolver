@@ -220,4 +220,10 @@
     <string name="screen_off_animation_default">Par défaut</string>
     <string name="screen_off_animation_crt">Tube cathodique</string>
     <string name="screen_off_animation_scale">Échelle</string>
+    <!-- Data disabled indicator -->
+    <string name="data_disabled_icon_title">Indicateur de données désactivées</string>
+    <string name="data_disabled_icon_summary">Afficher l\'indicateur en croix à côté du signal lorsque les données sont désactivées</string>
+    <!-- 4G icon -->
+    <string name="show_4g_icon_title">Icône 4G</string>
+    <string name="show_4g_icon_summary">Remplacer l\'icône \'LTE\' par \'4G\'</string>
 </resources>
