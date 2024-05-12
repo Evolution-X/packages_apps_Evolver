@@ -220,4 +220,10 @@
     <string name="screen_off_animation_default">Predvolené</string>
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Mierka</string>
+    <!-- Data disabled indicator -->
+    <string name="data_disabled_icon_title">Indikátor zakázaných mobilných dát</string>
+    <string name="data_disabled_icon_summary">Zobraziť indikátor vedľa ikony signálu siete, keď sú dáta zakázané</string>
+    <!-- 4G icon -->
+    <string name="show_4g_icon_title">Ikona 4G</string>
+    <string name="show_4g_icon_summary">Nahradiť \"LTE\" ikonu \"4G\" ikonou</string>
 </resources>
