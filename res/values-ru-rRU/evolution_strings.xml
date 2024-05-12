@@ -220,4 +220,10 @@
     <string name="screen_off_animation_default">По умолчанию</string>
     <string name="screen_off_animation_crt">ЭЛТ</string>
     <string name="screen_off_animation_scale">Масштабирование</string>
+    <!-- Data disabled indicator -->
+    <string name="data_disabled_icon_title">Индикатор отключенной передачи данных</string>
+    <string name="data_disabled_icon_summary">Отображать восклицательный знак в иконке уровня сети когда передача данных выключена</string>
+    <!-- 4G icon -->
+    <string name="show_4g_icon_title">Иконка 4G</string>
+    <string name="show_4g_icon_summary">Отображать \'4G\' вместо \'LTE\'</string>
 </resources>
