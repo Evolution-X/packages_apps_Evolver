@@ -220,4 +220,10 @@
     <string name="screen_off_animation_default">Predefinito</string>
     <string name="screen_off_animation_crt">Tubo catodico</string>
     <string name="screen_off_animation_scale">Scala</string>
+    <!-- Data disabled indicator -->
+    <string name="data_disabled_icon_title">Indicatore dati disabilitato</string>
+    <string name="data_disabled_icon_summary">Mostra una X accanto alla barra segnale quando i dati sono disabilitati</string>
+    <!-- 4G icon -->
+    <string name="show_4g_icon_title">Icona 4G</string>
+    <string name="show_4g_icon_summary">Sostituisci l\'icona \'LTE\' con \'4G\'</string>
 </resources>
