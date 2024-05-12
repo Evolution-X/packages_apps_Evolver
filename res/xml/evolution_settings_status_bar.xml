@@ -48,6 +48,13 @@
             android:summary="@string/status_bar_data_disabled_icon_summary"
             android:defaultValue="true" />
 
+        <!-- 4G icon -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="show_fourg_icon"
+            android:title="@string/status_bar_4g_icon_title"
+            android:summary="@string/status_bar_4g_icon_summary"
+            android:defaultValue="false" />
+
         <!-- Bluetooth battery status -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"
