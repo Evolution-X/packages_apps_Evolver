@@ -215,4 +215,9 @@
     <string name="custom_seekbar_default_value_is_set">Wartość domyślna jest ustawiona</string>
     <!-- Units -->
     <string name="unit_seconds">sekundy</string>
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Animacja wyłączania ekranu</string>
+    <string name="screen_off_animation_default">Domyślnie</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Skala</string>
 </resources>
