@@ -33,6 +33,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private static final String ICONS_CATEGORY_KEY = "status_bar_icons_category";
     private static final String BLUETOOTH_BATTERY_STATUS_KEY = "bluetooth_show_battery";
+    private static final String DATA_DISABLED_ICON_KEY = "data_disabled_icon";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
@@ -43,6 +44,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private PreferenceCategory mIconsCategory;
     private Preference mBluetoothBatteryStatus;
+    private Preference mDataDisabledIcon;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,9 +65,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         mIconsCategory = (PreferenceCategory) findPreference(ICONS_CATEGORY_KEY);
         mBluetoothBatteryStatus = (Preference) findPreference(BLUETOOTH_BATTERY_STATUS_KEY);
+        mDataDisabledIcon = (Preference) findPreference(DATA_DISABLED_ICON_KEY);
 
         if (!DeviceUtils.deviceSupportsBluetooth(mContext)) {
             mIconsCategory.removePreference(mBluetoothBatteryStatus);
+        }
+
+        if (!DeviceUtils.deviceSupportsMobileData(mContext)) {
+            mIconsCategory.removePreference(mDataDisabledIcon);
         }
     }
 
