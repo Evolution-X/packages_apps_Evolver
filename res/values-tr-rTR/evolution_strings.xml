@@ -48,6 +48,11 @@
     <string name="themes_navigation_bar_category">Gezinme çubuğu</string>
     <string name="themes_navigation_bar_icons_title">Gezinti çubuğu stili</string>
     <string name="themes_navigation_bar_icons_summary">Özel gezinme çubuğu stili ayarlayın</string>
+    <string name="themes_animations_category">Animasyonlar</string>
+    <string name="themes_screen_off_animation_title">Ekran kapanma animasyonu</string>
+    <string name="themes_screen_off_animation_default">Varsayılan</string>
+    <string name="themes_screen_off_animation_crt">CRT</string>
+    <string name="themes_screen_off_animation_scale">Ölçek</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Vurgu rengi</string>
     <string name="monet_engine_custom_color_summary">Vurgu için özel renk seçin</string>
@@ -86,6 +91,10 @@
     <string name="status_bar_quick_pull_down_both">Her iki taraf</string>
     <string name="status_bar_icons_category">Simgeler</string>
     <string name="status_bar_tuner_title">Durum çubuğu ayarlayıcısı</string>
+    <string name="status_bar_data_disabled_icon_title">Mobil veri devre dışı göstergesi</string>
+    <string name="status_bar_data_disabled_icon_summary">Mobil veri devre dışı bırakıldığında sinyal simgesinin yanında bir gösterge görüntüle</string>
+    <string name="status_bar_4g_icon_title">4G simgesi</string>
+    <string name="status_bar_4g_icon_summary">\'LTE\' simgesini \'4G\' ile değiştirin</string>
     <string name="status_bar_tuner_summary">Hangi sistem simgelerinin görüleceğini seçin</string>
     <string name="status_bar_bluetooth_battery_title">Bluetooth pil durumu</string>
     <string name="status_bar_bluetooth_battery_summary">Eğer mümkün ise bağlı olan bluetooth cihazının pil durumunu gösterir</string>
@@ -215,15 +224,4 @@
     <string name="custom_seekbar_default_value_is_set">Varsayılan değer ayarlandı</string>
     <!-- Units -->
     <string name="unit_seconds">saniye</string>
-    <!-- Screen Off animation -->
-    <string name="screen_off_animation_title">Ekran kapanma animasyonu</string>
-    <string name="screen_off_animation_default">Varsayılan</string>
-    <string name="screen_off_animation_crt">CRT</string>
-    <string name="screen_off_animation_scale">Ölçek</string>
-    <!-- Data disabled indicator -->
-    <string name="data_disabled_icon_title">Mobil veri devre dışı göstergesi</string>
-    <string name="data_disabled_icon_summary">Mobil veri devre dışı bırakıldığında sinyal simgesinin yanında bir gösterge görüntüle</string>
-    <!-- 4G icon -->
-    <string name="show_4g_icon_title">4G simgesi</string>
-    <string name="show_4g_icon_summary">\'LTE\' simgesini \'4G\' ile değiştirin</string>
 </resources>
