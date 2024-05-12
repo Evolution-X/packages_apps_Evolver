@@ -41,6 +41,13 @@
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
 
+        <!-- Data disabled icon -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="data_disabled_icon"
+            android:title="@string/status_bar_data_disabled_icon_title"
+            android:summary="@string/status_bar_data_disabled_icon_summary"
+            android:defaultValue="true" />
+
         <!-- Bluetooth battery status -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"

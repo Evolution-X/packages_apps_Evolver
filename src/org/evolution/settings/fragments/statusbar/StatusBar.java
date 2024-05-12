@@ -38,6 +38,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
 
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
+    private static final String KEY_DATA_DISABLED_ICON = "data_disabled_icon";
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
 
     private static final int PULLDOWN_DIR_NONE = 0;
@@ -48,6 +49,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private LineageSystemSettingListPreference mQuickPulldown;
 
     private PreferenceCategory mIconsCategory;
+    private SystemSettingSwitchPreference mDataDisabledIcon;
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
 
     @Override
@@ -66,11 +68,16 @@ public class StatusBar extends SettingsPreferenceFragment implements
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mDataDisabledIcon = (SystemSettingSwitchPreference) findPreference(KEY_DATA_DISABLED_ICON);
         mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
 
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             mQuickPulldown.setEntries(R.array.status_bar_quick_pull_down_entries_rtl);
             mQuickPulldown.setEntryValues(R.array.status_bar_quick_pull_down_values_rtl);
+        }
+
+        if (!DeviceUtils.deviceSupportsMobileData(context)) {
+            mIconsCategory.removePreference(mDataDisabledIcon);
         }
 
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
@@ -128,6 +135,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
 
+                if (!DeviceUtils.deviceSupportsMobileData(context)) {
+                    keys.add(KEY_DATA_DISABLED_ICON);
+                }
                 if (!DeviceUtils.deviceSupportsBluetooth(context)) {
                     keys.add(KEY_BLUETOOTH_BATTERY_STATUS);
                 }
