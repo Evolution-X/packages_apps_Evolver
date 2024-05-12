@@ -220,4 +220,10 @@
     <string name="screen_off_animation_default">Varsayılan</string>
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Ölçek</string>
+    <!-- Data disabled indicator -->
+    <string name="data_disabled_icon_title">Mobil veri devre dışı göstergesi</string>
+    <string name="data_disabled_icon_summary">Mobil veri devre dışı bırakıldığında sinyal simgesinin yanında bir gösterge görüntüle</string>
+    <!-- 4G icon -->
+    <string name="show_4g_icon_title">4G simgesi</string>
+    <string name="show_4g_icon_summary">\'LTE\' simgesini \'4G\' ile değiştirin</string>
 </resources>
