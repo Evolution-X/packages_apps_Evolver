@@ -215,4 +215,9 @@
     <string name="custom_seekbar_default_value_is_set">Valor por defecto establecido</string>
     <!-- Units -->
     <string name="unit_seconds">segundos</string>
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Animación al apagar pantalla</string>
+    <string name="screen_off_animation_default">Por defecto</string>
+    <string name="screen_off_animation_crt">TRC</string>
+    <string name="screen_off_animation_scale">Escala</string>
 </resources>
