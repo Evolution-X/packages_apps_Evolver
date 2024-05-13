@@ -48,6 +48,11 @@
     <string name="themes_navigation_bar_category">Pasek nawigacji</string>
     <string name="themes_navigation_bar_icons_title">Styl paska nawigacji</string>
     <string name="themes_navigation_bar_icons_summary">Ustaw własny styl paska nawigacji</string>
+    <string name="themes_animations_category">Animacje</string>
+    <string name="themes_screen_off_animation_title">Animacja wyłączania ekranu</string>
+    <string name="themes_screen_off_animation_default">Domyślnie</string>
+    <string name="themes_screen_off_animation_crt">CRT</string>
+    <string name="themes_screen_off_animation_scale">Skala</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Kolor akcentu</string>
     <string name="monet_engine_custom_color_summary">Wybierz niestandardowy kolor akcentu</string>
@@ -86,6 +91,10 @@
     <string name="status_bar_quick_pull_down_both">Obie strony</string>
     <string name="status_bar_icons_category">Ikony</string>
     <string name="status_bar_tuner_title">Edytor paska stanu</string>
+    <string name="status_bar_data_disabled_icon_title">Ikona wyłączonych danych</string>
+    <string name="status_bar_data_disabled_icon_summary">Wyświetlaj wskaźnik obok ikony sygnału, gdy dane są wyłączone</string>
+    <string name="status_bar_4g_icon_title">Ikona 4G</string>
+    <string name="status_bar_4g_icon_summary">Zamień ikonę \'LTE\' na \'4G\'</string>
     <string name="status_bar_tuner_summary">Wybierz, które ikony mogą być wyświetlane na pasku stanu</string>
     <string name="status_bar_bluetooth_battery_title">Stan naładowania baterii Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Pokaż aktualny stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępny</string>
@@ -167,6 +176,7 @@
     <string name="lock_screen_fingerprint_category">Odcisk palca</string>
     <string name="lock_screen_fingerprint_ripple_title">Powtórz animację</string>
     <string name="lock_screen_fingerprint_ripple_summary">Pokaż efekt fali podczas odblokowywania odciskiem palca</string>
+    <string name="lock_screen_interface_category">Interfejs</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Fałszowanie</string>
     <string name="miscellaneous_developer_options_category">Opcje programistyczne</string>
@@ -215,9 +225,14 @@
     <string name="custom_seekbar_default_value_is_set">Wartość domyślna jest ustawiona</string>
     <!-- Units -->
     <string name="unit_seconds">sekundy</string>
-    <!-- Screen Off animation -->
-    <string name="screen_off_animation_title">Animacja wyłączania ekranu</string>
-    <string name="screen_off_animation_default">Domyślnie</string>
-    <string name="screen_off_animation_crt">CRT</string>
-    <string name="screen_off_animation_scale">Skala</string>
+    <!-- Depth wallpaper -->
+    <string name="dw_file_header_select_title">Wybierz temat tapety z głębią</string>
+    <string name="dw_file_header_select_summary">Wybierz obraz z pamięci</string>
+    <string name="dw_wallpaper_enabled_title">Tapeta z głębią</string>
+    <string name="dw_wallpaper_enabled_summary">Włącz głębię tapety inspirowaną przez iOS. Wymaga zdjęcia tematu.</string>
+    <string name="dw_wallpaper_opacity_title">Nieprzezroczystość tapety z głębią</string>
+    <!-- Data usage info in QS footer -->
+    <string name="quick_settings_footer_category">Stopka</string>
+    <string name="qs_footer_data_usage_title">Użycie danych</string>
+    <string name="qs_footer_data_usage_summary">Pokaż użycie danych w stopce szybkich ustawień</string>
 </resources>
