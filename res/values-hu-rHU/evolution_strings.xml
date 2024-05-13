@@ -48,6 +48,11 @@
     <string name="themes_navigation_bar_category">Navigációs sáv</string>
     <string name="themes_navigation_bar_icons_title">A Navigációs sáv ikonjai</string>
     <string name="themes_navigation_bar_icons_summary">Itt állíthatja be a navigációssáv stílusát</string>
+    <string name="themes_animations_category">Animációk</string>
+    <string name="themes_screen_off_animation_title">Képernyőkikapcsolási animáció</string>
+    <string name="themes_screen_off_animation_default">Alapértelmezett</string>
+    <string name="themes_screen_off_animation_crt">Képcső</string>
+    <string name="themes_screen_off_animation_scale">Összeugrás</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Kiemelőszín</string>
     <string name="monet_engine_custom_color_summary">Egyéni színt választhat a kiemeléshez</string>
@@ -86,6 +91,10 @@
     <string name="status_bar_quick_pull_down_both">mindkét oldalán</string>
     <string name="status_bar_icons_category">Ikonok</string>
     <string name="status_bar_tuner_title">Állapotsor-hangolás</string>
+    <string name="status_bar_data_disabled_icon_title">A letiltott adatforgalom kijelzője</string>
+    <string name="status_bar_data_disabled_icon_summary">A térerő mellett X-jel megjelenítése, ha a mobiladat-forgalom le van tiltva</string>
+    <string name="status_bar_4g_icon_title">4G-ikon</string>
+    <string name="status_bar_4g_icon_summary">\'4G\'-ikonra cseréli le az \'LTE\'-ikont</string>
     <string name="status_bar_tuner_summary">Beállítható mely rendszer-ikonok jelenjenek meg</string>
     <string name="status_bar_bluetooth_battery_title">Bluetooth-akkuállapot</string>
     <string name="status_bar_bluetooth_battery_summary">A csatlakoztatott bluetooth eszköz akkuállapotának megjelenítése, ha rendelkezésre áll</string>
@@ -167,6 +176,7 @@
     <string name="lock_screen_fingerprint_category">Ujjlenyomat</string>
     <string name="lock_screen_fingerprint_ripple_title">Fodrozódó animáció</string>
     <string name="lock_screen_fingerprint_ripple_summary">Ujjlenyomatos feloldáskor fodrozódó effektus</string>
+    <string name="lock_screen_interface_category">Kezelőfelület</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Hamisítás, álcázás</string>
     <string name="miscellaneous_developer_options_category">Fejlesztői lehetőségek</string>
@@ -215,15 +225,14 @@
     <string name="custom_seekbar_default_value_is_set">Az alapértelmezett érték beállítva</string>
     <!-- Units -->
     <string name="unit_seconds">másodperc</string>
-    <!-- Screen Off animation -->
-    <string name="screen_off_animation_title">Képernyőkikapcsolási animáció</string>
-    <string name="screen_off_animation_default">Alapértelmezett</string>
-    <string name="screen_off_animation_crt">Képcső</string>
-    <string name="screen_off_animation_scale">Összeugrás</string>
-    <!-- Data disabled indicator -->
-    <string name="data_disabled_icon_title">A letiltott adatforgalom kijelzője</string>
-    <string name="data_disabled_icon_summary">A térerő mellett X-jel megjelenítése, ha a mobiladat-forgalom le van tiltva</string>
-    <!-- 4G icon -->
-    <string name="show_4g_icon_title">4G-ikon</string>
-    <string name="show_4g_icon_summary">\'4G\'-ikonra cseréli le az \'LTE-ikont</string>
+    <!-- Depth wallpaper -->
+    <string name="dw_file_header_select_title">Témaválasztás a térhatású háttérképhez</string>
+    <string name="dw_file_header_select_summary">Válasszon egy képet a készüléke tárhelyéről</string>
+    <string name="dw_wallpaper_enabled_title">Térhatású Háttérkép</string>
+    <string name="dw_wallpaper_enabled_summary">Itt kapcsolható be az iOS ihlette térhatású háttérkép. Szükséges egy tárgykép.</string>
+    <string name="dw_wallpaper_opacity_title">A térhatású háttér átlátszósága</string>
+    <!-- Data usage info in QS footer -->
+    <string name="quick_settings_footer_category">Lábléc</string>
+    <string name="qs_footer_data_usage_title">Adathasználat</string>
+    <string name="qs_footer_data_usage_summary">Kijelzi az adathasználatot a gyorsbeállítások láblécében</string>
 </resources>
