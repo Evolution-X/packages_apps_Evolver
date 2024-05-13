@@ -48,6 +48,11 @@
     <string name="themes_navigation_bar_category">Barra de navegación</string>
     <string name="themes_navigation_bar_icons_title">Estilo de la barra de navegación</string>
     <string name="themes_navigation_bar_icons_summary">Establecer estilo personalizado de la barra de navegación</string>
+    <string name="themes_animations_category">Animaciones</string>
+    <string name="themes_screen_off_animation_title">Animación al apagar pantalla</string>
+    <string name="themes_screen_off_animation_default">Por defecto</string>
+    <string name="themes_screen_off_animation_crt">TRC</string>
+    <string name="themes_screen_off_animation_scale">Escala</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Color de acento</string>
     <string name="monet_engine_custom_color_summary">Elige color de acento personalizado</string>
@@ -86,6 +91,10 @@
     <string name="status_bar_quick_pull_down_both">Ambos lados</string>
     <string name="status_bar_icons_category">Iconos</string>
     <string name="status_bar_tuner_title">Personalizar barra de estado</string>
+    <string name="status_bar_data_disabled_icon_title">Indicador de datos deshabilitado</string>
+    <string name="status_bar_data_disabled_icon_summary">Mostar un indicador junto a la barra de señal cuando los datos esten deshabilitados</string>
+    <string name="status_bar_4g_icon_title">Icono 4G</string>
+    <string name="status_bar_4g_icon_summary">Reemplazar el icono \'LTE\' con \'4G\'</string>
     <string name="status_bar_tuner_summary">Elige qué iconos del sistema se mostrarán</string>
     <string name="status_bar_bluetooth_battery_title">Nivel de batería de Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Mostrar el nivel de batería de los dispositivos bluetooth conectados, si está disponible</string>
@@ -167,6 +176,7 @@
     <string name="lock_screen_fingerprint_category">Huella dactilar</string>
     <string name="lock_screen_fingerprint_ripple_title">Animación de ola</string>
     <string name="lock_screen_fingerprint_ripple_summary">Muestra una animación de ola al desbloquear con huella dactilar</string>
+    <string name="lock_screen_interface_category">Interfaz</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Suplantación</string>
     <string name="miscellaneous_developer_options_category">Opciones de desarrollador</string>
@@ -215,9 +225,14 @@
     <string name="custom_seekbar_default_value_is_set">Valor por defecto establecido</string>
     <!-- Units -->
     <string name="unit_seconds">segundos</string>
-    <!-- Screen Off animation -->
-    <string name="screen_off_animation_title">Animación al apagar pantalla</string>
-    <string name="screen_off_animation_default">Por defecto</string>
-    <string name="screen_off_animation_crt">TRC</string>
-    <string name="screen_off_animation_scale">Escala</string>
+    <!-- Depth wallpaper -->
+    <string name="dw_file_header_select_title">Seleccionar el sujeto del fondo de pantalla con profundidad</string>
+    <string name="dw_file_header_select_summary">Seleccionar imagen desde el almacenamiento</string>
+    <string name="dw_wallpaper_enabled_title">Fondo de pantalla con profundidad</string>
+    <string name="dw_wallpaper_enabled_summary">Habilita el fondo de pantalla con profundidad inspirado en iOS. Requiere una imagen de referencia.</string>
+    <string name="dw_wallpaper_opacity_title">Opacidad del fondo de pantalla con profundidad</string>
+    <!-- Data usage info in QS footer -->
+    <string name="quick_settings_footer_category">Pie de página</string>
+    <string name="qs_footer_data_usage_title">Uso de datos</string>
+    <string name="qs_footer_data_usage_summary">Mostrar uso de datos al pie de los ajustes rápidos</string>
 </resources>
