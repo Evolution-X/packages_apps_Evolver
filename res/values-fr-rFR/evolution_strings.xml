@@ -48,6 +48,11 @@
     <string name="themes_navigation_bar_category">Barre de navigation</string>
     <string name="themes_navigation_bar_icons_title">Style de barre de navigation</string>
     <string name="themes_navigation_bar_icons_summary">Définir le style de la barre de navigation</string>
+    <string name="themes_animations_category">Animations</string>
+    <string name="themes_screen_off_animation_title">Animation d\'extinction d\'écran</string>
+    <string name="themes_screen_off_animation_default">Par défaut</string>
+    <string name="themes_screen_off_animation_crt">Tube cathodique</string>
+    <string name="themes_screen_off_animation_scale">Échelle</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Couleur d\'accentuation</string>
     <string name="monet_engine_custom_color_summary">Choisir une couleur personnalisée pour l\'accentuation</string>
@@ -86,6 +91,10 @@
     <string name="status_bar_quick_pull_down_both">Les deux côtés</string>
     <string name="status_bar_icons_category">Icônes</string>
     <string name="status_bar_tuner_title">Paramétrage de la barre d\'état</string>
+    <string name="status_bar_data_disabled_icon_title">Indicateur de données désactivées</string>
+    <string name="status_bar_data_disabled_icon_summary">Afficher l\'indicateur en croix à côté du signal lorsque les données sont désactivées</string>
+    <string name="status_bar_4g_icon_title">Icône 4G</string>
+    <string name="status_bar_4g_icon_summary">Remplacer l\'icône \'LTE\' par \'4G\'</string>
     <string name="status_bar_tuner_summary">Choisir les icônes affichées dans la barre d\'état</string>
     <string name="status_bar_bluetooth_battery_title">Batterie de l\'appareil Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Afficher le pourcentage de la batterie de l\'appareil Bluetooth connecté, si disponible</string>
@@ -215,15 +224,4 @@
     <string name="custom_seekbar_default_value_is_set">Valeur par défaut définie</string>
     <!-- Units -->
     <string name="unit_seconds">secondes</string>
-    <!-- Screen Off animation -->
-    <string name="screen_off_animation_title">Animation d\'extinction d\'écran</string>
-    <string name="screen_off_animation_default">Par défaut</string>
-    <string name="screen_off_animation_crt">Tube cathodique</string>
-    <string name="screen_off_animation_scale">Échelle</string>
-    <!-- Data disabled indicator -->
-    <string name="data_disabled_icon_title">Indicateur de données désactivées</string>
-    <string name="data_disabled_icon_summary">Afficher l\'indicateur en croix à côté du signal lorsque les données sont désactivées</string>
-    <!-- 4G icon -->
-    <string name="show_4g_icon_title">Icône 4G</string>
-    <string name="show_4g_icon_summary">Remplacer l\'icône \'LTE\' par \'4G\'</string>
 </resources>
