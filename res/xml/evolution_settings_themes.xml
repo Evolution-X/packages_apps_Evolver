@@ -78,6 +78,13 @@
             android:title="@string/themes_navigation_bar_icons_title"
             android:summary="@string/themes_navigation_bar_icons_summary"
             android:fragment="org.evolution.settings.fragments.themes.NavigationBarIcons"/>
+
+        <!-- Udfps icon -->
+        <Preference
+            android:key="udfps_icon"
+            android:title="@string/themes_udfps_icon_title"
+            android:summary="@string/themes_udfps_icon_summary"
+            android:fragment="org.evolution.settings.fragments.themes.UdfpsIcons" />
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -36,12 +36,14 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_NAVBAR_ICON = "android.theme.customization.navbar";
     private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
+    private static final String KEY_UDFPS_ICON = "udfps_icon";
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
 
     private PreferenceCategory mIconsCategory;
     private Preference mNavbarIcon;
     private Preference mSignalIcon;
+    private Preference mUdfpsIcon;
     private PreferenceCategory mAnimationsCategory;
     private Preference mUdfpsAnimation;
 
@@ -58,6 +60,7 @@ public class Themes extends SettingsPreferenceFragment implements
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
         mNavbarIcon = (Preference) findPreference(KEY_NAVBAR_ICON);
         mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
+        mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
 
@@ -73,8 +76,12 @@ public class Themes extends SettingsPreferenceFragment implements
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            mIconsCategory.removePreference(mUdfpsIcon);
             mAnimationsCategory.removePreference(mUdfpsAnimation);
         } else {
+            if (!Utils.isPackageInstalled(context, "org.evolution.udfps.icons")) {
+                mIconsCategory.removePreference(mUdfpsIcon);
+            }
             if (!Utils.isPackageInstalled(context, "org.evolution.udfps.animations")) {
                 mAnimationsCategory.removePreference(mUdfpsAnimation);
             }
@@ -109,8 +116,12 @@ public class Themes extends SettingsPreferenceFragment implements
                 }
 
                 if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+                    keys.add(KEY_UDFPS_ICON);
                     keys.add(KEY_UDFPS_ANIMATION);
                 } else {
+                    if (!Utils.isPackageInstalled(context, "org.evolution.udfps.icons")) {
+                        keys.add(KEY_UDFPS_ICON);
+                    }
                     if (!Utils.isPackageInstalled(context, "org.evolution.udfps.animations")) {
                         keys.add(KEY_UDFPS_ANIMATION);
                     }
