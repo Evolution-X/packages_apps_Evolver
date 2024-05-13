@@ -48,6 +48,11 @@
     <string name="themes_navigation_bar_category">Navigačný panel</string>
     <string name="themes_navigation_bar_icons_title">Štýl navigačného panela</string>
     <string name="themes_navigation_bar_icons_summary">Nastavenie vlastného štýlu navigačného panela</string>
+    <string name="themes_animations_category">Animácie</string>
+    <string name="themes_screen_off_animation_title">Animácia vypnutia obrazovky</string>
+    <string name="themes_screen_off_animation_default">Predvolené</string>
+    <string name="themes_screen_off_animation_crt">CRT</string>
+    <string name="themes_screen_off_animation_scale">Mierka</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Farba zvýraznenia</string>
     <string name="monet_engine_custom_color_summary">Vybrať vlastnú farbu pre zdôraznenie</string>
@@ -86,6 +91,10 @@
     <string name="status_bar_quick_pull_down_both">Obidve strany</string>
     <string name="status_bar_icons_category">Ikony</string>
     <string name="status_bar_tuner_title">Tuner stavového riadku</string>
+    <string name="status_bar_data_disabled_icon_title">Indikátor zakázaných mobilných dát</string>
+    <string name="status_bar_data_disabled_icon_summary">Zobraziť indikátor vedľa ikony signálu siete, keď sú dáta zakázané</string>
+    <string name="status_bar_4g_icon_title">Ikona 4G</string>
+    <string name="status_bar_4g_icon_summary">Nahradiť \"LTE\" ikonu \"4G\" ikonou</string>
     <string name="status_bar_tuner_summary">Výber systémových ikon, ktoré sa môžu zobraziť</string>
     <string name="status_bar_bluetooth_battery_title">Stav batérie Bluetooth zariadenia</string>
     <string name="status_bar_bluetooth_battery_summary">Zobraziť stav batérie aktuálne pripojeného Bluetooth zariadenia, ak je k dispozícii</string>
@@ -167,6 +176,7 @@
     <string name="lock_screen_fingerprint_category">Odtlačok prsta</string>
     <string name="lock_screen_fingerprint_ripple_title">Animácia vlnenia</string>
     <string name="lock_screen_fingerprint_ripple_summary">Zobraziť efekt zvlnenia pri odomknutí zariadenia pomocou odtlačku prsta</string>
+    <string name="lock_screen_interface_category">Rozhranie</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Falšovanie</string>
     <string name="miscellaneous_developer_options_category">Možnosti pre vývojárov</string>
@@ -215,9 +225,10 @@
     <string name="custom_seekbar_default_value_is_set">Predvolená hodnota je nastavená</string>
     <!-- Units -->
     <string name="unit_seconds">sekundy</string>
-    <!-- Screen Off animation -->
-    <string name="screen_off_animation_title">Animácia vypnutia obrazovky</string>
-    <string name="screen_off_animation_default">Predvolené</string>
-    <string name="screen_off_animation_crt">CRT</string>
-    <string name="screen_off_animation_scale">Mierka</string>
+    <!-- Depth wallpaper -->
+    <string name="dw_file_header_select_title">Vyberte predmet hĺbky tapety</string>
+    <string name="dw_file_header_select_summary">Vybrať vlastný obrázok</string>
+    <string name="dw_wallpaper_enabled_title">Hĺbka tapety</string>
+    <string name="dw_wallpaper_enabled_summary">Povoliť hĺbkovú tapetu inšpirovanú systémom iOS. Vyžaduje obrázok predmetu.</string>
+    <string name="dw_wallpaper_opacity_title">Nepriehľadnosť hĺbky tapety</string>
 </resources>
