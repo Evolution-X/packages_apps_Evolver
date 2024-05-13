@@ -91,5 +91,12 @@
             android:entries="@array/themes_screen_off_animation_entries"
             android:entryValues="@array/themes_screen_off_animation_values"
             android:defaultValue="0" />
+
+        <!-- Udfps animation -->
+        <Preference
+            android:key="udfps_animation"
+            android:title="@string/themes_udfps_animation_title"
+            android:summary="@string/themes_udfps_animation_summary"
+            android:fragment="org.evolution.settings.fragments.themes.UdfpsAnimations" />
     </PreferenceCategory>
 </PreferenceScreen>
