@@ -31,5 +31,12 @@
             android:title="@string/lock_screen_fingerprint_ripple_title"
             android:summary="@string/lock_screen_fingerprint_ripple_summary"
             android:defaultValue="true" />
+
+        <!-- Screen-Off UDFPS -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="screen_off_udfps_enabled"
+            android:title="@string/lock_screen_screen_off_udfps_title"
+            android:summary="@string/lock_screen_screen_off_udfps_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>
