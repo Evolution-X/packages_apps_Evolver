@@ -31,5 +31,12 @@
             android:title="@string/quick_settings_secure_lock_screen_title"
             android:summary="@string/quick_settings_secure_lock_screen_summary"
             android:defaultValue="false" />
+
+        <!-- Secure QS tiles require unlock -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="qstile_requires_unlocking"
+            android:title="@string/quick_settings_require_unlock_title"
+            android:summary="@string/quick_settings_require_unlock_summary"
+            android:defaultValue="true"/>
     </PreferenceCategory>
 </PreferenceScreen>
