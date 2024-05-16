@@ -6,8 +6,10 @@
 package org.evolution.settings.fragments.lockscreen;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -30,8 +32,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String KEY_FINGERPRINT_CATEGORY = "lock_screen_fingerprint_category";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
+    private static final String KEY_SCREEN_OFF_UDFPS = "screen_off_udfps_enabled";
 
     private PreferenceCategory mFingerprintCategory;
+    private Preference mScreenOffUdfps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,9 +50,20 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         mFingerprintCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_CATEGORY);
+        mScreenOffUdfps = (Preference) findPreference(KEY_SCREEN_OFF_UDFPS);
 
         if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
             preferenceScreen.removePreference(mFingerprintCategory);
+        } else {
+            Resources resources = getResources();
+            boolean screenOffUdfpsAvailable = resources.getBoolean(
+                    com.android.internal.R.bool.config_supportScreenOffUdfps) ||
+                    !TextUtils.isEmpty(resources.getString(
+                            com.android.internal.R.string.config_dozeUdfpsLongPressSensorType));
+
+            if (!screenOffUdfpsAvailable) {
+                mFingerprintCategory.removePreference(mScreenOffUdfps);
+            }
         }
     }
 
@@ -74,6 +89,16 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
                 if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
                     keys.add(KEY_RIPPLE_EFFECT);
+                    keys.add(KEY_SCREEN_OFF_UDFPS);
+                } else {
+                    Resources resources = context.getResources();
+                    boolean screenOffUdfpsAvailable = resources.getBoolean(
+                        com.android.internal.R.bool.config_supportScreenOffUdfps) ||
+                        !TextUtils.isEmpty(resources.getString(
+                            com.android.internal.R.string.config_dozeUdfpsLongPressSensorType));
+                    if (!screenOffUdfpsAvailable) {
+                        keys.add(KEY_SCREEN_OFF_UDFPS);
+                    }
                 }
                 return keys;
             }
