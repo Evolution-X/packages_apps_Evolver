@@ -123,6 +123,12 @@
             android:title="@string/status_bar_battery_text_charging_title"
             android:summary="@string/status_bar_battery_text_charging_summary"
             android:defaultValue="true" />
+
+        <Preference
+            android:key="battery_bar"
+            android:title="@string/battery_bar_title"
+            android:summary="@string/battery_bar_summary"
+            android:fragment="org.evolution.settings.fragments.statusbar.BatteryBar" />
     </PreferenceCategory>
 
     <PreferenceCategory
