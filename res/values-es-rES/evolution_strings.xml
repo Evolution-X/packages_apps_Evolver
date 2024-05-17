@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Evolver -->
+    <string name="evolver_dashboard_title">Evolver</string>
+    <string name="evolver_dashboard_summary">Evolucionando como nunca antes</string>
+    <!-- Categories -->
+    <string name="themes_title">Temas</string>
+    <string name="themes_summary">Monet, fuentes, iconos</string>
+    <string name="status_bar_title">Barra de estado</string>
+    <string name="status_bar_summary">Gestos, iconos, indicadores de privacidad</string>
+    <string name="notifications_title">Notificaciones</string>
+    <string name="notifications_summary">Alertas, interfaz</string>
+    <string name="quick_settings_title">Ajustes rápidos</string>
+    <string name="quick_settings_summary">Interfaz, pantalla de bloqueo</string>
+    <string name="power_menu_title">Menú de apagado</string>
+    <string name="power_menu_summary">Acciones, pantalla de bloqueo</string>
+    <string name="lock_screen_title">Pantalla de bloqueo</string>
+    <string name="lock_screen_summary">Estado de carga, huella digital</string>
+    <string name="buttons_title">Botones</string>
+    <string name="buttons_summary">Botón de apagado, botones de volumen</string>
+    <string name="miscellaneous_title">Varios</string>
+    <string name="miscellaneous_summary">Opciones de desarrollador, spoofing</string>
+    <string name="about_title">Acerca de</string>
+    <string name="about_summary">Acerca de Evolution X</string>
+    <!-- Themes -->
+    <string name="themes_monet_category">Monet</string>
+    <string name="themes_monet_title">Ajustes de Monet</string>
+    <string name="themes_monet_summary">Personalizar el motor de temas integrado de Android</string>
+    <string name="themes_fonts_category">Fuentes</string>
+    <string name="themes_system_font_title">Fuente de encabezado/cuerpo</string>
+    <string name="themes_system_font_summary">Establece el estilo de fuente del sistema</string>
+    <string name="themes_lock_screen_clock_font_title">Fuente del reloj de la pantalla de bloqueo</string>
+    <string name="themes_lock_screen_clock_font_summary">Establece el estilo de fuente del reloj de la pantalla de bloqueo</string>
+    <string name="themes_icons_category">Iconos</string>
+    <string name="themes_system_icons_title">Iconos del sistema</string>
+    <string name="themes_system_icons_summary">Establece el estilo del conjunto personalizado de iconos</string>
+    <string name="themes_icon_shape_title">Forma del icono</string>
+    <string name="themes_icon_shape_summary">Establece el estilo de la forma de los iconos del sistema</string>
+    <string name="themes_signal_icon_title">Estilo de icono de señal</string>
+    <string name="themes_signal_icon_summary">Establece el estilo del icono de señal</string>
+    <string name="themes_wifi_icon_title">Estilo de icono de WiFi</string>
+    <string name="themes_wifi_icon_summary">Establece el estilo del icono de WiFi</string>
+    <string name="themes_navigation_bar_icons_title">Estilo de la barra de navegación</string>
+    <string name="themes_navigation_bar_icons_summary">Establecer estilo personalizado de la barra de navegación</string>
+    <string name="themes_udfps_icon_title">Icono de UDFPS</string>
+    <string name="themes_udfps_icon_summary">Establece el estilo del icono de UDFPS</string>
+    <string name="themes_animations_category">Animaciones</string>
+    <string name="themes_screen_off_animation_title">Animación al apagar pantalla</string>
+    <string name="themes_screen_off_animation_default">Por defecto</string>
+    <string name="themes_screen_off_animation_crt">TRC</string>
+    <string name="themes_screen_off_animation_scale">Escala</string>
+    <string name="themes_udfps_animation_title">Animación de Huella en Pantalla</string>
+    <string name="themes_udfps_animation_summary">Establece el estilo de animación de UDFPS</string>
+    <!-- Themes/Monet Engine -->
+    <string name="monet_engine_custom_color_title">Color de acento</string>
+    <string name="monet_engine_custom_color_summary">Elige color de acento personalizado</string>
+    <string name="monet_engine_custom_bgcolor_title">Color de fondo</string>
+    <string name="monet_engine_custom_bgcolor_summary">Elige color personalizado para el fondo</string>
+    <string name="monet_engine_color_override_title">Color personalizado</string>
+    <string name="monet_engine_luminance_factor_title">Luminosidad</string>
+    <string name="monet_engine_luminance_factor_summary">Valores más altos producen colores más brillantes</string>
+    <string name="monet_engine_chroma_factor_title">Factor cromático</string>
+    <string name="monet_engine_chroma_factor_summary">Valores más altos producen colores más fuertes</string>
+    <string name="monet_engine_tint_background_title">TInte de fondo</string>
+    <string name="monet_engine_tint_background_summary">Hace que la selección de luminosidad y el factor cromático afecten también al color de fondo</string>
+    <string name="monet_engine_style_title">Estilo del tema</string>
+    <string name="monet_engine_style_tonal_spot">Tonal Spot (por defecto)</string>
+    <string name="monet_engine_style_vibrant">Vibrante</string>
+    <string name="monet_engine_style_expressive">Expresivo</string>
+    <string name="monet_engine_style_spritz">Spritz</string>
+    <string name="monet_engine_style_rainbow">Arcoiris</string>
+    <string name="monet_engine_style_fruit_salad">Ensalada de frutas</string>
+    <string name="monet_engine_color_source_title">Color de origen</string>
+    <string name="monet_engine_color_source_both">Ambos (por defecto)</string>
+    <string name="monet_engine_color_source_home">Fondo de pantalla</string>
+    <string name="monet_engine_color_source_lock">Fondo de pantalla de bloqueo</string>
+    <string name="monet_engine_color_source_preset">Predeterminado</string>
+    <!-- Status bar -->
+    <string name="status_bar_gestures_category">Gestos</string>
+    <string name="status_bar_brightness_control_title">Control de brillo</string>
+    <string name="status_bar_brightness_control_summary">Ajusta el brillo deslizando por la barra de estado</string>
+    <string name="status_bar_quick_pull_down_title">Despliegue de ajustes rápidos</string>
+    <string name="status_bar_quick_pull_down_summary">%1$s de la barra de estado baja los ajustes rápidos</string>
+    <string name="status_bar_quick_pull_down_off">Desactivado</string>
+    <string name="status_bar_quick_pull_down_right">Lado derecho</string>
+    <string name="status_bar_quick_pull_down_left">Lado izquierdo</string>
+    <string name="status_bar_quick_pull_down_both">Ambos lados</string>
+    <string name="status_bar_icons_category">Iconos</string>
+    <string name="status_bar_tuner_title">Personalizar barra de estado</string>
+    <string name="status_bar_data_disabled_icon_title">Indicador de datos deshabilitado</string>
+    <string name="status_bar_data_disabled_icon_summary">Mostar un indicador junto a la barra de señal cuando los datos esten deshabilitados</string>
+    <string name="status_bar_4g_icon_title">Icono 4G</string>
+    <string name="status_bar_4g_icon_summary">Reemplazar el icono \'LTE\' con \'4G\'</string>
+    <string name="status_bar_tuner_summary">Elige qué iconos del sistema se mostrarán</string>
+    <string name="status_bar_bluetooth_battery_title">Nivel de batería de Bluetooth</string>
+    <string name="status_bar_bluetooth_battery_summary">Mostrar el nivel de batería de los dispositivos bluetooth conectados, si está disponible</string>
+    <string name="status_bar_colored_icons_title">Iconos coloreados</string>
+    <string name="status_bar_colored_icons_summary">Usa iconos del lanzador para las notificaciones de aplicaciones</string>
+    <string name="status_bar_network_traffic_settings_title">Indicadores de tráfico de red</string>
+    <string name="status_bar_network_traffic_settings_summary">Muestra y configura el monitor actual de tráfico de red</string>
+    <string name="status_bar_notif_count_title">Contador de notificaciones</string>
+    <string name="status_bar_notif_count_summary">Mostrar el número de notificaciones sin leer en cada icono de la aplicación</string>
+    <string name="status_bar_privacy_indicators_category">Indicadores de privacidad</string>
+    <string name="status_bar_mic_camera_privacy_indicator_title">Micrófono y cámara</string>
+    <string name="status_bar_mic_camera_privacy_indicator_summary">Mostrar un indicador cuando una aplicación acceda al micrófono o cámara</string>
+    <string name="status_bar_location_privacy_indicator_title">Ubicación</string>
+    <string name="status_bar_location_privacy_indicator_summary">Mostrar un indicador cuando una app acceda a su ubicación</string>
+    <string name="status_bar_projection_privacy_indicator_title">Proyección de pantalla</string>
+    <string name="status_bar_projection_privacy_indicator_summary">Mostrar un indicador cuando la pantalla está siendo proyectada</string>
+    <!-- Status bar - Clock -->
+    <string name="status_bar_clock_title">Ajustes de reloj y fecha</string>
+    <string name="status_bar_clock_summary">Personalizar reloj y fecha</string>
+    <string name="status_bar_clock_seconds_title">Segundos del reloj</string>
+    <string name="status_bar_clock_seconds_summary">Mostrar segundos junto al reloj en la barra de estado</string>
+    <string name="status_bar_clock_position_title">Estilo de reloj</string>
+    <string name="status_bar_clock_position_right">Derecha</string>
+    <string name="status_bar_clock_position_left">Izquierda</string>
+    <string name="status_bar_clock_position_center">Centro</string>
+    <string name="status_bar_clock_position_hidden">Oculto</string>
+    <string name="status_bar_clock_auto_hide_title">Auto ocultar el reloj</string>
+    <string name="status_bar_clock_auto_hide_launcher_summary">Ocultar reloj en la pantalla de inicio</string>
+    <string name="status_bar_clock_auto_hide_summary">Ocultar y mostrar reloj en intervalos regulares de tiempo</string>
+    <string name="status_bar_clock_auto_hide_hdur_title">Tiempo oculto</string>
+    <string name="status_bar_clock_auto_hide_hdur_summary">Tiempo que el reloj permanece oculto</string>
+    <string name="status_bar_clock_auto_hide_sdur_title">Tiempo visible</string>
+    <string name="status_bar_clock_auto_hide_sdur_summary">Número de segundos antes de ocultar el reloj</string>
+    <string name="status_bar_am_pm_title">AM/PM</string>
+    <string name="status_bar_am_pm_info">Reloj de 24 horas activado</string>
+    <string name="status_bar_am_pm_normal">Normal</string>
+    <string name="status_bar_am_pm_small">Pequeño</string>
+    <string name="status_bar_am_pm_hidden">Oculto</string>
+    <string name="status_bar_date_title">Fecha</string>
+    <string name="status_bar_date_none">Oculto</string>
+    <string name="status_bar_date_small">Pequeña</string>
+    <string name="status_bar_date_normal">Normal</string>
+    <string name="status_bar_date_format_title">Formato de fecha</string>
+    <string name="status_bar_date_style">Estilo de fecha</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Minúsculas</string>
+    <string name="status_bar_date_style_uppercase">Mayúsculas</string>
+    <string name="status_bar_date_format_custom">Formato java personalizado</string>
+    <string name="status_bar_date_string_edittext_title">Debe estar en formato de fecha, por ejemplo: MM/dd/aa</string>
+    <string name="status_bar_date_string_edittext_summary">Introducir cadena</string>
+    <string name="clock_date_position">Posición de la fecha</string>
+    <string name="clock_date_right">A la derecha de la hora</string>
+    <string name="clock_date_left">A la izquierda de la hora</string>
+    <string name="clock_font_size_title">Tamaño de la fuente del reloj</string>
+    <!-- Status bar/Network traffic -->
+    <string name="network_traffic_location_title">Ubicación</string>
+    <string name="network_traffic_location_disable">Desactivado</string>
+    <string name="network_traffic_location_statusbar">Barra de estado</string>
+    <string name="network_traffic_location_quick_statusbar">Barra de estado rápida</string>
+    <string name="network_traffic_mode_title">Modo de visualización</string>
+    <string name="network_traffic_mode_up">Solo subidas</string>
+    <string name="network_traffic_mode_down">Solo descargas</string>
+    <string name="network_traffic_mode_all">Subidas y descargas</string>
+    <string name="network_traffic_autohide">Auto ocultar el reloj</string>
+    <string name="network_traffic_autohide_summary">Ocultar cuando el tráfico de red es menor de 1 Kb/s</string>
+    <string name="network_traffic_autohide_threshold">Límite de inactividad</string>
+    <string name="network_traffic_refresh_interval_title">Intervalo de actualización</string>
+    <string name="network_traffic_refresh_interval_summary">Tiempo tras el cual se vuelve a medir la velocidad</string>
+    <string name="network_traffic_units_title">Unidades de medida del tráfico de red</string>
+    <string name="network_traffic_units_bits">Bits por segundo (b/s)</string>
+    <string name="network_traffic_units_kilobits">Kilobits por segundo (kb/s)</string>
+    <string name="network_traffic_units_megabits">Megabits por segundo (Mb/s)</string>
+    <string name="network_traffic_units_bytes">Bytes por segundo (B/s)</string>
+    <string name="network_traffic_units_kilobytes">Kilobytes por segundo (kB/s)</string>
+    <string name="network_traffic_units_megabytes">Megabytes por segundo (MB/s)</string>
+    <string name="network_traffic_hidearrow">Ocultar flechas</string>
+    <string name="network_traffic_hidearrow_summary">Ocultar las flechas del indicador de tráfico de red</string>
+    <!-- Notifications -->
+    <string name="notifications_interface_category">Interfaz</string>
+    <string name="notifications_island_notification_title">Notificación de isla</string>
+    <string name="notifications_island_notification_summary">Mostrar notificación emergente en estilo \'Isla Dinámica\' de IOS</string>
+    <string name="notifications_kill_app_button_title">Detener aplicación</string>
+    <string name="notifications_kill_app_button_summary">Muestra el botón de forzar cierre de aplicación en el menú de pulsación prolongada de la notificación</string>
+    <string name="notifications_sounds_vibration_category">Sonido y vibración</string>
+    <string name="notifications_alert_display_on_title">Alerta mientras la pantalla está encendida</string>
+    <string name="notifications_alert_display_on_summary">Las notificaciones suenan y vibran cuando la pantalla está encendida</string>
+    <!-- Notifications/Island notification -->
+    <string name="island_notification_now_playing_title">Reproducción actual en isla</string>
+    <string name="island_notification_now_playing_summary">Mostrar la canción actualmente sonando en estilo Isla Dinámica</string>
+    <string name="island_notification_footer_text">La característica notificación de Isla, inspirada en la Isla Dinámica de IOS, transforma las notificaciones emergentes de Android en una utilidad de notificaciones de acceso rápido y compactas.\n\nControles de Acceso Rápido de Isla incluye las siguientes características:\n1. Tocar la notificación de la isla para responder rápidamente las llamadas telefónicas.\n2. Mantener pulsada la notificación de isla para rechazar las llamadas telefónicas.\n3. Mantener pulsada la notificación de la isla para expandir la vista previa de la notificación de la isla.</string>
+    <!-- Quick settings -->
+    <string name="quick_settings_interface_category">Interfaz</string>
+    <string name="quick_settings_floating_clear_all_title">Botón flotante de borrar todo</string>
+    <string name="quick_settings_floating_clear_all_summary">Reemplaza el botón de texto \"Borrar todo\" con uno flotante centrado en la parte inferior</string>
+    <string name="quick_settings_lock_screen_category">Pantalla de bloqueo</string>
+    <string name="quick_settings_secure_lock_screen_title">Ocultar en la pantalla de bloqueo segura</string>
+    <string name="quick_settings_secure_lock_screen_summary">Oculta todos los ajustes rápidos en la bandeja de notificaciones mientra el dispositivo está bloqueado</string>
+    <string name="quick_settings_require_unlock_title">Los Ajustes Rápidos Seguros requieren desbloqueo</string>
+    <string name="quick_settings_require_unlock_summary">Los siguientes ajustes rápidos requieren que el dispositivo se desbloquee antes de que pueda interactuar con ellos:\nModo Avión, Ahorro de batería, Bluetooth, Celular, Ahorrador de datos, Hotspot, Internet, NFC, bloqueo de rotación y Wi-Fi</string>
+    <!-- Power menu -->
+    <string name="power_menu_interface_category">Interfaz</string>
+    <string name="power_menu_actions_title">Acciones del menú de apagado</string>
+    <string name="power_menu_actions_summary">Elija qué acciones son mostradas</string>
+    <string name="power_menu_lock_screen_category">Pantalla de bloqueo</string>
+    <string name="power_menu_lock_screen_secure_title">Mostrar en la pantalla de bloqueo segura</string>
+    <string name="power_menu_lock_screen_secure_summary">Mostrar el menú de apagado mientras el dispositivo está bloqueado</string>
+    <!-- Power menu/Power menu actions -->
+    <string name="power_menu_actions_advanced_reboot_title">Reinicio avanzado</string>
+    <string name="power_menu_actions_screenshot_title">Captura de pantalla</string>
+    <string name="power_menu_actions_onthego_title">Modo sobre la marcha</string>
+    <string name="power_menu_actions_airplane_title">Avión</string>
+    <string name="power_menu_actions_torch_title">Linterna</string>
+    <string name="power_menu_actions_settings_title">Ajustes</string>
+    <string name="power_menu_actions_lockdown_title">Confinamiento</string>
+    <string name="power_menu_actions_lockdown_unavailable">El bloqueo está deshabilitado ya que Keyguard no es seguro</string>
+    <string name="power_menu_actions_soundpanel_title">Panel de sonido</string>
+    <string name="power_menu_actions_users_title">Usuarios</string>
+    <string name="power_menu_actions_logout_title">Cerrar sesión</string>
+    <string name="power_menu_actions_emergency_title">Emergencia</string>
+    <string name="power_menu_actions_devicecontrols_title">Controles de dispositivos</string>
+    <!-- Lock screen -->
+    <string name="lock_screen_battery_status_category">Estado de carga</string>
+    <string name="lock_screen_show_stats_title">Información de carga en la pantalla de bloqueo</string>
+    <string name="lock_screen_show_stats_summary">Mostrar la corriente máxima del cargador, voltaje y temperatura de la batería en la pantalla de bloqueo durante la carga</string>
+    <string name="lock_screen_fingerprint_category">Huella dactilar</string>
+    <string name="lock_screen_fingerprint_ripple_title">Animación de ola</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Muestra una animación de ola al desbloquear con huella dactilar</string>
+    <string name="lock_screen_screen_off_udfps_title">UDFPS con pantalla apagada</string>
+    <string name="lock_screen_screen_off_udfps_summary">Mantener UDFPS activo mientras la pantalla está apagada</string>
+    <!-- Miscellaneous -->
+    <string name="miscellaneous_spoofing_category">Suplantación</string>
+    <string name="miscellaneous_developer_options_category">Opciones de desarrollador</string>
+    <string name="miscellaneous_app_downgrade_title">Permitir instalar versiones inferiores de las aplicaciones</string>
+    <string name="miscellaneous_app_downgrade_summary">Permite desactualizar aplicaciones del sistema, puede resultar en fallos y pérdida de datos</string>
+    <string name="miscellaneous_ignore_window_secure_title">Ignorar limitadores de ventanas seguras</string>
+    <string name="miscellaneous_ignore_window_secure_summary">Elimina restricciones en las capturas de pantalla y grabaciones de pantalla para todas las aplicaciones, arriesgando potencialmente fugas de datos privados</string>
+    <!-- Miscellaneous/Spoofing -->
+    <string name="spoofing_title">Suplantación de componentes</string>
+    <string name="spoofing_summary">Saltarse las restricciones de aplicaciones suplantando componentes</string>
+    <string name="spoofing_system_wide_category">Todo el sistema</string>
+    <string name="spoofing_pif_toggle_title">Arreglar Play Integrity</string>
+    <string name="spoofing_pif_toggle_summary">Usa los valores integrados en la ROM para arreglar Play Integrity</string>
+    <string name="spoofing_pif_values_title">Valores del corrección de Play Integrity</string>
+    <string name="spoofing_pif_values_summary">Vea los valores actuales para suplantar GMS para la certificación de la API Play Integrity</string>
+    <string name="spoofing_pixel_props_title">Pixel props</string>
+    <string name="spoofing_pixel_props_summary">Suplanta tu dispositivo como un Pixel 8 Pro para todas las apps de Google</string>
+    <string name="spoofing_storage_encryption_title">Cifrado del almacenamiento</string>
+    <string name="spoofing_storage_encryption_summary">Suplanta el estado de cifrado de almacenamiento a \"Cifrado\"</string>
+    <string name="spoofing_app_specific_category">Aplicación específica</string>
+    <string name="spoofing_photos_title">Almacenamiento ilimitado en Google Fotos</string>
+    <string name="spoofing_photos_summary">Suplanta el dispositivo como un Pixel XL en la aplicación Google Fotos para desbloquear almacenamiento ilimitado de copias de seguridad</string>
+    <string name="spoofing_games_title">FPS más altos en juegos</string>
+    <string name="spoofing_games_summary">Suplanta el dispositivo como diferentes modelos en algunos juegos para desbloquear FPS más altos</string>
+    <!-- About -->
+    <string name="about_info">Evolution X pretende proporcionar a los usuarios una sensación de Pixel a primera vista, con características adicionales a su disposición</string>
+    <string name="about_website_title">Sitio web</string>
+    <string name="about_website_summary">¡Pulsa aquí para visitar nuestro impresionante sitio web!</string>
+    <string name="about_twitter_summary">¡Pulsa aquí para visitar nuestro Twitter!</string>
+    <string name="about_discord_summary">Visita el chat de la comunidad</string>
+    <string name="about_github_summary">¡Pulsa aquí para abrir nuestro Github!</string>
+    <string name="about_contributors_title">Colaboradores</string>
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Seleccionar color</string>
+    <string name="press_color_to_apply">Presiona el color de abajo para usar</string>
+    <string name="set">Establecer</string>
+    <string name="color_default">Por defecto</string>
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Valor: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Predeterminado</string>
+    <string name="custom_seekbar_default_value_to_set">Valor por defecto: <xliff:g id="v">%s</xliff:g>\nMantener presionado para establecer</string>
+    <string name="custom_seekbar_default_value_is_set">Valor por defecto establecido</string>
+    <!-- Units -->
+    <string name="unit_seconds">segundos</string>
+</resources>
