@@ -150,8 +150,8 @@
     <string name="clock_date_left">À esquerda do relógio</string>
     <string name="clock_font_size_title">Tamanho da fonte do relógio</string>
     <!-- Statusbar Clock background chip -->
-    <string name="statusbar_clock_chip_title">Ficha de fundo</string>
-    <string name="statusbar_clock_chip_summary">Exibe ficha acentuada atrás do relógio</string>
+    <string name="statusbar_clock_chip_title">Fundo do relógio colorido</string>
+    <string name="statusbar_clock_chip_summary">Colorir o fundo do relógio na barra de status</string>
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_category_title">Personalizações da bateria</string>
     <string name="status_bar_battery_style_title">Estilo do ícone da bateria</string>
@@ -170,6 +170,24 @@
     <string name="status_bar_battery_percent_text_next_left">Ao lado do ícone (esquerda)</string>
     <string name="status_bar_battery_text_charging_title">Porcentagem da bateria durante carregamento</string>
     <string name="status_bar_battery_text_charging_summary">Sempre mostrar a porcentagem da bateria enquanto carrega</string>
+    <!-- Status bar - Battery Bar -->
+    <string name="battery_bar_title">Barra de bateria</string>
+    <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
+    <string name="battery_bar_color">Cor</string>
+    <string name="battery_bar_charging_color">Cor durante carregamento</string>
+    <string name="battery_bar_battery_low_color">Cor de bateria fraca</string>
+    <string name="battery_bar_style_title">Alinhamento</string>
+    <string name="battery_bar_thickness_title">Espessura</string>
+    <string name="battery_bar_animate_title">Animação ao carregar</string>
+    <string name="battery_bar_style_regular">Normal</string>
+    <string name="battery_bar_style_center_mirrored">Centro-espelhado</string>
+    <string name="battery_bar_style_reversed">Revertido</string>
+    <string name="battery_bar_use_charging_color">Cor personalizada durante o carregamento</string>
+    <string name="battery_bar_blend_color_title">Mistura de cores</string>
+    <string name="battery_bar_blend_color_summary">Misturar cores correspondente a porcentagem da bateria</string>
+    <string name="battery_bar_blend_color_reverse_title">Inverter a direção de cor</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Cheio &#8594; vazio: vermelho &#8592; verde &#8592; azul &#8592; vermelho</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Cheio &#8594; vazio: vermelho &#8594; verde &#8594; azul &#8594; vermelho</string>
     <!-- QS battery -->
     <string name="qs_battery_location_title">Localização do ícone de bateria</string>
     <string name="qs_battery_location_qs_panel">Painel de configurações rápidas</string>
