@@ -170,6 +170,24 @@
     <string name="status_bar_battery_percent_text_next_left">Az ikon mellett (bal)</string>
     <string name="status_bar_battery_text_charging_title">Akkuszázalék töltés közben</string>
     <string name="status_bar_battery_text_charging_summary">Töltés közben állandóan jelenítse meg az akkuszázalékot</string>
+    <!-- Status bar - Battery Bar -->
+    <string name="battery_bar_title">Akkumulátorsáv</string>
+    <string name="battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
+    <string name="battery_bar_color">Szín</string>
+    <string name="battery_bar_charging_color">Töltésjelző szín</string>
+    <string name="battery_bar_battery_low_color">Alacsony akkuszint jelzőszíne</string>
+    <string name="battery_bar_style_title">Igazítás</string>
+    <string name="battery_bar_thickness_title">Vastagság</string>
+    <string name="battery_bar_animate_title">Töltési animáció</string>
+    <string name="battery_bar_style_regular">Hagyományos</string>
+    <string name="battery_bar_style_center_mirrored">Középre tükrözött</string>
+    <string name="battery_bar_style_reversed">Fordított</string>
+    <string name="battery_bar_use_charging_color">Egyéni töltésjelző szín</string>
+    <string name="battery_bar_blend_color_title">Kevert színek</string>
+    <string name="battery_bar_blend_color_summary">Keverje az üres/teli színeket az akkumulátor töltöttségének megfelelően</string>
+    <string name="battery_bar_blend_color_reverse_title">Fordított irányú színek</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Teljesen &#8594; üres: piros &#8592; zöld &#8592; kék &#8592; piros</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Teljesen &#8594; üres: piros &#8594; zöld &#8594; kék &#8594; piros</string>
     <!-- QS battery -->
     <string name="qs_battery_location_title">Az akkujelzés helye</string>
     <string name="qs_battery_location_qs_panel">Gyorsbeállítások-panel</string>
