@@ -145,6 +145,9 @@
     <string name="status_bar_location_privacy_indicator_summary">Display an indicator when an app accesses your location</string>
     <string name="status_bar_projection_privacy_indicator_title">Screen projection</string>
     <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
+    <string name="status_bar_miscellaneous_category">Miscellaneous</string>
+    <string name="status_bar_battery_bar_title">Battery bar</string>
+    <string name="status_bar_battery_bar_summary">Display and customize battery bar above status bar</string>
 
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Clock position</string>
@@ -210,6 +213,23 @@
     <string name="network_traffic_units_megabytes">Megabytes per second (MB/s)</string>
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
+
+    <!-- Status bar/Battery Bar -->
+    <string name="battery_bar_color">Color</string>
+    <string name="battery_bar_charging_color">Charging color</string>
+    <string name="battery_bar_battery_low_color">Low battery color</string>
+    <string name="battery_bar_style_title">Alignment</string>
+    <string name="battery_bar_thickness_title">Thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_style_regular">Regular</string>
+    <string name="battery_bar_style_center_mirrored">Center-mirrored</string>
+    <string name="battery_bar_style_reversed">Reversed</string>
+    <string name="battery_bar_use_charging_color">Custom charging color</string>
+    <string name="battery_bar_blend_color_title">Blend colors</string>
+    <string name="battery_bar_blend_color_summary">Blend full/empty colors corresponding to battery percentage</string>
+    <string name="battery_bar_blend_color_reverse_title">Reverse color direction</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Full &#8594; empty: red &#8592; green &#8592; blue &#8592; red</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Full &#8594; empty: red &#8594; green &#8594; blue &#8594; red</string>
 
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Interface</string>
@@ -322,5 +342,6 @@
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
 
     <!-- Units -->
+    <string name="unit_pixels" translatable="false">dp</string>
     <string name="unit_seconds">seconds</string>
 </resources>
