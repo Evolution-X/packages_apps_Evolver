@@ -160,6 +160,35 @@
     <string name="statusbar_clock_chip_title">Background chip</string>
     <string name="statusbar_clock_chip_summary">Display accented chip behind clock</string>
 
+    <!-- Status bar - Battery -->
+    <string name="status_bar_battery_category_title">Battery customizations</string>
+    <string name="status_bar_battery_style_title">Battery style</string>
+    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
+    <string name="status_bar_battery_style_icon_rlandscape">Icon landscape (Right)</string>
+    <string name="status_bar_battery_style_icon_landscape">Icon landscape (Left)</string>
+    <string name="status_bar_battery_style_circle">Circle</string>
+    <string name="status_bar_battery_style_dotted_circle">Dotted circle</string>
+    <string name="status_bar_battery_style_filled_circle">Filled circle</string>
+    <string name="status_bar_battery_style_text">Text</string>
+    <string name="status_bar_battery_style_hidden">Hidden</string>
+    <string name="status_bar_battery_percent_title">Battery percent</string>
+    <string name="status_bar_battery_percent_hidden">Hidden</string>
+    <string name="status_bar_battery_percent_text_inside">Inside the icon</string>
+    <string name="status_bar_battery_percent_text_next_right">Next to the icon (right)</string> 
+    <string name="status_bar_battery_percent_text_next_left">Next to the icon (left)</string> 
+    <string name="status_bar_battery_text_charging_title">Battery percentage when charging</string>
+    <string name="status_bar_battery_text_charging_summary">Always display battery percentage when charging</string>
+
+    <!-- QS battery -->
+    <string name="qs_battery_location_title">Battery location</string>
+    <string name="qs_battery_location_qs_panel">QS Panel</string>
+    <string name="qs_battery_location_qs_statusbar">Quick Statusbar</string>
+    <string name="qs_use_status_bar_battery_style">Follow status bar style</string>
+
+    <!-- Battery estimate -->
+    <string name="battery_estimate_title">Battery estimate</string>
+    <string name="battery_estimate_summary">Display estimated remaining battery life when available</string>
+
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Location</string>
     <string name="network_traffic_location_disable">Disabled</string>
