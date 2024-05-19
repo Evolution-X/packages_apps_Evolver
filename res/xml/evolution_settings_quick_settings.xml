@@ -29,6 +29,29 @@
             android:entryValues="@array/status_bar_battery_percent_values"
             android:defaultValue="2" />
 
+        <!-- Brightness slider -->
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/quick_settings_show_brightness_slider_title"
+            android:entries="@array/quick_settings_show_brightness_slider_entries"
+            android:entryValues="@array/quick_settings_show_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <!-- Brightness slider position -->
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_brightness_slider_position"
+            android:title="@string/quick_settings_brightness_slider_position_title"
+            android:entries="@array/quick_settings_brightness_slider_position_entries"
+            android:entryValues="@array/quick_settings_brightness_slider_position_values"
+            android:defaultValue="0" />
+
+        <!-- Auto brightness icon -->
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/quick_settings_auto_brightness_icon_title"
+            android:summary="@string/quick_settings_auto_brightness_icon_summary"
+            android:defaultValue="true" />
+
         <!-- Floating clear all -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_material_dismiss"
