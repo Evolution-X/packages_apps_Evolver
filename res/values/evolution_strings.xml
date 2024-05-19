@@ -233,6 +233,15 @@
 
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Interface</string>
+    <string name="quick_settings_show_brightness_slider_title">Brightness slider</string>
+    <string name="quick_settings_show_brightness_slider_never">Never show</string>
+    <string name="quick_settings_show_brightness_slider_expanded">Only show when expanded</string>
+    <string name="quick_settings_show_brightness_slider_always">Always show</string>
+    <string name="quick_settings_brightness_slider_position_title">Brightness slider position</string>
+    <string name="quick_settings_brightness_slider_position_top">Top</string>
+    <string name="quick_settings_brightness_slider_position_bottom">Bottom</string>
+    <string name="quick_settings_auto_brightness_icon_title">Auto brightness icon</string>
+    <string name="quick_settings_auto_brightness_icon_summary">Show icon toggle for adaptive brightness next to the slider</string>
     <string name="quick_settings_floating_clear_all_title">Floating clear all button</string>
     <string name="quick_settings_floating_clear_all_summary">Replace the \'clear all\' text button with a bottom-centered floating one</string>
     <string name="quick_settings_lock_screen_category">Lock screen</string>
