@@ -30,6 +30,7 @@ import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
 
 import org.evolution.settings.preferences.SystemSettingListPreference;
+import org.evolution.settings.utils.DeviceUtils;
 
 @SearchIndexable
 public class QuickSettings extends SettingsPreferenceFragment implements
@@ -43,6 +44,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
+    private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
+    private static final String KEY_BLUETOOTH_AUTO_ON = "qs_bt_auto_on";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -54,6 +57,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private LineageSecureSettingListPreference mShowBrightnessSlider;
     private LineageSecureSettingListPreference mBrightnessSliderPosition;
     private LineageSecureSettingSwitchPreference mShowAutoBrightness;
+    private PreferenceCategory mMiscellaneousCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mShowBrightnessSlider = (LineageSecureSettingListPreference) findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
         mBrightnessSliderPosition = (LineageSecureSettingListPreference) findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
         mShowAutoBrightness = (LineageSecureSettingSwitchPreference) findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
+        mMiscellaneousCategory = (PreferenceCategory) findPreference(KEY_MISCELLANEOUS_CATEGORY);
 
         int batterystyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
@@ -91,6 +96,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mShowAutoBrightness.setEnabled(showSlider);
         } else {
             mInterfaceCategory.removePreference(mShowAutoBrightness);
+        }
+
+        if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+            prefScreen.removePreference(mMiscellaneousCategory);
         }
     }
 
@@ -130,6 +139,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                         com.android.internal.R.bool.config_automatic_brightness_available);
                 if (!autoBrightnessAvailable) {
                     keys.add(KEY_SHOW_AUTO_BRIGHTNESS);
+                }
+                if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+                    keys.add(KEY_BLUETOOTH_AUTO_ON);
                 }
                 return keys;
             }
