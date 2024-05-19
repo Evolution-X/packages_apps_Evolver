@@ -85,6 +85,13 @@
             android:summary="@string/status_bar_4g_icon_summary"
             android:defaultValue="false" />
 
+        <!-- Wi-Fi standard icon -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="wifi_standard_icon"
+            android:title="@string/status_bar_wifi_standard_icon_title"
+            android:summary="@string/status_bar_wifi_standard_icon_summary"
+            android:defaultValue="false" />
+
         <!-- Bluetooth battery status -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"
