@@ -127,6 +127,18 @@
     <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
 
     <!-- Quick settings -->
+    <string name="quick_settings_brightness_slider_category">Brightness slider</string>
+    <string name="quick_settings_show_brightness_slider_title">Brightness slider</string>
+    <string name="quick_settings_show_brightness_slider_never">Never show</string>
+    <string name="quick_settings_show_brightness_slider_expanded">Only show when expanded</string>
+    <string name="quick_settings_show_brightness_slider_always">Always show</string>
+    <string name="quick_settings_brightness_slider_position_title">Brightness slider position</string>
+    <string name="quick_settings_brightness_slider_position_top">Top</string>
+    <string name="quick_settings_brightness_slider_position_bottom">Bottom</string>
+    <string name="quick_settings_auto_brightness_icon_title">Auto brightness icon</string>
+    <string name="quick_settings_auto_brightness_icon_summary">Show icon toggle for adaptive brightness next to the slider</string>
+    <string name="quick_settings_brightness_slider_haptic_title">Haptic feedback</string>
+    <string name="quick_settings_brightness_slider_haptic_summary">Provide haptic feedback on changing brightness using slider</string>
     <string name="quick_settings_lock_screen_category">Lock screen</string>
     <string name="quick_settings_secure_lock_screen_title">Hide on secure lock screen</string>
     <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>

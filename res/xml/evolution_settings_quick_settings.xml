@@ -10,6 +10,41 @@
     android:title="@string/quick_settings_title">
 
     <PreferenceCategory
+        android:key="quick_settings_brightness_slider_category"
+        android:title="@string/quick_settings_brightness_slider_category">
+
+        <!-- Brightness slider -->
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/quick_settings_show_brightness_slider_title"
+            android:entries="@array/quick_settings_show_brightness_slider_entries"
+            android:entryValues="@array/quick_settings_show_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <!-- Brightness slider position -->
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_brightness_slider_position"
+            android:title="@string/quick_settings_brightness_slider_position_title"
+            android:entries="@array/quick_settings_brightness_slider_position_entries"
+            android:entryValues="@array/quick_settings_brightness_slider_position_values"
+            android:defaultValue="0" />
+
+        <!-- Haptic feedback on brightness slider -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_slider_haptic"
+            android:title="@string/quick_settings_brightness_slider_haptic_title"
+            android:summary="@string/quick_settings_brightness_slider_haptic_summary"
+            android:defaultValue="false" />
+
+        <!-- Auto brightness icon -->
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/quick_settings_auto_brightness_icon_title"
+            android:summary="@string/quick_settings_auto_brightness_icon_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="quick_settings_lock_screen_category"
         android:title="@string/quick_settings_lock_screen_category">
 
