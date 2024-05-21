@@ -59,6 +59,13 @@
             android:max="100"
             android:min="1" />
 
+        <!-- Data usage -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_data_usage"
+            android:title="@string/quick_settings_data_usage_title"
+            android:summary="@string/quick_settings_data_usage_summary"
+            android:defaultValue="false" />
+
         <!-- QS Header -->
         <Preference
             android:key="qs_header_image"
