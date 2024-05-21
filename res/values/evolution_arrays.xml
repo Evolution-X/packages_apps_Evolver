@@ -347,4 +347,39 @@
         <item>1</item>
     </string-array>
 
+    <!-- Quick settings - Tiles animation -->
+    <string-array name="quick_settings_tile_animation_style_entries" translatable="false">
+        <item>@string/quick_settings_tile_animation_style_off</item>
+        <item>@string/quick_settings_tile_animation_style_flip</item>
+        <item>@string/quick_settings_tile_animation_style_rotate</item>
+    </string-array>
+
+    <string-array name="quick_settings_tile_animation_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="quick_settings_tile_animation_interpolator_entries" translatable="false">
+        <item>@string/quick_settings_tile_animation_interpolator_linear</item>
+        <item>@string/quick_settings_tile_animation_interpolator_accelerate</item>
+        <item>@string/quick_settings_tile_animation_interpolator_decelerate</item>
+        <item>@string/quick_settings_tile_animation_interpolator_accelerateDecelerate</item>
+        <item>@string/quick_settings_tile_animation_interpolator_bounce</item>
+        <item>@string/quick_settings_tile_animation_interpolator_overshoot</item>
+        <item>@string/quick_settings_tile_animation_interpolator_anticipate</item>
+        <item>@string/quick_settings_tile_animation_interpolator_anticipateOvershoot</item>
+    </string-array>
+
+    <string-array name="quick_settings_tile_animation_interpolator_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
 </resources>
