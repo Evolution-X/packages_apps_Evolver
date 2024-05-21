@@ -33,6 +33,7 @@ import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
 
 import org.evolution.settings.preferences.SystemSettingListPreference;
+import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 
@@ -53,6 +54,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_UI_STYLE  = "qs_tile_ui_style";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
+    private static final String KEY_TILE_ANIM_STYLE = "qs_tile_animation_style";
+    private static final String KEY_TILE_ANIM_DURATION = "qs_tile_animation_duration";
+    private static final String KEY_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -67,6 +71,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private LineageSecureSettingSwitchPreference mShowAutoBrightness;
     private SystemSettingListPreference mBatteryStyle;
     private SystemSettingListPreference mBatteryPercent;
+    private SystemSettingListPreference mTileAnimationInterpolator;
+    private SystemSettingListPreference mTileAnimationStyle;
+    private SystemSettingSeekBarPreference mTileAnimationDuration;
     private SystemSettingSwitchPreference mBrightnessSliderHaptic;
 
     private static ThemeUtils mThemeUtils;
@@ -114,6 +121,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mShowAutoBrightness);
         }
 
+        mTileAnimationStyle = (SystemSettingListPreference) findPreference(KEY_TILE_ANIM_STYLE);
+        mTileAnimationDuration = (SystemSettingSeekBarPreference) findPreference(KEY_TILE_ANIM_DURATION);
+        mTileAnimationInterpolator = (SystemSettingListPreference) findPreference(KEY_TILE_ANIM_INTERPOLATOR);
+        mTileAnimationStyle.setOnPreferenceChangeListener(this);
+
+        int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QS_TILE_ANIMATION_STYLE, 0, UserHandle.USER_CURRENT);
+        updateTileAnimStyle(tileAnimationStyle);
+
         mMiscellaneousCategory = (PreferenceCategory) findPreference(KEY_MISCELLANEOUS_CATEGORY);
 
         if (!DeviceUtils.deviceSupportsBluetooth(mContext)) {
@@ -159,8 +175,17 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             updateQsPanelStyle(getContext());
             checkQSOverlays(getContext());
             return true;
+        } else if (preference == mTileAnimationStyle) {
+            int value = Integer.parseInt((String) newValue);
+            updateTileAnimStyle(value);
+            return true;
         }
         return false;
+    }
+
+    private void updateTileAnimStyle(int tileAnimationStyle) {
+        mTileAnimationDuration.setEnabled(tileAnimationStyle != 0);
+        mTileAnimationInterpolator.setEnabled(tileAnimationStyle != 0);
     }
 
     private static void updateQsStyle(Context context) {
