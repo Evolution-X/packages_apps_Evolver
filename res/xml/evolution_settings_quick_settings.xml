@@ -52,6 +52,13 @@
             android:summary="@string/quick_settings_auto_brightness_icon_summary"
             android:defaultValue="true" />
 
+        <!-- Data usage -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_data_usage"
+            android:title="@string/quick_settings_data_usage_title"
+            android:summary="@string/quick_settings_data_usage_summary"
+            android:defaultValue="false" />
+
         <!-- Floating clear all -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_material_dismiss"
