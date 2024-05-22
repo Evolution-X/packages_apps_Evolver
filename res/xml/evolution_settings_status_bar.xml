@@ -182,5 +182,12 @@
             android:title="@string/status_bar_battery_bar_title"
             android:summary="@string/status_bar_battery_bar_summary"
             android:fragment="org.evolution.settings.fragments.statusbar.BatteryBar" />
+
+        <!-- Status bar lyrics -->    
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="status_bar_show_lyric"
+            android:title="@string/status_bar_lyrics_title"
+            android:summary="@string/status_bar_lyrics_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>

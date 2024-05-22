@@ -211,6 +211,8 @@
     <string name="status_bar_miscellaneous_category">Miscellaneous</string>
     <string name="status_bar_battery_bar_title">Battery bar</string>
     <string name="status_bar_battery_bar_summary">Display and customize battery bar above status bar</string>
+    <string name="status_bar_lyrics_title">Status bar lyrics</string>
+    <string name="status_bar_lyrics_summary">Display lyrics in status bar (requires StatusBarLyricExt app)</string>
 
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Clock position</string>
