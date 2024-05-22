@@ -38,6 +38,20 @@
             android:title="@string/lock_screen_screen_off_udfps_title"
             android:summary="@string/lock_screen_screen_off_udfps_summary"
             android:defaultValue="false" />
+
+        <!-- Authentication success vibration -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="fp_success_vibrate"
+            android:title="@string/lock_screen_fingerprint_success_vibration_title"
+            android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
+            android:defaultValue="true" />
+
+        <!-- Authentication error vibration -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="fp_error_vibrate"
+            android:title="@string/lock_screen_fingerprint_error_vibration_title"
+            android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
