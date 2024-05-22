@@ -321,6 +321,8 @@
 
     <!-- Notifications -->
     <string name="notifications_interface_category">Interface</string>
+    <string name="notifications_edge_light_title">Edge light</string>
+    <string name="notifications_edge_light_summary">Light up the side edges of the screen on notification pulse</string>
     <string name="notifications_island_notification_title">Island notification</string>
     <string name="notifications_island_notification_summary">Display heads-up notification in IOS \'Dynamic Island\' style</string>
     <string name="notifications_kill_app_button_title">Kill app</string>
@@ -328,6 +330,15 @@
     <string name="notifications_sounds_vibration_category">Sounds &amp; vibration</string>
     <string name="notifications_alert_display_on_title">Alert while display on</string>
     <string name="notifications_alert_display_on_summary">Play sound and vibration for notifications while the display is on</string>
+
+    <!-- Notifications/Edge light -->
+    <string name="notifications_edge_light_enable_ttile">Enable</string>
+    <string name="notifications_edge_light_always_trigger_on_pulse_title">Always trigger on pulse</string>
+    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Whether to show edge light whenever ambient display is shown and not just for notifications</string>
+    <string name="notifications_edge_light_repeat_animation_title">Repeat animation</string>
+    <string name="notifications_edge_light_repeat_animation_summary_on">Repeat until timeout</string>
+    <string name="notifications_edge_light_repeat_animation_summary_off">Show only once</string>
+    <string name="notifications_edge_light_color_mode_title">Edge light color mode</string>
 
     <!-- Notifications/Island notification -->
     <string name="island_notification_now_playing_title">Now playing</string>
@@ -412,6 +423,10 @@
     <string name="hex_hint" translatable="false">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+    <string name="accent_color">Accent color (Default)</string>
+    <string name="notification_color">Notification color</string>
+    <string name="wallpaper_color">Wallpaper color</string>
+    <string name="custom_color">Custom color</string>
 
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Value: <xliff:g id="v">%s</xliff:g></string>
