@@ -93,6 +93,10 @@
     <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
     <string name="lock_screen_screen_off_udfps_title">Screen-Off UDFPS</string>
     <string name="lock_screen_screen_off_udfps_summary">Keep UDFPS enabled while the screen is off</string>
+    <string name="lock_screen_fingerprint_success_vibration_title">Authentication success vibration</string>
+    <string name="lock_screen_fingerprint_success_vibration_summary">Vibrate when fingerprint authentication is successful</string>
+    <string name="lock_screen_fingerprint_error_vibration_title">Authentication error vibration</string>
+    <string name="lock_screen_fingerprint_error_vibration_summary">Vibrate when fingerprint authentication fails</string>
     <string name="lock_screen_miscellaneous_category">Miscellaneous</string>
     <string name="lock_screen_pocket_detection_title">Pocket detection</string>
     <string name="lock_screen_pocket_detection_summary">Block screen and button inputs when device is in pocket</string>
