@@ -36,9 +36,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_FINGERPRINT_CATEGORY = "lock_screen_fingerprint_category";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
     private static final String KEY_SCREEN_OFF_UDFPS = "screen_off_udfps_enabled";
+    private static final String KEY_MISCELLANEOUS_CATEGORY = "lock_screen_miscellaneous_category";
+    private static final String KEY_POCKET_DETECTION = "pocket_judge";
 
     private PreferenceCategory mFingerprintCategory;
     private SecureSettingSwitchPreference mScreenOffUdfps;
+    private PreferenceCategory mMiscellaneousCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
         mFingerprintCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_CATEGORY);
         mScreenOffUdfps = (SecureSettingSwitchPreference) findPreference(KEY_SCREEN_OFF_UDFPS);
+        mMiscellaneousCategory = (PreferenceCategory) findPreference(KEY_MISCELLANEOUS_CATEGORY);
 
         FingerprintManager fingerprintManager = (FingerprintManager)
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
@@ -67,6 +71,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
             if (!screenOffUdfpsAvailable) {
                 mFingerprintCategory.removePreference(mScreenOffUdfps);
             }
+        }
+
+        boolean pocketDetectionAvailable = resources.getBoolean(
+                com.android.internal.R.bool.config_pocketModeSupported);
+        if (!pocketDetectionAvailable) {
+            prefScreen.removePreference(mMiscellaneousCategory);
         }
     }
 
@@ -104,6 +114,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
                     if (!screenOffUdfpsAvailable) {
                         keys.add(KEY_SCREEN_OFF_UDFPS);
                     }
+                }
+                boolean pocketDetectionAvailable = resources.getBoolean(
+                        com.android.internal.R.bool.config_pocketModeSupported);
+                if (!pocketDetectionAvailable) {
+                    keys.add(KEY_POCKET_DETECTION);
                 }
                 return keys;
             }
