@@ -39,4 +39,16 @@
             android:summary="@string/lock_screen_screen_off_udfps_summary"
             android:defaultValue="false" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lock_screen_miscellaneous_category"
+        android:title="@string/lock_screen_miscellaneous_category">
+
+        <!-- Pocket detection -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="pocket_judge"
+            android:title="@string/lock_screen_pocket_detection_title"
+            android:summary="@string/lock_screen_pocket_detection_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>
