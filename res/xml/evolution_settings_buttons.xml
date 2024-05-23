@@ -9,4 +9,23 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/buttons_title">
 
+    <PreferenceCategory
+        android:key="buttons_navbar_layout_category"
+        android:title="@string/navbar_layout_category_title">
+
+        <org.evolution.settings.preferences.SecureSettingListPreference
+            android:key="navbar_layout_views"
+            android:title="@string/navbar_layout_title"
+            android:summary="%s"
+            android:entries="@array/navbar_layout_entries"
+            android:entryValues="@array/navbar_layout_values"
+            android:defaultValue="default" />
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="navbar_inverse_layout"
+            android:title="@string/navbar_invert_layout_title"
+            android:summary="@string/navbar_invert_layout_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
