@@ -410,6 +410,16 @@
     <string name="spoofing_snapchat_title">Snapchat spoof</string>
     <string name="spoofing_snapchat_summary">Spoof the device as Pixel 2 for Snapchat to allow original quality captures</string>
 
+    <!-- Navigation Bar -->
+    <string name="navbar_layout_category_title">Button navbar</string>
+    <string name="navbar_layout_title">Layout</string>
+    <string name="navbar_layout_normal">Normal</string>
+    <string name="navbar_layout_compact">Compact</string>
+    <string name="navbar_layout_leftleaning">Left-leaning</string>
+    <string name="navbar_layout_rightleaning">Right-leaning</string>
+    <string name="navbar_invert_layout_title">Invert layout</string>
+    <string name="navbar_invert_layout_summary">Inverts the layout of the navigation bar and other items, such as the IME switcher</string>
+
     <!-- About -->
     <string name="about_info">Evolution X aims to provide users with a Pixel-like feel at first glance, with additional features at your disposal</string>
     <string name="about_website_title">Website</string>
