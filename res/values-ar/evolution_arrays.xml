@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="themes_lock_unlock_sounds_entries">
+        <item>افتراضي</item><item>Amazon Fire</item><item>Asus Zenfone Max</item><item>Essential PH-1</item>
+        <item>HTC M8</item><item>Huawei</item><item>Hyper OS</item><item>Iqoo</item><item>LG G3</item>
+        <item>باب Minecraft</item><item>MIUI 10</item><item>MIUI 11</item><item>Nextbit</item><item>Nokia X</item>
+        <item>iOS قديم</item><item>One UI</item><item>OOS 14</item><item>Razer Phone</item><item>Soong</item>
+        <item>جهاز Windows</item><item>خطأ Windows</item>
+    </string-array>
+
+    <string-array name="themes_boot_animation_entries">
+        <item>Evolution X</item><item>Evolution X (كشف)</item><item>AOKP</item><item>CyanogenMod</item>
+        <item>ctOS</item><item>Cyberpunk</item><item>Dirty Unicorns</item><item>Google</item>
+        <item>Google (Monet)</item><item>PAC-ROM</item><item>Resurrection Remix</item><item>SlimRoms</item>
+        <item>Valorant</item><item>مخصص</item>
+    </string-array>
+
+    <string-array name="wallpaper_effect_entries">
+        <item>بلا</item><item>تمويه محبب</item><item>انحراف لوني</item><item>تظليل طرفي</item>
+        <item>بكسلة</item><item>تشبع</item><item>بني داكن</item><item>زيادة الحدة</item>
+        <item>تدرج رمادي</item><item>ألوان سالبة</item><item>تمويه شعاعي</item><item>تقليل الألوان</item>
+    </string-array>
+
+    <string-array name="clock_style_entries">
+        <item>افتراضي</item><item>ساعة OOS</item><item>ساعة iOS</item><item>ساعة COS</item>
+        <item>ساعة مخصصة</item><item>ساعة مخصصة 1</item><item>ساعة مخصصة 2</item><item>ساعة مخصصة 3</item>
+        <item>ساعة MIUI</item><item>ساعة IDE</item><item>ساعة Lottie</item><item>ساعة Lottie2</item>
+        <item>ساعة Fluid</item><item>ساعة Dualtone</item><item>ساعة Dualtone2</item><item>ساعة أنيقة</item>
+        <item>ساعة جانبية</item><item>ساعة بسيطة</item><item>ساعة بسيطة 2</item><item>ساعة بسيطة 3</item>
+    </string-array>
+
+    <string-array name="nowplaying_icon_style_entries">
+        <item>معطل</item><item>أيقونة التطبيق</item><item>أيقونة نوتة موسيقية</item>
+    </string-array>
+
+    <string-array name="nowplaying_color_mode_entries">
+        <item>أبيض</item><item>لون التمييز</item><item>غلاف الألبوم</item>
+    </string-array>
+
+    <string-array name="charging_animation_style_entries">
+        <item>تيار فقاعات</item><item>رذاذ توهج نيون</item><item>تأثيرات شعاعية</item><item>تأثير بلازما</item>
+        <item>شرارات كمومية</item><item>انتشار سديمي</item><item>مصفوفة رقمية</item><item>تدفق هندسي</item>
+    </string-array>
+
+    <string-array name="charging_color_mode_entries">
+        <item>الأخضر الافتراضي</item><item>لون التمييز</item><item>قوس قزح</item>
+    </string-array>
+
+    <string-array name="perapp_spoof_profile_labels">
+        <item>Black Shark 4 (الصين)</item><item>Poco F5</item><item>Samsung Galaxy S25 Ultra</item>
+        <item>Samsung Galaxy Z Fold 5</item><item>Honor Magic V2 RSR</item><item>Lenovo Legion Y700</item>
+        <item>Xiaomi 11T Pro</item><item>Xiaomi 13</item><item>Xiaomi 13 Pro</item><item>Xiaomi 14 Pro</item>
+        <item>OnePlus 12</item><item>OnePlus 13</item><item>Pixel 11 Pro XL</item><item>REDMAGIC 9 Pro</item>
+        <item>REDMAGIC 10 Pro</item><item>Realme 15 Pro 5G</item><item>ROG Phone 9 Pro</item><item>بدون</item>
+    </string-array>
+
+    <string-array name="cutout_progress_finish_style_entries">
+        <item>انبثاق</item><item>تتابع مقسّم</item><item>فوري</item>
+    </string-array>
+
+    <string-array name="cutout_progress_easing_entries">
+        <item>خطي</item><item>تسارع</item><item>تباطؤ</item><item>تسارع وتباطؤ سلس</item>
+    </string-array>
+
+    <string-array name="cutout_progress_position_entries">
+        <item>يمين</item><item>يسار</item><item>أعلى</item><item>أسفل</item>
+        <item>أعلى اليمين</item><item>أعلى اليسار</item><item>أسفل اليمين</item><item>أسفل اليسار</item>
+    </string-array>
+
+    <string-array name="cutout_progress_truncate_entries">
+        <item>المنتصف</item><item>البداية</item><item>النهاية</item>
+    </string-array>
+
+    <string-array name="lock_glymps_source_entries">
+        <item>خلفيات عشوائية (Picsum)</item><item>قائمة روابط مخصصة</item><item>مجلد محلي</item>
+    </string-array>
+
+    <string-array name="lock_glymps_cache_size_entries">
+        <item>3 خلفيات (حوالي 30 MB)</item><item>5 خلفيات (حوالي 50 MB)</item><item>10 خلفيات (حوالي 100 MB)</item>
+    </string-array>
+
+    <string-array name="lock_glymps_change_on_entries">
+        <item>تشغيل الشاشة</item><item>إطفاء الشاشة (موصى به)</item><item>حسب المؤقت</item>
+    </string-array>
+
+    <string-array name="lock_glymps_timer_entries">
+        <item>5 دقائق</item><item>10 دقائق</item><item>15 دقيقة</item><item>30 دقيقة</item>
+        <item>ساعة واحدة</item><item>ساعتان</item><item>3 ساعات</item><item>6 ساعات</item>
+        <item>12 ساعة</item><item>24 ساعة</item>
+    </string-array>
+
+    <string-array name="playback_speed_entries">
+        <item>0.25x (بطيء جدًا)</item><item>0.5x (بطيء)</item><item>0.75x (أبطأ قليلًا)</item>
+        <item>1.0x (عادي)</item><item>1.25x (أسرع قليلًا)</item><item>1.5x (سريع)</item><item>2.0x (سريع جدًا)</item>
+    </string-array>
+
+    <string-array name="quick_settings_data_usage_window_entries">
+        <item>يومي</item><item>أسبوعي</item>
+    </string-array>
+
+    <!-- Added: completed Arabic translations (string-arrays) -->
+    <string-array name="monet_engine_style_entries">
+        <item>@string/monet_engine_style_tonal_spot</item>
+        <item>@string/monet_engine_style_vibrant</item>
+        <item>@string/monet_engine_style_expressive</item>
+        <item>@string/monet_engine_style_spritz</item>
+        <item>@string/monet_engine_style_rainbow</item>
+        <item>@string/monet_engine_style_fruit_salad</item>
+        <item>@string/monet_engine_style_content</item>
+        <item>@string/monet_engine_style_monochromatic</item>
+    </string-array>
+    <string-array name="status_bar_battery_percent_entries">
+        <item>@string/status_bar_battery_percent_hidden</item>
+        <item>@string/status_bar_battery_percent_text_inside</item>
+        <item>@string/status_bar_battery_percent_text_next</item>
+    </string-array>
+    <string-array name="wallpaper_blur_entries">
+        <item>@string/disabled</item>
+        <item>@string/monet_engine_color_source_both</item>
+        <item>@string/monet_engine_color_source_lock</item>
+        <item>@string/monet_engine_color_source_home</item>
+    </string-array>
+    <string-array name="wallpaper_effect_target_entries">
+        <item>@string/monet_engine_color_source_both</item>
+        <item>@string/monet_engine_color_source_lock</item>
+        <item>@string/monet_engine_color_source_home</item>
+    </string-array>
+    <string-array name="wallpaper_blur_filter_entries">
+        <item>@string/glass_blur</item>
+        <item>@string/frosted_blur</item>
+    </string-array>
+    <string-array name="ls_media_art_filter_entries">
+        <item>@string/ls_media_art_filter_none</item>
+        <item>@string/ls_media_art_filter_blur</item>
+        <item>@string/ls_media_art_filter_grayscale</item>
+        <item>@string/ls_media_art_filter_sepia</item>
+        <item>@string/ls_media_art_filter_tint</item>
+        <item>@string/ls_media_art_filter_invert</item>
+        <item>@string/ls_media_art_filter_grayblur</item>
+    </string-array>
+    <string-array name="qs_brightness_slider_shape_entries">
+        <item>@string/default_value</item>
+        <item>@string/quick_settings_tile_shape_circle</item>
+        <item>@string/quick_settings_tile_shape_rounded_square</item>
+        <item>@string/quick_settings_tile_shape_square</item>
+    </string-array>
+    <string-array name="qs_brightness_slider_shape_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="clock_chip_gradient_mask_text_entries">
+        <item>@string/clock_chip_gradient_mask_text_default</item>
+        <item>@string/clock_chip_gradient_mask_text_mask</item>
+    </string-array>
+    <string-array name="clock_chip_gradient_mask_text_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="cutout_progress_finish_style_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="cutout_progress_easing_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="cutout_progress_position_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="cutout_progress_truncate_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="cutout_progress_ring_color_mode_entries">
+        <item>@string/cutout_progress_ring_color_mode_accent</item>
+        <item>@string/cutout_progress_ring_color_mode_rainbow</item>
+        <item>@string/cutout_progress_ring_color_mode_custom</item>
+    </string-array>
+    <string-array name="cutout_progress_ring_color_mode_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="lock_glymps_wallpaper_target_entries">
+        <item>@string/monet_engine_color_source_lock</item>
+        <item>@string/monet_engine_color_source_home</item>
+        <item>@string/monet_engine_color_source_both</item>
+    </string-array>
+    <string-array name="lock_glymps_change_on_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="emoji_style_entries">
+        <item>@string/emoji_style_stock</item>
+        <item>@string/emoji_style_ios</item>
+        <item>@string/emoji_style_samsung</item>
+        <item>@string/emoji_style_swiftui</item>
+        <item>@string/emoji_style_facebook</item>
+    </string-array>
+    <string-array name="emoji_style_values">
+        <item>android</item>
+        <item>ios</item>
+        <item>samsung</item>
+        <item>swiftui</item>
+        <item>facebook</item>
+    </string-array>
+    <string-array name="status_bar_carrier_display_entries">
+        <item>@string/never</item>
+        <item>@string/carrier_show_lockscreen_only</item>
+        <item>@string/carrier_show_statusbar_only</item>
+        <item>@string/carrier_show_both</item>
+    </string-array>
+    <string-array name="qs_show_volume_slider_entries">
+        <item>@string/qs_show_volume_slider_hide</item>
+        <item>@string/qs_show_volume_slider_both</item>
+        <item>@string/qs_show_volume_slider_below</item>
+        <item>@string/qs_show_volume_slider_only</item>
+    </string-array>
+    <string-array name="pif_spoof_vending_finger_entries">
+        <item>@string/pif_vending_finger_disabled</item>
+        <item>@string/pif_vending_finger_same</item>
+    </string-array>
+    <string-array name="pif_spoof_vending_finger_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="widget_entries">
+        <item>@string/status_bar_date_none</item>
+        <item>@string/calculator</item>
+        <item>@string/media</item>
+        <item>@string/clock_timer</item>
+        <item>@string/torch</item>
+        <item>@string/weather</item>
+        <item>@string/wifi</item>
+        <item>@string/data</item>
+        <item>@string/ringer</item>
+        <item>@string/bt</item>
+        <item>@string/hotspot</item>
+        <item>@string/wallet</item>
+        <item>@string/qr_scanner</item>
+    </string-array>
+    <string-array name="widget_values">
+        <item>none</item>
+        <item>calculator</item>
+        <item>media</item>
+        <item>timer</item>
+        <item>torch</item>
+        <item>weather</item>
+        <item>wifi</item>
+        <item>data</item>
+        <item>ringer</item>
+        <item>bt</item>
+        <item>hotspot</item>
+        <item>wallet</item>
+        <item>qrscanner</item>
+    </string-array>
+    <string-array name="lockscreen_widgets_style_entries">
+        <item>@string/lockscreen_widgets_style1</item>
+        <item>@string/lockscreen_widgets_style2</item>
+        <item>@string/lockscreen_widgets_style3</item>
+        <item>@string/lockscreen_widgets_style4</item>
+        <item>@string/lockscreen_widgets_style5</item>
+        <item>@string/lockscreen_widgets_style6</item>
+    </string-array>
+    <string-array name="dynamic_island_popup_color_mode_entries">
+        <item>@string/dynamic_island_popup_color_mode_entry_default</item>
+        <item>@string/dynamic_island_popup_color_mode_entry_blur</item>
+        <item>@string/dynamic_island_popup_color_mode_entry_solid_black</item>
+    </string-array>
+    <string-array name="shade_color_style_entries">
+        <item>@string/shade_color_style_aosp</item>
+        <item>@string/shade_color_style_glass</item>
+        <item>@string/shade_color_style_tinted</item>
+    </string-array>
+
+    <string-array name="liquid_glass_style_entries">
+        <item>@string/liquid_glass_style_ios</item>
+        <item>@string/liquid_glass_style_coloros</item>
+    </string-array>
+</resources>
