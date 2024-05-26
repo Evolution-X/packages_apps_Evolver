@@ -207,7 +207,7 @@ public class AppsSpoofing extends SettingsPreferenceFragment implements
             return true;
         }
         if (preference == mGoogleSpoof) {
-            killGooglePackages()
+            killGooglePackages();
             return true;
         }
         if (preference == mTensorSpoof) {
