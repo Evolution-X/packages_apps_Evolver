@@ -11,7 +11,7 @@
     <string name="themes_title">Темы</string>
     <string name="themes_summary">Движок Monet, шрифты, значки</string>
     <string name="lock_screen_title">Экран блокировки</string>
-    <string name="lock_screen_summary">Интерфейс, разное</string>
+    <string name="lock_screen_summary">Интерфейс, прочее</string>
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_summary">Жесты, иконки, индикаторы конфиденциальности</string>
     <string name="quick_settings_title">Быстрые настройки</string>
@@ -87,7 +87,7 @@
     <string name="lock_screen_fingerprint_ripple_title">Эффект пульсации</string>
     <string name="lock_screen_fingerprint_ripple_summary">Показывать эффект пульсации при разблокировке с помощью отпечатка пальца</string>
     <string name="lock_screen_screen_off_udfps_title">Отпечаток UDFPS на выключенном экране</string>
-    <string name="lock_screen_screen_off_udfps_summary">Использовать сканер отпечатков пальцев при выключенном экране</string>
+    <string name="lock_screen_screen_off_udfps_summary">Оставлять сканер отпечатков пальцев под дисплеем работающим даже при выключенном экране</string>
     <string name="lock_screen_fingerprint_success_vibration_title">Вибрация при успешной аутентификации</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Вибрировать при успешной авторизации по отпечатку пальца</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Вибрация при ошибке аутентификации</string>
@@ -146,14 +146,14 @@
     <string name="status_bar_4g_icon_title">Значок 4G</string>
     <string name="status_bar_4g_icon_summary">Отображать 4G вместо LTE</string>
     <string name="status_bar_wifi_standard_icon_title">Стандарт Wi-Fi</string>
-    <string name="status_bar_wifi_standard_icon_summary">Показывать стандарт Wi-Fi рядом с иконкой сигнала Wi-Fi</string>
+    <string name="status_bar_wifi_standard_icon_summary">Отображать стандарт подключения к Wi-Fi рядом с его иконкой</string>
     <string name="status_bar_bluetooth_battery_title">Уровень заряда Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Отображение состояния батареи подключенных Bluetooth устройств, если доступно</string>
     <string name="status_bar_colored_icons_title">Цветные значки</string>
     <string name="status_bar_colored_icons_summary">Использовать цветные значки приложений для уведомлений</string>
     <string name="status_bar_logo_title">Логотип</string>
     <string name="status_bar_logo_summary">Отображение пользовательского логотипа в строке состояния</string>
-    <string name="status_bar_logo_position_title">Позиция логотипа</string>
+    <string name="status_bar_logo_position_title">Расположение логотипа</string>
     <string name="status_bar_logo_position_left">Левая сторона</string>
     <string name="status_bar_logo_position_right">Правая сторона</string>
     <string name="status_bar_logo_style_title">Стиль логотипа</string>
@@ -198,7 +198,7 @@
     <string name="status_bar_privacy_indicators_category">Индикаторы конфиденциальности</string>
     <string name="status_bar_mic_camera_privacy_indicator_title">Микрофон и камера</string>
     <string name="status_bar_mic_camera_privacy_indicator_summary">Показывать индикатор, когда приложение использует камеру или микрофон</string>
-    <string name="status_bar_location_privacy_indicator_title">Расположение</string>
+    <string name="status_bar_location_privacy_indicator_title">Местоположение</string>
     <string name="status_bar_location_privacy_indicator_summary">Показывать индикатор, когда приложение использует ваше местоположение</string>
     <string name="status_bar_projection_privacy_indicator_title">Проекция экрана</string>
     <string name="status_bar_projection_privacy_indicator_summary">Отображать индикатор, когда экран проецируется</string>
@@ -206,7 +206,7 @@
     <string name="status_bar_battery_bar_title">Полоса заряда батареи</string>
     <string name="status_bar_battery_bar_summary">Отображение и настройка полосы батареи над строке состония</string>
     <string name="status_bar_lyrics_title">Текст в строке состояния</string>
-    <string name="status_bar_lyrics_summary">Показывать текст песни в строке состояния (необходимо установить приложение StatusBarLyricExt)</string>
+    <string name="status_bar_lyrics_summary">Показывать тексты песен в строке состояния (необходимо установить приложение StatusBarLyricExt)</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Расположение часов</string>
     <string name="status_bar_clock_position_right">Справа</string>
@@ -216,12 +216,12 @@
     <string name="status_bar_clock_seconds_title">Показывать секунды</string>
     <string name="status_bar_clock_seconds_summary">Отображать секунды рядом с часами в строке состояния</string>
     <string name="status_bar_clock_auto_hide_intervals_title">Автоскрытие по интервалу</string>
-    <string name="status_bar_clock_auto_hide_intervals_summary">Скрыть часы в определенные интервалы времени</string>
+    <string name="status_bar_clock_auto_hide_intervals_summary">Скрывать часы через настраиваемые интервалы времени</string>
     <string name="status_bar_clock_auto_hide_hdur_title">Продолжительность скрытия</string>
     <string name="status_bar_clock_auto_hide_hdur_summary">Количество секунд для скрытия часов</string>
     <string name="status_bar_clock_auto_hide_sdur_title">Продолжительность отображения</string>
     <string name="status_bar_clock_auto_hide_sdur_summary">Количество секунд ожидания перед скрытием часов</string>
-    <string name="status_bar_clock_auto_hide_launcher_title">Авто скрытие в лаунчере</string>
+    <string name="status_bar_clock_auto_hide_launcher_title">Автоскрытие в лаунчере</string>
     <string name="status_bar_clock_auto_hide_launcher_summary">Скрывать часы, если открыт рабочий стол</string>
     <string name="status_bar_clock_chip_title">Фоновая подложка</string>
     <string name="status_bar_clock_chip_summary">Отображать фон акцентного цвета под часами</string>
@@ -246,7 +246,7 @@
     <string name="status_bar_clock_date_right">Справа от времени</string>
     <string name="status_bar_clock_date_left">Слева от времени</string>
     <!-- Status bar/Network traffic -->
-    <string name="network_traffic_location_title">Расположение</string>
+    <string name="network_traffic_location_title">Местоположение</string>
     <string name="network_traffic_location_disable">Отключено</string>
     <string name="network_traffic_location_statusbar">Строка состояния</string>
     <string name="network_traffic_location_quick_statusbar">Заголовок быстрых настроек</string>
@@ -295,12 +295,12 @@
     <string name="quick_settings_brightness_slider_position_bottom">Внизу</string>
     <string name="quick_settings_auto_brightness_icon_title">Значок автояркости</string>
     <string name="quick_settings_auto_brightness_icon_summary">Показать переключатель автояркости рядом со слайдером яркости</string>
-    <string name="quick_settings_data_usage_title">Использование данных</string>
-    <string name="quick_settings_data_usage_summary">Отображение сводки об использовании данных в нижнем колонтитуле быстрых настроек</string>
+    <string name="quick_settings_data_usage_title">Использованные данные</string>
+    <string name="quick_settings_data_usage_summary">Отображать расход трафика в нижней части быстрых настроек</string>
     <string name="quick_settings_floating_clear_all_title">Плавающая кнопка «Очистить всё»</string>
     <string name="quick_settings_floating_clear_all_summary">Заменить текстовую кнопку «Очистить все» на плавающую (по центру снизу)</string>
     <string name="quick_settings_animations_category">Анимации</string>
-    <string name="quick_settings_tile_animation_style_title">Стиль анимации плитки</string>
+    <string name="quick_settings_tile_animation_style_title">Стиль анимации при нажатии</string>
     <string name="quick_settings_tile_animation_duration_title">Длительность анимации</string>
     <string name="quick_settings_tile_animation_interpolator_title">Интерполятор анимации плиток</string>
     <string name="quick_settings_tile_animation_style_off">Без анимации</string>
@@ -315,7 +315,7 @@
     <string name="quick_settings_tile_animation_interpolator_anticipate">Ускорение</string>
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Опережение с перекрытием</string>
     <string name="quick_settings_lock_screen_category">Экран блокировки</string>
-    <string name="quick_settings_secure_lock_screen_title">Скрывать на защищённом экране блокировки</string>
+    <string name="quick_settings_secure_lock_screen_title">Скрытие на защищённом экране блокировки</string>
     <string name="quick_settings_secure_lock_screen_summary">Скрывать все быстрые настройки в шторке уведомлений, пока устройство заблокировано</string>
     <string name="quick_settings_require_unlock_title">Доступ к быстрым настройкам требует разблокировки</string>
     <string name="quick_settings_require_unlock_summary">Следующие быстрые настройки требуют разблокировки устройства прежде чем вы сможете взаимодействовать с ними:\nAirplane, Батарея, Bluetooth, сотовая связь, передача данных, Hotspot, Интернет, NFC, замок вращения и Wi-Fi</string>
@@ -388,6 +388,8 @@
     <string name="spoofing_app_specific_category">Для отдельных приложений</string>
     <string name="spoofing_games_title">Повышенный FPS в играх</string>
     <string name="spoofing_games_summary">Подмена устройства на другую модель для разблокировки более высокого FPS в некоторых играх</string>
+    <string name="spoofing_snapchat_title">Маскировка для Snapchat</string>
+    <string name="spoofing_snapchat_summary">Подмена устройства на Pixel 2 для повышения качества снимков в Snapchat</string>
     <!-- Navigation Bar -->
     <string name="navbar_layout_category_title">Кнопки панели навигации</string>
     <string name="navbar_layout_title">Расположение</string>
