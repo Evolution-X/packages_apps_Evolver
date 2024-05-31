@@ -54,5 +54,12 @@
             android:title="@string/spoofing_games_title"
             android:summary="@string/spoofing_games_summary"
             android:defaultValue="false" />
+
+        <!-- Snapchat -->
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pixelprops.snapchat"
+            android:title="@string/spoofing_snapchat_title"
+            android:summary="@string/spoofing_snapchat_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 </PreferenceScreen>
