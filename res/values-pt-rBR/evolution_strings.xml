@@ -38,12 +38,12 @@
     <string name="themes_icons_category">Ícones</string>
     <string name="themes_system_icons_title">Ícones do sistema</string>
     <string name="themes_system_icons_summary">Definir pacote de ícones personalizado</string>
-    <string name="themes_icon_shape_title">Formato dos ícones</string>
+    <string name="themes_icon_shape_title">Estilo dos ícones</string>
     <string name="themes_icon_shape_summary">Definir o estilo dos ícones do sistema</string>
     <string name="themes_signal_icon_title">Estilo do ícone de rede</string>
-    <string name="themes_signal_icon_summary">Definir ícone de rede móvel personalizado</string>
+    <string name="themes_signal_icon_summary">Definir o estilo do ícone de rede móvel</string>
     <string name="themes_wifi_icon_title">Estilo do ícone Wi-Fi</string>
-    <string name="themes_wifi_icon_summary">Definir ícone de wi-fi personalizado</string>
+    <string name="themes_wifi_icon_summary">Definir o estilo do ícone de wi-fi</string>
     <string name="themes_navigation_bar_icons_title">Estilo da barra de navegação</string>
     <string name="themes_navigation_bar_icons_summary">Definir estilo personalizado para a barra de navegação</string>
     <string name="themes_udfps_icon_title">Ícone de impressão digital</string>
@@ -106,8 +106,8 @@
     <string name="status_bar_quick_pull_down_left">Lado esquerdo</string>
     <string name="status_bar_quick_pull_down_both">Ambos os lados</string>
     <string name="status_bar_icons_category">Ícones</string>
-    <string name="status_bar_tuner_title">Ajuste da barra de status</string>
-    <string name="status_bar_tuner_summary">Escolher quais ícones do sistema podem ser monstrados</string>
+    <string name="status_bar_tuner_title">Sintonizador da barra de status</string>
+    <string name="status_bar_tuner_summary">Escolha quais ícones do sistema podem ser mostrados</string>
     <string name="status_bar_battery_style_title">Estilo do ícone da bateria</string>
     <string name="status_bar_battery_style_icon_portrait">Ícone retrato</string>
     <string name="status_bar_battery_style_icon_rlandscape">Ícone paisagem (direita)</string>
@@ -177,7 +177,7 @@
     <string name="status_bar_logo_style_pacman">Pac-man</string>
     <string name="status_bar_logo_style_puma">Puma</string>
     <string name="status_bar_logo_style_rog">ROG</string>
-    <string name="status_bar_logo_style_spiderman">Aranha-Homem</string>
+    <string name="status_bar_logo_style_spiderman">Homem-Aranha</string>
     <string name="status_bar_logo_style_superman">Superman</string>
     <string name="status_bar_logo_style_windows">Windows</string>
     <string name="status_bar_logo_style_xbox">Xbox</string>
@@ -201,7 +201,7 @@
     <string name="status_bar_location_privacy_indicator_title">Local</string>
     <string name="status_bar_location_privacy_indicator_summary">Exibir um indicador quando um aplicativo acessar a sua localização</string>
     <string name="status_bar_projection_privacy_indicator_title">Projeção de tela</string>
-    <string name="status_bar_projection_privacy_indicator_summary">Exibir um indicador quando a tela está sendo projetada</string>
+    <string name="status_bar_projection_privacy_indicator_summary">Exibir um indicador quando a tela estiver sendo projetada</string>
     <string name="status_bar_miscellaneous_category">Diversos</string>
     <string name="status_bar_battery_bar_title">Barra de bateria</string>
     <string name="status_bar_battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
@@ -351,7 +351,7 @@
     <string name="power_menu_actions_summary">Escolha quais ações são exibidas</string>
     <string name="power_menu_lock_screen_category">Tela de bloqueio</string>
     <string name="power_menu_lock_screen_secure_title">Mostrar na tela de bloqueio segura</string>
-    <string name="power_menu_lock_screen_secure_summary">Mostrar o menu de energia enquanto o dispositivo estiver bloqueado</string>
+    <string name="power_menu_lock_screen_secure_summary">Mostrar o menu liga/desliga enquanto o dispositivo estiver bloqueado</string>
     <!-- Power menu/Power menu actions -->
     <string name="power_menu_actions_advanced_reboot_title">Reinicialização avançada</string>
     <string name="power_menu_actions_screenshot_title">Captura de tela</string>
