@@ -13,6 +13,66 @@
         android:key="quick_settings_interface_category"
         android:title="@string/quick_settings_interface_category">
 
+        <!-- Hide label -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_label_hide"
+            android:title="@string/quick_settings_tile_label_hide_title"
+            android:summary="@string/quick_settings_tile_label_hide_summary"
+            android:defaultValue="false" />
+
+        <!-- Label text size -->
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_tile_label_size"
+            android:title="@string/quick_settings_tile_label_size_title"
+            android:max="15"
+            settings:min="10"
+            settings:interval="1"
+            settings:units="sp"
+            android:defaultValue="14" />
+
+        <!-- Vertical layout -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_vertical_layout"
+            android:title="@string/quick_settings_tile_layout_title"
+            android:summary="@string/quick_settings_tile_layout_summary"
+            android:defaultValue="false" />
+
+        <!-- Columns (portrait) -->
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_layout_columns"
+            android:title="@string/quick_settings_columns_portrait_title"
+            android:max="5"
+            settings:min="2"
+            settings:interval="1"
+            android:defaultValue="2" />
+
+        <!-- Columns (landscape) -->
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_layout_columns_landscape"
+            android:title="@string/quick_settings_columns_landscape_title"
+            android:max="5"
+            settings:min="2"
+            settings:interval="1"
+            android:defaultValue="4" />
+
+        <!-- Quick QS rows (portrait) -->
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qqs_layout_rows"
+            android:title="@string/quick_settings_qqs_rows_portrait_title"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            android:defaultValue="2" />
+
+        <!-- Quick QS rows (landscape) -->
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qqs_layout_rows_landscape"
+            android:title="@string/quick_settings_qqs_rows_landscape_title"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            android:defaultValue="1" />
+
         <!-- Battery styles -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_battery_style"
