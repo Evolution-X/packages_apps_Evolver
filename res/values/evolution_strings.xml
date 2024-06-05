@@ -299,6 +299,15 @@
 
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Interface</string>
+    <string name="quick_settings_tile_label_hide_title">Hide label</string>
+    <string name="quick_settings_tile_label_size_title">Label text size</string>
+    <string name="quick_settings_tile_label_hide_summary">Only show icon in tile</string>
+    <string name="quick_settings_tile_layout_title">Vertical layout</string>
+    <string name="quick_settings_tile_layout_summary">Show label below icon instead next to icon</string>
+    <string name="quick_settings_columns_portrait_title">Columns (portrait)</string>
+    <string name="quick_settings_columns_landscape_title">Columns (landscape)</string>
+    <string name="quick_settings_qqs_rows_portrait_title">Quick QS Rows (portrait)</string>
+    <string name="quick_settings_qqs_rows_landscape_title">Quick QS Rows (landscape)</string>
     <string name="quick_settings_show_brightness_slider_title">Brightness slider</string>
     <string name="quick_settings_show_brightness_slider_never">Never show</string>
     <string name="quick_settings_show_brightness_slider_expanded">Only show when expanded</string>
