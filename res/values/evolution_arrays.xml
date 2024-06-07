@@ -271,6 +271,21 @@
         <item>3</item>
     </string-array>
 
+    <!-- Quick Settings - QS tiles style -->
+    <string-array name="quick_settings_tile_ui_style_entries">
+        <item>@string/color_default</item>
+        <item>@string/quick_settings_tile_ui_style_a11_circle</item>
+        <item>@string/quick_settings_tile_ui_style_a11_square</item>
+        <item>@string/quick_settings_tile_ui_style_a11_mix</item>
+    </string-array>
+
+    <string-array name="quick_settings_tile_ui_style_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <!-- Notifications/Edge light -->
     <string-array name="notifications_edge_light_color_mode_entries" translatable="false">
         <item>@string/accent_color</item>
