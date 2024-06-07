@@ -299,6 +299,10 @@
 
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Interface</string>
+    <string name="quick_settings_tile_ui_style_title">QS tiles style</string>
+    <string name="quick_settings_tile_ui_style_a11_circle">Circle tiles</string>
+    <string name="quick_settings_tile_ui_style_a11_square">Square tiles</string>
+    <string name="quick_settings_tile_ui_style_a11_mix">Circle &amp; Square tiles</string>
     <string name="quick_settings_tile_label_hide_title">Hide label</string>
     <string name="quick_settings_tile_label_size_title">Label text size</string>
     <string name="quick_settings_tile_label_hide_summary">Only show icon in tile</string>
