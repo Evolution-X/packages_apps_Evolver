@@ -25,6 +25,13 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Unlimit screenrecord -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="unlimit_screenrecord"
+            android:title="@string/miscellaneous_unlimit_screenrecord_title"
+            android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
+            android:defaultValue="false" />
+
         <!-- Allow application downgrade -->
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="pm_downgrade_allowed"
