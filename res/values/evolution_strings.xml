@@ -413,6 +413,8 @@
     <string name="miscellaneous_developer_options_category">Developer options</string>
     <string name="miscellaneous_app_downgrade_title">Allow application downgrade</string>
     <string name="miscellaneous_app_downgrade_summary">Allow downgrading system applications, which may result in crashes and data loss</string>
+    <string name="miscellaneous_block_wallpaper_dimming_title">Ignore wallpaper dimming requests</string>
+    <string name="miscellaneous_block_wallpaper_dimming_summary">Blocks all apps from setting the wallpaper dim\nForces dim to 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignore window secure flags</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remove restrictions on screenshots and screen recordings for all applications, potentially risking privacy leaks</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Unlimit screenrecord</string>
