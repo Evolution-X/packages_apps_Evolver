@@ -25,6 +25,13 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Block wallpaper dimming -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="block_wallpaper_dimming"
+            android:title="@string/miscellaneous_block_wallpaper_dimming_title"
+            android:summary="@string/miscellaneous_block_wallpaper_dimming_summary"
+            android:defaultValue="false" />
+
         <!-- Unlimit screenrecord -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="unlimit_screenrecord"
