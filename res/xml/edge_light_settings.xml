@@ -20,7 +20,7 @@
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
         android:key="edge_light_enabled"
-        android:title="@string/notifications_edge_light_enable_ttile"
+        android:title="@string/notifications_edge_light_enable_title"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
