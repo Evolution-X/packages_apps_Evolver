@@ -10,6 +10,33 @@
     android:title="@string/notifications_title">
 
     <PreferenceCategory
+        android:key="heads_up"
+        android:title="@string/notifications_heads_up_title">
+
+        <!-- Heads up -->
+        <lineageos.preference.GlobalSettingSwitchPreference
+            android:key="heads_up_notifications_enabled"
+            android:title="@string/heads_up_notifications_enabled_title"
+            android:summary="@string/heads_up_notifications_enabled_summary" />
+
+        <!-- Island notification -->
+        <Preference
+            android:key="island_notification"
+            android:title="@string/notifications_island_notification_title"
+            android:summary="@string/notifications_island_notification_summary"
+            android:fragment="org.evolution.settings.fragments.notifications.IslandSettings"
+            android:dependency="heads_up_notifications_enabled" />
+
+        <!-- Less boring heads up -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="less_boring_heads_up"
+            android:title="@string/notifications_less_boring_heads_up_title"
+            android:summary="@string/notifications_less_boring_heads_up_summary"
+            android:defaultValue="false"
+            android:dependency="heads_up_notifications_enabled" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="notifications_interface_category"
         android:title="@string/notifications_interface_category">
 
@@ -19,13 +46,6 @@
             android:title="@string/notifications_edge_light_title"
             android:summary="@string/notifications_edge_light_summary"
             android:fragment="org.evolution.settings.fragments.notifications.EdgeLightSettings" />
-
-        <!-- Island notification -->
-        <Preference
-            android:key="island_notification"
-            android:title="@string/notifications_island_notification_title"
-            android:summary="@string/notifications_island_notification_summary"
-            android:fragment="org.evolution.settings.fragments.notifications.IslandSettings" />
 
         <!-- Kill app button -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
