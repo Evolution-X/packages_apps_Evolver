@@ -23,11 +23,20 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
+import org.evolution.settings.preferences.SystemPropertySwitchPreference;
+import org.evolution.settings.utils.DeviceUtils;
+
 @SearchIndexable
 public class Spoofing extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "Spoofing";
+
+    private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
+    private static final String KEY_PIXEL_PROPS = "persist.sys.pixelprops";
+
+    private PreferenceCategory mSystemWideCategory;
+    private SystemPropertySwitchPreference mPixelProps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +47,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final ContentResolver resolver = context.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
+
+        mSystemWideCategory = (PreferenceCategory) findPreference(KEY_SYSTEM_WIDE_CATEGORY);
+        mPixelProps = (SystemPropertySwitchPreference) findPreference(KEY_PIXEL_PROPS);
+
+        if (DeviceUtils.isCurrentlySupportedPixel()) {
+            mSystemWideCategory.removePreference(mPixelProps);
+        }
     }
 
     @Override
@@ -59,6 +75,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
+
+                if (DeviceUtils.isCurrentlySupportedPixel()) {
+                    keys.add(KEY_PIXEL_PROPS);
+                }
                 return keys;
             }
         };
