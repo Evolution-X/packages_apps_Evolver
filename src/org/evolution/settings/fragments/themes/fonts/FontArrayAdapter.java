@@ -23,6 +23,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.android.settings.R;
+
+import androidx.core.content.ContextCompat;
+
 import java.util.List;
 
 public class FontArrayAdapter extends ArrayAdapter<String> {
@@ -30,13 +34,16 @@ public class FontArrayAdapter extends ArrayAdapter<String> {
     private List<String> fontPackageNames;
     private List<Typeface> typefaces;
     private Context mContext;
+    private boolean mIsNightMode;
 
-    public FontArrayAdapter(Context context, int textViewResourceId, List<String> objects, FontManager fontManager) {
+    public FontArrayAdapter(Context context, int textViewResourceId,
+            List<String> objects, FontManager fontManager, boolean nightMode) {
         super(context, textViewResourceId, objects);
         this.mContext = context;
         this.fontPackageNames = objects;
         this.fontManager = fontManager;
         this.typefaces = fontManager.getFonts();
+        this.mIsNightMode = nightMode;
     }
 
     @Override
@@ -47,6 +54,9 @@ public class FontArrayAdapter extends ArrayAdapter<String> {
             view.setTypeface(typeface);
         }
         view.setText(getLabelForPosition(position));
+        view.setTextColor(ContextCompat.getColor(mContext, mIsNightMode
+                ? R.color.font_drop_down_bg_light
+                : R.color.font_drop_down_bg_dark));
         return view;
     }
 
@@ -58,6 +68,9 @@ public class FontArrayAdapter extends ArrayAdapter<String> {
             view.setTypeface(typeface);
         }
         view.setText(getLabelForPosition(position));
+        view.setTextColor(ContextCompat.getColor(mContext, mIsNightMode
+                ? R.color.font_drop_down_bg_light
+                : R.color.font_drop_down_bg_dark));
         return view;
     }
 

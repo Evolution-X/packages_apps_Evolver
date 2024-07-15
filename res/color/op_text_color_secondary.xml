@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false"
+        android:alpha="0.5"
+        android:color="@color/op_control_text_color_secondary"/>
+    <item android:color="@color/op_control_text_color_secondary"/>
+</selector>

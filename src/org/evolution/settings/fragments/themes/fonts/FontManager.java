@@ -32,19 +32,23 @@ public class FontManager {
 
     private final static String DEFAULT_FONT_PACKAGE = "android";
     private final static String FONT_OVERLAY_CATEGORY = "android.theme.customization.font";
+    private final static String LOCKSCREEN_FONT_OVERLAY_CATEGORY = "android.theme.customization.lockscreen_clock_font";
     private final static String THEME_RESOURCE_FONT_FAMILY = "config_bodyFontFamily";
+    private final static String THEME_RESOURCE_CLOCK_FONT_FAMILY = "config_clockFontFamily";
     private static final String THEME_RESOURCE_HEADLINE_FONT_FAMILY = "config_headlineFontFamily";
 
     private static final Set<String> HEADLINE_FONT_LABEL_MAP = new HashSet<>();
 
     private ThemeUtils mThemeUtils;
+    private boolean isLockscreen;
 
     static {
         HEADLINE_FONT_LABEL_MAP.add("NothingDot57");
     }
 
-    public FontManager(Context context) {
-        mThemeUtils = new ThemeUtils(context);
+    public FontManager(Context context, boolean lockscreen) {
+        mThemeUtils = ThemeUtils.getInstance(context);
+        isLockscreen = lockscreen;
     }
 
     /**
@@ -58,14 +62,14 @@ public class FontManager {
      * Get all available font packages.
      */
     public List<String> getAllFontPackages() {
-        return mThemeUtils.getOverlayPackagesForCategory(FONT_OVERLAY_CATEGORY, DEFAULT_FONT_PACKAGE);
+        return mThemeUtils.getOverlayPackagesForCategory(isLockscreen ? LOCKSCREEN_FONT_OVERLAY_CATEGORY : FONT_OVERLAY_CATEGORY, DEFAULT_FONT_PACKAGE);
     }
 
     /**
      * Get the currently selected font package.
      */
     public String getCurrentFontPackage() {
-        List<OverlayInfo> overlayInfos = mThemeUtils.getOverlayInfos(FONT_OVERLAY_CATEGORY);
+        List<OverlayInfo> overlayInfos = mThemeUtils.getOverlayInfos(isLockscreen ? LOCKSCREEN_FONT_OVERLAY_CATEGORY : FONT_OVERLAY_CATEGORY);
         return overlayInfos.stream()
                 .filter(OverlayInfo::isEnabled)
                 .map(OverlayInfo::getPackageName)
@@ -81,7 +85,7 @@ public class FontManager {
             throw new IllegalArgumentException("Invalid font package position: " + position);
         }
         String selectedPackage = getAllFontPackages().get(position);
-        mThemeUtils.setOverlayEnabled(FONT_OVERLAY_CATEGORY, selectedPackage, DEFAULT_FONT_PACKAGE);
+        mThemeUtils.setOverlayEnabled(isLockscreen ? LOCKSCREEN_FONT_OVERLAY_CATEGORY : FONT_OVERLAY_CATEGORY, selectedPackage, DEFAULT_FONT_PACKAGE);
     }
 
     /**
@@ -104,8 +108,8 @@ public class FontManager {
             Resources res = pkg.equals(DEFAULT_FONT_PACKAGE) ? Resources.getSystem()
                     : pm.getResourcesForApplication(pkg);
             String label = getLabel(context, pkg);
-            String identifier = THEME_RESOURCE_FONT_FAMILY;
-            if (HEADLINE_FONT_LABEL_MAP.contains(label)) {
+            String identifier = isLockscreen ? THEME_RESOURCE_CLOCK_FONT_FAMILY : THEME_RESOURCE_FONT_FAMILY;
+            if (!isLockscreen && HEADLINE_FONT_LABEL_MAP.contains(label)) {
                 identifier = THEME_RESOURCE_HEADLINE_FONT_FAMILY;
             }
             return Typeface.create(res.getString(

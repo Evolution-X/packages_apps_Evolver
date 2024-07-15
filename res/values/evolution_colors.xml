@@ -4,8 +4,22 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 
-<resources
-    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
-
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="font_drop_down_bg_light">@*android:color/system_surface_bright_light</color>
+    <color name="font_drop_down_bg_dark">@*android:color/system_surface_bright_dark</color>
+    <color name="user_crd_bg">@color/settingslib_preference_bg_color</color>
+    <color name="op_control_text_color_primary">@color/op_control_text_color_primary_light</color>
+    <color name="op_control_text_color_primary_inverse">#ffffff</color>
+    <color name="op_control_text_color_primary_inverse_translucent">#E0ffffff</color>
+    <color name="op_control_text_color_primary_translucent">#E0000000</color>
+    <color name="op_control_text_color_primary_light">#d8000000</color>
+    <color name="op_control_text_color_secondary">@color/op_control_text_color_secondary_light</color>
+    <color name="op_control_text_color_secondary_light">#66000000</color>
+    <color name="oneplus_accent_text_color">#ffc41442</color>
+    <color name="op_control_bg_color_weaken_light">#0a000000</color>
+    <color name="op_control_contextual_card_solid_color">@color/op_control_bg_color_weaken_light</color>
+    <color name="op_control_accent_color_green">@color/op_control_accent_color_green_light</color>
+    <color name="op_control_accent_color_green_light">#ff0bd270</color>
+    <color name="op_control_accent_color_green_dark">#ff06743e</color>
     <color name="option_border_default">#5f6368</color>
 </resources>

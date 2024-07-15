@@ -14,7 +14,7 @@
         android:layout_marginTop="-10.0dip"
         android:layout_marginStart="13dp">
         <TextClock
-            android:textSize="160.0dp"
+            android:textSize="100dp"
             android:textColor="@android:color/system_accent1_400"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:fontFamily="@font/filled"
             android:format12Hour="hh"/>
         <TextClock
-            android:textSize="160.0dp"
+            android:textSize="100dp"
             android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:format12Hour="mm"/>
     </LinearLayout>
     <TextClock
-        android:textSize="20.0dp"
+        android:textSize="18dp"
         android:textColor="@android:color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

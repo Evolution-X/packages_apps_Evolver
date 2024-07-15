@@ -153,10 +153,19 @@
     <string name="pulse_custom_div">Bar spacing</string>
     <string name="pulse_filled_block_size">Block size</string>
     <string name="pulse_empty_block_size">Block spacing</string>
-    
+
+    <!-- Lockscreen Clock Highlight Guide -->
+    <string name="ls_clock_face_highlight_text">Swipe left or right to preview clock styles</string>
+
+    <!-- Lockscreen Clock Revamp --> 
+    <string name="ls_clock_custom_font_not_supported">Selected clock does not support custom fonts</string>
+
     <!-- Custom Clock Style -->
-    <string name="lockscreen_clock_category_title">Lockscreen Clock</string>
+    <string name="lockscreen_clock_category_title">Clock</string>
+    <string name="lockscreen_clock_category_summary">Configure lock screen clock styles</string>
     <string name="custom_clock_style">Custom Clock Style</string>
+    <string name="theme_customization_lock_clock_title">Clock face</string>
+    <string name="theme_customization_lock_clock_summary">Modify lock screen clock appearance</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Gestures</string>
@@ -735,4 +744,5 @@
     <string name="font_styles_summary">Change system font style</string>
     <string name="font_preview_text">The quick brown\nfox jumps over the\nlazy dog\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
     <string name="apply_button_text">Apply</string>
+    <string name="font_picker_select_font">Select font</string>
 </resources>

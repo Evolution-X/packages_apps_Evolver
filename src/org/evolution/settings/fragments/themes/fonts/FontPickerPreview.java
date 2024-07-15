@@ -16,20 +16,27 @@
 package org.evolution.settings.fragments.themes.fonts;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.text.SpannableString;
 import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -42,7 +49,7 @@ import java.util.List;
 
 public class FontPickerPreview extends SettingsPreferenceFragment {
 
-    private Spinner fontSpinner;
+    private TextView fontSelector;
     private TextView previewText;
     private FontManager fontManager;
     private ExtendedFloatingActionButton applyFab;
@@ -51,15 +58,17 @@ public class FontPickerPreview extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fontManager = new FontManager(getActivity());
+        fontManager = new FontManager(getActivity(), false);
         getActivity().setTitle(getActivity().getString(R.string.font_styles_title));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.font_picker_preview, container, false);
-        fontSpinner = rootView.findViewById(R.id.font_spinner);
+
+        fontSelector = rootView.findViewById(R.id.font_selector);
         previewText = rootView.findViewById(R.id.font_preview_text);
+
         String text = previewText.getText().toString();
         SpannableString spannableString = new SpannableString(text);
         TypedValue typedValue = new TypedValue();
@@ -68,44 +77,75 @@ public class FontPickerPreview extends SettingsPreferenceFragment {
         int startIndex = text.indexOf("A");
         int endIndex = text.length();
         spannableString.setSpan(
-            new ForegroundColorSpan(colorAccent), 
-            startIndex, 
-            endIndex, 
+            new ForegroundColorSpan(colorAccent),
+            startIndex,
+            endIndex,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         );
         previewText.setText(spannableString);
-        List<String> fontPackageNames = fontManager.getAllFontPackages();
-        FontArrayAdapter fontAdapter = new FontArrayAdapter(
-            getActivity(),
-            android.R.layout.simple_spinner_dropdown_item,
-            fontPackageNames,
-            fontManager
-        );
-        fontSpinner.setAdapter(fontAdapter);
-        String currentFontPackage = fontManager.getCurrentFontPackage();
-        currentFontPosition = fontPackageNames.indexOf(currentFontPackage);
-        if (currentFontPosition != -1) {
-            fontSpinner.setSelection(currentFontPosition);
-        }
-        fontSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                currentFontPosition = position;
-                applyFontToPreview(fontPackageNames.get(position));
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        List<String> fontPackageNames = fontManager.getAllFontPackages();
+
+        int backgroundColor = ContextCompat.getColor(getContext(),
+                isNightMode() ? R.color.font_drop_down_bg_dark : R.color.font_drop_down_bg_light);
+        fontSelector.setTextColor(ContextCompat.getColor(getContext(), isNightMode()
+                ? R.color.font_drop_down_bg_light
+                : R.color.font_drop_down_bg_dark));
+        fontSelector.setBackgroundTintList(ColorStateList.valueOf(backgroundColor));
+
+        fontSelector.setOnClickListener(v -> {
+            View popupView = LayoutInflater.from(getActivity()).inflate(R.layout.popup_font_selector, null);
+            PopupWindow popupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+
+            ListView fontListView = popupView.findViewById(R.id.font_list_view);
+            FontArrayAdapter fontAdapter = new FontArrayAdapter(
+                    getActivity(),
+                    android.R.layout.simple_list_item_1,
+                    fontPackageNames,
+                    fontManager,
+                    isNightMode()
+            );
+            fontListView.setAdapter(fontAdapter);
+
+            fontListView.setOnItemClickListener((parent, view, position, id) -> {
+                currentFontPosition = position;
+                String fontPackage = fontPackageNames.get(currentFontPosition);
+                applyFontToPreview(fontPackage);
+                fontSelector.setText(fontManager.getLabel(getContext(), fontPackage));
+                popupWindow.dismiss();
+            });
+
+            popupView.setBackgroundResource(R.drawable.custom_background);
+            Drawable backgroundDrawable = popupView.getBackground();
+            if (backgroundDrawable != null) {
+                backgroundDrawable.setColorFilter(backgroundColor, PorterDuff.Mode.SRC_ATOP);
             }
+            popupWindow.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            popupWindow.setOutsideTouchable(true);
+            popupWindow.setFocusable(true);
+            popupWindow.showAsDropDown(v, 0, 10);
         });
+
         applyFab = rootView.findViewById(R.id.apply_extended_fab);
-        applyFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        applyFab.setOnClickListener(view -> {
+            if (currentFontPosition != -1) {
                 fontManager.enableFontPackage(currentFontPosition);
             }
         });
+
+        String currentFontPackage = fontManager.getCurrentFontPackage();
+        currentFontPosition = fontPackageNames.indexOf(currentFontPackage);
+        if (currentFontPosition != -1) {
+            fontSelector.setText(fontManager.getLabel(getContext(), fontPackageNames.get(currentFontPosition)));
+            applyFontToPreview(fontPackageNames.get(currentFontPosition));
+        }
+
         return rootView;
+    }
+
+    private boolean isNightMode() {
+        int nightModeFlags = getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
     }
 
     private void applyFontToPreview(String fontPackage) {

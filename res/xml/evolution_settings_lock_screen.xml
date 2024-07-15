@@ -13,16 +13,12 @@
         android:key="lockscreen_clock_category"
         android:title="@string/lockscreen_clock_category_title">
 
+        <!-- Lockscreen Clock Font and styles -->
         <Preference
-            android:key="lockscreen_preview"
-            settings:layout="@layout/lockscreen_preview" />
-
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:entries="@array/clock_style_entries"
-            android:title="@string/custom_clock_style"
-            android:key="clock_style"
-            android:defaultValue="0"
-            android:entryValues="@array/clock_style_values" />
+            android:key="android.theme.customization.lockscreen_clock_font"
+            android:title="@string/theme_customization_lock_clock_title"
+            android:summary="@string/theme_customization_lock_clock_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.LockClockFontsPickerPreview" />
     </PreferenceCategory>
 
     <PreferenceCategory
