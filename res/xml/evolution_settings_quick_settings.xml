@@ -89,22 +89,6 @@
             settings:interval="1"
             android:defaultValue="1" />
 
-        <!-- Battery styles -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_battery_style"
-            android:title="@string/status_bar_battery_style_title"
-            android:entries="@array/qs_battery_style_entries"
-            android:entryValues="@array/qs_battery_style_values"
-            android:defaultValue="-1" />
-
-        <!-- Battery percent -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_show_battery_percent"
-            android:title="@string/status_bar_battery_percent_title"
-            android:entries="@array/status_bar_battery_percent_entries"
-            android:entryValues="@array/status_bar_battery_percent_values"
-            android:defaultValue="2" />
-
         <!-- Brightness slider -->
         <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_show_brightness_slider"
