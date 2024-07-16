@@ -59,22 +59,6 @@
             android:summary="@string/quick_settings_layout_columns_rows_summary"
             android:fragment="org.evolution.settings.fragments.quicksettings.LayoutSettings" />
 
-        <!-- Battery styles -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_battery_style"
-            android:title="@string/status_bar_battery_style_title"
-            android:entries="@array/qs_battery_style_entries"
-            android:entryValues="@array/qs_battery_style_values"
-            android:defaultValue="-1" />
-
-        <!-- Battery percent -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_show_battery_percent"
-            android:title="@string/status_bar_battery_percent_title"
-            android:entries="@array/status_bar_battery_percent_entries"
-            android:entryValues="@array/status_bar_battery_percent_values"
-            android:defaultValue="2" />
-
         <!-- Split shade -->
         <SwitchPreferenceCompat
             android:key="qs_split_shade"
