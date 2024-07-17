@@ -149,6 +149,14 @@
     <string name="status_bar_icons_category">Icons</string>
     <string name="status_bar_tuner_title">Status bar tuner</string>
     <string name="status_bar_tuner_summary">Choose which system icons can be shown</string>
+    <string name="status_bar_battery_style_title">Battery style</string>
+    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
+    <string name="status_bar_battery_style_circle">Circle</string>
+    <string name="status_bar_battery_style_text">Text</string>
+    <string name="status_bar_battery_percentage_title">Battery percentage</string>
+    <string name="status_bar_battery_percentage_default">Hidden</string>
+    <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
+    <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
     <string name="status_bar_clock_and_date_title">Clock &amp; date</string>
     <string name="status_bar_clock_and_date_summary">Customize clock &amp; date</string>
     <string name="status_bar_data_disabled_icon_title">Data disabled indicator</string>
