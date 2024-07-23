@@ -48,6 +48,9 @@
     <string name="themes_navigation_bar_icons_summary">Встановити користувацький стиль навігаційної панелі</string>
     <string name="themes_udfps_icon_title">Значок UDFPS</string>
     <string name="themes_udfps_icon_summary">Установити стиль значка UDFPS</string>
+    <string name="themes_brightness_category">Повзунок яскравості</string>
+    <string name="themes_brightness_slider_title">Стиль повзунка яскравості</string>
+    <string name="themes_brightness_slider_summary">Стиль повзунка яскравості</string>
     <string name="themes_animations_category">Анімація</string>
     <string name="themes_screen_off_animation_title">Анімація вимкнення екрану</string>
     <string name="themes_screen_off_animation_default">За замовчуванням</string>
@@ -95,6 +98,37 @@
     <string name="lock_screen_miscellaneous_category">Різне</string>
     <string name="lock_screen_pocket_detection_title">Режим \"У кишені\"</string>
     <string name="lock_screen_pocket_detection_summary">Заблокувати екран та фізичні кнопки, коли пристрій перебуває в кишені</string>
+    <!-- Lock screen/Pulse music visualizer -->
+    <string name="pulse_help_policy_notice_title">Про Pulse</string>
+    <string name="pulse_help_policy_notice_summary">Пульсація - це яскравий графічний аудіо еквалайзер музики, яка грає на пристрої</string>
+    <string name="lock_screen_pulse_settings_title">Пульс</string>
+    <string name="lock_screen_pulse_settings_summary">Графічний аудіо еквалайзер для панелі навігації та екрану блокування</string>
+    <string name="show_navbar_pulse_title">Пульсація на панелі навігації</string>
+    <string name="show_navbar_pulse_summary">Ввімкнути аудіовізуалізацію в панелі навігації</string>
+    <string name="show_lockscreen_pulse_title">Пульсація на екрані блокування</string>
+    <string name="show_lockscreen_pulse_summary">Графічний еквалайзер аудіо на екрані блокування</string>
+    <string name="show_ambient_pulse_title">Пульсація на включеному Активному екрані</string>
+    <string name="show_ambient_pulse_summary">Графічний еквалайзер на завжди ввімкненому екрані</string>
+    <string name="pulse_render_mode_title">Режим візуалізації</string>
+    <string name="pulse_render_mode_fading_bars">Згасаючі блоки</string>
+    <string name="pulse_render_mode_solid_lines">Суцільні лінії</string>
+    <string name="pulse_legacy_mode_advanced_category">Налаштування згасаючих блоків</string>
+    <string name="pulse_custom_fudge_factor">Рівень чутливості</string>
+    <string name="pulse_lavalamp_speed_title">Швидкість лавової лампи</string>
+    <string name="pulse_solid_units_count">Кількість суцільних ліній</string>
+    <string name="pulse_solid_units_opacity">Прозорість суцільних ліній</string>
+    <string name="pulse_solid_dimen_category">Налаштування вигляду суцільних ліній</string>
+    <string name="pulse_color_mode_title">Колір</string>
+    <string name="pulse_color_accent">Відтінок</string>
+    <string name="pulse_color_custom">Персоналізація</string>
+    <string name="pulse_color_lava_lamp">Лавова лампа</string>
+    <string name="pulse_color_user_title">Обрати колір</string>
+    <string name="pulse_smoothing_enabled_title">Увімкнути згладжування</string>
+    <string name="pulse_smoothing_enabled_summary">Кожна панель анімована плавніше</string>
+    <string name="pulse_custom_dimen">Ширина панелі</string>
+    <string name="pulse_custom_div">Відстань між панелями</string>
+    <string name="pulse_filled_block_size">Розмір блоку</string>
+    <string name="pulse_empty_block_size">Відстань між блоками</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Жести</string>
     <string name="status_bar_brightness_control_title">Керування яскравістю</string>
@@ -110,35 +144,12 @@
     <string name="status_bar_tuner_summary">Виберіть, які значки в рядку стану можуть бути показані</string>
     <string name="status_bar_battery_style_title">Стиль іконки батареї</string>
     <string name="status_bar_battery_style_icon_portrait">Вертикальний значок (типово)</string>
-    <string name="status_bar_battery_style_icon_rlandscape">Горизонтальна іконка (праворуч)</string>
-    <string name="status_bar_battery_style_icon_landscape">Горизонтальна іконка (ліворуч)</string>
-    <string name="status_bar_battery_style_icon_landscape_buddy">Капсула в ландшафтному режимі</string>
-    <string name="status_bar_battery_style_icon_landscape_line">Ландшафтний</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">Портретний IOS</string>
-    <string name="status_bar_battery_style_icon_landscape_pill">Портретна</string>
-    <string name="status_bar_battery_style_icon_landscape_signal">Альбомна Айроо</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_a">Стиль R у ландшафтному режимі A</string>
-    <string name="status_bar_battery_style_icon_landscape_style_a">Стиль L у ландшафтному режимі A</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_b">Стиль R у ландшафтному режимі B</string>
-    <string name="status_bar_battery_style_icon_landscape_style_b">Стиль L у ландшафтному режимі B</string>
-    <string name="status_bar_battery_style_icon_landscape_ios15">Альбомна iOS 15</string>
-    <string name="status_bar_battery_style_icon_landscape_ios16">Альбомна iOS 16</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">Пейзаж Орігамі</string>
     <string name="status_bar_battery_style_circle">Кільце</string>
-    <string name="status_bar_battery_style_dotted_circle">Пунктирне коло</string>
-    <string name="status_bar_battery_style_filled_circle">Пунктирне коло</string>
-    <string name="status_bar_battery_style_big_circle">Велике коло</string>
-    <string name="status_bar_battery_style_big_dotted_circle">Велике пунктирне коло</string>
     <string name="status_bar_battery_style_text">Текст</string>
-    <string name="status_bar_battery_style_hidden">Приховано</string>
-    <string name="status_bar_battery_style_follow_status_bar">Дотримуватись стилю рядка стану</string>
-    <string name="status_bar_battery_percent_title">Відсоток заряду батареї</string>
-    <string name="status_bar_battery_percent_hidden">Приховано</string>
-    <string name="status_bar_battery_percent_text_inside">Всередині іконки</string>
-    <string name="status_bar_battery_percent_text_next_right">Поруч з іконкою (праворуч)</string>
-    <string name="status_bar_battery_percent_text_next_left">Поруч з іконкою (ліворуч)</string>
-    <string name="status_bar_battery_text_charging_title">Відсоток заряду акумулятора під час заряджання</string>
-    <string name="status_bar_battery_text_charging_summary">Завжди показувати відсотки акумулятора під час заряджання</string>
+    <string name="status_bar_battery_percentage_title">Відсоток заряду батареї</string>
+    <string name="status_bar_battery_percentage_default">Приховано</string>
+    <string name="status_bar_battery_percentage_text_inside">Всередині іконки</string>
+    <string name="status_bar_battery_percentage_text_next">Поруч зі значком</string>
     <string name="status_bar_clock_and_date_title">Налаштування годинника та налаштування дати</string>
     <string name="status_bar_clock_and_date_summary">Налаштування години і дати</string>
     <string name="status_bar_data_disabled_icon_title">Індикатор вимкнених мобільних даних</string>
@@ -205,8 +216,6 @@
     <string name="status_bar_miscellaneous_category">Різне</string>
     <string name="status_bar_battery_bar_title">Індикатор батареї</string>
     <string name="status_bar_battery_bar_summary">Відображення і налаштування панелі батареї над рядком стану</string>
-    <string name="status_bar_lyrics_title">Тексти пісень в рядку стану</string>
-    <string name="status_bar_lyrics_summary">Показувати тексти пісень в рядку стану (потрібен додаток StatusBarLyricExt)</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Розташування годинника</string>
     <string name="status_bar_clock_position_right">Праворуч</string>
@@ -286,6 +295,29 @@
     <string name="battery_bar_blend_color_reverse_summary_on">Повний &#8594; пустий: червоний &#8594; зелений &#8594; блакитний &#8594; червоний</string>
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Інтерфейс</string>
+    <string name="quick_settings_tile_ui_style_title">Стиль плиток швидких налаштувань</string>
+    <string name="quick_settings_tile_ui_style_a11_circle">Круглі плитки</string>
+    <string name="quick_settings_tile_ui_style_a11_square">Квадратні плитки</string>
+    <string name="quick_settings_tile_ui_style_a11_mix">Коло &amp; Квадратні плитки</string>
+    <string name="quick_settings_panel_style_title">Стиль панелі швидких налаштувань</string>
+    <string name="quick_settings_panel_style_outline">Контур</string>
+    <string name="quick_settings_panel_style_two_tone">Двотоновий акцент</string>
+    <string name="quick_settings_panel_style_color_pop">Колор-поп</string>
+    <string name="quick_settings_panel_style_shaded">Затінений</string>
+    <string name="quick_settings_panel_style_cyberpunk">Кіберпанк</string>
+    <string name="quick_settings_panel_style_neumorph">Невморф</string>
+    <string name="quick_settings_panel_style_reflected">Відображено</string>
+    <string name="quick_settings_panel_style_surround">Об\'ємний</string>
+    <string name="quick_settings_panel_style_thin">Тінетка</string>
+    <string name="quick_settings_tile_label_hide_title">Приховати підписи</string>
+    <string name="quick_settings_tile_label_size_title">Розмір тексту підпису</string>
+    <string name="quick_settings_tile_label_hide_summary">Показувати лише іконку на плитці</string>
+    <string name="quick_settings_tile_layout_title">Вертикальне розташування</string>
+    <string name="quick_settings_tile_layout_summary">Показувати мітку під значком замість значка</string>
+    <string name="quick_settings_columns_portrait_title">Стовпці (портретна орієнтація)</string>
+    <string name="quick_settings_columns_landscape_title">Стовпці (ландшафтна орієнтація)</string>
+    <string name="quick_settings_qqs_rows_portrait_title">Швидкі QS Рядки (портрет)</string>
+    <string name="quick_settings_qqs_rows_landscape_title">Швидкі QS рядки (альбомна орієнтація)</string>
     <string name="quick_settings_show_brightness_slider_title">Повзунок яскравості</string>
     <string name="quick_settings_show_brightness_slider_never">Ніколи не відображати</string>
     <string name="quick_settings_show_brightness_slider_expanded">Показати, коли розгорнуто</string>
@@ -334,7 +366,9 @@
     <string name="notifications_alert_display_on_title">Сповіщення увімкнено</string>
     <string name="notifications_alert_display_on_summary">Відтворювання звуку та вібрації для сповіщень при увімкненому екрані</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_enable_ttile">Увімкнути</string>
+    <string name="notifications_heads_up_title">Спливаючі сповіщення</string>
+    <string name="notifications_heads_up_summary">Дозволити спливаючі сповіщення</string>
+    <string name="notifications_edge_light_enable_title">Увімкнути</string>
     <string name="notifications_edge_light_always_trigger_on_pulse_title">Завжди використовувати пульсацію</string>
     <string name="notifications_edge_light_always_trigger_on_pulse_summary">Показувати перемикач світла, коли Активний дисплей, і не тільки для сповіщень</string>
     <string name="notifications_edge_light_repeat_animation_title">Повторити анімацію</string>
@@ -346,6 +380,9 @@
     <string name="island_notification_now_playing_summary">Відображати поточну пісню в стилі Dynamic Island</string>
     <string name="island_notification_footer_text">Функція сповіщень Island, натхненна Dynamic Island від iOS, перетворює сповіщення Android на компактну утиліту для швидкого доступу.\n\nКерування швидким доступом Island включає такі функції:\n1. Торкніться сповіщення острова, щоб швидко відповідати на телефонні дзвінки.\n2. Натисніть і утримуйте сповіщення острова, щоб відхилити телефонні дзвінки.\n3. Утримуйте сповіщення про острів, щоб розгорнути попередній перегляд сповіщень про острів.
     </string>
+    <!-- Notifications/Less boring heads up -->
+    <string name="notifications_less_boring_heads_up_title">Менше нудних спливаючих сповіщень</string>
+    <string name="notifications_less_boring_heads_up_summary">Відображати спливаючі сповіщення лише для дзвінків, повідомлень і будильника</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Інтерфейс</string>
     <string name="power_menu_actions_title">Елементи меню живлення</string>
@@ -372,8 +409,12 @@
     <string name="miscellaneous_developer_options_category">Опції для розробника</string>
     <string name="miscellaneous_app_downgrade_title">Дозволити пониження версії додатка</string>
     <string name="miscellaneous_app_downgrade_summary">Дозволити пониження системних додатків, що може призвести до збою і втрати даних</string>
+    <string name="miscellaneous_block_wallpaper_dimming_title">Ігнорувати запити на затемнення шпалер</string>
+    <string name="miscellaneous_block_wallpaper_dimming_summary">Блокує всі додатки встановлювати затемнення шпалер\nПримусово змінює значення 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ігнорувати прапори безпеки вікон</string>
     <string name="miscellaneous_ignore_window_secure_summary">Зняти обмеження на знятках і записи екрану для всіх додатків, потенційно ризикуючи витіком конфіденційності</string>
+    <string name="miscellaneous_unlimit_screenrecord_title">Скасувати обмеження запису екрану</string>
+    <string name="miscellaneous_unlimit_screenrecord_summary">Видалити обмеження розміру 15 Гб файлу\nМоже призвести до більшого, ніж необхідний файл виводу</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Підробка компонентів</string>
     <string name="spoofing_summary">Обходьте обмеження додатків шляхом підробки компонентів</string>
@@ -387,8 +428,12 @@
     <string name="spoofing_storage_encryption_title">Шифрування сховища</string>
     <string name="spoofing_storage_encryption_summary">Імітувати статус шифрування сховища пристрою в \'Зашифрований\'</string>
     <string name="spoofing_app_specific_category">Спеціально для програми</string>
+    <string name="spoofing_photos_title">Підробка Google Фото</string>
+    <string name="spoofing_photos_summary">Імітувати пристрій як Pixel XL для додатку Google Photos щоб розблокувати необмежену кількість пам\'яті зображень</string>
     <string name="spoofing_games_title">FPS в іграх</string>
     <string name="spoofing_games_summary">Імітація пристрою як різних моделей для вибору ігор з вищими FPS</string>
+    <string name="spoofing_snapchat_title">Підробка Snapchat</string>
+    <string name="spoofing_snapchat_summary">Використати пристрій як Pixel 2 для Snapchat щоб отримати оригінальну якість зображення</string>
     <!-- Navigation Bar -->
     <string name="navbar_layout_category_title">Кнопка панелі навігації</string>
     <string name="navbar_layout_title">Макет</string>
@@ -421,5 +466,6 @@
     <string name="custom_seekbar_default_value_to_set">Значення за замовчуванням: <xliff:g id="v">%s</xliff:g>\nУтримуйте для встановлення</string>
     <string name="custom_seekbar_default_value_is_set">Значення за замовчуванням встановлено</string>
     <!-- Units -->
+    <string name="unit_milliseconds">мілісекунди</string>
     <string name="unit_seconds">секунди</string>
 </resources>
