@@ -48,6 +48,9 @@
     <string name="themes_navigation_bar_icons_summary">Définir le style de la barre de navigation</string>
     <string name="themes_udfps_icon_title">Icône UDFPS</string>
     <string name="themes_udfps_icon_summary">Définir le style du capteur d\'enpreintes digitales</string>
+    <string name="themes_brightness_category">Curseur de luminosité</string>
+    <string name="themes_brightness_slider_title">Style du curseur de luminosité</string>
+    <string name="themes_brightness_slider_summary">Définir le style du curseur de luminosité</string>
     <string name="themes_animations_category">Animations</string>
     <string name="themes_screen_off_animation_title">Animation d\'extinction d\'écran</string>
     <string name="themes_screen_off_animation_default">Par défaut</string>
@@ -95,6 +98,37 @@
     <string name="lock_screen_miscellaneous_category">Divers</string>
     <string name="lock_screen_pocket_detection_title">Détection de poches</string>
     <string name="lock_screen_pocket_detection_summary">Bloquer l\'utilisation des boutons ou de l\'écran lorsque l\'appareil est dans une poche</string>
+    <!-- Lock screen/Pulse music visualizer -->
+    <string name="pulse_help_policy_notice_title">À propos de Pulse</string>
+    <string name="pulse_help_policy_notice_summary">Pulse est un superbe égaliseur graphique lors de la lecture de la musique</string>
+    <string name="lock_screen_pulse_settings_title">Pulse</string>
+    <string name="lock_screen_pulse_settings_summary">Égaliseur graphique audio pour la barre de navigation et l\'écran de verrouillage</string>
+    <string name="show_navbar_pulse_title">Pulse sur la barre de navigation</string>
+    <string name="show_navbar_pulse_summary">Spectre audio affiché sur la barre de navigation</string>
+    <string name="show_lockscreen_pulse_title">Spectre Audio sur l\'écran de verrouillage</string>
+    <string name="show_lockscreen_pulse_summary">Spectre graphique audio sur l\'écran de verrouillage</string>
+    <string name="show_ambient_pulse_title">Pulse sur l\'affichage ambiant</string>
+    <string name="show_ambient_pulse_summary">Spectre audio affiché sur l\'écran en mode ambiant</string>
+    <string name="pulse_render_mode_title">Mode de rendu</string>
+    <string name="pulse_render_mode_fading_bars">Blocs en degradé</string>
+    <string name="pulse_render_mode_solid_lines">Lignes pleines</string>
+    <string name="pulse_legacy_mode_advanced_category">Paramètres du mode blocs en degradé</string>
+    <string name="pulse_custom_fudge_factor">Niveau d\'intensité</string>
+    <string name="pulse_lavalamp_speed_title">Vitesse de la lampe à lave</string>
+    <string name="pulse_solid_units_count">Nombre de lignes pleines</string>
+    <string name="pulse_solid_units_opacity">Opacité des lignes pleines</string>
+    <string name="pulse_solid_dimen_category">Réglages du mode lignes pleines</string>
+    <string name="pulse_color_mode_title">Couleur</string>
+    <string name="pulse_color_accent">Couleur d\'accentuation</string>
+    <string name="pulse_color_custom">Personnalisé</string>
+    <string name="pulse_color_lava_lamp">Lampe à lave</string>
+    <string name="pulse_color_user_title">Sélectionnez la couleur</string>
+    <string name="pulse_smoothing_enabled_title">Activer le lissage</string>
+    <string name="pulse_smoothing_enabled_summary">Chaque barre est animée de manière plus fluide</string>
+    <string name="pulse_custom_dimen">Largeur des barres</string>
+    <string name="pulse_custom_div">Espacement des barres</string>
+    <string name="pulse_filled_block_size">Taille des blocs</string>
+    <string name="pulse_empty_block_size">Espacement des blocs</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Gestes</string>
     <string name="status_bar_brightness_control_title">Réglage de la luminosité</string>
@@ -110,35 +144,12 @@
     <string name="status_bar_tuner_summary">Choisir les icônes affichées dans la barre d\'état</string>
     <string name="status_bar_battery_style_title">Style de l\'icône de la batterie</string>
     <string name="status_bar_battery_style_icon_portrait">Icône portrait</string>
-    <string name="status_bar_battery_style_icon_rlandscape">Icône paysage (droite)</string>
-    <string name="status_bar_battery_style_icon_landscape">Icône paysage (gauche)</string>
-    <string name="status_bar_battery_style_icon_landscape_buddy">Capsule en paysage</string>
-    <string name="status_bar_battery_style_icon_landscape_line">Lorn en paysage</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">IOS en portrait</string>
-    <string name="status_bar_battery_style_icon_landscape_pill">Mx en portrait</string>
-    <string name="status_bar_battery_style_icon_landscape_signal">Airoo en paysage</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_a">Paysage D Style A</string>
-    <string name="status_bar_battery_style_icon_landscape_style_a">Paysage G Style A</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_b">Paysage D Style B</string>
-    <string name="status_bar_battery_style_icon_landscape_style_b">Paysage G Style B</string>
-    <string name="status_bar_battery_style_icon_landscape_ios15">Paysage iOS 15</string>
-    <string name="status_bar_battery_style_icon_landscape_ios16">Paysage iOS 16</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">Origami (en mode paysage)</string>
     <string name="status_bar_battery_style_circle">Cercle</string>
-    <string name="status_bar_battery_style_dotted_circle">Cercle en pointillés</string>
-    <string name="status_bar_battery_style_filled_circle">Cercle plein</string>
-    <string name="status_bar_battery_style_big_circle">Grand cercle</string>
-    <string name="status_bar_battery_style_big_dotted_circle">Grand cercle en pointillés</string>
     <string name="status_bar_battery_style_text">Texte</string>
-    <string name="status_bar_battery_style_hidden">Cachée</string>
-    <string name="status_bar_battery_style_follow_status_bar">Même style que la barre d\'état</string>
-    <string name="status_bar_battery_percent_title">Pourcentage de la batterie</string>
-    <string name="status_bar_battery_percent_hidden">Cachée</string>
-    <string name="status_bar_battery_percent_text_inside">À l\'intérieur de l\'icône</string>
-    <string name="status_bar_battery_percent_text_next_right">À côté de l\'icône (à droite)</string>
-    <string name="status_bar_battery_percent_text_next_left">À côté de l\'icône (à gauche)</string>
-    <string name="status_bar_battery_text_charging_title">Pourcentage de la batterie lors de la charge</string>
-    <string name="status_bar_battery_text_charging_summary">Toujours afficher le pourcentage de la batterie lors de la charge</string>
+    <string name="status_bar_battery_percentage_title">Pourcentage de la batterie</string>
+    <string name="status_bar_battery_percentage_default">Cachée</string>
+    <string name="status_bar_battery_percentage_text_inside">À l\'intérieur de l\'icône</string>
+    <string name="status_bar_battery_percentage_text_next">À côté de l\'icône</string>
     <string name="status_bar_clock_and_date_title">Horloge &amp; date</string>
     <string name="status_bar_clock_and_date_summary">Personnaliser l\'horloge &amp; la date</string>
     <string name="status_bar_data_disabled_icon_title">Indicateur de données désactivées</string>
@@ -205,8 +216,6 @@
     <string name="status_bar_miscellaneous_category">Divers</string>
     <string name="status_bar_battery_bar_title">Barre de batterie</string>
     <string name="status_bar_battery_bar_summary">Afficher et personnaliser la barre de batterie au-dessus de la barre d\'état</string>
-    <string name="status_bar_lyrics_title">Paroles dans la barre d\'état</string>
-    <string name="status_bar_lyrics_summary">Afficher les paroles dans la barre d\'état (nécessite le support de l\'application)</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Position de l’horloge</string>
     <string name="status_bar_clock_position_right">À droite</string>
@@ -286,6 +295,29 @@
     <string name="battery_bar_blend_color_reverse_summary_on">Plein &#8594; vide : rouge &#8594; vert &#8594; bleu &#8594; rouge</string>
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Interface</string>
+    <string name="quick_settings_tile_ui_style_title">Style des tuiles des réglages rapides</string>
+    <string name="quick_settings_tile_ui_style_a11_circle">Tuiles circulaires</string>
+    <string name="quick_settings_tile_ui_style_a11_square">Tuiles carrées</string>
+    <string name="quick_settings_tile_ui_style_a11_mix">Tuiles carrées arrondies</string>
+    <string name="quick_settings_panel_style_title">Style des tuiles des réglages rapides</string>
+    <string name="quick_settings_panel_style_outline">Contour</string>
+    <string name="quick_settings_panel_style_two_tone">Accent duochrome</string>
+    <string name="quick_settings_panel_style_color_pop">Multicolor</string>
+    <string name="quick_settings_panel_style_shaded">Ombré</string>
+    <string name="quick_settings_panel_style_cyberpunk">Cyberpunk</string>
+    <string name="quick_settings_panel_style_neumorph">Neumorph</string>
+    <string name="quick_settings_panel_style_reflected">Réflection</string>
+    <string name="quick_settings_panel_style_surround">Entouré</string>
+    <string name="quick_settings_panel_style_thin">Ligne fine</string>
+    <string name="quick_settings_tile_label_hide_title">Masquer le libellé</string>
+    <string name="quick_settings_tile_label_size_title">Taille du texte du libellé</string>
+    <string name="quick_settings_tile_label_hide_summary">Afficher uniquement l\'icône dans la tuile</string>
+    <string name="quick_settings_tile_layout_title">Disposition verticale</string>
+    <string name="quick_settings_tile_layout_summary">Afficher le libellé sous l\'icône au lieu d\'à côté de l\'icône</string>
+    <string name="quick_settings_columns_portrait_title">Colonnes (portrait)</string>
+    <string name="quick_settings_columns_landscape_title">Colonnes (paysage)</string>
+    <string name="quick_settings_qqs_rows_portrait_title">Lignes des paramètres rapides (portrait)</string>
+    <string name="quick_settings_qqs_rows_landscape_title">Lignes des paramètres rapides (paysage)</string>
     <string name="quick_settings_show_brightness_slider_title">Curseur de luminosité</string>
     <string name="quick_settings_show_brightness_slider_never">Ne jamais afficher</string>
     <string name="quick_settings_show_brightness_slider_expanded">Afficher uniquement lorsque étendu</string>
@@ -334,7 +366,9 @@
     <string name="notifications_alert_display_on_title">Alerte lorsque l\'écran est allumé</string>
     <string name="notifications_alert_display_on_summary">Émettre un son et des vibrations pour la réception de notifications lorsque l\'écran est allumé</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_enable_ttile">Activer</string>
+    <string name="notifications_heads_up_title">Notifications flottantes</string>
+    <string name="notifications_heads_up_summary">Autoriser les notifications pop-up</string>
+    <string name="notifications_edge_light_enable_title">Activer</string>
     <string name="notifications_edge_light_always_trigger_on_pulse_title">Toujours déclencher lors de l\'impulsion</string>
     <string name="notifications_edge_light_always_trigger_on_pulse_summary">Afficher/Masquer la lumière des bords chaque fois que l\'affichage ambiant est affiché et pas seulement pour les notifications</string>
     <string name="notifications_edge_light_repeat_animation_title">Répéter l\'animation</string>
@@ -345,6 +379,9 @@
     <string name="island_notification_now_playing_title">Île en train de jouer</string>
     <string name="island_notification_now_playing_summary">Afficher la chanson en cours de lecture sous forme de notification dynamic island </string>
     <string name="island_notification_footer_text">        La fonctionnalité de notification island, inspirée par iOS Dynamic Island, transforme les notifications Android en notifications compactes avec accès rapides.\n\nLes accès rapides dynamic island inclues les fonctionnalités suivantes:\n1. Appuyez sur la notification dynamic island pour répondre à un appel.\n2. Appuyez longtemps sur la notification dynamic island pour rejeter un appel.\n3. Appuyez longtemps sur la notification dynamic island pour étendre la notification dynamic island.    </string>
+    <!-- Notifications/Less boring heads up -->
+    <string name="notifications_less_boring_heads_up_title">Moins ennuyeux</string>
+    <string name="notifications_less_boring_heads_up_summary">Afficher les notifications popup uniquement pour l\'alarme, le téléphone et l\'application de messagerie</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interface</string>
     <string name="power_menu_actions_title">Options du menu Marche/Arrêt</string>
@@ -371,8 +408,12 @@
     <string name="miscellaneous_developer_options_category">Options pour les développeurs</string>
     <string name="miscellaneous_app_downgrade_title">Autoriser le downgrade de l\'application</string>
     <string name="miscellaneous_app_downgrade_summary">Permettre la rétrogradation des applications système, ce qui peut entraîner des plantages et une perte de données</string>
+    <string name="miscellaneous_block_wallpaper_dimming_title">Ignorer les demandes de gradation du fond d\'écran</string>
+    <string name="miscellaneous_block_wallpaper_dimming_summary">Empêche toutes les applications de régler la luminosité du fond d\'écran\nForce la luminosité à 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignorer les drapeaux sécurisés des fenêtres</string>
     <string name="miscellaneous_ignore_window_secure_summary">Supprimer les restrictions sur les captures d\'écran et les enregistrements d\'écran pour toutes les applications, risquant potentiellement des fuites de confidentialité</string>
+    <string name="miscellaneous_unlimit_screenrecord_title">Ne pas limiter l\'enregistrement d\'écran</string>
+    <string name="miscellaneous_unlimit_screenrecord_summary">Retirer la limite de taille de fichier de 15GiB\npeut entraîner un fichier de sortie plus grand que nécessaire</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Spoofing des composants</string>
     <string name="spoofing_summary">Contourner les restrictions des applications en faisant passer votre apparel pour un autre</string>
@@ -386,6 +427,8 @@
     <string name="spoofing_storage_encryption_title">Chiffrement du stockage</string>
     <string name="spoofing_storage_encryption_summary">L\'état du chiffrement du stockage est falsifié en mode \"chiffré\"</string>
     <string name="spoofing_app_specific_category">Spécifique à l\'application</string>
+    <string name="spoofing_photos_title">Spoof Google Photos</string>
+    <string name="spoofing_photos_summary">Faire passer votre apparel pour un Pixel XL dans Google photos pour débloquer le stockage de photos illimité</string>
     <string name="spoofing_games_title">Meilleur FPS dans les jeux</string>
     <string name="spoofing_games_summary">Faire passer votre appareil pour un autre modèle dans des jeux spécifiques pour débloquer des FPS plus élevés</string>
     <string name="spoofing_snapchat_title">Spoof de Snapchat</string>
@@ -422,5 +465,6 @@
     <string name="custom_seekbar_default_value_to_set">Valeur par défaut : <xliff:g id="v">%s</xliff:g>\nRester appuyer pour définir</string>
     <string name="custom_seekbar_default_value_is_set">Valeur par défaut définie</string>
     <!-- Units -->
+    <string name="unit_milliseconds">millisecondes</string>
     <string name="unit_seconds">secondes</string>
 </resources>
