@@ -48,6 +48,9 @@
     <string name="themes_navigation_bar_icons_summary">Establecer estilo personalizado de la barra de navegación</string>
     <string name="themes_udfps_icon_title">Icono de UDFPS</string>
     <string name="themes_udfps_icon_summary">Establece el estilo del icono de UDFPS</string>
+    <string name="themes_brightness_category">Control de brillo</string>
+    <string name="themes_brightness_slider_title">Estilo de la barra de brillo</string>
+    <string name="themes_brightness_slider_summary">Establece el estilo de la barra de brillo</string>
     <string name="themes_animations_category">Animaciones</string>
     <string name="themes_screen_off_animation_title">Animación al apagar pantalla</string>
     <string name="themes_screen_off_animation_default">Por defecto</string>
@@ -95,6 +98,37 @@
     <string name="lock_screen_miscellaneous_category">Varios</string>
     <string name="lock_screen_pocket_detection_title">Detección de bolsillo</string>
     <string name="lock_screen_pocket_detection_summary">Bloquear pantalla y botones cuando el dispositivo está en el bolsillo</string>
+    <!-- Lock screen/Pulse music visualizer -->
+    <string name="pulse_help_policy_notice_title">Acerca de Pulse</string>
+    <string name="pulse_help_policy_notice_summary">Pulse es un brillante ecualizador gráfico de audio para cuando se reproduce música en el dispositivo</string>
+    <string name="lock_screen_pulse_settings_title">Pulso</string>
+    <string name="lock_screen_pulse_settings_summary">Ecualizador gráfico de audio para barra de navegación y pantalla de bloqueo</string>
+    <string name="show_navbar_pulse_title">Pulso de la barra de navegación</string>
+    <string name="show_navbar_pulse_summary">Ecualizador gráfico de audio en la barra de navegación</string>
+    <string name="show_lockscreen_pulse_title">Pulso en pantalla de bloqueo</string>
+    <string name="show_lockscreen_pulse_summary">El ecualizador de audio gráfico en pantalla de bloqueo</string>
+    <string name="show_ambient_pulse_title">Pulso Ambiental</string>
+    <string name="show_ambient_pulse_summary">Ecualizador gráfico de audio en la pantalla ambiente</string>
+    <string name="pulse_render_mode_title">Modo de renderizado</string>
+    <string name="pulse_render_mode_fading_bars">Bloques desvaneciéndose</string>
+    <string name="pulse_render_mode_solid_lines">Líneas sólidas</string>
+    <string name="pulse_legacy_mode_advanced_category">Ajustes del modo de bloques desvaneciéndose</string>
+    <string name="pulse_custom_fudge_factor">Nivel de sensibilidad</string>
+    <string name="pulse_lavalamp_speed_title">Velocidad de la lámpara de lava</string>
+    <string name="pulse_solid_units_count">Cantidad de líneas sólidas</string>
+    <string name="pulse_solid_units_opacity">Opacidad de líneas sólidas</string>
+    <string name="pulse_solid_dimen_category">Ajustes del modo de líneas sólidas</string>
+    <string name="pulse_color_mode_title">Color</string>
+    <string name="pulse_color_accent">Acento</string>
+    <string name="pulse_color_custom">Personalizado</string>
+    <string name="pulse_color_lava_lamp">Lámpara de lava</string>
+    <string name="pulse_color_user_title">Elegir el color</string>
+    <string name="pulse_smoothing_enabled_title">Activar suavizado</string>
+    <string name="pulse_smoothing_enabled_summary">La animación de las barras es más suave</string>
+    <string name="pulse_custom_dimen">Ancho de la barra</string>
+    <string name="pulse_custom_div">Espaciado de la barra</string>
+    <string name="pulse_filled_block_size">Tamaño del bloque</string>
+    <string name="pulse_empty_block_size">Espaciado del bloque</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Gestos</string>
     <string name="status_bar_brightness_control_title">Control de brillo</string>
@@ -110,35 +144,12 @@
     <string name="status_bar_tuner_summary">Elige qué iconos del sistema se mostrarán</string>
     <string name="status_bar_battery_style_title">Estilo de la batería</string>
     <string name="status_bar_battery_style_icon_portrait">Icono vertical</string>
-    <string name="status_bar_battery_style_icon_rlandscape">Ícono horizontal (Derecha)</string>
-    <string name="status_bar_battery_style_icon_landscape">Ícono horizontal (Izquierda)</string>
-    <string name="status_bar_battery_style_icon_landscape_buddy">Apaisado Cápsula</string>
-    <string name="status_bar_battery_style_icon_landscape_line">Apaisado Lorn</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">Vertical iOS</string>
-    <string name="status_bar_battery_style_icon_landscape_pill">Vertical Mx</string>
-    <string name="status_bar_battery_style_icon_landscape_signal">Apaisado Airoo</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_a">Apaisado D Estilo A</string>
-    <string name="status_bar_battery_style_icon_landscape_style_a">Apaisado I Estilo A</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_b">Apaisado D Estilo B</string>
-    <string name="status_bar_battery_style_icon_landscape_style_b">Apaisado I Estilo B</string>
-    <string name="status_bar_battery_style_icon_landscape_ios15">iOS 15 horizontal</string>
-    <string name="status_bar_battery_style_icon_landscape_ios16">iOS 16 horizontal</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">Origami horizontal</string>
     <string name="status_bar_battery_style_circle">Círculo</string>
-    <string name="status_bar_battery_style_dotted_circle">Círculo punteado</string>
-    <string name="status_bar_battery_style_filled_circle">Círculo (lleno)</string>
-    <string name="status_bar_battery_style_big_circle">Círculo (Grande)</string>
-    <string name="status_bar_battery_style_big_dotted_circle">Círculo (Punteado)</string>
     <string name="status_bar_battery_style_text">Texto</string>
-    <string name="status_bar_battery_style_hidden">Oculto</string>
-    <string name="status_bar_battery_style_follow_status_bar">Seguir estilo de la barra de estado</string>
-    <string name="status_bar_battery_percent_title">Porcentaje de batería</string>
-    <string name="status_bar_battery_percent_hidden">Oculto</string>
-    <string name="status_bar_battery_percent_text_inside">Dentro del icono</string>
-    <string name="status_bar_battery_percent_text_next_right">Junto al icono (derecha)</string>
-    <string name="status_bar_battery_percent_text_next_left">Junto al icono (izquierda)</string>
-    <string name="status_bar_battery_text_charging_title">Porcentaje de batería al cargar</string>
-    <string name="status_bar_battery_text_charging_summary">Mostrar siempre porcentaje de batería al cargar</string>
+    <string name="status_bar_battery_percentage_title">Porcentaje de batería</string>
+    <string name="status_bar_battery_percentage_default">Oculto</string>
+    <string name="status_bar_battery_percentage_text_inside">Dentro del icono</string>
+    <string name="status_bar_battery_percentage_text_next">Al lado del icono</string>
     <string name="status_bar_clock_and_date_title">Ajustes de reloj y fecha</string>
     <string name="status_bar_clock_and_date_summary">Personalizar reloj y fecha</string>
     <string name="status_bar_data_disabled_icon_title">Indicador de datos deshabilitado</string>
@@ -191,8 +202,8 @@
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Amogus</string>
-    <string name="status_bar_network_traffic_settings_title">Indicadores de tráfico de red</string>
-    <string name="status_bar_network_traffic_settings_summary">Muestra y configura el monitor actual de tráfico de red</string>
+    <string name="status_bar_network_traffic_settings_title">Monitor de tráfico de red</string>
+    <string name="status_bar_network_traffic_settings_summary">Muestra y personaliza los niveles actuales del monitor de tráfico de red</string>
     <string name="status_bar_notif_count_title">Contador de notificaciones</string>
     <string name="status_bar_notif_count_summary">Mostrar el número de notificaciones sin leer en cada icono de la aplicación</string>
     <string name="status_bar_privacy_indicators_category">Indicadores de privacidad</string>
@@ -205,8 +216,6 @@
     <string name="status_bar_miscellaneous_category">Varios</string>
     <string name="status_bar_battery_bar_title">Barra de la batería</string>
     <string name="status_bar_battery_bar_summary">Muestra y personaliza la barra de batería junto a la de estado o la de navegación</string>
-    <string name="status_bar_lyrics_title">Letras en la barra de estado</string>
-    <string name="status_bar_lyrics_summary">Mostrar letras en la barra de estado (necesita la aplicación StatusBarLyricExt)</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Posición del reloj</string>
     <string name="status_bar_clock_position_right">Derecha</string>
@@ -251,15 +260,15 @@
     <string name="network_traffic_location_statusbar">Barra de estado</string>
     <string name="network_traffic_location_quick_statusbar">Barra de estado rápida</string>
     <string name="network_traffic_mode_title">Modo de visualización</string>
-    <string name="network_traffic_mode_up">Solo subidas</string>
-    <string name="network_traffic_mode_down">Solo descargas</string>
-    <string name="network_traffic_mode_all">Subidas y descargas</string>
+    <string name="network_traffic_mode_up">Solo subida</string>
+    <string name="network_traffic_mode_down">Solo descarga</string>
+    <string name="network_traffic_mode_all">Subida y descarga</string>
     <string name="network_traffic_autohide">Auto ocultar el reloj</string>
-    <string name="network_traffic_autohide_summary">Ocultar cuando el tráfico de red es menor de 1 Kb/s</string>
+    <string name="network_traffic_autohide_summary">Ocultar el monitor de tráfico cuando esté inactivo</string>
     <string name="network_traffic_autohide_threshold">Límite de inactividad</string>
     <string name="network_traffic_refresh_interval_title">Intervalo de actualización</string>
     <string name="network_traffic_refresh_interval_summary">Tiempo tras el cual se vuelve a medir la velocidad</string>
-    <string name="network_traffic_units_title">Unidades de medida del tráfico de red</string>
+    <string name="network_traffic_units_title">Unidades de medida de tráfico</string>
     <string name="network_traffic_units_bits">Bits por segundo (b/s)</string>
     <string name="network_traffic_units_kilobits">Kilobits por segundo (kb/s)</string>
     <string name="network_traffic_units_megabits">Megabits por segundo (Mb/s)</string>
@@ -286,6 +295,29 @@
     <string name="battery_bar_blend_color_reverse_summary_on">Lleno &#8594; vacío: rojo &#8594; verde &#8594; azul &#8594; rojo</string>
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Interfaz</string>
+    <string name="quick_settings_tile_ui_style_title">Estilo de ajustes rápidos</string>
+    <string name="quick_settings_tile_ui_style_a11_circle">Circulares</string>
+    <string name="quick_settings_tile_ui_style_a11_square">Cuadrados</string>
+    <string name="quick_settings_tile_ui_style_a11_mix">Circulares &amp; Cuadrados</string>
+    <string name="quick_settings_panel_style_title">Estilo del panel de ajustes rápidos</string>
+    <string name="quick_settings_panel_style_outline">Contorno</string>
+    <string name="quick_settings_panel_style_two_tone">Doble tono</string>
+    <string name="quick_settings_panel_style_color_pop">Color Destacado</string>
+    <string name="quick_settings_panel_style_shaded">Sombreado</string>
+    <string name="quick_settings_panel_style_cyberpunk">Ciberpunk</string>
+    <string name="quick_settings_panel_style_neumorph">Neumórfo</string>
+    <string name="quick_settings_panel_style_reflected">Reflejado</string>
+    <string name="quick_settings_panel_style_surround">Contorno</string>
+    <string name="quick_settings_panel_style_thin">Línea fina</string>
+    <string name="quick_settings_tile_label_hide_title">Ocultar etiqueta</string>
+    <string name="quick_settings_tile_label_size_title">Tamaño de texto de la etiqueta</string>
+    <string name="quick_settings_tile_label_hide_summary">Mostrar solo el icono en el mosaico</string>
+    <string name="quick_settings_tile_layout_title">Disposición vertical</string>
+    <string name="quick_settings_tile_layout_summary">Mostrar etiqueta debajo, no a un lado</string>
+    <string name="quick_settings_columns_portrait_title">Columnas (vertical)</string>
+    <string name="quick_settings_columns_landscape_title">Columnas (horizontal)</string>
+    <string name="quick_settings_qqs_rows_portrait_title">Filas de ajustes rápidos (vertical)</string>
+    <string name="quick_settings_qqs_rows_landscape_title">Filas de ajustes rápidos (horizontal)</string>
     <string name="quick_settings_show_brightness_slider_title">Control de brillo</string>
     <string name="quick_settings_show_brightness_slider_never">Nunca mostrar</string>
     <string name="quick_settings_show_brightness_slider_expanded">Mostrar solo cuando se expande</string>
@@ -334,7 +366,9 @@
     <string name="notifications_alert_display_on_title">Alerta mientras la pantalla está encendida</string>
     <string name="notifications_alert_display_on_summary">Las notificaciones suenan y vibran cuando la pantalla está encendida</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_enable_ttile">Habilitar</string>
+    <string name="notifications_heads_up_title">Notificaciones emergentes</string>
+    <string name="notifications_heads_up_summary">Permitir notificaciones emergentes</string>
+    <string name="notifications_edge_light_enable_title">Habilitar</string>
     <string name="notifications_edge_light_always_trigger_on_pulse_title">Siempre activa en pulso</string>
     <string name="notifications_edge_light_always_trigger_on_pulse_summary">Mostrar la luz del borde siempre que se muestra la pantalla ambiente y no sólo para las notificaciones</string>
     <string name="notifications_edge_light_repeat_animation_title">Repetir animación</string>
@@ -345,6 +379,9 @@
     <string name="island_notification_now_playing_title">Reproducción actual en isla</string>
     <string name="island_notification_now_playing_summary">Mostrar la canción actualmente sonando en estilo Isla Dinámica</string>
     <string name="island_notification_footer_text">La característica notificación de Isla, inspirada en la Isla Dinámica de IOS, transforma las notificaciones emergentes de Android en una utilidad de notificaciones de acceso rápido y compactas.\n\nControles de Acceso Rápido de Isla incluye las siguientes características:\n1. Tocar la notificación de la isla para responder rápidamente las llamadas telefónicas.\n2. Mantener pulsada la notificación de isla para rechazar las llamadas telefónicas.\n3. Mantener pulsada la notificación de la isla para expandir la vista previa de la notificación de la isla.</string>
+    <!-- Notifications/Less boring heads up -->
+    <string name="notifications_less_boring_heads_up_title">Notificaciones emergentes menos molestas</string>
+    <string name="notifications_less_boring_heads_up_summary">Mostrar notificaciones emergentes solo para la aplicación de teléfono, mensajería y alarma</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interfaz</string>
     <string name="power_menu_actions_title">Acciones del menú de apagado</string>
@@ -371,8 +408,12 @@
     <string name="miscellaneous_developer_options_category">Opciones de desarrollador</string>
     <string name="miscellaneous_app_downgrade_title">Permitir instalar versiones inferiores de las aplicaciones</string>
     <string name="miscellaneous_app_downgrade_summary">Permite desactualizar aplicaciones del sistema, puede resultar en fallos y pérdida de datos</string>
+    <string name="miscellaneous_block_wallpaper_dimming_title">Ignorar solicitudes de atenuación de fondos de pantalla</string>
+    <string name="miscellaneous_block_wallpaper_dimming_summary">Bloquea todas las aplicaciones de establecer la atenuación del fondo de pantalla\nFuerza la atenuación a 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignorar limitadores de ventanas seguras</string>
     <string name="miscellaneous_ignore_window_secure_summary">Elimina restricciones en las capturas de pantalla y grabaciones de pantalla para todas las aplicaciones, arriesgando potencialmente fugas de datos privados</string>
+    <string name="miscellaneous_unlimit_screenrecord_title">Grabación de pantalla ilimitada</string>
+    <string name="miscellaneous_unlimit_screenrecord_summary">Elimina el límite de tamaño de archivo de 15GB\nPuede resultar en un archivo de salida mayor al necesario</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Suplantación de componentes</string>
     <string name="spoofing_summary">Saltarse las restricciones de aplicaciones suplantando componentes</string>
@@ -386,6 +427,8 @@
     <string name="spoofing_storage_encryption_title">Cifrado del almacenamiento</string>
     <string name="spoofing_storage_encryption_summary">Suplanta el estado de cifrado de almacenamiento a \"Cifrado\"</string>
     <string name="spoofing_app_specific_category">Aplicación específica</string>
+    <string name="spoofing_photos_title">Suplantación de Fotos de Google</string>
+    <string name="spoofing_photos_summary">Suplanta el dispositivo como Pixel XL en la aplicación Google Fotos para desbloquear el respaldo de imágenes limitado</string>
     <string name="spoofing_games_title">FPS más altos en juegos</string>
     <string name="spoofing_games_summary">Suplanta el dispositivo como diferentes modelos en algunos juegos para desbloquear FPS más altos</string>
     <string name="spoofing_snapchat_title">Engañar Snapchat</string>
@@ -402,13 +445,13 @@
     <!-- About -->
     <string name="about_info">Evolution X pretende proporcionar a los usuarios una sensación de Pixel a primera vista, con características adicionales a su disposición</string>
     <string name="about_website_title">Sitio web</string>
-    <string name="about_website_summary">¡Pulsa aquí para visitar nuestro impresionante sitio web!</string>
-    <string name="about_twitter_summary">¡Pulsa aquí para visitar nuestro Twitter!</string>
-    <string name="about_discord_summary">Visita el chat de la comunidad</string>
-    <string name="about_github_summary">¡Pulsa aquí para abrir nuestro Github!</string>
-    <string name="about_contributors_title">Colaboradores</string>
+    <string name="about_website_summary">Siéntete libre de pasar por nuestro sitio web</string>
+    <string name="about_twitter_summary">Ven mira nuestros tweets</string>
+    <string name="about_discord_summary">Visita el chat de nuestra comunidad</string>
+    <string name="about_github_summary">Revisa nuestro GitHub</string>
+    <string name="about_contributors_title">Contribuidores</string>
     <!-- Color Picker -->
-    <string name="dialog_color_picker">Seleccionar color</string>
+    <string name="dialog_color_picker">Selector de color</string>
     <string name="press_color_to_apply">Presiona el color de abajo para usar</string>
     <string name="set">Establecer</string>
     <string name="color_default">Por defecto</string>
@@ -422,5 +465,6 @@
     <string name="custom_seekbar_default_value_to_set">Valor por defecto: <xliff:g id="v">%s</xliff:g>\nMantener presionado para establecer</string>
     <string name="custom_seekbar_default_value_is_set">Valor por defecto establecido</string>
     <!-- Units -->
+    <string name="unit_milliseconds">milisegundos</string>
     <string name="unit_seconds">segundos</string>
 </resources>
