@@ -458,6 +458,26 @@
     <string name="miscellaneous_unlimit_screenrecord_title">Unlimit screenrecord</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remove the 15GiB file size limit\nMay result in a larger than needed output file</string>
 
+    <!-- Miscellaneous/Three Finger Gestures -->
+    <string name="miscellaneous_three_finger_gestures_title">Three finger gestures</string>
+    <string name="miscellaneous_three_finger_gesture_action_title">Three finger swipe gestures</string>
+    <string name="miscellaneous_three_finger_gesture_action_dialog_title">Swipe three finger gestures actions</string>
+    <string name="miscellaneous_three_finger_long_press_action_title">Three finger long press gestures</string>
+    <string name="miscellaneous_three_finger_long_press_action_dialog_title">Three finger long press gestures actions</string>
+
+    <!-- Miscellaneous/Shake Gestures -->
+    <string name="hardware_keys_action_nothing">No action</string>
+    <string name="hardware_keys_action_close_app">Kill foreground app</string>
+    <string name="hardware_keys_action_search">Search assistant</string>
+    <string name="hardware_keys_action_voice_search">Voice search</string>
+    <string name="shake_gestures_toggle_flashlight">Toggle Flashlight</string>
+    <string name="shake_gestures_media_playback">Play/Skip Media</string>
+    <string name="shake_gestures_volume_panel">Show Volume Panel</string>
+    <string name="shake_gestures_screen_wake">Turn Screen On/Off</string>
+    <string name="shake_gestures_clear_notifs">Clear All Notifications</string>
+    <string name="shake_gestures_toggle_ringer">Toggle Ringer Mode</string>
+    <string name="shake_gestures_screenshot">Take Screenshot</string>
+
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Component spoofing</string>
     <string name="spoofing_summary">Bypass app restrictions by spoofing components</string>

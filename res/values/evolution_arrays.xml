@@ -617,5 +617,33 @@
       <item>1</item>
       <item>2</item>
     </string-array>
+    
+    <string-array name="shake_gestures_action_entries">
+        <item>@string/hardware_keys_action_nothing</item>
+        <item>@string/shake_gestures_toggle_flashlight</item>
+        <item>@string/shake_gestures_media_playback</item>
+        <item>@string/shake_gestures_volume_panel</item>
+        <item>@string/shake_gestures_screen_wake</item>
+        <item>@string/shake_gestures_clear_notifs</item>
+        <item>@string/shake_gestures_toggle_ringer</item>
+        <item>@string/shake_gestures_screenshot</item>
+        <item>@string/hardware_keys_action_close_app</item>
+        <item>@string/hardware_keys_action_search</item>
+        <item>@string/hardware_keys_action_voice_search</item>
+    </string-array>
+
+    <string-array name="shake_gestures_action_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 
 </resources>
