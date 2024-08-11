@@ -15,11 +15,13 @@
     <string name="lock_screen_title">Lock screen</string>
     <string name="lock_screen_summary">Interface, miscellaneous</string>
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_summary">Gestures, Icons, privacy indicators</string>
+    <string name="status_bar_summary">Icons, privacy indicators</string>
     <string name="quick_settings_title">Quick settings</string>
     <string name="quick_settings_summary">Interface, lock screen</string>
     <string name="notifications_title">Notifications</string>
     <string name="notifications_summary">Alerts, interface</string>
+    <string name="gestures_title">Gestures</string>
+    <string name="gestures_summary">Status bar, three finger screenshot</string>
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Actions, lock screen</string>
     <string name="buttons_title">Buttons</string>

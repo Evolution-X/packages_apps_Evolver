@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2024 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/gestures_title">
+
+    <PreferenceCategory
+        android:key="status_bar_gestures_category"
+        android:title="@string/status_bar_gestures_category">
+
+        <!-- Status bar brightness control -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_brightness_control"
+            android:title="@string/status_bar_brightness_control_title"
+            android:summary="@string/status_bar_brightness_control_summary"
+            android:defaultValue="false" />
+
+        <!-- Quick pull down -->
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="qs_quick_pulldown"
+            android:title="@string/status_bar_quick_pull_down_title"
+            android:entries="@array/status_bar_quick_pull_down_entries"
+            android:entryValues="@array/status_bar_quick_pull_down_values"
+            android:defaultValue="0" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="three_finger_gestures"
+        android:title="@string/swipe_to_screenshot_gesture_title">
+
+        <!-- Three-fingers-swipe to screenshot -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="swipe_to_screenshot"
+            android:title="@string/swipe_to_screenshot_gesture_title"
+            android:summary="@string/swipe_to_screenshot_gesture_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>
