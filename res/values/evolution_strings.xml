@@ -470,6 +470,11 @@
     <string name="hardware_keys_action_close_app">Kill foreground app</string>
     <string name="hardware_keys_action_search">Search assistant</string>
     <string name="hardware_keys_action_voice_search">Voice search</string>
+    <string name="miscellaneous_shake_gestures_enabled_title">Shake gestures</string>
+    <string name="miscellaneous_shake_gestures_enabled_summary">Shake your device to perform actions</string>
+    <string name="miscellaneous_shake_gestures_action_title">Shake gestures actions</string>
+    <string name="miscellaneous_shake_gestures_intensity_title">Shake gestures intensity</string>
+    <string name="miscellaneous_shake_gestures_intensity_summary">Adjust the sensitivity of shake gestures</string>
     <string name="shake_gestures_toggle_flashlight">Toggle Flashlight</string>
     <string name="shake_gestures_media_playback">Play/Skip Media</string>
     <string name="shake_gestures_volume_panel">Show Volume Panel</string>
