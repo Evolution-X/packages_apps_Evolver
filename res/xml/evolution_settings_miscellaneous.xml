@@ -22,6 +22,38 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="shake_gestures"
+        android:title="@string/miscellaneous_shake_gestures_enabled_title">
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="shake_gestures_enabled"
+            android:title="@string/miscellaneous_shake_gestures_enabled_title"
+            android:summary="@string/miscellaneous_shake_gestures_enabled_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="shake_gestures_action"
+            android:title="@string/miscellaneous_shake_gestures_action_title"
+            android:summary="%s"
+            android:dialogTitle="@string/miscellaneous_shake_gestures_action_title"
+            android:entries="@array/shake_gestures_action_entries"
+            android:entryValues="@array/shake_gestures_action_values"
+            android:defaultValue="0"
+            android:dependency="shake_gestures_enabled" />
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="shake_gestures_intensity"
+            android:title="@string/miscellaneous_shake_gestures_intensity_title"
+            android:summary="@string/miscellaneous_shake_gestures_intensity_summary"
+            android:dependency="shake_gestures_enabled"
+            android:defaultValue="3"
+            settings:interval="1"
+            android:max="12"
+            android:min="1" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="miscellaneous_gestures_category"
         android:title="@string/miscellaneous_three_finger_gestures_title">
 
