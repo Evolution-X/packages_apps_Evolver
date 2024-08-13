@@ -49,6 +49,14 @@
         android:icon="@drawable/ic_notifications"
         android:fragment="org.evolution.settings.fragments.notifications.Notifications" />
 
+    <!-- Gestures -->
+    <Preference
+        android:key="gestures"
+        android:title="@string/gestures_title"
+        android:summary="@string/gestures_summary"
+        android:icon="@drawable/ic_settings_gestures"
+        android:fragment="org.evolution.settings.fragments.gestures.Gestures" />
+
     <!-- Power menu -->
     <Preference
         android:key="power_menu"

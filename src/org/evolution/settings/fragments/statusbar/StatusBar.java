@@ -38,7 +38,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private static final String TAG = "StatusBar";
 
-    private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
     private static final String KEY_BATTERY_STYLE = "status_bar_battery_style";
     private static final String KEY_BATTERY_PERCENT = "status_bar_show_battery_percent";
@@ -47,15 +46,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
     private static final String KEY_FOUR_G_ICON = "show_fourg_icon";
 
-    private static final int PULLDOWN_DIR_NONE = 0;
-    private static final int PULLDOWN_DIR_RIGHT = 1;
-    private static final int PULLDOWN_DIR_LEFT = 2;
-    private static final int PULLDOWN_DIR_BOTH = 3;
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
     private static final int BATTERY_STYLE_HIDDEN = 5;
 
-    private LineageSystemSettingListPreference mQuickPulldown;
     private PreferenceCategory mIconsCategory;
     private SystemSettingListPreference mBatteryPercent;
     private SystemSettingListPreference mBatteryStyle;
@@ -74,11 +68,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
 
-        mQuickPulldown =
-                (LineageSystemSettingListPreference) findPreference(KEY_QUICK_PULLDOWN);
-        mQuickPulldown.setOnPreferenceChangeListener(this);
-        updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
-
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
         mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
         mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
@@ -87,11 +76,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mDataDisabledIcon = (SystemSettingSwitchPreference) findPreference(KEY_DATA_DISABLED_ICON);
         mFourgIcon = (SystemSettingSwitchPreference) findPreference(KEY_FOUR_G_ICON);
         mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
-
-        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            mQuickPulldown.setEntries(R.array.status_bar_quick_pull_down_entries_rtl);
-            mQuickPulldown.setEntryValues(R.array.status_bar_quick_pull_down_values_rtl);
-        }
 
         int batterystyle = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
@@ -121,11 +105,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
-        if (preference == mQuickPulldown) {
-            int value = Integer.parseInt((String) newValue);
-            updateQuickPulldownSummary(value);
-            return true;
-        } else if (preference == mBatteryStyle) {
+        if (preference == mBatteryStyle) {
             int value = Integer.parseInt((String) newValue);
             int batterypercent = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
@@ -143,31 +123,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
-    }
-
-    private void updateQuickPulldownSummary(int value) {
-        String summary = "";
-        switch (value) {
-            case PULLDOWN_DIR_NONE:
-                summary = getResources().getString(
-                    R.string.status_bar_quick_pull_down_off);
-                break;
-            case PULLDOWN_DIR_RIGHT:
-            case PULLDOWN_DIR_LEFT:
-            case PULLDOWN_DIR_BOTH:
-                summary = getResources().getString(
-                    R.string.status_bar_quick_pull_down_summary,
-                    getResources().getString(
-                        value == PULLDOWN_DIR_RIGHT
-                            ? R.string.status_bar_quick_pull_down_right
-                            : value == PULLDOWN_DIR_LEFT
-                                ? R.string.status_bar_quick_pull_down_left
-                                : R.string.status_bar_quick_pull_down_both
-                    )
-                );
-                break;
-        }
-        mQuickPulldown.setSummary(summary);
     }
 
     @Override
