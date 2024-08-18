@@ -316,8 +316,13 @@
     <string name="quick_settings_tile_label_hide_summary">Csak az ikonok látszanak a csempén</string>
     <string name="quick_settings_tile_layout_title">Függőleges elrendezés</string>
     <string name="quick_settings_tile_layout_summary">Ikonnév nem az ikon alatt, hanem mellette</string>
+    <string name="quick_settings_layout_columns_rows_title">Oszlopok és sorok</string>
+    <string name="quick_settings_layout_columns_rows_summary">Személyre szabhatja a csempék oszlopait és sorait</string>
+    <string name="quick_settings_layout_columns_rows_footer_text">A QS sorainak többnek kell lennie mint a QQS sorainak. Használjon nagyobb számú oszlopot a kör/négyzet (A11) QS csempestílushoz.</string>
     <string name="quick_settings_columns_portrait_title">Oszlopok (álló)</string>
     <string name="quick_settings_columns_landscape_title">Oszlopok (fekvő)</string>
+    <string name="quick_settings_rows_portrait_title">Sorok (álló)</string>
+    <string name="quick_settings_rows_landscape_title">Sorok (fekvő)</string>
     <string name="quick_settings_qqs_rows_portrait_title">A Gyorsbeállítások sorai (álló módban)</string>
     <string name="quick_settings_qqs_rows_landscape_title">A Gyorsbeállítások sorai (fekvő módban)</string>
     <string name="quick_settings_show_brightness_slider_title">Fényerőcsúszka</string>
