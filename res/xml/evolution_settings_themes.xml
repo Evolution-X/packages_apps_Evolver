@@ -104,13 +104,11 @@
         android:title="@string/themes_animations_category">
 
         <!-- Boot animation -->
-        <org.evolution.settings.preferences.SystemPropertyListPreference
-            android:key="persist.sys.bootanimation_style"
+        <Preference
+            android:key="bootanimation_fragment"
             android:title="@string/themes_boot_animation_title"
-            android:entries="@array/boot_animation_entries"
-            android:entryValues="@array/boot_animation_values"
-            android:summary="%s"
-            android:defaultValue="0" />
+            android:summary="@string/boot_animation_styles_summary"
+            android:fragment="org.evolution.settings.fragments.themes.BootAnimationSettings" />
 
         <!-- Screen Off animation -->
         <org.evolution.settings.preferences.SystemSettingListPreference
