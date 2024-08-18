@@ -53,41 +53,11 @@
             android:summary="@string/quick_settings_tile_layout_summary"
             android:defaultValue="false" />
 
-        <!-- Columns (portrait) -->
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qs_layout_columns"
-            android:title="@string/quick_settings_columns_portrait_title"
-            android:max="5"
-            settings:min="2"
-            settings:interval="1"
-            android:defaultValue="2" />
-
-        <!-- Columns (landscape) -->
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qs_layout_columns_landscape"
-            android:title="@string/quick_settings_columns_landscape_title"
-            android:max="5"
-            settings:min="2"
-            settings:interval="1"
-            android:defaultValue="4" />
-
-        <!-- Quick QS rows (portrait) -->
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qqs_layout_rows"
-            android:title="@string/quick_settings_qqs_rows_portrait_title"
-            android:max="3"
-            settings:min="1"
-            settings:interval="1"
-            android:defaultValue="2" />
-
-        <!-- Quick QS rows (landscape) -->
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qqs_layout_rows_landscape"
-            android:title="@string/quick_settings_qqs_rows_landscape_title"
-            android:max="3"
-            settings:min="1"
-            settings:interval="1"
-            android:defaultValue="1" />
+        <Preference
+            android:key="qs_layout_columns_rows"
+            android:title="@string/quick_settings_layout_columns_rows_title"
+            android:summary="@string/quick_settings_layout_columns_rows_summary"
+            android:fragment="org.evolution.settings.fragments.quicksettings.LayoutSettings" />
 
         <!-- Battery styles -->
         <org.evolution.settings.preferences.SystemSettingListPreference
