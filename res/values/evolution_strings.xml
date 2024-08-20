@@ -57,12 +57,19 @@
     <string name="themes_brightness_slider_title">Brightness slider style</string>
     <string name="themes_brightness_slider_summary">Set brightness slider style</string>
     <string name="themes_animations_category">Animations</string>
+    <string name="themes_boot_animation_title">Boot animation</string>
+    <string name="themes_boot_animation_summary">Set boot animation style</string>
     <string name="themes_screen_off_animation_title">Screen off animation</string>
     <string name="themes_screen_off_animation_default">Default</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">Scale</string>
     <string name="themes_udfps_animation_title">UDFPS animation</string>
     <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
+
+    <!-- Themes/Boot animation preview -->
+    <string name="boot_animation_preview_desc">Preview of the selected boot animation</string>
+    <string name="boot_animation_preview_summary">Displays a preview of the currently selected boot animation</string>
+    <string name="boot_animation_preview_title">Boot animation preview</string>
 
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Accent color</string>
