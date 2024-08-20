@@ -50,6 +50,41 @@
         <item>preset</item>
     </string-array>
 
+    <!-- Themes/Boot animation -->
+   <string-array name="themes_boot_animation_entries">
+        <item>Evolution X</item>
+        <item>Evolution X (Reveal)</item>
+        <item>AOKP</item>
+        <item>CyanogenMod</item>
+        <item>ctOS</item>
+        <item>Cyberpunk</item>
+        <item>Dirty Unicorns</item>
+        <item>Google</item>
+        <item>Google (Monet)</item>
+        <item>PAC-ROM</item>
+        <item>Resurrection Remix</item>
+        <item>SlimRoms</item>
+        <item>Valorant</item>
+        <item>Custom</item>
+    </string-array>
+
+    <string-array name="themes_boot_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item> 
+        <item>12</item>
+        <item>13</item>
+    </string-array>
+
     <!-- Themes - Screen off animation -->
     <string-array name="themes_screen_off_animation_entries">
         <item>@string/themes_screen_off_animation_default</item>
