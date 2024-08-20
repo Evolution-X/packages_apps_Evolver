@@ -9,6 +9,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/themes_title">
 
+    <org.evolution.settings.preferences.SystemPropertyListPreference
+        android:key="persist.sys.bootanimation_style"
+        android:title="@string/themes_boot_animation_style_title"
+        android:entries="@array/boot_animation_styles_entries"
+        android:entryValues="@array/boot_animation_styles_values"
+        android:summary="%s" />
+
     <PreferenceCategory
         android:key="themes_monet_category"
         android:title="@string/themes_monet_category">

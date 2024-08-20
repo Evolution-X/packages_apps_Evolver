@@ -660,4 +660,23 @@
         <item>2</item>
     </string-array>
 
+    <!-- Boot animation Styles -->
+   <string-array name="boot_animation_styles_entries">
+        <item>Evolution X</item>
+        <item>Evolution X (Anniversary)</item>
+        <item>Cyberpunk</item>
+        <item>Google</item>
+        <item>Google (Monet)</item>
+        <item>Valorant</item>
+    </string-array>
+
+    <string-array name="boot_animation_styles_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
 </resources>
