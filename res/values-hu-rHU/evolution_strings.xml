@@ -60,6 +60,7 @@
     <string name="themes_screen_off_animation_scale">Összeugrás</string>
     <string name="themes_udfps_animation_title">Ujjlenyomat-animáció</string>
     <string name="themes_udfps_animation_summary">Itt állíthatja be az ujjlenyomat-animáció stílusát</string>
+    <string name="themes_boot_animation_style_title">Készülékindítási animációstílus</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Kiemelőszín</string>
     <string name="monet_engine_custom_color_summary">Egyéni színt választhat a kiemeléshez</string>
@@ -480,6 +481,10 @@
     <string name="about_discord_summary">Látogassa meg közösségi csetünket</string>
     <string name="about_github_summary">Nézze meg a GitHub-unkat</string>
     <string name="about_contributors_title">Közreműködők</string>
+    <!-- Black themes for dark mode -->
+    <string name="black_theme_style_title">A Fekete téma stílusa</string>
+    <string name="black_theme_style_berry">Bogyófekete</string>
+    <string name="black_theme_style_amoled">Valódi amoled</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Színválasztó</string>
     <string name="press_color_to_apply">Érintse meg a színt az alkalmazáshoz</string>
