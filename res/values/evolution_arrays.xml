@@ -646,4 +646,18 @@
         <item>10</item>
     </string-array>
 
+    <!-- Black theme styles -->
+    <string-array name="black_theme_style_entries" translatable="false">
+        <item>@string/color_default</item>
+        <item>@string/black_theme_style_berry</item>
+        <item>@string/black_theme_style_amoled</item>
+    </string-array>
+
+    <!-- Black theme styles -->
+    <string-array name="black_theme_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

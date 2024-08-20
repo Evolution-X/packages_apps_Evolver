@@ -536,6 +536,11 @@
     <string name="about_contributor_3_title" translatable="false">Akito Mizukito</string>
     <string name="about_contributor_3_summary" translatable="false">Co-Founder/Project Manager</string>
 
+    <!-- Black themes for dark mode -->
+    <string name="black_theme_style_title">Black theme styles</string>
+    <string name="black_theme_style_berry">Berry black</string>
+    <string name="black_theme_style_amoled">True amoled dark</string>
+
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
