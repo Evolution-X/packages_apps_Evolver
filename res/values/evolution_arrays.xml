@@ -50,6 +50,23 @@
         <item>preset</item>
     </string-array>
 
+    <!-- Themes - Boot animation -->
+   <string-array name="boot_animation_entries">
+        <item>Evolution X</item>
+        <item>Evolution X (Anniversary)</item>
+        <item>Cyberpunk</item>
+        <item>Google</item>
+        <item>Google (Monet)</item>
+    </string-array>
+
+    <string-array name="boot_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
     <!-- Themes - Screen off animation -->
     <string-array name="themes_screen_off_animation_entries">
         <item>@string/themes_screen_off_animation_default</item>
