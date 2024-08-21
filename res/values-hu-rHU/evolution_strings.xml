@@ -54,6 +54,7 @@
     <string name="themes_brightness_slider_title">A Fényerőcsúszka stílusa</string>
     <string name="themes_brightness_slider_summary">Itt állíthatja be a csúszka stílusát</string>
     <string name="themes_animations_category">Animációk</string>
+    <string name="themes_boot_animation_title">Bootanimáció</string>
     <string name="themes_screen_off_animation_title">Képernyőkikapcsolási animáció</string>
     <string name="themes_screen_off_animation_default">Alapértelmezett</string>
     <string name="themes_screen_off_animation_crt">Képcső</string>
@@ -480,6 +481,10 @@
     <string name="about_discord_summary">Látogassa meg közösségi csetünket</string>
     <string name="about_github_summary">Nézze meg a GitHub-unkat</string>
     <string name="about_contributors_title">Közreműködők</string>
+    <!-- Black themes for dark mode -->
+    <string name="black_theme_style_title">A Fekete téma stílusa</string>
+    <string name="black_theme_style_berry">Bogyófekete</string>
+    <string name="black_theme_style_amoled">Valódi amoled</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Színválasztó</string>
     <string name="press_color_to_apply">Érintse meg a színt az alkalmazáshoz</string>
