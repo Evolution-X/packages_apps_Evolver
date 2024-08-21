@@ -80,7 +80,6 @@ public class BootAnimationSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mBootAnimationStyle) {
             int style = Integer.parseInt((String) newValue);
-
             if (style == 5) { // Custom option selected
                 launchFilePicker();
                 return false; // Return false to prevent immediate property update

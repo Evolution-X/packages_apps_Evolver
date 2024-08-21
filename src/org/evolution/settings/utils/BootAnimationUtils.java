@@ -17,10 +17,12 @@ package org.evolution.settings.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.AnimatedImageDrawable;
 import android.os.SystemProperties;
 import android.util.Log;
 
@@ -34,14 +36,12 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.regex.Pattern;
-import android.graphics.BitmapFactory;
 
 public class BootAnimationUtils {
 
     private static final String TAG = "BootAnimationUtils";
     private static final int DEFAULT_FRAME_DURATION = 1000 / 30;
 
-    // List of bootanimation files corresponding to each style
     private static final String[] BOOT_ANIMATION_FILES = {
         "/product/media/bootanimation.zip",
         "/product/media/bootanimation_cyberpunk.zip",
@@ -59,16 +59,18 @@ public class BootAnimationUtils {
             if (bootAnimationFile.exists()) {
                 try (ZipFile zipFile = new ZipFile(bootAnimationFile)) {
                     int frameDuration = getFrameDuration(zipFile);
-                    // Load frames from all available parts
-                    for (int i = 0; i <= 4; i++) {
-                        String partName = "part" + i;
-                        if (hasPart(zipFile, partName)) {
-                            boolean isPType = isPTypePart(zipFile, partName);
+                    int partCount = getPartCount(zipFile);
+                    if (partCount == 0) {
+                        List<Rect> trimData = loadTrimData(zipFile, "part0");
+                        loadFramesFromPart(context, zipFile, animationDrawable, "part0", frameDuration, trimData);
+                    } else {
+                        for (int i = 0; i < partCount; i++) {
+                            String partName = "part" + i;
                             List<Rect> trimData = loadTrimData(zipFile, partName);
-                            loadFramesFromPart(context, zipFile, animationDrawable, partName, frameDuration, isPType, trimData);
+                            loadFramesFromPart(context, zipFile, animationDrawable, partName, frameDuration, trimData);
                         }
                     }
-                    animationDrawable.setOneShot(false); // Loop the animation
+                    animationDrawable.setOneShot(false);
                 } catch (Exception e) {
                     Log.e(TAG, "Error loading boot animation frames", e);
                 }
@@ -76,9 +78,13 @@ public class BootAnimationUtils {
         }
         return animationDrawable;
     }
+    
+    public static int getBootAnimStyle() {
+        return SystemProperties.getInt("persist.sys.bootanimation_style", 0);
+    }
 
-    private static String getSelectedBootAnimation() {
-        int style = SystemProperties.getInt("persist.sys.bootanimation_style", 0);
+    public static String getSelectedBootAnimation() {
+        final int style = getBootAnimStyle();
         if (style >= 0 && style < BOOT_ANIMATION_FILES.length) {
             return BOOT_ANIMATION_FILES[style];
         }
@@ -106,18 +112,8 @@ public class BootAnimationUtils {
         return DEFAULT_FRAME_DURATION;
     }
 
-    private static boolean hasPart(ZipFile zipFile, String partName) {
-        Enumeration<? extends ZipEntry> entries = zipFile.entries();
-        while (entries.hasMoreElements()) {
-            ZipEntry entry = entries.nextElement();
-            if (entry.getName().startsWith(partName + "/")) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean isPTypePart(ZipFile zipFile, String partName) {
+    private static int getPartCount(ZipFile zipFile) {
+        int partCount = 0;
         try {
             ZipEntry descEntry = zipFile.getEntry("desc.txt");
             if (descEntry != null) {
@@ -125,15 +121,15 @@ public class BootAnimationUtils {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is));
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    if (line.startsWith("p ") && line.contains(partName)) {
-                        return true;
+                    if (line.contains("part")) {
+                        partCount++;
                     }
                 }
             }
         } catch (Exception e) {
-            Log.e(TAG, "Error determining part type", e);
+            Log.e(TAG, "Error reading desc.txt", e);
         }
-        return false;
+        return partCount - 1;
     }
 
     private static List<Rect> loadTrimData(ZipFile zipFile, String partName) {
@@ -161,7 +157,8 @@ public class BootAnimationUtils {
         return trimRects;
     }
 
-    private static void loadFramesFromPart(Context context, ZipFile zipFile, AnimationDrawable animationDrawable, String partName, int frameDuration, boolean isPType, List<Rect> trimData) {
+    private static void loadFramesFromPart(Context context, ZipFile zipFile, 
+        AnimationDrawable animationDrawable, String partName, int frameDuration, List<Rect> trimData) {
         try {
             Pattern pngPattern = Pattern.compile(partName + "/.*\\.png$");
             Pattern jpgPattern = Pattern.compile(partName + "/.*\\.jpg$");
@@ -173,25 +170,18 @@ public class BootAnimationUtils {
                 if (pngPattern.matcher(entryName).matches() || jpgPattern.matcher(entryName).matches()) {
                     try (InputStream is = zipFile.getInputStream(entry)) {
                         Bitmap bitmap = BitmapFactory.decodeStream(is);
-
-                        // Apply trim if available and within bounds
                         if (frameIndex < trimData.size()) {
                             Rect trimRect = trimData.get(frameIndex);
-
-                            // Ensure trimRect is within the bounds of the bitmap
                             int adjustedWidth = Math.min(trimRect.width(), bitmap.getWidth() - trimRect.left);
                             int adjustedHeight = Math.min(trimRect.height(), bitmap.getHeight() - trimRect.top);
-
                             if (adjustedWidth > 0 && adjustedHeight > 0) {
                                 bitmap = Bitmap.createBitmap(bitmap, trimRect.left, trimRect.top, adjustedWidth, adjustedHeight);
                             } else {
-                                Log.w(TAG, "Trim rectangle exceeds bitmap dimensions, skipping trim for frame " + frameIndex);
+                                //Log.w(TAG, "Trim rectangle exceeds bitmap dimensions, skipping trim for frame " + frameIndex);
                             }
                         }
-
                         Drawable frame = new BitmapDrawable(context.getResources(), bitmap);
-                        int adjustedFrameDuration = isPType ? frameDuration * 3 : frameDuration;
-                        animationDrawable.addFrame(frame, adjustedFrameDuration);
+                        animationDrawable.addFrame(frame, frameDuration);
                         frameIndex++;
                     }
                 }
