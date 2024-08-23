@@ -17,6 +17,7 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.evolution.ThemeUtils;
@@ -34,6 +35,7 @@ import lineageos.providers.LineageSettings;
 
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
+import org.evolution.settings.utils.ResourceUtils;
 import org.evolution.settings.utils.DeviceUtils;
 
 @SearchIndexable
@@ -55,6 +57,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BLUETOOTH_AUTO_ON = "qs_bt_auto_on";
     private static final String KEY_QS_UI_STYLE  = "qs_tile_ui_style";
     private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
+    private static final String KEY_QS_SPLIT_SHADE = "qs_split_shade";
+
+    private static final String QS_SPLIT_SHADE_LAYOUT_CTG = "android.theme.customization.qs_landscape_layout";
+    private static final String QS_SPLIT_SHADE_LAYOUT_PKG = "com.android.systemui.qs.landscape.split_shade_layout";
+    private static final String QS_SPLIT_SHADE_LAYOUT_TARGET = "com.android.systemui";
+    private static final String QS_SPLIT_SHADE_CUTOUT_CTG = "android.theme.customization.qs_landscape_cutout";
+    private static final String QS_SPLIT_SHADE_CUTOUT_PKG = "android.landscape.split_shade_cutout";
+    private static final String QS_SPLIT_SHADE_CUTOUT_TARGET = "android";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -66,6 +76,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private LineageSecureSettingListPreference mShowBrightnessSlider;
     private LineageSecureSettingListPreference mBrightnessSliderPosition;
     private LineageSecureSettingSwitchPreference mShowAutoBrightness;
+    private SwitchPreferenceCompat mSplitShade;
     private SystemSettingListPreference mTileAnimationStyle;
     private SystemSettingSeekBarPreference mTileAnimationDuration;
     private SystemSettingListPreference mTileAnimationInterpolator;
@@ -129,6 +140,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mMiscellaneousCategory);
         }
 
+        mSplitShade = findPreference(KEY_QS_SPLIT_SHADE);
+        boolean ssEnabled = isSplitShadeEnabled();
+        mSplitShade.setChecked(ssEnabled);
+        mSplitShade.setOnPreferenceChangeListener(this);
+
         mQsUI = (ListPreference) findPreference(KEY_QS_UI_STYLE);
         mQsUI.setOnPreferenceChangeListener(this);
 
@@ -171,8 +187,29 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             updateQsPanelStyle(getActivity());
             checkQSOverlays(getActivity());
             return true;
+        } else if (preference == mSplitShade) {
+            updateSplitShadeState(((Boolean) newValue).booleanValue());
+            return true;
         }
         return false;
+    }
+
+    private boolean isSplitShadeEnabled() {
+        return mThemeUtils.isOverlayEnabled(QS_SPLIT_SHADE_LAYOUT_PKG)
+            && mThemeUtils.isOverlayEnabled(QS_SPLIT_SHADE_CUTOUT_PKG);
+    }
+
+    private void updateSplitShadeState(boolean enable) {
+
+        mThemeUtils.setOverlayEnabled(
+                QS_SPLIT_SHADE_LAYOUT_CTG,
+                enable ? QS_SPLIT_SHADE_LAYOUT_PKG : QS_SPLIT_SHADE_LAYOUT_TARGET,
+                QS_SPLIT_SHADE_LAYOUT_TARGET);
+
+        mThemeUtils.setOverlayEnabled(
+                QS_SPLIT_SHADE_CUTOUT_CTG,
+                enable ? QS_SPLIT_SHADE_CUTOUT_PKG : QS_SPLIT_SHADE_CUTOUT_TARGET,
+                QS_SPLIT_SHADE_CUTOUT_TARGET);
     }
 
     private void updateTileAnimStyle(int tileAnimationStyle) {
