@@ -371,7 +371,7 @@
     <string name="notifications_kill_app_button_title">Закрыть приложение</string>
     <string name="notifications_kill_app_button_summary">Показывать кнопку принудительного закрытия приложения при долгом нажатии на уведомление</string>
     <string name="notifications_sounds_vibration_category">Звуки и вибрация</string>
-    <string name="notifications_alert_display_on_title">Оповещение при включенном экране</string>
+    <string name="notifications_alert_display_on_title">Оповещения при включенном экране</string>
     <string name="notifications_alert_display_on_summary">Звук и вибрация при получении уведомлений, когда экран включен</string>
     <!-- Notifications/Edge light -->
     <string name="notifications_heads_up_title">Всплывающие уведомления</string>
@@ -407,7 +407,7 @@
     <string name="gestures_shake_gestures_intensity_title">Интенсивность жестов встряхивания</string>
     <string name="gestures_shake_gestures_intensity_summary">Настройте, насколько сильно нужно встряхнуть устройство</string>
     <string name="shake_gestures_toggle_flashlight">Включить фонарик</string>
-    <string name="shake_gestures_media_playback">Запустить или пропустить медиа</string>
+    <string name="shake_gestures_media_playback">Воспр./Следующий трек</string>
     <string name="shake_gestures_volume_panel">Показать панель громкости</string>
     <string name="shake_gestures_screen_wake">Выключить экран</string>
     <string name="shake_gestures_clear_notifs">Очистить уведомления</string>
