@@ -75,6 +75,13 @@
             android:entryValues="@array/status_bar_battery_percent_values"
             android:defaultValue="2" />
 
+        <!-- Split shade -->
+        <SwitchPreferenceCompat
+            android:key="qs_split_shade"
+            android:title="@string/quick_settings_split_shade_title"
+            android:summary="@string/quick_settings_split_shade_summary"
+            android:defaultValue="false" />
+
         <!-- Brightness slider -->
         <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_show_brightness_slider"
