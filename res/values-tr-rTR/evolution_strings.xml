@@ -13,11 +13,13 @@
     <string name="lock_screen_title">Kilit ekranı</string>
     <string name="lock_screen_summary">Arayüz, diğer</string>
     <string name="status_bar_title">Durum çubuğu</string>
-    <string name="status_bar_summary">Hareketler, Simgeler, gizlilik göstergeleri</string>
+    <string name="status_bar_summary">Simgeler, gizlilik göstergeleri</string>
     <string name="quick_settings_title">Hızlı ayarlar</string>
     <string name="quick_settings_summary">Arayüz, kilit ekranı</string>
     <string name="notifications_title">Bildirimler</string>
     <string name="notifications_summary">Uyarılar, arayüz</string>
+    <string name="gestures_title">Hareketler</string>
+    <string name="gestures_summary">Durum çubuğu, salla, üç parmak</string>
     <string name="power_menu_title">Güç menüsü</string>
     <string name="power_menu_summary">Eylemler, kilit ekranı</string>
     <string name="buttons_title">Tuşlar</string>
@@ -52,6 +54,7 @@
     <string name="themes_brightness_slider_title">Parlaklık kaydırıcı stili</string>
     <string name="themes_brightness_slider_summary">Parlaklık kaydırıcısı stilini ayarla</string>
     <string name="themes_animations_category">Animasyonlar</string>
+    <string name="themes_boot_animation_title">Açılış animasyonu</string>
     <string name="themes_screen_off_animation_title">Ekran kapanma animasyonu</string>
     <string name="themes_screen_off_animation_default">Varsayılan</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
@@ -314,8 +317,13 @@
     <string name="quick_settings_tile_label_hide_summary">Yalnızca simgeyi göster</string>
     <string name="quick_settings_tile_layout_title">Dikey düzen</string>
     <string name="quick_settings_tile_layout_summary">Etiketi simgenin yanında değil altında görüntüle</string>
+    <string name="quick_settings_layout_columns_rows_title">Sütunlar &amp; satırlar</string>
+    <string name="quick_settings_layout_columns_rows_summary">QS sütunlarını ve satırlarını özelleştirme</string>
+    <string name="quick_settings_layout_columns_rows_footer_text">QS satırları QQS satırlarına eşit veya daha büyük olmalıdır. Daire / kare (A11) QS karo stili için daha yüksek sayıda sütun kullanın.</string>
     <string name="quick_settings_columns_portrait_title">Sütunlar (dikey)</string>
     <string name="quick_settings_columns_landscape_title">Satırlar (yatay)</string>
+    <string name="quick_settings_rows_portrait_title">Satırlar (dikey)</string>
+    <string name="quick_settings_rows_landscape_title">Satırlar (yatay)</string>
     <string name="quick_settings_qqs_rows_portrait_title">Hızlı QS satırları (dikey)</string>
     <string name="quick_settings_qqs_rows_landscape_title">Hızlı QS satırları (yatay)</string>
     <string name="quick_settings_show_brightness_slider_title">Parlaklık kaydırıcısı</string>
@@ -382,6 +390,29 @@
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Daha az bildirim</string>
     <string name="notifications_less_boring_heads_up_summary">Sadece alarm, çevirici ve mesajlaşma uygulaması için açılır bildirimleri görüntüle</string>
+    <!-- Gestures/Three Finger Gestures -->
+    <string name="gestures_three_finger_gestures_title">Üç parmak hareketleri</string>
+    <string name="gestures_three_finger_gesture_action_title">Üç parmakla kaydırma hareketleri</string>
+    <string name="gestures_three_finger_gesture_action_dialog_title">Üç parmak hareketiyle kaydırma eylemleri</string>
+    <string name="gestures_three_finger_long_press_action_title">Üç parmakla uzun basma hareketleri</string>
+    <string name="gestures_three_finger_long_press_action_dialog_title">Üç parmakla uzun basma hareketleri</string>
+    <!-- Gestures/Shake Gestures -->
+    <string name="hardware_keys_action_nothing">Eylem yok</string>
+    <string name="hardware_keys_action_close_app">Ön plan uygulamasını sonlandır</string>
+    <string name="hardware_keys_action_search">Arama asistanı</string>
+    <string name="hardware_keys_action_voice_search">Sesli arama</string>
+    <string name="gestures_shake_gestures_enabled_title">Sallama hareketleri</string>
+    <string name="gestures_shake_gestures_enabled_summary">Eylemleri gerçekleştirmek için cihazınızı sallayın</string>
+    <string name="gestures_shake_gestures_action_title">Sallama hareketleri eylemleri</string>
+    <string name="gestures_shake_gestures_intensity_title">Sallama hareketleri yoğunluğu</string>
+    <string name="gestures_shake_gestures_intensity_summary">Sallama hareketlerinin hassasiyetini ayarla</string>
+    <string name="shake_gestures_toggle_flashlight">El Fenerini Aç/Kapat</string>
+    <string name="shake_gestures_media_playback">Medyayı Oynat/Atla</string>
+    <string name="shake_gestures_volume_panel">Ses Panelini Göster</string>
+    <string name="shake_gestures_screen_wake">Ekranı Kapat</string>
+    <string name="shake_gestures_clear_notifs">Tüm Bildirimleri Temizle</string>
+    <string name="shake_gestures_toggle_ringer">Zil Modunu Değiştir</string>
+    <string name="shake_gestures_screenshot">Ekran Görüntüsü Al</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Arayüz</string>
     <string name="power_menu_actions_title">Güç menüsü işlemleri</string>
@@ -423,7 +454,7 @@
     <string name="spoofing_pif_values_title">Play Integrity düzeltme değerleri</string>
     <string name="spoofing_pif_values_summary">Play Integrity API sertifikasyonu için GMS\'yi taklit etmek üzere kullanılan geçerli değerleri görüntüleyin</string>
     <string name="spoofing_pixel_props_title">Pixel raçları</string>
-    <string name="spoofing_pixel_props_summary">Tüm Google uygulamaları için bu cihazı Pixel 8 Pro olarak göster</string>
+    <string name="spoofing_pixel_props_summary">Belirli Google uygulamaları için cihazı Pixel 9 Pro olarak göster</string>
     <string name="spoofing_storage_encryption_title">Depolama şifrelemesi</string>
     <string name="spoofing_storage_encryption_summary">Cihaz depolaması şifrelemesi durumunu \'Şifreli\' olarak ayarla</string>
     <string name="spoofing_app_specific_category">Uygulamayaya Yönelik</string>
@@ -432,7 +463,7 @@
     <string name="spoofing_games_title">Oyunlarda daha yüksek FPS</string>
     <string name="spoofing_games_summary">Daha yüksek FPS\'nin kilidini açmak için belirli oyunlar için cihazı farklı model olarak gösterin</string>
     <string name="spoofing_snapchat_title">Snapchat taklidi</string>
-    <string name="spoofing_snapchat_summary">Orijinal kalitede çekimlere izin vermek için Snapchat için cihazı Pixel 2 olarak gösterin</string>
+    <string name="spoofing_snapchat_summary">Orijinal kalitede çekimlere izin vermek için Snapchat\'i Pixel XL olarak taklit edin</string>
     <!-- Navigation Bar -->
     <string name="navbar_layout_category_title">Düğme gezinti çubuğu</string>
     <string name="navbar_layout_title">Düzen</string>
@@ -450,6 +481,10 @@
     <string name="about_discord_summary">Topluluk sohbetimizi ziyaret edin</string>
     <string name="about_github_summary">GitHub\'ımızı açmak için buraya dokunun</string>
     <string name="about_contributors_title">Katkıda bulunanlar</string>
+    <!-- Black themes for dark mode -->
+    <string name="black_theme_style_title">Siyah tema stilleri</string>
+    <string name="black_theme_style_berry">Berry siyahı</string>
+    <string name="black_theme_style_amoled">Gerçek amoled karanlığı</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Renk seçici</string>
     <string name="press_color_to_apply">Uygulamak istediğiniz rengin üzerine dokunun</string>
