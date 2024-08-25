@@ -440,11 +440,11 @@
     <string name="miscellaneous_app_downgrade_title">Разрешить понижение версии приложения</string>
     <string name="miscellaneous_app_downgrade_summary">Разрешение на понижение версии системных приложений, однако это может привести к сбоям и повреждению данных</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Игнорирование запросов на затемнение обоев</string>
-    <string name="miscellaneous_block_wallpaper_dimming_summary">Запрет изменения яркости обоев для всех приложений\Принудительная фиксация на значении - 0</string>
+    <string name="miscellaneous_block_wallpaper_dimming_summary">Запрет изменения яркости обоев для всех приложений\nПринудительная фиксация на значении - 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Игнорировать флаги безопасности в окнах приложений</string>
     <string name="miscellaneous_ignore_window_secure_summary">Снятие ограничений на скриншоты и запись экрана для всех приложений, потенциально увеличивая риск утечки конфиденциальных данных</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Неограниченная запись</string>
-    <string name="miscellaneous_unlimit_screenrecord_summary">Убрать ограничение на размер в 15 ГБ\nИтоговый файл может иметь очень большой размер</string>
+    <string name="miscellaneous_unlimit_screenrecord_summary">Убрать ограничение на размер в 15 ГБ\nИтоговый файл может быть очень большого размера</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Подмена компонентов</string>
     <string name="spoofing_summary">Обход ограничений приложений с помощью подмены различных компонентов</string>
