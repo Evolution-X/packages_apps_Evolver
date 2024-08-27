@@ -46,6 +46,7 @@ public class BootAnimationUtils {
         "/product/media/bootanimation.zip",
         "/product/media/bootanimation_evo_anniv.zip",
         "/product/media/bootanimation_cm.zip",
+        "/product/media/bootanimation_ctos.zip",
         "/product/media/bootanimation_cyberpunk.zip",
         "/product/media/bootanimation_google.zip",
         "/product/media/bootanimation_google_monet.zip",
