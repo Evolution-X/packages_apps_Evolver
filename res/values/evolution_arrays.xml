@@ -53,9 +53,12 @@
     <!-- Themes - Boot animation -->
    <string-array name="boot_animation_styles_entries">
         <item>Evolution X</item>
+        <item>Evolution X (Anniv)</item>
+        <item>CyanogenMod</item>
         <item>Cyberpunk</item>
         <item>Google</item>
         <item>Google (Monet)</item>
+        <item>Resurrection Remix</item>
         <item>Valorant</item>
         <item>Custom</item>
     </string-array>
@@ -67,6 +70,9 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
     </string-array>
 
     <!-- Themes - Screen off animation -->
