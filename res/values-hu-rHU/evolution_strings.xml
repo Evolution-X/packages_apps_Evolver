@@ -55,6 +55,7 @@
     <string name="themes_brightness_slider_summary">Itt állíthatja be a csúszka stílusát</string>
     <string name="themes_animations_category">Animációk</string>
     <string name="themes_boot_animation_title">Bootanimáció</string>
+    <string name="themes_boot_animation_summary">Itt állíthatja be a boot-animáció stílusát</string>
     <string name="themes_screen_off_animation_title">Képernyőkikapcsolási animáció</string>
     <string name="themes_screen_off_animation_default">Alapértelmezett</string>
     <string name="themes_screen_off_animation_crt">Képcső</string>
@@ -65,7 +66,6 @@
     <string name="boot_animation_preview_desc">A kiválasztott boot-animáció előnézete</string>
     <string name="boot_animation_preview_summary">Megmutatja önnek, hogy milyen lenne, amit kiválasztott</string>
     <string name="boot_animation_preview_title">A Boot-animáció előnézete</string>
-    <string name="boot_animation_styles_summary">Válasszon, milyen stílusú boot-animációt szeretne</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Kiemelőszín</string>
     <string name="monet_engine_custom_color_summary">Egyéni színt választhat a kiemeléshez</string>
