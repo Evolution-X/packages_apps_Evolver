@@ -53,6 +53,7 @@
     <!-- Themes/Boot animation -->
    <string-array name="themes_boot_animation_entries">
         <item>Evolution X</item>
+        <item>Evolution X (Reveal)</item>
         <item>Evolution X (Anniv)</item>
         <item>CyanogenMod</item>
         <item>ctOS</item>
@@ -75,6 +76,7 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
+        <item>10</item>
     </string-array>
 
     <!-- Themes - Screen off animation -->
