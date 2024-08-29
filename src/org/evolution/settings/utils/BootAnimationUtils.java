@@ -44,6 +44,7 @@ public class BootAnimationUtils {
 
     private static final String[] BOOT_ANIMATION_FILES = {
         "/product/media/bootanimation.zip",
+        "/product/media/bootanimation_evo_reveal.zip",
         "/product/media/bootanimation_evo_anniv.zip",
         "/product/media/bootanimation_cm.zip",
         "/product/media/bootanimation_ctos.zip",
@@ -82,7 +83,7 @@ public class BootAnimationUtils {
         }
         return animationDrawable;
     }
-    
+
     public static int getBootAnimStyle() {
         return SystemProperties.getInt("persist.sys.bootanimation_style", 0);
     }
