@@ -55,12 +55,17 @@
     <string name="themes_brightness_slider_summary">Parlaklık kaydırıcısı stilini ayarla</string>
     <string name="themes_animations_category">Animasyonlar</string>
     <string name="themes_boot_animation_title">Açılış animasyonu</string>
+    <string name="themes_boot_animation_summary">Önyükleme animasyon stilini ayarla</string>
     <string name="themes_screen_off_animation_title">Ekran kapanma animasyonu</string>
     <string name="themes_screen_off_animation_default">Varsayılan</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">Ölçek</string>
     <string name="themes_udfps_animation_title">Parmak izi animasyonu</string>
     <string name="themes_udfps_animation_summary">UDFPS animasyon stilini ayarlayın</string>
+    <!-- Themes/Boot animation preview -->
+    <string name="boot_animation_preview_desc">Seçilen önyükleme animasyonunun önizlemesi</string>
+    <string name="boot_animation_preview_summary">Şu anda seçili olan önyükleme animasyonunun önizlemesini görüntüler</string>
+    <string name="boot_animation_preview_title">Önyükleme animasyonu önizlemesi</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Vurgu rengi</string>
     <string name="monet_engine_custom_color_summary">Vurgu için özel renk seçin</string>
@@ -362,6 +367,8 @@
     <string name="quick_settings_miscellaneous_category">Çeşitli</string>
     <string name="quick_settings_bluetooth_auto_on_title">Otomatik Bluetooth açık</string>
     <string name="quick_settings_bluetooth_auto_on_summary">Hızlı ayarlar iletişim kutusunu açarken Bluetooth\'u otomatik olarak etkinleştirin</string>
+    <string name="quick_settings_split_shade_title">Bölünmüş Gölge</string>
+    <string name="quick_settings_split_shade_summary">Yatay modda bölünmüş QS düzeni</string>
     <!-- Notifications -->
     <string name="notifications_interface_category">Arayüz</string>
     <string name="notifications_edge_light_title">Kenar aydınlatması</string>
