@@ -26,6 +26,7 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.ListPreference;
@@ -146,11 +147,12 @@ public class BootAnimation extends SettingsPreferenceFragment implements OnPrefe
             updateBootAnimationPreview();
             // Force the preference to update to the custom option
             mBootAnimationStyle.setValue(mCustomValue);
+            Toast.makeText(getContext(), R.string.themes_boot_animation_applied, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "Error copying custom boot animation", e);
         }
     }
-    
+
     private void copyProductFile(int style) {
         try {
             if (style < 0 || style >= PRODUCT_BOOT_ANIMATION_FILES.length) {
@@ -177,6 +179,7 @@ public class BootAnimation extends SettingsPreferenceFragment implements OnPrefe
             SystemProperties.set(BOOTANIMATION_STYLE_KEY, String.valueOf(style));
             updateBootAnimationPreview();
             mBootAnimationStyle.setValue(String.valueOf(style));
+            Toast.makeText(getContext(), R.string.themes_boot_animation_applied, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "Error copying product bootanimation", e);
         }
