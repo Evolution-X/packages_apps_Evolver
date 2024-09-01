@@ -55,7 +55,7 @@
     <string name="themes_brightness_slider_summary">Parlaklık kaydırıcısı stilini ayarla</string>
     <string name="themes_animations_category">Animasyonlar</string>
     <string name="themes_boot_animation_title">Açılış animasyonu</string>
-    <string name="themes_boot_animation_summary">Önyükleme animasyon stilini ayarla</string>
+    <string name="themes_boot_animation_summary">Açılış animasyon stilini ayarla</string>
     <string name="themes_screen_off_animation_title">Ekran kapanma animasyonu</string>
     <string name="themes_screen_off_animation_default">Varsayılan</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
@@ -63,9 +63,9 @@
     <string name="themes_udfps_animation_title">Parmak izi animasyonu</string>
     <string name="themes_udfps_animation_summary">UDFPS animasyon stilini ayarlayın</string>
     <!-- Themes/Boot animation preview -->
-    <string name="boot_animation_preview_desc">Seçilen önyükleme animasyonunun önizlemesi</string>
-    <string name="boot_animation_preview_summary">Şu anda seçili olan önyükleme animasyonunun önizlemesini görüntüler</string>
-    <string name="boot_animation_preview_title">Önyükleme animasyonu önizlemesi</string>
+    <string name="boot_animation_preview_desc">Seçilen açılış animasyonunun önizlemesi</string>
+    <string name="boot_animation_preview_summary">Şu anda seçili olan açılış animasyonunun önizlemesini görüntüler</string>
+    <string name="boot_animation_preview_title">Açılış animasyonu önizlemesi</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Vurgu rengi</string>
     <string name="monet_engine_custom_color_summary">Vurgu için özel renk seçin</string>
