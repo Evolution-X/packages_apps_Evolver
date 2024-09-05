@@ -50,6 +50,45 @@
         <item>preset</item>
     </string-array>
 
+    <!-- Themes - Lock/Unlock Sounds -->
+    <string-array name="themes_lock_unlock_sounds_entries" translatable="false">
+        <item>Default</item>
+        <item>HTC M8</item>
+        <item>LG G3</item>
+        <item>Nokia X</item>
+        <item>Old School IOS</item>
+        <item>One UI</item>
+        <item>Soong</item>
+        <item>Windows Device</item>
+        <item>Windows Error</item>
+    </string-array>
+
+    <!-- Values for Lock Sounds -->
+    <string-array name="themes_lock_sounds_values" translatable="false">
+        <item>/product/media/audio/ui/Lock.ogg</item>
+        <item>/product/media/audio/ui/HTC_M8_Lock.ogg</item>
+        <item>/product/media/audio/ui/LG_G3_Lock.ogg</item>
+        <item>/product/media/audio/ui/Nokia_X_Lock.ogg</item>
+        <item>/product/media/audio/ui/Old_School_IOS_Lock.ogg</item>
+        <item>/product/media/audio/ui/One_UI_Lock.ogg</item>
+        <item>/product/media/audio/ui/Soong_Lock.ogg</item>
+        <item>/product/media/audio/ui/Windows_Device_Lock.ogg</item>
+        <item>/product/media/audio/ui/Windows_Error_Lock.ogg</item>
+    </string-array>
+
+    <!-- Values for Unlock Sounds -->
+    <string-array name="themes_unlock_sounds_values" translatable="false">
+        <item>/product/media/audio/ui/Unlock.ogg</item>
+        <item>/product/media/audio/ui/HTC_M8_Unlock.ogg</item>
+        <item>/product/media/audio/ui/LG_G3_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Nokia_X_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Old_School_IOS_Unlock.ogg</item>
+        <item>/product/media/audio/ui/One_UI_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Soong_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Windows_Device_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Windows_Error_Unlock.ogg</item>
+    </string-array>
+
     <!-- Themes/Boot animation -->
    <string-array name="themes_boot_animation_entries">
         <item>Evolution X</item>

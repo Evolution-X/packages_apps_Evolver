@@ -22,6 +22,27 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="themes_audio_category"
+        android:title="@string/themes_audio_category">
+
+        <!-- Lock sound -->
+        <org.evolution.settings.preferences.GlobalSettingListPreference
+            android:key="lock_sound"
+            android:title="@string/themes_lock_sound_title"
+            android:entries="@array/themes_lock_unlock_sounds_entries"
+            android:entryValues="@array/themes_lock_sounds_values"
+            android:defaultValue="Default" />
+
+        <!-- Unlock sound -->
+        <org.evolution.settings.preferences.GlobalSettingListPreference
+            android:key="unlock_sound"
+            android:title="@string/themes_unlock_sound_title"
+            android:entries="@array/themes_lock_unlock_sounds_entries"
+            android:entryValues="@array/themes_unlock_sounds_values"
+            android:defaultValue="Default" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="themes_fonts_category"
         android:title="@string/themes_fonts_category">
 
