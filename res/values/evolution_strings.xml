@@ -35,6 +35,9 @@
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet settings</string>
     <string name="themes_monet_summary">Customize Android\'s built-in theme engine</string>
+    <string name="themes_audio_category">Audio</string>
+    <string name="themes_lock_sound_title">Lock sound</string>
+    <string name="themes_unlock_sound_title">Unlock sound</string>
     <string name="themes_fonts_category">Fonts</string>
     <string name="themes_system_font_title">System font</string>
     <string name="themes_system_font_summary">Set system font style</string>
@@ -553,4 +556,10 @@
     <string name="unit_milliseconds">milliseconds</string>
     <string name="unit_pixels" translatable="false">dp</string>
     <string name="unit_seconds">seconds</string>
+
+    <!-- SystemUI restart dialog-->
+    <string name="systemui_restart_title">SystemUI restart required</string>
+    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+    <string name="systemui_restart_cancel">Cancel</string>
+    <string name="systemui_restart_ok">Ok</string>
 </resources>
