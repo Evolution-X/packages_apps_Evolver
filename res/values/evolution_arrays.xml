@@ -50,6 +50,79 @@
         <item>preset</item>
     </string-array>
 
+    <!-- Themes - Lock/Unlock Sounds -->
+    <string-array name="themes_lock_unlock_sounds_entries" translatable="false">
+        <item>Default</item>
+        <item>Amazon Fire</item>
+        <item>Asus Zenfone Max</item>
+        <item>Essential PH-1</item>
+        <item>HTC M8</item>
+        <item>Huawei</item>
+        <item>Hyper OS</item>
+        <item>Iqoo</item>
+        <item>LG G3</item>
+        <item>Minecraft door</item>
+        <item>MIUI 10</item>
+        <item>MIUI 11</item>
+        <item>Nextbit</item>
+        <item>Nokia X</item>
+        <item>Old School IOS</item>
+        <item>One UI</item>
+        <item>OOS 14</item>
+        <item>Razer Phone</item>
+        <item>Soong</item>
+        <item>Windows Device</item>
+        <item>Windows Error</item>
+    </string-array>
+
+    <string-array name="themes_lock_sounds_values" translatable="false">
+        <item>/product/media/audio/ui/Lock.ogg</item>
+        <item>/product/media/audio/ui/Amazon_Fire_Lock.ogg</item>
+        <item>/product/media/audio/ui/Asus_Zenfone_Max_Lock.ogg</item>
+        <item>/product/media/audio/ui/Essential_PH-1_Lock.ogg</item>
+        <item>/product/media/audio/ui/HTC_M8_Lock.ogg</item>
+        <item>/product/media/audio/ui/Huawei_Lock.ogg</item>
+        <item>/product/media/audio/ui/Hyper_OS_Lock.ogg</item>
+        <item>/product/media/audio/ui/Iqoo_Lock.ogg</item>
+        <item>/product/media/audio/ui/LG_G3_Lock.ogg</item>
+        <item>/product/media/audio/ui/Minecraft_Door_Lock.ogg</item>
+        <item>/product/media/audio/ui/MIUI_10_Lock.ogg</item>
+        <item>/product/media/audio/ui/MIUI_11_Lock.ogg</item>
+        <item>/product/media/audio/ui/Nextbit_Lock.ogg</item>
+        <item>/product/media/audio/ui/Nokia_X_Lock.ogg</item>
+        <item>/product/media/audio/ui/Old_School_IOS_Lock.ogg</item>
+        <item>/product/media/audio/ui/One_UI_Lock.ogg</item>
+        <item>/product/media/audio/ui/OOS_14_Lock.ogg</item>
+        <item>/product/media/audio/ui/Razer_Phone_Lock.ogg</item>
+        <item>/product/media/audio/ui/Soong_Lock.ogg</item>
+        <item>/product/media/audio/ui/Windows_Device_Lock.ogg</item>
+        <item>/product/media/audio/ui/Windows_Error_Lock.ogg</item>
+    </string-array>
+
+    <string-array name="themes_unlock_sounds_values" translatable="false">
+        <item>/product/media/audio/ui/Unlock.ogg</item>
+        <item>/product/media/audio/ui/Amazon_Fire_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Asus_Zenfone_Max_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Essential_PH-1_Unlock.ogg</item>
+        <item>/product/media/audio/ui/HTC_M8_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Huawei_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Hyper_OS_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Iqoo_Unlock.ogg</item>
+        <item>/product/media/audio/ui/LG_G3_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Minecraft_Door_Unlock.ogg</item>
+        <item>/product/media/audio/ui/MIUI_10_Unlock.ogg</item>
+        <item>/product/media/audio/ui/MIUI_11_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Nextbit_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Nokia_X_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Old_School_IOS_Unlock.ogg</item>
+        <item>/product/media/audio/ui/One_UI_Unlock.ogg</item>
+        <item>/product/media/audio/ui/OOS_14_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Razer_Phone_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Soong_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Windows_Device_Unlock.ogg</item>
+        <item>/product/media/audio/ui/Windows_Error_Unlock.ogg</item>
+    </string-array>
+
     <!-- Themes/Boot animation -->
    <string-array name="themes_boot_animation_entries">
         <item>Evolution X</item>
