@@ -32,6 +32,9 @@
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet-beállítások</string>
     <string name="themes_monet_summary">Testreszabhatja az Android beépített témamotorját</string>
+    <string name="themes_audio_category">Audió</string>
+    <string name="themes_lock_sound_title">A hang lezárása</string>
+    <string name="themes_unlock_sound_title">A hang feloldása</string>
     <string name="themes_fonts_category">Betűtípusok</string>
     <string name="themes_system_font_title">Rendszer-betűtípus</string>
     <string name="themes_system_font_summary">Itt állíthatja be a rendszer-betűtípusát</string>
@@ -367,8 +370,6 @@
     <string name="quick_settings_miscellaneous_category">Különlegességek</string>
     <string name="quick_settings_bluetooth_auto_on_title">Automatikus BT be</string>
     <string name="quick_settings_bluetooth_auto_on_summary">A Bluetooth automatikus engedélyezése a gyorsbeállítási panel megnyitásakor</string>
-    <string name="quick_settings_split_shade_title">Osztott árnyék</string>
-    <string name="quick_settings_split_shade_summary">Osztott gyorsbeállítások-elrendezés fekvő módban</string>
     <!-- Notifications -->
     <string name="notifications_interface_category">Kezelőfelület</string>
     <string name="notifications_edge_light_title">Oldalfény</string>
@@ -509,4 +510,9 @@
     <!-- Units -->
     <string name="unit_milliseconds">ezredmásodperc</string>
     <string name="unit_seconds">másodperc</string>
+    <!-- SystemUI restart dialog -->
+    <string name="systemui_restart_title">Rendszerfelület-újraindítás szükséges</string>
+    <string name="systemui_restart_message">Az összes módosítás érvénybe léptetéséhez szükséges a rendszerfelület újraindítása. Újraindítja most?</string>
+    <string name="systemui_restart_cancel">Mégsem</string>
+    <string name="systemui_restart_ok">Oké</string>
 </resources>
