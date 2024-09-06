@@ -32,6 +32,9 @@
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet ayarları</string>
     <string name="themes_monet_summary">Android\'in dahili tema motorunu özelleştirin</string>
+    <string name="themes_audio_category">Ses</string>
+    <string name="themes_lock_sound_title">Kilitleme sesi</string>
+    <string name="themes_unlock_sound_title">Kilit açma sesi</string>
     <string name="themes_fonts_category">Yazı tipleri</string>
     <string name="themes_system_font_title">Başlık / Gövde yazı tipi</string>
     <string name="themes_system_font_summary">Sistem yazı tipi stili ayarlayın</string>
@@ -56,7 +59,6 @@
     <string name="themes_animations_category">Animasyonlar</string>
     <string name="themes_boot_animation_title">Açılış animasyonu</string>
     <string name="themes_boot_animation_summary">Açılış animasyon stilini ayarla</string>
-    <string name="themes_boot_animation_applied">Açılış animasyonu uygulandı</string>
     <string name="themes_screen_off_animation_title">Ekran kapanma animasyonu</string>
     <string name="themes_screen_off_animation_default">Varsayılan</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
@@ -368,8 +370,6 @@
     <string name="quick_settings_miscellaneous_category">Çeşitli</string>
     <string name="quick_settings_bluetooth_auto_on_title">Otomatik Bluetooth açık</string>
     <string name="quick_settings_bluetooth_auto_on_summary">Hızlı ayarlar iletişim kutusunu açarken Bluetooth\'u otomatik olarak etkinleştirin</string>
-    <string name="quick_settings_split_shade_title">Bölünmüş Gölge</string>
-    <string name="quick_settings_split_shade_summary">Yatay modda QS düzenini böler</string>
     <!-- Notifications -->
     <string name="notifications_interface_category">Arayüz</string>
     <string name="notifications_edge_light_title">Kenar aydınlatması</string>
@@ -510,4 +510,9 @@
     <!-- Units -->
     <string name="unit_milliseconds">milisaniye</string>
     <string name="unit_seconds">saniye</string>
+    <!-- SystemUI restart dialog -->
+    <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
+    <string name="systemui_restart_message">Tüm değişikliklerin etkili olması için sistem arayüzünün yeniden başlatılması gerekiyor. Sistem arayüzünü şimdi yeniden başlatmak ister misiniz?</string>
+    <string name="systemui_restart_cancel">İptal</string>
+    <string name="systemui_restart_ok">Tamam</string>
 </resources>
