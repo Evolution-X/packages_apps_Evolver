@@ -30,58 +30,16 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="shake_gestures"
-        android:title="@string/gestures_shake_gestures_enabled_title">
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="shake_gestures_enabled"
-            android:title="@string/gestures_shake_gestures_enabled_title"
-            android:summary="@string/gestures_shake_gestures_enabled_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="shake_gestures_action"
-            android:title="@string/gestures_shake_gestures_action_title"
-            android:summary="%s"
-            android:dialogTitle="@string/gestures_shake_gestures_action_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
-            android:defaultValue="0"
-            android:dependency="shake_gestures_enabled" />
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="shake_gestures_intensity"
-            android:title="@string/gestures_shake_gestures_intensity_title"
-            android:summary="@string/gestures_shake_gestures_intensity_summary"
-            android:dependency="shake_gestures_enabled"
-            android:defaultValue="3"
-            settings:interval="1"
-            android:max="12"
-            android:min="1" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="three_finger_gestures"
-        android:title="@string/gestures_three_finger_gestures_title">
+        android:title="@string/gestures_three_fingers_swipe_title">
 
-        <!-- Three-fingers-swipe gestures -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="three_finger_gesture_action"
-            android:title="@string/gestures_three_finger_gesture_action_title"
-            android:summary="%s"
-            android:dialogTitle="@string/gestures_three_finger_gesture_action_dialog_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
-            android:defaultValue="0" />
-
-        <!-- Three-fingers long press gestures -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="three_finger_long_press_action"
-            android:title="@string/gestures_three_finger_long_press_action_title"
-            android:summary="%s"
-            android:dialogTitle="@string/gestures_three_finger_long_press_action_dialog_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
-            android:defaultValue="0" />
+        <!-- Three fingers swipe action -->
+        <ListPreference
+            android:key="three_fingers_swipe"
+            android:dialogTitle="@string/gestures_three_fingers_swipe_title"
+            android:title="@string/gestures_three_fingers_swipe_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false" />
     </PreferenceCategory>
 </PreferenceScreen>
