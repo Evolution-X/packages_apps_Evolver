@@ -512,7 +512,7 @@
     <string name="unit_seconds">másodperc</string>
     <!-- SystemUI restart dialog -->
     <string name="systemui_restart_title">Rendszerfelület-újraindítás szükséges</string>
-    <string name="systemui_restart_message">Az összes módosítás érvénybe léptetéséhez szükséges a rendszerfelület újraindítása. Újraindítja most?</string>
-    <string name="systemui_restart_cancel">Mégsem</string>
-    <string name="systemui_restart_ok">Oké</string>
+    <string name="systemui_restart_message">A módosítások érvénybe léptetéséhez szükséges a rendszerfelület újraindítása. Újraindítja most?</string>
+    <string name="systemui_restart_yes">Igen</string>
+    <string name="systemui_restart_not_now">Most nem</string>
 </resources>
