@@ -44,8 +44,8 @@
             android:title="@string/gestures_shake_gestures_action_title"
             android:summary="%s"
             android:dialogTitle="@string/gestures_shake_gestures_action_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
             android:defaultValue="0"
             android:dependency="shake_gestures_enabled" />
 
@@ -62,26 +62,25 @@
 
     <PreferenceCategory
         android:key="three_finger_gestures"
-        android:title="@string/gestures_three_finger_gestures_title">
+        android:title="@string/gestures_three_fingers_swipe_title">
 
-        <!-- Three-fingers-swipe gestures -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="three_finger_gesture_action"
-            android:title="@string/gestures_three_finger_gesture_action_title"
-            android:summary="%s"
-            android:dialogTitle="@string/gestures_three_finger_gesture_action_dialog_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
-            android:defaultValue="0" />
+        <!-- Three fingers swipe action -->
+        <ListPreference
+            android:key="three_fingers_swipe"
+            android:title="@string/gestures_three_fingers_swipe_title"
+            android:dialogTitle="@string/gestures_three_fingers_swipe_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false" />
 
-        <!-- Three-fingers long press gestures -->
+        <!-- Three fingers long press action -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="three_finger_long_press_action"
-            android:title="@string/gestures_three_finger_long_press_action_title"
+            android:title="@string/gestures_three_fingers_long_press_title"
+            android:dialogTitle="@string/gestures_three_fingers_long_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
             android:summary="%s"
-            android:dialogTitle="@string/gestures_three_finger_long_press_action_dialog_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
             android:defaultValue="0" />
     </PreferenceCategory>
 </PreferenceScreen>

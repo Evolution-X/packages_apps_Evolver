@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
@@ -24,6 +25,9 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 
 import lineageos.preference.LineageSystemSettingListPreference;
+import lineageos.providers.LineageSettings;
+
+import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
 @SearchIndexable
 public class Gestures extends SettingsPreferenceFragment implements
@@ -32,6 +36,7 @@ public class Gestures extends SettingsPreferenceFragment implements
     private static final String TAG = "Gestures";
 
     private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
+    private static final String KEY_THREE_FINGERS_SWIPE = "three_fingers_swipe";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
@@ -39,6 +44,7 @@ public class Gestures extends SettingsPreferenceFragment implements
     private static final int PULLDOWN_DIR_BOTH = 3;
 
     private LineageSystemSettingListPreference mQuickPulldown;
+    private ListPreference mThreeFingersSwipeAction;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,31 @@ public class Gestures extends SettingsPreferenceFragment implements
                 (LineageSystemSettingListPreference) findPreference(KEY_QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+
+        Action threeFingersSwipeAction = Action.fromSettings(getContentResolver(),
+                LineageSettings.System.KEY_THREE_FINGERS_SWIPE_ACTION,
+                Action.NOTHING);
+        mThreeFingersSwipeAction = initList(KEY_THREE_FINGERS_SWIPE, threeFingersSwipeAction);
+    }
+
+    private ListPreference initList(String key, Action value) {
+        return initList(key, value.ordinal());
+    }
+
+    private ListPreference initList(String key, int value) {
+        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
+        if (list == null) return null;
+        list.setValue(Integer.toString(value));
+        list.setSummary(list.getEntry());
+        list.setOnPreferenceChangeListener(this);
+        return list;
+    }
+
+    private void handleListChange(ListPreference pref, Object newValue, String setting) {
+        String value = (String) newValue;
+        int index = pref.findIndexOfValue(value);
+        pref.setSummary(pref.getEntries()[index]);
+        LineageSettings.System.putIntForUser(getContentResolver(), setting, Integer.valueOf(value), UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -63,6 +94,10 @@ public class Gestures extends SettingsPreferenceFragment implements
         if (preference == mQuickPulldown) {
             int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
+            return true;
+        } else if (preference == mThreeFingersSwipeAction) {
+            handleListChange((ListPreference) preference, newValue,
+                    LineageSettings.System.KEY_THREE_FINGERS_SWIPE_ACTION);
             return true;
         }
         return false;
