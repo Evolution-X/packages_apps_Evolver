@@ -32,6 +32,9 @@
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Настройки Monet</string>
     <string name="themes_monet_summary">Настройка встроенного движка тем Android</string>
+    <string name="themes_audio_category">Звуки</string>
+    <string name="themes_lock_sound_title">Звук блокировки</string>
+    <string name="themes_unlock_sound_title">Звук разблокировки</string>
     <string name="themes_fonts_category">Шрифты</string>
     <string name="themes_system_font_title">Заголовок / Основной шрифт</string>
     <string name="themes_system_font_summary">Выберите системный шрифт</string>
@@ -55,12 +58,17 @@
     <string name="themes_brightness_slider_summary">Стиль ползунка яркости</string>
     <string name="themes_animations_category">Анимации</string>
     <string name="themes_boot_animation_title">Анимация загрузки</string>
+    <string name="themes_boot_animation_summary">Выберите анимацию при загрузке устройства</string>
     <string name="themes_screen_off_animation_title">Анимация выключения экрана</string>
     <string name="themes_screen_off_animation_default">По умолчанию</string>
     <string name="themes_screen_off_animation_crt">ЭЛТ</string>
     <string name="themes_screen_off_animation_scale">Масштабирование</string>
     <string name="themes_udfps_animation_title">Анимация UDFPS</string>
     <string name="themes_udfps_animation_summary">Выберите анимацию для UDFPS</string>
+    <!-- Themes/Boot animation preview -->
+    <string name="boot_animation_preview_desc">Предварительный просмотр выбранной анимации загрузки</string>
+    <string name="boot_animation_preview_summary">Показать текущий стиль анимации при загрузке устройства</string>
+    <string name="boot_animation_preview_title">Предпросмотр анимации загрузки</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Цветовой акцент</string>
     <string name="monet_engine_custom_color_summary">Выбрать пользовательский цвет акцента</string>
@@ -282,8 +290,8 @@
     <string name="network_traffic_hidearrow_summary">Скрыть стрелки индикатора трафика</string>
     <!-- Status bar/Battery Bar -->
     <string name="battery_bar_color">Цвет</string>
-    <string name="battery_bar_charging_color">Цвет полосы батареи при зарядке</string>
-    <string name="battery_bar_battery_low_color">Цвет полосы при низком заряде</string>
+    <string name="battery_bar_charging_color">Цвет во время зарядки</string>
+    <string name="battery_bar_battery_low_color">Цвет при низком заряде</string>
     <string name="battery_bar_style_title">Выравнивание</string>
     <string name="battery_bar_thickness_title">Толщина</string>
     <string name="battery_bar_animate_title">Анимация зарядки</string>
@@ -398,9 +406,23 @@
     <string name="gestures_three_finger_long_press_action_dialog_title">Действия жестов долгого нажатия тремя пальцами</string>
     <!-- Gestures/Shake Gestures -->
     <string name="hardware_keys_action_nothing">Не задано</string>
-    <string name="hardware_keys_action_close_app">Принудительно закрыть активное приложение</string>
+    <string name="hardware_keys_action_menu">Открыть / закрыть меню</string>
+    <string name="hardware_keys_action_app_switch">Переключатель недавних приложений</string>
     <string name="hardware_keys_action_search">Поисковый помощник</string>
     <string name="hardware_keys_action_voice_search">Голосовой поиск</string>
+    <string name="hardware_keys_action_in_app_search">Поиск в приложении</string>
+    <string name="hardware_keys_action_launch_camera">Запустить камеру</string>
+    <string name="hardware_keys_action_sleep">Выключить экран</string>
+    <string name="hardware_keys_action_last_app">Последнее приложение</string>
+    <string name="hardware_keys_action_split_screen">Разделить экран</string>
+    <string name="hardware_keys_action_close_app">Закрыть приложение</string>
+    <string name="hardware_keys_action_torch">Фонарик</string>
+    <string name="hardware_keys_action_screenshot">Сделать снимок экрана</string>
+    <string name="hardware_keys_action_volume_panel">Показать/скрыть панель громкости</string>
+    <string name="hardware_keys_action_clear_all_notifications">Очистить все уведомления</string>
+    <string name="hardware_keys_action_notifications_panel">Показать/скрыть панель уведомлений</string>
+    <string name="hardware_keys_action_expand_qs_panel">Развернуть панель быстрого доступа</string>
+    <string name="hardware_keys_action_ringer_modes">Изменить режим звонка</string>
     <string name="gestures_shake_gestures_enabled_title">Жесты встряхивания</string>
     <string name="gestures_shake_gestures_enabled_summary">Потрясите устройство для вызова заданных действий</string>
     <string name="gestures_shake_gestures_action_title">Действия жестов встряхивания</string>
@@ -502,4 +524,9 @@
     <!-- Units -->
     <string name="unit_milliseconds">миллисекунд</string>
     <string name="unit_seconds">секунд</string>
+    <!-- SystemUI restart dialog -->
+    <string name="systemui_restart_title">Требуется перезагрузка SystemUI</string>
+    <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка системного интерфейса. Сделать это сейчас?</string>
+    <string name="systemui_restart_yes">Да</string>
+    <string name="systemui_restart_not_now">Не сейчас</string>
 </resources>
