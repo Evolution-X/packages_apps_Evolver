@@ -32,6 +32,9 @@
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet ayarları</string>
     <string name="themes_monet_summary">Android\'in dahili tema motorunu özelleştirin</string>
+    <string name="themes_audio_category">Ses</string>
+    <string name="themes_lock_sound_title">Kilitleme sesi</string>
+    <string name="themes_unlock_sound_title">Kilit açma sesi</string>
     <string name="themes_fonts_category">Yazı tipleri</string>
     <string name="themes_system_font_title">Başlık / Gövde yazı tipi</string>
     <string name="themes_system_font_summary">Sistem yazı tipi stili ayarlayın</string>
@@ -56,7 +59,6 @@
     <string name="themes_animations_category">Animasyonlar</string>
     <string name="themes_boot_animation_title">Açılış animasyonu</string>
     <string name="themes_boot_animation_summary">Açılış animasyon stilini ayarla</string>
-    <string name="themes_boot_animation_applied">Açılış animasyonu uygulandı</string>
     <string name="themes_screen_off_animation_title">Ekran kapanma animasyonu</string>
     <string name="themes_screen_off_animation_default">Varsayılan</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
@@ -368,8 +370,6 @@
     <string name="quick_settings_miscellaneous_category">Çeşitli</string>
     <string name="quick_settings_bluetooth_auto_on_title">Otomatik Bluetooth açık</string>
     <string name="quick_settings_bluetooth_auto_on_summary">Hızlı ayarlar iletişim kutusunu açarken Bluetooth\'u otomatik olarak etkinleştirin</string>
-    <string name="quick_settings_split_shade_title">Bölünmüş Gölge</string>
-    <string name="quick_settings_split_shade_summary">Yatay modda QS düzenini böler</string>
     <!-- Notifications -->
     <string name="notifications_interface_category">Arayüz</string>
     <string name="notifications_edge_light_title">Kenar aydınlatması</string>
@@ -406,9 +406,23 @@
     <string name="gestures_three_finger_long_press_action_dialog_title">Üç parmakla uzun basma hareketleri</string>
     <!-- Gestures/Shake Gestures -->
     <string name="hardware_keys_action_nothing">Eylem yok</string>
-    <string name="hardware_keys_action_close_app">Ön plan uygulamasını sonlandır</string>
+    <string name="hardware_keys_action_menu">Menüyü aç/kapat</string>
+    <string name="hardware_keys_action_app_switch">Son uygulamalar geçişi</string>
     <string name="hardware_keys_action_search">Arama asistanı</string>
     <string name="hardware_keys_action_voice_search">Sesli arama</string>
+    <string name="hardware_keys_action_in_app_search">Uygulama içi arama</string>
+    <string name="hardware_keys_action_launch_camera">Kamerayı başlat</string>
+    <string name="hardware_keys_action_sleep">Ekranı kapat</string>
+    <string name="hardware_keys_action_last_app">Son uygulama</string>
+    <string name="hardware_keys_action_split_screen">Bölünmüş ekran</string>
+    <string name="hardware_keys_action_close_app">Uygulamayı sonlandır</string>
+    <string name="hardware_keys_action_torch">El feneri</string>
+    <string name="hardware_keys_action_screenshot">Ekran görüntüsü al</string>
+    <string name="hardware_keys_action_volume_panel">Ses panelini aç/kapat</string>
+    <string name="hardware_keys_action_clear_all_notifications">Tüm bildirimleri temizle</string>
+    <string name="hardware_keys_action_notifications_panel">Bildirim panelini aç/kapat</string>
+    <string name="hardware_keys_action_expand_qs_panel">Hızlı ayarlar paneli genişlet</string>
+    <string name="hardware_keys_action_ringer_modes">Zil sesi modunu değiştir</string>
     <string name="gestures_shake_gestures_enabled_title">Sallama hareketleri</string>
     <string name="gestures_shake_gestures_enabled_summary">Eylemleri gerçekleştirmek için cihazınızı sallayın</string>
     <string name="gestures_shake_gestures_action_title">Sallama hareketleri eylemleri</string>
@@ -510,4 +524,9 @@
     <!-- Units -->
     <string name="unit_milliseconds">milisaniye</string>
     <string name="unit_seconds">saniye</string>
+    <!-- SystemUI restart dialog -->
+    <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
+    <string name="systemui_restart_message">Değişikliklerin aktif olması için Sistem Arayüzü yeniden başlatılmalı Sistem Arayüzü yeniden başlatılsın mı?</string>
+    <string name="systemui_restart_yes">Evet</string>
+    <string name="systemui_restart_not_now">Henüz değil</string>
 </resources>
