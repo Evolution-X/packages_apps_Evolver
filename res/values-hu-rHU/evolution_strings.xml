@@ -33,7 +33,6 @@
     <string name="themes_monet_title">Monet-beállítások</string>
     <string name="themes_monet_summary">Testreszabhatja az Android beépített témamotorját</string>
     <string name="themes_audio_category">Audió</string>
-    <string name="themes_charging_sound_title">Töltési hang</string>
     <string name="themes_lock_sound_title">A hang lezárása</string>
     <string name="themes_unlock_sound_title">A hang feloldása</string>
     <string name="themes_fonts_category">Betűtípusok</string>
@@ -407,9 +406,16 @@
     <string name="gestures_three_finger_long_press_action_dialog_title">A hosszannyomással indított műveletek</string>
     <!-- Gestures/Shake Gestures -->
     <string name="hardware_keys_action_nothing">Nincs művelet</string>
-    <string name="hardware_keys_action_close_app">Az előtérben lévő alkalmazás kilövése</string>
+    <string name="hardware_keys_action_menu">Menünyitás/zárás</string>
+    <string name="hardware_keys_action_app_switch">Alkalmazáselőzmények</string>
     <string name="hardware_keys_action_search">Keresőasszisztens</string>
     <string name="hardware_keys_action_voice_search">Hangalapú keresés</string>
+    <string name="hardware_keys_action_in_app_search">Alkalmazáson belüli keresés</string>
+    <string name="hardware_keys_action_launch_camera">Kameraindítás</string>
+    <string name="hardware_keys_action_sleep">Képernyő-kikapcsolás</string>
+    <string name="hardware_keys_action_last_app">Legutóbbi alkalmazás</string>
+    <string name="hardware_keys_action_split_screen">Osztott képernyő</string>
+    <string name="hardware_keys_action_close_app">Az előtérben lévő alkalmazás kilövése</string>
     <string name="gestures_shake_gestures_enabled_title">Rázásra induló műveletek</string>
     <string name="gestures_shake_gestures_enabled_summary">A feladat indításához rázza meg készülékét</string>
     <string name="gestures_shake_gestures_action_title">Rázással indított műveletek</string>
