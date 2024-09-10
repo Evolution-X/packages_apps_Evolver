@@ -18,6 +18,8 @@
     <string name="quick_settings_summary">Interface, écran de verrouillage</string>
     <string name="notifications_title">Notifications</string>
     <string name="notifications_summary">Alertes, interface</string>
+    <string name="gestures_title">Gestes</string>
+    <string name="gestures_summary">Barre d\'état, 3 doigts</string>
     <string name="power_menu_title">Menu marche/arrêt</string>
     <string name="power_menu_summary">Actions, écran de verrouillage</string>
     <string name="buttons_title">Boutons</string>
@@ -30,6 +32,9 @@
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Paramètres de Monet</string>
     <string name="themes_monet_summary">Personnaliser le moteur de thème intégré à Android</string>
+    <string name="themes_audio_category">Audio</string>
+    <string name="themes_lock_sound_title">Son de verrouillage</string>
+    <string name="themes_unlock_sound_title">Son de déverouillage</string>
     <string name="themes_fonts_category">Polices</string>
     <string name="themes_system_font_title">Titre / Police de corps</string>
     <string name="themes_system_font_summary">Définir le style de police du système</string>
@@ -52,12 +57,18 @@
     <string name="themes_brightness_slider_title">Style du curseur de luminosité</string>
     <string name="themes_brightness_slider_summary">Définir le style du curseur de luminosité</string>
     <string name="themes_animations_category">Animations</string>
+    <string name="themes_boot_animation_title">Animation de démarrage</string>
+    <string name="themes_boot_animation_summary">Définir l\'animation de démarrage</string>
     <string name="themes_screen_off_animation_title">Animation d\'extinction d\'écran</string>
     <string name="themes_screen_off_animation_default">Par défaut</string>
     <string name="themes_screen_off_animation_crt">Tube cathodique</string>
     <string name="themes_screen_off_animation_scale">Échelle</string>
     <string name="themes_udfps_animation_title">Animation du lecteur d\'empreintes sous l\'écran</string>
     <string name="themes_udfps_animation_summary">Définir le style d\'animation du capteur d\'enpreintes digitales</string>
+    <!-- Themes/Boot animation preview -->
+    <string name="boot_animation_preview_desc">Aperçu de l\'animation de démarrage sélectionnée</string>
+    <string name="boot_animation_preview_summary">Affiche un aperçu de l\'animation de démarrage actuellement sélectionnée</string>
+    <string name="boot_animation_preview_title">Aperçu de l\'animation de démarrage</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Couleur d\'accentuation</string>
     <string name="monet_engine_custom_color_summary">Choisir une couleur personnalisée pour l\'accentuation</string>
@@ -314,8 +325,13 @@
     <string name="quick_settings_tile_label_hide_summary">Afficher uniquement l\'icône dans la tuile</string>
     <string name="quick_settings_tile_layout_title">Disposition verticale</string>
     <string name="quick_settings_tile_layout_summary">Afficher le libellé sous l\'icône au lieu d\'à côté de l\'icône</string>
+    <string name="quick_settings_layout_columns_rows_title">Colonnes &amp; lignes</string>
+    <string name="quick_settings_layout_columns_rows_summary">Personnaliser les colonnes et les lignes des réglages rapides</string>
+    <string name="quick_settings_layout_columns_rows_footer_text">Les lignes des réglages rapides doivent être égales ou supérieures à celles des lignes QQS. Utilisez un nombre plus élevé de colonnes pour le style de tuile cercle / carré (A11) des tuiles QS.</string>
     <string name="quick_settings_columns_portrait_title">Colonnes (portrait)</string>
     <string name="quick_settings_columns_landscape_title">Colonnes (paysage)</string>
+    <string name="quick_settings_rows_portrait_title">Lignes (portrait)</string>
+    <string name="quick_settings_rows_landscape_title">Lignes (paysage)</string>
     <string name="quick_settings_qqs_rows_portrait_title">Lignes des paramètres rapides (portrait)</string>
     <string name="quick_settings_qqs_rows_landscape_title">Lignes des paramètres rapides (paysage)</string>
     <string name="quick_settings_show_brightness_slider_title">Curseur de luminosité</string>
@@ -382,6 +398,28 @@
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Moins ennuyeux</string>
     <string name="notifications_less_boring_heads_up_summary">Afficher les notifications popup uniquement pour l\'alarme, le téléphone et l\'application de messagerie</string>
+    <!-- Gestures/Three Finger Gestures -->
+    <string name="gestures_three_fingers_swipe_title">Glisser avec 3 doigts</string>
+    <string name="gestures_three_fingers_long_press_title">Appui long à 3 doigts</string>
+    <!-- Gestures -->
+    <string name="hardware_keys_action_nothing">Aucune action</string>
+    <string name="hardware_keys_action_menu">Ouvrir/fermer menu</string>
+    <string name="hardware_keys_action_app_switch">Gestionnaire d\'applis récentes</string>
+    <string name="hardware_keys_action_search">Assistant de recherche</string>
+    <string name="hardware_keys_action_voice_search">Recherche vocale</string>
+    <string name="hardware_keys_action_in_app_search">Recherche dans l\'application</string>
+    <string name="hardware_keys_action_launch_camera">Démarrer l\'appareil photo</string>
+    <string name="hardware_keys_action_sleep">Éteindre l\'écran</string>
+    <string name="hardware_keys_action_last_app">Dernière application</string>
+    <string name="hardware_keys_action_split_screen">Diviser l\'écran</string>
+    <string name="hardware_keys_action_close_app">Forcer l\'arrêt de l\'application</string>
+    <string name="hardware_keys_action_torch">Lampe-torche</string>
+    <string name="hardware_keys_action_screenshot">Prendre une capture d\'écran</string>
+    <string name="hardware_keys_action_volume_panel">Ouvrir/fermer le panneau de volume</string>
+    <string name="hardware_keys_action_clear_all_notifications">Effacer toutes les notifications</string>
+    <string name="hardware_keys_action_notifications_panel">Ouvrir/Fermer le panneau de notifications</string>
+    <string name="hardware_keys_action_expand_qs_panel">Étendre le panneau de paramètres rapides</string>
+    <string name="hardware_keys_action_ringer_modes">Modes de sonnerie</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interface</string>
     <string name="power_menu_actions_title">Options du menu Marche/Arrêt</string>
@@ -450,6 +488,10 @@
     <string name="about_discord_summary">Visitez notre chat communautaire</string>
     <string name="about_github_summary">Allez voir notre GitHub</string>
     <string name="about_contributors_title">Contributeurs</string>
+    <!-- Black themes for dark mode -->
+    <string name="black_theme_style_title">Styles de thèmes sombres</string>
+    <string name="black_theme_style_berry">Thème noir baie</string>
+    <string name="black_theme_style_amoled">Noir amoled</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Sélecteur de couleur</string>
     <string name="press_color_to_apply">Appuyez sur une couleur ci-dessous pour l\'appliquer</string>
@@ -467,4 +509,9 @@
     <!-- Units -->
     <string name="unit_milliseconds">millisecondes</string>
     <string name="unit_seconds">secondes</string>
+    <!-- SystemUI restart dialog -->
+    <string name="systemui_restart_title">Redémarrage de SystemUi requis</string>
+    <string name="systemui_restart_message">Pour que les changements prennent effet, SystemUi doit être redémarré. Redémarrer maintenant ?</string>
+    <string name="systemui_restart_yes">Oui</string>
+    <string name="systemui_restart_not_now">Plus tard</string>
 </resources>
