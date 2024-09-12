@@ -25,6 +25,28 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- USB configuration -->
+        <Preference
+            android:key="default_usb_configuration"
+            android:title="@string/usb_default_config_title"
+            android:summary="@string/usb_default_config_summary"
+            android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
+
+        <!-- Hide developer status -->
+        <Preference
+            android:key="hide_developer_status_settings"
+            android:title="@string/hide_developer_status_title"
+            android:summary="@string/hide_developer_status_summary"
+            android:fragment="com.android.settings.security.HideDeveloperStatusSettings"
+            settings:controller="com.android.settings.security.HideDeveloperStatusPreferenceController" />
+
+        <!-- No storage restrict -->
+        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
+            android:key="no_storage_restrict"
+            android:title="@string/no_storage_restrict_title"
+            android:summary="@string/no_storage_restrict_summary"
+            android:defaultValue="false" />
+
         <!-- Block wallpaper dimming -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="block_wallpaper_dimming"
@@ -37,6 +59,13 @@
             android:key="unlimit_screenrecord"
             android:title="@string/miscellaneous_unlimit_screenrecord_title"
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
+            android:defaultValue="false" />
+
+        <!-- Hide screen capture status -->
+        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_status_title"
+            android:summary="@string/hide_screen_capture_status_summary"
             android:defaultValue="false" />
 
         <!-- Allow application downgrade -->
