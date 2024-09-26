@@ -19,7 +19,7 @@
     <string name="notifications_title">Értesítések</string>
     <string name="notifications_summary">Riasztások, interfész</string>
     <string name="gestures_title">Mozdulatvezérlés</string>
-    <string name="gestures_summary">Állapotsor, háromujjas</string>
+    <string name="gestures_summary">Állapotsor, háromujjas képernyőkép</string>
     <string name="power_menu_title">Kikapcsolási menü</string>
     <string name="power_menu_summary">Műveletek, záróképernyő</string>
     <string name="buttons_title">Gombok</string>
@@ -109,6 +109,8 @@
     <string name="lock_screen_miscellaneous_category">Különlegességek</string>
     <string name="lock_screen_pocket_detection_title">Zsebészlelés</string>
     <string name="lock_screen_pocket_detection_summary">Ha a készüléket zsebben érzékeli, megakadályozza a véletlen érintéseket a képernyőn és a fizikai gombokon</string>
+    <string name="lock_screen_always_on_pocket_mode_title">Állandó Zsebmód</string>
+    <string name="lock_screen_always_on_pocket_mode_summary">Ha be van kapcsolva a képernyő, folyamatos a kijelző és a gombok blokkolása</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_help_policy_notice_title">Pulse információk</string>
     <string name="pulse_help_policy_notice_summary">A Pulse egy brilliáns audiógrafikus hangszínszabályozó a zenelejátszáshoz</string>
@@ -155,12 +157,35 @@
     <string name="status_bar_tuner_summary">Beállítható mely rendszer-ikonok jelenjenek meg</string>
     <string name="status_bar_battery_style_title">Akkustílus</string>
     <string name="status_bar_battery_style_icon_portrait">Álló ikon</string>
+    <string name="status_bar_battery_style_icon_rlandscape">Fekvő ikon (Jobb)</string>
+    <string name="status_bar_battery_style_icon_landscape">Fekvő ikon (Bal)</string>
+    <string name="status_bar_battery_style_icon_landscape_buddy">Fekvő kapszula</string>
+    <string name="status_bar_battery_style_icon_landscape_line">Fekvő Lorn</string>
+    <string name="status_bar_battery_style_icon_landscape_musku">Álló (Portré) iOS</string>
+    <string name="status_bar_battery_style_icon_landscape_pill">Álló (Portré) MX</string>
+    <string name="status_bar_battery_style_icon_landscape_signal">Fekvő Airoo</string>
+    <string name="status_bar_battery_style_icon_rlandscape_style_a">Fekvő R Style A</string>
+    <string name="status_bar_battery_style_icon_landscape_style_a">Fekvő L Style A</string>
+    <string name="status_bar_battery_style_icon_rlandscape_style_b">Fekvő R Style B</string>
+    <string name="status_bar_battery_style_icon_landscape_style_b">Fekvő L Style B</string>
+    <string name="status_bar_battery_style_icon_landscape_ios15">Fekvő ( iOS 15 )</string>
+    <string name="status_bar_battery_style_icon_landscape_ios16">Fekvő ( iOS 16 )</string>
+    <string name="status_bar_battery_style_icon_landscape_origami">Fekvő Origami</string>
     <string name="status_bar_battery_style_circle">Kör</string>
+    <string name="status_bar_battery_style_dotted_circle">Pontozott kör</string>
+    <string name="status_bar_battery_style_filled_circle">Telített kör</string>
+    <string name="status_bar_battery_style_big_circle">Nagy kör</string>
+    <string name="status_bar_battery_style_big_dotted_circle">Nagy pontozott kör</string>
     <string name="status_bar_battery_style_text">Szöveg</string>
-    <string name="status_bar_battery_percentage_title">Akkumulátorszázalék</string>
-    <string name="status_bar_battery_percentage_default">Rejtett</string>
-    <string name="status_bar_battery_percentage_text_inside">Az ikonon belül</string>
-    <string name="status_bar_battery_percentage_text_next">Az ikon mellett</string>
+    <string name="status_bar_battery_style_hidden">Rejtett</string>
+    <string name="status_bar_battery_style_follow_status_bar">Kövesse az állapotsor stílusát</string>
+    <string name="status_bar_battery_percent_title">Akkumulátorszázalék</string>
+    <string name="status_bar_battery_percent_hidden">Rejtett</string>
+    <string name="status_bar_battery_percent_text_inside">Az ikonon belül</string>
+    <string name="status_bar_battery_percent_text_next_right">Az ikon mellett (jobb)</string>
+    <string name="status_bar_battery_percent_text_next_left">Az ikon mellett (bal)</string>
+    <string name="status_bar_battery_text_charging_title">Akkuszázalék töltés közben</string>
+    <string name="status_bar_battery_text_charging_summary">Töltés közben állandóan jelenítse meg az akkuszázalékot</string>
     <string name="status_bar_clock_and_date_title">Óra és dátum</string>
     <string name="status_bar_clock_and_date_summary">Az \'Óra és dátum\' testreszabása</string>
     <string name="status_bar_data_disabled_icon_title">A letiltott adatforgalom kijelzője</string>
@@ -398,28 +423,6 @@
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Csak a fontosak</string>
     <string name="notifications_less_boring_heads_up_summary">Felugró értesítések megjelenítése csak az ébresztőhöz, a tárcsázóhoz és az üzenetekhez</string>
-    <!-- Gestures/Three Finger Gestures -->
-    <string name="gestures_three_fingers_swipe_title">Háromujjas csúsztatás</string>
-    <string name="gestures_three_fingers_long_press_title">A háromujjas hosszannyomás művelete</string>
-    <!-- Gestures -->
-    <string name="hardware_keys_action_nothing">Nincs művelet</string>
-    <string name="hardware_keys_action_menu">Menünyitás/zárás</string>
-    <string name="hardware_keys_action_app_switch">Alkalmazáselőzmények</string>
-    <string name="hardware_keys_action_search">Keresőasszisztens</string>
-    <string name="hardware_keys_action_voice_search">Hangalapú keresés</string>
-    <string name="hardware_keys_action_in_app_search">Alkalmazáson belüli keresés</string>
-    <string name="hardware_keys_action_launch_camera">Kameraindítás</string>
-    <string name="hardware_keys_action_sleep">Képernyő-kikapcsolás</string>
-    <string name="hardware_keys_action_last_app">Legutóbbi alkalmazás</string>
-    <string name="hardware_keys_action_split_screen">Osztott képernyő</string>
-    <string name="hardware_keys_action_close_app">Az alkalmazás kilövése</string>
-    <string name="hardware_keys_action_torch">Zseblámpa</string>
-    <string name="hardware_keys_action_screenshot">Képernyőkép-készítés</string>
-    <string name="hardware_keys_action_volume_panel">Hangerőszabályzó-kapcsoló</string>
-    <string name="hardware_keys_action_clear_all_notifications">Minden értesítés törlése</string>
-    <string name="hardware_keys_action_notifications_panel">Értesítésipanel-kapcsoló</string>
-    <string name="hardware_keys_action_expand_qs_panel">A Gyorsbeállítások-panel kinyitása</string>
-    <string name="hardware_keys_action_ringer_modes">Csengésmódok</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Kezelőfelület</string>
     <string name="power_menu_actions_title">Kikapcsolási-menüfunkciók</string>
@@ -461,14 +464,18 @@
     <string name="spoofing_pif_values_title">A Gplay integritásjavítás értékei</string>
     <string name="spoofing_pif_values_summary">A jelenlegi értékek megtekintése, amelyeket a GMS meghamisításához használnak a Play Integrity API-tanúsítványhoz</string>
     <string name="spoofing_pixel_props_title">Pixel-kellékek</string>
-    <string name="spoofing_pixel_props_summary">A Google alkalmazásokhoz Pixel 8 Pro-nak álcázza az Ön telefonját</string>
+    <string name="spoofing_pixel_props_summary">A kijelölt Google alkalmazásokhoz Pixel 8 Pro-nak álcázza az Ön telefonját</string>
     <string name="spoofing_storage_encryption_title">Tárhelytitkosítás</string>
     <string name="spoofing_storage_encryption_summary">A tárhely állapotának hamisítása \' Titkosított \'-ra</string>
     <string name="spoofing_app_specific_category">Alkalmazás-specifikus</string>
+    <string name="spoofing_vending_title">Google Play Áruház trükk</string>
+    <string name="spoofing_vending_summary">A legutolsó Pixel készüléknek álcázza az Ön készülékét</string>
     <string name="spoofing_photos_title">Trükk a Google Fényképek-hez</string>
     <string name="spoofing_photos_summary">Pixel XL-re álcázás a Google Fényképek alkalmazáshoz</string>
     <string name="spoofing_games_title">FPS-emelés játékokhoz</string>
     <string name="spoofing_games_summary">Eszközinfó-hamisítás hogy magasabb FPS legyen elérhető a játékokhoz</string>
+    <string name="spoofing_snap_title">Snapchat álcázás</string>
+    <string name="spoofing_snap_summary">A Snapchat-ben Pixel XL-nek álcázza az Ön készülékét a lehetséges csevegési problémák elkerüléséért</string>
     <!-- Navigation Bar -->
     <string name="navbar_layout_category_title">Gomb</string>
     <string name="navbar_layout_title">Elrendezés</string>
