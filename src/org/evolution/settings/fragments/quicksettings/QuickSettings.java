@@ -23,11 +23,17 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
+import org.evolution.settings.utils.DeviceUtils;
+
 @SearchIndexable
 public class QuickSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "QuickSettings";
+    private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
+    private static final String KEY_QS_BLUETOOTH_SHOW_DIALOG = "qs_bt_show_dialog";
+
+    private PreferenceCategory mMiscellaneousCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = context.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
+
+        mMiscellaneousCategory = (PreferenceCategory) findPreference(KEY_MISCELLANEOUS_CATEGORY);
+
+        if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+            prefScreen.removePreference(mMiscellaneousCategory);
+        }
     }
 
     @Override
@@ -59,6 +71,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
+
+                if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+                    keys.add(KEY_QS_BLUETOOTH_SHOW_DIALOG);
+                }
                 return keys;
             }
         };

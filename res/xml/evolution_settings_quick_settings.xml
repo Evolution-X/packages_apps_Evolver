@@ -20,4 +20,16 @@
             android:summary="@string/quick_settings_secure_lock_screen_summary"
             android:defaultValue="false" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="quick_settings_miscellaneous_category"
+        android:title="@string/quick_settings_miscellaneous_category">
+
+        <!-- QS Bluetooth Dialog -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_bt_show_dialog"
+            android:title="@string/quick_settings_bluetooth_show_dialog_title"
+            android:summary="@string/quick_settings_bluetooth_show_dialog_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 </PreferenceScreen>
