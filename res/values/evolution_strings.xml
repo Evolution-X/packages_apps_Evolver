@@ -407,8 +407,8 @@
     <string name="quick_settings_require_unlock_title">Secure QS tiles require unlock</string>
     <string name="quick_settings_require_unlock_summary">The following quick settings require the device to be unlocked before you can interact with them:\nAirplane, Battery saver, Bluetooth, Cellular, Data saver, Hotspot, Internet, NFC, Rotation lock, and Wi-Fi</string>
     <string name="quick_settings_miscellaneous_category">Miscellaneous</string>
-    <string name="quick_settings_bluetooth_auto_on_title">Bluetooth auto on</string>
-    <string name="quick_settings_bluetooth_auto_on_summary">Automatically enable Bluetooth when opening its quick settings dialog</string>
+    <string name="quick_settings_bluetooth_show_dialog_title">Bluetooth tile dialog</string>
+    <string name="quick_settings_bluetooth_show_dialog_summary">Show bluetooth dialog or toggle bluetooth state on tapping bluetooth tile</string>
 
     <!-- Notifications -->
     <string name="notifications_interface_category">Interface</string>
