@@ -65,6 +65,11 @@
     <string name="themes_screen_off_animation_scale">Összeugrás</string>
     <string name="themes_udfps_animation_title">Ujjlenyomat-animáció</string>
     <string name="themes_udfps_animation_summary">Itt állíthatja be az ujjlenyomat-animáció stílusát</string>
+    <string name="themes_launcher_category">Pixel Launcher</string>
+    <string name="themes_launcher_background_blur_title">Háttér-homályosítás</string>
+    <string name="themes_launcher_background_blur_summary">Az Előzmények-oldalháttér elmosási effektjének bekapcsolása</string>
+    <string name="themes_launcher_more_themed_icons_title">Még témázottabb ikonok</string>
+    <string name="themes_launcher_more_themed_icons_summary">A dinamikus színes témájú ikon-támogatás kibővítése a telepített alkalmazásokhoz</string>
     <!-- Themes/Boot animation preview -->
     <string name="boot_animation_preview_desc">A kiválasztott boot-animáció előnézete</string>
     <string name="boot_animation_preview_summary">Megmutatja önnek, hogy milyen lenne, amit kiválasztott</string>
@@ -252,6 +257,8 @@
     <string name="status_bar_miscellaneous_category">Különlegességek</string>
     <string name="status_bar_battery_bar_title">Akkumulátorsáv</string>
     <string name="status_bar_battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
+    <string name="status_bar_carrier_lock_screen_title">Szolgáltatónév a záróképernyőn</string>
+    <string name="status_bar_carrier_lock_screen_summary">A záróképernyő állapotsorában megjelenik a szolgáltató neve</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Az óra helyzete</string>
     <string name="status_bar_clock_position_right">Jobbra</string>
