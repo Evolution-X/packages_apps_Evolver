@@ -65,6 +65,12 @@
             android:summary="@string/status_bar_4g_icon_summary"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="carrier_on_lockscreen"
+            android:title="@string/status_bar_carrier_lock_screen_title"
+            android:summary="@string/status_bar_carrier_lock_screen_summary"
+            android:defaultValue="true" />
+
         <!-- Wi-Fi standard icon -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="wifi_standard_icon"

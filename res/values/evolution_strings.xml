@@ -260,6 +260,8 @@
     <string name="status_bar_miscellaneous_category">Miscellaneous</string>
     <string name="status_bar_battery_bar_title">Battery bar</string>
     <string name="status_bar_battery_bar_summary">Display and customize battery bar above status bar</string>
+    <string name="status_bar_carrier_lock_screen_title">Carrier name on lockscreen</string>
+    <string name="status_bar_carrier_lock_screen_summary">Display carrier name on lockscreen status bar</string>
 
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Clock position</string>
