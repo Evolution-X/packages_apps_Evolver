@@ -42,9 +42,11 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_UDFPS_ICON = "udfps_icon";
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
+    private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
 
     private GlobalSettingListPreference mLockSound;
     private GlobalSettingListPreference mUnlockSound;
+    private PreferenceCategory mLauncherCategory;
     private PreferenceCategory mIconsCategory;
     private Preference mSignalIcon;
     private Preference mUdfpsIcon;
@@ -65,6 +67,7 @@ public class Themes extends SettingsPreferenceFragment implements
         mLockSound.setOnPreferenceChangeListener(this);
         mUnlockSound = (GlobalSettingListPreference) findPreference(KEY_UNLOCK_SOUND);
         mUnlockSound.setOnPreferenceChangeListener(this);
+        mLauncherCategory = (PreferenceCategory) findPreference(KEY_LAUNCHER_CATEGORY);
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
         mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
         mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
@@ -88,6 +91,10 @@ public class Themes extends SettingsPreferenceFragment implements
             if (!Utils.isPackageInstalled(context, "org.evolution.udfps.animations")) {
                 mAnimationsCategory.removePreference(mUdfpsAnimation);
             }
+        }
+
+        if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
+            prefScreen.removePreference(mLauncherCategory);
         }
     }
 
@@ -120,6 +127,10 @@ public class Themes extends SettingsPreferenceFragment implements
 
                 if (!DeviceUtils.deviceSupportsMobileData(context)) {
                     keys.add(KEY_SIGNAL_ICON);
+                }
+
+                if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
+                    keys.add(KEY_LAUNCHER_CATEGORY);
                 }
 
                 if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
