@@ -62,6 +62,23 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="themes_launcher_category"
+        android:title="@string/themes_launcher_category">
+
+        <org.evolution.settings.preferences.OverlaySwitchPreference
+            android:key="com.google.android.apps.nexuslauncher.blur.overlay"
+            android:title="@string/themes_launcher_background_blur_title"
+            android:summary="@string/themes_launcher_background_blur_summary"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.OverlaySwitchPreference
+            android:key="com.google.android.apps.nexuslauncher.icons.overlay"
+            android:title="@string/themes_launcher_more_themed_icons_title"
+            android:summary="@string/themes_launcher_more_themed_icons_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="themes_icons_category"
         android:title="@string/themes_icons_category">
 

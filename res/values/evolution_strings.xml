@@ -68,6 +68,11 @@
     <string name="themes_screen_off_animation_scale">Scale</string>
     <string name="themes_udfps_animation_title">UDFPS animation</string>
     <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
+    <string name="themes_launcher_category">Pixel Launcher</string>
+    <string name="themes_launcher_background_blur_title">Background blur</string>
+    <string name="themes_launcher_background_blur_summary">Enable blur effect for recent items page background</string>
+    <string name="themes_launcher_more_themed_icons_title">More themed icons</string>
+    <string name="themes_launcher_more_themed_icons_summary">Extends support for dynamic color themed icons for installed apps</string>
 
     <!-- Themes/Boot animation preview -->
     <string name="boot_animation_preview_desc">Preview of the selected boot animation</string>
