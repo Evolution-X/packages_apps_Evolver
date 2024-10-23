@@ -80,12 +80,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.evolution_settings_quick_settings);
 
-        mThemeUtils = new ThemeUtils(getActivity());
+        mThemeUtils = new ThemeUtils(getContext());
 
-        final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
+        final Context mContext = getContext();
+        final ContentResolver resolver = mContext.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources resources = context.getResources();
+        final Resources resources = mContext.getResources();
 
         mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
         mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
@@ -125,7 +125,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 Settings.System.QS_TILE_ANIMATION_STYLE, 0, UserHandle.USER_CURRENT);
         updateTileAnimStyle(tileAnimationStyle);
 
-        if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+        if (!DeviceUtils.deviceSupportsBluetooth(mContext)) {
             prefScreen.removePreference(mMiscellaneousCategory);
         }
 
@@ -135,13 +135,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsPanelStyle = (ListPreference) findPreference(KEY_QS_PANEL_STYLE);
         mQsPanelStyle.setOnPreferenceChangeListener(this);
 
-        checkQSOverlays(context);
+        checkQSOverlays(mContext);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
+        ContentResolver resolver = getContext().getContentResolver();
         if (preference == mBatteryStyle) {
             int value = Integer.parseInt((String) newValue);
             mBatteryPercent.setEnabled(
@@ -161,15 +160,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             Settings.System.putIntForUser(resolver,
                     Settings.System.QS_TILE_UI_STYLE, value, UserHandle.USER_CURRENT);
-            updateQsStyle(getActivity());
-            checkQSOverlays(getActivity());
+            updateQsStyle(getContext());
+            checkQSOverlays(getContext());
             return true;
         } else if (preference == mQsPanelStyle) {
             int value = Integer.parseInt((String) newValue);
             Settings.System.putIntForUser(resolver,
                     Settings.System.QS_PANEL_STYLE, value, UserHandle.USER_CURRENT);
-            updateQsPanelStyle(getActivity());
-            checkQSOverlays(getActivity());
+            updateQsPanelStyle(getContext());
+            checkQSOverlays(getContext());
             return true;
         }
         return false;
