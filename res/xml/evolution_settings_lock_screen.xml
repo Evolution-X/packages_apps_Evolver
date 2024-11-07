@@ -39,6 +39,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="lockscreen_widgets"
+        android:title="@string/lockscreen_widgets_title">
+
+        <!-- Lockscreen Widgets -->
+        <Preference
+            android:key="lockscreen_widgets"
+            android:title="@string/lockscreen_widgets_title"
+            android:summary="@string/lockscreen_widgets_enabled_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.LockScreenWidgets" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="lock_screen_interface_category"
         android:title="@string/lock_screen_interface_category">
 
