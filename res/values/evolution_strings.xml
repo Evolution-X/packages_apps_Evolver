@@ -64,7 +64,6 @@
     <string name="themes_charging_animation_title">Charging animation</string>
     <string name="themes_charging_animation_summary">Display an animation when the device is plugged in</string>
     <string name="themes_screen_off_animation_title">Screen off animation</string>
-    <string name="themes_screen_off_animation_default">Default</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">Scale</string>
     <string name="themes_udfps_animation_title">UDFPS animation</string>
@@ -584,7 +583,6 @@
     <string name="hex" translatable="false">Hex:</string>
     <string name="hex_hint" translatable="false">#ff000000</string>
     <string name="set">Set</string>
-    <string name="color_default">Default</string>
     <string name="accent_color">Accent color (Default)</string>
     <string name="notification_color">Notification color</string>
     <string name="wallpaper_color">Wallpaper color</string>
@@ -601,6 +599,9 @@
     <string name="enable">Enable</string>
     <string name="disable">Disable</string>
     <string name="boot_animation_applied">Boot animation applied</string>
+    <string name="default_value">Default</string>
+    <string name="top">Top</string>
+    <string name="bottom">Bottom</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">milliseconds</string>
@@ -790,4 +791,14 @@
 
     <!-- Apply Button --> 
     <string name="apply_change_button_title">Apply</string>
+
+    <!-- Peek Display -->
+    <string name="peek_display_notifications_title">Peek display</string>
+    <string name="peek_display_notifications_summary">Enable minimal lock screen notification style</string>
+    <string name="peek_display_location_title">Peek display location</string>
+    <string name="peek_display_bottom_margin_title">Peek display (bottom) top margin</string>
+
+    <!-- Peek Display Styles -->
+    <string name="peek_display_minimalist">Minimalist</string>
+    <string name="peek_display_style_title">Peek display style</string>
 </resources>

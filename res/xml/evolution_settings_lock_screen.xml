@@ -60,11 +60,11 @@
             android:summary="@string/dw_wallpaper_enabled_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.WallpaperDepth" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_show_carrier"
-            android:title="@string/status_bar_carrier_lock_screen_title"
-            android:summary="@string/status_bar_carrier_lock_screen_summary"
-            android:defaultValue="true" />
+        <Preference
+            android:key="peek_display"
+            android:title="@string/peek_display_notifications_title"
+            android:summary="@string/peek_display_notifications_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.PeekDisplay" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="ls_media_art_enabled"
@@ -103,6 +103,12 @@
             android:title="@string/lock_screen_pulse_settings_title"
             android:summary="@string/lock_screen_pulse_settings_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.PulseSettings" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_show_carrier"
+            android:title="@string/status_bar_carrier_lock_screen_title"
+            android:summary="@string/status_bar_carrier_lock_screen_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory

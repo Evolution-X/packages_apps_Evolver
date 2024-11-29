@@ -162,7 +162,7 @@
 
     <!-- Themes - Screen off animation -->
     <string-array name="themes_screen_off_animation_entries">
-        <item>@string/themes_screen_off_animation_default</item>
+        <item>@string/default_value</item>
         <item>@string/themes_screen_off_animation_crt</item>
         <item>@string/themes_screen_off_animation_scale</item>
     </string-array>
@@ -587,7 +587,7 @@
 
     <!-- Quick Settings - QS tiles style -->
     <string-array name="quick_settings_tile_ui_style_entries">
-        <item>@string/color_default</item>
+        <item>@string/default_value</item>
         <item>@string/quick_settings_tile_ui_style_a11_circle</item>
         <item>@string/quick_settings_tile_ui_style_a11_square</item>
         <item>@string/quick_settings_tile_ui_style_a11_mix</item>
@@ -602,7 +602,7 @@
 
     <!-- Quick Settings - QS Panel Style -->
     <string-array name="quick_settings_panel_style_entries" translatable="false">
-        <item>@string/color_default</item>
+        <item>@string/default_value</item>
         <item>@string/quick_settings_panel_style_outline</item>
         <item>@string/quick_settings_panel_style_two_tone</item>
         <item>@string/quick_settings_panel_style_color_pop</item>
@@ -801,7 +801,7 @@
 
     <!-- Power Menu styles  -->
     <string-array name="powermenu_style_entries">
-        <item>@string/color_default</item>
+        <item>@string/default_value</item>
         <item>@string/powermenu_style1</item>
         <item>@string/powermenu_style2</item>
         <item>@string/powermenu_style3</item>
@@ -818,7 +818,7 @@
 
     <!-- QS Header clock styles  -->
     <string-array name="qs_header_clock_style_entries">
-        <item>@string/color_default</item>
+        <item>@string/default_value</item>
         <item>@string/qs_header_style1</item>
         <item>@string/qs_header_style2</item>
         <item>@string/qs_header_style3</item>
@@ -835,7 +835,7 @@
 
     <!-- Notification styles  -->
     <string-array name="notif_style_entries">
-        <item>@string/color_default</item>
+        <item>@string/default_value</item>
         <item>@string/notif_style1</item>
         <item>@string/notif_style2</item>
         <item>@string/notif_style3</item>
@@ -852,7 +852,7 @@
 
     <!-- Progress Bar style  -->
     <string-array name="progress_bar_style_entries">
-        <item>@string/color_default</item>
+        <item>@string/default_value</item>
         <item>@string/progress_bar_style1</item>
         <item>@string/progress_bar_style2</item>
         <item>@string/progress_bar_style3</item>
@@ -868,7 +868,7 @@
     </string-array>
     
    <string-array name="volume_styles_entries" translatable="false">
-        <item>@string/color_default</item>
+        <item>@string/default_value</item>
         <item>@string/double_layer_style</item>
         <item>@string/gradient_style</item>
         <item>@string/neumorph_style</item>
@@ -1012,5 +1012,27 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+
+    <!-- Peek display style -->
+    <string-array name="peek_display_style_entries">
+        <item>@string/default_value</item>
+        <item>@string/peek_display_minimalist</item>
+    </string-array>
+
+    <string-array name="peek_display_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Peek display location -->
+    <string-array name="peek_display_location_entries">
+        <item>@string/top</item>
+        <item>@string/bottom</item>
+    </string-array>
+
+    <string-array name="peek_display_location_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
     </string-array>
 </resources>
