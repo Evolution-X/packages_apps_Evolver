@@ -111,6 +111,13 @@
             android:entryValues="@array/status_bar_battery_percent_values"
             android:defaultValue="2" />
 
+        <!-- QS widgets -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_widgets_enabled"
+            android:title="@string/qs_widgets_enabled_title"
+            android:summary="@string/qs_widgets_enabled_summary"
+            android:defaultValue="false" />
+
         <!-- QS tiles style -->
         <ListPreference
             android:key="qs_tile_ui_style"
