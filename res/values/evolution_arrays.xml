@@ -785,4 +785,15 @@
         <item>7</item>
         <item>8</item>
     </string-array>
+
+    <!-- Apps list to hide from Hide developer status setting -->
+    <string-array name="hide_applist_hidden_apps" translatable="false">
+        <item>android</item>
+        <item>com.android.settings</item>
+        <item>com.android.systemui</item>
+        <item>com.android.shell</item>
+        <item>com.android.chrome</item>
+        <item>com.android.webview</item>
+        <item>com.google.android.webview</item>
+    </string-array>
 </resources>

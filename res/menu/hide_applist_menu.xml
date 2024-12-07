@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2021 AOSP-Krypton Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@*android:drawable/ic_search_api_material"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/search"
+        tools:ignore="AppCompatResource" />
+
+    <item
+        android:id="@+id/show_system"
+        android:title="@string/menu_show_system"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/hide_system"
+        android:title="@string/menu_hide_system"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/show_overlay"
+        android:title="@string/menu_show_overlay"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/hide_overlay"
+        android:title="@string/menu_hide_overlay"
+        android:showAsAction="never" />
+</menu>

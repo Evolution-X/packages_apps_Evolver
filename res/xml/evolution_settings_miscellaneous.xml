@@ -25,6 +25,13 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Hide applist -->
+        <Preference
+            android:key="hide_applist_setting"
+            android:title="@string/hide_applist_title"
+            android:summary="@string/hide_applist_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.HideAppListSettings" />
+
         <!-- Smart Pixels -->
         <Preference
             android:key="smart_pixels"
