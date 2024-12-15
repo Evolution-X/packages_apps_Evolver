@@ -801,4 +801,8 @@
     <!-- Peek Display Styles -->
     <string name="peek_display_minimalist">Minimalist</string>
     <string name="peek_display_style_title">Peek display style</string>
+
+    <!-- Now Bar -->
+    <string name="keyguard_now_bar_enabled_title">Now bar</string>
+    <string name="keyguard_now_bar_enabled_summary">Enable now bar lock screen widgets</string>
 </resources>
