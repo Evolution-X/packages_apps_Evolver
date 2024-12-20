@@ -53,4 +53,23 @@
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
             android:defaultValue="true" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lock_screen_miscellaneous_category"
+        android:title="@string/lock_screen_miscellaneous_category">
+
+        <!-- Pocket detection -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pocket_mode_enabled"
+            android:title="@string/lock_screen_pocket_detection_title"
+            android:summary="@string/lock_screen_pocket_detection_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="always_on_pocket_mode_enabled"
+            android:title="@string/lock_screen_always_on_pocket_mode_title"
+            android:summary="@string/lock_screen_always_on_pocket_mode_summary"
+            android:dependency="pocket_mode_enabled"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>
