@@ -18,23 +18,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/notifications_edge_light_title">
 
-    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+    <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="edge_light_enabled"
-        android:title="@string/notifications_edge_light_enable_ttile"
+        android:title="@string/enable"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
         android:key="edge_light_always_trigger_on_pulse"
         android:title="@string/notifications_edge_light_always_trigger_on_pulse_title"
         android:summary="@string/notifications_edge_light_always_trigger_on_pulse_summary"
-        android:defaultValue="false"
-        android:dependency="edge_light_enabled" />
-
-    <org.evolution.settings.preferences.SystemSettingSwitchPreference
-        android:key="edge_light_repeat_animation"
-        android:title="@string/notifications_edge_light_repeat_animation_title"
-        android:summaryOn="@string/notifications_edge_light_repeat_animation_summary_on"
-        android:summaryOff="@string/notifications_edge_light_repeat_animation_summary_off"
         android:defaultValue="false"
         android:dependency="edge_light_enabled" />
 
@@ -46,6 +38,26 @@
         android:summary="%s"
         android:defaultValue="0"
         android:dependency="edge_light_enabled" />
+
+    <org.evolution.settings.preferences.SystemSettingListPreference
+        android:key="edge_light_style"
+        android:title="@string/notifications_edge_light_style_title"
+        android:entries="@array/notifications_edge_light_style_entries"
+        android:entryValues="@array/notifications_edge_light_style_values"
+        android:summary="%s"
+        android:defaultValue="0"
+        android:dependency="edge_light_enabled" />
+
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="edge_light_width"
+        android:title="@string/notifications_edge_light_stroke_width_title"
+        android:summary="@string/notifications_edge_light_stroke_width_summary"
+        android:dependency="edge_light_enabled"
+        android:defaultValue="20"
+        settings:interval="1"
+        settings:units="dp"
+        android:max="20"
+        android:min="1" />
 
     <org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference
         android:key="edge_light_custom_color"
