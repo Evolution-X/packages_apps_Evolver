@@ -25,6 +25,16 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Freeform launch mode -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="freeform_launch_mode"
+            android:title="@string/freeform_launch_mode_title"
+            android:dialogTitle="@string/freeform_launch_mode_title"
+            android:entries="@array/freeform_launch_mode_entries"
+            android:entryValues="@array/freeform_launch_mode_values"
+            android:defaultValue="0"
+            android:summary="%s" />
+
         <!-- Hide applist -->
         <Preference
             android:key="hide_applist_setting"
