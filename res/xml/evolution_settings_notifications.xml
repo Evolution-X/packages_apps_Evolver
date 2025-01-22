@@ -32,6 +32,13 @@
         android:key="notifications_interface_category"
         android:title="@string/notifications_interface_category">
 
+        <!-- Alert Slider Notifications (OnePlus devices) -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="alert_slider_notifications"
+            android:title="@string/alert_slider_notifications_title"
+            android:summary="@string/alert_slider_notifications_summary"
+            android:defaultValue="true" />
+
         <!-- Edge light -->
         <Preference
             android:key="edge_light_settings"
