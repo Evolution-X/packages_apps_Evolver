@@ -25,6 +25,13 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Smart Pixels -->
+        <Preference
+            android:key="smart_pixels"
+            android:title="@string/smart_pixels_title" 
+            android:summary="@string/smart_pixels_summary" 
+            android:fragment="org.evolution.settings.fragments.miscellaneous.SmartPixels" />
+
         <!-- USB configuration -->
         <Preference
             android:key="default_usb_configuration"
