@@ -1034,4 +1034,15 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+
+    <!-- Freeform mode  -->
+    <string-array name="freeform_launch_mode_entries">
+        <item>@string/freeform_launch_mode_1</item>
+        <item>@string/freeform_launch_mode_2</item>
+    </string-array>
+ 
+    <string-array name="freeform_launch_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>
