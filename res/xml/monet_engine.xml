@@ -57,7 +57,7 @@
         android:title="@string/monet_engine_luminance_factor_title"
         android:summary="@string/monet_engine_luminance_factor_summary"
         android:defaultValue="0"
-        android:max="100"
+        android:max="30"
         settings:min="-95"
         settings:interval="5"
         settings:units="%"
