@@ -48,6 +48,17 @@
         android:key="quick_settings_interface_category"
         android:title="@string/quick_settings_interface_category">
 
+        <!-- QS Transparency -->
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="qs_transparency"
+            android:title="@string/quick_settings_transparency_title"
+            android:summary="@string/quick_settings_transparency_summary"
+            android:defaultValue="100"
+            settings:interval="1"
+            settings:units="%"
+            android:max="100"
+            android:min="1" />
+
         <!-- QS Header -->
         <Preference
             android:key="qs_header_image"

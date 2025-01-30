@@ -416,6 +416,8 @@
     <string name="quick_settings_header_needs_gallery">You must install a gallery app!</string>
     <string name="quick_settings_header_offset_title">Header image offset</string>
     <string name="quick_settings_header_offset_summary">Adjust the image header size</string>
+    <string name="quick_settings_transparency_title">Background transparency</string>
+    <string name="quick_settings_transparency_summary">Set transparency level for QS background</string>
 
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Heads up</string>
