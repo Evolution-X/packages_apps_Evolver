@@ -30,11 +30,11 @@
             android:defaultValue="0" />
 
         <!-- Haptic feedback on brightness slider -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_slider_haptic"
             android:title="@string/quick_settings_brightness_slider_haptic_title"
             android:summary="@string/quick_settings_brightness_slider_haptic_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Auto brightness icon -->
         <lineageos.preference.LineageSecureSettingSwitchPreference
@@ -73,6 +73,21 @@
             android:summary="@string/quick_settings_header_image_summary"
             android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings" />
 
+        <!-- QS Media Player  -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_compact_media_player_mode"
+            android:title="@string/qs_compact_media_player_mode_title"
+            android:summary="@string/qs_compact_media_player_mode_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_header_clock_style"
+            android:title="@string/qs_header_clock_style_title"
+            android:entries="@array/qs_header_clock_style_entries"
+            android:entryValues="@array/qs_header_clock_style_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
         <!-- Battery styles -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_battery_style"
@@ -104,6 +119,12 @@
             android:entries="@array/quick_settings_panel_style_entries"
             android:entryValues="@array/quick_settings_panel_style_values"
             android:defaultValue="0" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_split_shade_enabled"
+            android:title="@string/qs_split_shade_enabled_title"
+            android:summary="@string/qs_split_shade_enabled_summary"
+            android:defaultValue="false" />
 
         <!-- Hide label -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference

@@ -9,6 +9,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
 
@@ -20,7 +21,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.ThemeUtils;
+import com.android.internal.util.android.ThemeUtils;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -46,7 +47,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_PERCENT = "qs_show_battery_percent";
     private static final String KEY_BATTERY_STYLE = "qs_battery_style";
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
-    private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
     private static final String KEY_INTERFACE_CATEGORY = "quick_settings_interface_category";
     private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
     private static final String KEY_QS_BLUETOOTH_SHOW_DIALOG = "qs_bt_show_dialog";
@@ -74,16 +74,18 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mTileAnimationInterpolator;
     private SystemSettingListPreference mTileAnimationStyle;
     private SystemSettingSeekBarPreference mTileAnimationDuration;
-    private SystemSettingSwitchPreference mBrightnessSliderHaptic;
+    private SystemSettingSwitchPreference mSplitShadePref;
 
     private static ThemeUtils mThemeUtils;
+
+    private Handler mHandler = new Handler();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.evolution_settings_quick_settings);
 
-        mThemeUtils = new ThemeUtils(getContext());
+        mThemeUtils = ThemeUtils.getInstance(getActivity());
 
         final Context mContext = getContext();
         final ContentResolver resolver = mContext.getContentResolver();
@@ -108,9 +110,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
         mBrightnessSliderPosition.setEnabled(showSlider);
-
-        mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
-        mBrightnessSliderHaptic.setEnabled(showSlider);
 
         mShowAutoBrightness = findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
         boolean automaticAvailable = mContext.getResources().getBoolean(
@@ -142,6 +141,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsPanelStyle = (ListPreference) findPreference(KEY_QS_PANEL_STYLE);
         mQsPanelStyle.setOnPreferenceChangeListener(this);
 
+        mSplitShadePref = (SystemSettingSwitchPreference) findPreference("qs_split_shade_enabled");
+        mSplitShadePref.setOnPreferenceChangeListener(this);
+
         checkQSOverlays(mContext);
     }
 
@@ -152,7 +154,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         if (preference == mShowBrightnessSlider) {
             int value = Integer.parseInt((String) newValue);
             mBrightnessSliderPosition.setEnabled(value > 0);
-            mBrightnessSliderHaptic.setEnabled(value > 0);
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
             return true;
@@ -179,6 +180,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             updateTileAnimStyle(value);
             return true;
+        } else if (preference == mSplitShadePref) {
+            int value = (boolean) newValue ? 1 : 0;
+            Settings.System.putIntForUser(resolver,
+                   "qs_split_shade_enabled", value, UserHandle.USER_CURRENT);
+            updateSplitShadeEnabled(getActivity());
+            return true;
         }
         return false;
     }
@@ -186,6 +193,25 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private void updateTileAnimStyle(int tileAnimationStyle) {
         mTileAnimationDuration.setEnabled(tileAnimationStyle != 0);
         mTileAnimationInterpolator.setEnabled(tileAnimationStyle != 0);
+    }
+
+    private void updateSplitShadeEnabled(Context context) {
+        ContentResolver resolver = context.getContentResolver();
+        boolean splitShadeEnabled = Settings.System.getIntForUser(
+                resolver,
+                "qs_split_shade_enabled" , 0, UserHandle.USER_CURRENT) != 0;
+        String splitShadeStyleCategory = "android.theme.customization.better_qs";
+        String overlayThemeTarget  = "com.android.systemui";
+        String overlayThemePackage  = "com.android.system.qs.ui.better_qs";
+        if (mThemeUtils == null) {
+            mThemeUtils = ThemeUtils.getInstance(context);
+        }
+        mHandler.postDelayed(() -> {
+            mThemeUtils.setOverlayEnabled(splitShadeStyleCategory, overlayThemeTarget, overlayThemeTarget);
+            if (splitShadeEnabled) {
+                mThemeUtils.setOverlayEnabled(splitShadeStyleCategory, overlayThemePackage, overlayThemeTarget);
+            }
+        }, 1250);
     }
 
     private static void updateQsStyle(Context context) {
@@ -199,7 +225,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         String overlayThemePackage  = "com.android.system.qs.ui.A11";
 
         if (mThemeUtils == null) {
-            mThemeUtils = new ThemeUtils(context);
+            mThemeUtils = ThemeUtils.getInstance(context);
         }
 
         // reset all overlays before applying
@@ -251,7 +277,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
 
         if (mThemeUtils == null) {
-            mThemeUtils = new ThemeUtils(context);
+            mThemeUtils = ThemeUtils.getInstance(context);
         }
 
         // reset all overlays before applying

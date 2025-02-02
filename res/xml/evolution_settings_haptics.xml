@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2023 the risingOS Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/haptics_settings_title"
+    android:key="haptics_settings">
+
+    <!-- Back gesture intensity -->
+    <org.evolution.settings.preferences.CustomSeekBarPreference
+        android:key="back_gesture_haptic_intensity"
+        android:title="@string/back_gesture_haptic_intensity_title"
+        android:order="-999"
+        android:max="5"
+        settings:min="0"
+        android:defaultValue="1"
+        settings:interval="1" />
+
+    <!-- Brightness slider intensity -->
+    <org.evolution.settings.preferences.CustomSeekBarPreference
+        android:key="qs_brightness_slider_haptic"
+        android:title="@string/brightness_slider_haptics_intensity_title"
+        android:order="-998"
+        android:max="3"
+        settings:min="0"
+        android:defaultValue="0"
+        settings:interval="1" />
+
+    <!-- QS Fling haptics -->
+    <org.evolution.settings.preferences.CustomSeekBarPreference
+        android:key="qs_haptics_intensity"
+        android:title="@string/qs_haptics_intensity_title"
+        android:order="-997"
+        android:max="5"
+        settings:min="0"
+        android:defaultValue="0"
+        settings:interval="1" />
+
+    <!-- QS tile haptics intensity -->
+    <org.evolution.settings.preferences.CustomSeekBarPreference
+        android:key="qs_panel_tile_haptic"
+        android:title="@string/qs_panel_tile_haptic_intensity_title"
+        android:order="-997"
+        android:max="5"
+        settings:min="0"
+        android:defaultValue="0"
+        settings:interval="1" />
+        
+    <!-- Edge scrolling intensity -->
+    <org.evolution.settings.preferences.CustomSeekBarPreference
+        android:key="edge_scrolling_haptics_intensity"
+        android:title="@string/edge_scrolling_haptics_intensity_title"
+        android:order="-997"
+        android:max="5"
+        settings:min="0"
+        android:defaultValue="1"
+        settings:interval="1" />
+
+    <!-- Volume slider intensity -->
+    <org.evolution.settings.preferences.CustomSeekBarPreference
+        android:key="volume_slider_haptics_intensity"
+        android:title="@string/volume_slider_haptics_intensity_title"
+        android:order="-996"
+        android:max="3"
+        settings:min="0"
+        android:defaultValue="1"
+        settings:interval="1" />
+
+</PreferenceScreen>

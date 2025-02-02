@@ -697,13 +697,15 @@
     <string-array name="quick_settings_tile_animation_style_entries" translatable="false">
         <item>@string/quick_settings_tile_animation_style_off</item>
         <item>@string/quick_settings_tile_animation_style_rotate</item>
-        <item>@string/quick_settings_tile_animation_style_flip</item>
+        <item>@string/qs_tile_animation_style_flipx</item>
+        <item>@string/qs_tile_animation_style_flipy</item>
     </string-array>
 
     <string-array name="quick_settings_tile_animation_style_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="quick_settings_tile_animation_interpolator_entries" translatable="false">
@@ -795,5 +797,129 @@
         <item>com.android.chrome</item>
         <item>com.android.webview</item>
         <item>com.google.android.webview</item>
+    </string-array>
+
+    <!-- Power Menu styles  -->
+    <string-array name="powermenu_style_entries">
+        <item>@string/color_default</item>
+        <item>@string/powermenu_style1</item>
+        <item>@string/powermenu_style2</item>
+        <item>@string/powermenu_style3</item>
+        <item>@string/powermenu_style4</item>
+    </string-array>
+
+    <string-array name="powermenu_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- QS Header clock styles  -->
+    <string-array name="qs_header_clock_style_entries">
+        <item>@string/color_default</item>
+        <item>@string/qs_header_style1</item>
+        <item>@string/qs_header_style2</item>
+        <item>@string/qs_header_style3</item>
+        <item>@string/qs_header_style4</item>
+    </string-array>
+
+    <string-array name="qs_header_clock_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- Notification styles  -->
+    <string-array name="notif_style_entries">
+        <item>@string/color_default</item>
+        <item>@string/notif_style1</item>
+        <item>@string/notif_style2</item>
+        <item>@string/notif_style3</item>
+        <item>@string/notif_style4</item>
+    </string-array>
+
+    <string-array name="notif_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- Progress Bar style  -->
+    <string-array name="progress_bar_style_entries">
+        <item>@string/color_default</item>
+        <item>@string/progress_bar_style1</item>
+        <item>@string/progress_bar_style2</item>
+        <item>@string/progress_bar_style3</item>
+        <item>@string/progress_bar_style4</item>
+    </string-array>
+
+    <string-array name="progress_bar_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    
+   <string-array name="volume_styles_entries" translatable="false">
+        <item>@string/color_default</item>
+        <item>@string/double_layer_style</item>
+        <item>@string/gradient_style</item>
+        <item>@string/neumorph_style</item>
+        <item>@string/neumorph_outline_style</item>
+        <item>@string/outline_style</item>
+        <item>@string/shaded_layer_style</item>
+    </string-array>
+
+    <string-array name="volume_styles_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <!-- Wallpaper Blur  -->
+    <string-array name="wallpaper_blur_entries">
+        <item>@string/disabled</item>
+        <item>@string/monet_engine_color_source_both</item>
+        <item>@string/monet_engine_color_source_lock</item>
+        <item>@string/monet_engine_color_source_home</item>
+    </string-array>
+
+    <string-array name="wallpaper_blur_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    
+    <string-array name="wallpaper_blur_filter_entries">
+        <item>@string/glass_blur</item>
+        <item>@string/frosted_blur</item>
+    </string-array>
+
+    <string-array name="wallpaper_blur_filter_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Lockscreen album art filter -->
+    <string-array name="lockscreen_albumart_filter_entries">
+        <item>@string/lockscreen_albumart_filter_none</item>
+        <item>@string/lockscreen_albumart_filter_blur</item>
+    </string-array>
+
+    <string-array name="lockscreen_albumart_filter_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
     </string-array>
 </resources>

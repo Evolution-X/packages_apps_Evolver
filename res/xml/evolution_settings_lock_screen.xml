@@ -13,11 +13,42 @@
         android:key="lock_screen_interface_category"
         android:title="@string/lock_screen_interface_category">
 
+        <Preference
+            android:key="depth_wallpaper"
+            android:title="@string/dw_wallpaper_enabled_title"
+            android:summary="@string/dw_wallpaper_enabled_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.WallpaperDepth" />
+
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_show_carrier"
             android:title="@string/status_bar_carrier_lock_screen_title"
             android:summary="@string/status_bar_carrier_lock_screen_summary"
             android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="ls_media_art_enabled"
+            android:title="@string/media_art_title"
+            android:summary="@string/media_art_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="ls_media_art_filter"
+            android:title="@string/lockscreen_albumart_filter_title"
+            android:entries="@array/lockscreen_albumart_filter_entries"
+            android:entryValues="@array/lockscreen_albumart_filter_values"
+            android:dependency="ls_media_art_enabled"
+            android:defaultValue="0" />
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ls_media_art_fade_level"
+            android:title="@string/ls_media_art_fade_level_title"
+            android:summary="@string/ls_media_art_fade_level_summary"
+            android:defaultValue="40"
+            settings:interval="1"
+            settings:units="%"
+            android:max="100"
+            android:min="0"
+            android:dependency="ls_media_art_enabled" />
 
         <!-- Charging stats -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
