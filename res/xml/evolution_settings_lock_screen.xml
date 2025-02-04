@@ -72,6 +72,15 @@
             android:summary="@string/keyguard_now_bar_enabled_summary"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+    	    android:key="nowbar_margin_bottom"
+    	    android:title="@string/keyguard_now_bar_height_title"
+    	    android:summary="@string/keyguard_now_bar_height_summary"
+    	    android:defaultValue="18"
+    	    android:min="1"
+    	    android:max="210"
+            android:dependency="keyguard_now_bar_enabled" />
+
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="ls_media_art_enabled"
             android:title="@string/media_art_title"
