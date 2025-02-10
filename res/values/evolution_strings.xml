@@ -714,4 +714,15 @@
     <string name="lockscreen_weather_text_summary">Display current weather condition summary</string>
     <string name="lockscreen_weather_style_title">Pixel style</string>
     <string name="lockscreen_weather_style_summary">Display weather as separate row</string>
+
+    <!-- AOD Settings -->
+    <string name="aod_display_category_title">Always-On-Display</string>
+    <string name="aod_pulse_category_title">Pulse/Doze</string>
+
+    <!-- AOD custom image -->
+    <string name="lockscreen_custom_image_enabled_title">AOD image</string>
+    <string name="lockscreen_custom_image_title">Select AOD image</string>
+    <string name="lockscreen_custom_image_summary">Set custom AOD image</string>
+    <string name="lockscreen_custom_image_pick_summary">Select AOD image from gallery</string>
+    <string name="custom_aod_image_not_supported">Clock style not supported</string>
 </resources>
