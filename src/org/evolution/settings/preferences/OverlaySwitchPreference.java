@@ -105,22 +105,34 @@ public class OverlaySwitchPreference extends SelfRemovingSwitchPreference {
         }
     }
 
-    private OverlayIdentifier getOverlayID(String name) throws IllegalStateException {
+    private OverlayIdentifier getOverlayID(String name) {
         if (mOverlayManager == null) return null;
-        if (name.contains(":")) {
-            // specific overlay name in a package
-            final String[] value = name.split(":");
-            final String pkgName = value[0];
-            final String overlayName = value[1];
-            final List<OverlayInfo> infos =
-                    mOverlayManager.getOverlayInfosForTarget(pkgName, CURRENT);
-            for (OverlayInfo info : infos) {
-                if (overlayName.equals(info.getOverlayName()))
-                    return info.getOverlayIdentifier();
+        try {
+            if (name.contains(":")) {
+                // specific overlay name in a package
+                final String[] value = name.split(":");
+                final String pkgName = value[0];
+                final String overlayName = value[1];
+                final List<OverlayInfo> infos =
+                        mOverlayManager.getOverlayInfosForTarget(pkgName, CURRENT);
+                for (OverlayInfo info : infos) {
+                    if (overlayName.equals(info.getOverlayName()))
+                        return info.getOverlayIdentifier();
+                }
+                Log.e(TAG, "No overlay found for " + name);
+                return null;
             }
-            throw new IllegalStateException("No overlay found for " + name);
+            // package with only one overlay
+            OverlayInfo info = mOverlayManager.getOverlayInfo(name, CURRENT);
+            if (info != null) {
+                return info.getOverlayIdentifier();
+            } else {
+                Log.e(TAG, "No overlay info found for " + name);
+                return null;
+            }
+        } catch (SecurityException | IllegalStateException e) {
+            Log.e(TAG, "Error retrieving overlay ID for " + name, e);
+            return null;
         }
-        // package with only one overlay
-        return mOverlayManager.getOverlayInfo(name, CURRENT).getOverlayIdentifier();
     }
 }
