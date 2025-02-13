@@ -19,6 +19,13 @@
             android:title="@string/heads_up_notifications_enabled_title"
             android:summary="@string/heads_up_notifications_enabled_summary" />
 
+        <!-- Island notification -->
+        <Preference
+            android:key="island_notification"
+            android:title="@string/island_notification_title"
+            android:summary="@string/island_notification_summary"
+            android:fragment="org.evolution.settings.fragments.notifications.IslandSettings" />
+
         <!-- Compact Heads up -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.compact_heads_up_notification.always_show"
