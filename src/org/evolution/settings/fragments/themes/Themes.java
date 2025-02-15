@@ -64,6 +64,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String[] NOTIF_OVERLAYS = {
             "com.android.theme.notification.cyberpunk",
             "com.android.theme.notification.duoline",
+            "com.android.theme.notification.fluid",
             "com.android.theme.notification.ios",
             "com.android.theme.notification.layers"
     };
