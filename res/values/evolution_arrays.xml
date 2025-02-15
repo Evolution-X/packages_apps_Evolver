@@ -840,6 +840,7 @@
         <item>@string/notif_style2</item>
         <item>@string/notif_style3</item>
         <item>@string/notif_style4</item>
+        <item>@string/notif_style5</item>
     </string-array>
 
     <string-array name="notif_style_values" translatable="false">
@@ -848,6 +849,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <!-- Progress Bar style  -->
