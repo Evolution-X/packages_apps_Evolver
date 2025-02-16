@@ -61,7 +61,6 @@
     <string name="themes_charging_animation_title">Töltési animáció</string>
     <string name="themes_charging_animation_summary">Animáció megjelenítése, ha a telefon a töltőhöz csatlakozik</string>
     <string name="themes_screen_off_animation_title">Képernyőkikapcsolási animáció</string>
-    <string name="themes_screen_off_animation_default">Alapértelmezett</string>
     <string name="themes_screen_off_animation_crt">Képcső</string>
     <string name="themes_screen_off_animation_scale">Összeugrás</string>
     <string name="themes_udfps_animation_title">Ujjlenyomat-animáció</string>
@@ -125,11 +124,11 @@
     <string name="pulse_help_policy_notice_summary">A Pulse egy brilliáns audiógrafikus hangszínszabályozó a zenelejátszáshoz</string>
     <string name="lock_screen_pulse_settings_title">Pulse</string>
     <string name="lock_screen_pulse_settings_summary">Egy audiógrafikus hangszínszabályozó a navigációs sávhoz és a záróképernyőhöz</string>
-    <string name="show_navbar_pulse_title">Pulse a navigációs sávhoz</string>
+    <string name="show_navbar_pulse_title">Pulzáló navigációs sáv</string>
     <string name="show_navbar_pulse_summary">Grafikus hangszínszabályzó a navigációs sávon</string>
     <string name="show_lockscreen_pulse_title">Pulzáló záróképernyő</string>
-    <string name="show_lockscreen_pulse_summary">A záróképernyő audiógrafikus hangszínszabályozója</string>
-    <string name="show_ambient_pulse_title">Pulse a környezeti kijelzőhöz</string>
+    <string name="show_lockscreen_pulse_summary">Grafikus hangszínszabályzó a záróképernyőhöz</string>
+    <string name="show_ambient_pulse_title">Pulzáló környezeti kijelző</string>
     <string name="show_ambient_pulse_summary">Grafikus hangszínszabályzó a környezeti kijelzőhöz</string>
     <string name="pulse_render_mode_title">A renderelés módja</string>
     <string name="pulse_render_mode_fading_bars">Halványuló blokkok</string>
@@ -151,6 +150,16 @@
     <string name="pulse_custom_div">Sávtérköz</string>
     <string name="pulse_filled_block_size">Blokkméret</string>
     <string name="pulse_empty_block_size">Blokktérköz</string>
+    <!-- Lock screen Clock Highlight Guide -->
+    <string name="ls_clock_face_highlight_text">Csúsztassa balra vagy jobbra az órastílus-előnézetek megtekintéséhez</string>
+    <!-- Lock screen Clock Revamp -->
+    <string name="ls_clock_custom_font_not_supported">A kiválasztott óra nem támogat egyéni betűtípusokat</string>
+    <!-- Custom Clock Style -->
+    <string name="lockscreen_clock_category_title">Óra</string>
+    <string name="lockscreen_clock_category_summary">Itt állíthatja be az óra stílusát</string>
+    <string name="custom_clock_style">Egyéni órastílus</string>
+    <string name="theme_customization_lock_clock_title">Óralap</string>
+    <string name="theme_customization_lock_clock_summary">Módosíthatja a záróképernyő-óra megjelenését</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Mozdulatvezérlés</string>
     <string name="status_bar_brightness_control_title">Fényerőszabályzás</string>
@@ -375,8 +384,9 @@
     <string name="quick_settings_tile_animation_duration_title">Animációhossz</string>
     <string name="quick_settings_tile_animation_interpolator_title">Animációmódosító</string>
     <string name="quick_settings_tile_animation_style_off">Nincs animáció</string>
-    <string name="quick_settings_tile_animation_style_flip">Átfordítás</string>
     <string name="quick_settings_tile_animation_style_rotate">Elforgatás</string>
+    <string name="qs_tile_animation_style_flipx">X-fordulat</string>
+    <string name="qs_tile_animation_style_flipy">Y-fordulat</string>
     <string name="quick_settings_tile_animation_interpolator_linear">Egyenletes</string>
     <string name="quick_settings_tile_animation_interpolator_accelerate">Gyorsuló</string>
     <string name="quick_settings_tile_animation_interpolator_decelerate">Lassuló</string>
@@ -385,6 +395,8 @@
     <string name="quick_settings_tile_animation_interpolator_overshoot">Túlzó</string>
     <string name="quick_settings_tile_animation_interpolator_anticipate">Siettetett</string>
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Siettetett-Túlzó</string>
+    <string name="quick_settings_data_usage_title">Adathasználat</string>
+    <string name="quick_settings_data_usage_summary">Kijelzi az adatfelhasználást a gyorsbeállítások láblécében</string>
     <string name="quick_settings_lock_screen_category">Záróképernyő</string>
     <string name="quick_settings_secure_lock_screen_title">Elrejtés a biztonságos záróképernyőn</string>
     <string name="quick_settings_secure_lock_screen_summary">Az összes gyorsbeállítás elrejtése az értesítési területen, amikor a készülélk le van zárva</string>
@@ -393,7 +405,7 @@
     <string name="quick_settings_miscellaneous_category">Különlegességek</string>
     <string name="quick_settings_bluetooth_show_dialog_title">Bluetooth-csempeüzenet</string>
     <string name="quick_settings_bluetooth_show_dialog_summary">Ha megérinti a csempét, megjelenik a BT-párbeszédablak vagy a BT-állapot</string>
-    <string name="quick_settings_header_image_title">Fejléc-kép</string>
+    <string name="quick_settings_header_image_title">Gyorsbeállítások fejléc-kép</string>
     <string name="quick_settings_header_image_summary">QS-háttér fejléckép-választás</string>
     <string name="quick_settings_header_daylight_pack_title">Fejléckép-gyűjtemény</string>
     <string name="quick_settings_header_shadow_title">A fejléc-kép árnyéka</string>
@@ -442,6 +454,13 @@
     <string name="notifications_edge_light_stroke_width_summary">Beállíthatja az \'Oldalfények\' vastagságát</string>
     <string name="notifications_edge_light_style_1">Vonalrajzolás</string>
     <string name="notifications_edge_light_style_2">Villogás/Pulzálás</string>
+    <!-- Notifications/Island Notification -->
+    <string name="island_notification_title">Dinamikus Sziget</string>
+    <string name="island_notification_summary">Felugró értesítések \'Dinamikus Sziget\' stílusban</string>
+    <string name="island_notification_now_playing_title">\'Most hallható\' a szigeten</string>
+    <string name="island_notification_now_playing_summary">Az éppen lejátszott dal megjelenítése a Dinamikus Szigeten</string>
+    <string name="island_notification_footer_text">        A \'Dinamikus Sziget\' stílust az iOS Dinamikus Szigete inspirálta, majd átalakították az Android felugró értesítéseihez, egy gyors hozzáférésű kompakt értesítési mód jött létre.\n\nA Sziget-stílus gyorsvezérlés a következőket tartalmazza:\n1. A Sziget érintésével gyors hívásfogadás.\n2. A Sziget hosszan nyomásával a bejövő hívás elutasítása.\n3. A Sziget hosszan nyomásával az előnézet kibontását.
+    </string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Csak a fontosak</string>
     <string name="notifications_less_boring_heads_up_summary">Felugró értesítések megjelenítése csak az ébresztőhöz, a tárcsázóhoz és az üzenetekhez</string>
@@ -546,7 +565,6 @@
     <string name="dialog_color_picker">Színválasztó</string>
     <string name="press_color_to_apply">Érintse meg a színt az alkalmazáshoz</string>
     <string name="set">Beállít</string>
-    <string name="color_default">Alapértelmezett</string>
     <string name="accent_color">Kiemelőszín (alapértelmezett)</string>
     <string name="notification_color">Értesítési szín</string>
     <string name="wallpaper_color">Háttérkép-színek</string>
@@ -561,6 +579,9 @@
     <string name="enable">Engedélyez</string>
     <string name="disable">Letilt</string>
     <string name="boot_animation_applied">A kiválasztott Boot-animáció alkalmazva</string>
+    <string name="default_value">Alapértelmezett</string>
+    <string name="top">Felül</string>
+    <string name="bottom">Alul</string>
     <!-- Units -->
     <string name="unit_milliseconds">ezredmásodperc</string>
     <string name="unit_seconds">másodperc</string>
@@ -588,8 +609,9 @@
     <string name="notif_style_title">Értesítésstílusok</string>
     <string name="notif_style1">Cyberpunk</string>
     <string name="notif_style2">Kétvonalas</string>
-    <string name="notif_style3">IOS</string>
-    <string name="notif_style4">Réteges</string>
+    <string name="notif_style3">Folyékony (Átlátszó)</string>
+    <string name="notif_style4">iOS</string>
+    <string name="notif_style5">Réteges</string>
     <!-- Progress Bar Styles -->
     <string name="progress_bar_style_title">A folyamatjelző stílusa</string>
     <string name="progress_bar_style1">Kockás</string>
@@ -639,7 +661,7 @@
     <string name="media_art_summary">Az albumborító megjelenítése, ha elérhető</string>
     <string name="ls_media_art_fade_level_title">A Médiaborító elhalvnyítási szintje</string>
     <string name="ls_media_art_fade_level_summary">Beállíthatja az elhalványítás erősségét</string>
-    <!-- Lockscreen album art filter -->
+    <!-- Lock screen album art filter -->
     <string name="lockscreen_albumart_filter_title">Médiaborító-szűrő</string>
     <string name="lockscreen_albumart_filter_none">Nincs</string>
     <string name="lockscreen_albumart_filter_grayscale">Szürkeárnyalatos</string>
@@ -656,4 +678,90 @@
     <string name="qs_panel_tile_haptic_intensity_title">A gyorsbeállítási csempék rezgési intenzitása</string>
     <string name="qs_haptics_intensity_title">A gyorsbeállítások rezgési intenzitása</string>
     <string name="qs_tiles_haptic_feedback_title">A Csempe rezgő visszajelzése</string>
+    <!-- Weather -->
+    <string name="weather_settings_title">Időjárás-beállítások</string>
+    <string name="weather_settings_summary">Testre szabható ikoncsomag és időjárás-szolgáltatás</string>
+    <string name="lockscreen_weather_category">Időjárás</string>
+    <string name="lockscreen_weather_title">Frissítés</string>
+    <string name="lockscreen_weather_summary">Megjeleníti a jelenlegi időjárás-frissítést</string>
+    <string name="lockscreen_weather_enabled_info">A bekapcsoláshoz időjárás-szolgáltatás szükséges</string>
+    <string name="lockscreen_weather_location_title">Aktuális hely</string>
+    <string name="lockscreen_weather_location_summary">A jelenlegi tartózkodási hely adatait jeleníti meg</string>
+    <string name="lockscreen_weather_text_title">Aktuális időjárás-viszonyok</string>
+    <string name="lockscreen_weather_text_summary">Az időjárás jelenlegi viszonyait foglalja össze</string>
+    <string name="lockscreen_weather_style_title">Pixel-stílus</string>
+    <string name="lockscreen_weather_style_summary">Az időjárás külön sorban jelenik meg</string>
+    <!-- AOD Settings -->
+    <string name="aod_display_category_title">Mindig látható (AOD)</string>
+    <string name="aod_pulse_category_title">Pulzálás/Doze</string>
+    <!-- AOD custom image -->
+    <string name="lockscreen_custom_image_enabled_title">Az AOD-képe</string>
+    <string name="lockscreen_custom_image_title">Válasszon képet az AOD-hoz</string>
+    <string name="lockscreen_custom_image_summary">Állítson be egyéni AOD-képet</string>
+    <string name="lockscreen_custom_image_pick_summary">Válasszon AOD-képet a galériából</string>
+    <string name="custom_aod_image_not_supported">Az órastílus nem támogatott</string>
+    <!-- QS Widgets -->
+    <string name="qs_widgets_enabled_title">Kisalkalmazások a Gyorsbeállításokhoz</string>
+    <string name="qs_widgets_enabled_summary">Widgetek megjelenítése a gyors eléréshez.\nA sorokat kettőre korlátozza, hogy elkerülje az AOSP-panel görgetésmegszakítását</string>
+    <!-- Lockscreen widgets  -->
+    <string name="lockscreen_widgets_title">Kisalkalmazások</string>
+    <string name="lockscreen_widgets_enabled_title">Engedélyezi a widgeteket a záróképernyőn</string>
+    <string name="lockscreen_widgets_enabled_summary">Új kisalkalmazás hozzáadása a záróképernyőhöz</string>
+    <string name="lockscreen_display_widgets_title">Készülékinformáció</string>
+    <string name="lockscreen_display_widgets_summary">Megjeleníti a készülékinfót a záróképernyőn</string>
+    <string name="large_widgets_category_title">Nagy kisalkalmazások</string>
+    <string name="main_custom_widgets1">Nagyméretű 1</string>
+    <string name="main_custom_widgets2">Nagyméretű 2</string>
+    <string name="mini_widgets_category_title">Mini kisalkalmazások</string>
+    <string name="custom_widgets1">Kisméretű 1</string>
+    <string name="custom_widgets2">Kisméretű 2</string>
+    <string name="custom_widgets3">Kisméretű 3</string>
+    <string name="custom_widgets4">Kisméretű 4</string>
+    <string name="camera">Kamera</string>
+    <string name="clock_timer">Óra/Időzítő</string>
+    <string name="calculator">Számológép</string>
+    <string name="gallery">Galéria</string>
+    <string name="media">Médialejátszó</string>
+    <string name="torch">Zseblámpa</string>
+    <string name="controls_media_button_play">Lejátszás</string>
+    <string name="weather">Időjárás</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="data">Adat</string>
+    <string name="ringer">Csengés</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Hotspot</string>
+    <string name="wallet">Pénztárca</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">A záróképernyő kisalkalmazások stílusa</string>
+    <string name="lockscreen_widgets_style1">Material lekerekített</string>
+    <string name="lockscreen_widgets_style2">Material négyzetes</string>
+    <string name="lockscreen_widgets_style3">Átlátszó (Négyzetes)</string>
+    <string name="lockscreen_widgets_style4">Átlátszó (Lekerekített)</string>
+    <string name="lockscreen_widgets_transparency_title">Az átlátszó stílus áttetszőség-erőssége</string>
+    <string name="lockscreen_widgets_transparency_summary">Szabályzhatja a stílus átlátszósági szintjét</string>
+    <!-- Font styles -->
+    <string name="font_styles_title">Betűstílus</string>
+    <string name="font_styles_summary">Itt állíthatja be a rendszer-betűtípusát</string>
+    <string name="font_preview_text">A nőgyógyászod\neltiltott a szextől\n...de mit mondott a fogorvosod?\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
+    <string name="apply_button_text">Beállítás</string>
+    <string name="font_picker_select_font">Betűtípus-választás</string>
+    <!-- Apply Button -->
+    <string name="apply_change_button_title">Beállítás</string>
+    <!-- Peek Display -->
+    <string name="peek_display_notifications_title">Bekukucskáló kijelző</string>
+    <string name="peek_display_notifications_summary">Bekapcsolhat egy minimalista értesítési stílust a záróképernyőn</string>
+    <string name="peek_display_location_title">A bekukucskálás elhelyezkedése</string>
+    <string name="peek_display_bottom_margin_title">A kijelző (alsó) felső margója</string>
+    <!-- Peek Display Styles -->
+    <string name="peek_display_minimalist">Minimalista</string>
+    <string name="peek_display_style_title">A bekukucskálás stílusa</string>
+    <!-- Now Bar -->
+    <string name="keyguard_now_bar_enabled_title">Most sáv</string>
+    <string name="keyguard_now_bar_enabled_summary">Bekapcsolhatja a \'Most sáv\'-ot a záróképernyőn</string>
+    <string name="keyguard_now_bar_height_title">A \'Most sáv\" magassága</string>
+    <string name="keyguard_now_bar_height_summary">Szabályozhatja a \'Most sáv\' megasságát</string>
+    <!-- Freeform launch mode -->
+    <string name="freeform_launch_mode_title">A SzabadFormálás módja</string>
+    <string name="freeform_launch_mode_1">Eredeti AOSP</string>
+    <string name="freeform_launch_mode_2">LMO SzabadForma</string>
 </resources>
