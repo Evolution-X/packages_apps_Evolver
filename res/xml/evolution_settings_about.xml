@@ -40,14 +40,14 @@
             android:data="https://discord.gg/3qbSZHx" />
     </Preference>
 
-    <!-- Twitter -->
+    <!-- X -->
     <Preference
-        android:title="@string/about_twitter_title"
+        android:title="@string/about_x_title"
         android:icon="@drawable/ic_twitter"
-        android:summary="@string/about_twitter_summary">
+        android:summary="@string/about_x_summary">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://twitter.com/EvolutionXROM" />
+            android:data="https://x.com/EvolutionXROM" />
         </Preference>
 
     <!-- Github -->
