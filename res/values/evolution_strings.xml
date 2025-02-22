@@ -828,4 +828,8 @@
     <string name="keyguard_now_bar_enabled_summary">Enable now bar lock screen widgets</string>
     <string name="keyguard_now_bar_height_title">Now bar height</string>
     <string name="keyguard_now_bar_height_summary">Adjust the height of the Now bar</string>
+
+    <!-- Max visible notification icons -->
+    <string name="max_visible_notification_icons_title">Notification icons</string>
+    <string name="max_visible_notification_icons_summary">Maximum notification icons visible on status bar</string>
 </resources>
