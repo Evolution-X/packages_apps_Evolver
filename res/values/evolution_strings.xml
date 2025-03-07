@@ -825,4 +825,8 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Notification icons</string>
     <string name="max_visible_notification_icons_summary">Maximum notification icons visible on status bar</string>
+
+    <!-- Ongoing progress bar chip in statusbar --> 
+    <string name="ongoing_action_chip_title">Ongoing progress bar chip</string>
+    <string name="ongoing_action_chip_summary">Show progress bar chip in status bar which features ongoing action progress from a notification</string>
 </resources>
