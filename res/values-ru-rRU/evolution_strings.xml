@@ -370,8 +370,8 @@
     <string name="quick_settings_show_brightness_slider_never">Не показывать никогда</string>
     <string name="quick_settings_show_brightness_slider_expanded">Отображать только в развёрнутом виде</string>
     <string name="quick_settings_show_brightness_slider_always">Отображать всегда</string>
-    <string name="quick_settings_show_brightness_percentage_title">Процент яркости</string>
-    <string name="quick_settings_show_brightness_percentage_summary">Показывать текст процент яркости рядом с ползунком</string>
+    <string name="quick_settings_show_brightness_percentage_title">Проценты яркости</string>
+    <string name="quick_settings_show_brightness_percentage_summary">Показывать текст процентов яркости рядом с ползунком</string>
     <string name="quick_settings_brightness_slider_position_title">Расположение ползунка яркости</string>
     <string name="quick_settings_brightness_slider_position_top">Сверху</string>
     <string name="quick_settings_brightness_slider_position_bottom">Внизу</string>
@@ -396,7 +396,7 @@
     <string name="quick_settings_tile_animation_interpolator_anticipate">Ускорение</string>
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Опережение с перекрытием</string>
     <string name="quick_settings_data_usage_title">Использование данных</string>
-    <string name="quick_settings_data_usage_summary">Отображение сводки об использовании данных в быстрых настройках</string>
+    <string name="quick_settings_data_usage_summary">Отображать расход трафика в нижней части быстрых настроек</string>
     <string name="quick_settings_lock_screen_category">Экран блокировки</string>
     <string name="quick_settings_secure_lock_screen_title">Скрытие на защищённом экране блокировки</string>
     <string name="quick_settings_secure_lock_screen_summary">Скрывать все быстрые настройки в шторке уведомлений, пока устройство заблокировано</string>
@@ -405,7 +405,7 @@
     <string name="quick_settings_miscellaneous_category">Прочее</string>
     <string name="quick_settings_bluetooth_show_dialog_title">Диалог плитки Bluetooth</string>
     <string name="quick_settings_bluetooth_show_dialog_summary">Показывать диалоговое окно или переключать состояние при нажатии на плитку Bluetooth</string>
-    <string name="quick_settings_header_image_title">Изображение обложки</string>
+    <string name="quick_settings_header_image_title">Изображение для заголовка панели быстрых настроек</string>
     <string name="quick_settings_header_image_summary">Выбор фонового изображения заголовка быстрых настроек</string>
     <string name="quick_settings_header_daylight_pack_title">Коллекция изображений для заголовка панели быстрых настроек</string>
     <string name="quick_settings_header_shadow_title">Тень изображения в заголовке</string>
@@ -620,11 +620,11 @@
     <string name="neumorph_style">Нейроморфный стиль</string>
     <string name="neumorph_outline_style">Нейроморфный контурный стиль</string>
     <string name="outline_style">Стиль контура</string>
-    <string name="shaded_layer_style">Стиль затененного слоя</string>
+    <string name="shaded_layer_style">Затемненный стиль</string>
     <string name="volume_style_title">Стили панели громкости</string>
     <!-- Wallpaper Styles -->
     <string name="wallpaper_settings_title">Стили обоев</string>
-    <string name="wallpaper_settings_summary">Настроить стиль обоев и настройки</string>
+    <string name="wallpaper_settings_summary">Настройка стилей и обоев</string>
     <string name="wallpaper_blur_title">Размытие обоев</string>
     <string name="wallpaper_blur_summary">Включить или отключить эффект размытия обоев</string>
     <string name="wallpaper_blur_filter">Стиль размытия обоев</string>
