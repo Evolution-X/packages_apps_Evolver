@@ -489,11 +489,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Снятие ограничений на скриншоты и запись экрана для всех приложений, потенциально увеличивая риск утечки конфиденциальных данных</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Неограниченная запись</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Убрать ограничение на размер в 15 ГБ\nИтоговый файл может быть очень большого размера</string>
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Скрыть список приложений</string>
-    <string name="hide_applist_summary">Запретить приложениям проверять выбранные приложения из списка приложений</string>
-    <string name="menu_show_overlay">Показать оверлей</string>
-    <string name="menu_hide_overlay">Скрыть оверлей</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Умные пиксели - это функция энергосбережения. В зависимости от количества пикселей, которые вы решили выключить, вы можете видеть улучшения в жизни батареи. Заметьте, что в некоторых случаях это может привести к нереагирующим областям при сенсорном экране</string>
     <string name="smart_pixels_title">Умные пиксели</string>
