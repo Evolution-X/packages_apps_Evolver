@@ -489,11 +489,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Tüm uygulamalar için ekran görüntüsü ve ekran kaydı kısıtlamasını kaldırın, bu potansiyel olarak mahremiyet sızıntısı riski taşır</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Sınırsız ekran kaydı</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">15GiB dosya boyutu sınırını kaldırın\nGerektiğinden daha büyük bir dosyaya neden olabilir</string>
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Uygulama listesini gizle</string>
-    <string name="hide_applist_summary">Uygulamaların, uygulama listesinden seçilen uygulamaları kontrol etmesini engelleme</string>
-    <string name="menu_show_overlay">Yer paylaşımını göster</string>
-    <string name="menu_hide_overlay">Yer paylaşımını gizle</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Akıllı pikseller bir güç tasarrufu özelliğidir. Kaç piksele karar verdiğinize bağlı olarak pil ömründe iyileşme görebilirsiniz</string>
     <string name="smart_pixels_title">Akıllı Pikseller</string>
