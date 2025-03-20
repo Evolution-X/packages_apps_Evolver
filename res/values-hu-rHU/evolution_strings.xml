@@ -50,8 +50,6 @@
     <string name="themes_wifi_icon_summary">Itt állíthatja be a Wi-Fi-ikon stílusát</string>
     <string name="themes_navigation_bar_icons_title">A Navigációs sáv ikonjai</string>
     <string name="themes_navigation_bar_icons_summary">Itt állíthatja be a navigációssáv stílusát</string>
-    <string name="themes_udfps_icon_title">Ujjlenyomat-ikon</string>
-    <string name="themes_udfps_icon_summary">Itt állíthatja be az ujjlenyomat-ikon stílusát</string>
     <string name="themes_brightness_category">Fényerőcsúszka</string>
     <string name="themes_brightness_slider_title">A Fényerőcsúszka stílusa</string>
     <string name="themes_brightness_slider_summary">Itt állíthatja be a csúszka stílusát</string>
@@ -489,6 +487,11 @@
     <string name="miscellaneous_ignore_window_secure_summary">Eltávolítja a képernyőképekre és a képernyőfelvételekre vonatkozó korlátozásokat az összes alkalmazásnál, ami az adatvédelmi szivárgások kockázatát eredményezheti</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Végtelen fájlméret</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Eltörli a 15GB-os fájlméret-limitet\nA szükségesnél nagyobb kimenő fájlméretet eredményezhet</string>
+    <!-- Miscellaneous/Hide applist -->
+    <string name="hide_applist_title">Elrejtés az alkalmazáslistából</string>
+    <string name="hide_applist_summary">Az alkalmazások nem ellenőrizhetik az alkalmazáslistában szereplő kiválasztott alkalmazásokat</string>
+    <string name="menu_show_overlay">Fedőréteg-megjelenítés</string>
+    <string name="menu_hide_overlay">Fedőréteg-elrejtés</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Az Intelligens Pixelek egy akkumulátorkímélő funkció. Attól függően, hogy hány képpontot kapcsol ki, láthatja az akkumulátor élettartamának javulását. Ne feledje, hogy ez bizonyos esetekben nem reagáló területeket eredményezhet az érintőképernyőn</string>
     <string name="smart_pixels_title">Intelligens pixelek</string>
