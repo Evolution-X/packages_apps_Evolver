@@ -11,7 +11,7 @@
     <string name="themes_title">Темы</string>
     <string name="themes_summary">Движок Monet, шрифты, значки</string>
     <string name="lock_screen_title">Экран блокировки</string>
-    <string name="lock_screen_summary">Интерфейс, прочее</string>
+    <string name="lock_screen_summary">Интерфейс, разное</string>
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_summary">Жесты, иконки, индикаторы конфиденциальности</string>
     <string name="quick_settings_title">Быстрые настройки</string>
@@ -50,8 +50,6 @@
     <string name="themes_wifi_icon_summary">Выберите пользовательский значок wifi</string>
     <string name="themes_navigation_bar_icons_title">Стиль панели навигации</string>
     <string name="themes_navigation_bar_icons_summary">Выберите стиль панели навигации</string>
-    <string name="themes_udfps_icon_title">Иконка UDFPS</string>
-    <string name="themes_udfps_icon_summary">Выберите иконку для UDFPS</string>
     <string name="themes_brightness_category">Ползунок яркости</string>
     <string name="themes_brightness_slider_title">Стиль ползунка яркости</string>
     <string name="themes_brightness_slider_summary">Стиль ползунка яркости</string>
@@ -413,7 +411,7 @@
     <string name="quick_settings_header_static_provider_title">Статическое изображение</string>
     <string name="quick_settings_header_daylight_provider_title">Коллекция изображений</string>
     <string name="quick_settings_header_file_provider_title">Пользовательское изображение</string>
-    <string name="quick_settings_header_provider_title">Поставщик обложек</string>
+    <string name="quick_settings_header_provider_title">Изменение изображений</string>
     <string name="quick_settings_header_browse_title">Просмотреть установленные обложки</string>
     <string name="quick_settings_header_browse_summary">Просмотреть все доступные коллекции обложек</string>
     <string name="quick_settings_header_pick_title">Выбрать изображение обложки</string>
@@ -441,7 +439,7 @@
     <string name="alert_slider_notifications_summary">Отображать уведомление при изменении положения слайдера оповещений</string>
     <!-- Notifications/Compact Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Компактные всплывающие уведомления</string>
-    <string name="compact_heads_up_notifications_enabled_summary">Отображать уведомления в компактном размере</string>
+    <string name="compact_heads_up_notifications_enabled_summary">Отображать уведомления в компактном режиме</string>
     <!-- Notifications/Edge light -->
     <string name="notifications_edge_light_always_trigger_on_pulse_title">Всегда запускать при уведомлениях</string>
     <string name="notifications_edge_light_always_trigger_on_pulse_summary">Воспроизводить анимацию даже когда Активный экран включён и не только для уведомлений</string>
@@ -492,8 +490,8 @@
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Скрыть список приложений</string>
     <string name="hide_applist_summary">Запретить приложениям проверять выбранные приложения из списка приложений</string>
-    <string name="menu_show_overlay">Показать оверлей</string>
-    <string name="menu_hide_overlay">Скрыть оверлей</string>
+    <string name="menu_show_overlay">Показать наложение</string>
+    <string name="menu_hide_overlay">Скрыть наложение</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Умные пиксели - это функция энергосбережения. В зависимости от количества пикселей, которые вы решили выключить, вы можете видеть улучшения в жизни батареи. Заметьте, что в некоторых случаях это может привести к нереагирующим областям при сенсорном экране</string>
     <string name="smart_pixels_title">Умные пиксели</string>
@@ -533,8 +531,8 @@
     <string name="pif_spoofing_title">Выбрать файл JSON для PIF</string>
     <string name="pif_spoofing_summary">Значения выбранного файла JSON будут использованы для сертификации Play Integrity</string>
     <!-- Miscellaneous/Spoofing/Per-app spoofing -->
-    <string name="gameprops_title">Маскировка для отдельных игр</string>
-    <string name="gameprops_summary">Подмена устройства для некоторых выбранных игр</string>
+    <string name="gameprops_title">Максировка для отдельных игр</string>
+    <string name="gameprops_summary">Подмена устройства для выбранных игр</string>
     <string name="gameprops_load_json_title">Выберите для отдельных игр файл JSON</string>
     <string name="gameprops_load_json_summary">Выберите файл JSON, который будет использован для подделки игр</string>
     <!-- Navigation Bar -->
@@ -584,7 +582,7 @@
     <string name="systemui_restart_yes">Да</string>
     <string name="systemui_restart_not_now">Не сейчас</string>
     <!-- Split Shade -->
-    <string name="qs_split_shade_enabled_title">Разделенная шторка</string>
+    <string name="qs_split_shade_enabled_title">Разделенная шторка быстрых настроек</string>
     <string name="qs_split_shade_enabled_summary">Использовать экспериментальный режим разделения быстрых настроек в горизонтальной ориентации,\nнарушает работу всплывающих уведомлений в горизонтальной ориентации</string>
     <!-- Power Menu Styles -->
     <string name="powermenu_style_title">Стиль меню питания</string>
@@ -608,8 +606,8 @@
     <!-- Progress Bar Styles -->
     <string name="progress_bar_style_title">Стиль индикатора прогресса</string>
     <string name="progress_bar_style1">Массивный ползунок</string>
-    <string name="progress_bar_style2">Минимальный ползунок</string>
-    <string name="progress_bar_style3">Очертание ползунка</string>
+    <string name="progress_bar_style2">Минималистичный ползунок</string>
+    <string name="progress_bar_style3">Контурный ползунок</string>
     <string name="progress_bar_style4">Шишу</string>
     <!-- Volume Styles -->
     <string name="revamped_aosp_style">Обновленный стиль AOSP</string>
@@ -685,13 +683,13 @@
     <string name="lockscreen_weather_style_title">Стиль Pixel</string>
     <string name="lockscreen_weather_style_summary">Отображать погоду как отдельную строку</string>
     <!-- AOD Settings -->
-    <string name="aod_display_category_title">Always-On-Display</string>
+    <string name="aod_display_category_title">Всегда включенный экран</string>
     <string name="aod_pulse_category_title">Пульсация</string>
     <!-- AOD custom image -->
-    <string name="lockscreen_custom_image_enabled_title">Изображение AOD</string>
-    <string name="lockscreen_custom_image_title">Выберите изображение AOD</string>
-    <string name="lockscreen_custom_image_summary">Установить пользовательское изображение AOD</string>
-    <string name="lockscreen_custom_image_pick_summary">Выбрать изображение AOD из галереи</string>
+    <string name="lockscreen_custom_image_enabled_title">Изображение Всегда включенного экрана</string>
+    <string name="lockscreen_custom_image_title">Выберите изображение Всегда включенного экрана</string>
+    <string name="lockscreen_custom_image_summary">Установить пользовательское изображение Всегда включенного экрана</string>
+    <string name="lockscreen_custom_image_pick_summary">Выбрать изображение Всегда включенного экрана из галереи</string>
     <string name="custom_aod_image_not_supported">Стиль часов не поддерживается</string>
     <!-- QS Widgets -->
     <string name="qs_widgets_enabled_title">Виджеты быстрых настроек</string>
@@ -716,11 +714,11 @@
     <string name="gallery">Галерея</string>
     <string name="media">Медиа плеер</string>
     <string name="torch">Фонарик</string>
-    <string name="controls_media_button_play">Воспроизводить</string>
+    <string name="controls_media_button_play">Играть</string>
     <string name="weather">Погода</string>
     <string name="wifi">WiFi</string>
     <string name="data">Данные</string>
-    <string name="ringer">Звонящий</string>
+    <string name="ringer">Режим звука</string>
     <string name="bt">Bluetooth</string>
     <string name="hotspot">Точка доступа</string>
     <string name="wallet">Кошелек</string>
@@ -735,14 +733,14 @@
     <!-- Font styles -->
     <string name="font_styles_title">Стиль шрифта</string>
     <string name="font_styles_summary">Изменить системный шрифт</string>
-    <string name="font_preview_text">Съешь ещё\nэтих мягких\nфранцузских булок\nда выпей чаю\n\nАБВГДЕЖЗИЙКЛМНО\nПРСТУФХЦЧШЩЪЫЬЭЮЯ\nабвгдежзийклмно\nпрстуфхцчшщъыьэюя\n1234567890</string>
+    <string name="font_preview_text">Быстрая бурая\nлиса перепрыгивает через\nленивую собаку\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
     <string name="apply_button_text">Применить</string>
     <string name="font_picker_select_font">Выбрать шрифт</string>
     <!-- Apply Button -->
     <string name="apply_change_button_title">Применить</string>
     <!-- Peek Display -->
     <string name="peek_display_notifications_title">Предварительный экран</string>
-    <string name="peek_display_notifications_summary">Включить минимальный стиль уведомления экрана блокировки</string>
+    <string name="peek_display_notifications_summary">Включить минимальный стиль уведомлений на экране блокировки</string>
     <string name="peek_display_location_title">Расположение предварительного экрана</string>
     <string name="peek_display_bottom_margin_title">Верхний предел (внизу) предварительного экрана</string>
     <!-- Peek Display Styles -->
