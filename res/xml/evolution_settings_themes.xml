@@ -33,11 +33,11 @@
             android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
 
         <!-- Brightness slider -->
-        <Preference
+        <!--<Preference
             android:key="android.theme.customization.brightness_slider"
             android:title="@string/themes_brightness_slider_title"
             android:summary="@string/themes_brightness_slider_summary"
-            android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />
+            android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />-->
 
         <!-- Notification styles -->      
         <org.evolution.settings.preferences.SystemSettingListPreference
