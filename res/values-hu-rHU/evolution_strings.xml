@@ -50,8 +50,6 @@
     <string name="themes_wifi_icon_summary">Itt állíthatja be a Wi-Fi-ikon stílusát</string>
     <string name="themes_navigation_bar_icons_title">A Navigációs sáv ikonjai</string>
     <string name="themes_navigation_bar_icons_summary">Itt állíthatja be a navigációssáv stílusát</string>
-    <string name="themes_udfps_icon_title">Ujjlenyomat-ikon</string>
-    <string name="themes_udfps_icon_summary">Itt állíthatja be az ujjlenyomat-ikon stílusát</string>
     <string name="themes_brightness_category">Fényerőcsúszka</string>
     <string name="themes_brightness_slider_title">A Fényerőcsúszka stílusa</string>
     <string name="themes_brightness_slider_summary">Itt állíthatja be a csúszka stílusát</string>
@@ -454,13 +452,6 @@
     <string name="notifications_edge_light_stroke_width_summary">Beállíthatja az \'Oldalfények\' vastagságát</string>
     <string name="notifications_edge_light_style_1">Vonalrajzolás</string>
     <string name="notifications_edge_light_style_2">Villogás/Pulzálás</string>
-    <!-- Notifications/Island Notification -->
-    <string name="island_notification_title">Dinamikus Sziget értesítés</string>
-    <string name="island_notification_summary">Felugró értesítések \'Dinamikus Sziget\' stílusban</string>
-    <string name="island_notification_now_playing_title">\'Most hallható\' a szigeten</string>
-    <string name="island_notification_now_playing_summary">Az éppen lejátszott dal megjelenítése a \'Dinamikus Sziget\' stílusban</string>
-    <string name="island_notification_footer_text">        A \'Dinamikus Sziget\' stílust az iOS Dinamikus Szigete inspirálta, majd átalakították az Android felugró értesítéseihez, egy gyors hozzáférésű kompakt értesítési mód jött létre.\n\nA Sziget-stílus gyorsvezérlés a következőket tartalmazza:\n1. A Sziget érintésével gyors hívásfogadás.\n2. A Sziget hosszan nyomásával a bejövő hívás elutasítása.\n3. A Sziget hosszan nyomásával az előnézet kibontását.
-    </string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Csak a fontosak</string>
     <string name="notifications_less_boring_heads_up_summary">Felugró értesítések megjelenítése csak az ébresztőhöz, a tárcsázóhoz és az üzenetekhez</string>
@@ -497,7 +488,7 @@
     <string name="miscellaneous_unlimit_screenrecord_title">Végtelen fájlméret</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Eltörli a 15GB-os fájlméret-limitet\nA szükségesnél nagyobb kimenő fájlméretet eredményezhet</string>
     <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Az alkalmazáslista elrejtése</string>
+    <string name="hide_applist_title">Elrejtés az alkalmazáslistából</string>
     <string name="hide_applist_summary">Az alkalmazások nem ellenőrizhetik az alkalmazáslistában szereplő kiválasztott alkalmazásokat</string>
     <string name="menu_show_overlay">Fedőréteg-megjelenítés</string>
     <string name="menu_hide_overlay">Fedőréteg-elrejtés</string>
