@@ -9,25 +9,25 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quick_settings_title">
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="quick_settings_brightness_slider_category"
-        android:title="@string/quick_settings_brightness_slider_category">
+        android:title="@string/quick_settings_brightness_slider_category">-->
 
         <!-- Brightness slider -->
-        <lineageos.preference.LineageSecureSettingListPreference
+        <!--lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/quick_settings_show_brightness_slider_title"
             android:entries="@array/quick_settings_show_brightness_slider_entries"
             android:entryValues="@array/quick_settings_show_brightness_slider_values"
-            android:defaultValue="1" />
+            android:defaultValue="1" />-->
 
         <!-- Brightness slider position -->
-        <lineageos.preference.LineageSecureSettingListPreference
+        <!--<lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_brightness_slider_position"
             android:title="@string/quick_settings_brightness_slider_position_title"
             android:entries="@array/quick_settings_brightness_slider_position_entries"
             android:entryValues="@array/quick_settings_brightness_slider_position_values"
-            android:defaultValue="0" />
+            android:defaultValue="0" />-->
 
         <!-- Haptic feedback on brightness slider -->
         <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -37,19 +37,19 @@
             android:defaultValue="false" />-->
 
         <!-- Auto brightness icon -->
-        <lineageos.preference.LineageSecureSettingSwitchPreference
+        <!--<lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
             android:title="@string/quick_settings_auto_brightness_icon_title"
             android:summary="@string/quick_settings_auto_brightness_icon_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
 
         <!-- Brightness slider percentage -->
-        <lineageos.preference.LineageSecureSettingSwitchPreference
+        <!--<lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_brightness_percentage"
             android:title="@string/quick_settings_show_brightness_percentage_title"
             android:summary="@string/quick_settings_show_brightness_percentage_summary"
             android:defaultValue="false" />
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="quick_settings_interface_category"
@@ -74,18 +74,18 @@
             android:defaultValue="false" />
 
         <!-- QS Header -->
-        <Preference
+        <!--<Preference
             android:key="qs_header_image"
             android:title="@string/quick_settings_header_image_title"
             android:summary="@string/quick_settings_header_image_summary"
-            android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings" />
+            android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings" />-->
 
         <!-- QS Media Player  -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_compact_media_player_mode"
             android:title="@string/qs_compact_media_player_mode_title"
             android:summary="@string/qs_compact_media_player_mode_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_header_clock_style"
@@ -112,22 +112,22 @@
             android:defaultValue="2" />
 
         <!-- QS widgets -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_widgets_enabled"
             android:title="@string/qs_widgets_enabled_title"
             android:summary="@string/qs_widgets_enabled_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- QS tiles style -->
-        <ListPreference
+        <!--<ListPreference
             android:key="qs_tile_ui_style"
             android:title="@string/quick_settings_tile_ui_style_title"
             android:entries="@array/quick_settings_tile_ui_style_entries"
             android:entryValues="@array/quick_settings_tile_ui_style_values"
-            android:defaultValue="0" />
+            android:defaultValue="0" />-->
 
         <!-- QS Panel Style -->
-        <ListPreference
+        <!--<ListPreference
             android:key="qs_panel_style"
             android:title="@string/quick_settings_panel_style_title"
             android:entries="@array/quick_settings_panel_style_entries"
@@ -138,27 +138,27 @@
             android:key="qs_split_shade_enabled"
             android:title="@string/qs_split_shade_enabled_title"
             android:summary="@string/qs_split_shade_enabled_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Hide label -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_tile_label_hide"
             android:title="@string/quick_settings_tile_label_hide_title"
             android:summary="@string/quick_settings_tile_label_hide_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Label text size -->
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_tile_label_size"
             android:title="@string/quick_settings_tile_label_size_title"
             android:max="15"
             settings:min="10"
             settings:interval="1"
             settings:units="sp"
-            android:defaultValue="14" />
+            android:defaultValue="14" />-->
 
         <!-- Vertical layout -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_tile_vertical_layout"
             android:title="@string/quick_settings_tile_layout_title"
             android:summary="@string/quick_settings_tile_layout_summary"
@@ -168,14 +168,13 @@
             android:key="qs_layout_columns_rows"
             android:title="@string/quick_settings_layout_columns_rows_title"
             android:summary="@string/quick_settings_layout_columns_rows_summary"
-            android:fragment="org.evolution.settings.fragments.quicksettings.LayoutSettings" />
+            android:fragment="org.evolution.settings.fragments.quicksettings.LayoutSettings" />-->
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="quick_settings_animations_category"
         android:title="@string/quick_settings_animations_category">
 
-        <!-- Tiles animation style -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_tile_animation_style"
             android:title="@string/quick_settings_tile_animation_style_title"
@@ -183,7 +182,6 @@
             android:entryValues="@array/quick_settings_tile_animation_style_values"
             android:defaultValue="0" />
 
-        <!-- Animation duration -->
         <org.evolution.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_tile_animation_duration"
             android:title="@string/quick_settings_tile_animation_duration_title"
@@ -193,25 +191,24 @@
             android:max="5"
             android:min="1" />
 
-        <!-- Animation interpolator -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_tile_animation_interpolator"
             android:title="@string/quick_settings_tile_animation_interpolator_title"
             android:entries="@array/quick_settings_tile_animation_interpolator_entries"
             android:entryValues="@array/quick_settings_tile_animation_interpolator_values"
             android:defaultValue="0" />
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="quick_settings_lock_screen_category"
         android:title="@string/quick_settings_lock_screen_category">
 
         <!-- Hide on secure lock screen -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="secure_lockscreen_qs_disabled"
             android:title="@string/quick_settings_secure_lock_screen_title"
             android:summary="@string/quick_settings_secure_lock_screen_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Secure QS tiles require unlock -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
@@ -232,4 +229,5 @@
             android:summary="@string/quick_settings_bluetooth_show_dialog_summary"
             android:defaultValue="true" />
     </PreferenceCategory>
+
 </PreferenceScreen>
