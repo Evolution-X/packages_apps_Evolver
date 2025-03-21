@@ -57,11 +57,11 @@
             android:defaultValue="true" />
 
         <!-- Edge light -->
-        <Preference
+        <!--<Preference
             android:key="edge_light_settings"
             android:title="@string/notifications_edge_light_title"
             android:summary="@string/notifications_edge_light_summary"
-            android:fragment="org.evolution.settings.fragments.notifications.EdgeLightSettings" />
+            android:fragment="org.evolution.settings.fragments.notifications.EdgeLightSettings" />-->
 
         <!-- Kill app button -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference

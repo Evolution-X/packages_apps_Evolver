@@ -112,11 +112,11 @@
             android:defaultValue="2" />
 
         <!-- QS widgets -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_widgets_enabled"
             android:title="@string/qs_widgets_enabled_title"
             android:summary="@string/qs_widgets_enabled_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- QS tiles style -->
         <ListPreference
