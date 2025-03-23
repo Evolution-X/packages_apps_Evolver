@@ -57,14 +57,6 @@
         android:icon="@drawable/ic_power_menu"
         android:fragment="org.evolution.settings.fragments.powermenu.PowerMenu" />
 
-    <!-- Buttons -->
-    <Preference
-        android:key="buttons"
-        android:title="@string/buttons_title"
-        android:summary="@string/buttons_summary"
-        android:icon="@drawable/ic_buttons"
-        android:fragment="org.evolution.settings.fragments.buttons.Buttons" />
-
     <!-- Miscellaneous -->
     <Preference
         android:key="miscellaneous"

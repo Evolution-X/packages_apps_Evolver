@@ -77,7 +77,7 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setTitle(R.string.themes_navigation_bar_icons_title);
+        getActivity().setTitle(R.string.theme_customization_navbar_title);
 
         mThemeUtils = new ThemeUtils(getActivity());
         mPkgs = mThemeUtils.getOverlayPackagesForCategory(mCategory, "com.android.launcher3");
