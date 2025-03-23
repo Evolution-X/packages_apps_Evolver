@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2022 VoltageOS
+     Copyright (C) 2016-2025 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -20,10 +21,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lock_screen_pulse_settings_title">
 
-    <SwitchPreferenceCompat
+    <!--<SwitchPreferenceCompat
         android:key="navbar_pulse_enabled"
         android:title="@string/show_navbar_pulse_title"
-        android:summary="@string/show_navbar_pulse_summary"/>
+        android:summary="@string/show_navbar_pulse_summary"/>-->
 
     <SwitchPreferenceCompat
         android:key="lockscreen_pulse_enabled"
