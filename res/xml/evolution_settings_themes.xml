@@ -159,11 +159,11 @@
             android:fragment="org.evolution.settings.fragments.themes.WifiIcons"/>
 
         <!-- Navigation bar icons -->
-        <Preference
+        <!--<Preference
             android:key="android.theme.customization.navbar"
             android:title="@string/themes_navigation_bar_icons_title"
             android:summary="@string/themes_navigation_bar_icons_summary"
-            android:fragment="org.evolution.settings.fragments.themes.NavigationBarIcons"/>
+            android:fragment="org.evolution.settings.fragments.themes.NavigationBarIcons"/>-->
 
         <!-- Udfps icon -->
         <Preference
