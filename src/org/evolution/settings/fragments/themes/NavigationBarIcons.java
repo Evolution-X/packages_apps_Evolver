@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 crDroid Android Project
+ * Copyright (C) 2022-2025 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,6 +56,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.bumptech.glide.Glide;
 
 import com.android.internal.util.evolution.ThemeUtils;
+import com.android.internal.util.evolution.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,6 +74,7 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
     private String mCategory = "android.theme.customization.navbar";
 
     private List<String> mPkgs;
+    private String mLauncherPackage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,7 +82,12 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
         getActivity().setTitle(R.string.themes_navigation_bar_icons_title);
 
         mThemeUtils = new ThemeUtils(getActivity());
-        mPkgs = mThemeUtils.getOverlayPackagesForCategory(mCategory, "com.android.systemui");
+
+        mLauncherPackage = Utils.isPackageInstalled(getContext(), "com.google.android.apps.nexuslauncher", false)
+                ? "com.google.android.apps.nexuslauncher"
+                : "com.android.launcher3";
+
+        mPkgs = mThemeUtils.getOverlayPackagesForCategory(mCategory, mLauncherPackage);
     }
 
     @Override
@@ -132,13 +139,13 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
             holder.image2.setBackgroundDrawable(getDrawable(holder.image2.getContext(), navPkg, "ic_sysbar_home"));
             holder.image3.setBackgroundDrawable(getDrawable(holder.image3.getContext(), navPkg, "ic_sysbar_recent"));
 
-            String currentPackageName = mThemeUtils.getOverlayInfos(mCategory, "com.android.systemui").stream()
+            String currentPackageName = mThemeUtils.getOverlayInfos(mCategory, mLauncherPackage).stream()
                 .filter(info -> info.isEnabled())
                 .map(info -> info.packageName)
                 .findFirst()
-                .orElse("com.android.systemui");
+                .orElse(mLauncherPackage);
 
-            holder.name.setText("com.android.systemui".equals(navPkg) ? "Default" : getLabel(holder.name.getContext(), navPkg));
+            holder.name.setText(mLauncherPackage.equals(navPkg) ? "Default" : getLabel(holder.name.getContext(), navPkg));
 
             if (currentPackageName.equals(navPkg)) {
                 mAppliedPkg = navPkg;
@@ -155,8 +162,6 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
                     updateActivatedStatus(navPkg, true);
                     mSelectedPkg = navPkg;
                     enableOverlays(position);
-                    Settings.System.putStringForUser(getContext().getContentResolver(),
-                            Settings.System.NAVBAR_STYLE, navPkg, UserHandle.USER_CURRENT);
                 }
             });
         }
@@ -193,7 +198,7 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
     }
 
     public Drawable getDrawable(Context context, String pkg, String drawableName) {
-        if (pkg.equals("com.android.systemui"))
+        if (pkg.equals("com.android.launcher3") || pkg.equals("com.google.android.apps.nexuslauncher"))
             pkg = "com.android.settings";
         try {
             PackageManager pm = context.getPackageManager();
@@ -219,6 +224,6 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
     }
 
     public void enableOverlays(int position) {
-        mThemeUtils.setOverlayEnabled(mCategory, mPkgs.get(position), "com.android.systemui");
+        mThemeUtils.setOverlayEnabled(mCategory, mPkgs.get(position), mLauncherPackage);
     }
 }
