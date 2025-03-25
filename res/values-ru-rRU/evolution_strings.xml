@@ -50,6 +50,8 @@
     <string name="themes_wifi_icon_summary">Выберите пользовательский значок wifi</string>
     <string name="themes_navigation_bar_icons_title">Стиль панели навигации</string>
     <string name="themes_navigation_bar_icons_summary">Выберите стиль панели навигации</string>
+    <string name="themes_udfps_icon_title">Иконка подэкранного отпечатка пальца</string>
+    <string name="themes_udfps_icon_summary">Выберите иконку для подэкранного отпечатка пальца</string>
     <string name="themes_brightness_category">Ползунок яркости</string>
     <string name="themes_brightness_slider_title">Стиль ползунка яркости</string>
     <string name="themes_brightness_slider_summary">Стиль ползунка яркости</string>
@@ -535,15 +537,6 @@
     <string name="gameprops_summary">Подмена устройства для выбранных игр</string>
     <string name="gameprops_load_json_title">Выберите для отдельных игр файл JSON</string>
     <string name="gameprops_load_json_summary">Выберите файл JSON, который будет использован для подделки игр</string>
-    <!-- Navigation Bar -->
-    <string name="navbar_layout_category_title">Расположение кнопок панели навигации</string>
-    <string name="navbar_layout_title">Расположение</string>
-    <string name="navbar_layout_normal">Обычный</string>
-    <string name="navbar_layout_compact">Компактно</string>
-    <string name="navbar_layout_leftleaning">Со сдвигом влево</string>
-    <string name="navbar_layout_rightleaning">Со сдвигом вправо</string>
-    <string name="navbar_invert_layout_title">Инверсия расположения элементов</string>
-    <string name="navbar_invert_layout_summary">Инвертирует расположение панели навигации и другие элементы, такие как кнопка смены метода ввода</string>
     <!-- About -->
     <string name="about_info">Evolution X стремится предоставить пользователям ощущение опыта использования Pixel с большим количеством дополнительных функций для вашего удобства</string>
     <string name="about_website_title">Сайт</string>
