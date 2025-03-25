@@ -124,8 +124,6 @@
     <string name="pulse_help_policy_notice_summary">Müzik çalarken kilit ekranında görünen akıllı bir ses grafik görselleştirmesidir</string>
     <string name="lock_screen_pulse_settings_title">Pulse</string>
     <string name="lock_screen_pulse_settings_summary">Gezinme çubuğu ve kilit ekranı için grafik ekolayzır</string>
-    <string name="show_navbar_pulse_title">Gezinme çubuğunda Pulse</string>
-    <string name="show_navbar_pulse_summary">Gezinme çubuğunda ses görselleştirmesini gösterir</string>
     <string name="show_lockscreen_pulse_title">Kilit ekranında Pulse</string>
     <string name="show_lockscreen_pulse_summary">Kilit ekranında ses görselleştirici</string>
     <string name="show_ambient_pulse_title">Ortam ekranında Pulse</string>
@@ -537,6 +535,9 @@
     <string name="gameprops_summary">Uygulama başına oyun sahtekarlığı seçeneklerini etkinleştirir</string>
     <string name="gameprops_load_json_title">Uygulama başına oyun sahne JSON dosyasını seçin</string>
     <string name="gameprops_load_json_summary">Daha fazla oyunu taklit etmek için kullanılacak JSON dosyasını seçin</string>
+    <!-- Navigation Bar -->
+    <string name="navbar_visibility_title">Gezinme çubuğu</string>
+    <string name="navbar_visibility_summary">Ekranın alt kısmında gezinme çubuğunu göster</string>
     <!-- About -->
     <string name="about_info">Evolution X, kullanıcılara Pixel benzeri bir his sunmayı amaçlarken, ek özellikler de sunuyor</string>
     <string name="about_website_title">İnternet sitesi</string>
