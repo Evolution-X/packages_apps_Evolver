@@ -50,6 +50,8 @@
     <string name="themes_wifi_icon_summary">Özel wifi simge stili ayarlayın</string>
     <string name="themes_navigation_bar_icons_title">Gezinti çubuğu stili</string>
     <string name="themes_navigation_bar_icons_summary">Özel gezinme çubuğu stili ayarlayın</string>
+    <string name="themes_udfps_icon_title">UDFPS simgesi</string>
+    <string name="themes_udfps_icon_summary">UDFPS simge stilini ayarlayın</string>
     <string name="themes_brightness_category">Parlaklık kaydırıcısı</string>
     <string name="themes_brightness_slider_title">Parlaklık kaydırıcı stili</string>
     <string name="themes_brightness_slider_summary">Parlaklık kaydırıcısı stilini ayarla</string>
@@ -535,15 +537,6 @@
     <string name="gameprops_summary">Uygulama başına oyun sahtekarlığı seçeneklerini etkinleştirir</string>
     <string name="gameprops_load_json_title">Uygulama başına oyun sahne JSON dosyasını seçin</string>
     <string name="gameprops_load_json_summary">Daha fazla oyunu taklit etmek için kullanılacak JSON dosyasını seçin</string>
-    <!-- Navigation Bar -->
-    <string name="navbar_layout_category_title">Düğme gezinti çubuğu</string>
-    <string name="navbar_layout_title">Düzen</string>
-    <string name="navbar_layout_normal">Normal</string>
-    <string name="navbar_layout_compact">Kompakt</string>
-    <string name="navbar_layout_leftleaning">Sola yaslanmış</string>
-    <string name="navbar_layout_rightleaning">Sağa yaslanmış</string>
-    <string name="navbar_invert_layout_title">Düzeni tersine çevir</string>
-    <string name="navbar_invert_layout_summary">Gezinme çubuğunun ve klavye değiştirici gibi diğer öğelerin düzenini tersine çevirir</string>
     <!-- About -->
     <string name="about_info">Evolution X, kullanıcılara Pixel benzeri bir his sunmayı amaçlarken, ek özellikler de sunuyor</string>
     <string name="about_website_title">İnternet sitesi</string>
