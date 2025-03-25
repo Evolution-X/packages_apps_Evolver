@@ -124,8 +124,6 @@
     <string name="pulse_help_policy_notice_summary">A Pulse egy brilliáns audiógrafikus hangszínszabályozó a zenelejátszáshoz</string>
     <string name="lock_screen_pulse_settings_title">Pulse</string>
     <string name="lock_screen_pulse_settings_summary">Egy audiógrafikus hangszínszabályozó a navigációs sávhoz és a záróképernyőhöz</string>
-    <string name="show_navbar_pulse_title">Pulzáló navigációs sáv</string>
-    <string name="show_navbar_pulse_summary">Grafikus hangszínszabályzó a navigációs sávon</string>
     <string name="show_lockscreen_pulse_title">Pulzáló záróképernyő</string>
     <string name="show_lockscreen_pulse_summary">Grafikus hangszínszabályzó a záróképernyőhöz</string>
     <string name="show_ambient_pulse_title">Pulzáló környezeti kijelző</string>
@@ -537,6 +535,9 @@
     <string name="gameprops_summary">Az alkalmazásonkénti hamisítás lehetőségei játékokhoz</string>
     <string name="gameprops_load_json_title">Válassza ki az alkalmazásonkénti játékkellékek JSON-fájlját</string>
     <string name="gameprops_load_json_summary">Válassza ki a további játékok meghamisításához használni kívánt JSON-fájlt</string>
+    <!-- Navigation Bar -->
+    <string name="navbar_visibility_title">Navigációs sáv</string>
+    <string name="navbar_visibility_summary">A navigációs sáv megjelenítése a képernyő alján</string>
     <!-- About -->
     <string name="about_info">Az Evolution X célja, hogy a felhasználók számára első pillantásra Pixel-szerű érzést nyújtson Önnek, sok hozzáadott funkcióval.</string>
     <string name="about_website_title">Honlap</string>
