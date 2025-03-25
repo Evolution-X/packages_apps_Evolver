@@ -124,8 +124,6 @@
     <string name="pulse_help_policy_notice_summary">Визуализатор - это красивый аудио-графический эквалайзер, работающий при воспроизведении музыки на устройстве</string>
     <string name="lock_screen_pulse_settings_title">Визуализатор</string>
     <string name="lock_screen_pulse_settings_summary">Графический аудио-визуализатор для панели навигации, экрана блокировки и не только</string>
-    <string name="show_navbar_pulse_title">Визуализатор на панели навигации</string>
-    <string name="show_navbar_pulse_summary">Графический аудио-визуализатор на панели навигации</string>
     <string name="show_lockscreen_pulse_title">Визуализатор на экране блокировки</string>
     <string name="show_lockscreen_pulse_summary">Графический аудио-визуализатор на экране блокировки</string>
     <string name="show_ambient_pulse_title">Визуализатор на всегда включённом экране</string>
@@ -537,6 +535,9 @@
     <string name="gameprops_summary">Подмена устройства для выбранных игр</string>
     <string name="gameprops_load_json_title">Выберите для отдельных игр файл JSON</string>
     <string name="gameprops_load_json_summary">Выберите файл JSON, который будет использован для подделки игр</string>
+    <!-- Navigation Bar -->
+    <string name="navbar_visibility_title">Панель навигации</string>
+    <string name="navbar_visibility_summary">Отображать панель навигации в нижней части экрана</string>
     <!-- About -->
     <string name="about_info">Evolution X стремится предоставить пользователям ощущение опыта использования Pixel с большим количеством дополнительных функций для вашего удобства</string>
     <string name="about_website_title">Сайт</string>
