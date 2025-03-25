@@ -50,6 +50,8 @@
     <string name="themes_wifi_icon_summary">Itt állíthatja be a Wi-Fi-ikon stílusát</string>
     <string name="themes_navigation_bar_icons_title">A Navigációs sáv ikonjai</string>
     <string name="themes_navigation_bar_icons_summary">Itt állíthatja be a navigációssáv stílusát</string>
+    <string name="themes_udfps_icon_title">Ujjlenyomat-ikon</string>
+    <string name="themes_udfps_icon_summary">Itt állíthatja be a képernyőbe épített ujjlenyomatszenzor ikonstílusát</string>
     <string name="themes_brightness_category">Fényerőcsúszka</string>
     <string name="themes_brightness_slider_title">A Fényerőcsúszka stílusa</string>
     <string name="themes_brightness_slider_summary">Itt állíthatja be a csúszka stílusát</string>
@@ -535,15 +537,6 @@
     <string name="gameprops_summary">Az alkalmazásonkénti hamisítás lehetőségei játékokhoz</string>
     <string name="gameprops_load_json_title">Válassza ki az alkalmazásonkénti játékkellékek JSON-fájlját</string>
     <string name="gameprops_load_json_summary">Válassza ki a további játékok meghamisításához használni kívánt JSON-fájlt</string>
-    <!-- Navigation Bar -->
-    <string name="navbar_layout_category_title">Navigációs gomb</string>
-    <string name="navbar_layout_title">Elrendezés</string>
-    <string name="navbar_layout_normal">Normál</string>
-    <string name="navbar_layout_compact">Kompakt</string>
-    <string name="navbar_layout_leftleaning">Balra dőltött</string>
-    <string name="navbar_layout_rightleaning">Jobbra dőltött</string>
-    <string name="navbar_invert_layout_title">Fordított elrendezés</string>
-    <string name="navbar_invert_layout_summary">Navigációs sáv és más elemek megfordítása, mint például a bevitelimód-váltó elrendezése</string>
     <!-- About -->
     <string name="about_info">Az Evolution X célja, hogy a felhasználók számára első pillantásra Pixel-szerű érzést nyújtson Önnek, sok hozzáadott funkcióval.</string>
     <string name="about_website_title">Honlap</string>
