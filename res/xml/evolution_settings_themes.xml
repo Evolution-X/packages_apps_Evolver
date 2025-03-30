@@ -33,13 +33,13 @@
             android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
 
         <!-- Brightness slider -->
-        <!--<Preference
+        <Preference
             android:key="android.theme.customization.brightness_slider"
             android:title="@string/themes_brightness_slider_title"
             android:summary="@string/themes_brightness_slider_summary"
-            android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />-->
+            android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />
 
-        <!-- Notification styles -->
+        <!-- Notification styles -->      
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="notification_style"
             android:title="@string/notif_style_title"
@@ -48,7 +48,7 @@
             android:summary="%s"
             android:defaultValue="0" />
 
-        <!-- Power menu styles -->
+        <!-- Power menu styles -->      
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="powermenu_style"
             android:title="@string/powermenu_style_title"

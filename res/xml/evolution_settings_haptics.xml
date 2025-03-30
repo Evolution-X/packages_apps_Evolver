@@ -31,14 +31,14 @@
         settings:interval="1" />
 
     <!-- Brightness slider intensity -->
-    <!--<org.evolution.settings.preferences.CustomSeekBarPreference
+    <org.evolution.settings.preferences.CustomSeekBarPreference
         android:key="qs_brightness_slider_haptic"
         android:title="@string/brightness_slider_haptics_intensity_title"
         android:order="-998"
         android:max="3"
         settings:min="0"
         android:defaultValue="0"
-        settings:interval="1" />-->
+        settings:interval="1" />
 
     <!-- QS Fling haptics -->
     <org.evolution.settings.preferences.CustomSeekBarPreference
@@ -51,15 +51,15 @@
         settings:interval="1" />
 
     <!-- QS tile haptics intensity -->
-    <!--<org.evolution.settings.preferences.CustomSeekBarPreference
+    <org.evolution.settings.preferences.CustomSeekBarPreference
         android:key="qs_panel_tile_haptic"
         android:title="@string/qs_panel_tile_haptic_intensity_title"
         android:order="-997"
         android:max="5"
         settings:min="0"
         android:defaultValue="0"
-        settings:interval="1" />-->
-
+        settings:interval="1" />
+        
     <!-- Edge scrolling intensity -->
     <org.evolution.settings.preferences.CustomSeekBarPreference
         android:key="edge_scrolling_haptics_intensity"

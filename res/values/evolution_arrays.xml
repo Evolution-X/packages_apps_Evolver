@@ -527,9 +527,9 @@
 
     <!-- Quick Settings - brightness slider -->
     <string-array name="quick_settings_show_brightness_slider_entries" translatable="false">
-        <item>@string/quick_settings_brightness_slider_show_never</item>
-        <item>@string/quick_settings_brightness_slider_show_expanded</item>
-        <item>@string/quick_settings_brightness_slider_show_always</item>
+        <item>@string/quick_settings_show_brightness_slider_never</item>
+        <item>@string/quick_settings_show_brightness_slider_expanded</item>
+        <item>@string/quick_settings_show_brightness_slider_always</item>
     </string-array>
 
     <string-array name="quick_settings_show_brightness_slider_values" translatable="false">

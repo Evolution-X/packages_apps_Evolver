@@ -21,7 +21,7 @@
             android:fragment="org.evolution.settings.fragments.lockscreen.LockClockFontsPickerPreview" />
     </PreferenceCategory>
 
-    <!--<PreferenceCategory
+    <PreferenceCategory
         android:key="aod_display"
         android:title="@string/aod_display_category_title">
 
@@ -36,19 +36,19 @@
             android:title="@string/lockscreen_custom_image_title"
             android:summary="@string/lockscreen_custom_image_pick_summary"
             android:dependency="custom_aod_image_enabled" />
-    </PreferenceCategory>-->
+    </PreferenceCategory>
 
-    <!--<PreferenceCategory
+    <PreferenceCategory
         android:key="lockscreen_widgets"
-        android:title="@string/lockscreen_widgets_title">-->
+        android:title="@string/lockscreen_widgets_title">
 
         <!-- Lockscreen Widgets -->
-        <!--<Preference
+        <Preference
             android:key="lockscreen_widgets"
             android:title="@string/lockscreen_widgets_title"
             android:summary="@string/lockscreen_widgets_enabled_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.LockScreenWidgets" />
-    </PreferenceCategory>-->
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="lock_screen_interface_category"
@@ -60,7 +60,7 @@
             android:summary="@string/dw_wallpaper_enabled_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.WallpaperDepth" />
 
-        <!--<Preference
+        <Preference
             android:key="peek_display"
             android:title="@string/peek_display_notifications_title"
             android:summary="@string/peek_display_notifications_summary"
@@ -79,7 +79,7 @@
     	    android:defaultValue="18"
     	    android:min="1"
     	    android:max="210"
-            android:dependency="keyguard_now_bar_enabled" />-->
+            android:dependency="keyguard_now_bar_enabled" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="ls_media_art_enabled"
@@ -126,7 +126,7 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
-    <!--<PreferenceCategory
+    <PreferenceCategory
         android:key="lockscreen_weather_category"
         android:title="@string/lockscreen_weather_category">
 
@@ -159,7 +159,7 @@
             android:defaultValue="true"
             android:dependency="lockscreen_weather_enabled" />
 
-    </PreferenceCategory>-->
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="lock_screen_fingerprint_category"
