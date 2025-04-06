@@ -751,4 +751,7 @@
     <!-- Ongoing progress bar chip in statusbar -->
     <string name="ongoing_action_chip_title">Devam eden ilerleme çubuğu çipi</string>
     <string name="ongoing_action_chip_summary">Durum çubuğunda bir bildirimden devam eden eylem ilerlemesini gösteren ilerleme çubuğu çipini gösterir</string>
+    <!-- Squiggle animation -->
+    <string name="show_squiggle_animation_title">Dalgalanma animasyonunu göster</string>
+    <string name="show_squiggle_animation_summary">Medya paneli dalgalı animasyonunu göster\nDeğişiklikten sonra uygulamak için müzik değiştirmeniz, müziği duraklatmanız veya ilerleme çubuğunu hareket ettirmeniz gerekir</string>
 </resources>
