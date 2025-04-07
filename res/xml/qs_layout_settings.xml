@@ -23,7 +23,7 @@
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="qs_layout_columns"
         android:title="@string/quick_settings_columns_portrait_title"
-        android:max="5"
+        android:max="6"
         settings:min="2"
         settings:interval="1"
         android:defaultValue="2" />
