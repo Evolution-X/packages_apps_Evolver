@@ -48,6 +48,8 @@
     <string name="themes_signal_icon_summary">Itt állíthatja be a térerő-ikon stílusát</string>
     <string name="themes_wifi_icon_title">WiFi-ikon</string>
     <string name="themes_wifi_icon_summary">Itt állíthatja be a Wi-Fi-ikon stílusát</string>
+    <string name="themes_navigation_bar_icons_title">A Navigációs sáv ikonjai</string>
+    <string name="themes_navigation_bar_icons_summary">Itt állíthatja be a navigációssáv-ikonok stílusát</string>
     <string name="themes_udfps_icon_title">Ujjlenyomat-ikon</string>
     <string name="themes_udfps_icon_summary">Itt állíthatja be a képernyőbe épített ujjlenyomatszenzor ikonstílusát</string>
     <string name="themes_brightness_category">Fényerőcsúszka</string>
@@ -742,10 +744,6 @@
     <string name="keyguard_now_bar_enabled_summary">Bekapcsolhatja a \'Most sáv\'-ot a záróképernyőn</string>
     <string name="keyguard_now_bar_height_title">A \'Most sáv\" magassága</string>
     <string name="keyguard_now_bar_height_summary">Szabályozhatja a \'Most sáv\' megasságát</string>
-    <!-- Freeform launch mode -->
-    <string name="freeform_launch_mode_title">A SzabadFormálás módja</string>
-    <string name="freeform_launch_mode_1">Eredeti AOSP</string>
-    <string name="freeform_launch_mode_2">LMO SzabadForma</string>
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Értesítés ikonok</string>
     <string name="max_visible_notification_icons_summary">Maximum hány ikon látszódhat az állapotsoron</string>
