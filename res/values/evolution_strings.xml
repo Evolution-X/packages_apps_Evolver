@@ -73,6 +73,22 @@
     <string name="themes_launcher_background_blur_summary">Enable blur effect for recent items page background</string>
     <string name="themes_launcher_more_themed_icons_title">More themed icons</string>
     <string name="themes_launcher_more_themed_icons_summary">Extends support for dynamic color themed icons for installed apps</string>
+    <string name="theme_customization_font_title">Font style</string>
+    <string name="theme_customization_font_summary">Set system font style</string>
+    <string name="theme_customization_icon_pack_title">Icon pack</string>
+    <string name="theme_customization_icon_pack_summary">Set custom icon pack style</string>
+    <string name="theme_customization_icon_shape_title">Icon shape</string>
+    <string name="theme_customization_icon_shape_summary">Set system icon shape style</string>
+    <string name="theme_customization_signal_icon_title">Signal icon style</string>
+    <string name="theme_customization_signal_icon_summary">Set custom signal icon style</string>
+    <string name="theme_customization_wifi_icon_title">WiFi icon style</string>
+    <string name="theme_customization_wifi_icon_summary">Set custom wifi icon style</string>
+    <string name="theme_customization_navbar_title">Navbar style</string>
+    <string name="theme_customization_navbar_summary">Set custom navigation bar style</string>
+    <string name="theme_customization_lock_clock_title">Clock font style</string>
+    <string name="theme_customization_lock_clock_summary">Set lockscreen clock font style</string>
+    <string name="theme_customization_brightness_slider_title">Brightness slider style</string>
+    <string name="theme_customization_brightness_slider_summary">Set custom brightness slider style</string>
 
     <!-- Themes/Boot animation preview -->
     <string name="boot_animation_preview_desc">Preview of the selected boot animation</string>
@@ -168,8 +184,8 @@
     <string name="lockscreen_clock_category_title">Clock</string>
     <string name="lockscreen_clock_category_summary">Configure lock screen clock styles</string>
     <string name="custom_clock_style">Custom Clock Style</string>
-    <string name="theme_customization_lock_clock_title">Clock face</string>
-    <string name="theme_customization_lock_clock_summary">Modify lock screen clock appearance</string>
+    <string name="theme_customization_lock_clock_face_title">Clock face</string>
+    <string name="theme_customization_lock_clock_face_summary">Modify lock screen clock appearance</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Gestures</string>

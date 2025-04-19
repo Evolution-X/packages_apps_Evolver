@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 crDroid Android Project
+ * Copyright (C) 2022-2025 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,87 +16,67 @@
 
 package org.evolution.settings.fragments.themes;
 
-import static android.os.UserHandle.USER_SYSTEM;
 import static com.android.internal.util.evolution.ThemeUtils.FONT_KEY;
 
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.provider.SearchIndexableResource;
-import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Gravity;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.text.TextUtils;
-import androidx.preference.PreferenceViewHolder;
-import android.view.ViewGroup.LayoutParams;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settingslib.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-
-import com.bumptech.glide.Glide;
-
 import com.android.internal.util.evolution.ThemeUtils;
 
-import java.util.ArrayList;
+import java.lang.ref.WeakReference;
 import java.util.List;
-import java.util.Arrays;
-
-import org.json.JSONObject;
-import org.json.JSONException;
 
 public class Fonts extends SettingsPreferenceFragment {
 
+    private static final String TAG = "FontsPicker";
+
     private RecyclerView mRecyclerView;
     private ThemeUtils mThemeUtils;
-    private String mCategory = FONT_KEY;
-
+    private final String mCategory = FONT_KEY;
     private List<String> mPkgs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setTitle(R.string.themes_system_font_title);
-
-        mThemeUtils = new ThemeUtils(getActivity());
+        if (!isAdded()) return;
+        requireActivity().setTitle(R.string.theme_customization_font_title);
+        mThemeUtils = new ThemeUtils(requireContext());
         mPkgs = mThemeUtils.getOverlayPackagesForCategory(mCategory, "android");
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-            @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(
-                R.layout.item_view, container, false);
-
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
-        mRecyclerView.setLayoutManager(gridLayoutManager);
-        Adapter mAdapter = new Adapter(getActivity());
-        mRecyclerView.setAdapter(mAdapter);
-
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.item_view, container, false);
+        mRecyclerView = view.findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 1));
+        mRecyclerView.setAdapter(new Adapter(requireContext(), mPkgs, mThemeUtils, mCategory, mRecyclerView));
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mRecyclerView != null) {
+            mRecyclerView.setAdapter(null);
+            mRecyclerView = null;
+        }
     }
 
     @Override
@@ -104,58 +84,62 @@ public class Fonts extends SettingsPreferenceFragment {
         return MetricsEvent.EVOLVER;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
+    public static class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {
+        private final WeakReference<Context> contextRef;
+        private final List<String> mPkgs;
+        private final ThemeUtils mThemeUtils;
+        private final String mCategory;
+        private final RecyclerView mRecyclerView;
+        private final String mAppliedPkg;
+        private String mSelectedPkg;
 
-    public class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {
-        Context context;
-        String mSelectedPkg;
-        String mAppliedPkg;
+        public Adapter(Context context, List<String> pkgs, ThemeUtils themeUtils, String category, RecyclerView recyclerView) {
+            this.contextRef = new WeakReference<>(context);
+            this.mPkgs = pkgs;
+            this.mThemeUtils = themeUtils;
+            this.mCategory = category;
+            this.mRecyclerView = recyclerView;
 
-        public Adapter(Context context) {
-            this.context = context;
+            mAppliedPkg = mThemeUtils.getOverlayInfos(mCategory).stream()
+                    .filter(info -> info.isEnabled())
+                    .map(info -> info.packageName)
+                    .findFirst()
+                    .orElse("android");
+
+            mSelectedPkg = mAppliedPkg;
+        }
+
+        @NonNull
+        @Override
+        public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fonts_option, parent, false);
+            return new CustomViewHolder(view);
         }
 
         @Override
-        public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fonts_option, parent, false);
-            CustomViewHolder vh = new CustomViewHolder(v);
-            return vh;
-        }
+        public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
+            Context context = contextRef.get();
+            if (context == null) return;
 
-        @Override
-        public void onBindViewHolder(CustomViewHolder holder, final int position) {
             String pkg = mPkgs.get(position);
-            String label = getLabel(holder.itemView.getContext(), pkg);
-
-            String currentPackageName = mThemeUtils.getOverlayInfos(mCategory).stream()
-                .filter(info -> info.isEnabled())
-                .map(info -> info.packageName)
-                .findFirst()
-                .orElse("android");
+            String label = getLabel(context, pkg);
+            Typeface typeface = getTypeface(context, pkg);
 
             holder.title.setText("android".equals(pkg) ? "Default" : label);
             holder.title.setTextSize(20);
-            holder.title.setTypeface(getTypeface(holder.title.getContext(), pkg));
-            holder.name.setVisibility(View.GONE);
-
-            if (currentPackageName.equals(pkg)) {
-                mAppliedPkg = pkg;
-                if (mSelectedPkg == null) {
-                    mSelectedPkg = pkg;
-                }
+            if (typeface != null) {
+                holder.title.setTypeface(typeface);
             }
+            holder.name.setVisibility(View.GONE);
+            holder.itemView.setActivated(pkg.equals(mSelectedPkg));
 
-            holder.itemView.setActivated(pkg == mSelectedPkg);
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    updateActivatedStatus(mSelectedPkg, false);
-                    updateActivatedStatus(pkg, true);
+            holder.itemView.setOnClickListener(view -> {
+                if (!pkg.equals(mSelectedPkg)) {
+                    String oldPkg = mSelectedPkg;
                     mSelectedPkg = pkg;
-                    enableOverlays(position);
+                    mThemeUtils.setOverlayEnabled(mCategory, pkg, "android");
+                    updateActivatedStatus(oldPkg);
+                    updateActivatedStatus(mSelectedPkg);
                 }
             });
         }
@@ -165,55 +149,46 @@ public class Fonts extends SettingsPreferenceFragment {
             return mPkgs.size();
         }
 
-        public class CustomViewHolder extends RecyclerView.ViewHolder {
+        private void updateActivatedStatus(String pkg) {
+            int index = mPkgs.indexOf(pkg);
+            if (index >= 0) {
+                notifyItemChanged(index);
+            }
+        }
+
+        public static class CustomViewHolder extends RecyclerView.ViewHolder {
             TextView name;
             TextView title;
             public CustomViewHolder(View itemView) {
                 super(itemView);
-                title = (TextView) itemView.findViewById(R.id.option_title);
-                name = (TextView) itemView.findViewById(R.id.option_label);
+                title = itemView.findViewById(R.id.option_title);
+                name = itemView.findViewById(R.id.option_label);
             }
         }
 
-        private void updateActivatedStatus(String pkg, boolean isActivated) {
-            int index = mPkgs.indexOf(pkg);
-            if (index < 0) {
-                return;
+        private Typeface getTypeface(Context context, String pkg) {
+            try {
+                PackageManager pm = context.getPackageManager();
+                Resources res = pkg.equals("android") ? Resources.getSystem()
+                        : pm.getResourcesForApplication(pkg);
+                int id = res.getIdentifier("config_bodyFontFamily", "string", pkg);
+                if (id != 0) {
+                    return Typeface.create(res.getString(id), Typeface.NORMAL);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e(TAG, "Typeface load failed for pkg: " + pkg, e);
             }
-            RecyclerView.ViewHolder holder = mRecyclerView.findViewHolderForAdapterPosition(index);
-            if (holder != null && holder.itemView != null) {
-                holder.itemView.setActivated(isActivated);
-            }
+            return null;
         }
-    }
 
-    public Typeface getTypeface(Context context, String pkg) {
-        try {
+        private String getLabel(Context context, String pkg) {
             PackageManager pm = context.getPackageManager();
-            Resources res = pkg.equals("android") ? Resources.getSystem()
-                    : pm.getResourcesForApplication(pkg);
-            return Typeface.create(res.getString(
-                    res.getIdentifier("config_bodyFontFamily",
-                    "string", pkg)), Typeface.NORMAL);
+            try {
+                return pm.getApplicationInfo(pkg, 0).loadLabel(pm).toString();
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e(TAG, "Label load failed for pkg: " + pkg, e);
+            }
+            return pkg;
         }
-        catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public String getLabel(Context context, String pkg) {
-        PackageManager pm = context.getPackageManager();
-        try {
-            return pm.getApplicationInfo(pkg, 0)
-                    .loadLabel(pm).toString();
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return pkg;
-    }
-
-    public void enableOverlays(int position) {
-        mThemeUtils.setOverlayEnabled(mCategory, mPkgs.get(position), "android");
     }
 }
