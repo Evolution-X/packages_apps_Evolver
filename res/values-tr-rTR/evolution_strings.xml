@@ -48,6 +48,8 @@
     <string name="themes_signal_icon_summary">Özel sinyal simgesi stili ayarlayın</string>
     <string name="themes_wifi_icon_title">WiFi simge stili</string>
     <string name="themes_wifi_icon_summary">Özel wifi simge stili ayarlayın</string>
+    <string name="themes_navigation_bar_icons_title">Gezinti çubuğu simgeleri</string>
+    <string name="themes_navigation_bar_icons_summary">Gezinme çubuğu simge stilini ayarlayın</string>
     <string name="themes_udfps_icon_title">UDFPS simgesi</string>
     <string name="themes_udfps_icon_summary">UDFPS simge stilini ayarlayın</string>
     <string name="themes_brightness_category">Parlaklık kaydırıcısı</string>
@@ -741,10 +743,6 @@
     <string name="keyguard_now_bar_enabled_summary">Şimdi çubuğu kilit ekranı widget\'larını etkinleştirin</string>
     <string name="keyguard_now_bar_height_title">Şimdi bar yüksekliği</string>
     <string name="keyguard_now_bar_height_summary">Şimdi çubuğunun yüksekliğini ayarlayın</string>
-    <!-- Freeform launch mode -->
-    <string name="freeform_launch_mode_title">Serbest biçimli fırlatma modu</string>
-    <string name="freeform_launch_mode_1">Yerel AOSP</string>
-    <string name="freeform_launch_mode_2">LMOFreeForm</string>
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Bildirim simgeleri</string>
     <string name="max_visible_notification_icons_summary">Durum çubuğunda görünen maksimum bildirim simgeleri</string>
