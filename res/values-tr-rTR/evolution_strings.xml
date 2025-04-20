@@ -70,6 +70,22 @@
     <string name="themes_launcher_background_blur_summary">Son öğeler sayfası arka planı için bulanıklaştırma efektini etkinleştir</string>
     <string name="themes_launcher_more_themed_icons_title">Daha fazla temalı simgeler</string>
     <string name="themes_launcher_more_themed_icons_summary">Yüklü uygulamalar için dinamik renk temalı simgeler için desteği genişletir</string>
+    <string name="theme_customization_font_title">Yazı tipi</string>
+    <string name="theme_customization_font_summary">Sistem yazı tipi stili ayarlayın</string>
+    <string name="theme_customization_icon_pack_title">Simge paketi</string>
+    <string name="theme_customization_icon_pack_summary">Özel simge paketi stili ayarlayın</string>
+    <string name="theme_customization_icon_shape_title">Simge şekli</string>
+    <string name="theme_customization_icon_shape_summary">Sistem simge şeklini ayarlayın</string>
+    <string name="theme_customization_signal_icon_title">Sinyal simgesi stili</string>
+    <string name="theme_customization_signal_icon_summary">Özel sinyal simgesi stili ayarlayın</string>
+    <string name="theme_customization_wifi_icon_title">WiFi simge stili</string>
+    <string name="theme_customization_wifi_icon_summary">Özel wifi simge stili ayarlayın</string>
+    <string name="theme_customization_navbar_title">Gezinti çubuğu stili</string>
+    <string name="theme_customization_navbar_summary">Özel gezinme çubuğu stili ayarlayın</string>
+    <string name="theme_customization_lock_clock_title">Saat yazı tipi stili</string>
+    <string name="theme_customization_lock_clock_summary">Kilit ekranı saat yazı tipi stilini ayarlayın</string>
+    <string name="theme_customization_brightness_slider_title">Parlaklık kaydırıcı stili</string>
+    <string name="theme_customization_brightness_slider_summary">Özel parlaklık kaydırıcı stilini ayarlama</string>
     <!-- Themes/Boot animation preview -->
     <string name="boot_animation_preview_desc">Seçilen açılış animasyonunun önizlemesi</string>
     <string name="boot_animation_preview_summary">Şu anda seçili olan açılış animasyonunun önizlemesini görüntüler</string>
@@ -158,8 +174,8 @@
     <string name="lockscreen_clock_category_title">Saat</string>
     <string name="lockscreen_clock_category_summary">Kilit ekranı saat stillerini yapılandırma</string>
     <string name="custom_clock_style">Özel Saat Stili</string>
-    <string name="theme_customization_lock_clock_title">Saat arayüzü</string>
-    <string name="theme_customization_lock_clock_summary">Kilit ekranı saat görünümünü değiştirme</string>
+    <string name="theme_customization_lock_clock_face_title">Saat arayüzü</string>
+    <string name="theme_customization_lock_clock_face_summary">Kilit ekranı saat görünümünü değiştirme</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Hareketler</string>
     <string name="status_bar_brightness_control_title">Parlaklık kontrolü</string>
