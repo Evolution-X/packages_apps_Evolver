@@ -70,6 +70,22 @@
     <string name="themes_launcher_background_blur_summary">Az Előzmények-oldalháttér elmosási effektjének bekapcsolása</string>
     <string name="themes_launcher_more_themed_icons_title">Még témázottabb ikonok</string>
     <string name="themes_launcher_more_themed_icons_summary">A dinamikus színes témájú ikon-támogatás kibővítése a telepített alkalmazásokhoz</string>
+    <string name="theme_customization_font_title">Betűstílus</string>
+    <string name="theme_customization_font_summary">Itt állíthatja be a rendszer-betűtípusát</string>
+    <string name="theme_customization_icon_pack_title">Ikoncsomag</string>
+    <string name="theme_customization_icon_pack_summary">Egyéni ikoncsomag-stílus beállîtása</string>
+    <string name="theme_customization_icon_shape_title">Ikonforma</string>
+    <string name="theme_customization_icon_shape_summary">Beállithatja az ikonok formai stílusát</string>
+    <string name="theme_customization_signal_icon_title">Térerőkijelzési-stílus</string>
+    <string name="theme_customization_signal_icon_summary">Egyéni térerő-ikonstílus állítható be</string>
+    <string name="theme_customization_wifi_icon_title">WiFi-jelerősség-stílus</string>
+    <string name="theme_customization_wifi_icon_summary">Egyéni Wi-Fi-ikonstílus állítható be</string>
+    <string name="theme_customization_navbar_title">A Navigációs sáv stílusa</string>
+    <string name="theme_customization_navbar_summary">Egyéni navigációssáv-stílus állítható be</string>
+    <string name="theme_customization_lock_clock_title">Az Óra betűstílusa</string>
+    <string name="theme_customization_lock_clock_summary">A záróképernyő órájának betűtípusát állíthatja be</string>
+    <string name="theme_customization_brightness_slider_title">A Fényerőcsúszka stílusa</string>
+    <string name="theme_customization_brightness_slider_summary">Itt állíthatja be a csúszka stílusát</string>
     <!-- Themes/Boot animation preview -->
     <string name="boot_animation_preview_desc">A kiválasztott boot-animáció előnézete</string>
     <string name="boot_animation_preview_summary">Megmutatja önnek, hogy milyen lenne, amit kiválasztott</string>
@@ -158,8 +174,8 @@
     <string name="lockscreen_clock_category_title">Óra</string>
     <string name="lockscreen_clock_category_summary">Itt állíthatja be az óra stílusát</string>
     <string name="custom_clock_style">Egyéni órastílus</string>
-    <string name="theme_customization_lock_clock_title">Óralap</string>
-    <string name="theme_customization_lock_clock_summary">Módosíthatja a záróképernyő-óra megjelenését</string>
+    <string name="theme_customization_lock_clock_face_title">Óralap</string>
+    <string name="theme_customization_lock_clock_face_summary">Módosíthatja a záróképernyő-óra megjelenését</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Mozdulatvezérlés</string>
     <string name="status_bar_brightness_control_title">Fényerőszabályzás</string>
