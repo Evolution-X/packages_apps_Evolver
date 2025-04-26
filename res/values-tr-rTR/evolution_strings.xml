@@ -768,4 +768,8 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Dalgalanma animasyonunu göster</string>
     <string name="show_squiggle_animation_summary">Medya paneli dalgalı animasyonunu göster\nDeğişiklikten sonra uygulamak için müzik değiştirmeniz, müziği duraklatmanız veya ilerleme çubuğunu hareket ettirmeniz gerekir</string>
+    <!-- Freeform launch mode -->
+    <string name="freeform_launch_mode_title">Serbest form modu</string>
+    <string name="freeform_launch_mode_1">Orijinal AOSP</string>
+    <string name="freeform_launch_mode_2">LMOFreeForm</string>
 </resources>
