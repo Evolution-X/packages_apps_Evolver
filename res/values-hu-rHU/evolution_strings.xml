@@ -769,4 +769,8 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">A hanghullámos animáció megjelenítése</string>
     <string name="show_squiggle_animation_summary">Megjeleníti a hullámra hasonlító médiapanel-animációt,\nérvénybe léptetéshez a módosítás után váltani vagy szüneteltetni kell a zenét, vagy mozgatni kell a folyamatjelző sávot</string>
+    <!-- Freeform launch mode -->
+    <string name="freeform_launch_mode_title">Szabadformálásos mód</string>
+    <string name="freeform_launch_mode_1">Eredeti AOSP</string>
+    <string name="freeform_launch_mode_2">LMO Szabadformálás</string>
 </resources>
