@@ -27,6 +27,7 @@
     <string name="about_title">关于我们</string>
     <string name="about_summary">关于 Evolution X</string>
     <!-- Themes -->
+    <string name="themes_general_category">常规</string>
     <string name="themes_monet_category">莫奈</string>
     <string name="themes_monet_title">莫奈设置</string>
     <string name="themes_monet_summary">自定义 Android 内置主题引擎</string>
@@ -47,10 +48,10 @@
     <string name="themes_signal_icon_summary">设置自定义信号图标样式</string>
     <string name="themes_wifi_icon_title">WiFi 图标样式</string>
     <string name="themes_wifi_icon_summary">设置自定义 WiFi 图标样式</string>
-    <string name="themes_navigation_bar_icons_title">导航栏样式</string>
-    <string name="themes_navigation_bar_icons_summary">设置自定义导航栏样式</string>
-    <string name="themes_udfps_icon_title">指纹图标</string>
-    <string name="themes_udfps_icon_summary">设置指纹图标样式</string>
+    <string name="themes_navigation_bar_icons_title">导航栏图标</string>
+    <string name="themes_navigation_bar_icons_summary">设置导航栏图标样式</string>
+    <string name="themes_udfps_icon_title">屏下指纹图标</string>
+    <string name="themes_udfps_icon_summary">设置屏下指纹图标样式</string>
     <string name="themes_brightness_category">亮度滑块</string>
     <string name="themes_brightness_slider_title">亮度滑块样式</string>
     <string name="themes_brightness_slider_summary">亮度滑块样式</string>
@@ -60,7 +61,6 @@
     <string name="themes_charging_animation_title">充电动画</string>
     <string name="themes_charging_animation_summary">设备接入电源时显示动画</string>
     <string name="themes_screen_off_animation_title">屏幕关闭动画</string>
-    <string name="themes_screen_off_animation_default">默认</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">缩放</string>
     <string name="themes_udfps_animation_title">屏下指纹识别动画</string>
@@ -70,6 +70,22 @@
     <string name="themes_launcher_background_blur_summary">启用最近项目页面背景模糊效果</string>
     <string name="themes_launcher_more_themed_icons_title">更多主题图标</string>
     <string name="themes_launcher_more_themed_icons_summary">扩展对已安装应用的动态颜色主题图标的支持</string>
+    <string name="theme_customization_font_title">字体样式</string>
+    <string name="theme_customization_font_summary">设置系统字体样式</string>
+    <string name="theme_customization_icon_pack_title">图标包</string>
+    <string name="theme_customization_icon_pack_summary">设置自定义图标包样式</string>
+    <string name="theme_customization_icon_shape_title">图标形状</string>
+    <string name="theme_customization_icon_shape_summary">设置系统图标形状样式</string>
+    <string name="theme_customization_signal_icon_title">信号强度图标样式</string>
+    <string name="theme_customization_signal_icon_summary">设置自定义信号图标样式</string>
+    <string name="theme_customization_wifi_icon_title">WiFi 图标样式</string>
+    <string name="theme_customization_wifi_icon_summary">设置自定义 WiFi 图标样式</string>
+    <string name="theme_customization_navbar_title">导航栏样式</string>
+    <string name="theme_customization_navbar_summary">设置自定义导航栏样式</string>
+    <string name="theme_customization_lock_clock_title">时钟字体样式</string>
+    <string name="theme_customization_lock_clock_summary">设置锁屏时钟字体样式</string>
+    <string name="theme_customization_brightness_slider_title">亮度滑块样式</string>
+    <string name="theme_customization_brightness_slider_summary">设置自定义亮度滑块样式</string>
     <!-- Themes/Boot animation preview -->
     <string name="boot_animation_preview_desc">预览选中的启动动画</string>
     <string name="boot_animation_preview_summary">显示当前选择的启动动画预览</string>
@@ -123,8 +139,8 @@
     <string name="pulse_help_policy_notice_title">关于脉冲</string>
     <string name="pulse_help_policy_notice_summary">当音乐在设备上播放时，脉冲是一个优秀的音频图形可视化器</string>
     <string name="lock_screen_pulse_settings_title">脉冲</string>
-    <string name="lock_screen_pulse_settings_summary">导航栏和锁屏界面的音频可视化效果</string>
-    <string name="show_navbar_pulse_title">导航栏脉冲</string>
+    <string name="lock_screen_pulse_settings_summary">导航栏和锁屏的音频图形可视化器</string>
+    <string name="show_navbar_pulse_title">脉冲导航栏</string>
     <string name="show_navbar_pulse_summary">导航栏上的音频可视化效果</string>
     <string name="show_lockscreen_pulse_title">锁屏界面的Pulse</string>
     <string name="show_lockscreen_pulse_summary">在锁屏界面显示音频可视化效果</string>
@@ -150,6 +166,16 @@
     <string name="pulse_custom_div">脉冲条间距</string>
     <string name="pulse_filled_block_size">色块大小</string>
     <string name="pulse_empty_block_size">色块间距</string>
+    <!-- Lock screen Clock Highlight Guide -->
+    <string name="ls_clock_face_highlight_text">向左或向右滑动即可预览时钟样式</string>
+    <!-- Lock screen Clock Revamp -->
+    <string name="ls_clock_custom_font_not_supported">所选时钟不支持自定义字体</string>
+    <!-- Custom Clock Style -->
+    <string name="lockscreen_clock_category_title">时钟</string>
+    <string name="lockscreen_clock_category_summary">配置锁屏时钟样式</string>
+    <string name="custom_clock_style">自定义时钟风格</string>
+    <string name="theme_customization_lock_clock_face_title">时钟样式</string>
+    <string name="theme_customization_lock_clock_face_summary">修改锁屏时钟外观</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">手势</string>
     <string name="status_bar_brightness_control_title">亮度调节</string>
@@ -351,29 +377,32 @@
     <string name="quick_settings_layout_columns_rows_footer_text">控制中心行数应该大于等于快捷控制中心部分的行数。对于圆形或方形（安卓11及以前）的样式来说行数应该更加多才行。</string>
     <string name="quick_settings_columns_portrait_title">列 （纵向）</string>
     <string name="quick_settings_columns_landscape_title">列（横向）</string>
+    <string name="quick_settings_rows_portrait_title">行数 (纵向)</string>
+    <string name="quick_settings_rows_landscape_title">列数 (横向)</string>
     <string name="quick_settings_qqs_rows_portrait_title">快速设置行数 (竖屏)</string>
     <string name="quick_settings_qqs_rows_landscape_title">快速设置行数 (横屏)</string>
     <string name="quick_settings_brightness_slider_category">亮度滑块</string>
     <string name="quick_settings_show_brightness_slider_title">亮度滑块</string>
     <string name="quick_settings_show_brightness_slider_never">从不显示</string>
-    <string name="quick_settings_show_brightness_slider_expanded">只在展开时显示</string>
+    <string name="quick_settings_show_brightness_slider_expanded">仅在展开时显示</string>
     <string name="quick_settings_show_brightness_slider_always">始终显示</string>
+    <string name="quick_settings_show_brightness_percentage_title">亮度百分比</string>
+    <string name="quick_settings_show_brightness_percentage_summary">与滑块一起显示亮度百分比文本</string>
     <string name="quick_settings_brightness_slider_position_title">亮度控制条的位置</string>
     <string name="quick_settings_brightness_slider_position_top">顶部</string>
     <string name="quick_settings_brightness_slider_position_bottom">底部</string>
     <string name="quick_settings_auto_brightness_icon_title">自动亮度图标</string>
-    <string name="quick_settings_auto_brightness_icon_summary">在亮度控制条旁边显示自动亮度按钮</string>
+    <string name="quick_settings_auto_brightness_icon_summary">在滑块旁边显示自适应亮度</string>
     <string name="quick_settings_brightness_slider_haptic_title">震动反馈</string>
     <string name="quick_settings_brightness_slider_haptic_summary">用亮度控制条更改亮度时提供震感反馈</string>
-    <string name="quick_settings_floating_clear_all_title">浮动的清除所有按钮</string>
-    <string name="quick_settings_floating_clear_all_summary">将“清除所有”文本按钮替换为底部浮动按钮</string>
     <string name="quick_settings_animations_category">动画</string>
     <string name="quick_settings_tile_animation_style_title">快捷开关动画样式</string>
     <string name="quick_settings_tile_animation_duration_title">动画持续时间</string>
     <string name="quick_settings_tile_animation_interpolator_title">动画插值</string>
     <string name="quick_settings_tile_animation_style_off">无动画效果</string>
-    <string name="quick_settings_tile_animation_style_flip">翻转</string>
     <string name="quick_settings_tile_animation_style_rotate">旋转</string>
+    <string name="qs_tile_animation_style_flipx">翻动 X</string>
+    <string name="qs_tile_animation_style_flipy">翻动 Y</string>
     <string name="quick_settings_tile_animation_interpolator_linear">线性</string>
     <string name="quick_settings_tile_animation_interpolator_accelerate">加速</string>
     <string name="quick_settings_tile_animation_interpolator_decelerate">减速</string>
@@ -382,6 +411,8 @@
     <string name="quick_settings_tile_animation_interpolator_overshoot">越界</string>
     <string name="quick_settings_tile_animation_interpolator_anticipate">先加速后减速</string>
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">预留和越界</string>
+    <string name="quick_settings_data_usage_title">数据使用情况</string>
+    <string name="quick_settings_data_usage_summary">在快捷设置页中显示数据使用情况</string>
     <string name="quick_settings_lock_screen_category">锁屏界面</string>
     <string name="quick_settings_secure_lock_screen_title">在安全锁屏界面隐藏</string>
     <string name="quick_settings_secure_lock_screen_summary">在设备锁定时隐藏通知阴影中的所有快速设置</string>
@@ -408,6 +439,8 @@
     <string name="quick_settings_header_needs_gallery">您必须至少安装一个相册应用</string>
     <string name="quick_settings_header_offset_title">状态栏图片偏移</string>
     <string name="quick_settings_header_offset_summary">调整header图片大小</string>
+    <string name="quick_settings_transparency_title">背景透明度</string>
+    <string name="quick_settings_transparency_summary">设置快速设置背景透明度级别</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">浮动通知</string>
     <string name="notifications_heads_up_summary">允许弹出通知</string>
@@ -422,6 +455,9 @@
     <!-- Notifications/Alert Slider Notifications (OnePlus devices) -->
     <string name="alert_slider_notifications_title">三段式开关通知</string>
     <string name="alert_slider_notifications_summary">更改警报滑块位置时显示通知</string>
+    <!-- Notifications/Compact Heads-up -->
+    <string name="compact_heads_up_notifications_enabled_title">紧凑型浮动通知</string>
+    <string name="compact_heads_up_notifications_enabled_summary">以紧凑尺寸显示通知</string>
     <!-- Notifications/Edge light -->
     <string name="notifications_edge_light_always_trigger_on_pulse_title">始终在脉冲时触发</string>
     <string name="notifications_edge_light_always_trigger_on_pulse_summary">是否在显示息屏显示时显示边缘灯效，而不仅仅是为了通知</string>
@@ -469,6 +505,11 @@
     <string name="miscellaneous_ignore_window_secure_summary">取消对所有应用程序屏幕截图和屏幕录音的限制，可能有泄漏隐私的危险</string>
     <string name="miscellaneous_unlimit_screenrecord_title">取消屏幕录制的一些限制</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">解除 15GiB 文件大小限制\n可能导致实际输出体积大于本来需要的体积</string>
+    <!-- Miscellaneous/Hide applist -->
+    <string name="hide_applist_title">隐藏应用</string>
+    <string name="hide_applist_summary">隐藏列表中选定的应用程序</string>
+    <string name="menu_show_overlay">显示覆盖</string>
+    <string name="menu_hide_overlay">隐藏覆盖</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">智能像素是一种节电功能。根据你决定关闭多少像素，你可以看到电池寿命的改善。注意，在某些情况下，它可能会导致触摸屏上的无响应区域</string>
     <string name="smart_pixels_title">智能像素</string>
@@ -482,12 +523,12 @@
     <string name="spoofing_title">组件欺骗</string>
     <string name="spoofing_summary">通过破坏组件来绕过应用限制</string>
     <string name="spoofing_system_wide_category">系统范围</string>
-    <string name="spoofing_pif_toggle_title">Play 完整性修复</string>
-    <string name="spoofing_pif_toggle_summary">使用ROM内置的play完整性修复值</string>
-    <string name="spoofing_pif_values_title">Play 完整性修复相关信息</string>
-    <string name="spoofing_pif_values_summary">查看用于Play Integrity API认证的当前GMS欺骗值</string>
     <string name="spoofing_pixel_props_title">伪装Pixel</string>
     <string name="spoofing_pixel_props_summary">针对选定的谷歌系应用设置伪装，让它们以为这是最新的Google Pixel设备</string>
+    <string name="tensor_spoof_title"></string>
+    <string name="tensor_spoof_summary">伪装成Pixel机型</string>
+    <string name="gms_spoof_title">Play完整性修复</string>
+    <string name="gms_spoof_summary">伪装您的设备以通过 Google Play 认证</string>
     <string name="spoofing_storage_encryption_title">存储加密</string>
     <string name="spoofing_storage_encryption_summary">伪装存储加密状态为加密\'</string>
     <string name="spoofing_app_specific_category">针对特定应用程序</string>
@@ -495,24 +536,28 @@
     <string name="spoofing_vending_summary">对Play Store伪装成最新的 Pixel 设备</string>
     <string name="spoofing_photos_title">谷歌相册伪装</string>
     <string name="spoofing_photos_summary">把谷歌相册应用伪装成Pixel XL</string>
-    <string name="spoofing_games_title">在游戏中获得更高的FPS</string>
-    <string name="spoofing_games_summary">在特定游戏中将您的设备伪装成不同机型以解锁更高的帧数</string>
     <string name="spoofing_snap_title">Snapchat 伪装</string>
     <string name="spoofing_snap_summary">对Snapchat设置伪装，让它以为这是Google Pixel XL 来解决可能产生的聊天问题</string>
-    <!-- Navigation Bar -->
-    <string name="navbar_layout_category_title">导航栏按钮</string>
-    <string name="navbar_layout_title">布局</string>
-    <string name="navbar_layout_normal">标准</string>
-    <string name="navbar_layout_compact">紧凑</string>
-    <string name="navbar_layout_leftleaning">靠左</string>
-    <string name="navbar_layout_rightleaning">靠右</string>
-    <string name="navbar_invert_layout_title">反转布局</string>
-    <string name="navbar_invert_layout_summary">反转导航栏和其他项目的布局，如输入法切换器</string>
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">成功下载pif.json。伪装为 %1$s 以通过Play完整性检查。</string>
+    <string name="toast_spoofing_failure">伪装属性失败。</string>
+    <string name="update_pif_json_title">更新Play完整性修复</string>
+    <string name="update_pif_json_summary">更新 PIF 伪装设备，需要网络连接。</string>
+    <string name="show_pif_properties_title">Play完整性修复属性</string>
+    <string name="show_pif_properties_summary">显示所有当前设置的 PIF 属性</string>
+    <string name="error_loading_properties">加载 PIF 属性时出错</string>
+    <string name="pif_spoofing_title">选择 PIF JSON 文件</string>
+    <string name="pif_spoofing_summary">选择用于伪装Play完整性的 PIF JSON 文件</string>
+    <!-- Miscellaneous/Spoofing/Per-app spoofing -->
+    <string name="gameprops_title">启用每个应用的游戏伪装功能</string>
+    <string name="gameprops_summary">启用每个应用程序的游戏伪装选项</string>
+    <string name="gameprops_load_json_title">选择每个应用的游戏道具JSON文件</string>
+    <string name="gameprops_load_json_summary">选择用于伪装更多游戏的 JSON 文件</string>
     <!-- About -->
     <string name="about_info">Evolution X 旨在为用户提供像Pixel一样的初次感觉，提供您可以使用的额外功能</string>
     <string name="about_website_title">网站</string>
     <string name="about_website_summary">点击此处以访问我们最棒的网站！</string>
-    <string name="about_twitter_summary">点击这里访问我们的 Twitter！</string>
+    <string name="about_x_summary">来看看我们的帖子</string>
     <string name="about_discord_summary">加入我们社区的聊天</string>
     <string name="about_github_summary">点击这里打开我们的 GitHub！</string>
     <string name="about_contributors_title">贡献者</string>
@@ -520,7 +565,6 @@
     <string name="dialog_color_picker">颜色选择器</string>
     <string name="press_color_to_apply">选取并应用颜色</string>
     <string name="set">设置</string>
-    <string name="color_default">默认</string>
     <string name="accent_color">首选颜色 (默认)</string>
     <string name="notification_color">通知颜色</string>
     <string name="wallpaper_color">壁纸颜色</string>
@@ -535,6 +579,9 @@
     <string name="enable">启用</string>
     <string name="disable">禁用</string>
     <string name="boot_animation_applied">成功应用开机动画</string>
+    <string name="default_value">默认</string>
+    <string name="top">顶部</string>
+    <string name="bottom">底部</string>
     <!-- Units -->
     <string name="unit_milliseconds">毫秒</string>
     <string name="unit_seconds">秒</string>
@@ -543,4 +590,185 @@
     <string name="systemui_restart_message">要使更改生效，需要重新启动系统界面。现在要重新启动系统界面吗？</string>
     <string name="systemui_restart_yes">是</string>
     <string name="systemui_restart_not_now">以后再说</string>
+    <!-- Split Shade -->
+    <string name="qs_split_shade_enabled_title">更好的QS面板</string>
+    <string name="qs_split_shade_enabled_summary">启用新的实验性分色快速设置，\n阻止横屏抬头通知</string>
+    <!-- Power Menu Styles -->
+    <string name="powermenu_style_title">电源菜单样式</string>
+    <string name="powermenu_style1">赛博朋克</string>
+    <string name="powermenu_style2">双重线条</string>
+    <string name="powermenu_style3">IOS</string>
+    <string name="powermenu_style4">图层</string>
+    <!-- QS Header Clock Styles -->
+    <string name="qs_header_clock_style_title">快速设置页眉时钟样式</string>
+    <string name="qs_header_style1">芯片</string>
+    <string name="qs_header_style2">氧OS</string>
+    <string name="qs_header_style3">模拟</string>
+    <string name="qs_header_style4">简单</string>
+    <!-- Notification Styles -->
+    <string name="notif_style_title">通知样式</string>
+    <string name="notif_style1">赛博朋克</string>
+    <string name="notif_style2">双重线条</string>
+    <string name="notif_style3">流体(透明)</string>
+    <string name="notif_style4">IOS</string>
+    <string name="notif_style5">图层</string>
+    <!-- Progress Bar Styles -->
+    <string name="progress_bar_style_title">进度条样式</string>
+    <string name="progress_bar_style1">区块缩略图</string>
+    <string name="progress_bar_style2">最小缩略图</string>
+    <string name="progress_bar_style3">轮廓b</string>
+    <string name="progress_bar_style4">Shishu</string>
+    <!-- Volume Styles -->
+    <string name="revamped_aosp_style">更新的 AOSP 用户界面样式</string>
+    <string name="rui_style">Realme UI 样式</string>
+    <string name="aosp_style">AOSP 默认样式</string>
+    <string name="double_layer_style">双层样式</string>
+    <string name="gradient_style">渐变风格</string>
+    <string name="neumorph_style">Neumorph 样式</string>
+    <string name="neumorph_outline_style">Neumorph 轮廓样式</string>
+    <string name="outline_style">外框样式</string>
+    <string name="shaded_layer_style">阴影层次样式</string>
+    <string name="volume_style_title">音量面板样式</string>
+    <!-- Wallpaper Styles -->
+    <string name="wallpaper_settings_title">壁纸样式</string>
+    <string name="wallpaper_settings_summary">配置壁纸样式和设置</string>
+    <string name="wallpaper_blur_title">壁纸模糊</string>
+    <string name="wallpaper_blur_summary">启用或禁用壁纸模糊效果</string>
+    <string name="wallpaper_blur_filter">壁纸模糊样式</string>
+    <string name="wallpaper_dim_title">壁纸暗淡</string>
+    <string name="wallpaper_dim_level_title">壁纸暗淡级别</string>
+    <string name="wallpaper_dim_level_summary">配置壁纸暗淡级别</string>
+    <string name="glass_blur">玻璃模糊</string>
+    <string name="frosted_blur">磨砂模糊</string>
+    <string name="wallpaper_styles_footer">为了使壁纸样式有效，用户必须在不同时间设置锁定屏幕和主屏幕的壁纸。\n可以使用相同的壁纸，但不应同时应用于锁定屏幕和主屏幕。\n当使用“同时使用”壁纸模糊和暗淡样式时，这是可选的。    </string>
+    <!-- Compact QS Media Player-->
+    <string name="qs_compact_media_player_mode_title">紧凑型快速设置媒体播放器</string>
+    <string name="qs_compact_media_player_mode_summary">为快速设置媒体播放器启用紧凑模式</string>
+    <!-- Depth Wallpaper -->
+    <string name="dw_file_header_select_title">选择景深壁纸主题</string>
+    <string name="dw_file_header_select_summary">从存储中选择景深壁纸.</string>
+    <string name="dw_wallpaper_enabled_title">景深壁纸</string>
+    <string name="dw_wallpaper_enabled_summary_tile">将景深效果应用于墙纸</string>
+    <string name="dw_wallpaper_enabled_summary">启用来自iOS的景深壁纸。需要一张主题图像.</string>
+    <string name="dw_wallpaper_opacity_title">景深壁纸不透明度</string>
+    <string name="depth_wallpaper_offset_x_title">景深壁纸水平偏移</string>
+    <string name="depth_wallpaper_offset_y_title">景深壁纸垂直偏移</string>
+    <string name="dw_footer_text">深度壁纸功能的灵感来自于ios的壁纸主题分割，可以将一个主题叠加在锁屏时钟上方，以显示壁纸深度效果。\n\n设置深度壁纸功能：\n1. 设置一个带有主题的壁纸，或者您希望主题位于其上方的背景。\n2. 选择要跟踪的主题图像，该图像将叠加在锁屏时钟上方。\n3. 根据您的需要修改偏移量和不透明度。    </string>
+    <!-- Media art -->
+    <string name="media_art_title">媒体封面</string>
+    <string name="media_art_summary">可用时显示媒体封面</string>
+    <string name="ls_media_art_fade_level_title">媒体封面艺术淡入淡出级别</string>
+    <string name="ls_media_art_fade_level_summary">设置媒体封面艺术淡入淡出级别</string>
+    <!-- Lock screen album art filter -->
+    <string name="lockscreen_albumart_filter_title">媒体封面艺术滤镜</string>
+    <string name="lockscreen_albumart_filter_none">无</string>
+    <string name="lockscreen_albumart_filter_grayscale">灰度</string>
+    <string name="lockscreen_albumart_filter_tint">主题色</string>
+    <string name="lockscreen_albumart_filter_blur">模糊</string>
+    <string name="lockscreen_albumart_filter_grayblur">灰度和模糊</string>
+    <!-- Haptics Settings -->
+    <string name="haptics_settings_title">系统震动</string>
+    <string name="haptics_settings_summary">修改系统震动强度</string>
+    <string name="back_gesture_haptic_intensity_title">返回手势针对反馈强度</string>
+    <string name="brightness_slider_haptics_intensity_title">亮度滑块震动强度</string>
+    <string name="edge_scrolling_haptics_intensity_title">边缘滑动震动反馈强度</string>
+    <string name="volume_slider_haptics_intensity_title">音量滑块震动反馈强度</string>
+    <string name="qs_panel_tile_haptic_intensity_title">快速设置瓷块震动强度</string>
+    <string name="qs_haptics_intensity_title">QS瓷块震动强度</string>
+    <string name="qs_tiles_haptic_feedback_title">触摸快速设置磁贴时振动</string>
+    <!-- Weather -->
+    <string name="weather_settings_title">天气设置</string>
+    <string name="weather_settings_summary">设置图标包和天气服务</string>
+    <string name="lockscreen_weather_category">天气</string>
+    <string name="lockscreen_weather_title">天气更新</string>
+    <string name="lockscreen_weather_summary">显示当前天气更新</string>
+    <string name="lockscreen_weather_enabled_info">需要启用天气服务</string>
+    <string name="lockscreen_weather_location_title">当前位置</string>
+    <string name="lockscreen_weather_location_summary">显示当前天气位置</string>
+    <string name="lockscreen_weather_text_title">当前状况</string>
+    <string name="lockscreen_weather_text_summary">显示当前天气状况摘要</string>
+    <string name="lockscreen_weather_style_title">Pixel 样式</string>
+    <string name="lockscreen_weather_style_summary">将天气显示为单独的行</string>
+    <!-- AOD Settings -->
+    <string name="aod_display_category_title">常亮显示</string>
+    <string name="aod_pulse_category_title">脉冲/Doze</string>
+    <!-- AOD custom image -->
+    <string name="lockscreen_custom_image_enabled_title">AOD 图像</string>
+    <string name="lockscreen_custom_image_title">选择 AOD 图像</string>
+    <string name="lockscreen_custom_image_summary">设置自定义 AOD 图像</string>
+    <string name="lockscreen_custom_image_pick_summary">从图库中选择 AOD 图像</string>
+    <string name="custom_aod_image_not_supported">不支持时钟样式</string>
+    <!-- QS Widgets -->
+    <string name="qs_widgets_enabled_title">小部件</string>
+    <string name="qs_widgets_enabled_summary">显示小部件以便快速访问。\n将 QS 行限制为 2 行，以避免破坏 AOSP QS 面板滚动</string>
+    <!-- Lockscreen widgets  -->
+    <string name="lockscreen_widgets_title">小部件</string>
+    <string name="lockscreen_widgets_enabled_title">启用锁屏小部件</string>
+    <string name="lockscreen_widgets_enabled_summary">添加小部件至锁定屏幕</string>
+    <string name="lockscreen_display_widgets_title">设备信息小部件</string>
+    <string name="lockscreen_display_widgets_summary">在锁定屏幕上显示设备信息小部件</string>
+    <string name="large_widgets_category_title">大型部件</string>
+    <string name="main_custom_widgets1">大型部件1</string>
+    <string name="main_custom_widgets2">大型部件2</string>
+    <string name="mini_widgets_category_title">迷你小工具</string>
+    <string name="custom_widgets1">迷你小部件 1</string>
+    <string name="custom_widgets2">Mini widget 2</string>
+    <string name="custom_widgets3">迷你小部件 3</string>
+    <string name="custom_widgets4">迷你小部件 4</string>
+    <string name="camera">相机</string>
+    <string name="clock_timer">时钟/定时器</string>
+    <string name="calculator">计算器</string>
+    <string name="gallery">相册</string>
+    <string name="media">媒体播放器</string>
+    <string name="torch">手电筒</string>
+    <string name="controls_media_button_play">播放</string>
+    <string name="weather">天气</string>
+    <string name="wifi">无线上网</string>
+    <string name="data">数据</string>
+    <string name="ringer">铃声</string>
+    <string name="bt">蓝牙</string>
+    <string name="hotspot">热点</string>
+    <string name="wallet">钱包</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">锁屏小部件样式</string>
+    <string name="lockscreen_widgets_style1">Material圆角</string>
+    <string name="lockscreen_widgets_style2">Material方形</string>
+    <string name="lockscreen_widgets_style3">半透明（方形）</string>
+    <string name="lockscreen_widgets_style4">半透明（圆形）</string>
+    <string name="lockscreen_widgets_transparency_title">小部件透明度</string>
+    <string name="lockscreen_widgets_transparency_summary">配置半透明样式小部件的不透明度级别</string>
+    <!-- Font styles -->
+    <string name="font_styles_title">字体样式</string>
+    <string name="font_styles_summary">更改系统字体样式</string>
+    <string name="font_preview_text">快速棕色\n🦊 跳过了\n懒🐕\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvxyz\n1234567890</string>
+    <string name="apply_button_text">应用</string>
+    <string name="font_picker_select_font">选择字体</string>
+    <!-- Apply Button -->
+    <string name="apply_change_button_title">应用</string>
+    <!-- Peek Display -->
+    <string name="peek_display_notifications_title">预览显示</string>
+    <string name="peek_display_notifications_summary">启用最小锁屏通知样式</string>
+    <string name="peek_display_location_title">查看显示位置</string>
+    <string name="peek_display_bottom_margin_title">预览显示（底部）顶部边距</string>
+    <!-- Peek Display Styles -->
+    <string name="peek_display_minimalist">极简风格</string>
+    <string name="peek_display_style_title">预览显示样式</string>
+    <!-- Now Bar -->
+    <string name="keyguard_now_bar_enabled_title">当前活动栏</string>
+    <string name="keyguard_now_bar_enabled_summary">启用状态栏锁定屏幕小部件</string>
+    <string name="keyguard_now_bar_height_title">状态栏高度</string>
+    <string name="keyguard_now_bar_height_summary">调整“状态栏”的高度</string>
+    <!-- Max visible notification icons -->
+    <string name="max_visible_notification_icons_title">通知图标</string>
+    <string name="max_visible_notification_icons_summary">状态栏可显示图标</string>
+    <!-- Ongoing progress bar chip in statusbar -->
+    <string name="ongoing_action_chip_title">通知进度条</string>
+    <string name="ongoing_action_chip_summary">在状态栏中显示通知进度条</string>
+    <!-- Squiggle animation -->
+    <string name="show_squiggle_animation_title">显示波浪动画</string>
+    <string name="show_squiggle_animation_summary">显示媒体面板波浪动画\n更改后需要切换音乐、暂停音乐或移动进度条才能应用</string>
+    <!-- Freeform launch mode -->
+    <string name="freeform_launch_mode_title">任意来源启动模式</string>
+    <string name="freeform_launch_mode_1">原生 AOSP</string>
+    <string name="freeform_launch_mode_2"></string>
 </resources>
