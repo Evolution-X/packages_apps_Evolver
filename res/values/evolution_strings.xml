@@ -849,9 +849,33 @@
     <string name="max_visible_notification_icons_title">Notification icons</string>
     <string name="max_visible_notification_icons_summary">Maximum notification icons visible on status bar</string>
 
-    <!-- Ongoing progress bar chip in statusbar --> 
-    <string name="ongoing_action_chip_title">Ongoing progress bar chip</string>
-    <string name="ongoing_action_chip_summary">Show progress bar chip in status bar which features ongoing action progress from a notification</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Statusbar action chip</string>
+    <string name="ongoing_progress_settings_summary">Statusbar action chip options</string>
+    <string name="ongoing_action_chip_title">Ongoing action chip</string>
+    <string name="ongoing_action_chip_summary">Show progress indicator in status bar for ongoing actions like downloads</string>
+    <string name="ongoing_action_chip_opacity_title">Progress bar opacity</string>
+    <string name="ongoing_action_chip_opacity_summary">Adjust the opacity of the progress bar chip</string>
+    <string name="show_media_progress_title">Show media progress</string>
+    <string name="show_media_progress_summary">"Display media playback progress in the status bar</string>
+    <string name="progress_footer_text">
+     "The status bar progress bar provides real-time updates for both media playback and active downloads/uploads.
+ 
+     - 🎵 Media Progress:
+     • Displays playback progress for music and video when media is playing.
+     • Single tap opens playback controls (Previous, Next track).
+     • Double tap toggles play/pause.
+     • Swipe left skips to the previous track.
+     • Swipe right skips to the next track.
+     • Long press opens the media app. 
+ 
+     - 📥Download/Upload Progress:
+     • Shows progress for ongoing downloads and uploads.
+     • Automatically hides when no active transfers are detected.
+     • Single tap opens the app responsible for the download.
+ 
+     The progress bar dynamically switches between media and download states, ensuring you always have the most relevant information at a glance."
+    </string>
  
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Show squiggle animation</string>
