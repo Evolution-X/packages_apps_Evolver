@@ -75,7 +75,7 @@
             android:key="persist.sys.gphooks.enable"
             android:title="@string/spoofing_photos_title"
             android:summary="@string/spoofing_photos_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <!-- Games FPS -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
