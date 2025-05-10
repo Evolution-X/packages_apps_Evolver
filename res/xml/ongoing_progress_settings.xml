@@ -27,6 +27,12 @@
          android:defaultValue="true" />
 
      <org.evolution.settings.preferences.SystemSettingSwitchPreference
+         android:key="compact_progress_mode"
+         android:title="@string/compact_progress_mode_title"
+         android:summary="@string/compact_progress_mode_summary"
+         android:defaultValue="false" />
+ 
+     <org.evolution.settings.preferences.SystemSettingSwitchPreference
          android:key="show_media_progress"
          android:title="@string/show_media_progress_title"
          android:summary="@string/show_media_progress_summary"
