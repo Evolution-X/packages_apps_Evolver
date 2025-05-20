@@ -48,6 +48,8 @@
     <string name="themes_signal_icon_summary">Выберите пользовательский значок сети</string>
     <string name="themes_wifi_icon_title">Стиль значка WiFi</string>
     <string name="themes_wifi_icon_summary">Выберите пользовательский значок wifi</string>
+    <string name="themes_navigation_bar_icons_title">Стиль панели навигации</string>
+    <string name="themes_navigation_bar_icons_summary">Выберите стиль панели навигации</string>
     <string name="themes_udfps_icon_title">Иконка подэкранного отпечатка пальца</string>
     <string name="themes_udfps_icon_summary">Выберите иконку для подэкранного отпечатка пальца</string>
     <string name="themes_brightness_category">Ползунок яркости</string>
@@ -68,6 +70,22 @@
     <string name="themes_launcher_background_blur_summary">Включить эффект размытия для фона недавних приложений</string>
     <string name="themes_launcher_more_themed_icons_title">Больше тематических значков</string>
     <string name="themes_launcher_more_themed_icons_summary">Расширяет поддержку тематических значков для установленных приложений</string>
+    <string name="theme_customization_font_title">Стиль шрифта</string>
+    <string name="theme_customization_font_summary">Выберите системный шрифт</string>
+    <string name="theme_customization_icon_pack_title">Набор значков</string>
+    <string name="theme_customization_icon_pack_summary">Выберите пользовательский набор значков</string>
+    <string name="theme_customization_icon_shape_title">Форма значков</string>
+    <string name="theme_customization_icon_shape_summary">Выберите форму значков</string>
+    <string name="theme_customization_signal_icon_title">Стиль значка сети</string>
+    <string name="theme_customization_signal_icon_summary">Выберите пользовательский значок сети</string>
+    <string name="theme_customization_wifi_icon_title">Стиль значка WiFi</string>
+    <string name="theme_customization_wifi_icon_summary">Выберите пользовательский значок wifi</string>
+    <string name="theme_customization_navbar_title">Стиль панели навигации</string>
+    <string name="theme_customization_navbar_summary">Установить пользовательский стиль панели навигации</string>
+    <string name="theme_customization_lock_clock_title">Стиль шрифта часов</string>
+    <string name="theme_customization_lock_clock_summary">Выберите стиль шрифта часов на экране блокировки</string>
+    <string name="theme_customization_brightness_slider_title">Стиль ползунка яркости</string>
+    <string name="theme_customization_brightness_slider_summary">Выберите стиль ползунка яркости</string>
     <!-- Themes/Boot animation preview -->
     <string name="boot_animation_preview_desc">Предварительный просмотр выбранной анимации загрузки</string>
     <string name="boot_animation_preview_summary">Показать текущий стиль анимации при загрузке устройства</string>
@@ -156,8 +174,8 @@
     <string name="lockscreen_clock_category_title">Часы</string>
     <string name="lockscreen_clock_category_summary">Настроить стиль часов на экране блокировки</string>
     <string name="custom_clock_style">Пользовательский стиль часов</string>
-    <string name="theme_customization_lock_clock_title">Циферблат часов</string>
-    <string name="theme_customization_lock_clock_summary">Изменить внешний вид часов на экране блокировки</string>
+    <string name="theme_customization_lock_clock_face_title">Циферблат часов</string>
+    <string name="theme_customization_lock_clock_face_summary">Изменить внешний вид часов на экране блокировки</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Жесты</string>
     <string name="status_bar_brightness_control_title">Управление яркостью</string>
@@ -738,21 +756,21 @@
     <string name="peek_display_minimalist">Минималистичный</string>
     <string name="peek_display_style_title">Стиль предварительного экрана</string>
     <!-- Now Bar -->
-    <string name="keyguard_now_bar_enabled_title">Панель «Сейчас»</string>
-    <string name="keyguard_now_bar_enabled_summary">Включить виджеты панели «Сейчас» на экране блокировки</string>
-    <string name="keyguard_now_bar_height_title">Высота панели «Сейчас»</string>
-    <string name="keyguard_now_bar_height_summary">Отрегулировать высоту панели «Сейчас»</string>
-    <!-- Freeform launch mode -->
-    <string name="freeform_launch_mode_title">Запуск режима «В окне»</string>
-    <string name="freeform_launch_mode_1">Стандартный AOSP</string>
-    <string name="freeform_launch_mode_2">LMOFreeForm</string>
+    <string name="keyguard_now_bar_enabled_title">Статус-панель</string>
+    <string name="keyguard_now_bar_enabled_summary">Включить виджеты статус-панели на экране блокировки</string>
+    <string name="keyguard_now_bar_height_title">Высота статус-панели</string>
+    <string name="keyguard_now_bar_height_summary">Отрегулировать высоту статус-панели</string>
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Значки уведомлений</string>
     <string name="max_visible_notification_icons_summary">Максимальное количество значков уведомлений, отображаемых в строке состояния</string>
     <!-- Ongoing progress bar chip in statusbar -->
-    <string name="ongoing_action_chip_title">Текущий чип шкалы прогресса</string>
-    <string name="ongoing_action_chip_summary">Показать чип индикатора прогресса в строке состояния, который показывает текущий прогресс действий из уведомления</string>
+    <string name="ongoing_action_chip_title">Текущий индикатор выполнения работы</string>
+    <string name="ongoing_action_chip_summary">Показывать индикатор выполнения в строке состояния, который показывает текущий ход выполнения действий из уведомления</string>
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Показать волнистую анимацию</string>
     <string name="show_squiggle_animation_summary">Показывать волнистую анимацию медиа плеера\nДля применения изменений необходимо переключить музыку, остановить ее или промотать</string>
+    <!-- Freeform launch mode -->
+    <string name="freeform_launch_mode_title">Freeform launch mode</string>
+    <string name="freeform_launch_mode_1">Native AOSP</string>
+    <string name="freeform_launch_mode_2">LMOFreeForm</string>
 </resources>
