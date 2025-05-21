@@ -44,6 +44,13 @@
             android:summary="@string/spoofing_pixel_props_summary"
             android:defaultValue="true" />
 
+        <!-- Pixel props -->
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.spoof.vending_sdk32"
+            android:title="@string/spoofing_vending_32_title"
+            android:summary="@string/spoofing_vending_32_summary"
+            android:defaultValue="false" />
+
         <!-- Tensor features -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.features.tensor"

@@ -76,6 +76,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SYS_GPHOTOS_SPOOF = "persist.sys.gphooks.enable";
     private static final String SYS_SNAP_SPOOF = "persist.sys.snap.enable";
     private static final String SYS_VENDING_SPOOF = "persist.sys.vending.enable";
+    private static final String SYS_VENDING_32_SPOOF = "persist.sys.spoof.vending_sdk32";
     private static final String SYS_ENABLE_TENSOR_FEATURES = "persist.sys.features.tensor";
 
     private Preference mGamePropsJsonFilePreference;
@@ -88,6 +89,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private SystemPropertySwitchPreference mGphotosSpoof;
     private SystemPropertySwitchPreference mSnapSpoof;
     private SystemPropertySwitchPreference mVendingSpoof;
+    private SystemPropertySwitchPreference mVending32Spoof;
     private SystemPropertySwitchPreference mTensorFeaturesToggle;
 
     private Handler mHandler;
@@ -112,6 +114,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
         mSnapSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAP_SPOOF);
         mVendingSpoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_SPOOF);
+        mVending32Spoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_32_SPOOF);
         mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
         mTensorFeaturesToggle = (SystemPropertySwitchPreference) findPreference(SYS_ENABLE_TENSOR_FEATURES);
 
@@ -136,6 +139,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGamePropsSpoof.setOnPreferenceChangeListener(this);
         mSnapSpoof.setOnPreferenceChangeListener(this);
         mVendingSpoof.setOnPreferenceChangeListener(this);
+        mVending32Spoof.setOnPreferenceChangeListener(this);
         mTensorFeaturesToggle.setOnPreferenceChangeListener(this);
 
         mPifJsonFilePreference.setOnPreferenceClickListener(preference -> {
@@ -333,7 +337,8 @@ public class Spoofing extends SettingsPreferenceFragment implements
             || preference == mGphotosSpoof
             || preference == mGamePropsSpoof
             || preference == mSnapSpoof
-            || preference == mVendingSpoof) {
+            || preference == mVendingSpoof
+            || preference == mVending32Spoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
