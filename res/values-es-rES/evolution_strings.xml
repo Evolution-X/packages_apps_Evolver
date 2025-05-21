@@ -527,8 +527,6 @@
     <string name="spoofing_pixel_props_summary">Suplanta tu dispositivo como un Pixel 8 Pro para todas las apps de Google</string>
     <string name="tensor_spoof_title">Características del tensor de suplantación de identidad</string>
     <string name="tensor_spoof_summary">Desbloquear funciones de tensor/pixel</string>
-    <string name="gms_spoof_title">Corrección de integridad de Google Play</string>
-    <string name="gms_spoof_summary">Suplantar dispositivo para pasar la atestación de Google Play</string>
     <string name="spoofing_storage_encryption_title">Cifrado del almacenamiento</string>
     <string name="spoofing_storage_encryption_summary">Suplanta el estado de cifrado de almacenamiento a \"Cifrado\"</string>
     <string name="spoofing_app_specific_category">Aplicación específica</string>
@@ -538,16 +536,6 @@
     <string name="spoofing_photos_summary">Suplanta el dispositivo como Pixel XL en la aplicación Google Fotos para desbloquear el respaldo de imágenes limitado</string>
     <string name="spoofing_snap_title">Engañar Snapchat</string>
     <string name="spoofing_snap_summary">Utiliza Snapchat como un Pixel XL para solucionar posibles problemas con el chat</string>
-    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">Descargado correctamente pif.json. Suplantación de identidad como %1$s para la integridad de Google Play.</string>
-    <string name="toast_spoofing_failure">No se pudo suplantar las propiedades.</string>
-    <string name="update_pif_json_title">Actualizar la corrección de integridad de Google Play</string>
-    <string name="update_pif_json_summary">Actualizar el dispositivo de suplantación de PIF, requiere conexión a Internet.</string>
-    <string name="show_pif_properties_title">Propiedades de corrección de integridad de Google Play</string>
-    <string name="show_pif_properties_summary">Mostrar todas las propiedades PIF establecidas actualmente</string>
-    <string name="error_loading_properties">Error al cargar las propiedades PIF</string>
-    <string name="pif_spoofing_title">Seleccione el archivo JSON PIF</string>
-    <string name="pif_spoofing_summary">Elija el archivo PIF JSON que se usará para suplantar la integridad de Google Play</string>
     <!-- Miscellaneous/Spoofing/Per-app spoofing -->
     <string name="gameprops_title">Habilitar la suplantación por aplicación</string>
     <string name="gameprops_summary">Habilita las opciones de suplantación de identidad por aplicación</string>
@@ -767,8 +755,4 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Mostrar animación de garabato</string>
     <string name="show_squiggle_animation_summary">Mostrar animación de garabato del panel multimedia\nDespués del cambio, es necesario cambiar la música, pausarla o mover la barra de progreso para aplicarla</string>
-    <!-- Freeform launch mode -->
-    <string name="freeform_launch_mode_title">Modo inicio de forma libre</string>
-    <string name="freeform_launch_mode_1">AOSP nativo</string>
-    <string name="freeform_launch_mode_2">LMO Libre Formato</string>
 </resources>
