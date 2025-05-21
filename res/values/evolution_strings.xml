@@ -560,6 +560,8 @@
     <string name="spoofing_storage_encryption_title">Storage encryption</string>
     <string name="spoofing_storage_encryption_summary">Spoof the device storage encryption status to \'Encrypted\'</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
+    <string name="spoofing_vending_32_title">Spoof Play Store to SDK 32</string>
+    <string name="spoofing_vending_32_summary">Spoof Play Store to SDK 32 to get Legacy attestation</string>
     <string name="spoofing_vending_title">Play Store spoof</string>
     <string name="spoofing_vending_summary">Spoof the Play Store to the latest Pixel device</string>
     <string name="spoofing_photos_title">Google Photos spoof</string>
