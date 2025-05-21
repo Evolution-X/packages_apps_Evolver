@@ -527,11 +527,13 @@
     <string name="spoofing_pixel_props_summary">A kijelölt Google alkalmazásokhoz a legújabb Pixel-telefonnak álcázza az Ön készülékét</string>
     <string name="tensor_spoof_title">Hamis Tenson CPU funkciók</string>
     <string name="tensor_spoof_summary">A Tensor / Pixel jellemzők feloldása</string>
-    <string name="gms_spoof_title">Play Integritásjavítás</string>
-    <string name="gms_spoof_summary">Készülékálcázás, hogy megfeleljen a Google Play tanusítványi feltételeinek</string>
+    <string name="gms_spoof_title">Áruházi Integritásjavítás</string>
+    <string name="gms_spoof_summary">Készülékálcázás, hogy megfeleljen a Google Áruház tanusítványi feltételeinek</string>
     <string name="spoofing_storage_encryption_title">Tárhelytitkosítás</string>
     <string name="spoofing_storage_encryption_summary">A tárhely állapotának hamisítása \' Titkosított \'-ra</string>
     <string name="spoofing_app_specific_category">Alkalmazás-specifikus</string>
+    <string name="spoofing_vending_32_title">Áruház álcázása SDK 32-re</string>
+    <string name="spoofing_vending_32_summary">Az örökségi igazolás elérése SDK 32-re álcázással</string>
     <string name="spoofing_vending_title">Google Play Áruház trükk</string>
     <string name="spoofing_vending_summary">A legutolsó Pixel készüléknek álcázza az Ön készülékét</string>
     <string name="spoofing_photos_title">Trükk a Google Fényképek-hez</string>
@@ -539,15 +541,15 @@
     <string name="spoofing_snap_title">Snapchat álcázás</string>
     <string name="spoofing_snap_summary">A Snapchat-ben Pixel XL-nek álcázza az Ön készülékét a lehetséges csevegési problémák elkerüléséért</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">A pif.json sikeresen letöltve. Álcázás a következőnek: %1$s.</string>
+    <string name="toast_spoofing_success">A pif.json letöltése sikeres. Az Áruházi Integritáshoz álcázás a következőre: %1$s</string>
     <string name="toast_spoofing_failure">Nem sikerült álcázni a tulajdonságokat.</string>
-    <string name="update_pif_json_title">A Play integritásjavítás frissítése</string>
+    <string name="update_pif_json_title">Az Áruházi integritásjavítás frissítése</string>
     <string name="update_pif_json_summary">Frissítse a PIF-álcázóeszközt, internetkapcsolat szükséges.</string>
-    <string name="show_pif_properties_title">A Play integritásjavítás értékei</string>
+    <string name="show_pif_properties_title">Az Áruházi integritásjavítás értékei</string>
     <string name="show_pif_properties_summary">Az összes jelenleg beállított PIF-tulajdonság megjelenítése</string>
     <string name="error_loading_properties">Hiba a tulajdonságok betöltése közben</string>
     <string name="pif_spoofing_title">Válasszon PIF.JSON-fájlt</string>
-    <string name="pif_spoofing_summary">Válassza ki a Play Integrity átveréséhez használni kívánt PIF.JSON-fájlt</string>
+    <string name="pif_spoofing_summary">Válassza ki az Áruházi Integritás átveréséhez használni kívánt PIF.JSON-fájlt</string>
     <!-- Miscellaneous/Spoofing/Per-app spoofing -->
     <string name="gameprops_title">Alkalmazásonkénti játékhamisítás engedélyezése</string>
     <string name="gameprops_summary">Az alkalmazásonkénti hamisítás lehetőségei játékokhoz</string>
