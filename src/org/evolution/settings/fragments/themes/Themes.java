@@ -11,12 +11,14 @@ import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.provider.Settings;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.android.ThemeUtils;
@@ -51,6 +53,9 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIF_STYLE = "notification_style";
     private static final String KEY_POWERMENU_STYLE = "powermenu_style";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
+
+    private static final String KEY_EXPRESSIVE_DESIGN = "expressive_design";
+    private static final String PROP_EXPRESSIVE_DESIGN = "persist.sys.is_expressive_design_enabled";
 
     private static final String[] POWER_MENU_OVERLAYS = {
             "com.android.theme.powermenu.cyberpunk",
@@ -140,6 +145,12 @@ public class Themes extends SettingsPreferenceFragment implements
         if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
             prefScreen.removePreference(mLauncherCategory);
         }
+
+        SwitchPreferenceCompat expressiveDesign = findPreference(KEY_EXPRESSIVE_DESIGN);
+        if (expressiveDesign != null) {
+            expressiveDesign.setChecked(SystemProperties.getBoolean(PROP_EXPRESSIVE_DESIGN, false));
+            expressiveDesign.setOnPreferenceChangeListener(this);
+        }
     }
 
     private void updateStyle(String key, String category, String target,
@@ -179,10 +190,10 @@ public class Themes extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         // Ensure newValue is a valid integer before parsing
-        int value = 0;
+        int intValue = 0;
         if (newValue instanceof String) {
             try {
-                value = Integer.parseInt((String) newValue);
+                intValue = Integer.parseInt((String) newValue);
             } catch (NumberFormatException e) {
                 // Handle the case where newValue is not an integer (like a file path)
                 if (preference == mLockSound || preference == mUnlockSound) {
@@ -192,19 +203,23 @@ public class Themes extends SettingsPreferenceFragment implements
                 return false;
             }
         }
-        if (preference == mProgressBarPref) {
+        if (preference.getKey().equals(KEY_EXPRESSIVE_DESIGN)) {
+            boolean value = (Boolean) newValue;
+            SystemProperties.set(PROP_EXPRESSIVE_DESIGN, value ? "1" : "0");
+            return true;
+        } else if (preference == mProgressBarPref) {
             Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    KEY_PGB_STYLE, value, UserHandle.USER_CURRENT);
+                    KEY_PGB_STYLE, intValue, UserHandle.USER_CURRENT);
             updateProgressBarStyle();
             return true;
         } else if (preference == mNotificationStylePref) {
             Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    KEY_NOTIF_STYLE, value, UserHandle.USER_CURRENT);
+                    KEY_NOTIF_STYLE, intValue, UserHandle.USER_CURRENT);
             updateNotifStyle();
             return true;
         } else if (preference == mPowerMenuStylePref) {
             Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    KEY_POWERMENU_STYLE, value, UserHandle.USER_CURRENT);
+                    KEY_POWERMENU_STYLE, intValue, UserHandle.USER_CURRENT);
             updatePowerMenuStyle();
             return true;
         }
