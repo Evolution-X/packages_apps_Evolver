@@ -25,6 +25,13 @@
         android:key="themes_general_category"
         android:title="@string/themes_general_category">
 
+        <SwitchPreference
+            android:key="expressive_design"
+            android:title="@string/expressive_design_title"
+            android:summary="@string/expressive_design_summary"
+            android:defaultValue="false"
+            android:persistent="true" />
+
         <!-- Wallpaper Settings -->
         <Preference
             android:key="wallpaper_settings"
