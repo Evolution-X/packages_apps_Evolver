@@ -47,7 +47,7 @@
     <string name="themes_signal_icon_title">Styl ikony sygnału</string>
     <string name="themes_signal_icon_summary">Ustaw niestandardowy wygląd ikony sygnału</string>
     <string name="themes_wifi_icon_title">Styl ikony WiFi</string>
-    <string name="themes_wifi_icon_summary">Ustaw niestandardowy wygląd ikony wifi</string>
+    <string name="themes_wifi_icon_summary">Ustaw niestandardowy wygląd ikony WiFi</string>
     <string name="themes_navigation_bar_icons_title">Ikona paska nawigacji</string>
     <string name="themes_navigation_bar_icons_summary">Ustaw styl ikony paska nawigacji</string>
     <string name="themes_udfps_icon_title">Ikony UDFPS</string>
@@ -527,11 +527,13 @@
     <string name="spoofing_pixel_props_summary">Podszyj wybrane aplikacje Google pod najnowsze urządzenie Pixel</string>
     <string name="tensor_spoof_title">Usprawnij funkcję tensora</string>
     <string name="tensor_spoof_summary">Odblokuj funkcje Tensor/Pixel</string>
-    <string name="gms_spoof_title">Napraw certyfikat Google Play Protect</string>
-    <string name="gms_spoof_summary">Popraw certyfikat urządzenia, aby przejść integralność Google Play</string>
+    <string name="gms_spoof_title">Play Integrity Fix</string>
+    <string name="gms_spoof_summary">Popraw certyfikat urządzenia, aby przejść integralność Play</string>
     <string name="spoofing_storage_encryption_title">Szyfrowanie pamięci</string>
     <string name="spoofing_storage_encryption_summary">Status szyfrowanego przechowywania danych\'</string>
     <string name="spoofing_app_specific_category">Specyficzne dla aplikacji</string>
+    <string name="spoofing_vending_32_title">Podszyj się dla Sklepu Play na SDK 32</string>
+    <string name="spoofing_vending_32_summary">Podszyj się dla Sklepu Play na SDK 32 w celu uzyskania atestacji w trybie legacy</string>
     <string name="spoofing_vending_title">Popraw Sklep Play</string>
     <string name="spoofing_vending_summary">Podszyj się pod najnowsze urządzenie Pixel w Sklepie Play</string>
     <string name="spoofing_photos_title">Popraw urządzenie w Zdjęciach Google</string>
@@ -539,15 +541,15 @@
     <string name="spoofing_snap_title">Podszycie pod Snapchat</string>
     <string name="spoofing_snap_summary">Podszyj się pod Pixel XL w Snapchacie, aby naprawić możliwe problemy z czatem</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">Pomyślnie pobrano pif.json. Poprawianie certyfikatu Play.</string>
-    <string name="toast_spoofing_failure">Nie udało się poprawić właściwości.</string>
-    <string name="update_pif_json_title">Zaktualizuj poprawki certyfikatu Play</string>
-    <string name="update_pif_json_summary">Aktualizacja PIF wymaga dostępu do internetu</string>
-    <string name="show_pif_properties_title">Właściwości poprawki certyfikatu Play</string>
+    <string name="toast_spoofing_success">Pomyślnie pobrano pif.json. Podszywanie się pod %1$s dla certyfikatu Play.</string>
+    <string name="toast_spoofing_failure">Nie udało się poszyć właściwości.</string>
+    <string name="update_pif_json_title">Zaktualizuj Play Integrity Fix</string>
+    <string name="update_pif_json_summary">Aby zaktualizować urządzenie podszywające się pod PIF, wymagane jest połączenie z internetem.</string>
+    <string name="show_pif_properties_title">Właściwości Play Integrity Fix</string>
     <string name="show_pif_properties_summary">Pokaż wszystkie aktualnie ustawione właściwości PIF</string>
     <string name="error_loading_properties">Błąd ładowania właściwości PIF</string>
     <string name="pif_spoofing_title">Wybierz plik PIF JSON</string>
-    <string name="pif_spoofing_summary">Wybierz plik PIF JSON, który będzie używany do poprawy certyfikatu Play</string>
+    <string name="pif_spoofing_summary">Wybierz plik PIF JSON, który będzie używany do podszywania certyfikatu Play</string>
     <!-- Miscellaneous/Spoofing/Per-app spoofing -->
     <string name="gameprops_title">Włącz w poszczególnych poprawkę w grach</string>
     <string name="gameprops_summary">Włącza opcje spoofingu gier w poszczególnych aplikacjach</string>
