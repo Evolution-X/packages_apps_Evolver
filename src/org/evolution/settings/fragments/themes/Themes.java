@@ -11,12 +11,14 @@ import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.provider.Settings;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.android.ThemeUtils;
@@ -51,6 +53,9 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIF_STYLE = "notification_style";
     private static final String KEY_POWERMENU_STYLE = "powermenu_style";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
+
+    private static final String KEY_EXPRESSIVE_DESIGN = "expressive_design";
+    private static final String PROP_EXPRESSIVE_DESIGN = "persist.sys.is_expressive_design_enabled";
 
     private static final String[] POWER_MENU_OVERLAYS = {
             "com.android.theme.powermenu.cyberpunk",
@@ -140,6 +145,12 @@ public class Themes extends SettingsPreferenceFragment implements
         if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
             prefScreen.removePreference(mLauncherCategory);
         }
+
+        SwitchPreferenceCompat expressiveDesign = findPreference(KEY_EXPRESSIVE_DESIGN);
+        if (expressiveDesign != null) {
+            expressiveDesign.setChecked(SystemProperties.getBoolean(PROP_EXPRESSIVE_DESIGN, false));
+            expressiveDesign.setOnPreferenceChangeListener(this);
+        }
     }
 
     private void updateStyle(String key, String category, String target,
@@ -206,6 +217,10 @@ public class Themes extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(getActivity().getContentResolver(),
                     KEY_POWERMENU_STYLE, value, UserHandle.USER_CURRENT);
             updatePowerMenuStyle();
+            return true;
+        } else if (preference.getKey().equals(KEY_EXPRESSIVE_DESIGN)) {
+            boolean boolValue = (Boolean) newValue;
+            SystemProperties.set(PROP_EXPRESSIVE_DESIGN, boolValue ? "1" : "0");
             return true;
         }
         return false;
