@@ -527,8 +527,6 @@
     <string name="spoofing_pixel_props_summary">针对选定的谷歌系应用设置伪装，让它们以为这是最新的Google Pixel设备</string>
     <string name="tensor_spoof_title"></string>
     <string name="tensor_spoof_summary">伪装成Pixel机型</string>
-    <string name="gms_spoof_title">Play完整性修复</string>
-    <string name="gms_spoof_summary">伪装您的设备以通过 Google Play 认证</string>
     <string name="spoofing_storage_encryption_title">存储加密</string>
     <string name="spoofing_storage_encryption_summary">伪装存储加密状态为加密\'</string>
     <string name="spoofing_app_specific_category">针对特定应用程序</string>
@@ -538,16 +536,6 @@
     <string name="spoofing_photos_summary">把谷歌相册应用伪装成Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat 伪装</string>
     <string name="spoofing_snap_summary">对Snapchat设置伪装，让它以为这是Google Pixel XL 来解决可能产生的聊天问题</string>
-    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">成功下载pif.json。伪装为 %1$s 以通过Play完整性检查。</string>
-    <string name="toast_spoofing_failure">伪装属性失败。</string>
-    <string name="update_pif_json_title">更新Play完整性修复</string>
-    <string name="update_pif_json_summary">更新 PIF 伪装设备，需要网络连接。</string>
-    <string name="show_pif_properties_title">Play完整性修复属性</string>
-    <string name="show_pif_properties_summary">显示所有当前设置的 PIF 属性</string>
-    <string name="error_loading_properties">加载 PIF 属性时出错</string>
-    <string name="pif_spoofing_title">选择 PIF JSON 文件</string>
-    <string name="pif_spoofing_summary">选择用于伪装Play完整性的 PIF JSON 文件</string>
     <!-- Miscellaneous/Spoofing/Per-app spoofing -->
     <string name="gameprops_title">启用每个应用的游戏伪装功能</string>
     <string name="gameprops_summary">启用每个应用程序的游戏伪装选项</string>
