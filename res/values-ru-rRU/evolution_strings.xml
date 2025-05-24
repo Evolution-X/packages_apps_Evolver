@@ -527,8 +527,6 @@
     <string name="spoofing_pixel_props_summary">Подмена устройства на новейший Pixel для отдельных приложений Google</string>
     <string name="tensor_spoof_title">Подмена функций Tensor</string>
     <string name="tensor_spoof_summary">Разблокировка функций Tensor/Pixel</string>
-    <string name="gms_spoof_title">Play Integrity fix</string>
-    <string name="gms_spoof_summary">Подмена устройства для прохождения сертификации Google Play</string>
     <string name="spoofing_storage_encryption_title">Шифрование хранилища</string>
     <string name="spoofing_storage_encryption_summary">Подмена статуса шифрования хранилища на «Зашифровано»</string>
     <string name="spoofing_app_specific_category">Для отдельных приложений</string>
@@ -538,16 +536,6 @@
     <string name="spoofing_photos_summary">Подмена устройства на Pixel XL для приложения «Google Фото»</string>
     <string name="spoofing_snap_title">Маскировка для Snapchat</string>
     <string name="spoofing_snap_summary">Подмена устройства на Pixel XL для решения проблем с чатами в Snapchat</string>
-    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">Успешно скачан файл pif.json. Подмена на %1$s для Play Integrity.</string>
-    <string name="toast_spoofing_failure">Не удалось подменить свойства.</string>
-    <string name="update_pif_json_title">Обновить Play Integrity fix</string>
-    <string name="update_pif_json_summary">Обновление подменяемого устройства для PIF, требуется подключение к интернету.</string>
-    <string name="show_pif_properties_title">Свойства Play Integrity fix</string>
-    <string name="show_pif_properties_summary">Показать текущие значения для PIF</string>
-    <string name="error_loading_properties">Ошибка загрузки значений для PIF</string>
-    <string name="pif_spoofing_title">Выбрать файл JSON для PIF</string>
-    <string name="pif_spoofing_summary">Значения выбранного файла JSON будут использованы для сертификации Play Integrity</string>
     <!-- Miscellaneous/Spoofing/Per-app spoofing -->
     <string name="gameprops_title">Максировка для отдельных игр</string>
     <string name="gameprops_summary">Подмена устройства для выбранных игр</string>
@@ -769,8 +757,4 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Показать волнистую анимацию</string>
     <string name="show_squiggle_animation_summary">Показывать волнистую анимацию медиа плеера\nДля применения изменений необходимо переключить музыку, остановить ее или промотать</string>
-    <!-- Freeform launch mode -->
-    <string name="freeform_launch_mode_title">Freeform launch mode</string>
-    <string name="freeform_launch_mode_1">Native AOSP</string>
-    <string name="freeform_launch_mode_2">LMOFreeForm</string>
 </resources>
