@@ -528,15 +528,29 @@
     <string name="spoofing_pixel_props_summary">Belirli bir grup Google uygulamasını en yeni Pixel cihazına taklit edin</string>
     <string name="tensor_spoof_title">Sahte tensör özellikleri</string>
     <string name="tensor_spoof_summary">Tensör/piksel özelliklerinin kilidini açın</string>
+    <string name="gms_spoof_title">Play Integrity düzeltmesi</string>
+    <string name="gms_spoof_summary">Google Play Onayını geçmek için cihazınızı taklit edin</string>
     <string name="spoofing_storage_encryption_title">Depolama şifrelemesi</string>
     <string name="spoofing_storage_encryption_summary">Cihaz depolaması şifrelemesi durumunu \'Şifreli\' olarak ayarla</string>
     <string name="spoofing_app_specific_category">Uygulamayaya Yönelik</string>
+    <string name="spoofing_vending_32_title">Play Store\'dan SDK 32\'ye taklit edin</string>
+    <string name="spoofing_vending_32_summary">Legacy onayı almak için Play Store\'u SDK 32\'ye taklit edin</string>
     <string name="spoofing_vending_title">Play Store taklidi</string>
     <string name="spoofing_vending_summary">Play Store\'u en yeni Pixel cihazına taklit et</string>
     <string name="spoofing_photos_title">Google Fotoğraflar spoofu</string>
     <string name="spoofing_photos_summary">Google Fotoğraflar uygulamasını Pixel XL olarak taklit edin</string>
     <string name="spoofing_snap_title">Snapchat taklidi</string>
     <string name="spoofing_snap_summary">Olası sohbet sorunlarını gidermek için Snapchat\'i Pixel XL olarak taklit edin</string>
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">Pif.json başarıyla indirildi. Play Bütünlüğü için %1$s olarak taklit ediliyor.</string>
+    <string name="toast_spoofing_failure">Özellik sahteciliği başarısız oldu.</string>
+    <string name="update_pif_json_title">Play Bütünlüğü düzeltmesini güncelle</string>
+    <string name="update_pif_json_summary">PIF sahtekarlık cihazını güncelleyin, internet bağlantısı gerektirir.</string>
+    <string name="show_pif_properties_title">Play Integrity düzeltme özellikleri</string>
+    <string name="show_pif_properties_summary">Geçerli olarak ayarlanmış tüm PIF özelliklerini göster</string>
+    <string name="error_loading_properties">PIF özellikleri yüklenirken hata oluştu</string>
+    <string name="pif_spoofing_title">PIF JSON dosyasını seçin</string>
+    <string name="pif_spoofing_summary">Oyun Bütünlüğü sahtekarlığı için kullanılacak PIF JSON dosyasını seçin</string>
     <!-- Miscellaneous/Spoofing/Per-app spoofing -->
     <string name="gameprops_title">Uygulama başına oyun sahteciliğini etkinleştirme</string>
     <string name="gameprops_summary">Uygulama başına oyun sahtekarlığı seçeneklerini etkinleştirir</string>
