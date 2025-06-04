@@ -71,6 +71,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SYS_GOOGLE_SPOOF = "persist.sys.pphooks.enable";
     private static final String SYS_GAMEPROP_SPOOF = "persist.sys.gameprops.enabled";
     private static final String SYS_GPHOTOS_SPOOF = "persist.sys.gphooks.enable";
+    private static final String SYS_QSB_SPOOF = "persist.sys.qsb.enable";
     private static final String SYS_SNAP_SPOOF = "persist.sys.snap.enable";
     private static final String SYS_VENDING_SPOOF = "persist.sys.vending.enable";
     private static final String SYS_ENABLE_TENSOR_FEATURES = "persist.sys.features.tensor";
@@ -81,6 +82,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private SystemPropertySwitchPreference mGoogleSpoof;
     private SystemPropertySwitchPreference mGamePropsSpoof;
     private SystemPropertySwitchPreference mGphotosSpoof;
+    private SystemPropertySwitchPreference mQsbSpoof;
     private SystemPropertySwitchPreference mSnapSpoof;
     private SystemPropertySwitchPreference mVendingSpoof;
     private SystemPropertySwitchPreference mTensorFeaturesToggle;
@@ -103,6 +105,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGphotosSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GPHOTOS_SPOOF);
         mGoogleSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GOOGLE_SPOOF);
         mGamePropsJsonFilePreference = findPreference(KEY_GAME_PROPS_JSON_FILE_PREFERENCE);
+        mQsbSpoof = (SystemPropertySwitchPreference) findPreference(SYS_QSB_SPOOF);
         mSnapSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAP_SPOOF);
         mVendingSpoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_SPOOF);
         mTensorFeaturesToggle = (SystemPropertySwitchPreference) findPreference(SYS_ENABLE_TENSOR_FEATURES);
@@ -124,6 +127,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGoogleSpoof.setOnPreferenceChangeListener(this);
         mGphotosSpoof.setOnPreferenceChangeListener(this);
         mGamePropsSpoof.setOnPreferenceChangeListener(this);
+        mQsbSpoof.setOnPreferenceChangeListener(this);
         mSnapSpoof.setOnPreferenceChangeListener(this);
         mVendingSpoof.setOnPreferenceChangeListener(this);
         mTensorFeaturesToggle.setOnPreferenceChangeListener(this);
@@ -209,6 +213,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         if (preference == mGoogleSpoof
             || preference == mGphotosSpoof
             || preference == mGamePropsSpoof
+            || preference == mQsbSpoof
             || preference == mSnapSpoof
             || preference == mVendingSpoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
