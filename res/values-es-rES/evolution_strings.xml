@@ -531,11 +531,13 @@
     <string name="spoofing_storage_encryption_title">Cifrado del almacenamiento</string>
     <string name="spoofing_storage_encryption_summary">Suplanta el estado de cifrado de almacenamiento a \"Cifrado\"</string>
     <string name="spoofing_app_specific_category">Aplicación específica</string>
-    <string name="spoofing_vending_title">Simular por Play Store</string>
+    <string name="spoofing_qsb_title">Aplicación de Google</string>
+    <string name="spoofing_qsb_summary">Suplanta la aplicación de Google al último dispositivo Pixel para desbloquear características exclusivas</string>
+    <string name="spoofing_vending_title">Play Store</string>
     <string name="spoofing_vending_summary">Utiliza Play Store como el último dispositivo Pixel</string>
-    <string name="spoofing_photos_title">Suplantación de Fotos de Google</string>
+    <string name="spoofing_photos_title">Google Fotos</string>
     <string name="spoofing_photos_summary">Suplanta el dispositivo como Pixel XL en la aplicación Google Fotos para desbloquear el respaldo de imágenes limitado</string>
-    <string name="spoofing_snap_title">Engañar Snapchat</string>
+    <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Utiliza Snapchat como un Pixel XL para solucionar posibles problemas con el chat</string>
     <!-- Miscellaneous/Spoofing/Per-app spoofing -->
     <string name="gameprops_title">Habilitar la suplantación por aplicación</string>
@@ -756,4 +758,7 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Mostrar animación de garabato</string>
     <string name="show_squiggle_animation_summary">Mostrar animación de garabato del panel multimedia\nDespués del cambio, es necesario cambiar la música, pausarla o mover la barra de progreso para aplicarla</string>
+    <!-- Interface / Expressive Design -->
+    <string name="expressive_design_title">Diseño expresivo</string>
+    <string name="expressive_design_summary">Habilitar la vista previa del diseño expresivo</string>
 </resources>
