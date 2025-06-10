@@ -531,17 +531,16 @@
     <string name="spoofing_storage_encryption_title">Tárhelytitkosítás</string>
     <string name="spoofing_storage_encryption_summary">A tárhely állapotának hamisítása \' Titkosított \'-ra</string>
     <string name="spoofing_app_specific_category">Alkalmazás-specifikus</string>
-    <string name="spoofing_vending_title">Google Play Áruház trükk</string>
+    <string name="spoofing_qsb_title">Google-alkalmazás</string>
+    <string name="spoofing_qsb_summary">Álcázás a legújabb Pixel-készülékre, hogy különleges funkciók elérhetővé váljanak</string>
+    <string name="spoofing_vending_title">Play Áruház</string>
     <string name="spoofing_vending_summary">A legutolsó Pixel készüléknek álcázza az Ön készülékét</string>
-    <string name="spoofing_photos_title">Trükk a Google Fényképek-hez</string>
+    <string name="spoofing_photos_title">Google Fényképek</string>
     <string name="spoofing_photos_summary">Pixel XL-re álcázás a Google Fényképek alkalmazáshoz</string>
-    <string name="spoofing_snap_title">Snapchat álcázás</string>
+    <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">A Snapchat-ben Pixel XL-nek álcázza az Ön készülékét a lehetséges csevegési problémák elkerüléséért</string>
-    <!-- Miscellaneous/Spoofing/Per-app spoofing -->
-    <string name="gameprops_title">Alkalmazásonkénti játékhamisítás engedélyezése</string>
-    <string name="gameprops_summary">Az alkalmazásonkénti hamisítás lehetőségei játékokhoz</string>
-    <string name="gameprops_load_json_title">Válassza ki az alkalmazásonkénti játékkellékek JSON-fájlját</string>
-    <string name="gameprops_load_json_summary">Válassza ki a további játékok meghamisításához használni kívánt JSON-fájlt</string>
+    <string name="gameprops_title">Magasabb FPS feloldása játékokhoz</string>
+    <string name="gameprops_summary">Más modellnek álcázza az Ön készülékét, hogy játék közben elérhetők legyenek magasabb FPS-értékek</string>
     <!-- About -->
     <string name="about_info">Az Evolution X célja, hogy a felhasználók számára első pillantásra Pixel-szerű érzést nyújtson Önnek, sok hozzáadott funkcióval.</string>
     <string name="about_website_title">Honlap</string>
