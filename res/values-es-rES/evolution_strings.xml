@@ -539,11 +539,8 @@
     <string name="spoofing_photos_summary">Suplanta el dispositivo como Pixel XL en la aplicación Google Fotos para desbloquear el respaldo de imágenes limitado</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Utiliza Snapchat como un Pixel XL para solucionar posibles problemas con el chat</string>
-    <!-- Miscellaneous/Spoofing/Per-app spoofing -->
-    <string name="gameprops_title">Habilitar la suplantación por aplicación</string>
-    <string name="gameprops_summary">Habilita las opciones de suplantación de identidad por aplicación</string>
-    <string name="gameprops_load_json_title">Seleccionar archivo JSON de propiedades por aplicación</string>
-    <string name="gameprops_load_json_summary">Elija el archivo JSON que se usará para suplantar la identidad en más juegos</string>
+    <string name="gameprops_title">Desbloquear el uso de FPS altos en juegos</string>
+    <string name="gameprops_summary">Suplanta tu dispositivo como modelo diferente para juegos específicos para desbloquear FPS más altos</string>
     <!-- About -->
     <string name="about_info">Evolution X pretende proporcionar a los usuarios una sensación de Pixel a primera vista, con características adicionales a su disposición</string>
     <string name="about_website_title">Sitio web</string>
