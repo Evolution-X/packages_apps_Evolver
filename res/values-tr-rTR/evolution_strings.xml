@@ -531,17 +531,16 @@
     <string name="spoofing_storage_encryption_title">Depolama şifrelemesi</string>
     <string name="spoofing_storage_encryption_summary">Cihaz depolaması şifrelemesi durumunu \'Şifreli\' olarak ayarla</string>
     <string name="spoofing_app_specific_category">Uygulamayaya Yönelik</string>
-    <string name="spoofing_vending_title">Play Store taklidi</string>
+    <string name="spoofing_qsb_title">Google uygulaması</string>
+    <string name="spoofing_qsb_summary">Özel özelliklerin kilidini açmak için Google uygulamasını en yeni Pixel cihazına taklit edin</string>
+    <string name="spoofing_vending_title">Play Store</string>
     <string name="spoofing_vending_summary">Play Store\'u en yeni Pixel cihazına taklit et</string>
-    <string name="spoofing_photos_title">Google Fotoğraflar spoofu</string>
+    <string name="spoofing_photos_title">Google Fotoğraflar</string>
     <string name="spoofing_photos_summary">Google Fotoğraflar uygulamasını Pixel XL olarak taklit edin</string>
-    <string name="spoofing_snap_title">Snapchat taklidi</string>
+    <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Olası sohbet sorunlarını gidermek için Snapchat\'i Pixel XL olarak taklit edin</string>
-    <!-- Miscellaneous/Spoofing/Per-app spoofing -->
-    <string name="gameprops_title">Uygulama başına oyun sahteciliğini etkinleştirme</string>
-    <string name="gameprops_summary">Uygulama başına oyun sahtekarlığı seçeneklerini etkinleştirir</string>
-    <string name="gameprops_load_json_title">Uygulama başına oyun sahne JSON dosyasını seçin</string>
-    <string name="gameprops_load_json_summary">Daha fazla oyunu taklit etmek için kullanılacak JSON dosyasını seçin</string>
+    <string name="gameprops_title">Oyunlarda yüksek yenileme hızını etkinleştir</string>
+    <string name="gameprops_summary">Daha yüksek FPS kilidini açmak için belirli oyunlara cihazınızı farklı bir model olarak taklit edin</string>
     <!-- About -->
     <string name="about_info">Evolution X, kullanıcılara Pixel benzeri bir his sunmayı amaçlarken, ek özellikler de sunuyor</string>
     <string name="about_website_title">İnternet sitesi</string>
@@ -757,4 +756,7 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Dalgalanma animasyonunu göster</string>
     <string name="show_squiggle_animation_summary">Medya paneli dalgalı animasyonunu göster\nDeğişiklikten sonra uygulamak için müzik değiştirmeniz, müziği duraklatmanız veya ilerleme çubuğunu hareket ettirmeniz gerekir</string>
+    <!-- Interface / Expressive Design -->
+    <string name="expressive_design_title">Etkileyici Tasarım</string>
+    <string name="expressive_design_summary">Etkileyici Tasarım önizlemesini etkinleştirin</string>
 </resources>
