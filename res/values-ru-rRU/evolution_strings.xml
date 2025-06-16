@@ -531,17 +531,16 @@
     <string name="spoofing_storage_encryption_title">Шифрование хранилища</string>
     <string name="spoofing_storage_encryption_summary">Подмена статуса шифрования хранилища на «Зашифровано»</string>
     <string name="spoofing_app_specific_category">Для отдельных приложений</string>
-    <string name="spoofing_vending_title">Маскировка для Google Play</string>
+    <string name="spoofing_qsb_title">Приложение Google</string>
+    <string name="spoofing_qsb_summary">Подделайте приложение Google для последнего устройства Pixel, чтобы разблокировать эксклюзивные функции</string>
+    <string name="spoofing_vending_title">Play Маркет</string>
     <string name="spoofing_vending_summary">Подмена устройства на новейший Pixel для приложения Google Play</string>
-    <string name="spoofing_photos_title">Маскировка для Google Фото</string>
+    <string name="spoofing_photos_title">Google Фото</string>
     <string name="spoofing_photos_summary">Подмена устройства на Pixel XL для приложения «Google Фото»</string>
-    <string name="spoofing_snap_title">Маскировка для Snapchat</string>
+    <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Подмена устройства на Pixel XL для решения проблем с чатами в Snapchat</string>
-    <!-- Miscellaneous/Spoofing/Per-app spoofing -->
-    <string name="gameprops_title">Максировка для отдельных игр</string>
-    <string name="gameprops_summary">Подмена устройства для выбранных игр</string>
-    <string name="gameprops_load_json_title">Выберите для отдельных игр файл JSON</string>
-    <string name="gameprops_load_json_summary">Выберите файл JSON, который будет использован для подделки игр</string>
+    <string name="gameprops_title">Разблокировка высокого FPS в играх</string>
+    <string name="gameprops_summary">Подмена модели устройства для отдельных игр с целью разблокировки высокого FPS</string>
     <!-- About -->
     <string name="about_info">Evolution X стремится предоставить пользователям ощущение опыта использования Pixel с большим количеством дополнительных функций для вашего удобства</string>
     <string name="about_website_title">Сайт</string>
@@ -758,4 +757,7 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Показать волнистую анимацию</string>
     <string name="show_squiggle_animation_summary">Показывать волнистую анимацию медиа плеера\nДля применения изменений необходимо переключить музыку, остановить ее или промотать</string>
+    <!-- Interface / Expressive Design -->
+    <string name="expressive_design_title">Expressive Design</string>
+    <string name="expressive_design_summary">Включить предпросмотр Expressive Design</string>
 </resources>
