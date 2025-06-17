@@ -531,17 +531,16 @@
     <string name="spoofing_storage_encryption_title">存储加密</string>
     <string name="spoofing_storage_encryption_summary">伪装存储加密状态为加密\'</string>
     <string name="spoofing_app_specific_category">针对特定应用程序</string>
-    <string name="spoofing_vending_title">Play 商店伪装</string>
+    <string name="spoofing_qsb_title">Google 应用</string>
+    <string name="spoofing_qsb_summary">将Google应用伪装成最新的 Pixel 设备以解锁专属功能</string>
+    <string name="spoofing_vending_title">Play 商店</string>
     <string name="spoofing_vending_summary">对Play Store伪装成最新的 Pixel 设备</string>
-    <string name="spoofing_photos_title">谷歌相册伪装</string>
+    <string name="spoofing_photos_title">Google 相册</string>
     <string name="spoofing_photos_summary">把谷歌相册应用伪装成Pixel XL</string>
-    <string name="spoofing_snap_title">Snapchat 伪装</string>
+    <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">对Snapchat设置伪装，让它以为这是Google Pixel XL 来解决可能产生的聊天问题</string>
-    <!-- Miscellaneous/Spoofing/Per-app spoofing -->
-    <string name="gameprops_title">启用每个应用的游戏伪装功能</string>
-    <string name="gameprops_summary">启用每个应用程序的游戏伪装选项</string>
-    <string name="gameprops_load_json_title">选择每个应用的游戏道具JSON文件</string>
-    <string name="gameprops_load_json_summary">选择用于伪装更多游戏的 JSON 文件</string>
+    <string name="gameprops_title">在游戏中解锁更高的帧数</string>
+    <string name="gameprops_summary">在特定游戏中将您的设备伪装成不同机型以解锁更高的帧数</string>
     <!-- About -->
     <string name="about_info">Evolution X 旨在为用户提供像Pixel一样的初次感觉，提供您可以使用的额外功能</string>
     <string name="about_website_title">网站</string>
@@ -756,4 +755,7 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">显示波浪动画</string>
     <string name="show_squiggle_animation_summary">显示媒体面板波浪动画\n更改后需要切换音乐、暂停音乐或移动进度条才能应用</string>
+    <!-- Interface / Expressive Design -->
+    <string name="expressive_design_title">富有表现力的设计</string>
+    <string name="expressive_design_summary">启用表现力设计预览</string>
 </resources>
