@@ -12,6 +12,13 @@
         android:key="spoofing_system_wide_category"
         android:title="@string/spoofing_system_wide_category">
 
+        <!-- Keybox Data -->
+        <org.evolution.settings.preferences.KeyboxDataPreference
+            android:key="keybox_data_setting"
+            android:title="@string/keybox_data_title"
+            android:summary="@string/keybox_data_summary"
+            android:defaultValue=""/>
+
         <!-- GMS spoof -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pixelprops.gms"
