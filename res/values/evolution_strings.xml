@@ -582,6 +582,10 @@
     <string name="pif_spoofing_title">Select PIF JSON file</string>
     <string name="pif_spoofing_summary">Choose the PIF JSON file to be used to spoof Play Integrity</string>
 
+    <!-- Miscellaneous/Spoofing/Keybox Data -->
+    <string name="keybox_data_title">Select keybox XML to spoof</string>
+    <string name="keybox_data_summary">Select the keybox XML used for system-wide key attestation spoofing. Click delete to reset keybox data.</string>
+
     <!-- About -->
     <string name="about_info">Evolution X aims to provide users with a Pixel-like feel at first glance, with additional features at your disposal</string>
     <string name="about_website_title">Website</string>
