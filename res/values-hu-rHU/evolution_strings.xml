@@ -528,6 +528,8 @@
     <string name="spoofing_pixel_props_summary">A kijelölt Google alkalmazásokhoz a legújabb Pixel-telefonnak álcázza az Ön készülékét</string>
     <string name="tensor_spoof_title">Hamis Tenson CPU funkciók</string>
     <string name="tensor_spoof_summary">A Tensor / Pixel jellemzők feloldása</string>
+    <string name="gms_spoof_title">Áruházi Integritásjavítás</string>
+    <string name="gms_spoof_summary">Készülékálcázás, hogy megfeleljen a Google Áruház tanusítványi feltételeinek</string>
     <string name="spoofing_storage_encryption_title">Tárhelytitkosítás</string>
     <string name="spoofing_storage_encryption_summary">A tárhely állapotának hamisítása \' Titkosított \'-ra</string>
     <string name="spoofing_app_specific_category">Alkalmazás-specifikus</string>
@@ -541,6 +543,19 @@
     <string name="spoofing_snap_summary">A Snapchat-ben Pixel XL-nek álcázza az Ön készülékét a lehetséges csevegési problémák elkerüléséért</string>
     <string name="gameprops_title">Magasabb FPS feloldása játékokhoz</string>
     <string name="gameprops_summary">Más modellnek álcázza az Ön készülékét, hogy játék közben elérhetők legyenek magasabb FPS-értékek</string>
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">A pif.json letöltése sikeres. Az Áruházi Integritáshoz álcázás a következőre: %1$s</string>
+    <string name="toast_spoofing_failure">Nem sikerült álcázni a tulajdonságokat.</string>
+    <string name="update_pif_json_title">Az Áruházi integritásjavítás frissítése</string>
+    <string name="update_pif_json_summary">Frissítse a PIF-álcázóeszközt, internetkapcsolat szükséges.</string>
+    <string name="show_pif_properties_title">Az Áruházi integritásjavítás értékei</string>
+    <string name="show_pif_properties_summary">Az összes jelenleg beállított PIF-tulajdonság megjelenítése</string>
+    <string name="error_loading_properties">Hiba a tulajdonságok betöltése közben</string>
+    <string name="pif_spoofing_title">Válasszon PIF.JSON-fájlt</string>
+    <string name="pif_spoofing_summary">Válassza ki az Áruházi Integritás átveréséhez használni kívánt PIF.JSON-fájlt</string>
+    <!-- Miscellaneous/Spoofing/Keybox Data -->
+    <string name="keybox_data_title">Válasszon keybox XML-fájt az álcázáshoz</string>
+    <string name="keybox_data_summary">Válassza ki a keybox XML-fájlt, amelyet a rendszer összes alkalmazásában a kulcshitelesítés hamisításához használnak. Kattintson a törlés gombra a rendszer által használt keybox-adatértékek visszaállításához.</string>
     <!-- About -->
     <string name="about_info">Az Evolution X célja, hogy a felhasználók számára első pillantásra Pixel-szerű érzést nyújtson Önnek, sok hozzáadott funkcióval.</string>
     <string name="about_website_title">Honlap</string>
@@ -757,7 +772,4 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">A hanghullámos animáció megjelenítése</string>
     <string name="show_squiggle_animation_summary">Megjeleníti a hullámra hasonlító médiapanel-animációt,\nérvénybe léptetéshez a módosítás után váltani vagy szüneteltetni kell a zenét, vagy mozgatni kell a folyamatjelző sávot</string>
-    <!-- Interface / Expressive Design -->
-    <string name="expressive_design_title">Kifejező dizájn</string>
-    <string name="expressive_design_summary">Előnézet bekapcsolása a Kifejező dizájnhoz</string>
 </resources>
