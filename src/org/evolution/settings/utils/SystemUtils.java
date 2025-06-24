@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2024 The Evolution X Project
+ * SPDX-FileCopyrightText: 2025 Evolution X
  * SPDX-License-Identifier: Apache-2.0
  */
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     Copyright (C) 2019-2025 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -26,20 +26,19 @@
         android:title="@string/themes_general_category">
 
         <!-- Wallpaper Settings -->
-        <Preference
+        <!--<Preference
             android:key="wallpaper_settings"
             android:title="@string/wallpaper_settings_title"
             android:summary="@string/wallpaper_settings_summary"
             android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
 
-        <!-- Brightness slider -->
         <Preference
             android:key="android.theme.customization.brightness_slider"
             android:title="@string/themes_brightness_slider_title"
             android:summary="@string/themes_brightness_slider_summary"
-            android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />
+            android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />-->
 
-        <!-- Notification styles -->      
+        <!-- Notification styles -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="notification_style"
             android:title="@string/notif_style_title"
@@ -48,7 +47,7 @@
             android:summary="%s"
             android:defaultValue="0" />
 
-        <!-- Power menu styles -->      
+        <!-- Power menu styles -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="powermenu_style"
             android:title="@string/powermenu_style_title"
@@ -57,7 +56,7 @@
             android:summary="%s"
             android:defaultValue="0" />
 
-        <!-- Progress bar styles -->      
+        <!-- Progress bar styles -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="progress_bar_style"
             android:title="@string/progress_bar_style_title"
@@ -67,15 +66,15 @@
             android:defaultValue="0" />
 
         <!-- Volume Styles -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="custom_volume_styles"
             android:title="@string/volume_style_title"
             android:entries="@array/volume_styles_entries"
             android:entryValues="@array/volume_styles_values"
             android:summary="%s"
-            android:defaultValue="0" />
+            android:defaultValue="0" />-->
     </PreferenceCategory>
-	
+
     <PreferenceCategory
         android:key="themes_audio_category"
         android:title="@string/themes_audio_category">
@@ -113,11 +112,11 @@
         android:key="themes_launcher_category"
         android:title="@string/themes_launcher_category">
 
-        <org.evolution.settings.preferences.OverlaySwitchPreference
+        <!--<org.evolution.settings.preferences.OverlaySwitchPreference
             android:key="com.google.android.apps.nexuslauncher.blur.overlay"
             android:title="@string/themes_launcher_background_blur_title"
             android:summary="@string/themes_launcher_background_blur_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
 
         <org.evolution.settings.preferences.OverlaySwitchPreference
             android:key="com.google.android.apps.nexuslauncher.icons.overlay"
