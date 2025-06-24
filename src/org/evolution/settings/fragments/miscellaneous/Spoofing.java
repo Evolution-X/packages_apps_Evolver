@@ -36,7 +36,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.android.SystemRestartUtils;
+import com.android.internal.util.evolution.SystemRestartUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
@@ -79,8 +79,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SYS_GPHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
     private static final String SYS_QSB_SPOOF = "persist.sys.pixelprops.qsb";
     private static final String SYS_SNAP_SPOOF = "persist.sys.pixelprops.snap";
-    private static final String SYS_VENDING_SPOOF = "persist.sys.pixelprops.vending";
-    private static final String SYS_ENABLE_TENSOR_FEATURES = "persist.sys.features.tensor";
+    private static final String SYS_TENSOR_SPOOF = "persist.sys.features.tensor";
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
@@ -94,8 +93,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private SystemPropertySwitchPreference mGphotosSpoof;
     private SystemPropertySwitchPreference mQsbSpoof;
     private SystemPropertySwitchPreference mSnapSpoof;
-    private SystemPropertySwitchPreference mVendingSpoof;
-    private SystemPropertySwitchPreference mTensorFeaturesToggle;
+    private SystemPropertySwitchPreference mTensorSpoof;
 
     private Handler mHandler;
 
@@ -118,12 +116,11 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
         mQsbSpoof = (SystemPropertySwitchPreference) findPreference(SYS_QSB_SPOOF);
         mSnapSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAP_SPOOF);
-        mVendingSpoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_SPOOF);
+        mTensorSpoof = (SystemPropertySwitchPreference) findPreference(SYS_TENSOR_SPOOF);
         mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
-        mTensorFeaturesToggle = (SystemPropertySwitchPreference) findPreference(SYS_ENABLE_TENSOR_FEATURES);
 
         String model = SystemProperties.get("ro.product.model");
-        boolean isTensorDevice = model.matches("Pixel [6-9][a-zA-Z ]*");
+        boolean isTensorDevice = model.matches("Pixel (6|7|8|9|10)[a-zA-Z ]*");
         boolean isPixelGmsEnabled = SystemProperties.getBoolean(SYS_GMS_SPOOF, true); // Default to Pixel GMS
 
         if (DeviceUtils.isCurrentlySupportedPixel()) {
@@ -134,7 +131,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         }
 
         if (isTensorDevice) {
-            mSystemWideCategory.removePreference(mTensorFeaturesToggle);
+            mSystemWideCategory.removePreference(mTensorSpoof);
         }
 
         mGmsSpoof.setOnPreferenceChangeListener(this);
@@ -143,8 +140,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGamePropsSpoof.setOnPreferenceChangeListener(this);
         mQsbSpoof.setOnPreferenceChangeListener(this);
         mSnapSpoof.setOnPreferenceChangeListener(this);
-        mVendingSpoof.setOnPreferenceChangeListener(this);
-        mTensorFeaturesToggle.setOnPreferenceChangeListener(this);
+        mTensorSpoof.setOnPreferenceChangeListener(this);
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
@@ -179,7 +175,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     }
 
     private boolean isMainlineTensorModel(String model) {
-        return model.matches("Pixel [8-9][a-zA-Z ]*");
+        return model.matches("Pixel (8|9|10)[a-zA-Z ]*");
     }
 
     private void openFileSelector(int requestCode) {
@@ -313,14 +309,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
             || preference == mGphotosSpoof
             || preference == mGamePropsSpoof
             || preference == mQsbSpoof
-            || preference == mSnapSpoof
-            || preference == mVendingSpoof) {
+            || preference == mSnapSpoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
-        if (preference == mTensorFeaturesToggle) {
+        if (preference == mTensorSpoof) {
             boolean enabled = (Boolean) newValue;
-            SystemProperties.set(SYS_ENABLE_TENSOR_FEATURES, enabled ? "true" : "false");
+            SystemProperties.set(SYS_TENSOR_SPOOF, enabled ? "true" : "false");
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }

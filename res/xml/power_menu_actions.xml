@@ -30,10 +30,10 @@
         android:title="@string/power_menu_actions_screenshot_title"
         android:defaultValue="false" />
 
-    <SwitchPreferenceCompat
+    <!--<SwitchPreferenceCompat
         android:key="onthego"
         android:title="@string/power_menu_actions_onthego_title"
-        android:defaultValue="false" />
+        android:defaultValue="false" />-->
 
     <SwitchPreferenceCompat
         android:key="airplane"
