@@ -9,35 +9,33 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/themes_title">
 
-    <PreferenceCategory
+    <!--PreferenceCategory
         android:key="themes_monet_category"
         android:title="@string/themes_monet_category">
 
-        <!-- Monet engine -->
         <Preference
             android:key="monet_engine"
             android:title="@string/themes_monet_title"
             android:summary="@string/themes_monet_summary"
             android:fragment="org.evolution.settings.fragments.themes.MonetSettings" />
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="themes_general_category"
         android:title="@string/themes_general_category">
 
         <!-- Wallpaper Settings -->
-        <Preference
+        <!--<Preference
             android:key="wallpaper_settings"
             android:title="@string/wallpaper_settings_title"
             android:summary="@string/wallpaper_settings_summary"
             android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
 
-        <!-- Brightness slider -->
         <Preference
             android:key="android.theme.customization.brightness_slider"
             android:title="@string/themes_brightness_slider_title"
             android:summary="@string/themes_brightness_slider_summary"
-            android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />
+            android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />-->
 
         <!-- Notification styles -->      
         <org.evolution.settings.preferences.SystemSettingListPreference
@@ -67,15 +65,15 @@
             android:defaultValue="0" />
 
         <!-- Volume Styles -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="custom_volume_styles"
             android:title="@string/volume_style_title"
             android:entries="@array/volume_styles_entries"
             android:entryValues="@array/volume_styles_values"
             android:summary="%s"
-            android:defaultValue="0" />
+            android:defaultValue="0" />-->
     </PreferenceCategory>
-	
+
     <PreferenceCategory
         android:key="themes_audio_category"
         android:title="@string/themes_audio_category">
@@ -166,11 +164,11 @@
             android:fragment="org.evolution.settings.fragments.themes.NavigationBarIcons"/>
 
         <!-- Udfps icon -->
-        <Preference
+        <!--<Preference
             android:key="udfps_icon"
             android:title="@string/themes_udfps_icon_title"
             android:summary="@string/themes_udfps_icon_summary"
-            android:fragment="org.evolution.settings.fragments.themes.UdfpsIcons" />
+            android:fragment="org.evolution.settings.fragments.themes.UdfpsIcons" />-->
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -200,10 +198,10 @@
             android:defaultValue="0" />
 
         <!-- Udfps animation -->
-        <Preference
+        <!--<Preference
             android:key="udfps_animation"
             android:title="@string/themes_udfps_animation_title"
             android:summary="@string/themes_udfps_animation_summary"
-            android:fragment="org.evolution.settings.fragments.themes.UdfpsAnimations" />
+            android:fragment="org.evolution.settings.fragments.themes.UdfpsAnimations" />-->
     </PreferenceCategory>
 </PreferenceScreen>
