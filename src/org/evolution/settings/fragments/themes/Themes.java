@@ -19,7 +19,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.android.ThemeUtils;
+import com.android.internal.util.evolution.ThemeUtils;
 import com.android.internal.util.evolution.Utils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -31,7 +31,6 @@ import java.util.List;
 import org.evolution.settings.preferences.GlobalSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.utils.DeviceUtils;
-import org.evolution.settings.utils.SystemRestartUtils;
 import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
@@ -48,13 +47,14 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_PGB_STYLE = "progress_bar_style";
-    private static final String KEY_NOTIF_STYLE = "notification_style";
+    private static final String KEY_NOTIFICATION_STYLE = "notification_style";
     private static final String KEY_POWERMENU_STYLE = "powermenu_style";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
 
-    private static final String[] POWER_MENU_OVERLAYS = {
+    private static final String[] POWERMENU_OVERLAYS = {
             "com.android.theme.powermenu.cyberpunk",
             "com.android.theme.powermenu.duoline",
+            "com.android.theme.powermenu.fluid",
             "com.android.theme.powermenu.ios",
             "com.android.theme.powermenu.layers"
     };
@@ -91,7 +91,7 @@ public class Themes extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.evolution_settings_themes);
-        mThemeUtils = ThemeUtils.getInstance(getActivity());
+        mThemeUtils = new ThemeUtils(getContext());
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
@@ -131,7 +131,7 @@ public class Themes extends SettingsPreferenceFragment implements
         mProgressBarPref = findPreference(KEY_PGB_STYLE);
         mProgressBarPref.setOnPreferenceChangeListener(this);
 
-        mNotificationStylePref = findPreference(KEY_NOTIF_STYLE);
+        mNotificationStylePref = findPreference(KEY_NOTIFICATION_STYLE);
         mNotificationStylePref.setOnPreferenceChangeListener(this);
 
         mPowerMenuStylePref = findPreference(KEY_POWERMENU_STYLE);
@@ -143,35 +143,23 @@ public class Themes extends SettingsPreferenceFragment implements
     }
 
     private void updateStyle(String key, String category, String target,
-            int defaultValue, String[] overlayPackages, boolean restartSystemUI) {
-        final int style = Settings.System.getIntForUser(
-                getContext().getContentResolver(),
-                key,
-                defaultValue,
-                UserHandle.USER_CURRENT
-        );
-        if (mThemeUtils == null) {
-            mThemeUtils = ThemeUtils.getInstance(getContext());
-        }
+            int defaultValue, String[] overlayPackages, int style) {
         mThemeUtils.setOverlayEnabled(category, target, target);
         if (style > 0 && style <= overlayPackages.length) {
             mThemeUtils.setOverlayEnabled(category, overlayPackages[style - 1], target);
         }
-        if (restartSystemUI) {
-            SystemRestartUtils.restartSystemUI(getContext());
-        }
     }
 
-    private void updatePowerMenuStyle() {
-        updateStyle(KEY_POWERMENU_STYLE, "android.theme.customization.powermenu", "com.android.systemui", 0, POWER_MENU_OVERLAYS, false);
+    private void updatePowermenuStyle(int style) {
+        updateStyle(KEY_POWERMENU_STYLE, "android.theme.customization.powermenu", "com.android.systemui", 0, POWERMENU_OVERLAYS, style);
     }
 
-    private void updateNotifStyle() {
-        updateStyle(KEY_NOTIF_STYLE, "android.theme.customization.notification", "com.android.systemui", 0, NOTIF_OVERLAYS, true);
+    private void updateNotifStyle(int style) {
+        updateStyle(KEY_NOTIFICATION_STYLE, "android.theme.customization.notification", "com.android.systemui", 0, NOTIF_OVERLAYS, style);
     }
 
-    private void updateProgressBarStyle() {
-        updateStyle(KEY_PGB_STYLE, "android.theme.customization.progress_bar", "android", 0, PROGRESS_BAR_OVERLAYS, false);
+    private void updateProgressBarStyle(int style) {
+        updateStyle(KEY_PGB_STYLE, "android.theme.customization.progress_bar", "android", 0, PROGRESS_BAR_OVERLAYS, style);
     }
 
     @Override
@@ -193,19 +181,16 @@ public class Themes extends SettingsPreferenceFragment implements
             }
         }
         if (preference == mProgressBarPref) {
-            Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    KEY_PGB_STYLE, value, UserHandle.USER_CURRENT);
-            updateProgressBarStyle();
+            int value2 = Integer.parseInt((String) newValue);
+            updateProgressBarStyle(value2);
             return true;
         } else if (preference == mNotificationStylePref) {
-            Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    KEY_NOTIF_STYLE, value, UserHandle.USER_CURRENT);
-            updateNotifStyle();
+            int value2 = Integer.parseInt((String) newValue);
+            updateNotifStyle(value2);
             return true;
         } else if (preference == mPowerMenuStylePref) {
-            Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    KEY_POWERMENU_STYLE, value, UserHandle.USER_CURRENT);
-            updatePowerMenuStyle();
+            int value2 = Integer.parseInt((String) newValue);
+            updatePowermenuStyle(value2);
             return true;
         }
         return false;

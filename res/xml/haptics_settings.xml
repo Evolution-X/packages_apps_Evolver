@@ -20,51 +20,10 @@
     android:title="@string/haptics_settings_title"
     android:key="haptics_settings">
 
-    <!-- Back gesture intensity -->
-    <org.evolution.settings.preferences.CustomSeekBarPreference
-        android:key="back_gesture_haptic_intensity"
-        android:title="@string/back_gesture_haptic_intensity_title"
-        android:order="-999"
-        android:max="5"
-        settings:min="0"
-        android:defaultValue="1"
-        settings:interval="1" />
-
-    <!-- Brightness slider intensity -->
-    <org.evolution.settings.preferences.CustomSeekBarPreference
-        android:key="qs_brightness_slider_haptic"
-        android:title="@string/brightness_slider_haptics_intensity_title"
-        android:order="-998"
-        android:max="3"
-        settings:min="0"
-        android:defaultValue="0"
-        settings:interval="1" />
-
-    <!-- QS Fling haptics -->
-    <org.evolution.settings.preferences.CustomSeekBarPreference
-        android:key="qs_haptics_intensity"
-        android:title="@string/qs_haptics_intensity_title"
-        android:order="-997"
-        android:max="5"
-        settings:min="0"
-        android:defaultValue="0"
-        settings:interval="1" />
-
-    <!-- QS tile haptics intensity -->
-    <org.evolution.settings.preferences.CustomSeekBarPreference
-        android:key="qs_panel_tile_haptic"
-        android:title="@string/qs_panel_tile_haptic_intensity_title"
-        android:order="-997"
-        android:max="5"
-        settings:min="0"
-        android:defaultValue="0"
-        settings:interval="1" />
-        
     <!-- Edge scrolling intensity -->
     <org.evolution.settings.preferences.CustomSeekBarPreference
         android:key="edge_scrolling_haptics_intensity"
         android:title="@string/edge_scrolling_haptics_intensity_title"
-        android:order="-997"
         android:max="5"
         settings:min="0"
         android:defaultValue="1"
@@ -74,10 +33,16 @@
     <org.evolution.settings.preferences.CustomSeekBarPreference
         android:key="volume_slider_haptics_intensity"
         android:title="@string/volume_slider_haptics_intensity_title"
-        android:order="-996"
         android:max="3"
         settings:min="0"
         android:defaultValue="1"
         settings:interval="1" />
+
+    <!-- Volume sound haptics -->
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="volume_sound_haptics"
+        android:title="@string/volume_sound_haptics_title"
+        android:summary="@string/volume_sound_haptics_summary"
+        android:defaultValue="false"/>
 
 </PreferenceScreen>
