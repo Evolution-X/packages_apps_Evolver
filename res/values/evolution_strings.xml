@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     Copyright (C) 2019-2025 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Evolving like never before</string>
+    <string name="evolver_dashboard_title">The Evolver</string>
+    <string name="evolver_dashboard_summary">Evolving your device, your way</string>
 
     <!-- Categories -->
     <string name="themes_title">Themes</string>
-    <string name="themes_summary">Monet, fonts, icons</string>
+    <string name="themes_summary">Monet engine, fonts, icons, animations</string>
     <string name="lock_screen_title">Lock screen</string>
-    <string name="lock_screen_summary">Interface, miscellaneous</string>
+    <string name="lock_screen_summary">Interface, fingerprint</string>
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_summary">Gestures, Icons, privacy indicators</string>
+    <string name="status_bar_summary">Gestures, icons, logo</string>
     <string name="quick_settings_title">Quick settings</string>
-    <string name="quick_settings_summary">Interface, lock screen</string>
+    <string name="quick_settings_summary">Interface, brightness slider, layout</string>
     <string name="notifications_title">Notifications</string>
-    <string name="notifications_summary">Alerts, interface</string>
+    <string name="notifications_summary">Heads up, interface, sounds</string>
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Actions, lock screen</string>
     <string name="buttons_title">Buttons</string>
     <string name="buttons_summary">Power button, volume buttons</string>
     <string name="miscellaneous_title">Miscellaneous</string>
-    <string name="miscellaneous_summary">Developer options, spoofing</string>
-    <string name="about_title">About</string>
-    <string name="about_summary">About Evolution X</string>
+    <string name="miscellaneous_summary">Spoofing, developer options</string>
+    <string name="about_title">Evolution X</string>
+    <string name="about_summary">About our ROM</string>
 
     <!-- Themes -->
     <string name="themes_general_category">General</string>
@@ -131,8 +131,6 @@
     <string name="lock_screen_fingerprint_category">Fingerprint</string>
     <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
     <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
-    <string name="lock_screen_screen_off_udfps_title">Screen-Off UDFPS</string>
-    <string name="lock_screen_screen_off_udfps_summary">Keep UDFPS enabled while the screen is off</string>
     <string name="lock_screen_fingerprint_success_vibration_title">Authentication success vibration</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Vibrate when fingerprint authentication is successful</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Authentication error vibration</string>
@@ -144,38 +142,25 @@
     <string name="lock_screen_always_on_pocket_mode_summary">Always block screen and button inputs when screen is turned on</string>
 
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">About Pulse</string>
-    <string name="pulse_help_policy_notice_summary">Pulse is a brilliant audio graphic equalizer when music plays on the device</string>
-    <string name="lock_screen_pulse_settings_title">Pulse</string>
-    <string name="lock_screen_pulse_settings_summary">Audio graphic equalizer for navigation bar and lock screen</string>
-    <string name="show_navbar_pulse_title">Navbar pulse</string>
-    <string name="show_navbar_pulse_summary">Audio graphic equalizer on the navigation bar</string>
-    <string name="show_lockscreen_pulse_title">Lock screen pulse</string>
-    <string name="show_lockscreen_pulse_summary">Audio graphic equalizer on the lock screen</string>
-    <string name="show_ambient_pulse_title">Ambient pulse</string>
-    <string name="show_ambient_pulse_summary">Audio graphic equalizer on the ambient screen</string>
-    <string name="pulse_render_mode_title">Render mode</string>
-    <string name="pulse_render_mode_fading_bars">Fading blocks</string>
-    <string name="pulse_render_mode_solid_lines">Solid lines</string>
-    <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
-    <string name="pulse_custom_fudge_factor">Sanity level</string>
-    <string name="pulse_lavalamp_speed_title">Lava lamp speed</string>
-    <string name="pulse_solid_units_rounded_title">Rounded corners</string>
-    <string name="pulse_solid_units_rounded_summary">Solid lines with rounded tip</string>
-    <string name="pulse_solid_units_count">Solid lines count</string>
-    <string name="pulse_solid_units_opacity">Solid lines opacity</string>
-    <string name="pulse_solid_dimen_category">Solid lines mode settings</string>
-    <string name="pulse_color_mode_title">Color</string>
-    <string name="pulse_color_accent">Accent</string>
-    <string name="pulse_color_custom">Custom</string>
-    <string name="pulse_color_lava_lamp">Lava lamp</string>
-    <string name="pulse_color_user_title">Choose color</string>
-    <string name="pulse_smoothing_enabled_title">Turn on smoothing</string>
-    <string name="pulse_smoothing_enabled_summary">Each bar is animated more smoothly</string>
-    <string name="pulse_custom_dimen">Bar width</string>
-    <string name="pulse_custom_div">Bar spacing</string>
-    <string name="pulse_filled_block_size">Block size</string>
-    <string name="pulse_empty_block_size">Block spacing</string>
+    <string name="pulse_settings_title">Pulse Visualizer</string>
+    <string name="pulse_settings_summary">Show a bar visualizer on the lock screen while music is playing</string>
+    <string name="ambient_pulse_enabled_title">Ambient Pulse</string>
+    <string name="ambient_pulse_enabled_summary">Show visualizer on Ambient Display</string>
+    <string name="pulse_rounded_bars_title">Rounded bars</string>
+    <string name="pulse_rounded_bars_summary">Display visualizer bars with rounded corners</string>
+    <string name="pulse_color">Visualizer color</string>
+    <string name="pulse_color_lavalamp">Lavalamp</string>
+    <string name="pulse_color_album">Album art</string>
+    <string name="pulse_color_accent">Accent color</string>
+    <string name="pulse_bar_count_title">Number of bars</string>
+    <string name="pulse_bar_count_summary">Set how many bars are shown in the visualizer</string>
+    <string name="pulse_bar_count_units">bars</string>
+    <string name="pulse_renderer">Visualizer style</string>
+    <string name="pulse_renderer_solid">Solid lines</string>
+    <string name="pulse_renderer_fading">Fading blocks</string>
+    <string name="pulse_renderer_neon_glow">Neon glow</string>
+    <string name="pulse_renderer_retro_vu_meter">Retro VU meter</string>
+    <string name="pulse_renderer_minimal_wave">Minimal wave</string>
 
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Swipe left or right to preview clock styles</string>
@@ -434,8 +419,8 @@
     <string name="quick_settings_data_usage_title">Data usage</string>
     <string name="quick_settings_data_usage_summary">Display data usage summary in quick settings footer</string>
     <string name="quick_settings_lock_screen_category">Lock screen</string>
-    <string name="quick_settings_secure_lock_screen_title">Hide on secure lock screen</string>
-    <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>
+    <string name="quick_settings_secure_lock_screen_title">QS on lock screen</string>
+    <string name="quick_settings_secure_lock_screen_summary">Allow swipe down on lock screen to view Quick Settings</string>
     <string name="quick_settings_require_unlock_title">Secure QS tiles require unlock</string>
     <string name="quick_settings_require_unlock_summary">The following quick settings require the device to be unlocked before you can interact with them:\nAirplane, Battery saver, Bluetooth, Cellular, Data saver, Hotspot, Internet, NFC, Rotation lock, and Wi-Fi</string>
     <string name="quick_settings_miscellaneous_category">Miscellaneous</string>
@@ -466,8 +451,6 @@
     <string name="notifications_heads_up_title">Heads up</string>
     <string name="notifications_heads_up_summary">Allow pop up notifications</string>
     <string name="notifications_interface_category">Interface</string>
-    <string name="notifications_edge_light_title">Edge light</string>
-    <string name="notifications_edge_light_summary">Light up the side edges of the screen on notification pulse</string>
     <string name="notifications_kill_app_button_title">Kill app</string>
     <string name="notifications_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
     <string name="notifications_sounds_vibration_category">Sounds &amp; vibration</string>
@@ -483,17 +466,16 @@
     <string name="compact_heads_up_notifications_enabled_summary">Display notifications in compact size</string>
 
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_always_trigger_on_pulse_title">Always trigger on pulse</string>
-    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Whether to show edge light whenever ambient display is shown and not just for notifications</string>
-    <string name="notifications_edge_light_repeat_animation_title">Repeat animation</string>
-    <string name="notifications_edge_light_repeat_animation_summary_on">Repeat until timeout</string>
-    <string name="notifications_edge_light_repeat_animation_summary_off">Show only once</string>
-    <string name="notifications_edge_light_color_mode_title">Edge light color mode</string>
-    <string name="notifications_edge_light_style_title">Edge light style</string>
-    <string name="notifications_edge_light_stroke_width_title">Edge light stroke width</string>
-    <string name="notifications_edge_light_stroke_width_summary">Configure edge light thickness</string>
-    <string name="notifications_edge_light_style_1">Draw Line</string>
-    <string name="notifications_edge_light_style_2">Blink/Pulse</string>
+    <string name="edge_light_title">Edge light</string>
+    <string name="edge_light_summary">Light up the side edges of the screen on notification pulse</string>
+    <string name="edge_light_color_mode_title">Color mode</string>
+    <string name="edge_light_pulse_count_title">Pulse count</string>
+    <string name="edge_light_pulse_count_summary">Number of pulses for edge light</string>
+    <string name="edge_light_stroke_width_title">Stroke width</string>
+    <string name="edge_light_stroke_width_summary">Set thickness for edge light bars</string>
+    <string name="edge_light_style_title">Render style</string>
+    <string name="edge_light_style_default">Default (left/right)</string>
+    <string name="edge_light_style_frame">Frame (all sides)</string>
 
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Less boring</string>
@@ -556,12 +538,10 @@
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
-    <string name="tensor_spoof_title">Spoof tensor features</string>
-    <string name="tensor_spoof_summary">Unlock tensor/pixel features</string>
+    <string name="tensor_spoof_title">Tensor features</string>
+    <string name="tensor_spoof_summary">Unlock features only available in tensor-based Pixel devices</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
-    <string name="spoofing_storage_encryption_title">Storage encryption</string>
-    <string name="spoofing_storage_encryption_summary">Spoof the device storage encryption status to \'Encrypted\'</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
     <string name="spoofing_qsb_title">Google app</string>
     <string name="spoofing_qsb_summary">Spoof the Google app to the latest Pixel device to unlock exclusive features</string>
@@ -594,18 +574,18 @@
     <string name="about_website_title">Website</string>
     <string name="about_website_summary">Visit our site for updates</string>
     <string name="about_x_title" translatable="false">X</string>
-    <string name="about_x_summary">Catch our latest on X</string>
+    <string name="about_x_summary">Catch our latest news on X</string>
     <string name="about_discord_title" translatable="false">Discord</string>
     <string name="about_discord_summary">Chat with us on Discord</string>
     <string name="about_github_title" translatable="false">GitHub</string>
     <string name="about_github_summary">Browse our code on GitHub</string>
     <string name="about_founders_title">Founders</string>
-    <string name="about_founder_1_title" translatable="false">Joey Huab</string>
-    <string name="about_founder_1_summary" translatable="false">Founder/Lead Developer</string>
+    <string name="about_founder_1_title" translatable="false">Joey</string>
+    <string name="about_founder_1_summary" translatable="false">Founder / Lead Developer</string>
     <string name="about_founder_2_title" translatable="false">Anierin Bliss</string>
-    <string name="about_founder_2_summary" translatable="false">Co-Founder/Co-Developer</string>
+    <string name="about_founder_2_summary" translatable="false">Co-founder / Co-developer</string>
     <string name="about_founder_3_title" translatable="false">Akito Mizukito</string>
-    <string name="about_founder_3_summary" translatable="false">Co-Founder/Project Manager</string>
+    <string name="about_founder_3_summary" translatable="false">Co-founder / Project manager</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -618,7 +598,7 @@
     <string name="accent_color">Accent color (Default)</string>
     <string name="notification_color">Notification color</string>
     <string name="wallpaper_color">Wallpaper color</string>
-    <string name="rainbow_gradient_color">Rainbow gradient color</string>
+    <string name="rainbow_color">Rainbow color</string>
     <string name="custom_color">Custom color</string>
 
     <!-- Custom seekbar -->
@@ -654,8 +634,9 @@
     <string name="powermenu_style_title">Power menu style</string>
     <string name="powermenu_style1">Cyberpunk</string>
     <string name="powermenu_style2">Duoline</string>
-    <string name="powermenu_style3">IOS</string>
-    <string name="powermenu_style4">Layers</string>
+    <string name="powermenu_style3">Fluid (Transparent)</string>
+    <string name="powermenu_style4">IOS</string>
+    <string name="powermenu_style5">Layers</string>
 
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">QS header clock style</string>
@@ -723,19 +704,27 @@
         The depth wallpaper feature, inspired by iOS\'s Wallpaper Subject Segmentation, enables overlaying of a subject above the lock screen clock to show a wallpaper depth effect.\n\nTo setup Depth Wallpaper Feature:\n1. Set a wallpaper with the subject or a background you want the subject to be above of.\n2. Select a subject image to track, this image will be overlaid above the lock screen clock.\n3. Modify the offsets and opacity according to your needs.
     </string>
 
-    <!-- Media art -->
-    <string name="media_art_title">Media cover art</string>
-    <string name="media_art_summary">Display media cover art when available</string>
-    <string name="ls_media_art_fade_level_title">Media cover art fade level</string>
-    <string name="ls_media_art_fade_level_summary">Set media cover art fade level</string>
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Media cover art</string>
+    <string name="ls_media_art_summary">Display media cover art when available</string>
 
     <!-- Lock screen album art filter -->
-    <string name="lockscreen_albumart_filter_title">Media cover art filter</string>
-    <string name="lockscreen_albumart_filter_none">None</string>
-    <string name="lockscreen_albumart_filter_grayscale">Grayscale</string>
-    <string name="lockscreen_albumart_filter_tint">Accent tinted</string>
-    <string name="lockscreen_albumart_filter_blur">Blur</string>
-    <string name="lockscreen_albumart_filter_grayblur">Grayscale and blurred</string>
+    <string name="ls_media_art_filter_title">Media cover art filter</string>
+    <string name="ls_media_art_filter_none">None</string>
+    <string name="ls_media_art_filter_blur">Blur</string>
+    <string name="ls_media_art_filter_grayscale">Grayscale</string>
+    <string name="ls_media_art_filter_sepia">Sepia</string>
+    <string name="ls_media_art_filter_tint">Accent tinted</string>
+    <string name="ls_media_art_filter_invert">Invert</string>
+    <string name="ls_media_art_filter_grayblur">Grayscale and blur</string>
+
+    <!-- Lock screen media art fade level -->
+    <string name="ls_media_art_fade_level_title">Media cover art fade level</string>
+    <string name="ls_media_art_fade_level_summary">Set media cover art fade level</string>
+    
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">Media art blur level</string>
+    <string name="ls_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
 
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">System haptics</string>
@@ -744,6 +733,8 @@
     <string name="brightness_slider_haptics_intensity_title">Brightness slider haptics intensity</string>
     <string name="edge_scrolling_haptics_intensity_title">Edge scrolling haptics intensity</string>
     <string name="volume_slider_haptics_intensity_title">Volume slider haptics intensity</string>
+    <string name="volume_sound_haptics_title">Volume sound feedback</string>
+    <string name="volume_sound_haptics_summary">Enable sound feedback when adjusting volume row progress</string>
     <string name="qs_panel_tile_haptic_intensity_title">QS tile haptics intensity</string>
     <string name="qs_haptics_intensity_title">Qs fling haptics intensity</string>
     <string name="qs_tiles_haptic_feedback_title">Vibrate on touching QS tiles</string>
@@ -845,11 +836,11 @@
     <string name="max_visible_notification_icons_title">Notification icons</string>
     <string name="max_visible_notification_icons_summary">Maximum notification icons visible on status bar</string>
 
-    <!-- Ongoing progress bar chip in statusbar --> 
+    <!-- Squiggle animation for media notification -->
+    <string name="media_squiggle_animation_title">Squiggle animation</string>
+    <string name="media_squiggle_animation_summary">Show seekbar squiggle animation in media panel when playing media</string>
+
+    <!-- Ongoing progress bar chip in statusbar -->
     <string name="ongoing_action_chip_title">Ongoing progress bar chip</string>
     <string name="ongoing_action_chip_summary">Show progress bar chip in status bar which features ongoing action progress from a notification</string>
- 
-    <!-- Squiggle animation -->
-    <string name="show_squiggle_animation_title">Show squiggle animation</string>
-    <string name="show_squiggle_animation_summary">Show media panel squiggle animation\nAfter change need to switch music, pause music or move the progress bar to apply</string>
 </resources>

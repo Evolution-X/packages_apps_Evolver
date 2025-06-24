@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     Copyright (C) 2019-2025 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -8,6 +8,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/miscellaneous_title">
+
+    <PreferenceCategory
+        android:key="haptics_settings_category"
+        android:title="@string/haptics_settings_title">
+
+        <Preference
+            android:key="haptics_settings"
+            android:title="@string/haptics_settings_title"
+            android:summary="@string/haptics_settings_summary"
+            android:fragment="com.android.settings.sound.HapticsPreferenceFragment"/>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="miscellaneous_spoofing_category"
@@ -19,11 +31,6 @@
             android:title="@string/spoofing_title"
             android:summary="@string/spoofing_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.Spoofing" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="miscellaneous_developer_options_category"
-        android:title="@string/miscellaneous_developer_options_category">
 
         <!-- Hide applist -->
         <Preference
@@ -31,6 +38,26 @@
             android:title="@string/hide_applist_title"
             android:summary="@string/hide_applist_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.HideAppListSettings" />
+
+        <!-- Hide developer status -->
+        <Preference
+            android:key="hide_developer_status_settings"
+            android:title="@string/hide_developer_status_title"
+            android:summary="@string/hide_developer_status_summary"
+            android:fragment="com.android.settings.security.HideDeveloperStatusSettings"
+            settings:controller="com.android.settings.security.HideDeveloperStatusPreferenceController" />
+
+        <!-- Hide screen capture status -->
+        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_status_title"
+            android:summary="@string/hide_screen_capture_status_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="miscellaneous_developer_options_category"
+        android:title="@string/miscellaneous_developer_options_category">
 
         <!-- Smart Pixels -->
         <Preference
@@ -45,14 +72,6 @@
             android:title="@string/usb_default_config_title"
             android:summary="@string/usb_default_config_summary"
             android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
-
-        <!-- Hide developer status -->
-        <Preference
-            android:key="hide_developer_status_settings"
-            android:title="@string/hide_developer_status_title"
-            android:summary="@string/hide_developer_status_summary"
-            android:fragment="com.android.settings.security.HideDeveloperStatusSettings"
-            settings:controller="com.android.settings.security.HideDeveloperStatusPreferenceController" />
 
         <!-- No storage restrict -->
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
@@ -73,13 +92,6 @@
             android:key="unlimit_screenrecord"
             android:title="@string/miscellaneous_unlimit_screenrecord_title"
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
-            android:defaultValue="false" />
-
-        <!-- Hide screen capture status -->
-        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
-            android:key="hide_screen_capture_status"
-            android:title="@string/hide_screen_capture_status_title"
-            android:summary="@string/hide_screen_capture_status_summary"
             android:defaultValue="false" />
 
         <!-- Allow application downgrade -->

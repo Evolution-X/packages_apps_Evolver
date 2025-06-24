@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     Copyright (C) 2019-2025 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <PreferenceScreen
@@ -24,7 +24,7 @@
             android:key="persist.sys.pixelprops.gms"
             android:title="@string/gms_spoof_title"
             android:summary="@string/gms_spoof_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <Preference
             android:key="show_pif_properties"
@@ -57,13 +57,6 @@
             android:title="@string/tensor_spoof_title"
             android:summary="@string/tensor_spoof_summary"
             android:defaultValue="false" />
-
-        <!-- Encryption -->
-        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
-            android:key="spoofing_storage_encryption"
-            android:title="@string/spoofing_storage_encryption_title"
-            android:summary="@string/spoofing_storage_encryption_summary"
-            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -78,11 +71,11 @@
             android:defaultValue="false" />
 
         <!-- Play Store -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+        <!--<org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pixelprops.vending"
             android:title="@string/spoofing_vending_title"
             android:summary="@string/spoofing_vending_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Google Photos -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference

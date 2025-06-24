@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019-2024 The Evolution X Project
+ * Copyright (C) 2019-2025 Evolution X
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -91,7 +91,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
         mDataDisabledIcon = (SystemSettingSwitchPreference) findPreference(KEY_DATA_DISABLED_ICON);
         mFourgIcon = (SystemSettingSwitchPreference) findPreference(KEY_FOUR_G_ICON);
-        mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
         mColoredIcons = (SystemSettingSwitchPreference) findPreference(KEY_COLORED_ICONS);
         mColoredIcons.setOnPreferenceChangeListener(this);
 
