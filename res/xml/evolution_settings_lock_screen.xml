@@ -21,7 +21,7 @@
             android:fragment="org.evolution.settings.fragments.lockscreen.LockClockFontsPickerPreview" />
 
         <!-- Lockscreen Widgets -->
-        <Preference
+        <!--<Preference
             android:key="lockscreen_widgets"
             android:title="@string/lockscreen_widgets_title"
             android:summary="@string/lockscreen_widgets_enabled_summary"
@@ -52,19 +52,19 @@
     	    android:defaultValue="18"
     	    android:min="1"
     	    android:max="210"
-            android:dependency="keyguard_now_bar_enabled" />
+            android:dependency="keyguard_now_bar_enabled" />-->
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="ls_media_art_enabled"
-            android:title="@string/media_art_title"
-            android:summary="@string/media_art_summary"
+            android:title="@string/ls_media_art_title"
+            android:summary="@string/ls_media_art_summary"
             android:defaultValue="false" />
 
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="ls_media_art_filter"
-            android:title="@string/lockscreen_albumart_filter_title"
-            android:entries="@array/lockscreen_albumart_filter_entries"
-            android:entryValues="@array/lockscreen_albumart_filter_values"
+            android:title="@string/ls_media_art_filter_title"
+            android:entries="@array/ls_media_art_filter_entries"
+            android:entryValues="@array/ls_media_art_filter_values"
             android:dependency="ls_media_art_enabled"
             android:defaultValue="0" />
 
@@ -79,6 +79,14 @@
             android:min="0"
             android:dependency="ls_media_art_enabled" />
 
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:title="@string/ls_media_art_blur_level_title"
+            android:summary="@string/ls_media_art_blur_level_summary"
+            android:max="600"
+            android:min="0"
+            android:defaultValue="200"
+            android:dependency="ls_media_art_enabled" />
+
         <!-- Charging stats -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_battery_info"
@@ -86,7 +94,7 @@
             android:summary="@string/lock_screen_charging_stats_summary"
             android:defaultValue="true" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="custom_aod_image_enabled"
             android:title="@string/lockscreen_custom_image_enabled_title"
             android:summary="@string/lockscreen_custom_image_summary"
@@ -96,12 +104,13 @@
             android:key="lockscreen_custom_image"
             android:title="@string/lockscreen_custom_image_title"
             android:summary="@string/lockscreen_custom_image_pick_summary"
-            android:dependency="custom_aod_image_enabled" />
+            android:dependency="custom_aod_image_enabled" />-->
 
+        <!-- Pulse music visualizer -->
         <Preference
             android:key="pulse_settings"
-            android:title="@string/lock_screen_pulse_settings_title"
-            android:summary="@string/lock_screen_pulse_settings_summary"
+            android:title="@string/pulse_settings_title"
+            android:summary="@string/pulse_settings_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.PulseSettings" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -134,13 +143,6 @@
             android:summary="@string/lock_screen_fingerprint_ripple_summary"
             android:defaultValue="true" />
 
-        <!-- Screen-Off UDFPS -->
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="screen_off_udfps_enabled"
-            android:title="@string/lock_screen_screen_off_udfps_title"
-            android:summary="@string/lock_screen_screen_off_udfps_summary"
-            android:defaultValue="false" />
-
         <!-- Authentication success vibration -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="fp_success_vibrate"
@@ -156,11 +158,10 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="lock_screen_miscellaneous_category"
         android:title="@string/lock_screen_miscellaneous_category">
 
-        <!-- Pocket detection -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="pocket_mode_enabled"
             android:title="@string/lock_screen_pocket_detection_title"
@@ -173,5 +174,5 @@
             android:summary="@string/lock_screen_always_on_pocket_mode_summary"
             android:dependency="pocket_mode_enabled"
             android:defaultValue="false" />
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 </PreferenceScreen>
