@@ -528,6 +528,8 @@
     <string name="spoofing_pixel_props_summary">Suplanta tu dispositivo como un Pixel 8 Pro para todas las apps de Google</string>
     <string name="tensor_spoof_title">Características del tensor de suplantación de identidad</string>
     <string name="tensor_spoof_summary">Desbloquear funciones de tensor/pixel</string>
+    <string name="gms_spoof_title">Arreglo de la integridad de Google Play</string>
+    <string name="gms_spoof_summary">Suplantar dispositivo para pasar la atestación de Google Play</string>
     <string name="spoofing_storage_encryption_title">Cifrado del almacenamiento</string>
     <string name="spoofing_storage_encryption_summary">Suplanta el estado de cifrado de almacenamiento a \"Cifrado\"</string>
     <string name="spoofing_app_specific_category">Aplicación específica</string>
@@ -541,6 +543,19 @@
     <string name="spoofing_snap_summary">Utiliza Snapchat como un Pixel XL para solucionar posibles problemas con el chat</string>
     <string name="gameprops_title">Desbloquear el uso de FPS altos en juegos</string>
     <string name="gameprops_summary">Suplanta tu dispositivo como modelo diferente para juegos específicos para desbloquear FPS más altos</string>
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">Descargado correctamente pif.json. Suplantando como %1$s para la integridad de Google Play.</string>
+    <string name="toast_spoofing_failure">Error al suplantar las propiedades.</string>
+    <string name="update_pif_json_title">Actualizar la corrección de integridad de Google Play</string>
+    <string name="update_pif_json_summary">Actualizar el dispositivo de suplantación de PIF, requiere conexión a Internet.</string>
+    <string name="show_pif_properties_title">Propiedades de corrección de integridad de Google Play</string>
+    <string name="show_pif_properties_summary">Mostrar todas las propiedades PIF establecidas actualmente</string>
+    <string name="error_loading_properties">Error al cargar las propiedades PIF</string>
+    <string name="pif_spoofing_title">Seleccione el archivo JSON PIF</string>
+    <string name="pif_spoofing_summary">Elija el archivo PIF JSON que se usará para suplantar la integridad de Google Play</string>
+    <!-- Miscellaneous/Spoofing/Keybox Data -->
+    <string name="keybox_data_title">Seleccione el keybox XML para suplantación</string>
+    <string name="keybox_data_summary">Seleccione el keybox XML utilizado para la suplantación de certificados de claves para todas las aplicaciones del sistema. Haga clic en el botón de borrar para restablecer los valores de datos de teclado utilizados por el sistema.</string>
     <!-- About -->
     <string name="about_info">Evolution X pretende proporcionar a los usuarios una sensación de Pixel a primera vista, con características adicionales a su disposición</string>
     <string name="about_website_title">Sitio web</string>
