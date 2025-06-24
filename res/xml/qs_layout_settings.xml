@@ -21,16 +21,16 @@
 
     <!-- Columns (portrait) -->
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-        android:key="qs_layout_columns"
+        android:key="qs_tiles_columns"
         android:title="@string/quick_settings_columns_portrait_title"
         android:max="6"
         settings:min="2"
         settings:interval="1"
-        android:defaultValue="2" />
+        android:defaultValue="4" />
 
     <!-- Columns (landscape) -->
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-        android:key="qs_layout_columns_landscape"
+        android:key="qs_tiles_columns_landscape"
         android:title="@string/quick_settings_columns_landscape_title"
         android:max="6"
         settings:min="2"
@@ -39,7 +39,7 @@
 
     <!-- Rows (portrait) -->
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-        android:key="qs_layout_rows"
+        android:key="qs_tiles_rows"
         android:title="@string/quick_settings_rows_portrait_title"
         android:max="5"
         settings:min="2"
@@ -48,7 +48,7 @@
 
     <!-- Rows (landscape) -->
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-        android:key="qs_layout_rows_landscape"
+        android:key="qs_tiles_rows_landscape"
         android:title="@string/quick_settings_rows_landscape_title"
         android:max="3"
         settings:min="1"
@@ -65,7 +65,7 @@
         android:defaultValue="2" />
 
     <!-- Quick QS rows (landscape) -->
-    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+    <!--<org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="qqs_layout_rows_landscape"
         android:title="@string/quick_settings_qqs_rows_landscape_title"
         android:max="3"
@@ -77,6 +77,6 @@
         android:key="qs_layout_columns_rows_footer"
         android:title="@string/quick_settings_layout_columns_rows_footer_text"
         android:selectable="false"
-        settings:searchable="false" />
+        settings:searchable="false" />-->
 
 </PreferenceScreen>

@@ -6,28 +6,28 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Evolving like never before</string>
+    <string name="evolver_dashboard_title">The Evolver</string>
+    <string name="evolver_dashboard_summary">Evolving your device, your way</string>
 
     <!-- Categories -->
     <string name="themes_title">Themes</string>
-    <string name="themes_summary">Monet, fonts, icons</string>
+    <string name="themes_summary">Monet engine, UI styles, fonts, icon packs</string>
     <string name="lock_screen_title">Lock screen</string>
-    <string name="lock_screen_summary">Interface, miscellaneous</string>
+    <string name="lock_screen_summary">Interface, fingerprint, miscellaneous</string>
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_summary">Gestures, Icons, privacy indicators</string>
+    <string name="status_bar_summary">Gestures, icons</string>
     <string name="quick_settings_title">Quick settings</string>
-    <string name="quick_settings_summary">Interface, lock screen</string>
+    <string name="quick_settings_summary">Brightness slider, interface, lock screen</string>
     <string name="notifications_title">Notifications</string>
-    <string name="notifications_summary">Alerts, interface</string>
+    <string name="notifications_summary">Heads up, interface</string>
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Actions, lock screen</string>
     <string name="buttons_title">Buttons</string>
     <string name="buttons_summary">Power button, volume buttons</string>
     <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Developer options, spoofing</string>
-    <string name="about_title">About</string>
-    <string name="about_summary">About Evolution X</string>
+    <string name="about_title">Evolution X</string>
+    <string name="about_summary">About our ROM</string>
 
     <!-- Themes -->
     <string name="themes_general_category">General</string>
@@ -556,8 +556,8 @@
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
-    <string name="tensor_spoof_title">Spoof tensor features</string>
-    <string name="tensor_spoof_summary">Unlock tensor/pixel features</string>
+    <string name="tensor_spoof_title">Tensor features</string>
+    <string name="tensor_spoof_summary">Unlock features only available in tensor-based Pixel devices</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
     <string name="spoofing_storage_encryption_title">Storage encryption</string>
@@ -594,18 +594,18 @@
     <string name="about_website_title">Website</string>
     <string name="about_website_summary">Visit our site for updates</string>
     <string name="about_x_title" translatable="false">X</string>
-    <string name="about_x_summary">Catch our latest on X</string>
+    <string name="about_x_summary">Catch our latest news on X</string>
     <string name="about_discord_title" translatable="false">Discord</string>
     <string name="about_discord_summary">Chat with us on Discord</string>
     <string name="about_github_title" translatable="false">GitHub</string>
     <string name="about_github_summary">Browse our code on GitHub</string>
     <string name="about_founders_title">Founders</string>
-    <string name="about_founder_1_title" translatable="false">Joey Huab</string>
-    <string name="about_founder_1_summary" translatable="false">Founder/Lead Developer</string>
+    <string name="about_founder_1_title" translatable="false">Joey</string>
+    <string name="about_founder_1_summary" translatable="false">Founder / Lead Developer</string>
     <string name="about_founder_2_title" translatable="false">Anierin Bliss</string>
-    <string name="about_founder_2_summary" translatable="false">Co-Founder/Co-Developer</string>
+    <string name="about_founder_2_summary" translatable="false">Co-founder / Co-developer</string>
     <string name="about_founder_3_title" translatable="false">Akito Mizukito</string>
-    <string name="about_founder_3_summary" translatable="false">Co-Founder/Project Manager</string>
+    <string name="about_founder_3_summary" translatable="false">Co-founder / Project manager</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -654,8 +654,9 @@
     <string name="powermenu_style_title">Power menu style</string>
     <string name="powermenu_style1">Cyberpunk</string>
     <string name="powermenu_style2">Duoline</string>
-    <string name="powermenu_style3">IOS</string>
-    <string name="powermenu_style4">Layers</string>
+    <string name="powermenu_style3">Fluid (Transparent)</string>
+    <string name="powermenu_style4">IOS</string>
+    <string name="powermenu_style5">Layers</string>
 
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">QS header clock style</string>
@@ -736,6 +737,10 @@
     <string name="lockscreen_albumart_filter_tint">Accent tinted</string>
     <string name="lockscreen_albumart_filter_blur">Blur</string>
     <string name="lockscreen_albumart_filter_grayblur">Grayscale and blurred</string>
+    
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">Media art blur level</string>
+    <string name="lockscreen_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
 
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">System haptics</string>
@@ -744,6 +749,8 @@
     <string name="brightness_slider_haptics_intensity_title">Brightness slider haptics intensity</string>
     <string name="edge_scrolling_haptics_intensity_title">Edge scrolling haptics intensity</string>
     <string name="volume_slider_haptics_intensity_title">Volume slider haptics intensity</string>
+    <string name="volume_sound_haptics_title">Volume sound feedback</string>
+    <string name="volume_sound_haptics_summary">Enable sound feedback when adjusting volume row progress</string>
     <string name="qs_panel_tile_haptic_intensity_title">QS tile haptics intensity</string>
     <string name="qs_haptics_intensity_title">Qs fling haptics intensity</string>
     <string name="qs_tiles_haptic_feedback_title">Vibrate on touching QS tiles</string>
