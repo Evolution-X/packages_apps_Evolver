@@ -41,8 +41,6 @@ public class Themes extends SettingsPreferenceFragment implements
 
     private static final String KEY_LOCK_SOUND = "lock_sound";
     private static final String KEY_UNLOCK_SOUND = "unlock_sound";
-    private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
-    private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_PGB_STYLE = "progress_bar_style";
     private static final String KEY_NOTIF_STYLE = "notification_style";
@@ -74,8 +72,6 @@ public class Themes extends SettingsPreferenceFragment implements
     private GlobalSettingListPreference mLockSound;
     private GlobalSettingListPreference mUnlockSound;
     private PreferenceCategory mLauncherCategory;
-    private PreferenceCategory mIconsCategory;
-    private Preference mSignalIcon;
     private PreferenceCategory mAnimationsCategory;
     private SystemSettingListPreference mNotificationStylePref;
     private SystemSettingListPreference mPowerMenuStylePref;
@@ -98,13 +94,7 @@ public class Themes extends SettingsPreferenceFragment implements
         mUnlockSound = (GlobalSettingListPreference) findPreference(KEY_UNLOCK_SOUND);
         mUnlockSound.setOnPreferenceChangeListener(this);
         mLauncherCategory = (PreferenceCategory) findPreference(KEY_LAUNCHER_CATEGORY);
-        mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
-        mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
-
-        if (!DeviceUtils.deviceSupportsMobileData(context)) {
-            mIconsCategory.removePreference(mSignalIcon);
-        }
 
         mProgressBarPref = findPreference(KEY_PGB_STYLE);
         mProgressBarPref.setOnPreferenceChangeListener(this);
@@ -201,10 +191,6 @@ public class Themes extends SettingsPreferenceFragment implements
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
-
-                if (!DeviceUtils.deviceSupportsMobileData(context)) {
-                    keys.add(KEY_SIGNAL_ICON);
-                }
 
                 if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
                     keys.add(KEY_LAUNCHER_CATEGORY);
