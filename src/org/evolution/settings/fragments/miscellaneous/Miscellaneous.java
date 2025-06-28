@@ -24,19 +24,11 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
-import org.evolution.settings.fragments.miscellaneous.SmartPixels;
-
 @SearchIndexable
 public class Miscellaneous extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "Miscellaneous";
-
-    private static final String KEY_DEV_CATEGORY = "miscellaneous_developer_options_category";
-    private static final String KEY_SMART_PIXELS = "smart_pixels";
-
-    private PreferenceCategory mDevOptionsCategory;
-    private Preference mSmartPixels;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,14 +39,6 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         final ContentResolver resolver = mContext.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = mContext.getResources();
-
-        mDevOptionsCategory = (PreferenceCategory) findPreference(KEY_DEV_CATEGORY);
-        mSmartPixels = (Preference) findPreference(KEY_SMART_PIXELS);
-        boolean mSmartPixelsSupported = getResources().getBoolean(
-                com.android.internal.R.bool.config_supportSmartPixels);
-        if (!mSmartPixelsSupported) {
-            mDevOptionsCategory.removePreference(mSmartPixels);
-        }
     }
 
     @Override
@@ -75,12 +59,6 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
-
-                    boolean mSmartPixelsSupported = context.getResources().getBoolean(
-                            com.android.internal.R.bool.config_supportSmartPixels);
-                    if (!mSmartPixelsSupported)
-                        keys.add(KEY_SMART_PIXELS);
-
                     return keys;
                 }
             };
