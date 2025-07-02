@@ -101,7 +101,7 @@
     <string name="monet_engine_chroma_factor_title">Коэффициент цветности</string>
     <string name="monet_engine_chroma_factor_summary">Чем больше значение, тем насыщеннее цвета</string>
     <string name="monet_engine_whole_palette_title">Вся палитра</string>
-    <string name="monet_engine_whole_palette_summary">Значения яркости и цветности будут влиять так же и на вторичные цвета</string>
+    <string name="monet_engine_whole_palette_summary">Применять выбор яркости и насыщенности к дополнительным цветам</string>
     <string name="monet_engine_tint_background_title">Окрасить фон</string>
     <string name="monet_engine_tint_background_summary">Значения яркости и цветности будут влиять так же и на цвета фона</string>
     <string name="monet_engine_style_title">Стиль темы</string>
@@ -528,6 +528,8 @@
     <string name="spoofing_pixel_props_summary">Подмена устройства на новейший Pixel для отдельных приложений Google</string>
     <string name="tensor_spoof_title">Подмена функций Tensor</string>
     <string name="tensor_spoof_summary">Разблокировка функций Tensor/Pixel</string>
+    <string name="gms_spoof_title">Исправление Play Integrity</string>
+    <string name="gms_spoof_summary">Подменяет данные устройства для прохождения аттестации Google Play</string>
     <string name="spoofing_storage_encryption_title">Шифрование хранилища</string>
     <string name="spoofing_storage_encryption_summary">Подмена статуса шифрования хранилища на «Зашифровано»</string>
     <string name="spoofing_app_specific_category">Для отдельных приложений</string>
@@ -541,6 +543,19 @@
     <string name="spoofing_snap_summary">Подмена устройства на Pixel XL для решения проблем с чатами в Snapchat</string>
     <string name="gameprops_title">Разблокировка высокого FPS в играх</string>
     <string name="gameprops_summary">Подмена модели устройства для отдельных игр с целью разблокировки высокого FPS</string>
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">Успешно скачан pif.json. Подменяется на %1$s для Play Integrity.</string>
+    <string name="toast_spoofing_failure">Не удалось подменить.</string>
+    <string name="update_pif_json_title">Обновить Play Integrity fix</string>
+    <string name="update_pif_json_summary">Обновить подменяемое устройство PIF, требует подключение к интернету.</string>
+    <string name="show_pif_properties_title">Свойства Play Integrity fix</string>
+    <string name="show_pif_properties_summary">Показать все текущие свойства PIF</string>
+    <string name="error_loading_properties">Ошибка при загрузке свойств PIF</string>
+    <string name="pif_spoofing_title">Выберите файл PIF JSON</string>
+    <string name="pif_spoofing_summary">Выбрать JSON файл PIF, который будет использоваться для подмены Play Integrity</string>
+    <!-- Miscellaneous/Spoofing/Keybox Data -->
+    <string name="keybox_data_title">Выбор XML keybox для подмены</string>
+    <string name="keybox_data_summary">Выберите XML-файл keybox, используемый для подделки аттестации ключей для всех приложений в системе. Нажмите кнопку удаления, чтобы сбросить данные keybox, используемые системой.</string>
     <!-- About -->
     <string name="about_info">Evolution X стремится предоставить пользователям ощущение опыта использования Pixel с большим количеством дополнительных функций для вашего удобства</string>
     <string name="about_website_title">Сайт</string>
@@ -757,7 +772,4 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Показать волнистую анимацию</string>
     <string name="show_squiggle_animation_summary">Показывать волнистую анимацию медиа плеера\nДля применения изменений необходимо переключить музыку, остановить ее или промотать</string>
-    <!-- Interface / Expressive Design -->
-    <string name="expressive_design_title">Expressive Design</string>
-    <string name="expressive_design_summary">Включить предпросмотр Expressive Design</string>
 </resources>
