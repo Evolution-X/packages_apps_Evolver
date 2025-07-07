@@ -1026,4 +1026,14 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+
+    <string-array name="quick_settings_secure_lock_screen_entries" translatable="false">
+        <item>@string/disable</item>
+        <item>@string/enable</item>
+    </string-array>
+
+    <string-array name="quick_settings_secure_lock_screen_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>
