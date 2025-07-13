@@ -9,27 +9,27 @@
     <string name="evolver_dashboard_summary">前所未有的进化</string>
     <!-- Categories -->
     <string name="themes_title">主题</string>
-    <string name="themes_summary">莫奈、字体和图标</string>
+    <string name="themes_summary">动态配色、字体和图标</string>
     <string name="lock_screen_title">锁屏界面</string>
     <string name="lock_screen_summary">界面，杂项</string>
     <string name="status_bar_title">状态栏</string>
-    <string name="status_bar_summary">手势、图标、隐私指示器</string>
+    <string name="status_bar_summary">手势，图标，隐私指示器</string>
     <string name="quick_settings_title">快速设置</string>
-    <string name="quick_settings_summary">界面、锁屏界面</string>
+    <string name="quick_settings_summary">界面，锁屏界面</string>
     <string name="notifications_title">通知</string>
     <string name="notifications_summary">警报，界面</string>
     <string name="power_menu_title">电源菜单</string>
-    <string name="power_menu_summary">屏幕锁定时不显示</string>
+    <string name="power_menu_summary">电源键操作，锁屏设置</string>
     <string name="buttons_title">按钮</string>
     <string name="buttons_summary">电源按钮，音量按钮</string>
     <string name="miscellaneous_title">杂项</string>
-    <string name="miscellaneous_summary">开发者选项，欺骗</string>
+    <string name="miscellaneous_summary">开发者选项，伪装设置</string>
     <string name="about_title">关于我们</string>
     <string name="about_summary">关于 Evolution X</string>
     <!-- Themes -->
     <string name="themes_general_category">常规</string>
-    <string name="themes_monet_category">莫奈</string>
-    <string name="themes_monet_title">莫奈设置</string>
+    <string name="themes_monet_category">动态配色</string>
+    <string name="themes_monet_title">动态配色设置</string>
     <string name="themes_monet_summary">自定义 Android 内置主题引擎</string>
     <string name="themes_audio_category">音频</string>
     <string name="themes_lock_sound_title">锁定音效</string>
@@ -217,8 +217,8 @@
     <string name="status_bar_battery_percent_title">电量百分比</string>
     <string name="status_bar_battery_percent_hidden">隐藏</string>
     <string name="status_bar_battery_percent_text_inside">图标内</string>
-    <string name="status_bar_battery_percent_text_next_right">图标旁（右）</string>
-    <string name="status_bar_battery_percent_text_next_left">图标旁（左）</string>
+    <string name="status_bar_battery_percent_text_next_right">图标旁(右)</string>
+    <string name="status_bar_battery_percent_text_next_left">图标旁(左)</string>
     <string name="status_bar_battery_text_charging_title">充电时电池百分比</string>
     <string name="status_bar_battery_text_charging_summary">充电时总是显示电池百分比</string>
     <string name="status_bar_clock_and_date_title">时钟和日期设置</string>
@@ -227,7 +227,7 @@
     <string name="status_bar_data_disabled_icon_summary">禁用数据连接时，显示信号图标旁边的 “×“ 图标</string>
     <string name="status_bar_4g_icon_title">4G 图标</string>
     <string name="status_bar_4g_icon_summary">用4G代替LTE显示</string>
-    <string name="status_bar_wifi_standard_icon_title">WIFI 标准</string>
+    <string name="status_bar_wifi_standard_icon_title">Wi-Fi 标准</string>
     <string name="status_bar_wifi_standard_icon_summary">在 Wi-Fi 图标下显示Wi-Fi 标准</string>
     <string name="status_bar_bluetooth_battery_title">蓝牙电池状态</string>
     <string name="status_bar_bluetooth_battery_summary">显示当前连接蓝牙设备的电量 (如果设备支持)</string>
@@ -262,7 +262,7 @@
     <string name="status_bar_logo_style_spiderman">蜘蛛人</string>
     <string name="status_bar_logo_style_superman">超人</string>
     <string name="status_bar_logo_style_windows">Windows</string>
-    <string name="status_bar_logo_style_xbox">XBOX</string>
+    <string name="status_bar_logo_style_xbox">Xbox</string>
     <string name="status_bar_logo_style_ghost">幽灵</string>
     <string name="status_bar_logo_style_ninja">忍者</string>
     <string name="status_bar_logo_style_robot">机器人</string>
@@ -373,9 +373,9 @@
     <string name="quick_settings_tile_label_hide_summary">仅在磁贴中显示图标</string>
     <string name="quick_settings_tile_layout_title">垂直布局</string>
     <string name="quick_settings_tile_layout_summary">显示图标下面的图标，而不是图标旁边</string>
-    <string name="quick_settings_layout_columns_rows_title">行列</string>
+    <string name="quick_settings_layout_columns_rows_title">行&amp;列</string>
     <string name="quick_settings_layout_columns_rows_summary">自定义快捷开关的行数和列数</string>
-    <string name="quick_settings_layout_columns_rows_footer_text">控制中心行数应该大于等于快捷控制中心部分的行数。对于圆形或方形（安卓11及以前）的样式来说行数应该更加多才行。</string>
+    <string name="quick_settings_layout_columns_rows_footer_text">快速设置行数应大于或等于折叠状态下的快捷设置行数。对于圆形/方形（A11）磁贴样式，请使用更多列。</string>
     <string name="quick_settings_columns_portrait_title">列 （纵向）</string>
     <string name="quick_settings_columns_landscape_title">列（横向）</string>
     <string name="quick_settings_rows_portrait_title">行数 (纵向)</string>
@@ -415,7 +415,7 @@
     <string name="quick_settings_data_usage_title">数据使用情况</string>
     <string name="quick_settings_data_usage_summary">在快捷设置页中显示数据使用情况</string>
     <string name="quick_settings_lock_screen_category">锁屏界面</string>
-    <string name="quick_settings_secure_lock_screen_title">在安全锁屏界面隐藏</string>
+    <string name="quick_settings_secure_lock_screen_title">在安全锁屏界面下拉打开快速设置</string>
     <string name="quick_settings_secure_lock_screen_summary">在设备锁定时隐藏通知阴影中的所有快速设置</string>
     <string name="quick_settings_require_unlock_title">解锁才能使用涉及安全操作的磁块</string>
     <string name="quick_settings_require_unlock_summary">下面的快速设置需要设备解锁后才能与它们进行交互：\n飞行模式、省电模式、蓝牙、移动数据、数据节省模式、热点、互联网、NFC、旋转锁定和Wi-Fi</string>
@@ -526,8 +526,10 @@
     <string name="spoofing_system_wide_category">系统范围</string>
     <string name="spoofing_pixel_props_title">伪装Pixel</string>
     <string name="spoofing_pixel_props_summary">针对选定的谷歌系应用设置伪装，让它们以为这是最新的Google Pixel设备</string>
-    <string name="tensor_spoof_title"></string>
+    <string name="tensor_spoof_title">模拟Tensor功能</string>
     <string name="tensor_spoof_summary">伪装成Pixel机型</string>
+    <string name="gms_spoof_title">Play完整性修复</string>
+    <string name="gms_spoof_summary">伪装您的设备以通过 Google Play 认证</string>
     <string name="spoofing_storage_encryption_title">存储加密</string>
     <string name="spoofing_storage_encryption_summary">伪装存储加密状态为加密\'</string>
     <string name="spoofing_app_specific_category">针对特定应用程序</string>
@@ -541,6 +543,19 @@
     <string name="spoofing_snap_summary">对Snapchat设置伪装，让它以为这是Google Pixel XL 来解决可能产生的聊天问题</string>
     <string name="gameprops_title">在游戏中解锁更高的帧数</string>
     <string name="gameprops_summary">在特定游戏中将您的设备伪装成不同机型以解锁更高的帧数</string>
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">成功下载pif.json。伪装为 %1$s 以通过Play完整性检查。</string>
+    <string name="toast_spoofing_failure">伪装属性失败。</string>
+    <string name="update_pif_json_title">更新Play完整性修复</string>
+    <string name="update_pif_json_summary">更新 PIF 伪装设备，需要网络连接。</string>
+    <string name="show_pif_properties_title">Play完整性修复属性</string>
+    <string name="show_pif_properties_summary">显示所有当前设置的 PIF 属性</string>
+    <string name="error_loading_properties">加载 PIF 属性时出错</string>
+    <string name="pif_spoofing_title">选择 PIF JSON 文件</string>
+    <string name="pif_spoofing_summary">选择用于伪装Play完整性的 PIF JSON 文件</string>
+    <!-- Miscellaneous/Spoofing/Keybox Data -->
+    <string name="keybox_data_title">选择用于设备认证模拟的密钥箱文件</string>
+    <string name="keybox_data_summary">请选择用于全局应用密钥认证伪装的密钥箱XML文件。点击删除按钮可重置系统使用的密钥数据值。</string>
     <!-- About -->
     <string name="about_info">Evolution X 旨在为用户提供像Pixel一样的初次感觉，提供您可以使用的额外功能</string>
     <string name="about_website_title">网站</string>
@@ -662,7 +677,7 @@
     <string name="edge_scrolling_haptics_intensity_title">边缘滑动震动反馈强度</string>
     <string name="volume_slider_haptics_intensity_title">音量滑块震动反馈强度</string>
     <string name="qs_panel_tile_haptic_intensity_title">快速设置瓷块震动强度</string>
-    <string name="qs_haptics_intensity_title">QS瓷块震动强度</string>
+    <string name="qs_haptics_intensity_title">快速设置瓷块震动强度</string>
     <string name="qs_tiles_haptic_feedback_title">触摸快速设置磁贴时振动</string>
     <!-- Weather -->
     <string name="weather_settings_title">天气设置</string>
@@ -749,13 +764,35 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">通知图标</string>
     <string name="max_visible_notification_icons_summary">状态栏可显示图标</string>
-    <!-- Ongoing progress bar chip in statusbar -->
-    <string name="ongoing_action_chip_title">通知进度条</string>
-    <string name="ongoing_action_chip_summary">在状态栏中显示通知进度条</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">状态栏操作胶囊</string>
+    <string name="ongoing_progress_settings_summary">状态栏操作胶囊设置</string>
+    <string name="ongoing_action_chip_title">持续操作胶囊</string>
+    <string name="ongoing_action_chip_summary">在状态栏显示下载等持续操作的进度条</string>
+    <string name="ongoing_action_chip_opacity_title">进度条不透明度</string>
+    <string name="ongoing_action_chip_opacity_summary">调整操作胶囊进度条的透明度</string>
+    <string name="compact_progress_mode_title">紧凑型进度指示器</string>
+    <string name="compact_progress_mode_summary">为持续操作使用紧凑型圆形指示器</string>
+    <string name="show_media_progress_title">显示媒体播放进度</string>
+    <string name="show_media_progress_summary">在状态栏显示媒体播放进度</string>
+    <string name="progress_footer_text">\"状态栏进度条提供媒体播放和活动下载/上传的实时更新。
+ 
+     - 🎵 媒体进度：
+     • 显示音乐和视频播放进度，当媒体正在播放时。
+     • 单击打开播放控制（上一曲、下一曲）。
+     • 双击切换播放/暂停。
+     • 向左滑动跳至上一曲。
+     • 向右滑动跳至下一曲。
+     • 长按打开媒体应用。
+ 
+     - 📥 下载/上传进度：
+     • 显示正在进行的下载和上传进度。
+     • 当没有活动传输时自动隐藏。
+     • 单击打开负责下载的应用。
+ 
+     进度条会动态切换媒体和下载状态，确保您一目了然地获取最相关的信息。\"
+    </string>
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">显示波浪动画</string>
     <string name="show_squiggle_animation_summary">显示媒体面板波浪动画\n更改后需要切换音乐、暂停音乐或移动进度条才能应用</string>
-    <!-- Interface / Expressive Design -->
-    <string name="expressive_design_title">富有表现力的设计</string>
-    <string name="expressive_design_summary">启用表现力设计预览</string>
 </resources>
