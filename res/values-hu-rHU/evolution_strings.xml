@@ -100,6 +100,8 @@
     <string name="monet_engine_luminance_factor_summary">A magasabb érték élénkebb színt eredményez</string>
     <string name="monet_engine_chroma_factor_title">Színerősség</string>
     <string name="monet_engine_chroma_factor_summary">A magasabb érték erősebb színt eredményez</string>
+    <string name="monet_engine_whole_palette_title">Az egész paletta</string>
+    <string name="monet_engine_whole_palette_summary">A \'Fényerősség\' és a \'Színesség\' kiválasztása a másodlagos színeket is befolyásolja</string>
     <string name="monet_engine_tint_background_title">Háttérkitöltés</string>
     <string name="monet_engine_tint_background_summary">A \'Fénysűrűség\' és a \'Színerősség\' kiválasztása a háttérszíneket is befolyásolja</string>
     <string name="monet_engine_style_title">Témastílus</string>
@@ -413,7 +415,7 @@
     <string name="quick_settings_data_usage_title">Adathasználat</string>
     <string name="quick_settings_data_usage_summary">Kijelzi az adatfelhasználást a gyorsbeállítások láblécében</string>
     <string name="quick_settings_lock_screen_category">Záróképernyő</string>
-    <string name="quick_settings_secure_lock_screen_title">Elrejtés a biztonságos záróképernyőn</string>
+    <string name="quick_settings_secure_lock_screen_title">Gyorsbeállítások lefelé húzása a képernyőzáron</string>
     <string name="quick_settings_secure_lock_screen_summary">Az összes gyorsbeállítás elrejtése az értesítési területen, amikor a készülélk le van zárva</string>
     <string name="quick_settings_require_unlock_title">Kötelező feloldás a biztonságos csempékhez</string>
     <string name="quick_settings_require_unlock_summary">Mielőtt használná, a következő gyorsbeállításokhoz fel kell oldani a készüléket:\nReplőgép-mód, Akkukímélő, Bluetooth, Hálózat, Adatforgalom-csökkentő, Hotspot, Internet, NFC, Képernyő-elforgatás és a Wi-Fi</string>
@@ -764,9 +766,34 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Értesítés ikonok</string>
     <string name="max_visible_notification_icons_summary">Maximum hány ikon látszódhat az állapotsoron</string>
-    <!-- Ongoing progress bar chip in statusbar -->
-    <string name="ongoing_action_chip_title">Műveletfolyamatok kijelzője</string>
-    <string name="ongoing_action_chip_summary">A folyamatjelző-sáv megjelenítése az állapotsoron, amely az értesítésből származó műveletfolyamatok előrehaladását mutatja</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Folyamatkijelzés az értesítési sávban</string>
+    <string name="ongoing_progress_settings_summary">Az értesítési sáv kijelzési beállításai</string>
+    <string name="ongoing_action_chip_title">Épp zajló művelet kijelzése</string>
+    <string name="ongoing_action_chip_summary">Folyamatban lévő műveletek, pl. letöltések kijelzőjének megjelenítése az állapotsoron</string>
+    <string name="ongoing_action_chip_opacity_title">A sáv átlátszósága</string>
+    <string name="ongoing_action_chip_opacity_summary">A folyamatjelző átlátszóságának beállítása</string>
+    <string name="compact_progress_mode_title">Kompakt folyamatjelző</string>
+    <string name="compact_progress_mode_summary">Kompakt, kör alakú jelző használata a folyamatban lévő műveletekhez</string>
+    <string name="show_media_progress_title">Médiafolyamat-kijelzés</string>
+    <string name="show_media_progress_summary">A médialejátszási folyamat megjelenítése az állapotsorban</string>
+    <string name="progress_footer_text">     \"Az állapotsor folyamatjelzője valós idejű infókat nyújt mind a médialejátszásról, mind az aktív letöltésekről/feltöltésekről.
+ 
+     - 🎵 Médiafolyamatok:
+     • Zene és videó lejátszásának folyamatát jeleníti meg lejátszás közben.
+     • Lejátszási vezérlők egy koppintással (Előző, Következő szám).
+     • Lejátszás/Leállítás duplakoppal.
+     • Balra húzással az előző számra ugorhat.
+     • Jobbra húzással a következő számra ugorhat.
+     • Hosszan nyomással megnyílik a Lejátszó alkalmazás. 
+ 
+     - 📥 Le- és feltöltési folyamatok:
+     • A folyamatban lévő le- és feltöltések állapotát mutatja.
+     • Automatikusan eltűnik, ha nincs aktív folyamat.
+     • Egyetlen koppintással megnyílik a letöltő-alkalmazás.
+ 
+     A folyamatjelző sáv dinamikusan vált a média és a letöltési állapotok között, így Ön mindig egy pillantással áttekintheti a legfontosabb információkat.\"
+    </string>
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">A hanghullámos animáció megjelenítése</string>
     <string name="show_squiggle_animation_summary">Megjeleníti a hullámra hasonlító médiapanel-animációt,\nérvénybe léptetéshez a módosítás után váltani vagy szüneteltetni kell a zenét, vagy mozgatni kell a folyamatjelző sávot</string>
