@@ -557,13 +557,13 @@
     <string name="keybox_data_title">Válasszon keybox XML-fájt az álcázáshoz</string>
     <string name="keybox_data_summary">Válassza ki a keybox XML-fájlt, amelyet a rendszer összes alkalmazásában a kulcshitelesítés hamisításához használnak. Kattintson a törlés gombra a rendszer által használt keybox-adatértékek visszaállításához.</string>
     <!-- About -->
-    <string name="about_info">Az Evolution X célja, hogy a felhasználók számára első pillantásra Pixel-szerű érzést nyújtson Önnek, sok hozzáadott funkcióval.</string>
+    <string name="about_info">Az Evolution X egy egyedi Android ROM, amelynek célja a Google Pixel élményének reprodukálása, csak sokkal több testreszabási lehetőséggel. A Lineage OS Project-re támaszkodva.</string>
     <string name="about_website_title">Honlap</string>
-    <string name="about_website_summary">Nyugodtan látogassa meg weboldalunkat</string>
-    <string name="about_x_summary">Nézze meg bejegyzéseinket</string>
-    <string name="about_discord_summary">Látogassa meg közösségi csetünket</string>
-    <string name="about_github_summary">Nézze meg a GitHub-unkat</string>
-    <string name="about_contributors_title">Közreműködők</string>
+    <string name="about_website_summary">Látogassa meg weboldalunkat frissítésekért</string>
+    <string name="about_x_summary">Olvassa el a legfrissebb infókat az X-en</string>
+    <string name="about_discord_summary">Kommunikáljon velünk a Discordon</string>
+    <string name="about_github_summary">Nézze át a kódjainkat a GitHubon</string>
+    <string name="about_founders_title">Alapítók</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Színválasztó</string>
     <string name="press_color_to_apply">Érintse meg a színt az alkalmazáshoz</string>
