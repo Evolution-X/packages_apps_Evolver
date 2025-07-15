@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2025 The Evolution X Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<com.android.settings.widget.TintDrawable
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_power_menu"
+    android:tint="@color/homepage_orange_fg" />
