@@ -555,7 +555,7 @@
     <string name="pif_spoofing_summary">Válassza ki az Áruházi Integritás átveréséhez használni kívánt PIF.JSON-fájlt</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Válasszon keybox XML-fájt az álcázáshoz</string>
-    <string name="keybox_data_summary">Válassza ki a keybox XML-fájlt, amelyet a rendszer összes alkalmazásában a kulcshitelesítés hamisításához használnak. Kattintson a törlés gombra a rendszer által használt keybox-adatértékek visszaállításához.</string>
+    <string name="keybox_data_summary">Válassza ki a rendszerszintű kulcshitelesítési álcázáshoz használt XML-t. Kattintson a törlés gombra a kulcstároló adatainak visszaállításához.</string>
     <!-- About -->
     <string name="about_info">Az Evolution X egy egyedi Android ROM, amelynek célja a Google Pixel élményének reprodukálása, csak sokkal több testreszabási lehetőséggel. A Lineage OS Project-re támaszkodva.</string>
     <string name="about_website_title">Honlap</string>
