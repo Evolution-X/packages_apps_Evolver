@@ -555,7 +555,7 @@
     <string name="pif_spoofing_summary">Google Play Bütünlüğü sahtekarlığı için kullanılacak PIF JSON dosyasını seçin</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Sahte anahtar kutusu XML\'i seçin</string>
-    <string name="keybox_data_summary">Sistem genelinde tüm uygulamalar için anahtar doğrulama sahtekarlığı için kullanılan anahtar kutusu XML\'ini seçin. Sistem tarafından kullanılan anahtar kutusu veri değerlerini sıfırlamak için sil düğmesine tıklayın.</string>
+    <string name="keybox_data_summary">Sistem genelinde anahtar doğrulama sahteciliği için kullanılan anahtar kutusu XML\'ini seçin. Anahtar kutusu verilerini sıfırlamak için sil\'e tıklayın.</string>
     <!-- About -->
     <string name="about_info">Evolution X, Google Pixel deneyimini ek özelleştirme ile çoğaltmayı amaçlayan özel bir Android ROM\'dur. LineageOS Projesine dayanmaktadır.</string>
     <string name="about_website_title">İnternet sitesi</string>
