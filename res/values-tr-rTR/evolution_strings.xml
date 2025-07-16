@@ -557,13 +557,13 @@
     <string name="keybox_data_title">Sahte anahtar kutusu XML\'i seçin</string>
     <string name="keybox_data_summary">Sistem genelinde tüm uygulamalar için anahtar doğrulama sahtekarlığı için kullanılan anahtar kutusu XML\'ini seçin. Sistem tarafından kullanılan anahtar kutusu veri değerlerini sıfırlamak için sil düğmesine tıklayın.</string>
     <!-- About -->
-    <string name="about_info">Evolution X, kullanıcılara Pixel benzeri bir his sunmayı amaçlarken, ek özellikler de sunuyor</string>
+    <string name="about_info">Evolution X, Google Pixel deneyimini ek özelleştirme ile çoğaltmayı amaçlayan özel bir Android ROM\'dur. LineageOS Projesine dayanmaktadır.</string>
     <string name="about_website_title">İnternet sitesi</string>
-    <string name="about_website_summary">Web sitemizi ziyaret etmek için buraya dokunun</string>
-    <string name="about_x_summary">Gelin gönderilerimizi görün</string>
-    <string name="about_discord_summary">Topluluk sohbetimizi ziyaret edin</string>
-    <string name="about_github_summary">GitHub\'ımızı açmak için buraya dokunun</string>
-    <string name="about_contributors_title">Katkıda bulunanlar</string>
+    <string name="about_website_summary">Güncellemeler için sitemizi ziyaret edin</string>
+    <string name="about_x_summary">En son haberlerimizi X\'te yakalayın</string>
+    <string name="about_discord_summary">Discord\'da bizimle sohbet edin</string>
+    <string name="about_github_summary">GitHub\'daki kodumuza göz atın</string>
+    <string name="about_founders_title">Kurucular</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Renk seçici</string>
     <string name="press_color_to_apply">Uygulamak istediğiniz rengin üzerine dokunun</string>
