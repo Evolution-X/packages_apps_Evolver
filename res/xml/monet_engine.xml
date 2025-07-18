@@ -25,14 +25,14 @@
         android:title="@string/monet_engine_style_title"
         android:entries="@array/monet_engine_style_entries"
         android:entryValues="@array/monet_engine_style_values"
-        android:defaultValue="0" />
+        android:defaultValue="TONAL_SPOT" />
 
     <ListPreference
         android:key="color_source"
         android:title="@string/monet_engine_color_source_title"
         android:entries="@array/monet_engine_color_source_entries"
         android:entryValues="@array/monet_engine_color_source_values"
-        android:defaultValue="0" />
+        android:defaultValue="both" />
 
     <org.evolution.settings.preferences.colorpicker.ColorPickerPreference
         android:key="accent_color"
