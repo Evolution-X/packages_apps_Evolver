@@ -579,12 +579,14 @@
     <string name="custom_seekbar_default_value_to_set">Alapértelmezett érték <xliff:g id="v">%s</xliff:g>\nNyomja hosszan a beállításhoz</string>
     <string name="custom_seekbar_default_value_is_set">Az alapértelmezett érték beállítva</string>
     <!-- General -->
+    <string name="confirm">Megerősítés</string>
     <string name="enable">Engedélyez</string>
     <string name="disable">Letilt</string>
     <string name="boot_animation_applied">A kiválasztott Boot-animáció alkalmazva</string>
     <string name="default_value">Alapértelmezett</string>
     <string name="top">Felül</string>
     <string name="bottom">Alul</string>
+    <string name="reset">Visszaállítás</string>
     <!-- Units -->
     <string name="unit_milliseconds">ezredmásodperc</string>
     <string name="unit_seconds">másodperc</string>
@@ -707,9 +709,6 @@
     <string name="qs_widgets_enabled_title">Kisalkalmazások a Gyorsbeállításokhoz</string>
     <string name="qs_widgets_enabled_summary">Widgetek megjelenítése a gyors eléréshez.\nA sorokat kettőre korlátozza, hogy elkerülje az AOSP-panel görgetésmegszakítását</string>
     <!-- Lockscreen widgets  -->
-    <string name="lockscreen_widgets_title">Kisalkalmazások</string>
-    <string name="lockscreen_widgets_enabled_title">Engedélyezi a widgeteket a záróképernyőn</string>
-    <string name="lockscreen_widgets_enabled_summary">Új kisalkalmazás hozzáadása a záróképernyőhöz</string>
     <string name="lockscreen_display_widgets_title">Készülékinformáció</string>
     <string name="lockscreen_display_widgets_summary">Megjeleníti a készülékinfót a záróképernyőn</string>
     <string name="large_widgets_category_title">Nagy kisalkalmazások</string>
@@ -797,4 +796,26 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">A hanghullámos animáció megjelenítése</string>
     <string name="show_squiggle_animation_summary">Megjeleníti a hullámra hasonlító médiapanel-animációt,\nérvénybe léptetéshez a módosítás után váltani vagy szüneteltetni kell a zenét, vagy mozgatni kell a folyamatjelző sávot</string>
+    <!-- Lockscreen Widgets -->
+    <string name="lockscreen_widgets_title">A záróképernyő kisalkalmazásai</string>
+    <string name="lockscreen_widgets_enabled_title">Widgetek engedélyezése a záróképernyőn</string>
+    <string name="lockscreen_widgets_enabled_summary">Engedélyezi a kisalkalmazásokat a záróképernyőn</string>
+    <string name="lockscreen_widgets_picker_title">Kisalkalmazások kezelése</string>
+    <string name="lockscreen_widgets_picker_summary">Maximum 4 alkalmazást választhat</string>
+    <string name="reset_to_default">Visszaállítás alaphelyzetbe</string>
+    <string name="reset_confirmation">Az összes kijelöltet törli?</string>
+    <string name="yes">Igen</string>
+    <string name="no">Nem</string>
+    <string name="widget_removed">Kisalkalmazás törölve</string>
+    <string name="undo">Visszavonás</string>
+    <string name="selected_widgets_empty">Nincs kiválasztott kisalkalmazás</string>
+    <string name="selected_widgets_guide">Hosszannyomva áthelyezheti, megérintve törölheti.</string>
+    <string name="widget_torch">Zseblámpa</string>
+    <string name="widget_wifi">Wi-Fi</string>
+    <string name="widget_data">Adat</string>
+    <string name="widget_ringer">Csengés</string>
+    <string name="widget_bt">Bluetooth</string>
+    <string name="widget_hotspot">Hotspot</string>
+    <string name="pick_widgets">Alkalmazásválasztó</string>
+    <string name="selected_widgets">Kiválasztott alkalmazások</string>
 </resources>
