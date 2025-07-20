@@ -415,7 +415,7 @@
     <string name="quick_settings_data_usage_title">Adathasználat</string>
     <string name="quick_settings_data_usage_summary">Kijelzi az adatfelhasználást a gyorsbeállítások láblécében</string>
     <string name="quick_settings_lock_screen_category">Záróképernyő</string>
-    <string name="quick_settings_secure_lock_screen_title">Gyorsbeállítások lefelé húzása a képernyőzáron</string>
+    <string name="quick_settings_secure_lock_screen_title">A Záróképernyőn való lefelé húzással érheti el a Gyorsbeállításokat</string>
     <string name="quick_settings_secure_lock_screen_summary">Az összes gyorsbeállítás elrejtése az értesítési területen, amikor a készülélk le van zárva</string>
     <string name="quick_settings_require_unlock_title">Kötelező feloldás a biztonságos csempékhez</string>
     <string name="quick_settings_require_unlock_summary">Mielőtt használná, a következő gyorsbeállításokhoz fel kell oldani a készüléket:\nReplőgép-mód, Akkukímélő, Bluetooth, Hálózat, Adatforgalom-csökkentő, Hotspot, Internet, NFC, Képernyő-elforgatás és a Wi-Fi</string>
@@ -555,15 +555,15 @@
     <string name="pif_spoofing_summary">Válassza ki az Áruházi Integritás átveréséhez használni kívánt PIF.JSON-fájlt</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Válasszon keybox XML-fájt az álcázáshoz</string>
-    <string name="keybox_data_summary">Válassza ki a keybox XML-fájlt, amelyet a rendszer összes alkalmazásában a kulcshitelesítés hamisításához használnak. Kattintson a törlés gombra a rendszer által használt keybox-adatértékek visszaállításához.</string>
+    <string name="keybox_data_summary">Válassza ki a rendszerszintű kulcshitelesítési álcázáshoz használt XML-t. Kattintson a törlés gombra a kulcstároló adatainak visszaállításához.</string>
     <!-- About -->
-    <string name="about_info">Az Evolution X célja, hogy a felhasználók számára első pillantásra Pixel-szerű érzést nyújtson Önnek, sok hozzáadott funkcióval.</string>
+    <string name="about_info">Az Evolution X egy egyedi Android ROM, amelynek célja a Google Pixel élményének reprodukálása, csak sokkal több testreszabási lehetőséggel. A Lineage OS Project-re támaszkodva.</string>
     <string name="about_website_title">Honlap</string>
-    <string name="about_website_summary">Nyugodtan látogassa meg weboldalunkat</string>
-    <string name="about_x_summary">Nézze meg bejegyzéseinket</string>
-    <string name="about_discord_summary">Látogassa meg közösségi csetünket</string>
-    <string name="about_github_summary">Nézze meg a GitHub-unkat</string>
-    <string name="about_contributors_title">Közreműködők</string>
+    <string name="about_website_summary">Látogassa meg weboldalunkat frissítésekért</string>
+    <string name="about_x_summary">Olvassa el a legfrissebb infókat az X-en</string>
+    <string name="about_discord_summary">Kommunikáljon velünk a Discordon</string>
+    <string name="about_github_summary">Nézze át a kódjainkat a GitHubon</string>
+    <string name="about_founders_title">Alapítók</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Színválasztó</string>
     <string name="press_color_to_apply">Érintse meg a színt az alkalmazáshoz</string>
