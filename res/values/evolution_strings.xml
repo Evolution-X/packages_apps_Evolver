@@ -625,12 +625,14 @@
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
 
     <!-- General -->
+    <string name="confirm">Confirm</string>
     <string name="enable">Enable</string>
     <string name="disable">Disable</string>
     <string name="boot_animation_applied">Boot animation applied</string>
     <string name="default_value">Default</string>
     <string name="top">Top</string>
     <string name="bottom">Bottom</string>
+    <string name="reset">Reset</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">milliseconds</string>
@@ -775,9 +777,6 @@
     <string name="qs_widgets_enabled_summary">Show widgets for quick access. \nLimits QS rows to 2 to avoid breaking AOSP QS Panel scrolling</string>
 
     <!-- Lockscreen widgets  -->
-    <string name="lockscreen_widgets_title">Widgets</string>
-    <string name="lockscreen_widgets_enabled_title">Enable lock screen widgets</string>
-    <string name="lockscreen_widgets_enabled_summary">Add widgets to lock screen</string>
     <string name="lockscreen_display_widgets_title">Device info widget</string>
     <string name="lockscreen_display_widgets_summary">Show device info widget on lock screen</string>
     <string name="large_widgets_category_title">Big widgets</string>
@@ -875,4 +874,27 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Show squiggle animation</string>
     <string name="show_squiggle_animation_summary">Show media panel squiggle animation\nAfter change need to switch music, pause music or move the progress bar to apply</string>
+
+    <!-- Lockscreen Widgets -->
+    <string name="lockscreen_widgets_title">Lockscreen Widgets</string>
+    <string name="lockscreen_widgets_enabled_title">Enable Lockscreen Widgets</string>
+    <string name="lockscreen_widgets_enabled_summary">Allow widgets on lockscreen</string>
+    <string name="lockscreen_widgets_picker_title">Manage Widgets</string>
+    <string name="lockscreen_widgets_picker_summary">Choose up to 4 lockscreen widgets</string>
+    <string name="reset_to_default">Reset to default</string>
+    <string name="reset_confirmation">Clear all selected widgets?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="widget_removed">Widget removed</string>
+    <string name="undo">Undo</string>
+    <string name="selected_widgets_empty">No widgets selected</string>
+    <string name="selected_widgets_guide">Long press to drag and drop, tap widget to remove.</string>
+    <string name="widget_torch">Torch</string>
+    <string name="widget_wifi">Wi-Fi</string>
+    <string name="widget_data">Data</string>
+    <string name="widget_ringer">Ringer</string>
+    <string name="widget_bt">Bluetooth</string>
+    <string name="widget_hotspot">Hotspot</string>
+    <string name="pick_widgets">Pick Widgets</string>
+    <string name="selected_widgets">Selected Widgets</string>
 </resources>

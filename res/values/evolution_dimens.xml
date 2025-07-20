@@ -8,4 +8,9 @@
 
     <!-- Oval preview size -->
     <dimen name="oval_notification_size">26dp</dimen>
+
+    <!-- Lockscreen Widgets Bottom Sheet -->
+    <dimen name="bottom_sheet_dialog_radius">28dp</dimen>
+    <dimen name="search_chip_radius">8dp</dimen>
+    <dimen name="space_extra_small_2">4dp</dimen>
 </resources>

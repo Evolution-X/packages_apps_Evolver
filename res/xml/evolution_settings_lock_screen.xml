@@ -18,7 +18,7 @@
             android:key="android.theme.customization.lockscreen_clock_font"
             android:title="@string/theme_customization_lock_clock_face_title"
             android:summary="@string/theme_customization_lock_clock_face_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.LockClockFontsPickerPreview" />
+            android:fragment="org.evolution.settings.fragments.lockscreen.LockClockFontsPickerPreview" />-->
 
         <Preference
             android:key="lockscreen_widgets"
@@ -26,7 +26,7 @@
             android:summary="@string/lockscreen_widgets_enabled_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.LockScreenWidgets" />
 
-        <Preference
+        <!--<Preference
             android:key="depth_wallpaper"
             android:title="@string/dw_wallpaper_enabled_title"
             android:summary="@string/dw_wallpaper_enabled_summary"

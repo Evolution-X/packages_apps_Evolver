@@ -37,4 +37,46 @@
         <item name="android:lineHeight">15sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+
+    <style name="SearchChipText" parent="@style/TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@*android:string/config_bodyFontFamilyMedium</item>
+    </style>
+
+    <style name ="WidgetChipStyle" parent="@style/Widget.Material3.Chip.Filter">
+        <item name="android:textAppearance">@style/SearchChipText</item>
+        <item name="android:textColor">@color/op_control_text_color_primary_inverse</item>
+        <item name="chipBackgroundColor">@color/search_chip_background_color</item>
+        <item name="chipStrokeColor">@color/search_chip_stroke_color</item>
+        <item name="chipCornerRadius">@dimen/search_chip_radius</item>
+        <item name="chipIconTint">@color/op_control_text_color_primary_inverse</item>
+    </style>
+    
+    <style name="BottomSheetDialogStyle" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:textAppearanceListItemSmall">@style/MaterialButtonTextAppearance</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+        <item name="colorControlHighlight">@color/ripple_material_light</item>
+        <item name="colorPrimary">@color/theme_accent</item>
+        <item name="colorAccent">@color/theme_accent</item>
+        <item name="android:colorAccent">@color/theme_accent</item>
+        <item name="android:colorBackground">@color/app_background_color</item>
+        <item name="android:colorBackgroundFloating">@color/background_floating</item>
+    </style>
+    
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_dialog_background</item>
+    </style>
+    
+    <style name="MaterialTonalButton" parent="@style/Widget.Material3.Button.TonalButton">
+        <item name="android:textAppearance">@style/MaterialButtonTextAppearance</item>
+    </style>
+    
+    <style name="MaterialButton" parent="@style/Widget.Material3.Button.UnelevatedButton">
+        <item name="android:textAppearance">@style/MaterialButtonTextAppearance</item>
+    </style>
+    
+    <style name="MaterialButtonTextAppearance" parent="@style/TextAppearance.Material3.LabelLarge">
+        <item name="android:textAllCaps">true</item>
+        <item name="fontFamily">@*android:string/config_bodyFontFamilyMedium</item>
+    </style>
 </resources>
