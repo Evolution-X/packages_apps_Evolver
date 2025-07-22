@@ -415,7 +415,7 @@
     <string name="quick_settings_data_usage_title">Veri kullanımı</string>
     <string name="quick_settings_data_usage_summary">Hızlı ayarlar alt bilgisinde veri kullanım özetini göster</string>
     <string name="quick_settings_lock_screen_category">Kilit ekranı</string>
-    <string name="quick_settings_secure_lock_screen_title">Güvenli kilit ekranında QS\'yi aşağı kaydırın</string>
+    <string name="quick_settings_secure_lock_screen_title">QS\'yi görüntülemek için LS üzerinde aşağı kaydırın</string>
     <string name="quick_settings_secure_lock_screen_summary">Cihaz kilitliyken bildirim çubuğundaki tüm hızlı ayarları gizleyin</string>
     <string name="quick_settings_require_unlock_title">Güvenli hızlı ayarlar kareleri kilit açma gerektirir</string>
     <string name="quick_settings_require_unlock_summary">Aşağıdaki hızlı ayarlarla etkileşim kurabilmeniz için önce cihazın kilidinin açılması gerekir:\nUçak, Pil tasarrufu, Bluetooth, Hücresel, Veri tasarrufu, Hotspot, İnternet, NFC, Döndürme kilidi ve Wi-Fi</string>
@@ -555,15 +555,15 @@
     <string name="pif_spoofing_summary">Google Play Bütünlüğü sahtekarlığı için kullanılacak PIF JSON dosyasını seçin</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Sahte anahtar kutusu XML\'i seçin</string>
-    <string name="keybox_data_summary">Sistem genelinde tüm uygulamalar için anahtar doğrulama sahtekarlığı için kullanılan anahtar kutusu XML\'ini seçin. Sistem tarafından kullanılan anahtar kutusu veri değerlerini sıfırlamak için sil düğmesine tıklayın.</string>
+    <string name="keybox_data_summary">Sistem genelinde anahtar doğrulama sahteciliği için kullanılan anahtar kutusu XML\'ini seçin. Anahtar kutusu verilerini sıfırlamak için sil\'e tıklayın.</string>
     <!-- About -->
-    <string name="about_info">Evolution X, kullanıcılara Pixel benzeri bir his sunmayı amaçlarken, ek özellikler de sunuyor</string>
+    <string name="about_info">Evolution X, Google Pixel deneyimini ek özelleştirme ile çoğaltmayı amaçlayan özel bir Android ROM\'dur. LineageOS Projesine dayanmaktadır.</string>
     <string name="about_website_title">İnternet sitesi</string>
-    <string name="about_website_summary">Web sitemizi ziyaret etmek için buraya dokunun</string>
-    <string name="about_x_summary">Gelin gönderilerimizi görün</string>
-    <string name="about_discord_summary">Topluluk sohbetimizi ziyaret edin</string>
-    <string name="about_github_summary">GitHub\'ımızı açmak için buraya dokunun</string>
-    <string name="about_contributors_title">Katkıda bulunanlar</string>
+    <string name="about_website_summary">Güncellemeler için sitemizi ziyaret edin</string>
+    <string name="about_x_summary">En son haberlerimizi X\'te yakalayın</string>
+    <string name="about_discord_summary">Discord\'da bizimle sohbet edin</string>
+    <string name="about_github_summary">GitHub\'daki kodumuza göz atın</string>
+    <string name="about_founders_title">Kurucular</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Renk seçici</string>
     <string name="press_color_to_apply">Uygulamak istediğiniz rengin üzerine dokunun</string>
@@ -707,7 +707,7 @@
     <string name="qs_widgets_enabled_summary">Hızlı erişim için widget\'ları gösterin. \nAOSP QS Panel kaydırmasını bozmamak için QS satırlarını 2 ile sınırlar</string>
     <!-- Lockscreen widgets  -->
     <string name="lockscreen_widgets_title">Widgetlar</string>
-    <string name="lockscreen_widgets_enabled_title">Kilit ekranı widget\'larını etkinleştirme</string>
+    <string name="lockscreen_widgets_enabled_title">Kilit ekranı widget\'larını etkinleştir</string>
     <string name="lockscreen_widgets_enabled_summary">Kilit ekranına widget ekle</string>
     <string name="lockscreen_display_widgets_title">Cihaz bilgi widget\'ı</string>
     <string name="lockscreen_display_widgets_summary">Kilit ekranında cihaz bilgisi widget\'ını gösterme</string>
