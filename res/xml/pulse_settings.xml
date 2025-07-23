@@ -125,6 +125,13 @@
         android:key="pulse_2"
         android:title="@string/pulse_solid_dimen_category">
 
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pulse_solid_units_rounded"
+            android:title="@string/pulse_solid_units_rounded_title"
+            android:summary="@string/pulse_solid_units_rounded_summary"
+            android:defaultValue="false"
+            android:dependency="pulse_2"/>
+
         <org.evolution.settings.preferences.SecureSettingSeekBarPreference
             android:key="pulse_solid_units_opacity"
             android:title="@string/pulse_solid_units_opacity"
