@@ -799,4 +799,7 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">A hanghullámos animáció megjelenítése</string>
     <string name="show_squiggle_animation_summary">Megjeleníti a hullámra hasonlító médiapanel-animációt,\nérvénybe léptetéshez a módosítás után váltani vagy szüneteltetni kell a zenét, vagy mozgatni kell a folyamatjelző sávot</string>
+    <!-- New status bar icons -->
+    <string name="status_bar_modern_icons_title">Új állapotsori ikonok használata</string>
+    <string name="status_bar_modern_icons_summary">Lehetővé teszi a modernizált ikonokat. Nagyrészt letiltja a korábbi állapotsori testreszabásokat</string>
 </resources>
