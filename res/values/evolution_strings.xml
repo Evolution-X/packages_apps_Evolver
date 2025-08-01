@@ -894,4 +894,8 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Show squiggle animation</string>
     <string name="show_squiggle_animation_summary">Show media panel squiggle animation\nAfter change need to switch music, pause music or move the progress bar to apply</string>
+
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">AOD wallpaper</string>
+    <string name="aod_wallpaper_summary">Show wallpaper when aod on</string>
 </resources>
