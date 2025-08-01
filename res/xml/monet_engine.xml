@@ -68,7 +68,7 @@
         android:title="@string/monet_engine_chroma_factor_title"
         android:summary="@string/monet_engine_chroma_factor_summary"
         android:defaultValue="0"
-        android:max="100"
+        android:max="150"
         settings:min="-95"
         settings:interval="5"
         settings:units="%"
