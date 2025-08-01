@@ -86,6 +86,13 @@
             android:defaultValue="200"
             android:dependency="ls_media_art_enabled" />
 
+        <!-- Ambient AOD -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="ambient_aod"
+            android:title="@string/ambient_aod_title"
+            android:summary="@string/ambient_aod_summary"
+            android:defaultValue="false" />
+
         <!-- Charging stats -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_battery_info"
