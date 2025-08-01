@@ -68,6 +68,13 @@
             android:summary="@string/ongoing_progress_settings_summary"
             android:fragment="org.evolution.settings.fragments.statusbar.OngoingProgressBar" />
 
+        <!-- Battery bar -->
+        <Preference
+            android:key="batterybar"
+            android:title="@string/battery_bar_title"
+            android:summary="@string/battery_bar_summary"
+            android:fragment="org.evolution.settings.fragments.statusbar.BatteryBar" />
+
         <!-- Battery styles -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="status_bar_battery_style"
