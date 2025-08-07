@@ -215,6 +215,16 @@ public class MonetSettings extends DashboardFragment implements
                 mWholePalettePref.setChecked(wholePalette);
                 mTintBackgroundPref.setChecked(tintBG);
             } catch (JSONException | IllegalArgumentException ignored) {}
+        } else {
+            // reflect default values in every preference
+            mThemeStylePref.setValueIndex(0);
+            mColorSourcePref.setValueIndex(0);
+            mLuminancePref.setValue(0);
+            mChromaPref.setValue(0);
+            mAccentBackgroundPref.setChecked(false);
+            mWholePalettePref.setChecked(false);
+            mTintBackgroundPref.setChecked(false);
+            updateAccentEnablement("both");
         }
     }
 
