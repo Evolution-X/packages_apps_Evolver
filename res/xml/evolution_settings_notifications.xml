@@ -27,6 +27,13 @@
             android:defaultValue="false"
             android:dependency="heads_up_notifications_enabled" />
 
+        <!-- Small landscape notifications -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="small_landscape_notification"
+            android:title="@string/small_landscape_notification_title"
+            android:summary="@string/small_landscape_notification_summary"
+            android:defaultValue="true" />
+
         <!-- Less boring heads up -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="less_boring_heads_up"
