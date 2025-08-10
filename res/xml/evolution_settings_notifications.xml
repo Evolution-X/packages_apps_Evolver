@@ -47,6 +47,13 @@
             android:summary="@string/media_squiggle_animation_summary"
             android:defaultValue="true" />
 
+        <!-- Small landscape notifications -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="small_landscape_notification"
+            android:title="@string/small_landscape_notification_title"
+            android:summary="@string/small_landscape_notification_summary"
+            android:defaultValue="true" />
+
         <!--<org.evolution.settings.preferences.SystemSettingSeekBarPreference
             android:key="max_visible_notification_icons"
             android:title="@string/max_visible_notification_icons_title"
