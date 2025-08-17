@@ -446,6 +446,11 @@
     <string name="quick_settings_header_offset_summary">Adjust the image header size</string>
     <string name="quick_settings_transparency_title">Background transparency</string>
     <string name="quick_settings_transparency_summary">Set transparency level for QS background</string>
+    <string name="quick_settings_tile_shape_title">QS tiles shape</string>
+    <string name="quick_settings_tile_shape_dynamic">Dynamic</string>
+    <string name="quick_settings_tile_shape_circle">Circle</string>
+    <string name="quick_settings_tile_shape_rounded_square">Rounded square</string>
+    <string name="quick_settings_tile_shape_square">Square</string>
 
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Heads up</string>
