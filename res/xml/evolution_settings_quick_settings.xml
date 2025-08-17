@@ -116,9 +116,16 @@
             android:key="qs_widgets_enabled"
             android:title="@string/qs_widgets_enabled_title"
             android:summary="@string/qs_widgets_enabled_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
-        <ListPreference
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_tile_shape"
+            android:title="@string/quick_settings_tile_shape_title"
+            android:entries="@array/quick_settings_tile_shape_entries"
+            android:entryValues="@array/quick_settings_tile_shape_values"
+            android:defaultValue="0" />
+
+        <!--<ListPreference
             android:key="qs_tile_ui_style"
             android:title="@string/quick_settings_tile_ui_style_title"
             android:entries="@array/quick_settings_tile_ui_style_entries"
