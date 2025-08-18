@@ -152,6 +152,8 @@
     <string name="pulse_legacy_mode_advanced_category">A \'Halványuló blokkok üzemmód\' beállításai</string>
     <string name="pulse_custom_fudge_factor">Az ésszerűség szintje</string>
     <string name="pulse_lavalamp_speed_title">A Lávalámpa sebessége</string>
+    <string name="pulse_solid_units_rounded_title">Lekerekített sarkok</string>
+    <string name="pulse_solid_units_rounded_summary">Folyamatos vonal, kerekitett vég</string>
     <string name="pulse_solid_units_count">A folytonos vonalak száma</string>
     <string name="pulse_solid_units_opacity">A folytonos vonalak átlátszósága</string>
     <string name="pulse_solid_dimen_category">A \'Folytonos vonalak üzemmód\' beállításai</string>
@@ -415,7 +417,7 @@
     <string name="quick_settings_data_usage_title">Adathasználat</string>
     <string name="quick_settings_data_usage_summary">Kijelzi az adatfelhasználást a gyorsbeállítások láblécében</string>
     <string name="quick_settings_lock_screen_category">Záróképernyő</string>
-    <string name="quick_settings_secure_lock_screen_title">A Záróképernyőn való lefelé húzással érheti el a Gyorsbeállításokat</string>
+    <string name="quick_settings_secure_lock_screen_title">Gyorsbeállítások elérése lefelé húzással</string>
     <string name="quick_settings_secure_lock_screen_summary">Az összes gyorsbeállítás elrejtése az értesítési területen, amikor a készülélk le van zárva</string>
     <string name="quick_settings_require_unlock_title">Kötelező feloldás a biztonságos csempékhez</string>
     <string name="quick_settings_require_unlock_summary">Mielőtt használná, a következő gyorsbeállításokhoz fel kell oldani a készüléket:\nReplőgép-mód, Akkukímélő, Bluetooth, Hálózat, Adatforgalom-csökkentő, Hotspot, Internet, NFC, Képernyő-elforgatás és a Wi-Fi</string>
