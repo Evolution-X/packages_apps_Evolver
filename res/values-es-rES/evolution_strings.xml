@@ -11,7 +11,7 @@
     <string name="themes_title">Temas</string>
     <string name="themes_summary">Monet, fuentes, iconos</string>
     <string name="lock_screen_title">Pantalla de bloqueo</string>
-    <string name="lock_screen_summary">Interfaz, miscelánea</string>
+    <string name="lock_screen_summary">Interfaz, misceláneo</string>
     <string name="status_bar_title">Barra de estado</string>
     <string name="status_bar_summary">Gestos, iconos, indicadores de privacidad</string>
     <string name="quick_settings_title">Ajustes rápidos</string>
@@ -152,6 +152,8 @@
     <string name="pulse_legacy_mode_advanced_category">Ajustes del modo de bloques desvaneciéndose</string>
     <string name="pulse_custom_fudge_factor">Nivel de sensibilidad</string>
     <string name="pulse_lavalamp_speed_title">Velocidad de la lámpara de lava</string>
+    <string name="pulse_solid_units_rounded_title">Esquinas redondeadas</string>
+    <string name="pulse_solid_units_rounded_summary">Líneas sólidas con punta redondeada</string>
     <string name="pulse_solid_units_count">Cantidad de líneas sólidas</string>
     <string name="pulse_solid_units_opacity">Opacidad de líneas sólidas</string>
     <string name="pulse_solid_dimen_category">Ajustes del modo de líneas sólidas</string>
@@ -415,7 +417,7 @@
     <string name="quick_settings_data_usage_title">Uso de datos</string>
     <string name="quick_settings_data_usage_summary">Mostrar uso de datos al pie de los ajustes rápidos</string>
     <string name="quick_settings_lock_screen_category">Pantalla de bloqueo</string>
-    <string name="quick_settings_secure_lock_screen_title">Desliza hacia abajo los QS en la pantalla de bloqueo</string>
+    <string name="quick_settings_secure_lock_screen_title">Desliza hacia abajo en la pantalla de bloqueo para ver los ajustes rápidos</string>
     <string name="quick_settings_secure_lock_screen_summary">Oculta todos los ajustes rápidos en la bandeja de notificaciones mientra el dispositivo está bloqueado</string>
     <string name="quick_settings_require_unlock_title">Los Ajustes Rápidos Seguros requieren desbloqueo</string>
     <string name="quick_settings_require_unlock_summary">Los siguientes ajustes rápidos requieren que el dispositivo se desbloquee antes de que pueda interactuar con ellos:\nModo Avión, Ahorro de batería, Bluetooth, Celular, Ahorrador de datos, Hotspot, Internet, NFC, bloqueo de rotación y Wi-Fi</string>
@@ -555,15 +557,15 @@
     <string name="pif_spoofing_summary">Elija el archivo PIF JSON que se usará para suplantar la integridad de Google Play</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Seleccione el keybox XML para suplantación</string>
-    <string name="keybox_data_summary">Seleccione el keybox XML utilizado para la suplantación de certificados de claves para todas las aplicaciones del sistema. Haga clic en el botón de borrar para restablecer los valores de datos de teclado utilizados por el sistema.</string>
+    <string name="keybox_data_summary">Seleccione el keybox XML utilizado para la falsificación de claves en todo el sistema. Haga clic en eliminar para restablecer los datos del keybox.</string>
     <!-- About -->
-    <string name="about_info">Evolution X pretende proporcionar a los usuarios una sensación de Pixel a primera vista, con características adicionales a su disposición</string>
+    <string name="about_info">Evolution X es una ROM de Android personalizada cuyo objetivo es replicar la experiencia de Google Pixel, con personalización añadida. Basado en el proyecto LineageOS.</string>
     <string name="about_website_title">Sitio web</string>
-    <string name="about_website_summary">Siéntete libre de pasar por nuestro sitio web</string>
-    <string name="about_x_summary">Ven a ver nuestros post</string>
-    <string name="about_discord_summary">Visita el chat de nuestra comunidad</string>
-    <string name="about_github_summary">Revisa nuestro GitHub</string>
-    <string name="about_contributors_title">Contribuidores</string>
+    <string name="about_website_summary">Visite nuestro sitio para novedades</string>
+    <string name="about_x_summary">Síguenos en X</string>
+    <string name="about_discord_summary">Chatea con nosotros en Discord</string>
+    <string name="about_github_summary">Explora nuestro código en GitHub</string>
+    <string name="about_founders_title">Fundadores</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Selector de color</string>
     <string name="press_color_to_apply">Presiona el color de abajo para usar</string>
