@@ -152,6 +152,8 @@
     <string name="pulse_legacy_mode_advanced_category">渐变块模式设置</string>
     <string name="pulse_custom_fudge_factor">清晰等级</string>
     <string name="pulse_lavalamp_speed_title">跑马灯速度</string>
+    <string name="pulse_solid_units_rounded_title">自定义圆角</string>
+    <string name="pulse_solid_units_rounded_summary">带圆形提示的实线</string>
     <string name="pulse_solid_units_count">实线数量</string>
     <string name="pulse_solid_units_opacity">实线不透明度</string>
     <string name="pulse_solid_dimen_category">实线模式设置</string>
@@ -415,7 +417,7 @@
     <string name="quick_settings_data_usage_title">数据使用情况</string>
     <string name="quick_settings_data_usage_summary">在快捷设置页中显示数据使用情况</string>
     <string name="quick_settings_lock_screen_category">锁屏界面</string>
-    <string name="quick_settings_secure_lock_screen_title">在安全锁屏界面下拉打开快速设置</string>
+    <string name="quick_settings_secure_lock_screen_title">在锁屏界面下滑以查看快速设置面板</string>
     <string name="quick_settings_secure_lock_screen_summary">在设备锁定时隐藏通知阴影中的所有快速设置</string>
     <string name="quick_settings_require_unlock_title">解锁才能使用涉及安全操作的磁块</string>
     <string name="quick_settings_require_unlock_summary">下面的快速设置需要设备解锁后才能与它们进行交互：\n飞行模式、省电模式、蓝牙、移动数据、数据节省模式、热点、互联网、NFC、旋转锁定和Wi-Fi</string>
@@ -555,15 +557,15 @@
     <string name="pif_spoofing_summary">选择用于伪装Play完整性的 PIF JSON 文件</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">选择用于设备认证模拟的密钥箱文件</string>
-    <string name="keybox_data_summary">请选择用于全局应用密钥认证伪装的密钥箱XML文件。点击删除按钮可重置系统使用的密钥数据值。</string>
+    <string name="keybox_data_summary">选择可适用于系统级密钥验证伪装的 keybox.xml 文件。点击“删除”以重置密钥盒数据。</string>
     <!-- About -->
-    <string name="about_info">Evolution X 旨在为用户提供像Pixel一样的初次感觉，提供您可以使用的额外功能</string>
+    <string name="about_info">Evolution X 是一款致力于复刻 Google Pixel 体验的定制化 Android 项目，拥有诸多自定义项目。本项目基于 LineageOS 项目。</string>
     <string name="about_website_title">网站</string>
-    <string name="about_website_summary">点击此处以访问我们最棒的网站！</string>
-    <string name="about_x_summary">来看看我们的帖子</string>
-    <string name="about_discord_summary">加入我们社区的聊天</string>
-    <string name="about_github_summary">点击这里打开我们的 GitHub！</string>
-    <string name="about_contributors_title">贡献者</string>
+    <string name="about_website_summary">访问我们的网站以获取更新</string>
+    <string name="about_x_summary">在 X （以前叫做 Twitter ） 上获取我们的最新动态</string>
+    <string name="about_discord_summary">在 Discord 上与我们交流</string>
+    <string name="about_github_summary">在 GitHub 上浏览我们的代码</string>
+    <string name="about_founders_title">创始人</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">颜色选择器</string>
     <string name="press_color_to_apply">选取并应用颜色</string>
@@ -706,8 +708,8 @@
     <string name="qs_widgets_enabled_summary">显示小部件以便快速访问。\n将 QS 行限制为 2 行，以避免破坏 AOSP QS 面板滚动</string>
     <!-- Lockscreen widgets  -->
     <string name="lockscreen_widgets_title">小部件</string>
-    <string name="lockscreen_widgets_enabled_title">启用锁屏小部件</string>
-    <string name="lockscreen_widgets_enabled_summary">添加小部件至锁定屏幕</string>
+    <string name="lockscreen_widgets_enabled_title">启用锁屏小组件</string>
+    <string name="lockscreen_widgets_enabled_summary">添加小组件至锁屏</string>
     <string name="lockscreen_display_widgets_title">设备信息小部件</string>
     <string name="lockscreen_display_widgets_summary">在锁定屏幕上显示设备信息小部件</string>
     <string name="large_widgets_category_title">大型部件</string>
