@@ -111,6 +111,7 @@
     <string name="monet_engine_style_spritz">Mờ ảo</string>
     <string name="monet_engine_style_rainbow">Cầu vồng</string>
     <string name="monet_engine_style_fruit_salad">Salad trái cây</string>
+    <string name="monet_engine_style_content">Nội dung</string>
     <string name="monet_engine_style_monochromatic">Đơn sắc</string>
     <string name="monet_engine_color_source_title">Nguồn màu</string>
     <string name="monet_engine_color_source_both">Cả hai (Mặc định)</string>
@@ -444,6 +445,11 @@
     <string name="quick_settings_header_offset_summary">Điều chỉnh kích thước ảnh đầu bảng</string>
     <string name="quick_settings_transparency_title">Độ trong suốt nền</string>
     <string name="quick_settings_transparency_summary">Đặt mức độ trong suốt cho nền cài đặt nhanh</string>
+    <string name="quick_settings_tile_shape_title">Hình dạng Quick Settings</string>
+    <string name="quick_settings_tile_shape_dynamic">Năng động</string>
+    <string name="quick_settings_tile_shape_circle">Vòng tròn</string>
+    <string name="quick_settings_tile_shape_rounded_square">Vuông bo tròn</string>
+    <string name="quick_settings_tile_shape_square">Vuông</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Thông báo nổi</string>
     <string name="notifications_heads_up_summary">Cho phép thông báo bật lên</string>
@@ -673,6 +679,9 @@
     <string name="lockscreen_albumart_filter_tint">Đồng bộ màu chủ đề</string>
     <string name="lockscreen_albumart_filter_blur">Làm mờ</string>
     <string name="lockscreen_albumart_filter_grayblur">Thang độ xám và làm mờ</string>
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">Độ mờ ảnh nền nhạc</string>
+    <string name="lockscreen_media_art_blur_level_summary">Cường độ mờ khi áp dụng bộ lọc mờ</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Phản hồi xúc giác</string>
     <string name="haptics_settings_summary">Tùy chỉnh cường độ phản hồi xúc giác</string>
@@ -799,4 +808,33 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Hiệu ứng squiggle</string>
     <string name="show_squiggle_animation_summary">Hiển thị hiệu ứng squiggle trên bảng nhạc\nCần chuyển bài, tạm dừng hoặc di chuyển thanh tiến trình để áp dụng</string>
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">Hình nền AOD</string>
+    <string name="aod_wallpaper_summary">Hiển thị hình nền khi bật aod</string>
+    <!-- Battery bar -->
+    <string name="battery_bar_title">Thanh pin</string>
+    <string name="battery_bar_summary">Hiển thị và tuỳ chỉnh thanh pin phía trên thanh trạng thái</string>
+    <string name="battery_bar_color">Màu sắc</string>
+    <string name="battery_bar_charging_color">Màu khi sạc</string>
+    <string name="battery_bar_battery_low_color">Màu pin yếu</string>
+    <string name="battery_bar_style_title">Vị trí</string>
+    <string name="battery_bar_thickness_title">Độ dày</string>
+    <string name="battery_bar_animate_title">Hiệu ứng sạc</string>
+    <string name="battery_bar_style_regular">Bình thường</string>
+    <string name="battery_bar_style_center_mirrored">Đối xứng giữa</string>
+    <string name="battery_bar_style_reversed">Đảo ngược</string>
+    <string name="battery_bar_use_charging_color">Tùy chỉnh màu khi sạc</string>
+    <string name="battery_bar_blend_color_title">Pha trộn màu sắc</string>
+    <string name="battery_bar_blend_color_summary">Pha trộn màu sắc tương ứng với tỷ lệ phần trăm pin</string>
+    <string name="battery_bar_blend_color_reverse_title">Đảo ngược hướng màu sắc</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Đầy pin &#8594; hết pin: đỏ &#8592; lục &#8592; lam &#8592; đỏ</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Đầy pin &#8594; hết pin: đỏ &#8594; lục &#8594; lam &#8594; đỏ</string>
+    <string name="battery_bar_use_gradient_color">Sử dụng màu gradient</string>
+    <string name="battery_bar_gradient_color_summary">Sử dụng màu gradient làm thang đo mức pin</string>
+    <string name="battery_bar_high_color">Màu nâng cao</string>
+    <string name="battery_bar_low_color">Màu cơ bản</string>
+    <string name="battery_bar_animate_color">Màu hiệu ứng sạc</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Khả năng bảo vệ phím bấm một lần</string>
+    <string name="keyguard_affordance_single_tap_summary">Chuyển đổi khả năng bảo vệ phím bằng một lần chạm</string>
 </resources>
