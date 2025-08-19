@@ -111,6 +111,7 @@
     <string name="monet_engine_style_spritz">Fröccs</string>
     <string name="monet_engine_style_rainbow">Szivárvány</string>
     <string name="monet_engine_style_fruit_salad">Gyümölcssaláta</string>
+    <string name="monet_engine_style_content">Tartalmas</string>
     <string name="monet_engine_style_monochromatic">Monokróm</string>
     <string name="monet_engine_color_source_title">Színforrás</string>
     <string name="monet_engine_color_source_both">Mind (alapértelmezett)</string>
@@ -444,6 +445,11 @@
     <string name="quick_settings_header_offset_summary">Állítsa be a kép fejlécméretét</string>
     <string name="quick_settings_transparency_title">Háttér-átlátszóság</string>
     <string name="quick_settings_transparency_summary">A Gyorsbeállítások-háttér átlátszóságának beállítása</string>
+    <string name="quick_settings_tile_shape_title">A Gyorsbeállítás-csempék alakja</string>
+    <string name="quick_settings_tile_shape_dynamic">Dinamikus</string>
+    <string name="quick_settings_tile_shape_circle">Kör</string>
+    <string name="quick_settings_tile_shape_rounded_square">Lekerekített négyzet</string>
+    <string name="quick_settings_tile_shape_square">Négyzet</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Lebegő értesítés</string>
     <string name="notifications_heads_up_summary">A felugró értesítések engedélyezése</string>
@@ -673,6 +679,9 @@
     <string name="lockscreen_albumart_filter_tint">Kiemelőszínhez igazodó</string>
     <string name="lockscreen_albumart_filter_blur">Homályosított</string>
     <string name="lockscreen_albumart_filter_grayblur">Szürkeárnyalatos és homályosított</string>
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">A médiaborító homályosítási szintje</string>
+    <string name="lockscreen_media_art_blur_level_summary">Az elmosás intenzitása a szűrő alkalmazásakor</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">A rendszer rezgő visszajelzései</string>
     <string name="haptics_settings_summary">Az érintési visszajelzés intenzitásának módosítása</string>
@@ -799,4 +808,33 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">A hanghullámos animáció megjelenítése</string>
     <string name="show_squiggle_animation_summary">Megjeleníti a hullámra hasonlító médiapanel-animációt,\nérvénybe léptetéshez a módosítás után váltani vagy szüneteltetni kell a zenét, vagy mozgatni kell a folyamatjelző sávot</string>
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">Mindig bekapcsolva - háttérkép</string>
+    <string name="aod_wallpaper_summary">Háttérkép engedélyezése bekapcsolt AOD-nál</string>
+    <!-- Battery bar -->
+    <string name="battery_bar_title">Akkumulátorsáv</string>
+    <string name="battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
+    <string name="battery_bar_color">Szín</string>
+    <string name="battery_bar_charging_color">Töltésjelző szín</string>
+    <string name="battery_bar_battery_low_color">Alacsony akkuszint jelzőszíne</string>
+    <string name="battery_bar_style_title">Igazítás</string>
+    <string name="battery_bar_thickness_title">Vastagság</string>
+    <string name="battery_bar_animate_title">Töltési animáció</string>
+    <string name="battery_bar_style_regular">Hagyományos</string>
+    <string name="battery_bar_style_center_mirrored">Középre tükrözött</string>
+    <string name="battery_bar_style_reversed">Fordított</string>
+    <string name="battery_bar_use_charging_color">Egyéni töltésjelző szín</string>
+    <string name="battery_bar_blend_color_title">Kevert színek</string>
+    <string name="battery_bar_blend_color_summary">Keverje az üres/teli színeket az akkumulátor töltöttségének megfelelően</string>
+    <string name="battery_bar_blend_color_reverse_title">Fordított irányú színek</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Teljesen &#8594; üres: piros &#8592; zöld &#8592; kék &#8592; piros</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Teljesen &#8594; üres: piros &#8594; zöld &#8594; kék &#8594; piros</string>
+    <string name="battery_bar_use_gradient_color">Színátmenet használata</string>
+    <string name="battery_bar_gradient_color_summary">Színátmenet használata az akkumulátor töltöttségi szintjéhez</string>
+    <string name="battery_bar_high_color">Magas töltöttség színe\"</string>
+    <string name="battery_bar_low_color">Alacsony töltöttség színe\"</string>
+    <string name="battery_bar_animate_color">A töltési animáció színe</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Egyetlen érintéssel elérhető billentyűzár</string>
+    <string name="keyguard_affordance_single_tap_summary">A billentyűzár funkcióinak ki-/bekapcsolása egyetlen érintéssel</string>
 </resources>
