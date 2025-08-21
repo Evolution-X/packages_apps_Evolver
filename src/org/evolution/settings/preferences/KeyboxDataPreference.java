@@ -1,11 +1,13 @@
 package org.evolution.settings.preferences;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,42 +44,66 @@ public class KeyboxDataPreference extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
+        final Context ctx = getContext();
+        final ContentResolver cr = ctx.getContentResolver();
 
         TextView title = (TextView) holder.findViewById(R.id.title);
         TextView summary = (TextView) holder.findViewById(R.id.summary);
         ImageButton deleteButton = (ImageButton) holder.findViewById(R.id.delete_button);
 
         title.setText(getTitle());
-        summary.setText(getSummary());
+
+        boolean hasData = Settings.Secure.getString(
+                cr, Settings.Secure.KEYBOX_DATA) != null;
+
+        summary.setText(ctx.getString(
+                hasData ? R.string.keybox_data_loaded_summary : R.string.keybox_data_summary));
+
+        deleteButton.setVisibility(hasData ? View.VISIBLE : View.GONE);
+        deleteButton.setEnabled(hasData);
 
         holder.itemView.setOnClickListener(v -> {
             if (mFilePickerLauncher != null) {
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.setType("text/xml");
+                intent.setType("*/*");
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"text/xml", "application/xml"});
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 mFilePickerLauncher.launch(intent);
             }
         });
 
         deleteButton.setOnClickListener(v -> {
-            Settings.Secure.putString(getContext().getContentResolver(),
-                    Settings.Secure.KEYBOX_DATA, null);
-            Toast.makeText(getContext(), "XML data cleared", Toast.LENGTH_SHORT).show();
-            callChangeListener(null);
+            if (!callChangeListener(Boolean.FALSE)) return;
+            Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, null);
+            Toast.makeText(ctx, ctx.getString(R.string.keybox_toast_file_cleared), Toast.LENGTH_SHORT).show();
+            notifyChanged();
         });
     }
 
+
     public void handleFileSelected(Uri uri) {
-        if (uri == null ||
-            (!uri.toString().endsWith(".xml") &&
-             !"text/xml".equals(getContext().getContentResolver().getType(uri)))) {
-            Toast.makeText(getContext(), "Invalid file selected", Toast.LENGTH_SHORT).show();
+        final Context ctx = getContext();
+        final ContentResolver cr = ctx.getContentResolver();
+
+        if (uri == null) {
+            Toast.makeText(ctx,
+                ctx.getString(R.string.keybox_toast_invalid_file_selected), Toast.LENGTH_SHORT).show();
             return;
         }
 
-        try (InputStream inputStream = getContext().getContentResolver().openInputStream(uri);
-             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+        final String type = cr.getType(uri);
+        boolean isXmlMime = "text/xml".equals(type) || "application/xml".equals(type);
+        boolean hasXmlExt = (uri.getPath() != null && uri.getPath().toLowerCase().endsWith(".xml"));
+        if (!isXmlMime && !hasXmlExt) {
+            Toast.makeText(ctx,
+                ctx.getString(R.string.keybox_toast_invalid_file_selected), Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        try (InputStream inputStream = cr.openInputStream(uri);
+             BufferedReader reader = new BufferedReader(
+                 new InputStreamReader(inputStream, java.nio.charset.StandardCharsets.UTF_8))) {
             StringBuilder xmlContent = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
@@ -86,18 +112,20 @@ public class KeyboxDataPreference extends Preference {
 
             String xml = xmlContent.toString();
             if (!validateXml(xml)) {
-                Toast.makeText(getContext(), "Invalid XML: missing required data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx,
+                    ctx.getString(R.string.keybox_toast_missing_data), Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            Settings.Secure.putString(getContext().getContentResolver(),
-                    Settings.Secure.KEYBOX_DATA, xml);
-            Toast.makeText(getContext(), "XML file loaded", Toast.LENGTH_SHORT).show();
-            callChangeListener(xml);
-
+            if (!callChangeListener(Boolean.TRUE)) return;
+            Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, xml);
+            Toast.makeText(ctx,
+                    ctx.getString(R.string.keybox_toast_file_loaded), Toast.LENGTH_SHORT).show();
+            notifyChanged();
         } catch (IOException e) {
             Log.e(TAG, "Failed to read XML file", e);
-            Toast.makeText(getContext(), "Failed to read XML", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ctx,
+                ctx.getString(R.string.keybox_toast_invalid_file_selected), Toast.LENGTH_SHORT).show();
         }
     }
 
