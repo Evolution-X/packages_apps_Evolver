@@ -591,8 +591,14 @@
     <string name="pif_spoofing_summary">Choose the PIF JSON file to be used to spoof Play Integrity</string>
 
     <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Select keybox XML to spoof</string>
-    <string name="keybox_data_summary">Select the keybox XML used for system-wide key attestation spoofing. Click delete to reset keybox data.</string>
+    <string name="keybox_data_title">Keybox attestation override</string>
+    <string name="keybox_data_summary">Load a custom keybox XML to override device key attestation</string>
+    <string name="keybox_data_loaded_summary">Custom keybox XML loaded. Delete to clear.</string>
+    <string name="keybox_delete_content_description">Clear keybox data</string>
+    <string name="keybox_toast_invalid_file_selected">Not an XML file. Choose a valid keybox XML.</string>
+    <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
+    <string name="keybox_toast_file_loaded">Keybox loaded</string>
+    <string name="keybox_toast_file_cleared">Keybox cleared</string>
 
     <!-- About -->
     <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>
