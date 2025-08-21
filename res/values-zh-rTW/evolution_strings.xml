@@ -111,6 +111,7 @@
     <string name="monet_engine_style_spritz">Spritz</string>
     <string name="monet_engine_style_rainbow">Rainbow</string>
     <string name="monet_engine_style_fruit_salad">Fruit Salad</string>
+    <string name="monet_engine_style_content">Content</string>
     <string name="monet_engine_style_monochromatic">單色調</string>
     <string name="monet_engine_color_source_title">取色來源</string>
     <string name="monet_engine_color_source_both">兩者 (預設)</string>
@@ -445,6 +446,11 @@
     <string name="quick_settings_header_offset_summary">調整頂部圖片大小</string>
     <string name="quick_settings_transparency_title">背景透明度</string>
     <string name="quick_settings_transparency_summary">為快速設定背景設定透明度</string>
+    <string name="quick_settings_tile_shape_title">快速設定圖塊形狀</string>
+    <string name="quick_settings_tile_shape_dynamic">動態</string>
+    <string name="quick_settings_tile_shape_circle">圓圈</string>
+    <string name="quick_settings_tile_shape_rounded_square">圓角方形</string>
+    <string name="quick_settings_tile_shape_square">方形</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">浮動通知</string>
     <string name="notifications_heads_up_summary">允許浮動通知</string>
@@ -673,6 +679,9 @@
     <string name="lockscreen_albumart_filter_tint">強調色</string>
     <string name="lockscreen_albumart_filter_blur">模糊</string>
     <string name="lockscreen_albumart_filter_grayblur">灰階且模糊</string>
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">媒體封面模糊度</string>
+    <string name="lockscreen_media_art_blur_level_summary">應用模糊濾鏡時的模糊強度</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">系統震動</string>
     <string name="haptics_settings_summary">修改系統震動強度</string>
@@ -798,4 +807,33 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">顯示波浪動畫</string>
     <string name="show_squiggle_animation_summary">顯示媒體面板波浪動畫\n需應用後才能切換音樂、暫停音樂或移動進度條</string>
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">桌布</string>
+    <string name="aod_wallpaper_summary">開啟時顯示桌布</string>
+    <!-- Battery bar -->
+    <string name="battery_bar_title">電量條</string>
+    <string name="battery_bar_summary">顯示和自定義在狀態列或導覽列附近的電量條</string>
+    <string name="battery_bar_color">電量條顏色</string>
+    <string name="battery_bar_charging_color">電量條充電顏色</string>
+    <string name="battery_bar_battery_low_color">電量條低電量顏色</string>
+    <string name="battery_bar_style_title">電量條對齊方式</string>
+    <string name="battery_bar_thickness_title">電量條粗度</string>
+    <string name="battery_bar_animate_title">充電動畫</string>
+    <string name="battery_bar_style_regular">標準</string>
+    <string name="battery_bar_style_center_mirrored">中心對稱</string>
+    <string name="battery_bar_style_reversed">反向</string>
+    <string name="battery_bar_use_charging_color">自訂充電顏色</string>
+    <string name="battery_bar_blend_color_title">混合顏色</string>
+    <string name="battery_bar_blend_color_summary">根據電量百分比混合滿電量/空電量的顏色</string>
+    <string name="battery_bar_blend_color_reverse_title">反轉顏色方向</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">滿 &#8594; 空：紅 &#8592; 綠 &#8592; 藍 &#8592; 紅</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">滿 &#8594; 空：紅 &#8594; 綠 &#8594; 藍 &#8594; 紅</string>
+    <string name="battery_bar_use_gradient_color">使用漸層色</string>
+    <string name="battery_bar_gradient_color_summary">使用漸層色作為電池電量的標尺</string>
+    <string name="battery_bar_high_color">高電量的顏色</string>
+    <string name="battery_bar_low_color">低電量的顏色</string>
+    <string name="battery_bar_animate_color">充電動畫顏色</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">點擊即可啟用鍵盤鎖定功能</string>
+    <string name="keyguard_affordance_single_tap_summary">只需輕點一下即可切換鍵盤鎖定功能</string>
 </resources>
