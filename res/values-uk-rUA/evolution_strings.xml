@@ -111,6 +111,7 @@
     <string name="monet_engine_style_spritz">Шприц</string>
     <string name="monet_engine_style_rainbow">Веселка</string>
     <string name="monet_engine_style_fruit_salad">Фруктовий салат</string>
+    <string name="monet_engine_style_content">Вміст</string>
     <string name="monet_engine_style_monochromatic">Монохромний</string>
     <string name="monet_engine_color_source_title">Джерело кольору</string>
     <string name="monet_engine_color_source_both">Обидва (за замовчуванням)</string>
@@ -444,6 +445,11 @@
     <string name="quick_settings_header_offset_summary">Налаштувати розмір заголовка зображення</string>
     <string name="quick_settings_transparency_title">Прозорість заднього фону</string>
     <string name="quick_settings_transparency_summary">Встановити рівень прозорості для фону Швидких налаштувань</string>
+    <string name="quick_settings_tile_shape_title">Форма плиток швидких налаштувань</string>
+    <string name="quick_settings_tile_shape_dynamic">Динамічний</string>
+    <string name="quick_settings_tile_shape_circle">Кільце</string>
+    <string name="quick_settings_tile_shape_rounded_square">Заокруглений квадрат</string>
+    <string name="quick_settings_tile_shape_square">Квадрат</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Спливаючі сповіщення</string>
     <string name="notifications_heads_up_summary">Дозволити спливаючі сповіщення</string>
@@ -556,8 +562,14 @@
     <string name="pif_spoofing_title">Виберіть JSON файл</string>
     <string name="pif_spoofing_summary">Виберіть файл PIF JSON для використання в Spoofing Play Integrity</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Виберіть XML-файл для підробки</string>
-    <string name="keybox_data_summary">Виберіть XML для підсвітки ключів загальнодоступної системи. Натисніть кнопку Видалити, щоб скинути дані ключів.</string>
+    <string name="keybox_data_title">Заміна атестації Keybox</string>
+    <string name="keybox_data_summary">Завантажте користувацьку клавіатуру XML для замінення атестації клавіш пристрою</string>
+    <string name="keybox_data_loaded_summary">Користувацьке вікно ключів XML завантажено. Видаліть для очищення.</string>
+    <string name="keybox_delete_content_description">Очистити дані ключів</string>
+    <string name="keybox_toast_invalid_file_selected">Не XML-файл. Виберіть дійсний файл XML для ключа.</string>
+    <string name="keybox_toast_missing_data">Невірний XML: обов\'язкові поля keybox пропущено</string>
+    <string name="keybox_toast_file_loaded">Ключ, завантажений</string>
+    <string name="keybox_toast_file_cleared">Скринька ключів очищена</string>
     <!-- About -->
     <string name="about_info">Evolution X - це користувацька Android ROM, яка спрямована на повторення досвіду Google Pixel із доданими налаштуваннями, на основі проекту LineageOS.</string>
     <string name="about_website_title">Сайт</string>
@@ -671,6 +683,9 @@
     <string name="lockscreen_albumart_filter_tint">У колір акценту</string>
     <string name="lockscreen_albumart_filter_blur">Розмиття</string>
     <string name="lockscreen_albumart_filter_grayblur">Надати відтінок сірого та розмити</string>
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">Рівень розмитості медіа</string>
+    <string name="lockscreen_media_art_blur_level_summary">Інтенсивність розмиття при застосуванні фільтра</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Системні параметри</string>
     <string name="haptics_settings_summary">Змінити сили тактильних відгуків</string>
@@ -791,4 +806,33 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Показувати анімацію руху</string>
     <string name="show_squiggle_animation_summary">Показати мультимедійну панель анімації, після чого потрібно змінити музику, призупинити музику або перемістити її для застосування</string>
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">Шпалери AOD</string>
+    <string name="aod_wallpaper_summary">Показувати шпалери, коли Активний Екран увімкнено</string>
+    <!-- Battery bar -->
+    <string name="battery_bar_title">Індикатор батареї</string>
+    <string name="battery_bar_summary">Відображення і налаштування панелі батареї над рядком стану</string>
+    <string name="battery_bar_color">Колір</string>
+    <string name="battery_bar_charging_color">Колір під час зарядки</string>
+    <string name="battery_bar_battery_low_color">Колір при низькому рівні заряду</string>
+    <string name="battery_bar_style_title">Вирівнювання</string>
+    <string name="battery_bar_thickness_title">Товщина</string>
+    <string name="battery_bar_animate_title">Анімація заряджання</string>
+    <string name="battery_bar_style_regular">Звичайний</string>
+    <string name="battery_bar_style_center_mirrored">Дзеркально від центра</string>
+    <string name="battery_bar_style_reversed">У зворотньому порядку</string>
+    <string name="battery_bar_use_charging_color">Користувацький колір при заряджанні</string>
+    <string name="battery_bar_blend_color_title">Змішування кольорів</string>
+    <string name="battery_bar_blend_color_summary">Змішати кольори, відповідні відсотку заряду батареї</string>
+    <string name="battery_bar_blend_color_reverse_title">Зворотній напрямок кольорів</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Повний &#8594; пустий: червоний &#8592; зелений &#8592; блакитний &#8592; червоний</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Повний &#8594; пустий: червоний &#8594; зелений &#8594; блакитний &#8594; червоний</string>
+    <string name="battery_bar_use_gradient_color">Використовувати градієнт кольору</string>
+    <string name="battery_bar_gradient_color_summary">Використовувати градієнт в якості шкали для рівня акумулятора</string>
+    <string name="battery_bar_high_color">Колір високого рівня заряду</string>
+    <string name="battery_bar_low_color">Колір низького рівня заряду</string>
+    <string name="battery_bar_animate_color">Колір анімації заряджання</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Блокування клавіатури одним дотиком</string>
+    <string name="keyguard_affordance_single_tap_summary">Увімкнути/вимкнути доступ до екрану блокування одним дотиком</string>
 </resources>
