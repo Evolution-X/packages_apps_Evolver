@@ -924,4 +924,7 @@
     <string name="battery_bar_high_color">High level color"</string>
     <string name="battery_bar_low_color">Low level color"</string>
     <string name="battery_bar_animate_color">Charging animation color</string>
+
+    <!-- Brightness Slider Style -->
+    <string name="qs_brightness_slider_shape_title">Brightness slider shape</string>
 </resources>
