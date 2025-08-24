@@ -955,4 +955,8 @@
     <string name="power_off_verify_footer">Power off verification protects your device by preventing others from turning it off immediately after it\'s lost, increasing the chances of recovery. You only need to enter your lock screen password when powering off or restarting the phone from the lock screen.</string>
     <string name="power_off_verify_summary">When your device is locked, you\'ll need to use your password to power off or restart.</string>
     <string name="power_off_verify_title">Power off verify</string>
+
+    <!-- Notification row transparency -->
+    <string name="notification_row_transparency_title">Translucent notifications</string>
+    <string name="notification_row_transparency_summary">Set translucent background for notifications</string>
 </resources>
