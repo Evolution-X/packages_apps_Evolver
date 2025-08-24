@@ -21,6 +21,14 @@
             android:entryValues="@array/quick_settings_show_brightness_slider_values"
             android:defaultValue="1" />
 
+        <!-- Brightness Slider Style -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_brightness_slider_shape"
+            android:title="@string/qs_brightness_slider_shape_title"
+            android:entries="@array/qs_brightness_slider_shape_entries"
+            android:entryValues="@array/qs_brightness_slider_shape_values"
+            android:defaultValue="0" />
+
         <!-- Brightness slider position -->
         <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_brightness_slider_position"

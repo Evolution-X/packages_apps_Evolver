@@ -928,4 +928,7 @@
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">Keyguard affordance single tap</string>
     <string name="keyguard_affordance_single_tap_summary">Toggle keyguard affordances with a single tap</string>
+
+    <!-- Brightness Slider Style -->
+    <string name="qs_brightness_slider_shape_title">Brightness slider shape</string>
 </resources>
