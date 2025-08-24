@@ -40,6 +40,13 @@
         android:key="notifications_interface_category"
         android:title="@string/notifications_interface_category">
 
+        <!-- Notification row transparency -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="notification_row_transparency"
+            android:title="@string/notification_row_transparency_title"
+            android:summary="@string/notification_row_transparency_summary"
+            android:defaultValue="false" />
+
         <!-- Small landscape notifications -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="small_landscape_notification"
