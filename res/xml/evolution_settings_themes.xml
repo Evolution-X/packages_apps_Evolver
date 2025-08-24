@@ -38,6 +38,13 @@
             android:summary="@string/themes_brightness_slider_summary"
             android:fragment="org.evolution.settings.fragments.themes.BrightnessSlider" />-->
 
+        <!-- Notification Row -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="notification_row_transparency"
+            android:title="@string/notification_row_transparency_title"
+            android:summary="@string/notification_row_transparency_summary"
+            android:defaultValue="false" />
+
         <!-- Notification styles -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="notification_style"
