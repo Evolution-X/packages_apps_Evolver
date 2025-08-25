@@ -843,4 +843,9 @@
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">Egyetlen érintéssel elérhető billentyűzár</string>
     <string name="keyguard_affordance_single_tap_summary">A billentyűzár funkcióinak ki-/bekapcsolása egyetlen érintéssel</string>
+    <!-- Brightness Slider Style -->
+    <string name="qs_brightness_slider_shape_title">A Fényerőcsúszka alakja</string>
+    <!-- Small landscape notifications -->
+    <string name="small_landscape_notification_title">Vékony fekvőmódú értesítések</string>
+    <string name="small_landscape_notification_summary">Az értesítéseket vékonyabban jeleníti meg az értesítési panelen fekvő módban, ahogyan az Android Open Source Projektben szándékolták</string>
 </resources>
