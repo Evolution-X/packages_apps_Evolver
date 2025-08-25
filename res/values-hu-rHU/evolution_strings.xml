@@ -843,4 +843,6 @@
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">Egyetlen érintéssel elérhető billentyűzár</string>
     <string name="keyguard_affordance_single_tap_summary">A billentyűzár funkcióinak ki-/bekapcsolása egyetlen érintéssel</string>
+    <!-- Brightness Slider Style -->
+    <string name="qs_brightness_slider_shape_title">A Fényerőcsúszka alakja</string>
 </resources>
