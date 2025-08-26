@@ -101,7 +101,7 @@
     <string name="monet_engine_chroma_factor_title">Коэффициент цветности</string>
     <string name="monet_engine_chroma_factor_summary">Чем больше значение, тем насыщеннее цвета</string>
     <string name="monet_engine_whole_palette_title">Вся палитра</string>
-    <string name="monet_engine_whole_palette_summary">Значения яркости и цветности будут влиять так же и на вторичные цвета</string>
+    <string name="monet_engine_whole_palette_summary">Применять выбор яркости и насыщенности к дополнительным цветам</string>
     <string name="monet_engine_tint_background_title">Окрасить фон</string>
     <string name="monet_engine_tint_background_summary">Значения яркости и цветности будут влиять так же и на цвета фона</string>
     <string name="monet_engine_style_title">Стиль темы</string>
@@ -111,6 +111,7 @@
     <string name="monet_engine_style_spritz">Брызги</string>
     <string name="monet_engine_style_rainbow">Радуга</string>
     <string name="monet_engine_style_fruit_salad">Фруктовый салат</string>
+    <string name="monet_engine_style_content">Содержание</string>
     <string name="monet_engine_style_monochromatic">Монохроматический</string>
     <string name="monet_engine_color_source_title">Источник цвета</string>
     <string name="monet_engine_color_source_both">Оба (по умолчанию)</string>
@@ -152,6 +153,8 @@
     <string name="pulse_legacy_mode_advanced_category">Настройки режима затухающих блоков</string>
     <string name="pulse_custom_fudge_factor">Уровень чувствительности</string>
     <string name="pulse_lavalamp_speed_title">Скорость лавовой лампы</string>
+    <string name="pulse_solid_units_rounded_title">Закругленные углы</string>
+    <string name="pulse_solid_units_rounded_summary">Сплошные линии с закруглённым кончиком</string>
     <string name="pulse_solid_units_count">Количество сплошных линий</string>
     <string name="pulse_solid_units_opacity">Прозрачность сплошных линий</string>
     <string name="pulse_solid_dimen_category">Настройки режима сплошных линий</string>
@@ -415,7 +418,7 @@
     <string name="quick_settings_data_usage_title">Использование данных</string>
     <string name="quick_settings_data_usage_summary">Отображать расход трафика в нижней части быстрых настроек</string>
     <string name="quick_settings_lock_screen_category">Экран блокировки</string>
-    <string name="quick_settings_secure_lock_screen_title">Скрытие на защищённом экране блокировки</string>
+    <string name="quick_settings_secure_lock_screen_title">Смахните вниз на заблокированном экране, для просмотра быстрых настроек</string>
     <string name="quick_settings_secure_lock_screen_summary">Скрывать все быстрые настройки в шторке уведомлений, пока устройство заблокировано</string>
     <string name="quick_settings_require_unlock_title">Доступ к быстрым настройкам требует разблокировки</string>
     <string name="quick_settings_require_unlock_summary">Следующие элементы быстрых настроек будут требовать разблокировки устройства, прежде чем вы сможете взаимодействовать с ними:\nРежим полёта, Режим энергосбережения, Bluetooth, Передача данных, Экономия трафика, Точка доступа, Интернет, NFC, Автоповорот и Wi-Fi</string>
@@ -442,6 +445,11 @@
     <string name="quick_settings_header_offset_summary">Отрегулировать размер изображения обложки</string>
     <string name="quick_settings_transparency_title">Прозрачность фона</string>
     <string name="quick_settings_transparency_summary">Установка уровня прозрачности панели быстрых настроек</string>
+    <string name="quick_settings_tile_shape_title">Форма плиток быстрых настроек</string>
+    <string name="quick_settings_tile_shape_dynamic">Динамический</string>
+    <string name="quick_settings_tile_shape_circle">Круг</string>
+    <string name="quick_settings_tile_shape_rounded_square">Закруглённый квадрат</string>
+    <string name="quick_settings_tile_shape_square">Квадрат</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Всплывающие уведомления</string>
     <string name="notifications_heads_up_summary">Разрешить всплывающие уведомления</string>
@@ -528,27 +536,48 @@
     <string name="spoofing_pixel_props_summary">Подмена устройства на новейший Pixel для отдельных приложений Google</string>
     <string name="tensor_spoof_title">Подмена функций Tensor</string>
     <string name="tensor_spoof_summary">Разблокировка функций Tensor/Pixel</string>
+    <string name="gms_spoof_title">Исправление Play Integrity</string>
+    <string name="gms_spoof_summary">Подмена вашего устройства для прохождения проверки Google Play</string>
     <string name="spoofing_storage_encryption_title">Шифрование хранилища</string>
     <string name="spoofing_storage_encryption_summary">Подмена статуса шифрования хранилища на «Зашифровано»</string>
     <string name="spoofing_app_specific_category">Для отдельных приложений</string>
     <string name="spoofing_qsb_title">Приложение Google</string>
-    <string name="spoofing_qsb_summary">Подделайте приложение Google для последнего устройства Pixel, чтобы разблокировать эксклюзивные функции</string>
-    <string name="spoofing_vending_title">Play Маркет</string>
+    <string name="spoofing_qsb_summary">Подмена устройства на новейший Pixel для приложения Google, чтобы разблокировать эксклюзивные функции</string>
+    <string name="spoofing_vending_title">Google Play</string>
     <string name="spoofing_vending_summary">Подмена устройства на новейший Pixel для приложения Google Play</string>
     <string name="spoofing_photos_title">Google Фото</string>
     <string name="spoofing_photos_summary">Подмена устройства на Pixel XL для приложения «Google Фото»</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Подмена устройства на Pixel XL для решения проблем с чатами в Snapchat</string>
     <string name="gameprops_title">Разблокировка высокого FPS в играх</string>
-    <string name="gameprops_summary">Подмена модели устройства для отдельных игр с целью разблокировки высокого FPS</string>
+    <string name="gameprops_summary">Подмена вашего устройства на другую модель для определенных игр, чтобы разблокировать более высокий FPS</string>
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">Файл pif.json загружен. Подмена на %1$s для прохождения Play Integrity.</string>
+    <string name="toast_spoofing_failure">Не удалось подменить.</string>
+    <string name="update_pif_json_title">Обновить Play Integrity fix</string>
+    <string name="update_pif_json_summary">Обновить подменяемое устройство PIF, требует подключение к интернету.</string>
+    <string name="show_pif_properties_title">Свойства Play Integrity fix</string>
+    <string name="show_pif_properties_summary">Показать все текущие свойства PIF</string>
+    <string name="error_loading_properties">Ошибка при загрузке свойств PIF</string>
+    <string name="pif_spoofing_title">Выберите файл PIF JSON</string>
+    <string name="pif_spoofing_summary">Выбрать JSON файл PIF, который будет использоваться для подмены Play Integrity</string>
+    <!-- Miscellaneous/Spoofing/Keybox Data -->
+    <string name="keybox_data_title">Переопределение аттестации ключей</string>
+    <string name="keybox_data_summary">Загрузить пользовательский XML keybox для переопределения ключа устройства</string>
+    <string name="keybox_data_loaded_summary">Кастомные XML ключи загружены. Если желаете очистить - удалите их.</string>
+    <string name="keybox_delete_content_description">Очистить данные ключей</string>
+    <string name="keybox_toast_invalid_file_selected">Не XML файл. Выберите допустимый формат XML ключей.</string>
+    <string name="keybox_toast_missing_data">Некорректный XML файл с ключами: отсутствуют обязательные поля</string>
+    <string name="keybox_toast_file_loaded">Файл с ключами загружен</string>
+    <string name="keybox_toast_file_cleared">Ключи очищены</string>
     <!-- About -->
-    <string name="about_info">Evolution X стремится предоставить пользователям ощущение опыта использования Pixel с большим количеством дополнительных функций для вашего удобства</string>
+    <string name="about_info">Evolution X — это пользовательская Android прошивка, которая стремится воссоздать опыт использования Google Pixel с дополнительной кастомизацией. Основана на проекте LineageOS.</string>
     <string name="about_website_title">Сайт</string>
-    <string name="about_website_summary">Нажмите здесь, чтобы посетить наш потрясающий веб-сайт!</string>
-    <string name="about_x_summary">Приходите посмотреть наши посты</string>
-    <string name="about_discord_summary">Посетите чат нашего сообщества!</string>
-    <string name="about_github_summary">Нажмите здесь, чтобы посетить наш GitHub!</string>
-    <string name="about_contributors_title">Контрибьюторы</string>
+    <string name="about_website_summary">Следите за обновлениями на нашем сайте</string>
+    <string name="about_x_summary">Ловите наши свежие посты в X</string>
+    <string name="about_discord_summary">Общайтесь с нами в Discord</string>
+    <string name="about_github_summary">Изучайте наш код на GitHub</string>
+    <string name="about_founders_title">Основатели проекта</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Выбор цвета</string>
     <string name="press_color_to_apply">Нажмите на цвет ниже, чтобы применить</string>
@@ -656,6 +685,9 @@
     <string name="lockscreen_albumart_filter_tint">Масштабирование с акцентом системы</string>
     <string name="lockscreen_albumart_filter_blur">Размытие</string>
     <string name="lockscreen_albumart_filter_grayblur">Оттенки серого и размытые</string>
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">Степень размытия обложки</string>
+    <string name="lockscreen_media_art_blur_level_summary">Интенсивность размытия при применении размытого фильтра</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Системная вибрация</string>
     <string name="haptics_settings_summary">Изменить интенсивность системной вибрации</string>
@@ -693,7 +725,7 @@
     <string name="qs_widgets_enabled_summary">Показывать виджеты для быстрого доступа. \nОграничивает количество строк быстрых настроек до 2, чтобы избежать нарушения прокрутки панели быстрых настроек AOSP</string>
     <!-- Lockscreen widgets  -->
     <string name="lockscreen_widgets_title">Виджеты</string>
-    <string name="lockscreen_widgets_enabled_title">Включить виджеты экрана блокировки</string>
+    <string name="lockscreen_widgets_enabled_title">Включить виджеты на экране блокировки</string>
     <string name="lockscreen_widgets_enabled_summary">Добавить виджеты на экран блокировки</string>
     <string name="lockscreen_display_widgets_title">Виджет с информацией об устройстве</string>
     <string name="lockscreen_display_widgets_summary">Показывать виджет информации об устройстве на экране блокировки</string>
@@ -751,13 +783,68 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Значки уведомлений</string>
     <string name="max_visible_notification_icons_summary">Максимальное количество значков уведомлений, отображаемых в строке состояния</string>
-    <!-- Ongoing progress bar chip in statusbar -->
-    <string name="ongoing_action_chip_title">Текущий индикатор выполнения работы</string>
-    <string name="ongoing_action_chip_summary">Показывать индикатор выполнения в строке состояния, который показывает текущий ход выполнения действий из уведомления</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Индикатор действия строки состояния</string>
+    <string name="ongoing_progress_settings_summary">Настройки индикатора действия строки состояния</string>
+    <string name="ongoing_action_chip_title">Индикатор выполняемого действия</string>
+    <string name="ongoing_action_chip_summary">Показывать индикатор прогресса в строке состояния для текущих действий, таких как загрузка</string>
+    <string name="ongoing_action_chip_opacity_title">Непрозрачность полосы прогресса</string>
+    <string name="ongoing_action_chip_opacity_summary">Отрегулируйте непрозрачность индикатора прогресса</string>
+    <string name="compact_progress_mode_title">Компактный индикатор прогресса</string>
+    <string name="compact_progress_mode_summary">Использовать компактный циклический индикатор для текущих действий</string>
+    <string name="show_media_progress_title">Показать прогресс медиа</string>
+    <string name="show_media_progress_summary">\"Отображение прогресса воспроизведения медиа в строке состояния</string>
+    <string name="progress_footer_text">\"Индикатор прогресса в строке состояния отображает информацию в режиме реального времени о воспроизведении медиафайлов и активных загрузках/выгрузках.
+
+- 🎵 Прогресс воспроизведения медиафайлов:
+• Отображает ход воспроизведения музыки и видео во время воспроизведения медиафайлов.
+• Одно касание открывает элементы управления воспроизведением (Предыдущий, Следующий трек).
+• Двойное касание переключает воспроизведение/паузу.
+• Смахивание влево переключает на предыдущий трек.
+• Смахивание вправо переключает на следующий трек.
+• Длительное нажатие открывает приложение, ответственное за воспроизведение.
+
+- 📥 Прогресс загрузки/выгрузки:
+• Отображает прогресс текущих загрузок и выгрузок.
+• Автоматически скрывается при отсутствии активных загрузок.
+• Одно касание открывает приложение, ответственное за загрузку.
+
+Индикатор прогресса динамически переключается между состояниями медиафайлов и загрузки, обеспечивая вам всегда доступ к самой актуальной информации.\"    </string>
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Показать волнистую анимацию</string>
     <string name="show_squiggle_animation_summary">Показывать волнистую анимацию медиа плеера\nДля применения изменений необходимо переключить музыку, остановить ее или промотать</string>
-    <!-- Interface / Expressive Design -->
-    <string name="expressive_design_title">Expressive Design</string>
-    <string name="expressive_design_summary">Включить предпросмотр Expressive Design</string>
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">Обои AOD</string>
+    <string name="aod_wallpaper_summary">Показывать обои когда AOD включен</string>
+    <!-- Battery bar -->
+    <string name="battery_bar_title">Полоса заряда батареи</string>
+    <string name="battery_bar_summary">Отображение и настройка полосы батареи над строке состония</string>
+    <string name="battery_bar_color">Цвет</string>
+    <string name="battery_bar_charging_color">Цвет во время зарядки</string>
+    <string name="battery_bar_battery_low_color">Цвет при низком заряде</string>
+    <string name="battery_bar_style_title">Выравнивание</string>
+    <string name="battery_bar_thickness_title">Толщина</string>
+    <string name="battery_bar_animate_title">Анимация зарядки</string>
+    <string name="battery_bar_style_regular">Стандартный</string>
+    <string name="battery_bar_style_center_mirrored">По центру (зеркально)</string>
+    <string name="battery_bar_style_reversed">В обратную сторону</string>
+    <string name="battery_bar_use_charging_color">Пользовательский цвет зарядки</string>
+    <string name="battery_bar_blend_color_title">Смешать цвета</string>
+    <string name="battery_bar_blend_color_summary">Смешать полные/пустые цвета, соответствующие процентам заряда батареи</string>
+    <string name="battery_bar_blend_color_reverse_title">Обратное направление цвета</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Полный &#8594; пустой: красный &#8592; зелёный &#8592; синий &#8592; красный</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Полный &#8594; пустой: красный &#8594; зелёный &#8594; синий &#8594; красный</string>
+    <string name="battery_bar_use_gradient_color">Использовать цвет градиента</string>
+    <string name="battery_bar_gradient_color_summary">Использовать градиентный цвет для шкалы заряда батареи</string>
+    <string name="battery_bar_high_color">Цвет высокого уровня заряда</string>
+    <string name="battery_bar_low_color">Цвет низкого уровня заряда</string>
+    <string name="battery_bar_animate_color">Цвет анимации зарядки</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Возможность использования функции блокировки клавиатуры одним нажатием</string>
+    <string name="keyguard_affordance_single_tap_summary">Включайте/выключайте функции блокировки клавиатуры одним нажатием</string>
+    <!-- Brightness Slider Style -->
+    <string name="qs_brightness_slider_shape_title">Форма ползунка яркости</string>
+    <!-- Small landscape notifications -->
+    <string name="small_landscape_notification_title">Маленькие уведомления в горизонтальном режиме</string>
+    <string name="small_landscape_notification_summary">Показывать уведомления меньше по ширине в панели уведомлений в альбомном режиме так же, как в AOSP</string>
 </resources>
