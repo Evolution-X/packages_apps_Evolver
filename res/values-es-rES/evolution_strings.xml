@@ -111,6 +111,7 @@
     <string name="monet_engine_style_spritz">Spritz</string>
     <string name="monet_engine_style_rainbow">Arcoiris</string>
     <string name="monet_engine_style_fruit_salad">Ensalada de frutas</string>
+    <string name="monet_engine_style_content">Contenido</string>
     <string name="monet_engine_style_monochromatic">Monocromático</string>
     <string name="monet_engine_color_source_title">Color de origen</string>
     <string name="monet_engine_color_source_both">Ambos (por defecto)</string>
@@ -444,6 +445,11 @@
     <string name="quick_settings_header_offset_summary">Ajustar el tamaño de la imagen de cabecera</string>
     <string name="quick_settings_transparency_title">Transparencia del fondo</string>
     <string name="quick_settings_transparency_summary">Nivel de transparencia para el panel de ajustes rápidos</string>
+    <string name="quick_settings_tile_shape_title">Forma de los ajustes rápidos</string>
+    <string name="quick_settings_tile_shape_dynamic">Dinámico</string>
+    <string name="quick_settings_tile_shape_circle">Círculo</string>
+    <string name="quick_settings_tile_shape_rounded_square">Cuadrado redondeado</string>
+    <string name="quick_settings_tile_shape_square">Cuadrado</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Notificaciones emergentes</string>
     <string name="notifications_heads_up_summary">Permitir notificaciones emergentes</string>
@@ -556,8 +562,14 @@
     <string name="pif_spoofing_title">Seleccione el archivo JSON PIF</string>
     <string name="pif_spoofing_summary">Elija el archivo PIF JSON que se usará para suplantar la integridad de Google Play</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Seleccione el keybox XML para suplantación</string>
-    <string name="keybox_data_summary">Seleccione el keybox XML utilizado para la falsificación de claves en todo el sistema. Haga clic en eliminar para restablecer los datos del keybox.</string>
+    <string name="keybox_data_title">Anulación de la atestación del Keybox</string>
+    <string name="keybox_data_summary">Cargar un archivo XML de keybox personalizado para anular la atestación de clave del dispositivo</string>
+    <string name="keybox_data_loaded_summary">Se ha cargado el XML del keybox personalizado. Borrar para limpiar.</string>
+    <string name="keybox_delete_content_description">Borrar datos del keybox</string>
+    <string name="keybox_toast_invalid_file_selected">No es un archivo XML. Elige un XML de keybox válido.</string>
+    <string name="keybox_toast_missing_data">XML de keybox inválido: faltan campos requeridos</string>
+    <string name="keybox_toast_file_loaded">Keybox cargada</string>
+    <string name="keybox_toast_file_cleared">Keybox borrada</string>
     <!-- About -->
     <string name="about_info">Evolution X es una ROM de Android personalizada cuyo objetivo es replicar la experiencia de Google Pixel, con personalización añadida. Basado en el proyecto LineageOS.</string>
     <string name="about_website_title">Sitio web</string>
@@ -671,6 +683,9 @@
     <string name="lockscreen_albumart_filter_tint">Acentuado tintado</string>
     <string name="lockscreen_albumart_filter_blur">Desenfoque</string>
     <string name="lockscreen_albumart_filter_grayblur">Escala de grises y desenfoque</string>
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">Nivel de desenfoque de carátula multimedia</string>
+    <string name="lockscreen_media_art_blur_level_summary">Intensidad cuando se aplica el filtro de desenfoque</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Respuestas hápticas del sistema</string>
     <string name="haptics_settings_summary">Modificar las intensidades hápticas del sistema</string>
@@ -797,4 +812,41 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Mostrar animación de garabato</string>
     <string name="show_squiggle_animation_summary">Mostrar animación de garabato del panel multimedia\nDespués del cambio, es necesario cambiar la música, pausarla o mover la barra de progreso para aplicarla</string>
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">Fondo de pantalla siempre activa</string>
+    <string name="aod_wallpaper_summary">Mostrar fondo en pantalla siempre activa</string>
+    <!-- Battery bar -->
+    <string name="battery_bar_title">Barra de la batería</string>
+    <string name="battery_bar_summary">Muestra y personaliza la barra de batería junto a la de estado o la de navegación</string>
+    <string name="battery_bar_color">Color de la barra de batería</string>
+    <string name="battery_bar_charging_color">Color de la barra de batería mientras carga</string>
+    <string name="battery_bar_battery_low_color">Color de la barra de batería cuando la batería está baja</string>
+    <string name="battery_bar_style_title">Estilo de la barra de batería</string>
+    <string name="battery_bar_thickness_title">Grosor de barra de batería</string>
+    <string name="battery_bar_animate_title">Animación de carga</string>
+    <string name="battery_bar_style_regular">Normal</string>
+    <string name="battery_bar_style_center_mirrored">Centro-reflejada</string>
+    <string name="battery_bar_style_reversed">Invertida</string>
+    <string name="battery_bar_use_charging_color">Color de carga personalizado</string>
+    <string name="battery_bar_blend_color_title">Mezclar colores</string>
+    <string name="battery_bar_blend_color_summary">Mezcla de colores lleno/vacío en función del porcentaje de batería</string>
+    <string name="battery_bar_blend_color_reverse_title">Invertir dirección de colores</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Lleno &#8594; vacío: rojo &#8592; verde &#8592; azul &#8592; rojo</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Lleno &#8594; vacío: rojo &#8594; verde &#8594; azul &#8594; rojo</string>
+    <string name="battery_bar_use_gradient_color">Usar color degradado</string>
+    <string name="battery_bar_gradient_color_summary">Usar color degradado como una escala para el nivel de batería</string>
+    <string name="battery_bar_high_color">Color de alto nivel\"</string>
+    <string name="battery_bar_low_color">Color de bajo nivel\"</string>
+    <string name="battery_bar_animate_color">Color de animación de carga</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Toque simple para elementos Keyguard</string>
+    <string name="keyguard_affordance_single_tap_summary">Activar elementos de Keyguard con un solo toque</string>
+    <!-- Brightness Slider Style -->
+    <string name="qs_brightness_slider_shape_title">Forma del deslizador de brillo</string>
+    <!-- Small landscape notifications -->
+    <string name="small_landscape_notification_title">Notificaciones pequeñas en horizontal</string>
+    <string name="small_landscape_notification_summary">Muestra las notificaciones más pequeñas en ancho en el panel de notificaciones en modo horizontal tal como se pretende con AOSP</string>
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_title">Transparencia de la fila de notificación</string>
+    <string name="notification_row_transparency_summary">Mostrar notificaciones traslúcidas en configuración rápida</string>
 </resources>
