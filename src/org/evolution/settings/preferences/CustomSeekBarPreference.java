@@ -29,7 +29,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
@@ -37,7 +36,6 @@ import androidx.preference.PreferenceViewHolder;
 import com.android.settings.R;
 import com.android.settingslib.widget.SliderPreference;
 
-import com.google.android.material.color.MaterialColors;
 import com.google.android.material.slider.LabelFormatter;
 import com.google.android.material.slider.Slider;
 
@@ -300,14 +298,9 @@ public class CustomSeekBarPreference extends SliderPreference {
             return;
         }
 
-        final Drawable raw = ResourcesCompat.getDrawable(
+        final Drawable icon = ResourcesCompat.getDrawable(
                 tv.getResources(), R.drawable.ic_custom_seekbar_reset, tv.getContext().getTheme());
-        if (raw == null) return;
-
-        final Drawable icon = DrawableCompat.wrap(raw).mutate();
-        int color = com.google.android.material.color.MaterialColors.getColor(
-                tv, com.google.android.material.R.attr.colorPrimary);
-        DrawableCompat.setTint(icon, color);
+        if (icon == null) return;
 
         tv.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, icon, null);
         tv.setCompoundDrawablePadding(dp(tv, 6));
