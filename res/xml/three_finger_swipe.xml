@@ -35,6 +35,12 @@
         android:defaultValue="0" />
 
     <org.evolution.settings.preferences.SecureSettingSwitchPreference
+        android:key="nothing_three_finger_long_press"
+        android:title="@string/nt_gesture_three_finger_long_press"
+        android:summary="@string/nt_gesture_three_finger_long_press_summary"
+        android:defaultValue="false" />
+
+    <org.evolution.settings.preferences.SecureSettingSwitchPreference
         android:key="nt_disable_combination_screenshot"
         android:title="@string/nt_combination_power_volume_click"
         android:summary="@string/nt_combination_power_volume_click_summary"
