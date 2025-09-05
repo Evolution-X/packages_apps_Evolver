@@ -101,7 +101,7 @@
     <string name="monet_engine_chroma_factor_title">Коэффициент цветности</string>
     <string name="monet_engine_chroma_factor_summary">Чем больше значение, тем насыщеннее цвета</string>
     <string name="monet_engine_whole_palette_title">Вся палитра</string>
-    <string name="monet_engine_whole_palette_summary">Применять выбор яркости и насыщенности к дополнительным цветам</string>
+    <string name="monet_engine_whole_palette_summary">Применять настройки яркости и насыщенности к вторичным цветам</string>
     <string name="monet_engine_tint_background_title">Окрасить фон</string>
     <string name="monet_engine_tint_background_summary">Значения яркости и цветности будут влиять так же и на цвета фона</string>
     <string name="monet_engine_style_title">Стиль темы</string>
@@ -208,7 +208,7 @@
     <string name="status_bar_battery_style_icon_landscape_ios15">Горизонтальный iOS 15</string>
     <string name="status_bar_battery_style_icon_landscape_ios16">Горизонтальный iOS 16</string>
     <string name="status_bar_battery_style_icon_landscape_origami">Горизонтальное Оригами</string>
-    <string name="status_bar_battery_style_icon_landscape_oneui7">Горизонтальный OneUI 7</string>
+    <string name="status_bar_battery_style_icon_landscape_oneui7">Альбомный режим OneUI 7</string>
     <string name="status_bar_battery_style_circle">Круг</string>
     <string name="status_bar_battery_style_dotted_circle">Круг (Точечный)</string>
     <string name="status_bar_battery_style_filled_circle">Круг (Заполняющийся)</string>
@@ -418,7 +418,7 @@
     <string name="quick_settings_data_usage_title">Использование данных</string>
     <string name="quick_settings_data_usage_summary">Отображать расход трафика в нижней части быстрых настроек</string>
     <string name="quick_settings_lock_screen_category">Экран блокировки</string>
-    <string name="quick_settings_secure_lock_screen_title">Смахните вниз на заблокированном экране, для просмотра быстрых настроек</string>
+    <string name="quick_settings_secure_lock_screen_title">Смахните вниз на заблокированном экране для открытия быстрых настроек</string>
     <string name="quick_settings_secure_lock_screen_summary">Скрывать все быстрые настройки в шторке уведомлений, пока устройство заблокировано</string>
     <string name="quick_settings_require_unlock_title">Доступ к быстрым настройкам требует разблокировки</string>
     <string name="quick_settings_require_unlock_summary">Следующие элементы быстрых настроек будут требовать разблокировки устройства, прежде чем вы сможете взаимодействовать с ними:\nРежим полёта, Режим энергосбережения, Bluetooth, Передача данных, Экономия трафика, Точка доступа, Интернет, NFC, Автоповорот и Wi-Fi</string>
@@ -847,4 +847,7 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Маленькие уведомления в горизонтальном режиме</string>
     <string name="small_landscape_notification_summary">Показывать уведомления меньше по ширине в панели уведомлений в альбомном режиме так же, как в AOSP</string>
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_title">Прозрачность строки уведомлений</string>
+    <string name="notification_row_transparency_summary">Показать полупрозрачные уведомления в быстрых настройках</string>
 </resources>
