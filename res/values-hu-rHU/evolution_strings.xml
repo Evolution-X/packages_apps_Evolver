@@ -851,4 +851,36 @@
     <!-- Notification Row -->
     <string name="notification_row_transparency_title">Az értesítési sor átlátszósága</string>
     <string name="notification_row_transparency_summary">A gyorsbeállítási értesítések átlátszóak lehetnek</string>
+    <!-- Button settings -->
+    <string name="touchscreen_gesture_action_play_pause_music">Zenelejátszás indítása/szüneteltetése</string>
+    <string name="hardware_keys_action_nothing">Nincs művelet</string>
+    <string name="hardware_keys_action_menu">Menünyitás/zárás</string>
+    <string name="hardware_keys_action_app_switch">Alkalmazáselőzmények</string>
+    <string name="hardware_keys_action_search">Keresőasszisztens</string>
+    <string name="hardware_keys_action_voice_search">Hangalapú keresés</string>
+    <string name="hardware_keys_action_in_app_search">Alkalmazáson belüli keresés</string>
+    <string name="hardware_keys_action_launch_camera">Kameraindítás</string>
+    <string name="hardware_keys_action_sleep">Képernyő-kikapcsolás</string>
+    <string name="hardware_keys_action_last_app">Legutóbbi alkalmazás</string>
+    <string name="hardware_keys_action_split_screen">Osztott képernyő</string>
+    <string name="hardware_keys_action_close_app">Az alkalmazás kilövése</string>
+    <string name="hardware_keys_action_torch">Zseblámpa-kapcsolás</string>
+    <string name="hardware_keys_action_screenshot">Képernyőkép-készítés</string>
+    <string name="hardware_keys_action_volume_panel">Hangerőszabályzó-kapcsoló</string>
+    <string name="hardware_keys_action_clear_all_notifications">Minden értesítés törlése</string>
+    <string name="hardware_keys_action_notifications_panel">Értesítésipanel-kapcsoló</string>
+    <string name="hardware_keys_action_expand_qs_panel">A Gyorsbeállítások-panel kinyitása</string>
+    <string name="hardware_keys_action_ringer_modes">Csengésmód-változtatás</string>
+    <!-- Three Finger Gestures -->
+    <string name="three_finger_gesture_action_title">Háromujjas csúsztatási mozdulatok</string>
+    <string name="three_finger_gesture_action_dialog_title">A csúsztatással indított műveletek</string>
+    <string name="three_finger_long_press_action_title">Háromujjas hosszannyomási mozdulatok</string>
+    <string name="three_finger_long_press_action_dialog_title">A hosszanyomással indított műveletek</string>
+    <!-- NT Three finger -->
+    <string name="nt_gesture_three_finger_swipe">Háromujjas csúsztatás</string>
+    <string name="nt_gesture_three_finger_swipe_summary">Képernyőmentés készítéséhez húzza egyszerre három ujját lefelé a képernyőn</string>
+    <string name="nt_gesture_three_finger_long_press">Háromujjas hosszannyomás</string>
+    <string name="nt_gesture_three_finger_long_press_summary">Részleges képernyőkép-készítéshez tartsa lenyomva három ujját, majd pöccintsen lefelé a területen.</string>
+    <string name="nt_combination_power_volume_click">Letiltás két gomb megnyomásával</string>
+    <string name="nt_combination_power_volume_click_summary">A képernyőkép készítésének funkcióját a bekapcsológomb és a hangerő le gomb lenyomva tartásával tilthatja le.</string>
 </resources>
