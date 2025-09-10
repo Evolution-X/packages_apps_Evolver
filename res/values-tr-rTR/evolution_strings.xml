@@ -111,6 +111,7 @@
     <string name="monet_engine_style_spritz">Spritz</string>
     <string name="monet_engine_style_rainbow">Gökkuşağı</string>
     <string name="monet_engine_style_fruit_salad">Meyve Salatası</string>
+    <string name="monet_engine_style_content">İçerik</string>
     <string name="monet_engine_style_monochromatic">Tek renkli</string>
     <string name="monet_engine_color_source_title">Renk kaynağı</string>
     <string name="monet_engine_color_source_both">Her ikisi (Varsayılan)</string>
@@ -444,6 +445,11 @@
     <string name="quick_settings_header_offset_summary">Başlık resmi boyutunu ayarla</string>
     <string name="quick_settings_transparency_title">Arka plan saydamlığı</string>
     <string name="quick_settings_transparency_summary">Hızlı ayarlar arka planı için şeffaflık seviyesi ayarla</string>
+    <string name="quick_settings_tile_shape_title">Hızlı ayarlar döşemeleri şekli</string>
+    <string name="quick_settings_tile_shape_dynamic">Dinamik</string>
+    <string name="quick_settings_tile_shape_circle">Daire</string>
+    <string name="quick_settings_tile_shape_rounded_square">Yuvarlatılmış kare</string>
+    <string name="quick_settings_tile_shape_square">Kare</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Bildirim pencereleri</string>
     <string name="notifications_heads_up_summary">Bildirim pencerelerine izin ver</string>
@@ -556,8 +562,14 @@
     <string name="pif_spoofing_title">PIF JSON dosyasını seçin</string>
     <string name="pif_spoofing_summary">Google Play Bütünlüğü sahtekarlığı için kullanılacak PIF JSON dosyasını seçin</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Sahte anahtar kutusu XML\'i seçin</string>
-    <string name="keybox_data_summary">Sistem genelinde anahtar doğrulama sahteciliği için kullanılan anahtar kutusu XML\'ini seçin. Anahtar kutusu verilerini sıfırlamak için sil\'e tıklayın.</string>
+    <string name="keybox_data_title">Anahtar kutusu doğrulamasını geçersiz kıl</string>
+    <string name="keybox_data_summary">Cihazın anahtar doğrulamasını geçersiz kılmak için özel bir anahtar kutusu XML yükle</string>
+    <string name="keybox_data_loaded_summary">Özel anahtar kutusu XML yüklendi. Temizlemek için silin.</string>
+    <string name="keybox_delete_content_description">Anahtar kutusu verilerini temizle</string>
+    <string name="keybox_toast_invalid_file_selected">XML dosyası değil. Geçerli bir anahtar kutusu XML dosyası seçin.</string>
+    <string name="keybox_toast_missing_data">Geçersiz anahtar kutusu XML: gerekli alanlar eksik</string>
+    <string name="keybox_toast_file_loaded">Anahtar kutusu yüklendi</string>
+    <string name="keybox_toast_file_cleared">Anahtar kutusu temizlendi</string>
     <!-- About -->
     <string name="about_info">Evolution X, Google Pixel deneyimini ek özelleştirme ile çoğaltmayı amaçlayan özel bir Android ROM\'dur. LineageOS Projesine dayanmaktadır.</string>
     <string name="about_website_title">İnternet sitesi</string>
@@ -672,6 +684,9 @@
     <string name="lockscreen_albumart_filter_tint">Vurgu renkli</string>
     <string name="lockscreen_albumart_filter_blur">Bulanık</string>
     <string name="lockscreen_albumart_filter_grayblur">Gri tonlama ve bulanık</string>
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">Medya resmi bulanıklık seviyesi</string>
+    <string name="lockscreen_media_art_blur_level_summary">Bulanıklık filtresi uygulandığında bulanıklık yoğunluğu</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Sistem titreşimleri</string>
     <string name="haptics_settings_summary">Sistem titreşim yoğunluklarını değiştirin</string>
@@ -797,4 +812,41 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Dalgalanma animasyonunu göster</string>
     <string name="show_squiggle_animation_summary">Medya paneli dalgalı animasyonunu göster\nDeğişiklikten sonra uygulamak için müzik değiştirmeniz, müziği duraklatmanız veya ilerleme çubuğunu hareket ettirmeniz gerekir</string>
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">Duvar kağıdı</string>
+    <string name="aod_wallpaper_summary">\'AOD\' açıkken duvar kağıdını göster</string>
+    <!-- Battery bar -->
+    <string name="battery_bar_title">Pil çubuğu</string>
+    <string name="battery_bar_summary">Durum çubuğu üzerinde pil çubuğunu görüntüleyin ve özelleştirin</string>
+    <string name="battery_bar_color">Renk</string>
+    <string name="battery_bar_charging_color">Şarj rengi</string>
+    <string name="battery_bar_battery_low_color">Düşük pil rengi</string>
+    <string name="battery_bar_style_title">Konum</string>
+    <string name="battery_bar_thickness_title">Kalınlık</string>
+    <string name="battery_bar_animate_title">Şarj animasyonu</string>
+    <string name="battery_bar_style_regular">Düzenli</string>
+    <string name="battery_bar_style_center_mirrored">Merkez-yansıtmalı</string>
+    <string name="battery_bar_style_reversed">Ters</string>
+    <string name="battery_bar_use_charging_color">Özel şarj rengi</string>
+    <string name="battery_bar_blend_color_title">Renkleri karıştır</string>
+    <string name="battery_bar_blend_color_summary">Pil yüzdesine karşılık gelen dolu/boş renkleri karıştırır</string>
+    <string name="battery_bar_blend_color_reverse_title">Renk yönünü tersine çevir</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Dolu &#8594; boş: kırmızı &#8592; yeşil &#8592; mavi &#8592; kırmızı</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Dolu &#8594; boş: kırmızı &#8594; yeşil &#8594; mavi &#8594; kırmızı</string>
+    <string name="battery_bar_use_gradient_color">Yumuşak geçişli iki renk kullan</string>
+    <string name="battery_bar_gradient_color_summary">Pil seviyesi için ölçek olarak yumuşak geçişli iki renk kullan</string>
+    <string name="battery_bar_high_color">Yüksek düzeyde renk</string>
+    <string name="battery_bar_low_color">Düşük düzeyde renk</string>
+    <string name="battery_bar_animate_color">Şarj animasyon rengi</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Ekran kilidi için tek dokunuş</string>
+    <string name="keyguard_affordance_single_tap_summary">Tek bir dokunuşla ekran kilidi özelliklerini açıp kapatın</string>
+    <!-- Brightness Slider Style -->
+    <string name="qs_brightness_slider_shape_title">Parlaklık kaydırıcı şekli</string>
+    <!-- Small landscape notifications -->
+    <string name="small_landscape_notification_title">Küçük, yatay mod bildirimleri</string>
+    <string name="small_landscape_notification_summary">Yatay modda bildirim panelinde dar genişlikte küçük bildirimler gösterir. AOSP’nin amaçladığı şekilde</string>
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_title">Bildirim satırı saydamlığı</string>
+    <string name="notification_row_transparency_summary">Hızlı ayar bildirimlerini saydam göster</string>
 </resources>
