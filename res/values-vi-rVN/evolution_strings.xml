@@ -851,4 +851,36 @@
     <!-- Notification Row -->
     <string name="notification_row_transparency_title">Độ trong suốt của hàng thông báo</string>
     <string name="notification_row_transparency_summary">Hiển thị thông báo trong suốt ở quicksettings</string>
+    <!-- Button settings -->
+    <string name="touchscreen_gesture_action_play_pause_music">Phát/tạm dừng nhạc</string>
+    <string name="hardware_keys_action_nothing">Không có hành động</string>
+    <string name="hardware_keys_action_menu">Mở/đóng menu</string>
+    <string name="hardware_keys_action_app_switch">Chuyển đổi các ứng dụng gần đây</string>
+    <string name="hardware_keys_action_search">Trợ lý tìm kiếm</string>
+    <string name="hardware_keys_action_voice_search">Tìm kiếm bằng giọng nói</string>
+    <string name="hardware_keys_action_in_app_search">Tìm kiếm trong ứng dụng</string>
+    <string name="hardware_keys_action_launch_camera">Mở máy ảnh</string>
+    <string name="hardware_keys_action_sleep">Tắt màn hình</string>
+    <string name="hardware_keys_action_last_app">Ứng dụng trước đó</string>
+    <string name="hardware_keys_action_split_screen">Chia đôi màn hình</string>
+    <string name="hardware_keys_action_close_app">Dừng ứng dụng</string>
+    <string name="hardware_keys_action_torch">Bật/tắt đèn pin</string>
+    <string name="hardware_keys_action_screenshot">Chụp ảnh màn hình</string>
+    <string name="hardware_keys_action_volume_panel">Bật/tắt bảng điều khiển âm lượng</string>
+    <string name="hardware_keys_action_clear_all_notifications">Xóa tất cả thông báo</string>
+    <string name="hardware_keys_action_notifications_panel">Ẩn/hiện bảng thông báo</string>
+    <string name="hardware_keys_action_expand_qs_panel">Mở rộng QS panel</string>
+    <string name="hardware_keys_action_ringer_modes">Thay đổi chế độ chuông</string>
+    <!-- Three Finger Gestures -->
+    <string name="three_finger_gesture_action_title">Cử chỉ vuốt ba ngón tay</string>
+    <string name="three_finger_gesture_action_dialog_title">Hành động khi vuốt ba ngón tay</string>
+    <string name="three_finger_long_press_action_title">Cử chỉ nhấn giữ ba ngón tay</string>
+    <string name="three_finger_long_press_action_dialog_title">Hành động khi nhấn giữ ba ngón tay</string>
+    <!-- NT Three finger -->
+    <string name="nt_gesture_three_finger_swipe">Vuốt ba ngón tay</string>
+    <string name="nt_gesture_three_finger_swipe_summary">Vuốt xuống bằng ba ngón tay để thực hiện hành động.</string>
+    <string name="nt_gesture_three_finger_long_press">Nhấn giữ ba ngón tay</string>
+    <string name="nt_gesture_three_finger_long_press_summary">Nhấn giữ ba ngón tay rồi vuốt xuống để chụp màn hình.</string>
+    <string name="nt_combination_power_volume_click">Vô hiệu hóa nút nguồn &amp; nút giảm âm lượng</string>
+    <string name="nt_combination_power_volume_click_summary">Vô hiệu hóa chức năng chụp màn hình bằng cách nhấn giữ nút nguồn và nút giảm âm lượng.</string>
 </resources>
