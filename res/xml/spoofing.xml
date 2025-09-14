@@ -22,7 +22,7 @@
             android:key="persist.sys.pixelprops.gms"
             android:title="@string/gms_spoof_title"
             android:summary="@string/gms_spoof_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <Preference
             android:key="show_pif_properties"
