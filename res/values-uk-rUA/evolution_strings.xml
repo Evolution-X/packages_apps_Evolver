@@ -122,6 +122,8 @@
     <string name="lock_screen_interface_category">Інтерфейс</string>
     <string name="lock_screen_charging_stats_title">Статистика заряджання</string>
     <string name="lock_screen_charging_stats_summary">Показувати максимальний струм зарядки та напругу з температурою батареї під час заряджання</string>
+    <string name="lock_screen_charging_time_title">Інформація про заряджання на екрані блокування</string>
+    <string name="lock_screen_charging_time_summary">Показувати час, що залишився для закінчення зарядки</string>
     <string name="lock_screen_fingerprint_category">Відбиток пальця</string>
     <string name="lock_screen_fingerprint_ripple_title">Анімація пульсації</string>
     <string name="lock_screen_fingerprint_ripple_summary">Показувати хвилю анімації, коли розблоковано відбитком пальця</string>
