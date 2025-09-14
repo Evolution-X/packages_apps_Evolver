@@ -94,6 +94,13 @@
             android:summary="@string/lock_screen_charging_stats_summary"
             android:defaultValue="true" />
 
+        <!-- Lockscreen remaining charging time -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_charging_time"
+            android:title="@string/lock_screen_charging_time_title"
+            android:summary="@string/lock_screen_charging_time_summary"
+            android:defaultValue="true" />
+
         <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="custom_aod_image_enabled"
             android:title="@string/lockscreen_custom_image_enabled_title"
