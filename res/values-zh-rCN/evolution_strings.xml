@@ -111,6 +111,7 @@
     <string name="monet_engine_style_spritz">喷雾</string>
     <string name="monet_engine_style_rainbow">彩虹</string>
     <string name="monet_engine_style_fruit_salad">水果沙拉</string>
+    <string name="monet_engine_style_content">内容</string>
     <string name="monet_engine_style_monochromatic">单色调</string>
     <string name="monet_engine_color_source_title">颜色来源</string>
     <string name="monet_engine_color_source_both">两者 (默认)</string>
@@ -121,6 +122,8 @@
     <string name="lock_screen_interface_category">界面</string>
     <string name="lock_screen_charging_stats_title">显示充电状态</string>
     <string name="lock_screen_charging_stats_summary">充电时在锁屏界面上显示当前电池温度，以及充电器提供的最大电流、电压</string>
+    <string name="lock_screen_charging_time_title">锁屏期间充电时间</string>
+    <string name="lock_screen_charging_time_summary">显示剩余充电时间</string>
     <string name="lock_screen_fingerprint_category">指纹</string>
     <string name="lock_screen_fingerprint_ripple_title">磁贴动画</string>
     <string name="lock_screen_fingerprint_ripple_summary">使用指纹解锁时显示波纹效果</string>
@@ -444,6 +447,12 @@
     <string name="quick_settings_header_offset_summary">调整header图片大小</string>
     <string name="quick_settings_transparency_title">背景透明度</string>
     <string name="quick_settings_transparency_summary">设置快速设置背景透明度级别</string>
+    <string name="quick_settings_tile_shape_title">快速设置磁贴形状</string>
+    <string name="quick_settings_tile_shape_dynamic">动态</string>
+    <string name="quick_settings_tile_shape_circle">圆环</string>
+    <string name="quick_settings_tile_shape_rounded_square">圆角方形</string>
+    <string name="quick_settings_tile_shape_square">方型</string>
+    <string name="quick_settings_tile_haptic_summary">点击快速设置磁贴时提供触发反馈</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">浮动通知</string>
     <string name="notifications_heads_up_summary">允许弹出通知</string>
@@ -556,8 +565,14 @@
     <string name="pif_spoofing_title">选择 PIF JSON 文件</string>
     <string name="pif_spoofing_summary">选择用于伪装Play完整性的 PIF JSON 文件</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">选择用于设备认证模拟的密钥箱文件</string>
-    <string name="keybox_data_summary">选择可适用于系统级密钥验证伪装的 keybox.xml 文件。点击“删除”以重置密钥盒数据。</string>
+    <string name="keybox_data_title">重写Keybox 认证</string>
+    <string name="keybox_data_summary">加载自定义的keybox XML 以覆盖设备密钥认证</string>
+    <string name="keybox_data_loaded_summary">自定义keybox XML 已加载。删除以清空。</string>
+    <string name="keybox_delete_content_description">清除Keybox数据</string>
+    <string name="keybox_toast_invalid_file_selected">非XML文件。请选择有效的密钥框 XML。</string>
+    <string name="keybox_toast_missing_data">无效的Keybox XML：缺少必填字段</string>
+    <string name="keybox_toast_file_loaded">Keybox已加载</string>
+    <string name="keybox_toast_file_cleared">Keybox已清除</string>
     <!-- About -->
     <string name="about_info">Evolution X 是一款致力于复刻 Google Pixel 体验的定制化 Android 项目，拥有诸多自定义项目。本项目基于 LineageOS 项目。</string>
     <string name="about_website_title">网站</string>
@@ -671,6 +686,9 @@
     <string name="lockscreen_albumart_filter_tint">主题色</string>
     <string name="lockscreen_albumart_filter_blur">模糊</string>
     <string name="lockscreen_albumart_filter_grayblur">灰度和模糊</string>
+    <!-- Media Art Blur Level -->
+    <string name="lockscreen_media_art_blur_level_title">专辑封面模糊强度</string>
+    <string name="lockscreen_media_art_blur_level_summary">应用模糊过滤器时的模糊强度</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">系统震动</string>
     <string name="haptics_settings_summary">修改系统震动强度</string>
@@ -797,4 +815,73 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">显示波浪动画</string>
     <string name="show_squiggle_animation_summary">显示媒体面板波浪动画\n更改后需要切换音乐、暂停音乐或移动进度条才能应用</string>
+    <!-- AOD wallpaper -->
+    <string name="aod_wallpaper_title">壁纸</string>
+    <string name="aod_wallpaper_summary">开启时显示壁纸</string>
+    <!-- Battery bar -->
+    <string name="battery_bar_title">电量条</string>
+    <string name="battery_bar_summary">显示和自定义在状态栏或导航栏附近的电量条</string>
+    <string name="battery_bar_color">电量条颜色</string>
+    <string name="battery_bar_charging_color">电量条颜色 (充电时)</string>
+    <string name="battery_bar_battery_low_color">电量条颜色 (低电量时)</string>
+    <string name="battery_bar_style_title">电池图标对齐方式</string>
+    <string name="battery_bar_thickness_title">电量条厚度</string>
+    <string name="battery_bar_animate_title">充电动画</string>
+    <string name="battery_bar_style_regular">常规</string>
+    <string name="battery_bar_style_center_mirrored">中心镜像</string>
+    <string name="battery_bar_style_reversed">反转</string>
+    <string name="battery_bar_use_charging_color">自定义充电颜色</string>
+    <string name="battery_bar_blend_color_title">混合颜色</string>
+    <string name="battery_bar_blend_color_summary">基于电池的百分比颜色渐变</string>
+    <string name="battery_bar_blend_color_reverse_title">反转颜色方向</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">完整 &#8594; 空：红色 &#8592; 绿色 &#8592; 蓝色 &#8592; 红色</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">完整 &#8594; 空：红色 &#8594; 绿色 &#8594; 蓝色 &#8594; 红色</string>
+    <string name="battery_bar_use_gradient_color">使用渐变颜色</string>
+    <string name="battery_bar_gradient_color_summary">使用渐变颜色显示电池电量</string>
+    <string name="battery_bar_high_color">高电量时的颜色</string>
+    <string name="battery_bar_low_color">低电量时的颜色</string>
+    <string name="battery_bar_animate_color">充电动画颜色</string>
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">点击启用键盘锁定</string>
+    <string name="keyguard_affordance_single_tap_summary">点击切换键盘锁定</string>
+    <!-- Brightness Slider Style -->
+    <string name="qs_brightness_slider_shape_title">亮度滑块样式</string>
+    <!-- Small landscape notifications -->
+    <string name="small_landscape_notification_title">小横屏通知</string>
+    <string name="small_landscape_notification_summary">在横屏模式下显示通知面板宽度小于AOSP</string>
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_title">通知栏透明度</string>
+    <string name="notification_row_transparency_summary">显示半透明快捷设置通知</string>
+    <!-- Button settings -->
+    <string name="touchscreen_gesture_action_play_pause_music">播放/暂停播放音乐</string>
+    <string name="hardware_keys_action_nothing">无动作</string>
+    <string name="hardware_keys_action_menu">开启/关闭菜单</string>
+    <string name="hardware_keys_action_app_switch">最近任务切换</string>
+    <string name="hardware_keys_action_search">搜索助手</string>
+    <string name="hardware_keys_action_voice_search">语音搜索</string>
+    <string name="hardware_keys_action_in_app_search">应用内搜索</string>
+    <string name="hardware_keys_action_launch_camera">启动相机</string>
+    <string name="hardware_keys_action_sleep">关闭屏幕</string>
+    <string name="hardware_keys_action_last_app">最后使用的应用</string>
+    <string name="hardware_keys_action_split_screen">分屏</string>
+    <string name="hardware_keys_action_close_app">终止程序</string>
+    <string name="hardware_keys_action_torch">手电筒</string>
+    <string name="hardware_keys_action_screenshot">屏幕截图</string>
+    <string name="hardware_keys_action_volume_panel">切换音量面板</string>
+    <string name="hardware_keys_action_clear_all_notifications">清除所有通知</string>
+    <string name="hardware_keys_action_notifications_panel">开关通知面板</string>
+    <string name="hardware_keys_action_expand_qs_panel">展开快速设置面板</string>
+    <string name="hardware_keys_action_ringer_modes">响铃模式</string>
+    <!-- Three Finger Gestures -->
+    <string name="three_finger_gesture_action_title">三指滑动手势</string>
+    <string name="three_finger_gesture_action_dialog_title">三指滑动手势动作</string>
+    <string name="three_finger_long_press_action_title">三指长按手势</string>
+    <string name="three_finger_long_press_action_dialog_title">三指长按手势动作</string>
+    <!-- NT Three finger -->
+    <string name="nt_gesture_three_finger_swipe">三指滑动</string>
+    <string name="nt_gesture_three_finger_swipe_summary">三指向下滑动截屏</string>
+    <string name="nt_gesture_three_finger_long_press">三指长按</string>
+    <string name="nt_gesture_three_finger_long_press_summary">三指向下滑动进行区域截图。</string>
+    <string name="nt_combination_power_volume_click">禁用电源按钮 ; 音量下拉按钮</string>
+    <string name="nt_combination_power_volume_click_summary">禁用按住电源按钮和音量下拉按钮截图功能</string>
 </resources>
