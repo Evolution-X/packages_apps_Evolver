@@ -122,6 +122,8 @@
     <string name="lock_screen_interface_category">Arayüz</string>
     <string name="lock_screen_charging_stats_title">Şarj istatistikleri</string>
     <string name="lock_screen_charging_stats_summary">Şarj olurken kilit ekranında şarj cihazının maksimum akımını, voltajını ve pil sıcaklığını görüntüle</string>
+    <string name="lock_screen_charging_time_title">Kilit ekranı şarj süresi</string>
+    <string name="lock_screen_charging_time_summary">Şarj işleminin tamamlanması için kalan süreyi göster</string>
     <string name="lock_screen_fingerprint_category">Parmak izi</string>
     <string name="lock_screen_fingerprint_ripple_title">Dalgalanma animasyonu</string>
     <string name="lock_screen_fingerprint_ripple_summary">Parmak izi ile kilit açıldığında dalgalanma animasyonu göster</string>
@@ -450,6 +452,7 @@
     <string name="quick_settings_tile_shape_circle">Daire</string>
     <string name="quick_settings_tile_shape_rounded_square">Yuvarlatılmış kare</string>
     <string name="quick_settings_tile_shape_square">Kare</string>
+    <string name="quick_settings_tile_haptic_summary">\'Hızlı Ayarlar\' kutucuklarına dokunulduğunda geri bildirim sağlayın</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Bildirim pencereleri</string>
     <string name="notifications_heads_up_summary">Bildirim pencerelerine izin ver</string>
@@ -844,8 +847,8 @@
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Parlaklık kaydırıcı şekli</string>
     <!-- Small landscape notifications -->
-    <string name="small_landscape_notification_title">Küçük, yatay mod bildirimleri</string>
-    <string name="small_landscape_notification_summary">Yatay modda bildirim panelinde dar genişlikte küçük bildirimler gösterir. AOSP’nin amaçladığı şekilde</string>
+    <string name="small_landscape_notification_title">Küçük, yatay ekran bildirimleri</string>
+    <string name="small_landscape_notification_summary">Yatay ekranda bildirim panelinde dar genişlikte küçük bildirimler gösterir. Android Açık Kaynak Projesi’nin amaçladığı şekilde</string>
     <!-- Notification Row -->
     <string name="notification_row_transparency_title">Bildirim satırı saydamlığı</string>
     <string name="notification_row_transparency_summary">Hızlı ayar bildirimlerini saydam göster</string>
@@ -859,10 +862,10 @@
     <string name="hardware_keys_action_in_app_search">Uygulama içi arama</string>
     <string name="hardware_keys_action_launch_camera">Kamerayı başlat</string>
     <string name="hardware_keys_action_sleep">Ekranı kapat</string>
-    <string name="hardware_keys_action_last_app">Son uygulamalar</string>
+    <string name="hardware_keys_action_last_app">Son uygulama</string>
     <string name="hardware_keys_action_split_screen">Bölünmüş ekran</string>
     <string name="hardware_keys_action_close_app">Uygulamayı sonlandır</string>
-    <string name="hardware_keys_action_torch">El feneri</string>
+    <string name="hardware_keys_action_torch">El fenerini aç/kapat</string>
     <string name="hardware_keys_action_screenshot">Ekran görüntüsü al</string>
     <string name="hardware_keys_action_volume_panel">Ses panelini aç/kapat</string>
     <string name="hardware_keys_action_clear_all_notifications">Tüm bildirimleri temizle</string>
@@ -873,12 +876,12 @@
     <string name="three_finger_gesture_action_title">Üç parmakla kaydırma hareketleri</string>
     <string name="three_finger_gesture_action_dialog_title">Üç parmak hareketiyle kaydırma eylemleri</string>
     <string name="three_finger_long_press_action_title">Üç parmakla uzun basma hareketleri</string>
-    <string name="three_finger_long_press_action_dialog_title">Üç parmak hareketiyle kaydırma eylemleri</string>
+    <string name="three_finger_long_press_action_dialog_title">Üç parmak hareketiyle uzun basma eylemleri</string>
     <!-- NT Three finger -->
-    <string name="nt_gesture_three_finger_swipe">Üç parmak hareketi</string>
-    <string name="nt_gesture_three_finger_swipe_summary">.</string>
-    <string name="nt_gesture_three_finger_long_press">Üç parmakla uzun basma hareketi</string>
+    <string name="nt_gesture_three_finger_swipe">Üç parmak kaydırma</string>
+    <string name="nt_gesture_three_finger_swipe_summary">İşlemleri gerçekleştirmek için üç parmağınızla aşağı doğru kaydırın.</string>
+    <string name="nt_gesture_three_finger_long_press">Üç parmakla uzun basma</string>
     <string name="nt_gesture_three_finger_long_press_summary">Üç parmağınızla basılı tutun ve ardından aşağı kaydırarak bir alanın ekran görüntüsünü alın.</string>
-    <string name="nt_combination_power_volume_click">Güç düğmesini &amp; ses kısma düğmesini devre dışı bırakın</string>
-    <string name="nt_combination_power_volume_click_summary">Güç düğmesine ve ses kısma düğmesine basılı tutarak ekran görüntüsü alma işlevini devre dışı bırakın.</string>
+    <string name="nt_combination_power_volume_click">Güç düğmesini &amp; ses kısma düğmesini devre dışı bırak</string>
+    <string name="nt_combination_power_volume_click_summary">Güç düğmesine ve ses kısma düğmesine basılı tutarak ekran görüntüsü alma işlevini devre dışı bırak.</string>
 </resources>
