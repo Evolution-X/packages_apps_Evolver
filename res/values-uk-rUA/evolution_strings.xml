@@ -122,6 +122,8 @@
     <string name="lock_screen_interface_category">Інтерфейс</string>
     <string name="lock_screen_charging_stats_title">Статистика заряджання</string>
     <string name="lock_screen_charging_stats_summary">Показувати максимальний струм зарядки та напругу з температурою батареї під час заряджання</string>
+    <string name="lock_screen_charging_time_title">Інформація про заряджання на екрані блокування</string>
+    <string name="lock_screen_charging_time_summary">Показувати час, що залишився для закінчення зарядки</string>
     <string name="lock_screen_fingerprint_category">Відбиток пальця</string>
     <string name="lock_screen_fingerprint_ripple_title">Анімація пульсації</string>
     <string name="lock_screen_fingerprint_ripple_summary">Показувати хвилю анімації, коли розблоковано відбитком пальця</string>
@@ -450,6 +452,7 @@
     <string name="quick_settings_tile_shape_circle">Кільце</string>
     <string name="quick_settings_tile_shape_rounded_square">Заокруглений квадрат</string>
     <string name="quick_settings_tile_shape_square">Квадрат</string>
+    <string name="quick_settings_tile_haptic_summary">Включити тактильний відгук на плитки швидких налаштувань</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Спливаючі сповіщення</string>
     <string name="notifications_heads_up_summary">Дозволити спливаючі сповіщення</string>
