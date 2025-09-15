@@ -848,12 +848,12 @@
     <string name="qs_brightness_slider_shape_title">Parlaklık kaydırıcı şekli</string>
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Küçük, yatay ekran bildirimleri</string>
-    <string name="small_landscape_notification_summary">Yatay ekranda bildirim panelinde dar genişlikte küçük bildirimler gösterir. Android Açık Kaynak Projesi’nin amaçladığı şekilde</string>
+    <string name="small_landscape_notification_summary">Yatay ekranda bildirim panelinde dar genişlikte küçük bildirimler göster</string>
     <!-- Notification Row -->
     <string name="notification_row_transparency_title">Bildirim satırı saydamlığı</string>
     <string name="notification_row_transparency_summary">Hızlı ayar bildirimlerini saydam göster</string>
     <!-- Button settings -->
-    <string name="touchscreen_gesture_action_play_pause_music">Müziği oynat/duraklat</string>
+    <string name="touchscreen_gesture_action_play_pause_music">Müziği oynat / duraklat</string>
     <string name="hardware_keys_action_nothing">Eylem yok</string>
     <string name="hardware_keys_action_menu">Menüyü aç/kapat</string>
     <string name="hardware_keys_action_app_switch">Son uygulamalar geçişi</string>
@@ -881,7 +881,7 @@
     <string name="nt_gesture_three_finger_swipe">Üç parmak kaydırma</string>
     <string name="nt_gesture_three_finger_swipe_summary">İşlemleri gerçekleştirmek için üç parmağınızla aşağı doğru kaydırın.</string>
     <string name="nt_gesture_three_finger_long_press">Üç parmakla uzun basma</string>
-    <string name="nt_gesture_three_finger_long_press_summary">Üç parmağınızla basılı tutun ve ardından aşağı kaydırarak bir alanın ekran görüntüsünü alın.</string>
+    <string name="nt_gesture_three_finger_long_press_summary">Üç parmağınızla basılı tutun ve ardından aşağı kaydırarak bir alanın ekran görüntüsünü al.</string>
     <string name="nt_combination_power_volume_click">Güç düğmesini &amp; ses kısma düğmesini devre dışı bırak</string>
     <string name="nt_combination_power_volume_click_summary">Güç düğmesine ve ses kısma düğmesine basılı tutarak ekran görüntüsü alma işlevini devre dışı bırak.</string>
 </resources>
