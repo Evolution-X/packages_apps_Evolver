@@ -45,9 +45,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_STYLE = "status_bar_battery_style";
     private static final String KEY_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
-    private static final String KEY_DATA_DISABLED_ICON = "data_disabled_icon";
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
-    private static final String KEY_FOUR_G_ICON = "show_fourg_icon";
     private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
 
     private static final int PULLDOWN_DIR_NONE = 0;
@@ -64,8 +62,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mBatteryPercent;
     private SystemSettingListPreference mBatteryStyle;
     private SystemSettingSwitchPreference mBatteryTextCharging;
-    private SystemSettingSwitchPreference mDataDisabledIcon;
-    private SystemSettingSwitchPreference mFourgIcon;
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
     private SystemSettingSwitchPreference mColoredIcons;
 
@@ -89,8 +85,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
         mBatteryTextCharging = (SystemSettingSwitchPreference) findPreference(KEY_BATTERY_TEXT_CHARGING);
         mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
-        mDataDisabledIcon = (SystemSettingSwitchPreference) findPreference(KEY_DATA_DISABLED_ICON);
-        mFourgIcon = (SystemSettingSwitchPreference) findPreference(KEY_FOUR_G_ICON);
         mColoredIcons = (SystemSettingSwitchPreference) findPreference(KEY_COLORED_ICONS);
         mColoredIcons.setOnPreferenceChangeListener(this);
 
@@ -112,11 +106,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
                 (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
-
-        if (!DeviceUtils.deviceSupportsMobileData(context)) {
-            mIconsCategory.removePreference(mDataDisabledIcon);
-            mIconsCategory.removePreference(mFourgIcon);
-        }
 
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
             mIconsCategory.removePreference(mBluetoothBatteryStatus);
@@ -191,11 +180,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
                 final Resources resources = context.getResources();
-
-                if (!DeviceUtils.deviceSupportsMobileData(context)) {
-                    keys.add(KEY_DATA_DISABLED_ICON);
-                    keys.add(KEY_FOUR_G_ICON);
-                }
                 if (!DeviceUtils.deviceSupportsBluetooth(context)) {
                     keys.add(KEY_BLUETOOTH_BATTERY_STATUS);
                 }

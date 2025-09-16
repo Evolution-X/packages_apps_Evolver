@@ -99,25 +99,25 @@
             android:defaultValue="true" />
 
         <!-- Data disabled icon -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="data_disabled_icon"
             android:title="@string/status_bar_data_disabled_icon_title"
             android:summary="@string/status_bar_data_disabled_icon_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
 
         <!-- 4G icon -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="show_fourg_icon"
             android:title="@string/status_bar_4g_icon_title"
             android:summary="@string/status_bar_4g_icon_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Wi-Fi standard icon -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="wifi_standard_icon"
             android:title="@string/status_bar_wifi_standard_icon_title"
             android:summary="@string/status_bar_wifi_standard_icon_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Bluetooth battery status -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -175,25 +175,22 @@
         android:key="status_bar_privacy_indicators_category"
         android:title="@string/status_bar_privacy_indicators_category">
 
-        <!-- Mic/Camera privacy indicator -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="enable_camera_privacy_indicator"
             android:title="@string/status_bar_mic_camera_privacy_indicator_title"
             android:summary="@string/status_bar_mic_camera_privacy_indicator_summary"
             android:defaultValue="true" />
 
-        <!-- Location privacy indicator -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="enable_location_privacy_indicator"
             android:title="@string/status_bar_location_privacy_indicator_title"
             android:summary="@string/status_bar_location_privacy_indicator_summary"
             android:defaultValue="true" />
 
-        <!-- Projection privacy indicator -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="enable_projection_privacy_indicator"
             android:title="@string/status_bar_projection_privacy_indicator_title"
             android:summary="@string/status_bar_projection_privacy_indicator_summary"
             android:defaultValue="true" />
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 </PreferenceScreen>
