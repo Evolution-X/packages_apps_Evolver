@@ -32,7 +32,7 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
-// import org.evolution.settings.preferences.SecureSettingSwitchPreference;
+import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 // import org.evolution.settings.utils.ImageUtils;
 
 @SearchIndexable
@@ -43,7 +43,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String KEY_FINGERPRINT_CATEGORY = "lock_screen_fingerprint_category";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
-//    private static final String KEY_SCREEN_OFF_UDFPS = "screen_off_udfps_enabled";
+    private static final String KEY_SCREEN_OFF_UDFPS = "screen_off_udfps_enabled";
     private static final String KEY_AUTHENTICATION_SUCCESS = "fp_success_vibrate";
     private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
 //    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
@@ -51,7 +51,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
 //    private Preference mCustomImagePreference;
     private PreferenceCategory mFingerprintCategory;
-//    private SecureSettingSwitchPreference mScreenOffUdfps;
+    private SecureSettingSwitchPreference mScreenOffUdfps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,22 +75,22 @@ public class LockScreen extends SettingsPreferenceFragment implements
 //        }
 
         mFingerprintCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_CATEGORY);
-//        mScreenOffUdfps = (SecureSettingSwitchPreference) findPreference(KEY_SCREEN_OFF_UDFPS);
+        mScreenOffUdfps = (SecureSettingSwitchPreference) findPreference(KEY_SCREEN_OFF_UDFPS);
 
         FingerprintManager fingerprintManager = (FingerprintManager)
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
             prefScreen.removePreference(mFingerprintCategory);
-//        } else {
-//            boolean screenOffUdfpsAvailable = resources.getBoolean(
-//                    com.android.internal.R.bool.config_supportScreenOffUdfps) ||
-//                    !TextUtils.isEmpty(resources.getString(
-//                            com.android.internal.R.string.config_dozeUdfpsLongPressSensorType));
-//
-//            if (!screenOffUdfpsAvailable) {
-//                mFingerprintCategory.removePreference(mScreenOffUdfps);
-//            }
+        } else {
+            boolean screenOffUdfpsAvailable = resources.getBoolean(
+                    com.android.internal.R.bool.config_supportScreenOffUdfps) ||
+                    !TextUtils.isEmpty(resources.getString(
+                            com.android.internal.R.string.config_dozeUdfpsLongPressSensorType));
+
+            if (!screenOffUdfpsAvailable) {
+                mFingerprintCategory.removePreference(mScreenOffUdfps);
+            }
         }
     }
 
@@ -150,17 +150,17 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
                 if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
                     keys.add(KEY_RIPPLE_EFFECT);
-//                    keys.add(KEY_SCREEN_OFF_UDFPS);
+                    keys.add(KEY_SCREEN_OFF_UDFPS);
                     keys.add(KEY_AUTHENTICATION_SUCCESS);
                     keys.add(KEY_AUTHENTICATION_ERROR);
-//                } else {
-//                    boolean screenOffUdfpsAvailable = resources.getBoolean(
-//                        com.android.internal.R.bool.config_supportScreenOffUdfps) ||
-//                        !TextUtils.isEmpty(resources.getString(
-//                            com.android.internal.R.string.config_dozeUdfpsLongPressSensorType));
-//                    if (!screenOffUdfpsAvailable) {
-//                        keys.add(KEY_SCREEN_OFF_UDFPS);
-//                    }
+                } else {
+                    boolean screenOffUdfpsAvailable = resources.getBoolean(
+                        com.android.internal.R.bool.config_supportScreenOffUdfps) ||
+                        !TextUtils.isEmpty(resources.getString(
+                            com.android.internal.R.string.config_dozeUdfpsLongPressSensorType));
+                    if (!screenOffUdfpsAvailable) {
+                        keys.add(KEY_SCREEN_OFF_UDFPS);
+                    }
                 }
                 return keys;
             }

@@ -149,11 +149,11 @@
             android:defaultValue="true" />
 
         <!-- Screen-Off UDFPS -->
-        <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="screen_off_udfps_enabled"
             android:title="@string/lock_screen_screen_off_udfps_title"
             android:summary="@string/lock_screen_screen_off_udfps_summary"
-            android:defaultValue="false" />-->
+            android:defaultValue="false" />
 
         <!-- Authentication success vibration -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
