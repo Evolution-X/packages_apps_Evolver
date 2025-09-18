@@ -5,27 +5,27 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Đổi mới không ngừng</string>
+    <string name="evolver_dashboard_title">The Evolver</string>
+    <string name="evolver_dashboard_summary">Đổi mới thiết bị của bạn theo cách của bạn</string>
     <!-- Categories -->
     <string name="themes_title">Giao diện</string>
-    <string name="themes_summary">Màu sắc, phông chữ, biểu tượng</string>
+    <string name="themes_summary">Công cụ Monet, kiểu giao diện người dùng, phông chữ, gói biểu tượng</string>
     <string name="lock_screen_title">Màn hình khóa</string>
-    <string name="lock_screen_summary">Giao diện, tùy chọn khác</string>
+    <string name="lock_screen_summary">Giao diện, dấu vân tay, khác</string>
     <string name="status_bar_title">Thanh trạng thái</string>
-    <string name="status_bar_summary">Cử chỉ, biểu tượng, chỉ báo riêng tư</string>
+    <string name="status_bar_summary">Cử chỉ, biểu tượng</string>
     <string name="quick_settings_title">Cài đặt nhanh</string>
-    <string name="quick_settings_summary">Giao diện, màn hình khóa</string>
+    <string name="quick_settings_summary">Thanh trượt độ sáng, giao diện, màn hình khóa</string>
     <string name="notifications_title">Thông báo</string>
-    <string name="notifications_summary">Cảnh báo, giao diện</string>
+    <string name="notifications_summary">Lưu ý, giao diện</string>
     <string name="power_menu_title">Menu nguồn</string>
     <string name="power_menu_summary">Hành động, màn hình khóa</string>
     <string name="buttons_title">Nút bấm</string>
     <string name="buttons_summary">Nút nguồn, nút âm lượng</string>
     <string name="miscellaneous_title">Cài đặt khác</string>
     <string name="miscellaneous_summary">Tùy chọn nhà phát triển, giả mạo</string>
-    <string name="about_title">Giới thiệu</string>
-    <string name="about_summary">Thông tin về Evolution X</string>
+    <string name="about_title">Evolution X</string>
+    <string name="about_summary">Về ROM của chúng tôi</string>
     <!-- Themes -->
     <string name="themes_general_category">Chung</string>
     <string name="themes_monet_category">Màu Monet</string>
@@ -537,8 +537,8 @@
     <string name="spoofing_system_wide_category">Toàn hệ thống</string>
     <string name="spoofing_pixel_props_title">Thuộc tính Pixel</string>
     <string name="spoofing_pixel_props_summary">Giả mạo nhóm ứng dụng Google thành thiết bị Pixel mới nhất</string>
-    <string name="tensor_spoof_title">Giả mạo tính năng Tensor</string>
-    <string name="tensor_spoof_summary">Mở khóa tính năng Tensor/Pixel</string>
+    <string name="tensor_spoof_title">Các tính năng tensor</string>
+    <string name="tensor_spoof_summary">Mở khóa các tính năng chỉ có trên các thiết bị Pixel dựa trên tensor</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Giả mạo thiết bị để vượt kiểm tra Play Integrity của Google</string>
     <string name="spoofing_storage_encryption_title">Mã hóa bộ nhớ</string>
@@ -577,7 +577,7 @@
     <string name="about_info">Evolution X hướng tới trải nghiệm Pixel với nhiều tính năng bổ sung</string>
     <string name="about_website_title">Trang web</string>
     <string name="about_website_summary">Ghé thăm trang web của chúng tôi</string>
-    <string name="about_x_summary">Xem bài viết của chúng tôi</string>
+    <string name="about_x_summary">Hãy theo dõi tin tức mới nhất của chúng tôi trên X</string>
     <string name="about_discord_summary">Tham gia cộng đồng trò chuyện</string>
     <string name="about_github_summary">Xem GitHub của chúng tôi</string>
     <string name="about_founders_title">Người sáng lập</string>
@@ -886,4 +886,8 @@
     <string name="nt_gesture_three_finger_long_press_summary">Nhấn giữ ba ngón tay rồi vuốt xuống để chụp màn hình.</string>
     <string name="nt_combination_power_volume_click">Vô hiệu hóa nút nguồn &amp; nút giảm âm lượng</string>
     <string name="nt_combination_power_volume_click_summary">Vô hiệu hóa chức năng chụp màn hình bằng cách nhấn giữ nút nguồn và nút giảm âm lượng.</string>
+    <!-- Power off verify -->
+    <string name="power_off_verify_footer">Xác nhận tắt nguồn bảo vệ thiết bị của bạn bằng cách ngăn người khác tắt máy ngay lập tức sau khi bị mất, tăng khả năng khôi phục. Bạn chỉ cần nhập mật khẩu màn hình khóa khi tắt nguồn hoặc khởi động lại điện thoại từ màn hình khóa.</string>
+    <string name="power_off_verify_summary">Khi thiết bị của bạn bị khóa, bạn sẽ cần sử dụng mật khẩu để tắt nguồn hoặc khởi động lại.</string>
+    <string name="power_off_verify_title">Xác nhận tắt nguồn</string>
 </resources>
