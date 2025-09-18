@@ -5,27 +5,27 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Розвиток як ніколи раніше</string>
+    <string name="evolver_dashboard_title">Кастомізація Evolver</string>
+    <string name="evolver_dashboard_summary">Розвиток вашого пристрою, твій шлях</string>
     <!-- Categories -->
     <string name="themes_title">Теми</string>
-    <string name="themes_summary">Монет, шрифти, значки</string>
+    <string name="themes_summary">Кольорова палітра, стилі інтерфейсу, шрифти, пакети іконок</string>
     <string name="lock_screen_title">Екран блокування</string>
-    <string name="lock_screen_summary">Інтерфейс, різне</string>
+    <string name="lock_screen_summary">Інтерфейс, відбиток пальця, різне</string>
     <string name="status_bar_title">Рядок стану</string>
-    <string name="status_bar_summary">Жести, піктограми, індикатори конфіденційності</string>
+    <string name="status_bar_summary">Жести, значки</string>
     <string name="quick_settings_title">Швидкі налаштування</string>
-    <string name="quick_settings_summary">Інтерфейс, екран блокування</string>
+    <string name="quick_settings_summary">Повзунок яскравості та інтерфейсу, екрану блокування</string>
     <string name="notifications_title">Сповіщення</string>
-    <string name="notifications_summary">Оповіщення, інтерфейс</string>
+    <string name="notifications_summary">Вспливаючі сповіщення, інтерфейс</string>
     <string name="power_menu_title">Меню живлення</string>
     <string name="power_menu_summary">Дії, екран блокування</string>
     <string name="buttons_title">Кнопки</string>
     <string name="buttons_summary">Кнопка живлення, кнопки гучності</string>
     <string name="miscellaneous_title">Різне</string>
     <string name="miscellaneous_summary">Параметри розробника, спуфінг</string>
-    <string name="about_title">Про застосунок</string>
-    <string name="about_summary">Про Evolution X</string>
+    <string name="about_title">Логотип Evolution X</string>
+    <string name="about_summary">Про прошивку</string>
     <!-- Themes -->
     <string name="themes_general_category">Загальні</string>
     <string name="themes_monet_category">Функція \"Monet\"</string>
@@ -537,8 +537,8 @@
     <string name="spoofing_system_wide_category">Загальносистемний</string>
     <string name="spoofing_pixel_props_title">Пропозиції Pixel</string>
     <string name="spoofing_pixel_props_summary">Імітувати пристрій як Pixel 8 Pro для всіх додатків Google</string>
-    <string name="tensor_spoof_title">Імітація особливостей tensor</string>
-    <string name="tensor_spoof_summary">Розблокувати особливості tensor/pixel</string>
+    <string name="tensor_spoof_title">Можливості Tensor</string>
+    <string name="tensor_spoof_summary">Розблокувати функції доступні тільки в пристроїв на основі десятого пікселя</string>
     <string name="gms_spoof_title">Відтворити виправлення цілісності</string>
     <string name="gms_spoof_summary">Імітувати дані вашого пристрою, щоб перейти до списку дозволів Google Play</string>
     <string name="spoofing_storage_encryption_title">Шифрування сховища</string>
@@ -577,7 +577,7 @@
     <string name="about_info">Evolution X - це користувацька Android ROM, яка спрямована на повторення досвіду Google Pixel із доданими налаштуваннями, на основі проекту LineageOS.</string>
     <string name="about_website_title">Сайт</string>
     <string name="about_website_summary">Відвідати наш сайт для оновлень</string>
-    <string name="about_x_summary">Злови наші останні на X</string>
+    <string name="about_x_summary">Злови наші останні новини на X</string>
     <string name="about_discord_summary">Спілкуватися з нами у Discord</string>
     <string name="about_github_summary">Переглянути наш код на GitHub</string>
     <string name="about_founders_title">Засновники</string>
@@ -878,4 +878,8 @@
     <string name="nt_gesture_three_finger_long_press_summary">Натисніть і утримуйте трьома пальцями, а потім проведіть вниз, щоб зробити знімок екрану.</string>
     <string name="nt_combination_power_volume_click">Вимкнути кнопку живлення та кнопку зменшення гучності</string>
     <string name="nt_combination_power_volume_click_summary">Вимкніть функцію знімку екрана, натиснувши та утримуючи кнопку живлення та кнопку регулювання гучності.</string>
+    <!-- Power off verify -->
+    <string name="power_off_verify_footer">Вимкнення перевірки, що захищає ваш пристрій, не даючи іншим вимикати його відразу після його втрати, збільшуючи шанси на відновлення. Вам лише потрібно ввести пароль екрану блокування під час вимкнення або перезапуску телефону на екрані блокування.</string>
+    <string name="power_off_verify_summary">Коли пристрій заблоковано, вам потрібно буде використовувати свій пароль, щоб вимкнути або перезавантажитися.</string>
+    <string name="power_off_verify_title">Вимкнути перевірку</string>
 </resources>
