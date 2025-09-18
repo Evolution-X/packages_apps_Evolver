@@ -795,6 +795,7 @@
         <item>@string/powermenu_style2</item>
         <item>@string/powermenu_style3</item>
         <item>@string/powermenu_style4</item>
+        <item>@string/powermenu_style5</item>
     </string-array>
 
     <string-array name="powermenu_style_values" translatable="false">
@@ -803,6 +804,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <!-- QS Header clock styles  -->

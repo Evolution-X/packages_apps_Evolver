@@ -22,7 +22,7 @@ import androidx.preference.SwitchPreference;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-// import com.android.internal.util.android.ThemeUtils;
+// import com.android.internal.util.evolution.ThemeUtils;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;

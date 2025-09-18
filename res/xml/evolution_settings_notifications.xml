@@ -27,13 +27,6 @@
             android:defaultValue="false"
             android:dependency="heads_up_notifications_enabled" />
 
-        <!-- Small landscape notifications -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="small_landscape_notification"
-            android:title="@string/small_landscape_notification_title"
-            android:summary="@string/small_landscape_notification_summary"
-            android:defaultValue="true" />
-
         <!-- Less boring heads up -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="less_boring_heads_up"
@@ -69,6 +62,13 @@
             android:title="@string/notifications_edge_light_title"
             android:summary="@string/notifications_edge_light_summary"
             android:fragment="org.evolution.settings.fragments.notifications.EdgeLightSettings" />
+
+        <!-- Small landscape notifications -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="small_landscape_notification"
+            android:title="@string/small_landscape_notification_title"
+            android:summary="@string/small_landscape_notification_summary"
+            android:defaultValue="true" />
 
         <!-- Kill app button -->
         <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference

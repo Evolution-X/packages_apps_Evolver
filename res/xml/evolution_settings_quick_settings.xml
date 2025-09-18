@@ -37,19 +37,19 @@
             android:entryValues="@array/quick_settings_brightness_slider_position_values"
             android:defaultValue="0" />
 
-        <!-- Haptic feedback on brightness slider -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_brightness_slider_haptic"
-            android:title="@string/quick_settings_brightness_slider_haptic_title"
-            android:summary="@string/quick_settings_brightness_slider_haptic_summary"
-            android:defaultValue="false" />
-
         <!-- Auto brightness icon -->
         <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
             android:title="@string/quick_settings_auto_brightness_icon_title"
             android:summary="@string/quick_settings_auto_brightness_icon_summary"
             android:defaultValue="true" />
+
+        <!-- Haptic feedback on brightness slider -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_slider_haptic"
+            android:title="@string/quick_settings_brightness_slider_haptic_title"
+            android:summary="@string/quick_settings_brightness_slider_haptic_summary"
+            android:defaultValue="false" />
 
         <!-- Brightness slider percentage -->
         <!--<lineageos.preference.LineageSecureSettingSwitchPreference
