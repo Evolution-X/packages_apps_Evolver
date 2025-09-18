@@ -5,27 +5,27 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Hiç olmadığı kadar evrimleşiyor</string>
+    <string name="evolver_dashboard_title">The Evolver</string>
+    <string name="evolver_dashboard_summary">Cihazınızı kendi yönteminizle geliştirin</string>
     <!-- Categories -->
     <string name="themes_title">Temalar</string>
-    <string name="themes_summary">Monet, yazı tipleri, simgeler</string>
+    <string name="themes_summary">Monet, kullanıcı arayüzü stilleri, yazı tipleri, simge paketleri</string>
     <string name="lock_screen_title">Kilit ekranı</string>
-    <string name="lock_screen_summary">Arayüz, diğer</string>
+    <string name="lock_screen_summary">Arayüz, parmak izi, çeşitli</string>
     <string name="status_bar_title">Durum çubuğu</string>
-    <string name="status_bar_summary">Hareketler, Simgeler, gizlilik göstergeleri</string>
+    <string name="status_bar_summary">Hareketler, simgeler</string>
     <string name="quick_settings_title">Hızlı ayarlar</string>
-    <string name="quick_settings_summary">Arayüz, kilit ekranı</string>
+    <string name="quick_settings_summary">Parlaklık kaydırıcısı, arayüz, kilit ekranı</string>
     <string name="notifications_title">Bildirimler</string>
-    <string name="notifications_summary">Uyarılar, arayüz</string>
+    <string name="notifications_summary">Arayüz Uyarısı</string>
     <string name="power_menu_title">Güç menüsü</string>
     <string name="power_menu_summary">Eylemler, kilit ekranı</string>
     <string name="buttons_title">Tuşlar</string>
     <string name="buttons_summary">Güç düğmesi, ses düğmeleri</string>
     <string name="miscellaneous_title">Çeşitli</string>
     <string name="miscellaneous_summary">Geliştirici seçenekleri, sahtekarlık</string>
-    <string name="about_title">Hakkında</string>
-    <string name="about_summary">Evolution X Hakkında</string>
+    <string name="about_title">Evolution X</string>
+    <string name="about_summary">ROM\'umuz hakkında</string>
     <!-- Themes -->
     <string name="themes_general_category">Genel</string>
     <string name="themes_monet_category">Monet</string>
@@ -537,8 +537,8 @@
     <string name="spoofing_system_wide_category">Sistem Geneli</string>
     <string name="spoofing_pixel_props_title">Pixel raçları</string>
     <string name="spoofing_pixel_props_summary">Belirli bir grup Google uygulamasını en yeni Pixel cihazına taklit edin</string>
-    <string name="tensor_spoof_title">Sahte tensör özellikleri</string>
-    <string name="tensor_spoof_summary">Tensör/piksel özelliklerinin kilidini açın</string>
+    <string name="tensor_spoof_title">Tensör özellikleri</string>
+    <string name="tensor_spoof_summary">Yalnızca tensör tabanlı Pixel cihazlarda kullanılabilen özelliklerin kilidini aç</string>
     <string name="gms_spoof_title">Play Integrity düzeltmesi</string>
     <string name="gms_spoof_summary">Google Play Onayını geçmek için cihazınızı taklit edin</string>
     <string name="spoofing_storage_encryption_title">Depolama şifrelemesi</string>
@@ -884,4 +884,8 @@
     <string name="nt_gesture_three_finger_long_press_summary">Üç parmağınızla basılı tutun ve ardından aşağı kaydırarak bir alanın ekran görüntüsünü al.</string>
     <string name="nt_combination_power_volume_click">Güç düğmesini &amp; ses kısma düğmesini devre dışı bırak</string>
     <string name="nt_combination_power_volume_click_summary">Güç düğmesine ve ses kısma düğmesine basılı tutarak ekran görüntüsü alma işlevini devre dışı bırak.</string>
+    <!-- Power off verify -->
+    <string name="power_off_verify_footer">Kapatma doğrulaması, başkalarının kaybolduktan hemen sonra kapatmasını önleyerek cihazınızı korur ve kurtarma şansını artırır. Kilit ekranı parolanızı yalnızca telefonu kilit ekranından kapatırken veya yeniden başlatırken girmeniz gerekir.</string>
+    <string name="power_off_verify_summary">Cihazınız kilitliyken, kapatmak veya yeniden başlatmak için şifrenizi kullanmanız gerekir.</string>
+    <string name="power_off_verify_title">Kapat doğrulama</string>
 </resources>
