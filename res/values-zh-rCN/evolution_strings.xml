@@ -5,27 +5,27 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">进化</string>
-    <string name="evolver_dashboard_summary">前所未有的进化</string>
+    <string name="evolver_dashboard_title">Evolution 自定义</string>
+    <string name="evolver_dashboard_summary">进化你的设备，你的道路</string>
     <!-- Categories -->
     <string name="themes_title">主题</string>
-    <string name="themes_summary">动态配色、字体和图标</string>
+    <string name="themes_summary">Monet引擎，界面风格，字体，图标包</string>
     <string name="lock_screen_title">锁屏界面</string>
-    <string name="lock_screen_summary">界面，杂项</string>
+    <string name="lock_screen_summary">界面、指纹、杂项</string>
     <string name="status_bar_title">状态栏</string>
-    <string name="status_bar_summary">手势，图标，隐私指示器</string>
+    <string name="status_bar_summary">手势，图标</string>
     <string name="quick_settings_title">快速设置</string>
-    <string name="quick_settings_summary">界面，锁屏界面</string>
+    <string name="quick_settings_summary">亮度滑块、界面、锁屏</string>
     <string name="notifications_title">通知</string>
-    <string name="notifications_summary">警报，界面</string>
+    <string name="notifications_summary">浮动通知、界面</string>
     <string name="power_menu_title">电源菜单</string>
     <string name="power_menu_summary">电源键操作，锁屏设置</string>
     <string name="buttons_title">按钮</string>
     <string name="buttons_summary">电源按钮，音量按钮</string>
     <string name="miscellaneous_title">杂项</string>
     <string name="miscellaneous_summary">开发者选项，伪装设置</string>
-    <string name="about_title">关于我们</string>
-    <string name="about_summary">关于 Evolution X</string>
+    <string name="about_title">进化 X</string>
+    <string name="about_summary">关于 ROM</string>
     <!-- Themes -->
     <string name="themes_general_category">常规</string>
     <string name="themes_monet_category">动态配色</string>
@@ -537,8 +537,8 @@
     <string name="spoofing_system_wide_category">系统范围</string>
     <string name="spoofing_pixel_props_title">伪装Pixel</string>
     <string name="spoofing_pixel_props_summary">针对选定的谷歌系应用设置伪装，让它们以为这是最新的Google Pixel设备</string>
-    <string name="tensor_spoof_title">模拟Tensor功能</string>
-    <string name="tensor_spoof_summary">伪装成Pixel机型</string>
+    <string name="tensor_spoof_title">张力特性</string>
+    <string name="tensor_spoof_summary">解锁功能仅在基于张力的Pixel设备中可用</string>
     <string name="gms_spoof_title">Play完整性修复</string>
     <string name="gms_spoof_summary">伪装您的设备以通过 Google Play 认证</string>
     <string name="spoofing_storage_encryption_title">存储加密</string>
@@ -884,4 +884,8 @@
     <string name="nt_gesture_three_finger_long_press_summary">三指向下滑动进行区域截图。</string>
     <string name="nt_combination_power_volume_click">禁用电源按钮 ; 音量下拉按钮</string>
     <string name="nt_combination_power_volume_click_summary">禁用按住电源按钮和音量下拉按钮截图功能</string>
+    <!-- Power off verify -->
+    <string name="power_off_verify_footer">关机验证会保护您的设备，防止他人在设备丢失后立即关闭它，从而增加恢复的机会。 您只需要在关闭或从锁屏界面重新启动手机时输入锁屏密码。</string>
+    <string name="power_off_verify_summary">当您的设备被锁定时，您需要使用您的密码来关闭或重启。</string>
+    <string name="power_off_verify_title">关机验证</string>
 </resources>
