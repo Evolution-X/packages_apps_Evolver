@@ -78,8 +78,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SYS_GAMEPROP_SPOOF = "persist.sys.gamehooks.enable";
     private static final String SYS_GPHOTOS_SPOOF = "persist.sys.gphooks.enable";
     private static final String SYS_SNAP_SPOOF = "persist.sys.snap.enable";
-    private static final String SYS_VENDING_SPOOF = "persist.sys.vending.enable";
-    private static final String SYS_ENABLE_TENSOR_FEATURES = "persist.sys.features.tensor";
+    private static final String SYS_TENSOR_SPOOF = "persist.sys.features.tensor";
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
@@ -92,8 +91,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private SystemPropertySwitchPreference mGamePropsSpoof;
     private SystemPropertySwitchPreference mGphotosSpoof;
     private SystemPropertySwitchPreference mSnapSpoof;
-    private SystemPropertySwitchPreference mVendingSpoof;
-    private SystemPropertySwitchPreference mTensorFeaturesToggle;
+    private SystemPropertySwitchPreference mTensorSpoof;
 
     private Handler mHandler;
 
@@ -115,9 +113,8 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGoogleSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GOOGLE_SPOOF);
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
         mSnapSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAP_SPOOF);
-        mVendingSpoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_SPOOF);
+        mTensorSpoof = (SystemPropertySwitchPreference) findPreference(SYS_TENSOR_SPOOF);
         mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
-        mTensorFeaturesToggle = (SystemPropertySwitchPreference) findPreference(SYS_ENABLE_TENSOR_FEATURES);
 
         String model = SystemProperties.get("ro.product.model");
         boolean isTensorDevice = model.matches("Pixel [6-9][a-zA-Z ]*");
@@ -131,7 +128,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         }
 
         if (isTensorDevice) {
-            mSystemWideCategory.removePreference(mTensorFeaturesToggle);
+            mSystemWideCategory.removePreference(mTensorSpoof);
         }
 
         mGmsSpoof.setOnPreferenceChangeListener(this);
@@ -139,8 +136,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGphotosSpoof.setOnPreferenceChangeListener(this);
         mGamePropsSpoof.setOnPreferenceChangeListener(this);
         mSnapSpoof.setOnPreferenceChangeListener(this);
-        mVendingSpoof.setOnPreferenceChangeListener(this);
-        mTensorFeaturesToggle.setOnPreferenceChangeListener(this);
+        mTensorSpoof.setOnPreferenceChangeListener(this);
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
@@ -306,14 +302,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
             || preference == mGoogleSpoof
             || preference == mGphotosSpoof
             || preference == mGamePropsSpoof
-            || preference == mSnapSpoof
-            || preference == mVendingSpoof) {
+            || preference == mSnapSpoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
-        if (preference == mTensorFeaturesToggle) {
+        if (preference == mTensorSpoof) {
             boolean enabled = (Boolean) newValue;
-            SystemProperties.set(SYS_ENABLE_TENSOR_FEATURES, enabled ? "true" : "false");
+            SystemProperties.set(SYS_TENSOR_SPOOF, enabled ? "true" : "false");
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
