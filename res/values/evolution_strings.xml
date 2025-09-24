@@ -762,6 +762,8 @@
     <string name="brightness_slider_haptics_intensity_title">Brightness slider haptics intensity</string>
     <string name="edge_scrolling_haptics_intensity_title">Edge scrolling haptics intensity</string>
     <string name="volume_slider_haptics_intensity_title">Volume slider haptics intensity</string>
+    <string name="volume_sound_haptics_title">Volume sound feedback</string>
+    <string name="volume_sound_haptics_summary">Enable sound feedback when adjusting volume row progress</string>
     <string name="qs_panel_tile_haptic_intensity_title">QS tile haptics intensity</string>
     <string name="qs_haptics_intensity_title">Qs fling haptics intensity</string>
     <string name="qs_tiles_haptic_feedback_title">Vibrate on touching QS tiles</string>
