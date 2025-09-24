@@ -5,27 +5,27 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">(R)Evolver</string>
-    <string name="evolver_dashboard_summary">Úgy fejlődik, mint még soha</string>
+    <string name="evolver_dashboard_title">Az Evolver</string>
+    <string name="evolver_dashboard_summary">Az Ön útja, a telefonja fejlesztése</string>
     <!-- Categories -->
     <string name="themes_title">Témák</string>
-    <string name="themes_summary">Monet, fontok, ikonok</string>
+    <string name="themes_summary">Monet-motor, stílusok a felhasználói felületen, fontok, ikonok</string>
     <string name="lock_screen_title">Záróképernyő</string>
-    <string name="lock_screen_summary">Felhasználói felület, egyebek</string>
+    <string name="lock_screen_summary">Felület, ujjlenyomat, egyebek</string>
     <string name="status_bar_title">Állapotsor</string>
-    <string name="status_bar_summary">Vezérlők, ikonok, adatvédelmi mutatók</string>
+    <string name="status_bar_summary">Mozdulatvezérlők, ikonok</string>
     <string name="quick_settings_title">Gyorsbeállítások</string>
-    <string name="quick_settings_summary">Interfész, záróképernyő</string>
+    <string name="quick_settings_summary">Fényerő, felhasználói felület, záróképernyő</string>
     <string name="notifications_title">Értesítések</string>
-    <string name="notifications_summary">Riasztások, interfész</string>
+    <string name="notifications_summary">Felugrók, felhasználói felület</string>
     <string name="power_menu_title">Kikapcsolási menü</string>
     <string name="power_menu_summary">Műveletek, záróképernyő</string>
     <string name="buttons_title">Gombok</string>
     <string name="buttons_summary">Bekapcsoló és hangerőgombok</string>
     <string name="miscellaneous_title">Különlegességek</string>
     <string name="miscellaneous_summary">Fejleszői lehetőségek, álcázás</string>
-    <string name="about_title">Névjegy</string>
-    <string name="about_summary">Az Evolution X-ről</string>
+    <string name="about_title">Evolution X</string>
+    <string name="about_summary">A ROM-unkról</string>
     <!-- Themes -->
     <string name="themes_general_category">Általános</string>
     <string name="themes_monet_category">Monet</string>
@@ -537,8 +537,8 @@
     <string name="spoofing_system_wide_category">Rendszer-szintű</string>
     <string name="spoofing_pixel_props_title">Pixel-kellékek</string>
     <string name="spoofing_pixel_props_summary">A kijelölt Google alkalmazásokhoz a legújabb Pixel-telefonnak álcázza az Ön készülékét</string>
-    <string name="tensor_spoof_title">Hamis Tenson CPU funkciók</string>
-    <string name="tensor_spoof_summary">A Tensor / Pixel jellemzők feloldása</string>
+    <string name="tensor_spoof_title">Tensor-funkciók</string>
+    <string name="tensor_spoof_summary">Csak Tensor-processzorú Pixel-készülékeken érhetők el ezek a funkciók</string>
     <string name="gms_spoof_title">Áruházi Integritásjavítás</string>
     <string name="gms_spoof_summary">Készülékálcázás, hogy megfeleljen a Google Áruház tanusítványi feltételeinek</string>
     <string name="spoofing_storage_encryption_title">Tárhelytitkosítás</string>
@@ -886,4 +886,8 @@
     <string name="nt_gesture_three_finger_long_press_summary">Részleges képernyőkép-készítéshez tartsa lenyomva három ujját, majd pöccintsen lefelé a területen.</string>
     <string name="nt_combination_power_volume_click">Letiltás két gomb megnyomásával</string>
     <string name="nt_combination_power_volume_click_summary">A képernyőkép készítésének funkcióját a bekapcsológomb és a hangerő le gomb lenyomva tartásával tilthatja le.</string>
+    <!-- Power off verify -->
+    <string name="power_off_verify_footer">A kikapcsolás ellenőrzése megvédi a készüléket azáltal, hogy megakadályozza, hogy mások azonnal kikapcsolják az elveszett készüléket, ezzel növelve az Ön visszaszerzés esélyeit. A zárolási képernyő jelszavát csak akkor kell megadnia, amikor kikapcsolja vagy újraindítja a telefont a zárolási képernyőről.</string>
+    <string name="power_off_verify_summary">Kikapcsoláshoz vagy újraindításhoz szüksége lesz a jelszóra, ha záróképernyőről indítaná.</string>
+    <string name="power_off_verify_title">Ellenőrzött kikapcsolás</string>
 </resources>
