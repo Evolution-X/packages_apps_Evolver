@@ -10,6 +10,18 @@
     android:title="@string/miscellaneous_title">
 
     <PreferenceCategory
+        android:key="haptics_settings_category"
+        android:title="@string/haptics_settings_title">
+
+        <Preference
+            android:key="haptics_settings"
+            android:title="@string/haptics_settings_title"
+            android:summary="@string/haptics_settings_summary"
+            android:fragment="com.android.settings.sound.HapticsPreferenceFragment"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="miscellaneous_spoofing_category"
         android:title="@string/miscellaneous_spoofing_category">
 
