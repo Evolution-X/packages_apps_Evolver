@@ -26,7 +26,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.android.internal.util.android.ThemeUtils;
+import com.android.internal.util.evolution.ThemeUtils;
 
 public class FontManager {
 

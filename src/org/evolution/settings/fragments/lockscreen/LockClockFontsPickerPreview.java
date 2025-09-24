@@ -52,7 +52,7 @@ import org.evolution.settings.fragments.themes.fonts.FontArrayAdapter;
 import org.evolution.settings.fragments.themes.fonts.FontManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
-import com.android.internal.util.android.ThemeUtils;
+import com.android.internal.util.evolution.ThemeUtils;
 
 import java.util.List;
 
