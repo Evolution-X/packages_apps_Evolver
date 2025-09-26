@@ -17,6 +17,12 @@
             android:key="keybox_data_setting"
             android:title="@string/keybox_data_title" />
 
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.keybox.check.enabled"
+            android:title="@string/keybox_check_title"
+            android:summary="@string/keybox_check_summary"
+            android:defaultValue="false" />
+
         <!-- GMS spoof -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pixelprops.gms"
