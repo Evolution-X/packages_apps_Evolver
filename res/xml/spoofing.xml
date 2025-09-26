@@ -12,6 +12,13 @@
         android:key="spoofing_system_wide_category"
         android:title="@string/spoofing_system_wide_category">
 
+        <!-- GMS cert chain -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="gms_cert_chain"
+            android:title="@string/gms_cert_chain_title"
+            android:summary="@string/gms_cert_chain_summary"
+            android:defaultValue="false" />
+
         <!-- Keybox Data -->
         <org.evolution.settings.preferences.KeyboxDataPreference
             android:key="keybox_data_setting"
