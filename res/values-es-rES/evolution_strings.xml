@@ -5,27 +5,27 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Evolucionando como nunca antes</string>
+    <string name="evolver_dashboard_title">El Evolucionador</string>
+    <string name="evolver_dashboard_summary">Evoluciona tu dispositivo, a tu manera</string>
     <!-- Categories -->
     <string name="themes_title">Temas</string>
-    <string name="themes_summary">Monet, fuentes, iconos</string>
+    <string name="themes_summary">Motor Monet, estilos de UI, fuentes, paquetes de iconos</string>
     <string name="lock_screen_title">Pantalla de bloqueo</string>
-    <string name="lock_screen_summary">Interfaz, misceláneo</string>
+    <string name="lock_screen_summary">Interfaz, huella dactilar, misceláneo</string>
     <string name="status_bar_title">Barra de estado</string>
-    <string name="status_bar_summary">Gestos, iconos, indicadores de privacidad</string>
+    <string name="status_bar_summary">Gestos, íconos</string>
     <string name="quick_settings_title">Ajustes rápidos</string>
-    <string name="quick_settings_summary">Interfaz, pantalla de bloqueo</string>
+    <string name="quick_settings_summary">Control deslizante de brillo, interfaz, pantalla de bloqueo</string>
     <string name="notifications_title">Notificaciones</string>
-    <string name="notifications_summary">Alertas, interfaz</string>
+    <string name="notifications_summary">Avisos, interfaz</string>
     <string name="power_menu_title">Menú de apagado</string>
     <string name="power_menu_summary">Acciones, pantalla de bloqueo</string>
     <string name="buttons_title">Botones</string>
     <string name="buttons_summary">Botón de apagado, botones de volumen</string>
     <string name="miscellaneous_title">Varios</string>
     <string name="miscellaneous_summary">Opciones de desarrollador, spoofing</string>
-    <string name="about_title">Acerca de</string>
-    <string name="about_summary">Acerca de Evolution X</string>
+    <string name="about_title">Evolution X</string>
+    <string name="about_summary">Acerca de nuestra ROM</string>
     <!-- Themes -->
     <string name="themes_general_category">General</string>
     <string name="themes_monet_category">Monet</string>
@@ -537,8 +537,8 @@
     <string name="spoofing_system_wide_category">Todo el sistema</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Suplanta tu dispositivo como un Pixel 8 Pro para todas las apps de Google</string>
-    <string name="tensor_spoof_title">Características del tensor de suplantación de identidad</string>
-    <string name="tensor_spoof_summary">Desbloquear funciones de tensor/pixel</string>
+    <string name="tensor_spoof_title">Características de Tensor</string>
+    <string name="tensor_spoof_summary">Desbloquear características disponibles solo en dispositivos Pixel basados en Tensor</string>
     <string name="gms_spoof_title">Arreglo de la integridad de Google Play</string>
     <string name="gms_spoof_summary">Suplantar dispositivo para pasar la atestación de Google Play</string>
     <string name="spoofing_storage_encryption_title">Cifrado del almacenamiento</string>
@@ -577,7 +577,7 @@
     <string name="about_info">Evolution X es una ROM de Android personalizada cuyo objetivo es replicar la experiencia de Google Pixel, con personalización añadida. Basado en el proyecto LineageOS.</string>
     <string name="about_website_title">Sitio web</string>
     <string name="about_website_summary">Visite nuestro sitio para novedades</string>
-    <string name="about_x_summary">Síguenos en X</string>
+    <string name="about_x_summary">Conoce nuestras últimas noticias en X</string>
     <string name="about_discord_summary">Chatea con nosotros en Discord</string>
     <string name="about_github_summary">Explora nuestro código en GitHub</string>
     <string name="about_founders_title">Fundadores</string>
@@ -617,8 +617,9 @@
     <string name="powermenu_style_title">Estilo del menú de apagado</string>
     <string name="powermenu_style1">Ciberpunk</string>
     <string name="powermenu_style2">Duo Línea</string>
-    <string name="powermenu_style3">IOS</string>
-    <string name="powermenu_style4">Capas</string>
+    <string name="powermenu_style3">Fluido (Transparente)</string>
+    <string name="powermenu_style4">IOS</string>
+    <string name="powermenu_style5">Capas</string>
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">Estilo de reloj de encabezado en ajustes rápidos</string>
     <string name="qs_header_style1">Chip</string>
@@ -696,6 +697,8 @@
     <string name="brightness_slider_haptics_intensity_title">Intensidad háptica del control deslizante de brillo</string>
     <string name="edge_scrolling_haptics_intensity_title">Intensidad háptica del desplazamiento lateral</string>
     <string name="volume_slider_haptics_intensity_title">Intensidad háptica del control deslizante de volumen</string>
+    <string name="volume_sound_haptics_title">Respuesta háptica del panel de volumen</string>
+    <string name="volume_sound_haptics_summary">Activar retroalimentación háptica en el panel de volumen</string>
     <string name="qs_panel_tile_haptic_intensity_title">Intensidad háptica de las baldosas de ajustes rápidos</string>
     <string name="qs_haptics_intensity_title">Intensidad de las hápticas de ajustes rápidos</string>
     <string name="qs_tiles_haptic_feedback_title">Vibrar al tocar los azulejos de configuración rápida</string>
@@ -884,4 +887,8 @@
     <string name="nt_gesture_three_finger_long_press_summary">Mantén presionado con tres dedos y luego desliza hacia abajo para tomar una captura de pantalla de área.</string>
     <string name="nt_combination_power_volume_click">Desactivar botón de encendido &amp; botón de baja de volumen</string>
     <string name="nt_combination_power_volume_click_summary">Desactive la función de tomar una captura de pantalla presionando y manteniendo presionado el botón de encendido y el botón de bajar volumen.</string>
+    <!-- Power off verify -->
+    <string name="power_off_verify_footer">La verificación de apagado protege tu dispositivo al prevenir que otras personas lo apaguen inmediatamente después de que se haya perdido, lo que aumenta las posibilidades de recuperación. Solo necesitas ingresar tu contraseña de la pantalla de bloqueo al apagar o reiniciar el teléfono desde la pantalla de bloqueo.</string>
+    <string name="power_off_verify_summary">Cuando tu dispositivo esté bloqueado, necesitarás usar tu contraseña para apagar o reiniciar.</string>
+    <string name="power_off_verify_title">Verificar apagado</string>
 </resources>
