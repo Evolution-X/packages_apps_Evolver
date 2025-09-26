@@ -585,6 +585,10 @@
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
 
+    <!-- GMS cert chain -->
+    <string name="gms_cert_chain_title">Disable forcing strong integrity</string>
+    <string name="gms_cert_chain_summary">Forcing strong integrity breaks apps like Google Pay, enabling this option fixes such apps.</string>
+
     <!-- About -->
     <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>
     <string name="about_website_title">Website</string>
