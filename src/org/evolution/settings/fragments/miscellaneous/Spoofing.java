@@ -81,6 +81,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SYS_QSB_SPOOF = "persist.sys.pixelprops.qsb";
     private static final String SYS_SNAP_SPOOF = "persist.sys.pixelprops.snap";
     private static final String SYS_TENSOR_SPOOF = "persist.sys.features.tensor";
+    private static final String SYS_KEYBOX_CHECK_ENABLED = "persist.sys.keybox.check.enabled";
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
@@ -95,6 +96,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private SystemPropertySwitchPreference mQsbSpoof;
     private SystemPropertySwitchPreference mSnapSpoof;
     private SystemPropertySwitchPreference mTensorSpoof;
+    private SystemPropertySwitchPreference mKeyboxCheckEnabled;
 
     private Handler mHandler;
 
@@ -119,6 +121,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mSnapSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAP_SPOOF);
         mTensorSpoof = (SystemPropertySwitchPreference) findPreference(SYS_TENSOR_SPOOF);
         mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
+        mKeyboxCheckEnabled = (SystemPropertySwitchPreference) findPreference(SYS_KEYBOX_CHECK_ENABLED);
 
         String model = SystemProperties.get("ro.product.model");
         boolean isTensorDevice = model.matches("Pixel (6|7|8|9|10)[a-zA-Z ]*");
@@ -142,6 +145,9 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mQsbSpoof.setOnPreferenceChangeListener(this);
         mSnapSpoof.setOnPreferenceChangeListener(this);
         mTensorSpoof.setOnPreferenceChangeListener(this);
+        if (mKeyboxCheckEnabled != null) {
+            mKeyboxCheckEnabled.setOnPreferenceChangeListener(this);
+        }
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
@@ -343,6 +349,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
             boolean enabled = (Boolean) newValue;
             SystemProperties.set(SYS_TENSOR_SPOOF, enabled ? "true" : "false");
             SystemRestartUtils.showSystemRestartDialog(getContext());
+            return true;
+        }
+        if (preference == mKeyboxCheckEnabled) {
+            killGMSPackages();
             return true;
         }
         return false;
