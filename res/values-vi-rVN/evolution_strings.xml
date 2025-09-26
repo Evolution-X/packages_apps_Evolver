@@ -617,8 +617,9 @@
     <string name="powermenu_style_title">Kiểu menu nguồn</string>
     <string name="powermenu_style1">Cyberpunk</string>
     <string name="powermenu_style2">Duoline</string>
-    <string name="powermenu_style3">IOS</string>
-    <string name="powermenu_style4">Layers</string>
+    <string name="powermenu_style3">Chất lỏng (Trong suốt)</string>
+    <string name="powermenu_style4">iOS</string>
+    <string name="powermenu_style5">Các lớp</string>
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">Kiểu đồng hồ đầu bảng</string>
     <string name="qs_header_style1">Chip</string>
@@ -698,6 +699,8 @@
     <string name="brightness_slider_haptics_intensity_title">Cường độ thanh độ sáng</string>
     <string name="edge_scrolling_haptics_intensity_title">Cường độ cuộn viền</string>
     <string name="volume_slider_haptics_intensity_title">Cường độ thanh âm lượng</string>
+    <string name="volume_sound_haptics_title">Phản hồi âm lượng</string>
+    <string name="volume_sound_haptics_summary">Bật phản hồi âm thanh khi điều chỉnh tiến trình hàng âm lượng</string>
     <string name="qs_panel_tile_haptic_intensity_title">Cường độ ô cài đặt</string>
     <string name="qs_haptics_intensity_title">Cường độ vuốt cài đặt</string>
     <string name="qs_tiles_haptic_feedback_title">Rung khi chạm ô cài đặt</string>
