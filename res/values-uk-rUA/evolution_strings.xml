@@ -617,8 +617,9 @@
     <string name="powermenu_style_title">Стиль меню живлення</string>
     <string name="powermenu_style1">Кіберпанк</string>
     <string name="powermenu_style2">Duoline</string>
-    <string name="powermenu_style3">IOS</string>
-    <string name="powermenu_style4">Шари</string>
+    <string name="powermenu_style3">Флюїд (прозорий)</string>
+    <string name="powermenu_style4">IOS</string>
+    <string name="powermenu_style5">Шари</string>
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">Стиль заголовку значка швидких налаштувань</string>
     <string name="qs_header_style1">Мікросхема</string>
@@ -696,6 +697,8 @@
     <string name="brightness_slider_haptics_intensity_title">Вібровідгук</string>
     <string name="edge_scrolling_haptics_intensity_title">Інтенсивність тактильних відчуттів прокручування країв</string>
     <string name="volume_slider_haptics_intensity_title">Інтенсивність тактильних ефектів повзунка гучності</string>
+    <string name="volume_sound_haptics_title">Звуковий зворотний зв\'язок гучності</string>
+    <string name="volume_sound_haptics_summary">Увімкнути звуковий зворотний зв\'язок під час налаштування прогресу в рядку гучності</string>
     <string name="qs_panel_tile_haptic_intensity_title">Інтенсивність тактильних ефектів плитки QS</string>
     <string name="qs_haptics_intensity_title">Інтенсивність тактильних ефектів Qs</string>
     <string name="qs_tiles_haptic_feedback_title">Вібрація при дотику до плитки швидких налаштувань</string>
