@@ -256,8 +256,11 @@ public class Spoofing extends SettingsPreferenceFragment implements
         try {
             ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
             String[] packages = {
+                "com.google.android.apps.photos",
                 "com.google.android.gms",
-                "com.android.vending"
+                "com.google.android.googlequicksearchbox",
+                "com.android.vending",
+                "com.snapchat.android"
             };
             for (String pkg : packages) {
                 am.getClass()
@@ -330,15 +333,15 @@ public class Spoofing extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
-        if (preference == mGmsSpoof) {
+        if (preference == mGmsSpoof
+            || preference == mGphotosSpoof
+            || preference == mQsbSpoof
+            || preference == mSnapSpoof) {
             killGMSPackages();
             return true;
         }
         if (preference == mGoogleSpoof
-            || preference == mGphotosSpoof
-            || preference == mGamePropsSpoof
-            || preference == mQsbSpoof
-            || preference == mSnapSpoof) {
+            || preference == mGamePropsSpoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
