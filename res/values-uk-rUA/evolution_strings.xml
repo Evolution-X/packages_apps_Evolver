@@ -840,9 +840,6 @@
     <string name="battery_bar_high_color">Колір високого рівня заряду</string>
     <string name="battery_bar_low_color">Колір низького рівня заряду</string>
     <string name="battery_bar_animate_color">Колір анімації заряджання</string>
-    <!-- Single tap for keyguard affordance -->
-    <string name="keyguard_affordance_single_tap_title">Блокування клавіатури одним дотиком</string>
-    <string name="keyguard_affordance_single_tap_summary">Увімкнути/вимкнути доступ до екрану блокування одним дотиком</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Форма повзунка яскравості</string>
     <!-- Small landscape notifications -->
