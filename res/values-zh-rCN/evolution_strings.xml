@@ -846,9 +846,6 @@
     <string name="battery_bar_high_color">高电量时的颜色</string>
     <string name="battery_bar_low_color">低电量时的颜色</string>
     <string name="battery_bar_animate_color">充电动画颜色</string>
-    <!-- Single tap for keyguard affordance -->
-    <string name="keyguard_affordance_single_tap_title">点击启用键盘锁定</string>
-    <string name="keyguard_affordance_single_tap_summary">点击切换键盘锁定</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">亮度滑块样式</string>
     <!-- Small landscape notifications -->
