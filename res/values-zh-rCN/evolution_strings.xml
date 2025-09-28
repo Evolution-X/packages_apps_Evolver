@@ -573,6 +573,8 @@
     <string name="keybox_toast_missing_data">无效的Keybox XML：缺少必填字段</string>
     <string name="keybox_toast_file_loaded">Keybox已加载</string>
     <string name="keybox_toast_file_cleared">Keybox已清除</string>
+    <string name="keybox_check_title">私钥盒欺骗</string>
+    <string name="keybox_check_summary">只有当您有一个有效的密钥箱以实现适当的强完整性时，才可以伪造私钥</string>
     <!-- About -->
     <string name="about_info">Evolution X 是一款致力于复刻 Google Pixel 体验的定制化 Android 项目，拥有诸多自定义项目。本项目基于 LineageOS 项目。</string>
     <string name="about_website_title">网站</string>
@@ -617,8 +619,9 @@
     <string name="powermenu_style_title">电源菜单样式</string>
     <string name="powermenu_style1">赛博朋克</string>
     <string name="powermenu_style2">双重线条</string>
-    <string name="powermenu_style3">IOS</string>
-    <string name="powermenu_style4">图层</string>
+    <string name="powermenu_style3">流体(透明)</string>
+    <string name="powermenu_style4">IOS</string>
+    <string name="powermenu_style5">图层</string>
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">快速设置页眉时钟样式</string>
     <string name="qs_header_style1">芯片</string>
@@ -696,6 +699,8 @@
     <string name="brightness_slider_haptics_intensity_title">亮度滑块震动强度</string>
     <string name="edge_scrolling_haptics_intensity_title">边缘滑动震动反馈强度</string>
     <string name="volume_slider_haptics_intensity_title">音量滑块震动反馈强度</string>
+    <string name="volume_sound_haptics_title">音量声音反馈</string>
+    <string name="volume_sound_haptics_summary">调整音量行进度时启用声音反馈</string>
     <string name="qs_panel_tile_haptic_intensity_title">快速设置瓷块震动强度</string>
     <string name="qs_haptics_intensity_title">快速设置瓷块震动强度</string>
     <string name="qs_tiles_haptic_feedback_title">触摸快速设置磁贴时振动</string>
