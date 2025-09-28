@@ -573,6 +573,8 @@
     <string name="keybox_toast_missing_data">XML Keybox không hợp lệ: thiếu trường bắt buộc</string>
     <string name="keybox_toast_file_loaded">Đã kích hoạt Keybox</string>
     <string name="keybox_toast_file_cleared">Đã xóa Keybox</string>
+    <string name="keybox_check_title">Giả mạo Keybox riêng tư</string>
+    <string name="keybox_check_summary">Chỉ làm giả khóa riêng nếu bạn có Keybox hợp lệ để đảm bảo Strong Integrity.</string>
     <!-- About -->
     <string name="about_info">Evolution X hướng tới trải nghiệm Pixel với nhiều tính năng bổ sung</string>
     <string name="about_website_title">Trang web</string>
@@ -846,9 +848,6 @@
     <string name="battery_bar_high_color">Màu nâng cao</string>
     <string name="battery_bar_low_color">Màu cơ bản</string>
     <string name="battery_bar_animate_color">Màu hiệu ứng sạc</string>
-    <!-- Single tap for keyguard affordance -->
-    <string name="keyguard_affordance_single_tap_title">Khả năng bảo vệ phím bấm một lần</string>
-    <string name="keyguard_affordance_single_tap_summary">Chuyển đổi khả năng bảo vệ phím bằng một lần chạm</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Hình dạng thanh trượt độ sáng</string>
     <!-- Small landscape notifications -->
