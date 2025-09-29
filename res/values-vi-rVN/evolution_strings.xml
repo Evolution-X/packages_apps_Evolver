@@ -573,8 +573,8 @@
     <string name="keybox_toast_missing_data">XML Keybox không hợp lệ: thiếu trường bắt buộc</string>
     <string name="keybox_toast_file_loaded">Đã kích hoạt Keybox</string>
     <string name="keybox_toast_file_cleared">Đã xóa Keybox</string>
-    <string name="keybox_check_title">Giả mạo Keybox riêng tư</string>
-    <string name="keybox_check_summary">Chỉ làm giả khóa riêng nếu bạn có Keybox hợp lệ để đảm bảo Strong Integrity.</string>
+    <string name="keybox_check_title">Giả mạo Keybox riêng tư / vô hiệu hóa việc buộc strong integrity</string>
+    <string name="keybox_check_summary">Theo mặc định, chúng tôi cho phép buộc strong integrity với bất kỳ keybox nào và PIF hợp lệ, nhưng điều này sẽ gây lỗi cho các ứng dụng như Google Pay. Cài đặt này cho phép tắt tùy chọn này để khắc phục sự cố trên các ứng dụng đó.</string>
     <!-- About -->
     <string name="about_info">Evolution X hướng tới trải nghiệm Pixel với nhiều tính năng bổ sung</string>
     <string name="about_website_title">Trang web</string>
