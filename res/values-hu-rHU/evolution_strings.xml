@@ -573,8 +573,8 @@
     <string name="keybox_toast_missing_data">Érvénytelen Keybox-XML: kötelező mezők hiányoznak</string>
     <string name="keybox_toast_file_loaded">A Keybox betöltve</string>
     <string name="keybox_toast_file_cleared">A Keybox tisztítva</string>
-    <string name="keybox_check_title">Privát Kulcstároló hamisítás</string>
-    <string name="keybox_check_summary">A megfelelően erős integritás érdekében, csak akkor hamisítson privát kulcsot, ha van érvényes kulcstárolója.</string>
+    <string name="keybox_check_title">Privát kulcsbox hamisítás / az erős integritás kényszerítésének letiltása</string>
+    <string name="keybox_check_summary">Alapértelmezés szerint engedélyezzük az erős integritás kényszerítését bármely kulcsbox-szal és érvényes PIF-fel, de pl. a Google Pay -jel ez hibásan működik. Ez a beállítás lehetővé teszi a probléma megoldása érdekében ennek az opciónak a letiltását az ilyen alkalmazásokban.</string>
     <!-- About -->
     <string name="about_info">Az Evolution X egy egyedi Android ROM, amelynek célja a Google Pixel élményének reprodukálása, csak sokkal több testreszabási lehetőséggel. A Lineage OS Project-re támaszkodva.</string>
     <string name="about_website_title">Honlap</string>
