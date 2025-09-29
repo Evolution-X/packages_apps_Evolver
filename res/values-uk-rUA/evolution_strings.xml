@@ -573,8 +573,8 @@
     <string name="keybox_toast_missing_data">Невірний XML: обов\'язкові поля keybox пропущено</string>
     <string name="keybox_toast_file_loaded">Ключ, завантажений</string>
     <string name="keybox_toast_file_cleared">Скринька ключів очищена</string>
-    <string name="keybox_check_title">Підміна Приватного ключа</string>
-    <string name="keybox_check_summary">Підміна приватного ключа, лише якщо у вас є дійсний Keybox для правильного виправлення цілісності.</string>
+    <string name="keybox_check_title">Підробка / вимкнення примусового забезпечення надійної цілісності приватного ключа</string>
+    <string name="keybox_check_summary">За замовчуванням ми дозволяємо застосовувати сильну цілісність за допомогою клавіш, а також дійсну PIF, але це порушує програми, такі як Google Pay. Цей параметр дозволяє вимкнути цей параметр, щоб виправити його в таких програмах</string>
     <!-- About -->
     <string name="about_info">Evolution X - це користувацька Android ROM, яка спрямована на повторення досвіду Google Pixel із доданими налаштуваннями, на основі проекту LineageOS.</string>
     <string name="about_website_title">Сайт</string>
