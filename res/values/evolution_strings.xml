@@ -981,4 +981,18 @@
     <string name="power_off_verify_footer">Power off verification protects your device by preventing others from turning it off immediately after it\'s lost, increasing the chances of recovery. You only need to enter your lock screen password when powering off or restarting the phone from the lock screen.</string>
     <string name="power_off_verify_summary">When your device is locked, you\'ll need to use your password to power off or restart.</string>
     <string name="power_off_verify_title">Power off verify</string>
+
+    <!-- Status bar/Clock chip styles-->
+    <string name="solid_accent">Solid color accent</string>
+    <string name="outline">Outline</string>
+    <string name="solid_accent_gradient">Solid color accent gradient</string>
+    <string name="solid_gradient">Solid Gradient side</string>
+    <string name="solid_gradient_corner">Solid accent gradient sharp</string>
+    <string name="solid_gradient_void">Gradient Void</string>
+    <string name="solid_gradient_neumorph">Neumorph gradient</string>
+    <string name="solid_gradient_stroke">Sharp gradient stroke</string>
+    <string name="solid_accent_transperent">Accent transperent</string>
+    <string name="solid_gradient_light">Gradient light</string>
+    <string name="solid_gradient_shape">Sharp gradient corner</string>
+    <string name="solid_gradient_void_light">Gradient Void light</string>
 </resources>
