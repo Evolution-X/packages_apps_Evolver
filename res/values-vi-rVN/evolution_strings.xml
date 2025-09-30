@@ -892,4 +892,17 @@
     <string name="power_off_verify_footer">Xác nhận tắt nguồn bảo vệ thiết bị của bạn bằng cách ngăn người khác tắt máy ngay lập tức sau khi bị mất, tăng khả năng khôi phục. Bạn chỉ cần nhập mật khẩu màn hình khóa khi tắt nguồn hoặc khởi động lại điện thoại từ màn hình khóa.</string>
     <string name="power_off_verify_summary">Khi thiết bị của bạn bị khóa, bạn sẽ cần sử dụng mật khẩu để tắt nguồn hoặc khởi động lại.</string>
     <string name="power_off_verify_title">Xác nhận tắt nguồn</string>
+    <!-- Status bar/Clock chip styles-->
+    <string name="solid_accent">Điểm nhấn màu trơn</string>
+    <string name="outline">Đường nét</string>
+    <string name="solid_accent_gradient">Chuyển màu nhấn mạnh</string>
+    <string name="solid_gradient">Mặt dốc rắn</string>
+    <string name="solid_gradient_corner">Độ dốc màu đặc sắc nét</string>
+    <string name="solid_gradient_void">Khoảng trống Gradient</string>
+    <string name="solid_gradient_neumorph">Độ dốc Neumorph</string>
+    <string name="solid_gradient_stroke">Nét vẽ chuyển màu sắc nét</string>
+    <string name="solid_accent_transperent">Nhấn mạnh trong suốt</string>
+    <string name="solid_gradient_light">Ánh sáng chuyển màu</string>
+    <string name="solid_gradient_shape">Góc dốc sắc nét</string>
+    <string name="solid_gradient_void_light">Ánh sáng Gradient Void</string>
 </resources>
