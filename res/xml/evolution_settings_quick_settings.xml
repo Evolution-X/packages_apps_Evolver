@@ -227,12 +227,11 @@
         android:title="@string/quick_settings_lock_screen_category">
 
         <!-- Hide on secure lock screen -->
-        <org.evolution.settings.preferences.SecureSettingListPreference
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="enable_lockscreen_quick_settings"
             android:title="@string/quick_settings_secure_lock_screen_title"
-            android:entries="@array/quick_settings_secure_lock_screen_entries"
-            android:entryValues="@array/quick_settings_secure_lock_screen_values"
-            android:defaultValue="1" />
+            android:summary="@string/quick_settings_secure_lock_screen_summary"
+            android:defaultValue="true" />
 
         <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="qstile_requires_unlocking"
