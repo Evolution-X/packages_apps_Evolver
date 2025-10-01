@@ -420,8 +420,8 @@
     <string name="quick_settings_data_usage_title">Використання даних</string>
     <string name="quick_settings_data_usage_summary">Показувати інформацію про використання у нижньому колонтитулі швидких налаштувань</string>
     <string name="quick_settings_lock_screen_category">Екран блокування</string>
-    <string name="quick_settings_secure_lock_screen_title">Проведіть вниз по LS для перегляду QS</string>
-    <string name="quick_settings_secure_lock_screen_summary">Приховати всі швидкі налаштування в панелі сповіщень, коли пристрій заблоковано</string>
+    <string name="quick_settings_secure_lock_screen_title">Показати на екрані блокування</string>
+    <string name="quick_settings_secure_lock_screen_summary">Проведіть вниз на екрані блокування для перегляду швидких налаштувань</string>
     <string name="quick_settings_require_unlock_title">Безпечні плитки швидких налаштувань потребують розблокування</string>
     <string name="quick_settings_require_unlock_summary">Ці швидкі налаштування вимагають розблокування пристрою, перш ніж ви зможете взаємодіяти з ними:\nРежим польоту, Запас акумулятора, Bluetooth, Cellular, Data saver, точка доступу, Інтернет, NFC, блокування обертання і Wi-Fi</string>
     <string name="quick_settings_miscellaneous_category">Різне</string>
@@ -677,21 +677,24 @@
     <string name="depth_wallpaper_offset_x_title">Горизонтальне зміщення верхнього шпалер</string>
     <string name="depth_wallpaper_offset_y_title">Горизонтальне зміщення верхнього шпалер</string>
     <string name="dw_footer_text">Функція глибинних шпалер, натхненна сегментацією фонових зображень iOS, дозволяє накладати об\'єкт поверх годинника на екрані блокування, створюючи ефект глибини. Для налаштування: 1. Встановіть шпалеру з об\'єктом або фоном, над яким потрібно розмістити об\'єкт. 2. Виберіть зображення об\'єкта для відстеження, яке буде накладено на годинник. 3. Відрегулюйте зміщення та прозорість відповідно до ваших потреб.    </string>
-    <!-- Media art -->
-    <string name="media_art_title">Обкладинка медіа</string>
-    <string name="media_art_summary">Увімкнути обкладинки альбомів на екрані блокування</string>
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Обкладинка медіа</string>
+    <string name="ls_media_art_summary">Увімкнути обкладинки альбомів на екрані блокування</string>
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">Фільтр медіа обкладинки</string>
+    <string name="ls_media_art_filter_none">Нічого</string>
+    <string name="ls_media_art_filter_blur">Розмиття</string>
+    <string name="ls_media_art_filter_grayscale">Відтінки сірого</string>
+    <string name="ls_media_art_filter_sepia">Сепія</string>
+    <string name="ls_media_art_filter_tint">У колір акценту</string>
+    <string name="ls_media_art_filter_invert">Інвертувати</string>
+    <string name="ls_media_art_filter_grayblur">Відтінки сірого та розмиття</string>
+    <!-- Lock screen media art fade level -->
     <string name="ls_media_art_fade_level_title">Рівень затухання обкладинки альбому</string>
     <string name="ls_media_art_fade_level_summary">Встановити рівень затухання обкладинки альбому</string>
-    <!-- Lock screen album art filter -->
-    <string name="lockscreen_albumart_filter_title">Фільтр медіа обкладинки</string>
-    <string name="lockscreen_albumart_filter_none">Нічого</string>
-    <string name="lockscreen_albumart_filter_grayscale">Відтінки сірого</string>
-    <string name="lockscreen_albumart_filter_tint">У колір акценту</string>
-    <string name="lockscreen_albumart_filter_blur">Розмиття</string>
-    <string name="lockscreen_albumart_filter_grayblur">Надати відтінок сірого та розмити</string>
-    <!-- Media Art Blur Level -->
-    <string name="lockscreen_media_art_blur_level_title">Рівень розмитості медіа</string>
-    <string name="lockscreen_media_art_blur_level_summary">Інтенсивність розмиття при застосуванні фільтра</string>
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">Рівень розмитості медіа</string>
+    <string name="ls_media_art_blur_level_summary">Інтенсивність розмиття при застосуванні фільтра</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Системні параметри</string>
     <string name="haptics_settings_summary">Змінити сили тактильних відгуків</string>
@@ -884,4 +887,17 @@
     <string name="power_off_verify_footer">Вимкнення перевірки, що захищає ваш пристрій, не даючи іншим вимикати його відразу після його втрати, збільшуючи шанси на відновлення. Вам лише потрібно ввести пароль екрану блокування під час вимкнення або перезапуску телефону на екрані блокування.</string>
     <string name="power_off_verify_summary">Коли пристрій заблоковано, вам потрібно буде використовувати свій пароль, щоб вимкнути або перезавантажитися.</string>
     <string name="power_off_verify_title">Вимкнути перевірку</string>
+    <!-- Status bar/Clock chip styles-->
+    <string name="solid_accent">Акцент суцільних кольорів</string>
+    <string name="outline">Контур</string>
+    <string name="solid_accent_gradient">Градієнт суцільних кольорів</string>
+    <string name="solid_gradient">Суцільна сторона градієнта</string>
+    <string name="solid_gradient_corner">Суцільний акцент градієнт різкий</string>
+    <string name="solid_gradient_void">Градієнт пустоти</string>
+    <string name="solid_gradient_neumorph">Градієнт нейморфа</string>
+    <string name="solid_gradient_stroke">Різке градієнтне обведення</string>
+    <string name="solid_accent_transperent">Прозорий акцент</string>
+    <string name="solid_gradient_light">Градієнтне світло</string>
+    <string name="solid_gradient_shape">Гострий кут градієнта</string>
+    <string name="solid_gradient_void_light">Градієнтне світло порожнечі</string>
 </resources>
