@@ -515,8 +515,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Chặn tất cả ứng dụng làm tối hình nền\nCố định độ tối ở 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Bỏ qua cửa sổ bảo mật</string>
     <string name="miscellaneous_ignore_window_secure_summary">Bỏ hạn chế chụp màn hình và ghi màn hình, có thể rò rỉ riêng tư</string>
-    <string name="miscellaneous_unlimit_screenrecord_title">Không giới hạn bản ghi màn hình</string>
-    <string name="miscellaneous_unlimit_screenrecord_summary">Xóa giới hạn kích thước tệp 15GiB\nCó thể tạo ra tệp đầu ra lớn hơn mức cần thiết</string>
+    <string name="miscellaneous_unlimit_screenrecord_title">Bỏ giới hạn ghi màn hình</string>
+    <string name="miscellaneous_unlimit_screenrecord_summary">Gỡ bỏ giới hạn kích thước file 15GiB\nCó thể tạo file xuất lớn hơn mức cần thiết</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Ẩn danh sách ứng dụng</string>
     <string name="hide_applist_summary">Ngăn ứng dụng kiểm tra ứng dụng đã chọn từ danh sách</string>
@@ -679,21 +679,24 @@
     <string name="depth_wallpaper_offset_y_title">Căn chỉnh dọc</string>
     <string name="dw_footer_text">        Tính năng hình nền chiều sâu lấy cảm hứng từ iOS, cho phép đặt chủ thể lên trên đồng hồ màn hình khóa.\n\nCách thiết lập:\n1. Đặt hình nền có chủ thể hoặc nền mong muốn.\n2. Chọn ảnh chủ thể để hiển thị trên đồng hồ.\n3. Điều chỉnh vị trí và độ mờ theo ý muốn.
     </string>
-    <!-- Media art -->
-    <string name="media_art_title">Ảnh bìa phương tiện</string>
-    <string name="media_art_summary">Hiển thị ảnh bìa phương tiện khi có sẵn</string>
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Ảnh bìa phương tiện</string>
+    <string name="ls_media_art_summary">Hiển thị ảnh bìa phương tiện khi có sẵn</string>
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">Bộ lọc ảnh bìa đa phương tiện</string>
+    <string name="ls_media_art_filter_none">Không</string>
+    <string name="ls_media_art_filter_blur">Làm mờ</string>
+    <string name="ls_media_art_filter_grayscale">Thang độ xám</string>
+    <string name="ls_media_art_filter_sepia">Nâu đỏ</string>
+    <string name="ls_media_art_filter_tint">Đồng bộ màu chủ đề</string>
+    <string name="ls_media_art_filter_invert">Đảo ngược</string>
+    <string name="ls_media_art_filter_grayblur">Thang độ xám và làm mờ</string>
+    <!-- Lock screen media art fade level -->
     <string name="ls_media_art_fade_level_title">Độ mờ ảnh bìa</string>
     <string name="ls_media_art_fade_level_summary">Đặt độ mờ cho ảnh bìa nhạc</string>
-    <!-- Lock screen album art filter -->
-    <string name="lockscreen_albumart_filter_title">Bộ lọc ảnh bìa đa phương tiện</string>
-    <string name="lockscreen_albumart_filter_none">Không</string>
-    <string name="lockscreen_albumart_filter_grayscale">Thang độ xám</string>
-    <string name="lockscreen_albumart_filter_tint">Đồng bộ màu chủ đề</string>
-    <string name="lockscreen_albumart_filter_blur">Làm mờ</string>
-    <string name="lockscreen_albumart_filter_grayblur">Thang độ xám và làm mờ</string>
-    <!-- Media Art Blur Level -->
-    <string name="lockscreen_media_art_blur_level_title">Độ mờ ảnh nền nhạc</string>
-    <string name="lockscreen_media_art_blur_level_summary">Cường độ mờ khi áp dụng bộ lọc mờ</string>
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">Mức độ làm mờ nghệ thuật truyền thông</string>
+    <string name="ls_media_art_blur_level_summary">Cường độ mờ khi áp dụng bộ lọc mờ</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Phản hồi xúc giác</string>
     <string name="haptics_settings_summary">Tùy chỉnh cường độ phản hồi xúc giác</string>
