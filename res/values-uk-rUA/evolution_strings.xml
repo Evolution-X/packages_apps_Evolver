@@ -887,17 +887,4 @@
     <string name="power_off_verify_footer">Вимкнення перевірки, що захищає ваш пристрій, не даючи іншим вимикати його відразу після його втрати, збільшуючи шанси на відновлення. Вам лише потрібно ввести пароль екрану блокування під час вимкнення або перезапуску телефону на екрані блокування.</string>
     <string name="power_off_verify_summary">Коли пристрій заблоковано, вам потрібно буде використовувати свій пароль, щоб вимкнути або перезавантажитися.</string>
     <string name="power_off_verify_title">Вимкнути перевірку</string>
-    <!-- Status bar/Clock chip styles-->
-    <string name="solid_accent">Акцент суцільних кольорів</string>
-    <string name="outline">Контур</string>
-    <string name="solid_accent_gradient">Градієнт суцільних кольорів</string>
-    <string name="solid_gradient">Суцільна сторона градієнта</string>
-    <string name="solid_gradient_corner">Суцільний акцент градієнт різкий</string>
-    <string name="solid_gradient_void">Градієнт пустоти</string>
-    <string name="solid_gradient_neumorph">Градієнт нейморфа</string>
-    <string name="solid_gradient_stroke">Різке градієнтне обведення</string>
-    <string name="solid_accent_transperent">Прозорий акцент</string>
-    <string name="solid_gradient_light">Градієнтне світло</string>
-    <string name="solid_gradient_shape">Гострий кут градієнта</string>
-    <string name="solid_gradient_void_light">Градієнтне світло порожнечі</string>
 </resources>
