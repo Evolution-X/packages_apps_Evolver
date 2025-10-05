@@ -139,38 +139,20 @@
     <string name="lock_screen_always_on_pocket_mode_title">Állandó Zsebmód</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Ha be van kapcsolva a képernyő, folyamatos a kijelző és a gombok blokkolása</string>
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">Pulse információk</string>
-    <string name="pulse_help_policy_notice_summary">A Pulse egy brilliáns audiógrafikus hangszínszabályozó a zenelejátszáshoz</string>
-    <string name="lock_screen_pulse_settings_title">Pulse</string>
-    <string name="lock_screen_pulse_settings_summary">Egy audiógrafikus hangszínszabályozó a navigációs sávhoz és a záróképernyőhöz</string>
-    <string name="show_navbar_pulse_title">Pulzáló navigációs sáv</string>
-    <string name="show_navbar_pulse_summary">Grafikus hangszínszabályzó a navigációs sávon</string>
-    <string name="show_lockscreen_pulse_title">Pulzáló záróképernyő</string>
-    <string name="show_lockscreen_pulse_summary">Grafikus hangszínszabályzó a záróképernyőhöz</string>
-    <string name="show_ambient_pulse_title">Pulzáló környezeti kijelző</string>
-    <string name="show_ambient_pulse_summary">Grafikus hangszínszabályzó a környezeti kijelzőhöz</string>
-    <string name="pulse_render_mode_title">A renderelés módja</string>
-    <string name="pulse_render_mode_fading_bars">Halványuló blokkok</string>
-    <string name="pulse_render_mode_solid_lines">Folytonos vonalak</string>
-    <string name="pulse_legacy_mode_advanced_category">A \'Halványuló blokkok üzemmód\' beállításai</string>
-    <string name="pulse_custom_fudge_factor">Az ésszerűség szintje</string>
-    <string name="pulse_lavalamp_speed_title">A Lávalámpa sebessége</string>
-    <string name="pulse_solid_units_rounded_title">Lekerekített sarkok</string>
-    <string name="pulse_solid_units_rounded_summary">Folyamatos vonal, kerekitett vég</string>
-    <string name="pulse_solid_units_count">A folytonos vonalak száma</string>
-    <string name="pulse_solid_units_opacity">A folytonos vonalak átlátszósága</string>
-    <string name="pulse_solid_dimen_category">A \'Folytonos vonalak üzemmód\' beállításai</string>
-    <string name="pulse_color_mode_title">Szín</string>
-    <string name="pulse_color_accent">Kiemelés</string>
-    <string name="pulse_color_custom">Egyéni</string>
-    <string name="pulse_color_lava_lamp">Lávalámpa</string>
-    <string name="pulse_color_user_title">Színválasztás</string>
-    <string name="pulse_smoothing_enabled_title">Simítás be</string>
-    <string name="pulse_smoothing_enabled_summary">Az összes sáv animációja sokkal simábbá válik</string>
-    <string name="pulse_custom_dimen">Sávszélesség</string>
-    <string name="pulse_custom_div">Sávtérköz</string>
-    <string name="pulse_filled_block_size">Blokkméret</string>
-    <string name="pulse_empty_block_size">Blokktérköz</string>
+    <string name="pulse_settings_title">Pulzáló vizualizáció</string>
+    <string name="pulse_settings_summary">Zenelejátszás közben a képernyőzáron egy sávnyi vizualizáció látszik</string>
+    <string name="pulse_rounded_bars_title">Lekerekített sávok</string>
+    <string name="pulse_rounded_bars_summary">A vizualizáció sávjai lekerekítetten jelennek meg</string>
+    <string name="pulse_color">A vizualizáció színe</string>
+    <string name="pulse_color_lavalamp">Lávalámpa</string>
+    <string name="pulse_color_album">Albumborító</string>
+    <string name="pulse_color_accent">Kiemelőszín</string>
+    <string name="pulse_bar_count_title">A sávok száma</string>
+    <string name="pulse_bar_count_summary">Megadhatja hány sávból álljon a vizualizáció</string>
+    <string name="pulse_bar_count_units">sáv</string>
+    <string name="pulse_renderer">A vizualizáció stílusa</string>
+    <string name="pulse_renderer_solid">Folytonos vonalak</string>
+    <string name="pulse_renderer_fading">Halványuló blokkok</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Csúsztassa balra vagy jobbra az órastílus-előnézetek megtekintéséhez</string>
     <!-- Lock screen Clock Revamp -->
@@ -421,7 +403,7 @@
     <string name="quick_settings_data_usage_summary">Kijelzi az adatfelhasználást a gyorsbeállítások láblécében</string>
     <string name="quick_settings_lock_screen_category">Záróképernyő</string>
     <string name="quick_settings_secure_lock_screen_title">Gyorsbeállítások elérése lefelé húzással</string>
-    <string name="quick_settings_secure_lock_screen_summary">Az összes gyorsbeállítás elrejtése az értesítési területen, amikor a készülélk le van zárva</string>
+    <string name="quick_settings_secure_lock_screen_summary">A Záróképernyőn való lefelé húzással érheti el a Gyorsbeállításokat</string>
     <string name="quick_settings_require_unlock_title">Kötelező feloldás a biztonságos csempékhez</string>
     <string name="quick_settings_require_unlock_summary">Mielőtt használná, a következő gyorsbeállításokhoz fel kell oldani a készüléket:\nReplőgép-mód, Akkukímélő, Bluetooth, Hálózat, Adatforgalom-csökkentő, Hotspot, Internet, NFC, Képernyő-elforgatás és a Wi-Fi</string>
     <string name="quick_settings_miscellaneous_category">Különlegességek</string>
@@ -679,21 +661,24 @@
     <string name="depth_wallpaper_offset_y_title">A térhatású háttér függőleges eltolása</string>
     <string name="dw_footer_text">        A mélységi háttérkép funkció, amelyet az iOS Háttérkép Tárgyszegmentációja ihlette, lehetővé teszi a téma átfedését a lezárási képernyő órája felett, hogy az mélységi hatást jelenítsen meg.\n\nA mélységi háttérkép beállításához:\n1. Állítson be háttérképet azzal a témával vagy hátterrel, amely felett szeretné, hogy a téma álljon.\n2. Válassza ki a követni kívánt tárgyképet, ez a kép a lezárási képernyő órája fölé kerül.\n3. Módosítsa az eltolásokat és az átlátszóságot kedve szerint.
     </string>
-    <!-- Media art -->
-    <string name="media_art_title">Albumborító</string>
-    <string name="media_art_summary">Az albumborító megjelenítése, ha elérhető</string>
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Albumborító</string>
+    <string name="ls_media_art_summary">Az albumborító megjelenítése, ha elérhető</string>
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">Médiaborító-szűrő</string>
+    <string name="ls_media_art_filter_none">Nincs</string>
+    <string name="ls_media_art_filter_blur">Homályosított</string>
+    <string name="ls_media_art_filter_grayscale">Szürkeárnyalatos</string>
+    <string name="ls_media_art_filter_sepia">Szépia</string>
+    <string name="ls_media_art_filter_tint">Kiemelőszínhez igazodó</string>
+    <string name="ls_media_art_filter_invert">Invertált</string>
+    <string name="ls_media_art_filter_grayblur">Szürke és homályos</string>
+    <!-- Lock screen media art fade level -->
     <string name="ls_media_art_fade_level_title">A Médiaborító elhalvnyítási szintje</string>
     <string name="ls_media_art_fade_level_summary">Beállíthatja az elhalványítás erősségét</string>
-    <!-- Lock screen album art filter -->
-    <string name="lockscreen_albumart_filter_title">Médiaborító-szűrő</string>
-    <string name="lockscreen_albumart_filter_none">Nincs</string>
-    <string name="lockscreen_albumart_filter_grayscale">Szürkeárnyalatos</string>
-    <string name="lockscreen_albumart_filter_tint">Kiemelőszínhez igazodó</string>
-    <string name="lockscreen_albumart_filter_blur">Homályosított</string>
-    <string name="lockscreen_albumart_filter_grayblur">Szürkeárnyalatos és homályosított</string>
-    <!-- Media Art Blur Level -->
-    <string name="lockscreen_media_art_blur_level_title">A médiaborító homályosítási szintje</string>
-    <string name="lockscreen_media_art_blur_level_summary">Az elmosás intenzitása a szűrő alkalmazásakor</string>
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">A médiaborító homályosítási szintje</string>
+    <string name="ls_media_art_blur_level_summary">Az elmosás intenzitása a szűrő alkalmazásakor</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">A rendszer rezgő visszajelzései</string>
     <string name="haptics_settings_summary">Az érintési visszajelzés intenzitásának módosítása</string>
