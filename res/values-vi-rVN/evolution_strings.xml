@@ -139,38 +139,20 @@
     <string name="lock_screen_always_on_pocket_mode_title">Luôn bật chế độ cảm biến túi (Pocket Mode)</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Luôn chặn thao tác khi màn hình bật trong túi</string>
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">Về Sóng Nhạc</string>
-    <string name="pulse_help_policy_notice_summary">Sóng nhạc là một bộ cân bằng đồ họa âm thanh tuyệt vời khi nhạc phát trên thiết bị</string>
-    <string name="lock_screen_pulse_settings_title">Sóng nhạc</string>
-    <string name="lock_screen_pulse_settings_summary">Bộ cân bằng đồ họa âm thanh cho thanh điều hướng và màn hình khoá</string>
-    <string name="show_navbar_pulse_title">Hiệu ứng xung (pulse) thanh điều hướng</string>
-    <string name="show_navbar_pulse_summary">Bộ cân bằng đồ họa âm thanh trên thanh điều hướng</string>
-    <string name="show_lockscreen_pulse_title">Pulse màn hình khóa</string>
-    <string name="show_lockscreen_pulse_summary">Bộ cân bằng đồ họa âm thanh trên màn hình khóa</string>
-    <string name="show_ambient_pulse_title">Hiệu ứng xung khi màn hình tắt</string>
-    <string name="show_ambient_pulse_summary">Bộ cân bằng đồ họa âm thanh trên thanh điều hướng</string>
-    <string name="pulse_render_mode_title">Chế độ kết xuất</string>
-    <string name="pulse_render_mode_fading_bars">Khối mờ dần</string>
-    <string name="pulse_render_mode_solid_lines">Đường liền nét</string>
-    <string name="pulse_legacy_mode_advanced_category">Cài đặt chế độ khối mờ dần</string>
-    <string name="pulse_custom_fudge_factor">Mức độ mạnh</string>
-    <string name="pulse_lavalamp_speed_title">Tốc độ đèn dung nham</string>
-    <string name="pulse_solid_units_rounded_title">Bo tròn góc</string>
-    <string name="pulse_solid_units_rounded_summary">Đường liền nét với đầu bo tròn</string>
-    <string name="pulse_solid_units_count">Số đường liền nét</string>
-    <string name="pulse_solid_units_opacity">Độ đậm đường liền nét</string>
-    <string name="pulse_solid_dimen_category">Cài đặt chế độ đường liền nét</string>
-    <string name="pulse_color_mode_title">Màu</string>
+    <string name="pulse_settings_title">Trình trực quan hóa xung</string>
+    <string name="pulse_settings_summary">Hiển thị thanh trực quan trên màn hình khóa trong khi nhạc đang phát</string>
+    <string name="pulse_rounded_bars_title">Thanh tròn</string>
+    <string name="pulse_rounded_bars_summary">Hiển thị thanh trực quan có góc bo tròn</string>
+    <string name="pulse_color">Màu sắc của trình trực quan hóa</string>
+    <string name="pulse_color_lavalamp">Lavalamp</string>
+    <string name="pulse_color_album">Bìa album</string>
     <string name="pulse_color_accent">Màu nhấn</string>
-    <string name="pulse_color_custom">Tùy chỉnh</string>
-    <string name="pulse_color_lava_lamp">Đèn lava</string>
-    <string name="pulse_color_user_title">Chọn màu sắc</string>
-    <string name="pulse_smoothing_enabled_title">Bật làm mượt</string>
-    <string name="pulse_smoothing_enabled_summary">Thanh hoạt cảnh mượt hơn</string>
-    <string name="pulse_custom_dimen">Độ rộng thanh</string>
-    <string name="pulse_custom_div">Khoảng cách thanh</string>
-    <string name="pulse_filled_block_size">Kích thước khối</string>
-    <string name="pulse_empty_block_size">Khoảng cách khối</string>
+    <string name="pulse_bar_count_title">Số lượng thanh</string>
+    <string name="pulse_bar_count_summary">Thiết lập số lượng thanh được hiển thị trong trình trực quan hóa</string>
+    <string name="pulse_bar_count_units">thanh</string>
+    <string name="pulse_renderer">Phong cách trực quan hóa</string>
+    <string name="pulse_renderer_solid">Đường liền nét</string>
+    <string name="pulse_renderer_fading">Khối mờ dần</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Vuốt trái/phải để xem trước kiểu đồng hồ</string>
     <!-- Lock screen Clock Revamp -->
@@ -856,7 +838,7 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Thông báo ngang nhỏ</string>
     <string name="small_landscape_notification_summary">Hiển thị thông báo hẹp hơn trong bảng thông báo khi ở chế độ ngang giống như AOSP mặc định</string>
-    <!-- Notification Row -->
+    <!-- Notification row transparency -->
     <string name="notification_row_transparency_title">Độ trong suốt của hàng thông báo</string>
     <string name="notification_row_transparency_summary">Hiển thị thông báo trong suốt ở quicksettings</string>
     <!-- Button settings -->
