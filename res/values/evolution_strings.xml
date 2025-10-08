@@ -1710,4 +1710,14 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- Single Tone QS -->
     <string name="qs_single_tone_title">Single Tone QS</string>
     <string name="qs_single_tone_summary">Hide notification scrim for unified Quick Settings appearance</string>
+
+    <!-- Ambient display -->
+    <string name="ambient_display_category_title">Ambient display</string>
+    <string name="ambient_bottom_title">AOD bottom</string>
+    <string name="ambient_battery_disable_title">Disabled</string>
+    <string name="ambient_battery_percent_title">Battery level</string> 
+    <string name="ambient_battery_both_title">Battery (Level &amp; temperature)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Battery level, temperature (Battery &amp; CPU)</string>
+    <string name="display_icon_title">Icons</string>
+    <string name="display_icon_summary">Display icons along with level &amp; temperature</string>
 </resources>
