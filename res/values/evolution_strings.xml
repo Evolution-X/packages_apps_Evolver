@@ -1569,6 +1569,7 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ambient_battery_percent_title">Battery level</string> 
     <string name="ambient_battery_both_title">Battery (Level &amp; temperature)</string>
     <string name="ambient_battery_cpu_battery_temperature_title">Battery level, temperature (Battery &amp; CPU)</string>
+    <string name="ambient_user_name_title">User name</string>
     <string name="display_icon_title">Icons</string>
     <string name="display_icon_summary">Display icons along with level &amp; temperature</string>
 </resources>

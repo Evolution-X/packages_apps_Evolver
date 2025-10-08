@@ -1607,6 +1607,7 @@
         <item>@string/ambient_battery_percent_title</item>
         <item>@string/ambient_battery_both_title</item>
         <item>@string/ambient_battery_cpu_battery_temperature_title</item>
+        <item>@string/ambient_user_name_title</item>
     </string-array>
 
     <string-array name="ambient_bottom_values" translatable="false">
@@ -1614,5 +1615,6 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>
