@@ -1601,4 +1601,18 @@
         <item>1.5</item>
         <item>2.0</item>
     </string-array>
+
+    <string-array name="ambient_bottom_entries" translatable="false">
+        <item>@string/ambient_battery_disable_title</item>
+        <item>@string/ambient_battery_percent_title</item>
+        <item>@string/ambient_battery_both_title</item>
+        <item>@string/ambient_battery_cpu_battery_temperature_title</item>
+    </string-array>
+
+    <string-array name="ambient_bottom_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
