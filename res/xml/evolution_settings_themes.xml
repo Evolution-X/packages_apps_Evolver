@@ -190,6 +190,13 @@
             android:summary="@string/themes_charging_animation_summary"
             android:defaultValue="true" />
 
+        <!-- Dynamic charging animation -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="wireless_charging_dynamic_color"
+            android:title="@string/wireless_charging_dynamic_color_title"
+            android:summary="@string/wireless_charging_dynamic_color_summary"
+            android:defaultValue="true" />
+
         <!-- Screen Off animation -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="screen_off_animation"
