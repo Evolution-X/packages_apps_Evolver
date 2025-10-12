@@ -965,4 +965,18 @@
     <!-- Dynamic charging animation -->
     <string name="wireless_charging_dynamic_color_title">Dynamic charging color</string>
     <string name="wireless_charging_dynamic_color_summary">Use battery level to determine charging ripple animation color</string>
+    
+     <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Shake gestures</string>
+    <string name="shake_gestures_enabled_summary">Shake your device to perform actions</string>
+    <string name="shake_gestures_action_title">Shake gestures actions</string>
+    <string name="shake_gestures_toggle_flashlight">Toggle flashlight</string>
+    <string name="shake_gestures_media_playback">Play/skip media</string>
+    <string name="shake_gestures_volume_panel">Show volume panel</string>
+    <string name="shake_gestures_screen_wake">Turn screen on/off</string>
+    <string name="shake_gestures_clear_notifs">Clear all notifications</string>
+    <string name="shake_gestures_toggle_ringer">Toggle ringer mode</string>
+    <string name="shake_gestures_screenshot">Take screenshot</string>
+    <string name="shake_gestures_intensity_title">Shake gestures intensity</string>
+    <string name="shake_gestures_intensity_summary">Adjust the sensitivity of shake gestures</string>
 </resources>
