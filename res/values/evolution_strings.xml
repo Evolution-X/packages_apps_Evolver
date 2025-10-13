@@ -865,16 +865,31 @@
     <string name="media_squiggle_animation_summary">Show seekbar squiggle animation in media panel when playing media</string>
 
     <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Status bar action chip</string>
+    <string name="ongoing_progress_settings_title">Ongoing progress chip</string>
     <string name="ongoing_progress_settings_summary">Status bar action chip options</string>
-    <string name="ongoing_action_chip_title">Ongoing action chip</string>
-    <string name="ongoing_action_chip_summary">Show progress indicator in status bar for ongoing actions like downloads</string>
-    <string name="ongoing_action_chip_opacity_title">Progress bar opacity</string>
-    <string name="ongoing_action_chip_opacity_summary">Adjust the opacity of the progress bar chip</string>
-    <string name="compact_progress_mode_title">Compact progress indicator</string>
-    <string name="compact_progress_mode_summary">Use a compact circular indicator for ongoing actions</string>
+    <string name="ongoing_action_chip_title">Enable ongoing action chip</string>
+    <string name="ongoing_action_chip_summary">Show progress for ongoing notifications in status bar</string>
+    <string name="compact_progress_mode_title">Compact progress mode</string>
+    <string name="compact_progress_mode_summary">Use circular progress indicator instead of bar</string>
     <string name="show_media_progress_title">Show media progress</string>
-    <string name="show_media_progress_summary">"Display media playback progress in the status bar</string>
+    <string name="show_media_progress_summary">Display media playback progress in status bar</string>
+    <string name="progress_bar_opacity_title">Progress bar opacity</string>
+    <string name="progress_bar_opacity_summary">Adjust the transparency of the progress chip</string>
+    <string name="progress_enable_category_title">General settings</string>
+    <string name="standard_chip_position_title">Standard chip position</string>
+    <string name="circular_chip_position_title">Circular chip position</string>
+    <string name="chip_position_x_title">Horizontal position</string>
+    <string name="chip_position_x_summary">Move chip left or right from alignment point</string>
+    <string name="chip_position_y_title">Vertical position</string>
+    <string name="chip_position_y_summary">Move chip up or down in status bar</string>
+    <string name="chip_size_title">Chip width</string>
+    <string name="chip_size_summary">Adjust the width of the progress chip</string>
+    <string name="circular_chip_size_title">Circular chip size</string>
+    <string name="circular_chip_size_summary">Adjust the diameter of the circular chip</string>
+    <string name="circular_position_x_title">Horizontal offset</string>
+    <string name="circular_position_x_summary">Fine-tune horizontal position</string>
+    <string name="circular_position_y_title">Vertical offset</string>
+    <string name="circular_position_y_summary">Fine-tune vertical position</string>
     <string name="progress_footer_text">
      "The status bar progress bar provides real-time updates for both media playback and active downloads/uploads.
  
