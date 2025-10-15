@@ -439,8 +439,6 @@
     <string name="notifications_heads_up_title">Notificações flutuantes</string>
     <string name="notifications_heads_up_summary">Permitir notificações flutuantes</string>
     <string name="notifications_interface_category">Interface</string>
-    <string name="notifications_edge_light_title">Iluminação nas bordas da tela</string>
-    <string name="notifications_edge_light_summary">Efeito luminoso nas bordas da tela ambiente ao receber novas notificações</string>
     <string name="notifications_kill_app_button_title">Encerrar aplicativo</string>
     <string name="notifications_kill_app_button_summary">Mostrar botão para encerrar o aplicativo no menu de toque longo da notificação</string>
     <string name="notifications_sounds_vibration_category">Sons &amp; vibração</string>
@@ -453,17 +451,13 @@
     <string name="compact_heads_up_notifications_enabled_title">Notificação flutuante compacta</string>
     <string name="compact_heads_up_notifications_enabled_summary">Exibir notificações em tamanho compacto</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_always_trigger_on_pulse_title">Sempre mostrar as luzes</string>
-    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Mostrar a luz de borda sempre que a tela ambiente é exibida e não apenas para notificações</string>
-    <string name="notifications_edge_light_repeat_animation_title">Repetir animação</string>
-    <string name="notifications_edge_light_repeat_animation_summary_on">Repetir até o tempo limite</string>
-    <string name="notifications_edge_light_repeat_animation_summary_off">Mostrar apenas uma vez</string>
-    <string name="notifications_edge_light_color_mode_title">Cor do pulso de luz nas bordas</string>
-    <string name="notifications_edge_light_style_title">Estilo edge light</string>
-    <string name="notifications_edge_light_stroke_width_title">Largura do traço Edge light</string>
-    <string name="notifications_edge_light_stroke_width_summary">Configurar espessura da Edge light</string>
-    <string name="notifications_edge_light_style_1">Desenhar Linha</string>
-    <string name="notifications_edge_light_style_2">Piscar/Pulso</string>
+    <string name="edge_light_title">Iluminação nas bordas da tela</string>
+    <string name="edge_light_summary">Ilumina as bordas laterais da tela no pulso de notificação</string>
+    <string name="edge_light_color_mode_title">Modo de cor</string>
+    <string name="edge_light_pulse_count_title">Contagem de pulso</string>
+    <string name="edge_light_pulse_count_summary">Número de pulsos para a luz de borda</string>
+    <string name="edge_light_stroke_width_title">Largura do traço</string>
+    <string name="edge_light_stroke_width_summary">Definir espessura para barras de luz de borda</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Menos irritante</string>
     <string name="notifications_less_boring_heads_up_summary">Mostrar notificações flutuantes apenas para alarmes, ligações e aplicativo de mensagem</string>
@@ -523,8 +517,6 @@
     <string name="tensor_spoof_summary">Desbloquear recursos disponíveis apenas em dispositivos Pixel com Tensor</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Mascarar seu aparelho para burlar a Certificação do Google Play</string>
-    <string name="spoofing_storage_encryption_title">Criptografia de armazenamento</string>
-    <string name="spoofing_storage_encryption_summary">Mascara o status da criptografia de armazenamento do dispositivo para \'Encriptado\'</string>
     <string name="spoofing_app_specific_category">Específico do Aplicativo</string>
     <string name="spoofing_qsb_title">Google app</string>
     <string name="spoofing_qsb_summary">Simular o Google app como o dispositivo Pixel mais recente para desbloquear recursos exclusivos</string>
@@ -806,9 +798,9 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Mostrar animação de rabisco</string>
     <string name="show_squiggle_animation_summary">Mostrar animação de linha ondulada no painel de mídia.\nApós a alteração é necessário alternar a música, pausar ou mover a barra de progresso para aplicar</string>
-    <!-- AOD wallpaper -->
-    <string name="aod_wallpaper_title">Papel de parede AOD</string>
-    <string name="aod_wallpaper_summary">Mostrar plano de fundo quando estiver ligado</string>
+    <!-- Ambient AOD -->
+    <string name="ambient_aod_title">Ambiente AOD</string>
+    <string name="ambient_aod_summary">Ativar plano de fundo ambiente e aprimoramentos AOD</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Barra de bateria</string>
     <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
@@ -837,9 +829,6 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Notificações de paisagem pequenas</string>
     <string name="small_landscape_notification_summary">Mostrar notificações menores na largura do painel de notificação no modo paisagem, assim como o AOSP pretendido</string>
-    <!-- Notification row transparency -->
-    <string name="notification_row_transparency_title">Transparência da linha de notificação</string>
-    <string name="notification_row_transparency_summary">Mostrar notificações de configurações rápidas translúcidas</string>
     <!-- Button settings -->
     <string name="touchscreen_gesture_action_play_pause_music">Reproduzir/pausar a reprodução de música</string>
     <string name="hardware_keys_action_nothing">Nenhuma ação</string>
@@ -876,4 +865,25 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="power_off_verify_footer">A verificação de desligamento protege seu dispositivo, impedindo que outras pessoas o desliguem imediatamente após a perda, aumentando as chances de recuperação. Você só precisa digitar a senha da tela de bloqueio ao desligar ou reiniciar o telefone a partir da tela de bloqueio.</string>
     <string name="power_off_verify_summary">Quando o dispositivo estiver bloqueado, você precisará usar sua senha para desligar ou reiniciar.</string>
     <string name="power_off_verify_title">Desligar a verificação</string>
+    <!-- Notification row transparency -->
+    <string name="notification_row_transparency_title">Transparência da linha de notificação</string>
+    <string name="notification_row_transparency_summary">Mostrar notificações de configurações rápidas translúcidas</string>
+    <string name="notification_row_transparency_lockscreen_title">Notificações translúcidas da tela de bloqueio</string>
+    <string name="notification_row_transparency_lockscreen_summary">Definir fundo translúcido para notificações na tela de bloqueio</string>
+    <!-- Dynamic charging animation -->
+    <string name="wireless_charging_dynamic_color_title">Cor de carregamento dinâmica</string>
+    <string name="wireless_charging_dynamic_color_summary">Usar o nível de bateria para determinar a cor da animação do ondulação</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Gestos ao agitar</string>
+    <string name="shake_gestures_enabled_summary">Agite seu dispositivo para executar ações</string>
+    <string name="shake_gestures_action_title">Ação do gesto ao agitar</string>
+    <string name="shake_gestures_toggle_flashlight">Alternar lanterna</string>
+    <string name="shake_gestures_media_playback">Reproduzir/pular mídia</string>
+    <string name="shake_gestures_volume_panel">Mostrar o painel de volume</string>
+    <string name="shake_gestures_screen_wake">Ligar/desligar a tela</string>
+    <string name="shake_gestures_clear_notifs">Limpar todas as notificações</string>
+    <string name="shake_gestures_toggle_ringer">Alternar Modo de toque</string>
+    <string name="shake_gestures_screenshot">Fazer uma captura de tela</string>
+    <string name="shake_gestures_intensity_title">Intensidade de agitação</string>
+    <string name="shake_gestures_intensity_summary">Ajustar a sensibilidade dos gestos de agitação</string>
 </resources>
