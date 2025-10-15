@@ -439,8 +439,6 @@
     <string name="notifications_heads_up_title">Спливаючі сповіщення</string>
     <string name="notifications_heads_up_summary">Дозволити спливаючі сповіщення</string>
     <string name="notifications_interface_category">Інтерфейс</string>
-    <string name="notifications_edge_light_title">Яскравість підсвітки екрана</string>
-    <string name="notifications_edge_light_summary">Підсвічувати краї екрана при сповіщеннях</string>
     <string name="notifications_kill_app_button_title">Завершити додаток</string>
     <string name="notifications_kill_app_button_summary">Показувати кнопку закриття додатку при довгому натисненні на сповіщення</string>
     <string name="notifications_sounds_vibration_category">Звуки &amp; Вібрація</string>
@@ -453,17 +451,13 @@
     <string name="compact_heads_up_notifications_enabled_title">Компактні сповіщення</string>
     <string name="compact_heads_up_notifications_enabled_summary">Показувати сповіщення в компактному розмірі</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_always_trigger_on_pulse_title">Завжди використовувати пульсацію</string>
-    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Показувати перемикач світла, коли Активний дисплей, і не тільки для сповіщень</string>
-    <string name="notifications_edge_light_repeat_animation_title">Повторити анімацію</string>
-    <string name="notifications_edge_light_repeat_animation_summary_on">Час очікування повтору</string>
-    <string name="notifications_edge_light_repeat_animation_summary_off">Відтворити одноразово</string>
-    <string name="notifications_edge_light_color_mode_title">Колір підсвічування контуру</string>
-    <string name="notifications_edge_light_style_title">Стиль Edge Light</string>
-    <string name="notifications_edge_light_stroke_width_title">Ширина легкого штриха краю</string>
-    <string name="notifications_edge_light_stroke_width_summary">Налаштувати яскравість краю освітлення</string>
-    <string name="notifications_edge_light_style_1">Намалюйте лінію</string>
-    <string name="notifications_edge_light_style_2">Блимання/Імпульс</string>
+    <string name="edge_light_title">Яскравість підсвітки екрана</string>
+    <string name="edge_light_summary">Підсвічувати краї екрана при сповіщеннях</string>
+    <string name="edge_light_color_mode_title">Колір підсвічування контуру</string>
+    <string name="edge_light_pulse_count_title">Кількість імпульсів</string>
+    <string name="edge_light_pulse_count_summary">Кількість імпульсів для світла по краях</string>
+    <string name="edge_light_stroke_width_title">Ширина штриха</string>
+    <string name="edge_light_stroke_width_summary">Встановіть товщину світлих смужок по краях </string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Менше нудних спливаючих сповіщень</string>
     <string name="notifications_less_boring_heads_up_summary">Відображати спливаючі сповіщення лише для дзвінків, повідомлень і будильника</string>
@@ -523,8 +517,6 @@
     <string name="tensor_spoof_summary">Розблокувати функції доступні тільки в пристроїв на основі десятого пікселя</string>
     <string name="gms_spoof_title">Відтворити виправлення цілісності</string>
     <string name="gms_spoof_summary">Імітувати дані вашого пристрою, щоб перейти до списку дозволів Google Play</string>
-    <string name="spoofing_storage_encryption_title">Шифрування сховища</string>
-    <string name="spoofing_storage_encryption_summary">Імітувати статус шифрування сховища пристрою в \'Зашифрований\'</string>
     <string name="spoofing_app_specific_category">Спеціально для програми</string>
     <string name="spoofing_qsb_title">Додаток Google</string>
     <string name="spoofing_qsb_summary">Підробка застосунку Google на найновіший пристрій Pixel, щоб розблокувати ексклюзивні функції</string>
@@ -800,9 +792,9 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">Показувати анімацію руху</string>
     <string name="show_squiggle_animation_summary">Показати мультимедійну панель анімації, після чого потрібно змінити музику, призупинити музику або перемістити її для застосування</string>
-    <!-- AOD wallpaper -->
-    <string name="aod_wallpaper_title">Шпалери AOD</string>
-    <string name="aod_wallpaper_summary">Показувати шпалери, коли Активний Екран увімкнено</string>
+    <!-- Ambient AOD -->
+    <string name="ambient_aod_title">Аутфітний AOD </string>
+    <string name="ambient_aod_summary">Увімкнути підтримку зовнішніх шпалер та AOD</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Індикатор батареї</string>
     <string name="battery_bar_summary">Відображення і налаштування панелі батареї над рядком стану</string>
@@ -831,9 +823,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Маленькі ландшафтні сповіщення</string>
     <string name="small_landscape_notification_summary">Відображає сповіщення, менші за ширину в панелі сповіщень в ландшафтному режимі просто як AOSP призначений</string>
-    <!-- Notification row transparency -->
-    <string name="notification_row_transparency_title">Прозорість рядка сповіщень</string>
-    <string name="notification_row_transparency_summary">Показувати сповіщення про напівпрозорі налаштування швидкого доступу</string>
     <!-- Button settings -->
     <string name="touchscreen_gesture_action_play_pause_music">Відтворити/призупинити відтворення музики</string>
     <string name="hardware_keys_action_nothing">Жодної дії</string>
@@ -870,4 +859,25 @@
     <string name="power_off_verify_footer">Вимкнення перевірки, що захищає ваш пристрій, не даючи іншим вимикати його відразу після його втрати, збільшуючи шанси на відновлення. Вам лише потрібно ввести пароль екрану блокування під час вимкнення або перезапуску телефону на екрані блокування.</string>
     <string name="power_off_verify_summary">Коли пристрій заблоковано, вам потрібно буде використовувати свій пароль, щоб вимкнути або перезавантажитися.</string>
     <string name="power_off_verify_title">Вимкнути перевірку</string>
+    <!-- Notification row transparency -->
+    <string name="notification_row_transparency_title">Прозорість рядка сповіщень</string>
+    <string name="notification_row_transparency_summary">Показувати сповіщення про напівпрозорі налаштування швидкого доступу</string>
+    <string name="notification_row_transparency_lockscreen_title">Напівпрозорі сповіщення на екрані блокування</string>
+    <string name="notification_row_transparency_lockscreen_summary">Встановити напівпрозорий фон для сповіщень на екрані блокування</string>
+    <!-- Dynamic charging animation -->
+    <string name="wireless_charging_dynamic_color_title">Динамічний колір при заряджанні</string>
+    <string name="wireless_charging_dynamic_color_summary">Використовуйте рівень заряду акумулятора для визначення кольору анімації пульсації</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Жести струшування</string>
+    <string name="shake_gestures_enabled_summary">Струсіть ваш пристрій, щоб виконати дії</string>
+    <string name="shake_gestures_action_title">Дії жестів струшування</string>
+    <string name="shake_gestures_toggle_flashlight">Ввімкнути/Вимкнути ліхтарик</string>
+    <string name="shake_gestures_media_playback">Відтворити/Пропустити Медіа</string>
+    <string name="shake_gestures_volume_panel">Показати панель гучності</string>
+    <string name="shake_gestures_screen_wake">Вкл/викл екран</string>
+    <string name="shake_gestures_clear_notifs">Очистити всі сповіщення</string>
+    <string name="shake_gestures_toggle_ringer">Перемкнути режим дзвінка</string>
+    <string name="shake_gestures_screenshot">Зробити знімок екрану</string>
+    <string name="shake_gestures_intensity_title">Інтенсивність жестів струшування</string>
+    <string name="shake_gestures_intensity_summary">Відрегулюйте чутливість жестів струшування</string>
 </resources>
