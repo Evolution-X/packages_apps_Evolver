@@ -13,6 +13,13 @@
         android:key="lock_screen_interface_category"
         android:title="@string/lock_screen_interface_category">
 
+        <!-- Ambient Wallpaper -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="doze_always_on_wallpaper_enabled"
+            android:title="@string/doze_always_on_wallpaper_title"
+            android:summary="@string/doze_always_on_wallpaper_summary"
+            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
+
         <!-- Lockscreen Clock Font and styles -->
         <!--<Preference
             android:key="android.theme.customization.lockscreen_clock_font"
