@@ -965,4 +965,8 @@
     <!-- Dynamic charging animation -->
     <string name="wireless_charging_dynamic_color_title">Dynamic charging color</string>
     <string name="wireless_charging_dynamic_color_summary">Use battery level to determine charging ripple animation color</string>
+
+    <!-- Ambient Wallpaper -->
+    <string name="doze_always_on_wallpaper_title">Ambient wallpaper</string>
+    <string name="doze_always_on_wallpaper_summary">Show lockscreen wallpaper on Ambient Display</string>
 </resources>
