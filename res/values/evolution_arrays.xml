@@ -636,6 +636,7 @@
         <item>@string/accent_color</item>
         <item>@string/notification_color</item>
         <item>@string/wallpaper_color</item>
+        <item>@string/rainbow_color</item>
         <item>@string/custom_color</item>
     </string-array>
 
@@ -643,6 +644,7 @@
         <item>accent</item>
         <item>notification</item>
         <item>wallpaper</item>
+        <item>rainbow</item>
         <item>custom</item>
     </string-array>
 
