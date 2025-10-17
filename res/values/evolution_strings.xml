@@ -476,6 +476,9 @@
     <string name="edge_light_pulse_count_summary">Number of pulses for edge light</string>
     <string name="edge_light_stroke_width_title">Stroke width</string>
     <string name="edge_light_stroke_width_summary">Set thickness for edge light bars</string>
+    <string name="edge_light_style_title">Render style</string>
+    <string name="edge_light_style_default">Default (left/right)</string>
+    <string name="edge_light_style_frame">Frame (all sides)</string>
 
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Less boring</string>

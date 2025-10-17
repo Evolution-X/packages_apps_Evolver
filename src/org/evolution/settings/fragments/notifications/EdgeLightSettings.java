@@ -47,6 +47,8 @@ public class EdgeLightSettings extends SettingsPreferenceFragment {
                 Settings.System.EDGE_LIGHT_PULSE_COUNT, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.EDGE_LIGHT_STROKE_WIDTH, 8, UserHandle.USER_CURRENT);
+        Settings.System.putStringForUser(resolver,
+                Settings.System.EDGE_LIGHT_STYLE, "default", UserHandle.USER_CURRENT);
     }
 
     @Override

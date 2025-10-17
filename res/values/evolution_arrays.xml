@@ -646,6 +646,16 @@
         <item>custom</item>
     </string-array>
 
+    <string-array name="edge_light_style_entries" translatable="false">
+        <item>@string/edge_light_style_default</item>
+        <item>@string/edge_light_style_frame</item>
+    </string-array>
+
+    <string-array name="edge_light_style_values" translatable="false">
+        <item>default</item>
+        <item>rounded</item>
+    </string-array>
+
     <!-- Pulse music visualizer -->
     <string-array name="pulse_color_entries">
         <item>@string/pulse_color_lavalamp</item>

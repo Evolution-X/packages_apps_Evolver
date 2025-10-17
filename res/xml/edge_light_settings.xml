@@ -54,6 +54,15 @@
         android:defaultValue="0"
         android:dependency="edge_light_enabled" />
 
+    <org.evolution.settings.preferences.SystemSettingListPreference
+        android:key="edge_light_style"
+        android:title="@string/edge_light_style_title"
+        android:entries="@array/edge_light_style_entries"
+        android:entryValues="@array/edge_light_style_values"
+        android:summary="%s"
+        android:defaultValue="0"
+        android:dependency="edge_light_enabled" />
+
     <org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference
         android:key="edge_light_custom_color"
         android:title="@string/custom_color"
