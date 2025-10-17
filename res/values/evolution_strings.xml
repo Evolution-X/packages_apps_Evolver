@@ -979,4 +979,8 @@
     <string name="shake_gestures_screenshot">Take screenshot</string>
     <string name="shake_gestures_intensity_title">Shake gestures intensity</string>
     <string name="shake_gestures_intensity_summary">Adjust the sensitivity of shake gestures</string>
+
+    <!-- Ambient Wallpaper -->
+    <string name="doze_always_on_wallpaper_title">Ambient wallpaper</string>
+    <string name="doze_always_on_wallpaper_summary">Show lockscreen wallpaper on Ambient Display</string>
 </resources>
