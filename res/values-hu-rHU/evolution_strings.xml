@@ -127,8 +127,6 @@
     <string name="lock_screen_fingerprint_category">Ujjlenyomat</string>
     <string name="lock_screen_fingerprint_ripple_title">Fodrozódó animáció</string>
     <string name="lock_screen_fingerprint_ripple_summary">Ujjlenyomatos feloldáskor fodrozódó effektus</string>
-    <string name="lock_screen_screen_off_udfps_title">Ujjlenyomatszenzor kikapcsolt kijelzőnél</string>
-    <string name="lock_screen_screen_off_udfps_summary">A képernyőbe épített ujjlenyomat-szenzor aktív marad kikapcsolt képernyőn is</string>
     <string name="lock_screen_fingerprint_success_vibration_title">A sikeres hitelesítés rezeg</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Ujjlenyomat sikeres hitelesítésekor rezgés</string>
     <string name="lock_screen_fingerprint_error_vibration_title">A sikertelen hitelesítés rezeg</string>
@@ -439,8 +437,6 @@
     <string name="notifications_heads_up_title">Lebegő értesítés</string>
     <string name="notifications_heads_up_summary">A felugró értesítések engedélyezése</string>
     <string name="notifications_interface_category">Kezelőfelület</string>
-    <string name="notifications_edge_light_title">Oldalfény</string>
-    <string name="notifications_edge_light_summary">A képernyő oldalsó széleit világítsa meg az értesítés villogó jelzése</string>
     <string name="notifications_kill_app_button_title">Az alkalmazás kilövése</string>
     <string name="notifications_kill_app_button_summary">Az értesítések hosszannyomási menüjében megjeleik az \"Alkalmazás kilövése\" gomb</string>
     <string name="notifications_sounds_vibration_category">Hangok és rezgés</string>
@@ -453,17 +449,13 @@
     <string name="compact_heads_up_notifications_enabled_title">Kompakt méretű felugrók</string>
     <string name="compact_heads_up_notifications_enabled_summary">Az értesítések kompakt méretben jelennek meg</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_always_trigger_on_pulse_title">Oldalfény-kapcsoló</string>
-    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Itt dönthető el, hogy a környezeti kijelző megjelenésekor is megjelenjen az oldalfény, ne csak az értesítéskor</string>
-    <string name="notifications_edge_light_repeat_animation_title">Animációismétlés</string>
-    <string name="notifications_edge_light_repeat_animation_summary_on">Ismétlődés egy időhatárig</string>
-    <string name="notifications_edge_light_repeat_animation_summary_off">Csak egyszer jelenjen meg</string>
-    <string name="notifications_edge_light_color_mode_title">Az oldalszín jellege</string>
-    <string name="notifications_edge_light_style_title">Az \'Oldalfények\' stílusa</string>
-    <string name="notifications_edge_light_stroke_width_title">Az \'Oldalfények\' vonalszélessége</string>
-    <string name="notifications_edge_light_stroke_width_summary">Beállíthatja az \'Oldalfények\' vastagságát</string>
-    <string name="notifications_edge_light_style_1">Vonalrajzolás</string>
-    <string name="notifications_edge_light_style_2">Villogás/Pulzálás</string>
+    <string name="edge_light_title">Oldalfény</string>
+    <string name="edge_light_summary">A képernyő oldalsó széleit világítsa meg az értesítés villogó jelzése</string>
+    <string name="edge_light_color_mode_title">Színmód</string>
+    <string name="edge_light_pulse_count_title">A pulzálás száma</string>
+    <string name="edge_light_pulse_count_summary">Az élvilágítás villanásainak száma</string>
+    <string name="edge_light_stroke_width_title">A körvonal szélessége</string>
+    <string name="edge_light_stroke_width_summary">Az élvilágítás-sáv vastagságának beállítása</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Csak a fontosak</string>
     <string name="notifications_less_boring_heads_up_summary">Felugró értesítések megjelenítése csak az ébresztőhöz, a tárcsázóhoz és az üzenetekhez</string>
@@ -523,8 +515,6 @@
     <string name="tensor_spoof_summary">Csak Tensor-processzorú Pixel-készülékeken érhetők el ezek a funkciók</string>
     <string name="gms_spoof_title">Áruházi Integritásjavítás</string>
     <string name="gms_spoof_summary">Készülékálcázás, hogy megfeleljen a Google Áruház tanusítványi feltételeinek</string>
-    <string name="spoofing_storage_encryption_title">Tárhelytitkosítás</string>
-    <string name="spoofing_storage_encryption_summary">A tárhely állapotának hamisítása \' Titkosított \'-ra</string>
     <string name="spoofing_app_specific_category">Alkalmazás-specifikus</string>
     <string name="spoofing_qsb_title">Google-alkalmazás</string>
     <string name="spoofing_qsb_summary">Álcázás a legújabb Pixel-készülékre, hogy különleges funkciók elérhetővé váljanak</string>
@@ -555,8 +545,9 @@
     <string name="keybox_toast_missing_data">Érvénytelen Keybox-XML: kötelező mezők hiányoznak</string>
     <string name="keybox_toast_file_loaded">A Keybox betöltve</string>
     <string name="keybox_toast_file_cleared">A Keybox tisztítva</string>
-    <string name="keybox_check_title">Privát kulcsbox hamisítás / az erős integritás kényszerítésének letiltása</string>
-    <string name="keybox_check_summary">Alapértelmezés szerint engedélyezzük az erős integritás kényszerítését bármely kulcsbox-szal és érvényes PIF-fel, de pl. a Google Pay -jel ez hibásan működik. Ez a beállítás lehetővé teszi a probléma megoldása érdekében ennek az opciónak a letiltását az ilyen alkalmazásokban.</string>
+    <!-- Block attestation even with Keybox Data -->
+    <string name="pi_gmscertchain_title">Az erős integritás kényszerítés letiltása</string>
+    <string name="pi_gmscertchain_summary">Ha engedélyezve van, nem kényszerít erős integritást érvényes egyéni keybox-okból, és a Google Play integritáshamisítására támaszkodik az olyan alkalmazások javításához, mint a Google Pay</string>
     <!-- About -->
     <string name="about_info">Az Evolution X egy egyedi Android ROM, amelynek célja a Google Pixel élményének reprodukálása, csak sokkal több testreszabási lehetőséggel. A Lineage OS Project-re támaszkodva.</string>
     <string name="about_website_title">Honlap</string>
@@ -807,9 +798,6 @@
     <!-- Squiggle animation -->
     <string name="show_squiggle_animation_title">A hanghullámos animáció megjelenítése</string>
     <string name="show_squiggle_animation_summary">Megjeleníti a hullámra hasonlító médiapanel-animációt,\nérvénybe léptetéshez a módosítás után váltani vagy szüneteltetni kell a zenét, vagy mozgatni kell a folyamatjelző sávot</string>
-    <!-- AOD wallpaper -->
-    <string name="aod_wallpaper_title">Mindig bekapcsolva - háttérkép</string>
-    <string name="aod_wallpaper_summary">Háttérkép engedélyezése bekapcsolt AOD-nál</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Akkumulátorsáv</string>
     <string name="battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
@@ -838,9 +826,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Vékony fekvőmódú értesítések</string>
     <string name="small_landscape_notification_summary">Az értesítéseket vékonyabban jeleníti meg az értesítési panelen fekvő módban, ahogyan az Android Open Source Projektben szándékolták</string>
-    <!-- Notification row transparency -->
-    <string name="notification_row_transparency_title">Az értesítési sor átlátszósága</string>
-    <string name="notification_row_transparency_summary">A gyorsbeállítási értesítések átlátszóak lehetnek</string>
     <!-- Button settings -->
     <string name="touchscreen_gesture_action_play_pause_music">Zenelejátszás indítása/szüneteltetése</string>
     <string name="hardware_keys_action_nothing">Nincs művelet</string>
@@ -877,4 +862,28 @@
     <string name="power_off_verify_footer">A kikapcsolás ellenőrzése megvédi a készüléket azáltal, hogy megakadályozza, hogy mások azonnal kikapcsolják az elveszett készüléket, ezzel növelve az Ön visszaszerzés esélyeit. A zárolási képernyő jelszavát csak akkor kell megadnia, amikor kikapcsolja vagy újraindítja a telefont a zárolási képernyőről.</string>
     <string name="power_off_verify_summary">Kikapcsoláshoz vagy újraindításhoz szüksége lesz a jelszóra, ha záróképernyőről indítaná.</string>
     <string name="power_off_verify_title">Ellenőrzött kikapcsolás</string>
+    <!-- Notification row transparency -->
+    <string name="notification_row_transparency_title">Áttetsző értesítések</string>
+    <string name="notification_row_transparency_summary">A gyorsbeállítási értesítések átlátszóak lehetnek</string>
+    <string name="notification_row_transparency_lockscreen_title">Áttetsző értesítések a záróképernyőn</string>
+    <string name="notification_row_transparency_lockscreen_summary">Az értesítések áttetsző háttérének beállítása a záróképernyőn</string>
+    <!-- Dynamic charging animation -->
+    <string name="wireless_charging_dynamic_color_title">Dinamikus töltési színek</string>
+    <string name="wireless_charging_dynamic_color_summary">A töltési hullámanimáció színe az akku töltöttségi fokától függ</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Rázásra induló műveletek</string>
+    <string name="shake_gestures_enabled_summary">Egy feladat indításához rázza meg készülékét</string>
+    <string name="shake_gestures_action_title">Rázással indított műveletek</string>
+    <string name="shake_gestures_toggle_flashlight">Zseblámpa-kapcsolás</string>
+    <string name="shake_gestures_media_playback">Lejátszás / Átugrás</string>
+    <string name="shake_gestures_volume_panel">Hangerőpanel megjelenítése</string>
+    <string name="shake_gestures_screen_wake">Képernyő ki/bekapcsolása</string>
+    <string name="shake_gestures_clear_notifs">Minden értesítés törlése</string>
+    <string name="shake_gestures_toggle_ringer">Csengésmód-változtatás</string>
+    <string name="shake_gestures_screenshot">Képernyőkép-készítés</string>
+    <string name="shake_gestures_intensity_title">A rázás erőssége</string>
+    <string name="shake_gestures_intensity_summary">Állítsa be a rázási érzékenységet</string>
+    <!-- Ambient Wallpaper -->
+    <string name="doze_always_on_wallpaper_title">Környezeti háttérkép</string>
+    <string name="doze_always_on_wallpaper_summary">Környezeti kijelzőn is a képernyőzár háttérképe jelenik meg</string>
 </resources>
