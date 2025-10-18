@@ -674,11 +674,17 @@
     <string-array name="pulse_renderer_entries">
         <item>@string/pulse_renderer_solid</item>
         <item>@string/pulse_renderer_fading</item>
+        <item>@string/pulse_renderer_neon_glow</item>
+        <item>@string/pulse_renderer_retro_vu_meter</item>
+        <item>@string/pulse_renderer_minimal_wave</item>
     </string-array>
 
     <string-array name="pulse_renderer_values">
         <item>solid</item>
         <item>fading</item>
+        <item>neon</item>
+        <item>retro</item>
+        <item>minimal</item>
     </string-array>
 
     <!-- Quick settings - Tiles animation -->
