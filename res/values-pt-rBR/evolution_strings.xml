@@ -127,8 +127,6 @@
     <string name="lock_screen_fingerprint_category">Impressão digital</string>
     <string name="lock_screen_fingerprint_ripple_title">Animação de ondulação</string>
     <string name="lock_screen_fingerprint_ripple_summary">Mostrar animação de ondulação quando desbloqueado com impressão digital</string>
-    <string name="lock_screen_screen_off_udfps_title">Impressão digital com a tela apagada</string>
-    <string name="lock_screen_screen_off_udfps_summary">Permitir o desbloqueio por impressão digital com a tela apagada</string>
     <string name="lock_screen_fingerprint_success_vibration_title">Vibração de sucesso de autenticação</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Resposta tátil ao desbloquear usando o leitor de impressão digital</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Vibração de erro de autenticação</string>
@@ -547,9 +545,6 @@
     <string name="keybox_toast_missing_data">XML de caixa de chaves inválido: campos obrigatórios ausentes</string>
     <string name="keybox_toast_file_loaded">Caixa de chaves carregada</string>
     <string name="keybox_toast_file_cleared">Caixa de chaves limpa</string>
-    <!-- GMS cert chain -->
-    <string name="gms_cert_chain_title">Desabilitar forçar integridade forte</string>
-    <string name="gms_cert_chain_summary">Forçar uma integridade forte quebra aplicativos como o Google Pay; habilitar essa opção corrige esses aplicativos.</string>
     <!-- About -->
     <string name="about_info">Evolução X visa fornecer aos usuários uma sensação de Pixel à primeira vista, com recursos adicionais à sua disposição</string>
     <string name="about_website_title">Site</string>
@@ -883,4 +878,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="shake_gestures_screenshot">Fazer uma captura de tela</string>
     <string name="shake_gestures_intensity_title">Intensidade de agitação</string>
     <string name="shake_gestures_intensity_summary">Ajustar a sensibilidade dos gestos de agitação</string>
+    <!-- Ambient Wallpaper -->
+    <string name="doze_always_on_wallpaper_title">Papel de parede ambiente</string>
+    <string name="doze_always_on_wallpaper_summary">Mostrar papel de parede da tela de bloqueio na Tela Ambiente</string>
 </resources>
