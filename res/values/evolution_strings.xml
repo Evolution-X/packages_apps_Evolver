@@ -592,6 +592,10 @@
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
 
+    <!-- Block attestation even with Keybox Data -->
+    <string name="gms_cert_chain_title">Disable forcing strong integrity</string>
+    <string name="gms_cert_chain_summary">When enabled, do not enforce strong integrity from valid custom keybox and depend on Google Play Integrity spoof to fix apps like Google Pay</string>
+
     <!-- About -->
     <string name="about_info">Evolution X aims to provide users with a Pixel-like feel at first glance, with additional features at your disposal</string>
     <string name="about_website_title">Website</string>

@@ -144,17 +144,17 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mTensorSpoof.setOnPreferenceChangeListener(this);
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
-        new ActivityResultContracts.StartActivityForResult(),
-        result -> {
-            if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-            Uri uri = result.getData().getData();
-            Preference pref = findPreference(KEYBOX_DATA_KEY);
-            if (pref instanceof KeyboxDataPreference) {
-                ((KeyboxDataPreference) pref).handleFileSelected(uri);
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    Uri uri = result.getData().getData();
+                    Preference pref = findPreference(KEYBOX_DATA_KEY);
+                    if (pref instanceof KeyboxDataPreference) {
+                        ((KeyboxDataPreference) pref).handleFileSelected(uri);
+                    }
+                }
             }
-        }
-    }
-    );
+        );
 
         mPifJsonFilePreference.setOnPreferenceClickListener(preference -> {
             openFileSelector(10001);

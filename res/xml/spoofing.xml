@@ -17,6 +17,13 @@
             android:key="keybox_data_setting"
             android:title="@string/keybox_data_title" />
 
+        <!-- Block attestation even with Keybox Data -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="gms_cert_chain"
+            android:title="@string/gms_cert_chain_title"
+            android:summary="@string/gms_cert_chain_summary"
+            android:defaultValue="false" />
+
         <!-- GMS spoof -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pixelprops.gms"
