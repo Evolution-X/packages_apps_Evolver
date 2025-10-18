@@ -45,6 +45,8 @@ public class PulseSettings extends SettingsPreferenceFragment {
         Settings.Secure.putIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT);
         Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.AMBIENT_PULSE_ENABLED, 1, UserHandle.USER_CURRENT);
+        Settings.Secure.putIntForUser(resolver,
                 Settings.Secure.PULSE_BAR_COUNT, 32, UserHandle.USER_CURRENT);
         Settings.Secure.putIntForUser(resolver,
                 Settings.Secure.PULSE_ROUNDED_BARS, 0, UserHandle.USER_CURRENT);
