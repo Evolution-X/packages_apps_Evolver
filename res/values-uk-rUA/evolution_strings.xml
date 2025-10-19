@@ -569,7 +569,6 @@
     <string name="notification_color">Колір сповіщення</string>
     <string name="wallpaper_color">Колір шпалер</string>
     <string name="rainbow_color">Колір веселки</string>
-    <string name="rainbow_gradient_color">Градієнт веселки</string>
     <string name="custom_color">Власний колір</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Значення: <xliff:g id="v">%s</xliff:g></string>
@@ -771,6 +770,9 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Значки сповіщень</string>
     <string name="max_visible_notification_icons_summary">Максимальна кількість іконок, що видимі в рядку стану</string>
+    <!-- Squiggle animation for media notification -->
+    <string name="media_squiggle_animation_title">Анамація хвилястих ліній</string>
+    <string name="media_squiggle_animation_summary">Показувати анімацію перемотки екрану при відтворенні медіа</string>
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Статус мікросхеми дій панелі</string>
     <string name="ongoing_progress_settings_summary">Налаштування схованки в рядку стану</string>
@@ -793,9 +795,6 @@
 - 📥 Хід завантаження/вивантаження: • Відображає хід поточних завантажень та вивантажень. 
 • Автоматично приховується, коли не виявлено активних передач. 
 • Одне натискання відкриває додаток, відповідальний за завантаження. Індикатор прогресу динамічно перемикається між станами медіафайлів та завантаження, гарантуючи, що ви завжди маєте найактуальнішу інформацію з першого погляду    </string>
-    <!-- Squiggle animation -->
-    <string name="show_squiggle_animation_title">Показувати анімацію руху</string>
-    <string name="show_squiggle_animation_summary">Показати мультимедійну панель анімації, після чого потрібно змінити музику, призупинити музику або перемістити її для застосування</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Індикатор батареї</string>
     <string name="battery_bar_summary">Відображення і налаштування панелі батареї над рядком стану</string>
