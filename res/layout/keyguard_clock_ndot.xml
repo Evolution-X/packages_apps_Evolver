@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center|top"
+    android:gravity="center|top"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_width="290dp"
+            android:layout_height="95dp"
+            android:layout_gravity="top|center"
+            android:tag="custom_image1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ndot_1"
+                android:layout_marginEnd="4dp"
+                android:scaleType="fitCenter" />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ndot_0"
+                android:layout_marginEnd="8dp"
+                android:scaleType="fitCenter" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="#FFFFFF"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="6dp" />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ndot_2"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:scaleType="fitCenter" />
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ndot_0"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

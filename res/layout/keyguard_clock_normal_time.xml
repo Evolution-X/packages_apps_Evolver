@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center|top"
+    android:gravity="center|top"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="110dp"
+            android:layout_gravity="top|center"
+            android:tag="custom_image1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="84dp"
+                android:src="@drawable/normaltime_1"
+                android:layout_marginEnd="4dp"
+                android:scaleType="fitCenter" />
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="84dp"
+                android:src="@drawable/normaltime_0"
+                android:layout_marginEnd="8dp"
+                android:scaleType="fitCenter" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="#FFFFFF"
+                android:textSize="56sp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="8dp" />
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="84dp"
+                android:src="@drawable/normaltime_2"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:scaleType="fitCenter" />
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="84dp"
+                android:src="@drawable/normaltime_0"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
