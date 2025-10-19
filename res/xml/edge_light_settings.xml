@@ -63,6 +63,14 @@
         android:defaultValue="default"
         android:dependency="edge_light_enabled" />
 
+    <org.evolution.settings.preferences.SystemSettingListPreference
+        android:key="edge_light_animation_effect"
+        android:title="@string/edge_light_animation_effect_title"
+        android:entries="@array/edge_light_animation_entries"
+        android:entryValues="@array/edge_light_animation_values"
+        android:defaultValue="none"
+        android:dependency="edge_light_enabled" />
+
     <org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference
         android:key="edge_light_custom_color"
         android:title="@string/custom_color"
