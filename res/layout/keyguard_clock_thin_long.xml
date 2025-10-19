@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center|top"
+    android:gravity="center|top"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="64dp"
+                android:src="@drawable/thin_baa_1"
+                android:layout_marginEnd="6dp"
+                android:scaleType="fitCenter" />
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="64dp"
+                android:src="@drawable/thin_baa_0"
+                android:layout_marginEnd="12dp"
+                android:scaleType="fitCenter" />
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="64dp"
+                android:src="@drawable/thin_baa_2"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="6dp"
+                android:scaleType="fitCenter" />
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="64dp"
+                android:src="@drawable/thin_baa_0"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
