@@ -569,7 +569,6 @@
     <string name="notification_color">Értesítési szín</string>
     <string name="wallpaper_color">Háttérkép-színek</string>
     <string name="rainbow_color">Szivárványszín</string>
-    <string name="rainbow_gradient_color">Szivárványszín-átmenet</string>
     <string name="custom_color">Egyéni szín</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value"><xliff:g id="v">%s</xliff:g> értékű</string>
@@ -773,6 +772,9 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Értesítés ikonok</string>
     <string name="max_visible_notification_icons_summary">Maximum hány ikon látszódhat az állapotsoron</string>
+    <!-- Squiggle animation for media notification -->
+    <string name="media_squiggle_animation_title">Hullámzó animáció</string>
+    <string name="media_squiggle_animation_summary">Média lejátszásakor a keresősáv hullámzó animációjának megjelenítése</string>
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Folyamatkijelzés az értesítési sávban</string>
     <string name="ongoing_progress_settings_summary">Az értesítési sáv kijelzési beállításai</string>
@@ -801,9 +803,6 @@
  
      A folyamatjelző sáv dinamikusan vált a média és a letöltési állapotok között, így Ön mindig egy pillantással áttekintheti a legfontosabb információkat.\"
     </string>
-    <!-- Squiggle animation -->
-    <string name="show_squiggle_animation_title">A hanghullámos animáció megjelenítése</string>
-    <string name="show_squiggle_animation_summary">Megjeleníti a hullámra hasonlító médiapanel-animációt,\nérvénybe léptetéshez a módosítás után váltani vagy szüneteltetni kell a zenét, vagy mozgatni kell a folyamatjelző sávot</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Akkumulátorsáv</string>
     <string name="battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
