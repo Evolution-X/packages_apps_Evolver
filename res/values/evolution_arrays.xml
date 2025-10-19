@@ -659,6 +659,24 @@
         <item>rounded</item>
     </string-array>
 
+    <string-array name="edge_light_animation_entries" translatable="false">
+        <item>@string/edge_light_animation_effect_none</item>
+        <item>@string/edge_light_animation_effect_breathing</item>
+        <item>@string/edge_light_animation_effect_wave</item>
+        <item>@string/edge_light_animation_effect_sparkle</item>
+        <item>@string/edge_light_animation_effect_chase</item>
+        <item>@string/edge_light_animation_effect_comet</item>
+    </string-array>
+
+    <string-array name="edge_light_animation_values" translatable="false">
+        <item>none</item>
+        <item>breathing</item>
+        <item>wave</item>
+        <item>sparkle</item>
+        <item>chase</item>
+        <item>comet</item>
+    </string-array>
+
     <!-- Pulse music visualizer -->
     <string-array name="pulse_color_entries" translatable="false">
         <item>@string/pulse_color_lavalamp</item>
