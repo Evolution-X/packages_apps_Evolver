@@ -13,8 +13,8 @@
         android:title="@string/spoofing_system_wide_category">
 
         <!-- GMS spoof -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pixelprops.gms"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_enable_gms_spoof"
             android:title="@string/gms_spoof_title"
             android:summary="@string/gms_spoof_summary"
             android:defaultValue="true" />
@@ -25,8 +25,8 @@
             android:title="@string/keybox_data_title" />
 
         <!-- Block attestation even with Keybox Data -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pixelprops.gmscertchain"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_gms_cert_chain"
             android:title="@string/pi_gmscertchain_title"
             android:summary="@string/pi_gmscertchain_summary" />
 
@@ -34,23 +34,23 @@
             android:key="show_pif_properties"
             android:title="@string/show_pif_properties_title"
             android:summary="@string/show_pif_properties_summary"
-            android:dependency="persist.sys.pixelprops.gms" />
+            android:dependency="pi_enable_gms_spoof" />
 
         <Preference
             android:key="update_pif_json"
             android:title="@string/update_pif_json_title"
             android:summary="@string/update_pif_json_summary"
-            android:dependency="persist.sys.pixelprops.gms" />
+            android:dependency="pi_enable_gms_spoof" />
 
         <Preference
             android:key="pif_json_file_preference"
             android:title="@string/pif_spoofing_title"
             android:summary="@string/pif_spoofing_summary"
-            android:dependency="persist.sys.pixelprops.gms" />
+            android:dependency="pi_enable_gms_spoof" />
 
         <!-- Pixel props -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pixelprops"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_enable_spoof"
             android:title="@string/spoofing_pixel_props_title"
             android:summary="@string/spoofing_pixel_props_summary"
             android:defaultValue="true" />
@@ -68,8 +68,8 @@
         android:title="@string/spoofing_app_specific_category">
 
         <!-- Google App -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pixelprops.qsb"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_qsb_spoof"
             android:title="@string/spoofing_qsb_title"
             android:summary="@string/spoofing_qsb_summary"
             android:defaultValue="false" />
@@ -82,22 +82,22 @@
             android:defaultValue="false" />-->
 
         <!-- Google Photos -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pixelprops.gphotos"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_photos_spoof"
             android:title="@string/spoofing_photos_title"
             android:summary="@string/spoofing_photos_summary"
             android:defaultValue="true" />
 
         <!-- Games FPS -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pixelprops.games"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_games_spoof"
             android:title="@string/gameprops_title"
             android:summary="@string/gameprops_summary"
             android:defaultValue="true" />
 
         <!-- Snapchat -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pixelprops.snap"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_snapchat_spoof"
             android:title="@string/spoofing_snap_title"
             android:summary="@string/spoofing_snap_summary"
             android:defaultValue="false" />

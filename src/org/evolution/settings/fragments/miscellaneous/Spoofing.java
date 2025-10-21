@@ -35,6 +35,7 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.evolution.KeyProviderManager;
@@ -75,13 +76,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String KEY_PIF_JSON_FILE_PREFERENCE = "pif_json_file_preference";
     private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
     private static final String KEY_UPDATE_JSON_BUTTON = "update_pif_json";
-    private static final String SYS_GMS_SPOOF = "persist.sys.pixelprops.gms";
-    private static final String SYS_GMS_CERT_SPOOF = "persist.sys.pixelprops.gmscertchain";
-    private static final String SYS_GOOGLE_SPOOF = "persist.sys.pixelprops";
-    private static final String SYS_GAMEPROP_SPOOF = "persist.sys.pixelprops.games";
-    private static final String SYS_GPHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
-    private static final String SYS_QSB_SPOOF = "persist.sys.pixelprops.qsb";
-    private static final String SYS_SNAP_SPOOF = "persist.sys.pixelprops.snap";
+    private static final String KEY_GMS_SPOOF = "pi_enable_gms_spoof";
+    private static final String KEY_GMS_CERT_SPOOF = "pi_gms_cert_chain";
+    private static final String KEY_GOOGLE_SPOOF = "pi_enable_spoof";
+    private static final String KEY_GAMEPROP_SPOOF = "pi_games_spoof";
+    private static final String KEY_GPHOTOS_SPOOF = "pi_photos_spoof";
+    private static final String KEY_QSB_SPOOF = "pi_qsb_spoof";
+    private static final String KEY_SNAP_SPOOF = "pi_snapchat_spoof";
     private static final String SYS_TENSOR_SPOOF = "persist.sys.features.tensor";
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
@@ -90,13 +91,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private Preference mPifJsonFilePreference;
     private Preference mUpdateJsonButton;
     private PreferenceCategory mSystemWideCategory;
-    private SystemPropertySwitchPreference mDisableForceIntegrity;
-    private SystemPropertySwitchPreference mGmsSpoof;
-    private SystemPropertySwitchPreference mGoogleSpoof;
-    private SystemPropertySwitchPreference mGamePropsSpoof;
-    private SystemPropertySwitchPreference mGphotosSpoof;
-    private SystemPropertySwitchPreference mQsbSpoof;
-    private SystemPropertySwitchPreference mSnapSpoof;
+    private SwitchPreferenceCompat mDisableForceIntegrity;
+    private SwitchPreferenceCompat mGmsSpoof;
+    private SwitchPreferenceCompat mGoogleSpoof;
+    private SwitchPreferenceCompat mGamePropsSpoof;
+    private SwitchPreferenceCompat mGphotosSpoof;
+    private SwitchPreferenceCompat mQsbSpoof;
+    private SwitchPreferenceCompat mSnapSpoof;
     private SystemPropertySwitchPreference mTensorSpoof;
 
     private Handler mHandler;
@@ -113,19 +114,18 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final Resources resources = context.getResources();
 
         mSystemWideCategory = (PreferenceCategory) findPreference(KEY_SYSTEM_WIDE_CATEGORY);
-        mGamePropsSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GAMEPROP_SPOOF);
-        mGphotosSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GPHOTOS_SPOOF);
-        mGmsSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GMS_SPOOF);
-        mGoogleSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GOOGLE_SPOOF);
+        mGamePropsSpoof = (SwitchPreferenceCompat) findPreference(KEY_GAMEPROP_SPOOF);
+        mGphotosSpoof = (SwitchPreferenceCompat) findPreference(KEY_GPHOTOS_SPOOF);
+        mGmsSpoof = (SwitchPreferenceCompat) findPreference(KEY_GMS_SPOOF);
+        mGoogleSpoof = (SwitchPreferenceCompat) findPreference(KEY_GOOGLE_SPOOF);
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
-        mQsbSpoof = (SystemPropertySwitchPreference) findPreference(SYS_QSB_SPOOF);
-        mSnapSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAP_SPOOF);
+        mQsbSpoof = (SwitchPreferenceCompat) findPreference(KEY_QSB_SPOOF);
+        mSnapSpoof = (SwitchPreferenceCompat) findPreference(KEY_SNAP_SPOOF);
         mTensorSpoof = (SystemPropertySwitchPreference) findPreference(SYS_TENSOR_SPOOF);
         mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
 
         String model = SystemProperties.get("ro.product.model");
         boolean isTensorDevice = model.matches("Pixel (6|7|8|9|10)[a-zA-Z ]*");
-        boolean isPixelGmsEnabled = SystemProperties.getBoolean(SYS_GMS_SPOOF, true); // Default to Pixel GMS
 
         if (DeviceUtils.isCurrentlySupportedPixel()) {
             mGoogleSpoof.setDefaultValue(false);
@@ -146,7 +146,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mSnapSpoof.setOnPreferenceChangeListener(this);
         mTensorSpoof.setOnPreferenceChangeListener(this);
 
-        mDisableForceIntegrity = findPreference(SYS_GMS_CERT_SPOOF);
+        mDisableForceIntegrity = (SwitchPreferenceCompat) findPreference(KEY_GMS_CERT_SPOOF);
         if (mDisableForceIntegrity != null) {
             mDisableForceIntegrity.setEnabled(KeyProviderManager.isKeyboxAvailable());
         }
