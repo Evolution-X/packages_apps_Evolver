@@ -892,17 +892,30 @@
     <!-- Wallpaper Styles -->
     <string name="wallpaper_settings_title">Wallpaper styles</string>
     <string name="wallpaper_settings_summary">Configure wallpaper styles and settings</string>
-    <string name="wallpaper_blur_title">Wallpaper blur</string>
-    <string name="wallpaper_blur_summary">Enable or disable wallpaper blur effect</string>
-    <string name="wallpaper_blur_filter">Wallpaper blur style</string>
-    <string name="wallpaper_dim_title">Wallpaper dim</string>
-    <string name="wallpaper_dim_level_title">Wallpaper dim level</string>
-    <string name="wallpaper_dim_level_summary">Configure wallpaper dim level</string>
+    
+    <!-- Wallpaper Settings Titles -->
+    <string name="wallpaper_blur_title">Wallpaper Blur Effect</string>
+    <string name="wallpaper_blur_filter">Wallpaper Blur Type</string>
+    <string name="wallpaper_effects_title">Wallpaper Visual Effects</string>
+    <string name="wallpaper_effect_type_title">Wallpaper Effect Type</string>
+    <string name="wallpaper_effect_target_title">Apply effect to</string>
+    <string name="wallpaper_dim_title">Wallpaper Dim Effect</string>
+    <string name="wallpaper_dim_level_title">Wallpaper Dim Level</string>
     <string name="glass_blur">Glass blur</string>
     <string name="frosted_blur">Frosted blur</string>
-    <string name="wallpaper_styles_footer">
-        For wallpaper styles to work effectively, users must set the wallpapers for the lock screen and home screen at different times.\nThe same wallpaper can be used, but it should not be applied to both the lock screen and home screen at the same time.\nThis is optional when using the BOTH OPTION for wallpaper blur and dim styles.
-    </string>
+    <string name="wallpaper_dim_level_summary">Configure wallpaper dim level</string>
+    <string name="wallpaper_styles_footer">For wallpaper styles to work effectively, users must set the wallpapers for the lock screen and home screen at different times.\nThe same wallpaper can be used, but it should not be applied to both the lock screen and home screen at the same time.\nThis is optional when using the BOTH OPTION for wallpaper blur and dim styles.</string>
+    <string name="wallpaper_performance_warning">⚠ Performance Notice: These visual effects are resource-intensive and may impact performance on low-end devices. For optimal experience, use on mid-range or flagship devices.\nEffects may cause lag, battery drain, or stuttering on older phones.</string>
+    
+    <!-- Effect Titles -->
+    <string name="wallpaper_saturation_title">Saturation Level</string>
+    <string name="wallpaper_saturation_summary">Boost or reduce color intensity</string>
+    <string name="wallpaper_pixelation_size_title">Pixelation Size</string>
+    <string name="wallpaper_pixelation_size_summary">Larger values = more pixelated</string>
+    <string name="wallpaper_vignette_intensity_title">Vignette Intensity</string>
+    <string name="wallpaper_vignette_intensity_summary">Darkness of edges</string>
+    <string name="wallpaper_posterize_levels_title">Posterize Levels</string>
+    <string name="wallpaper_posterize_levels_summary">Color depth reduction</string>
 
     <!-- Compact QS Media Player-->
     <string name="qs_compact_media_player_mode_title">Compact QS media player</string>

@@ -169,7 +169,7 @@ private val CRITICAL_SYSTEM_PACKAGES = setOf(
     "com.google.android.apps.messaging",
     "com.google.android.dialer",
     "com.whatsapp",
-    "org.lunaris.dolby"
+    "org.evolution.dolby"
 )
 
 private data class IdleAppItem(
