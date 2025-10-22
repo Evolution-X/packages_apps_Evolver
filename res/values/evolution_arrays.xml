@@ -1064,18 +1064,20 @@
     </string-array>
 
     <!-- QS Tiles Shape -->
-    <string-array name="quick_settings_tile_shape_entries">
+    <string-array name="quick_settings_tile_shape_entries" translatable="false">
         <item>@string/quick_settings_tile_shape_dynamic</item>
-        <item>@string/quick_settings_tile_shape_circle</item>
+        <item>@string/quick_settings_tile_shape_rounded_square_smooth</item>
         <item>@string/quick_settings_tile_shape_rounded_square</item>
         <item>@string/quick_settings_tile_shape_square</item>
+        <item>@string/quick_settings_tile_shape_circle</item>
     </string-array>
 
-    <string-array name="quick_settings_tile_shape_values">
+    <string-array name="quick_settings_tile_shape_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
     <!-- Battery bar -->
