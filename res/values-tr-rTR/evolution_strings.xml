@@ -127,8 +127,6 @@
     <string name="lock_screen_fingerprint_category">Parmak izi</string>
     <string name="lock_screen_fingerprint_ripple_title">Dalgalanma animasyonu</string>
     <string name="lock_screen_fingerprint_ripple_summary">Parmak izi ile kilit açıldığında dalgalanma animasyonu göster</string>
-    <string name="lock_screen_screen_off_udfps_title">Kapalı ekran parmak izi</string>
-    <string name="lock_screen_screen_off_udfps_summary">Ekran kapalıyken parmak izini açık tutun</string>
     <string name="lock_screen_fingerprint_success_vibration_title">Kimlik doğrulama başarı titreşimi</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Başarılı parmak izi kimlik doğrulanmasında titret</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Kimlik doğrulama hatası titreşimi</string>
@@ -139,38 +137,25 @@
     <string name="lock_screen_always_on_pocket_mode_title">Her zaman açık Cep modu</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Ekran açıldığında ekran ve düğme girişlerini her zaman engelleyin</string>
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">Pulse hakkında</string>
-    <string name="pulse_help_policy_notice_summary">Müzik çalarken kilit ekranında görünen akıllı bir ses grafik görselleştirmesidir</string>
-    <string name="lock_screen_pulse_settings_title">Pulse</string>
-    <string name="lock_screen_pulse_settings_summary">Gezinme çubuğu ve kilit ekranı için grafik ekolayzır</string>
-    <string name="show_navbar_pulse_title">Gezinme çubuğunda Pulse</string>
-    <string name="show_navbar_pulse_summary">Gezinme çubuğunda ses görselleştirmesini gösterir</string>
-    <string name="show_lockscreen_pulse_title">Kilit ekranında Pulse</string>
-    <string name="show_lockscreen_pulse_summary">Kilit ekranında ses görselleştirici</string>
-    <string name="show_ambient_pulse_title">Ortam ekranında Pulse</string>
-    <string name="show_ambient_pulse_summary">Ortam ekranında ses görselleştirmesini göster</string>
-    <string name="pulse_render_mode_title">İşleme modu</string>
-    <string name="pulse_render_mode_fading_bars">Solan bloklar</string>
-    <string name="pulse_render_mode_solid_lines">Düz çizgiler</string>
-    <string name="pulse_legacy_mode_advanced_category">Solan bloklar modu ayarları</string>
-    <string name="pulse_custom_fudge_factor">Davranış seviyesi</string>
-    <string name="pulse_lavalamp_speed_title">Lav lambası hızı</string>
-    <string name="pulse_solid_units_rounded_title">Yuvarlatılmış köşeler</string>
-    <string name="pulse_solid_units_rounded_summary">Yuvarlak köşeli düz çizgiler</string>
-    <string name="pulse_solid_units_count">Düz çizgi sayısı</string>
-    <string name="pulse_solid_units_opacity">Düz çizgi şeffaflığı</string>
-    <string name="pulse_solid_dimen_category">Düz çizgi modu ayarları</string>
-    <string name="pulse_color_mode_title">Renk</string>
+    <string name="pulse_settings_title">Pulse Görselleştirici</string>
+    <string name="pulse_settings_summary">Kilit ekranı ve gezinme çubuğunda ses görselleştirmesini gösterir</string>
+    <string name="ambient_pulse_enabled_title">Ortam ekranında Pulse</string>
+    <string name="ambient_pulse_enabled_summary">Ambient Display\'de görselleştiriciyi göster</string>
+    <string name="pulse_rounded_bars_title">Yuvarlak çubuklar</string>
+    <string name="pulse_rounded_bars_summary">Köşeleri yuvarlatılmış görüntüleyici çubuklarını görüntüleyin</string>
+    <string name="pulse_color">Görselleştirici rengi</string>
+    <string name="pulse_color_lavalamp">Lavalamp</string>
+    <string name="pulse_color_album">Albüm kapağı</string>
     <string name="pulse_color_accent">Vurgu rengi</string>
-    <string name="pulse_color_custom">Özel</string>
-    <string name="pulse_color_lava_lamp">Lav lambası</string>
-    <string name="pulse_color_user_title">Renk seçin</string>
-    <string name="pulse_smoothing_enabled_title">Yumuşatmayı aç</string>
-    <string name="pulse_smoothing_enabled_summary">Her çubuk daha pürüzsüz animasyonlu</string>
-    <string name="pulse_custom_dimen">Çubuk genişliği</string>
-    <string name="pulse_custom_div">Çubuk aralığı</string>
-    <string name="pulse_filled_block_size">Blok boyutu</string>
-    <string name="pulse_empty_block_size">Blok aralığı</string>
+    <string name="pulse_bar_count_title">Çubuk sayısı</string>
+    <string name="pulse_bar_count_summary">Görselleştiricide kaç çubuğun gösterileceğini ayarlama</string>
+    <string name="pulse_bar_count_units">çubuklar</string>
+    <string name="pulse_renderer">Görselleştirici stili</string>
+    <string name="pulse_renderer_solid">Düz çizgiler</string>
+    <string name="pulse_renderer_fading">Solan bloklar</string>
+    <string name="pulse_renderer_neon_glow">Neon ışığı</string>
+    <string name="pulse_renderer_retro_vu_meter">Retro VU ölçer</string>
+    <string name="pulse_renderer_minimal_wave">Minimal dalga</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Saat stillerini önizlemek için sola veya sağa kaydırın</string>
     <!-- Lock screen Clock Revamp -->
@@ -450,6 +435,7 @@
     <string name="quick_settings_tile_shape_title">Hızlı ayarlar döşemeleri şekli</string>
     <string name="quick_settings_tile_shape_dynamic">Dinamik</string>
     <string name="quick_settings_tile_shape_circle">Daire</string>
+    <string name="quick_settings_tile_shape_rounded_square_smooth">Yuvarlatılmış kare (pürüzsüz)</string>
     <string name="quick_settings_tile_shape_rounded_square">Yuvarlatılmış kare</string>
     <string name="quick_settings_tile_shape_square">Kare</string>
     <string name="quick_settings_tile_haptic_summary">\'Hızlı Ayarlar\' kutucuklarına dokunulduğunda geri bildirim sağlayın</string>
@@ -457,8 +443,6 @@
     <string name="notifications_heads_up_title">Bildirim pencereleri</string>
     <string name="notifications_heads_up_summary">Bildirim pencerelerine izin ver</string>
     <string name="notifications_interface_category">Arayüz</string>
-    <string name="notifications_edge_light_title">Kenar aydınlatması</string>
-    <string name="notifications_edge_light_summary">Bildirimler için ortam ekranı kenarlarını aydınlat</string>
     <string name="notifications_kill_app_button_title">Uygulamayı sonlandır</string>
     <string name="notifications_kill_app_button_summary">Bildirimlerin uzun basma menüsünde zorla durdurma butonu göster</string>
     <string name="notifications_sounds_vibration_category">Ses &amp; titreşim</string>
@@ -471,17 +455,23 @@
     <string name="compact_heads_up_notifications_enabled_title">Küçük kayan bildirim</string>
     <string name="compact_heads_up_notifications_enabled_summary">Bildirimleri küçük boyda görüntüle</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_always_trigger_on_pulse_title">Pulse sırasında daima tetikle</string>
-    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Kenar aydınlatmasının ortam ekranında veya sadece bildirimlerde gösterilip gösterilmeyeceği</string>
-    <string name="notifications_edge_light_repeat_animation_title">Animasyonu tekrarla</string>
-    <string name="notifications_edge_light_repeat_animation_summary_on">Zaman aşımına kadar tekrarla</string>
-    <string name="notifications_edge_light_repeat_animation_summary_off">Yalnızca bir kez göster</string>
-    <string name="notifications_edge_light_color_mode_title">Kenar aydınlatma rengi</string>
-    <string name="notifications_edge_light_style_title">Kenar ışık stili</string>
-    <string name="notifications_edge_light_stroke_width_title">Kenar ışığı kontur genişliği</string>
-    <string name="notifications_edge_light_stroke_width_summary">Kenar ışık kalınlığını yapılandırma</string>
-    <string name="notifications_edge_light_style_1">Çizgi Çiz</string>
-    <string name="notifications_edge_light_style_2">Göz Kırpma/Nabız</string>
+    <string name="edge_light_title">Kenar aydınlatması</string>
+    <string name="edge_light_summary">Bildirimler için ortam ekranı kenarlarını aydınlat</string>
+    <string name="edge_light_color_mode_title">Renk modu</string>
+    <string name="edge_light_pulse_count_title">Pulse sayısı</string>
+    <string name="edge_light_pulse_count_summary">Kenar ışığı için pulse sayısı</string>
+    <string name="edge_light_stroke_width_title">Kontur genişliği</string>
+    <string name="edge_light_stroke_width_summary">Kenar ışık çubukları için kalınlık ayarı</string>
+    <string name="edge_light_style_title">Render stili</string>
+    <string name="edge_light_style_default">Varsayılan (sol/sağ)</string>
+    <string name="edge_light_style_frame">Çerçeve (tüm kenarlar)</string>
+    <string name="edge_light_animation_effect_title">Animasyon efekti</string>
+    <string name="edge_light_animation_effect_none">Standart</string>
+    <string name="edge_light_animation_effect_breathing">Nefes alma</string>
+    <string name="edge_light_animation_effect_wave">Dalga</string>
+    <string name="edge_light_animation_effect_sparkle">Parıltı</string>
+    <string name="edge_light_animation_effect_chase">Takip</string>
+    <string name="edge_light_animation_effect_comet">Kuyruklu yıldız</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Daha az bildirim</string>
     <string name="notifications_less_boring_heads_up_summary">Sadece alarm, çevirici ve mesajlaşma uygulaması için açılır bildirimleri görüntüle</string>
@@ -541,8 +531,6 @@
     <string name="tensor_spoof_summary">Yalnızca tensör tabanlı Pixel cihazlarda kullanılabilen özelliklerin kilidini aç</string>
     <string name="gms_spoof_title">Play Integrity düzeltmesi</string>
     <string name="gms_spoof_summary">Google Play Onayını geçmek için cihazınızı taklit edin</string>
-    <string name="spoofing_storage_encryption_title">Depolama şifrelemesi</string>
-    <string name="spoofing_storage_encryption_summary">Cihaz depolaması şifrelemesi durumunu \'Şifreli\' olarak ayarla</string>
     <string name="spoofing_app_specific_category">Uygulamayaya Yönelik</string>
     <string name="spoofing_qsb_title">Google uygulaması</string>
     <string name="spoofing_qsb_summary">Özel özelliklerin kilidini açmak için Google uygulamasını en yeni Pixel cihazına taklit edin</string>
@@ -573,6 +561,9 @@
     <string name="keybox_toast_missing_data">Geçersiz anahtar kutusu XML: gerekli alanlar eksik</string>
     <string name="keybox_toast_file_loaded">Anahtar kutusu yüklendi</string>
     <string name="keybox_toast_file_cleared">Anahtar kutusu temizlendi</string>
+    <!-- Block attestation even with Keybox Data -->
+    <string name="pi_gmscertchain_title">Güçlü Bütünlüğü Zorlamayı Devre Dışı Bırak</string>
+    <string name="pi_gmscertchain_summary">Etkinleştirildiğinde, geçerli özel anahtar kutusundan güçlü bütünlüğü zorlamayın ve Google Pay gibi uygulamaları düzeltmek için Google Play Bütünlük Gizliliğine güvenin</string>
     <!-- About -->
     <string name="about_info">Evolution X, Google Pixel deneyimini ek özelleştirme ile çoğaltmayı amaçlayan özel bir Android ROM\'dur. LineageOS Projesine dayanmaktadır.</string>
     <string name="about_website_title">İnternet sitesi</string>
@@ -588,7 +579,7 @@
     <string name="accent_color">Vurgu rengi (Varsayılan)</string>
     <string name="notification_color">Bildirim rengi</string>
     <string name="wallpaper_color">Duvar kağıdı rengi</string>
-    <string name="rainbow_gradient_color">Gökkuşağı gradyan rengi</string>
+    <string name="rainbow_color">Gökkuşağı rengi</string>
     <string name="custom_color">Özel renk</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Değer: <xliff:g id="v">%s</xliff:g></string>
@@ -617,8 +608,9 @@
     <string name="powermenu_style_title">Güç menüsü stili</string>
     <string name="powermenu_style1">Cyberpunk</string>
     <string name="powermenu_style2">Duoline</string>
-    <string name="powermenu_style3">IOS</string>
-    <string name="powermenu_style4">Katmanlar</string>
+    <string name="powermenu_style3">Sıvı (Şeffaf)</string>
+    <string name="powermenu_style4">IOS</string>
+    <string name="powermenu_style5">Katmanlar</string>
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">QS başlık saat stili</string>
     <string name="qs_header_style1">Çip</string>
@@ -675,21 +667,24 @@
     <string name="depth_wallpaper_offset_y_title">Derinlik duvar kağıdı dikey ofset</string>
     <string name="dw_footer_text">        Ios\'un Duvar Kağıdı Konu Segmentasyonundan esinlenen derinlik duvar kağıdı özelliği, duvar kağıdı derinlik efekti göstermek için bir konunun kilit ekranı saatinin üzerine bindirilmesini sağlar.\n\nDerinlik Duvar Kağıdı Özelliğini kurmak için:\n1. Konuyu veya konunun üzerinde olmasını istediğiniz arka planı içeren bir duvar kağıdı ayarlayın.\n2. İzlemek için bir konu görüntüsü seçin, bu görüntü kilit ekranı saatinin üzerine yerleştirilecektir.\n3. Ofsetleri ve opaklığı ihtiyaçlarınıza göre değiştirin.
     </string>
-    <!-- Media art -->
-    <string name="media_art_title">Medya kapak görüntüsü</string>
-    <string name="media_art_summary">Kilit ekranında medya kapak görüntüsünü göster</string>
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Medya kapak görüntüsü</string>
+    <string name="ls_media_art_summary">Kilit ekranında medya kapak görüntüsünü göster</string>
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">Medya kapak resmi filtresi</string>
+    <string name="ls_media_art_filter_none">Hiçbiri</string>
+    <string name="ls_media_art_filter_blur">Bulanık</string>
+    <string name="ls_media_art_filter_grayscale">Gri tonlama</string>
+    <string name="ls_media_art_filter_sepia">Sepya</string>
+    <string name="ls_media_art_filter_tint">Vurgu renkli</string>
+    <string name="ls_media_art_filter_invert">Ters çevir</string>
+    <string name="ls_media_art_filter_grayblur">Gri tonlamalı ve bulanık</string>
+    <!-- Lock screen media art fade level -->
     <string name="ls_media_art_fade_level_title">Medya kapak resmi solma seviyesi</string>
     <string name="ls_media_art_fade_level_summary">Medya kapak resmi solma seviyesini ayarlama</string>
-    <!-- Lock screen album art filter -->
-    <string name="lockscreen_albumart_filter_title">Medya kapak resmi filtresi</string>
-    <string name="lockscreen_albumart_filter_none">Hiçbiri</string>
-    <string name="lockscreen_albumart_filter_grayscale">Gri tonlama</string>
-    <string name="lockscreen_albumart_filter_tint">Vurgu renkli</string>
-    <string name="lockscreen_albumart_filter_blur">Bulanık</string>
-    <string name="lockscreen_albumart_filter_grayblur">Gri tonlama ve bulanık</string>
-    <!-- Media Art Blur Level -->
-    <string name="lockscreen_media_art_blur_level_title">Medya resmi bulanıklık seviyesi</string>
-    <string name="lockscreen_media_art_blur_level_summary">Bulanıklık filtresi uygulandığında bulanıklık yoğunluğu</string>
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">Medya resmi bulanıklık seviyesi</string>
+    <string name="ls_media_art_blur_level_summary">Bulanıklık Filtresi Uygulandığındaki Bulanıklık Yoğunluğu</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Sistem titreşimleri</string>
     <string name="haptics_settings_summary">Sistem titreşim yoğunluklarını değiştirin</string>
@@ -697,6 +692,8 @@
     <string name="brightness_slider_haptics_intensity_title">Parlaklık kaydırıcısı titreşim yoğunluğu</string>
     <string name="edge_scrolling_haptics_intensity_title">Kenar kaydırma titreşim yoğunluğu</string>
     <string name="volume_slider_haptics_intensity_title">Ses düzeyi kaydırıcısı titreşim yoğunluğu</string>
+    <string name="volume_sound_haptics_title">Ses seviyesi geri bildirimi</string>
+    <string name="volume_sound_haptics_summary">Ses seviyesi satır ilerlemesini ayarlarken sesli geri bildirimi etkinleştirin</string>
     <string name="qs_panel_tile_haptic_intensity_title">Hızlı ayarlar karesi titreşim yoğunluğu</string>
     <string name="qs_haptics_intensity_title">Qs fling haptik yoğunluğu</string>
     <string name="qs_tiles_haptic_feedback_title">Hızlı ayarlar karelerine dokunulduğunda titret</string>
@@ -785,6 +782,9 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Bildirim simgeleri</string>
     <string name="max_visible_notification_icons_summary">Durum çubuğunda görünen maksimum bildirim simgeleri</string>
+    <!-- Squiggle animation for media notification -->
+    <string name="media_squiggle_animation_title">Squiggle animasyonu</string>
+    <string name="media_squiggle_animation_summary">Medya oynatılırken medya panelinde arama çubuğu dalgalı animasyonu göster</string>
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Durum çubuğu eylem çipi</string>
     <string name="ongoing_progress_settings_summary">Durum çubuğu eylem çipi seçenekleri</string>
@@ -812,12 +812,6 @@
      - Tek dokunuşla indirmeden sorumlu uygulamayı açar.
  
      İlerleme çubuğu, medya ve indirme durumları arasında dinamik olarak geçiş yaparak her zaman bir bakışta en alakalı bilgilere sahip olmanızı sağlar.\"    </string>
-    <!-- Squiggle animation -->
-    <string name="show_squiggle_animation_title">Dalgalanma animasyonunu göster</string>
-    <string name="show_squiggle_animation_summary">Medya paneli dalgalı animasyonunu göster\nDeğişiklikten sonra uygulamak için müzik değiştirmeniz, müziği duraklatmanız veya ilerleme çubuğunu hareket ettirmeniz gerekir</string>
-    <!-- AOD wallpaper -->
-    <string name="aod_wallpaper_title">Duvar kağıdı</string>
-    <string name="aod_wallpaper_summary">\'AOD\' açıkken duvar kağıdını göster</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Pil çubuğu</string>
     <string name="battery_bar_summary">Durum çubuğu üzerinde pil çubuğunu görüntüleyin ve özelleştirin</string>
@@ -841,17 +835,11 @@
     <string name="battery_bar_high_color">Yüksek düzeyde renk</string>
     <string name="battery_bar_low_color">Düşük düzeyde renk</string>
     <string name="battery_bar_animate_color">Şarj animasyon rengi</string>
-    <!-- Single tap for keyguard affordance -->
-    <string name="keyguard_affordance_single_tap_title">Ekran kilidi için tek dokunuş</string>
-    <string name="keyguard_affordance_single_tap_summary">Tek bir dokunuşla ekran kilidi özelliklerini açıp kapatın</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Parlaklık kaydırıcı şekli</string>
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Küçük, yatay ekran bildirimleri</string>
     <string name="small_landscape_notification_summary">Yatay ekranda bildirim panelinde dar genişlikte küçük bildirimler göster</string>
-    <!-- Notification Row -->
-    <string name="notification_row_transparency_title">Bildirim satırı saydamlığı</string>
-    <string name="notification_row_transparency_summary">Hızlı ayar bildirimlerini saydam göster</string>
     <!-- Button settings -->
     <string name="touchscreen_gesture_action_play_pause_music">Müziği oynat / duraklat</string>
     <string name="hardware_keys_action_nothing">Eylem yok</string>
@@ -887,5 +875,29 @@
     <!-- Power off verify -->
     <string name="power_off_verify_footer">Kapatma doğrulaması, başkalarının kaybolduktan hemen sonra kapatmasını önleyerek cihazınızı korur ve kurtarma şansını artırır. Kilit ekranı parolanızı yalnızca telefonu kilit ekranından kapatırken veya yeniden başlatırken girmeniz gerekir.</string>
     <string name="power_off_verify_summary">Cihazınız kilitliyken, kapatmak veya yeniden başlatmak için şifrenizi kullanmanız gerekir.</string>
-    <string name="power_off_verify_title">Kapat doğrulama</string>
+    <string name="power_off_verify_title">Güç kapatma doğrulama</string>
+    <!-- Notification row transparency -->
+    <string name="notification_row_transparency_title">Bildirim satırı saydamlığı</string>
+    <string name="notification_row_transparency_summary">Hızlı ayar bildirimlerini saydam göster</string>
+    <string name="notification_row_transparency_lockscreen_title">Kilit Ekranında Yarı-Saydam Bildirimler</string>
+    <string name="notification_row_transparency_lockscreen_summary">Kilit Ekranında Bildirimlerin Arkaplanı Yarı-Saydam Olarak Ayarlayın</string>
+    <!-- Dynamic charging animation -->
+    <string name="wireless_charging_dynamic_color_title">Dinamik Şarj Rengi</string>
+    <string name="wireless_charging_dynamic_color_summary">Şarj dalgalanma animasyon rengini belirlemek için pil seviyesini kullanın</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Sallama Hareketleri</string>
+    <string name="shake_gestures_enabled_summary">Eylemleri gerçekleştirmek için cihazınızı sallayın</string>
+    <string name="shake_gestures_action_title">Sallama hareketleri eylemleri</string>
+    <string name="shake_gestures_toggle_flashlight">El fenerini aç/kapat</string>
+    <string name="shake_gestures_media_playback">Medyayı Oynat/Atla</string>
+    <string name="shake_gestures_volume_panel">Ses panelini göster</string>
+    <string name="shake_gestures_screen_wake">Ekranı aç/kapat</string>
+    <string name="shake_gestures_clear_notifs">Tüm bildirimleri temizle</string>
+    <string name="shake_gestures_toggle_ringer">Zil sesini aç/kapat</string>
+    <string name="shake_gestures_screenshot">Ekran görüntüsü al</string>
+    <string name="shake_gestures_intensity_title">Sallama hareketleri yoğunluğu</string>
+    <string name="shake_gestures_intensity_summary">Sallama hareketlerinin hassasiyetini ayarla</string>
+    <!-- Ambient Wallpaper -->
+    <string name="doze_always_on_wallpaper_title">Ortam Ekranı</string>
+    <string name="doze_always_on_wallpaper_summary">Kilit Ekranı Duvar Kağıdını Her Zaman Açık Ekranda Göster</string>
 </resources>
