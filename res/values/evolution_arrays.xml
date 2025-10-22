@@ -1581,4 +1581,24 @@
         <item>43200000</item>
         <item>86400000</item>
     </string-array>
+
+    <string-array name="playback_speed_entries">
+        <item>0.25x (Very slow)</item>
+        <item>0.5x (Slow)</item>
+        <item>0.75x (Slightly slow)</item>
+        <item>1.0x (Normal)</item>
+        <item>1.25x (Slightly fast)</item>
+        <item>1.5x (Fast)</item>
+        <item>2.0x (Very fast)</item>
+    </string-array>
+
+    <string-array name="playback_speed_values" translatable="false">
+        <item>0.25</item>
+        <item>0.5</item>
+        <item>0.75</item>
+        <item>1.0</item>
+        <item>1.25</item>
+        <item>1.5</item>
+        <item>2.0</item>
+    </string-array>
 </resources>
