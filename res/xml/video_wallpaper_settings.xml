@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (C) 2024-2025 Lunaris AOSP
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/video_wallpaper_title">
+
+    <PreferenceCategory
+        android:title="@string/video_wallpaper_category_title"
+        android:summary="@string/video_wallpaper_category_summary">
+
+        <Preference
+            android:key="current_video_wallpaper"
+            android:title="@string/video_wallpaper_current_title"
+            android:summary="@string/video_wallpaper_current_summary"
+            android:selectable="false" />
+
+        <Preference
+            android:key="pick_video_wallpaper"
+            android:title="@string/video_wallpaper_pick_title"
+            android:summary="@string/video_wallpaper_pick_summary" />
+
+        <SwitchPreferenceCompat
+            android:key="enable_video_wallpaper"
+            android:title="@string/video_wallpaper_enable_title"
+            android:summary="@string/video_wallpaper_enable_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="clear_video_wallpaper"
+            android:title="@string/video_wallpaper_clear_title"
+            android:summary="@string/video_wallpaper_clear_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/video_wallpaper_playback"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="playback_speed"
+            android:title="@string/video_wallpaper_speed"
+            android:summary="%s"
+            android:entries="@array/playback_speed_entries"
+            android:entryValues="@array/playback_speed_values"
+            android:defaultValue="1.0" />
+
+        <SwitchPreferenceCompat
+            android:key="pause_on_lock"
+            android:title="@string/video_wallpaper_pause_lock"
+            android:summary="@string/video_wallpaper_pause_lock_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/video_wallpaper_info_category_title">
+
+        <Preference
+            android:key="video_wallpaper_info"
+            android:title="@string/video_wallpaper_info_title"
+            android:summary="@string/video_wallpaper_info_summary"
+            android:selectable="false" />
+
+        <Preference
+            android:key="video_wallpaper_tips"
+            android:title="@string/video_wallpaper_tips_title"
+            android:summary="@string/video_wallpaper_tips_summary"
+            android:selectable="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
