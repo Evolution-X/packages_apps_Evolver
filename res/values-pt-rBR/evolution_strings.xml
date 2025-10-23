@@ -139,6 +139,8 @@
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Visualizador de pulso</string>
     <string name="pulse_settings_summary">Mostrar visualizador na tela de bloqueio quando uma música estiver sendo reproduzida</string>
+    <string name="ambient_pulse_enabled_title">Pulse na tela ambiente</string>
+    <string name="ambient_pulse_enabled_summary">Mostrar visualizador na tela ambiente</string>
     <string name="pulse_rounded_bars_title">Cantos arredondados</string>
     <string name="pulse_rounded_bars_summary">Exibir barras do visualizador com cantos arredondados</string>
     <string name="pulse_color">Visualizador de cor</string>
@@ -151,6 +153,9 @@
     <string name="pulse_renderer">Estilo do visualizador</string>
     <string name="pulse_renderer_solid">Linhas sólidas</string>
     <string name="pulse_renderer_fading">Blocos desbotados</string>
+    <string name="pulse_renderer_neon_glow">Brilho de néon</string>
+    <string name="pulse_renderer_retro_vu_meter">Medidor Retro VU</string>
+    <string name="pulse_renderer_minimal_wave">Onda mínima</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Deslize para a esquerda ou direita para visualizar os estilos de relógio</string>
     <!-- Lock screen Clock Revamp -->
@@ -430,6 +435,7 @@
     <string name="quick_settings_tile_shape_title">Formato dos ícones de configurações rápidas</string>
     <string name="quick_settings_tile_shape_dynamic">Dinâmico</string>
     <string name="quick_settings_tile_shape_circle">Círculo</string>
+    <string name="quick_settings_tile_shape_rounded_square_smooth">Quadrado arredondado (suave)</string>
     <string name="quick_settings_tile_shape_rounded_square">Cantos arredondados</string>
     <string name="quick_settings_tile_shape_square">Quadrado</string>
     <string name="quick_settings_tile_haptic_summary">Vibrar ao tocar nos ícones de configurações rápidas</string>
@@ -456,6 +462,16 @@
     <string name="edge_light_pulse_count_summary">Número de pulsos para a luz de borda</string>
     <string name="edge_light_stroke_width_title">Largura do traço</string>
     <string name="edge_light_stroke_width_summary">Definir espessura para barras de luz de borda</string>
+    <string name="edge_light_style_title">Estilo de renderização</string>
+    <string name="edge_light_style_default">Padrão (esquerda/direita)</string>
+    <string name="edge_light_style_frame">Quadro (todos os lados)</string>
+    <string name="edge_light_animation_effect_title">Estilo da animação</string>
+    <string name="edge_light_animation_effect_none">Padrão</string>
+    <string name="edge_light_animation_effect_breathing">Respirando</string>
+    <string name="edge_light_animation_effect_wave">Onda</string>
+    <string name="edge_light_animation_effect_sparkle">Brilho</string>
+    <string name="edge_light_animation_effect_chase">Perseguir</string>
+    <string name="edge_light_animation_effect_comet">Cometa</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Menos irritante</string>
     <string name="notifications_less_boring_heads_up_summary">Mostrar notificações flutuantes apenas para alarmes, ligações e aplicativo de mensagem</string>
@@ -518,8 +534,6 @@
     <string name="spoofing_app_specific_category">Específico do Aplicativo</string>
     <string name="spoofing_qsb_title">Google app</string>
     <string name="spoofing_qsb_summary">Simular o Google app como o dispositivo Pixel mais recente para desbloquear recursos exclusivos</string>
-    <string name="spoofing_vending_title">Play Store</string>
-    <string name="spoofing_vending_summary">Falsifique a Play Store para o dispositivo Pixel mais recente</string>
     <string name="spoofing_photos_title">Fotos</string>
     <string name="spoofing_photos_summary">Falsear o aplicativo Google Fotos como Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
@@ -545,6 +559,9 @@
     <string name="keybox_toast_missing_data">XML de caixa de chaves inválido: campos obrigatórios ausentes</string>
     <string name="keybox_toast_file_loaded">Caixa de chaves carregada</string>
     <string name="keybox_toast_file_cleared">Caixa de chaves limpa</string>
+    <!-- Block attestation even with Keybox Data -->
+    <string name="pi_gmscertchain_title">Desabilitar forçar integridade forte</string>
+    <string name="pi_gmscertchain_summary">Quando ativado, não impõe forte integridade a partir de uma caixa de chave personalizada válida e depende do spoof de Integridade do Google Play para corrigir aplicativos como o Google Pay</string>
     <!-- About -->
     <string name="about_info">Evolução X visa fornecer aos usuários uma sensação de Pixel à primeira vista, com recursos adicionais à sua disposição</string>
     <string name="about_website_title">Site</string>
@@ -560,7 +577,7 @@
     <string name="accent_color">Cor de destaque (Padrão)</string>
     <string name="notification_color">Cor da notificação</string>
     <string name="wallpaper_color">Cores do papel de parede</string>
-    <string name="rainbow_gradient_color">Cor do gradiente arco-íris</string>
+    <string name="rainbow_color">Cor do arco-íris</string>
     <string name="custom_color">Cor personalizada</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Valor: <xliff:g id="v">%s</xliff:g></string>
@@ -763,6 +780,9 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Ícone de notificação</string>
     <string name="max_visible_notification_icons_summary">Máximo de ícones de notificação visíveis na barra de status</string>
+    <!-- Squiggle animation for media notification -->
+    <string name="media_squiggle_animation_title">Animação de rabisco</string>
+    <string name="media_squiggle_animation_summary">Mostrar animação de rabisco na barra de busca ao reproduzir mídia</string>
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Chip de ação barra de status</string>
     <string name="ongoing_progress_settings_summary">Opções do chip da barra de status</string>
@@ -790,9 +810,6 @@
 • Um toque abre o aplicativo responsável pelo download.
 
 A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à primeira vista.    </string>
-    <!-- Squiggle animation -->
-    <string name="show_squiggle_animation_title">Mostrar animação de rabisco</string>
-    <string name="show_squiggle_animation_summary">Mostrar animação de linha ondulada no painel de mídia.\nApós a alteração é necessário alternar a música, pausar ou mover a barra de progresso para aplicar</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Barra de bateria</string>
     <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
