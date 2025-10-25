@@ -6,8 +6,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Evolving like never before</string>
+    <string name="evolver_dashboard_title">The Evolver</string>
+    <string name="evolver_dashboard_summary">Evolving your device, your way</string>
 
     <!-- Categories -->
     <string name="themes_title">Themes</string>
@@ -26,8 +26,8 @@
     <string name="buttons_summary">Power button, volume buttons</string>
     <string name="miscellaneous_title">Miscellaneous</string>
     <string name="miscellaneous_summary">Developer options, spoofing</string>
-    <string name="about_title">About</string>
-    <string name="about_summary">About Evolution X</string>
+    <string name="about_title">Evolution X</string>
+    <string name="about_summary">About our ROM</string>
 
     <!-- Themes -->
     <string name="themes_general_category">General</string>
@@ -553,8 +553,8 @@
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
-    <string name="tensor_spoof_title">Spoof tensor features</string>
-    <string name="tensor_spoof_summary">Unlock tensor/pixel features</string>
+    <string name="tensor_spoof_title">Tensor features</string>
+    <string name="tensor_spoof_summary">Unlock features only available in tensor-based Pixel devices</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
     <string name="spoofing_storage_encryption_title">Storage encryption</string>
@@ -597,22 +597,22 @@
     <string name="gms_cert_chain_summary">When enabled, do not enforce strong integrity from valid custom keybox and depend on Google Play Integrity spoof to fix apps like Google Pay</string>
 
     <!-- About -->
-    <string name="about_info">Evolution X aims to provide users with a Pixel-like feel at first glance, with additional features at your disposal</string>
+    <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>
     <string name="about_website_title">Website</string>
-    <string name="about_website_summary">Feel free to drop by our website</string>
+    <string name="about_website_summary">Visit our site for updates</string>
     <string name="about_x_title" translatable="false">X</string>
-    <string name="about_x_summary">Come see our posts</string>
+    <string name="about_x_summary">Catch our latest news on X</string>
     <string name="about_discord_title" translatable="false">Discord</string>
-    <string name="about_discord_summary">Visit our community chat</string>
+    <string name="about_discord_summary">Chat with us on Discord</string>
     <string name="about_github_title" translatable="false">GitHub</string>
-    <string name="about_github_summary">Check out our GitHub</string>
-    <string name="about_contributors_title">Contributors</string>
-    <string name="about_contributor_1_title" translatable="false">Joey Huab</string>
-    <string name="about_contributor_1_summary" translatable="false">Founder/Lead Developer</string>
-    <string name="about_contributor_2_title" translatable="false">Anierin Bliss</string>
-    <string name="about_contributor_2_summary" translatable="false">Co-Founder/Co-Developer</string>
-    <string name="about_contributor_3_title" translatable="false">Akito Mizukito</string>
-    <string name="about_contributor_3_summary" translatable="false">Co-Founder/Project Manager</string>
+    <string name="about_github_summary">Browse our code on GitHub</string>
+    <string name="about_founders_title">Founders</string>
+    <string name="about_founder_1_title" translatable="false">Joey</string>
+    <string name="about_founder_1_summary" translatable="false">Founder / Lead Developer</string>
+    <string name="about_founder_2_title" translatable="false">Anierin Bliss</string>
+    <string name="about_founder_2_summary" translatable="false">Co-founder / Co-developer</string>
+    <string name="about_founder_3_title" translatable="false">Akito Mizukito</string>
+    <string name="about_founder_3_summary" translatable="false">Co-founder / Project manager</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
