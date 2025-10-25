@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/lock_glymps_title">
+
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="lock_glymps_enabled"
+        android:title="@string/lock_glymps_enable_title"
+        android:summary="@string/lock_glymps_enable_summary"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:title="@string/lock_glymps_source_category"
+        android:dependency="lock_glymps_enabled">
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lock_glymps_source"
+            android:title="@string/lock_glymps_source_title"
+            android:summary="@string/lock_glymps_source_summary"
+            android:entries="@array/lock_glymps_source_entries"
+            android:entryValues="@array/lock_glymps_source_values"
+            android:defaultValue="0" />
+
+        <Preference
+            android:key="lock_glymps_custom_urls"
+            android:title="@string/lock_glymps_custom_urls_title"
+            android:summary="@string/lock_glymps_custom_urls_summary"
+            android:dependency="lock_glymps_enabled" />
+
+        <Preference
+            android:key="lock_glymps_folder_info"
+            android:title="@string/lock_glymps_folder_title"
+            android:summary="@string/lock_glymps_folder_summary"
+            android:dependency="lock_glymps_enabled" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/lock_glymps_behavior_category"
+        android:dependency="lock_glymps_enabled">
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lock_glymps_change_on"
+            android:title="@string/lock_glymps_change_on_title"
+            android:summary="@string/lock_glymps_change_on_summary"
+            android:entries="@array/lock_glymps_change_on_entries"
+            android:entryValues="@array/lock_glymps_change_on_values"
+            android:defaultValue="1" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/lock_glymps_download_category"
+        android:dependency="lock_glymps_enabled">
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lock_glymps_wifi_only"
+            android:title="@string/lock_glymps_wifi_only_title"
+            android:summary="@string/lock_glymps_wifi_only_summary"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lock_glymps_cache_size"
+            android:title="@string/lock_glymps_cache_size_title"
+            android:summary="@string/lock_glymps_cache_size_summary"
+            android:entries="@array/lock_glymps_cache_size_entries"
+            android:entryValues="@array/lock_glymps_cache_size_values"
+            android:defaultValue="5" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/lock_glymps_advanced_category"
+        android:dependency="lock_glymps_enabled">
+
+        <Preference
+            android:key="lock_glymps_clear_cache"
+            android:title="@string/lock_glymps_clear_cache_title"
+            android:summary="@string/lock_glymps_clear_cache_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lock_glymps_footer"
+        android:title="@string/lock_glymps_footer_title">
+
+        <Preference
+            android:key="lock_glymps_footer_info"
+            android:selectable="false"
+            android:summary="@string/lock_glymps_footer_text" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

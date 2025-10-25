@@ -1460,4 +1460,40 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <!-- Lock Glymps Source -->
+    <string-array name="lock_glymps_source_entries">
+        <item>Random Wallpapers (Picsum)</item>
+        <item>Custom URL List</item>
+        <item>Local Folder</item>
+    </string-array>
+
+    <string-array name="lock_glymps_source_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Lock Glymps Cache Size -->
+    <string-array name="lock_glymps_cache_size_entries">
+        <item>3 wallpapers (~30MB)</item>
+        <item>5 wallpapers (~50MB)</item>
+        <item>10 wallpapers (~100MB)</item>
+    </string-array>
+
+    <string-array name="lock_glymps_cache_size_values" translatable="false">
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="lock_glymps_change_on_entries">
+        <item>Screen turns on</item>
+        <item>Screen turns off (recommended)</item>
+    </string-array>
+
+    <string-array name="lock_glymps_change_on_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>

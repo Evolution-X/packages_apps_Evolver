@@ -1593,4 +1593,38 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="cutout_progress_music_clockwise_title">Clockwise Direction</string>
     <string name="cutout_progress_music_aod_title">Show on AOD</string>
     <string name="cutout_progress_music_aod_summary">Keep music ring visible on the Ambient Display</string>
+
+    <!-- Lock Glymps -->
+    <string name="lock_glymps_title">Lock Glymps</string>
+    <string name="lock_glymps_enable_title">Enable Lock Glymps</string>
+    <string name="lock_glymps_enable_summary">Change lockscreen wallpaper every time screen lights up</string>
+    
+    <string name="lock_glymps_source_category">Wallpaper Source</string>
+    <string name="lock_glymps_source_title">Wallpaper source</string>
+    <string name="lock_glymps_source_summary">Choose where to get wallpapers from</string>
+    
+    <string name="lock_glymps_custom_urls_title">Manage custom URLs</string>
+    <string name="lock_glymps_custom_urls_summary">Add or remove custom wallpaper URLs</string>
+    
+    <string name="lock_glymps_folder_title">Local folder</string>
+    <string name="lock_glymps_folder_summary">View folder location and wallpaper count (Max 10 wallpapers)</string>
+    
+    <string name="lock_glymps_download_category">Download Settings</string>
+    <string name="lock_glymps_wifi_only_title">WiFi only</string>
+    <string name="lock_glymps_wifi_only_summary">Download wallpapers only when connected to WiFi</string>
+    
+    <string name="lock_glymps_cache_size_title">Cache size</string>
+    <string name="lock_glymps_cache_size_summary">Number of wallpapers to pre-download</string>
+    
+    <string name="lock_glymps_advanced_category">Advanced</string>
+    <string name="lock_glymps_clear_cache_title">Clear cache</string>
+    <string name="lock_glymps_clear_cache_summary">Remove all cached wallpapers</string>
+
+    <string name="lock_glymps_behavior_category">Behavior</string>
+    <string name="lock_glymps_change_on_title">Change wallpaper on</string>
+    <string name="lock_glymps_change_on_summary">When to change the lock screen wallpaper</string>
+    
+    <!-- Footer -->
+    <string name="lock_glymps_footer_title">Important Information</string>
+    <string name="lock_glymps_footer_text">📁 Local folder: /sdcard/LockGlymps\n\n⚠️ Low-end devices may experience slight lag\n\n🎨 Tip: Use Custom Accent in Monet Settings for stable colors</string>
 </resources>
