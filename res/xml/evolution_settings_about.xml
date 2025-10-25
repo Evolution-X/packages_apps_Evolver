@@ -30,26 +30,6 @@
             android:data="https://evolution-x.org" />
     </Preference>
 
-    <!-- Discord -->
-    <Preference
-        android:title="@string/about_discord_title"
-        android:icon="@drawable/ic_discord"
-        android:summary="@string/about_discord_summary">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://discord.gg/3qbSZHx" />
-    </Preference>
-
-    <!-- Twitter -->
-    <Preference
-        android:title="@string/about_twitter_title"
-        android:icon="@drawable/ic_twitter"
-        android:summary="@string/about_twitter_summary">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://twitter.com/EvolutionXROM" />
-        </Preference>
-
     <!-- Github -->
     <Preference
         android:title="@string/about_github_title"
@@ -60,32 +40,52 @@
             android:data="https://github.com/Evolution-X" />
     </Preference>
 
-    <PreferenceCategory
-        android:key="contributors"
-        android:title="@string/about_contributors_title" />
+    <!-- Discord -->
+    <Preference
+        android:title="@string/about_discord_title"
+        android:icon="@drawable/ic_discord"
+        android:summary="@string/about_discord_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://discord.gg/3qbSZHx" />
+    </Preference>
 
-    <!-- Contributor 1 -->
+    <!-- X -->
+    <Preference
+        android:title="@string/about_x_title"
+        android:icon="@drawable/ic_twitter"
+        android:summary="@string/about_x_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://twitter.com/EvolutionXROM" />
+    </Preference>
+
+    <PreferenceCategory
+        android:key="founders"
+        android:title="@string/about_founders_title" />
+
+        <!-- Founder 1 -->
         <Preference
-            android:title="@string/about_contributor_1_title"
-            android:summary="@string/about_contributor_1_summary">
+            android:title="@string/about_founder_1_title"
+            android:summary="@string/about_founder_1_summary">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://linktr.ee/joeyhuab" />
         </Preference>
 
-    <!-- Contributor 2 -->
+        <!-- Founder 2 -->
         <Preference
-            android:title="@string/about_contributor_2_title"
-            android:summary="@string/about_contributor_2_summary">
+            android:title="@string/about_founder_2_title"
+            android:summary="@string/about_founder_2_summary">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://t.me/AnierinB" />
+                android:data="https://www.paypal.me/AnierinB" />
         </Preference>
 
-    <!-- Contributor 3 -->
+        <!-- Founder 3 -->
         <Preference
-            android:title="@string/about_contributor_3_title"
-            android:summary="@string/about_contributor_3_summary">
+            android:title="@string/about_founder_3_title"
+            android:summary="@string/about_founder_3_summary">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://t.me/RealAkito" />
