@@ -837,6 +837,51 @@
     <string name="apply_button_text">Apply</string>
     <string name="font_picker_select_font">Select font</string>
 
+    <!-- Custom Font Picker -->
+    <string name="font_mode_title">Font mode</string>
+    <string name="custom_font_picker_title">Pick custom font</string>
+    <string name="custom_font_picker_summary">Select a TTF or OTF font file</string>
+    
+    <!-- Custom Font Info -->
+    <string name="custom_font_installed_title">Custom font installed</string>
+    <string name="custom_font_installed_summary">Font: %s</string>
+    
+    <!-- Reset Custom Font -->
+    <string name="reset_custom_font_title">Reset custom font</string>
+    <string name="reset_custom_font_summary">Remove custom font and restore default</string>
+    <string name="reset_custom_font_content_desc">Reset custom font</string>
+    
+    <!-- Reboot -->
+    <string name="reboot_device">Reboot device</string>
+    <string name="reboot_required_title">Reboot required</string>
+    <string name="reboot_required_message">A device reboot is required to apply the custom font system-wide. Reboot now?</string>
+    <string name="reboot_required_custom_font_title">Reboot required for custom fonts</string>
+    <string name="reboot_required_custom_font_desc">Custom fonts require a full system reboot to take effect</string>
+    
+    <!-- Toast Messages -->
+    <string name="custom_font_installed_success">Custom font installed successfully</string>
+    <string name="custom_font_install_failed">Failed to install custom font</string>
+    <string name="custom_font_reset_success">Custom font reset successfully</string>
+    <string name="toast_failed_apply_font">Failed to apply font</string>
+    <string name="toast_invalid_font_file">Invalid font file</string>
+    
+    <!-- Font Preview -->
+    <string name="font_preview_dialog_title">Font Preview</string>
+    <string name="font_preview_quote">The Quick Brown Fox</string>
+    <string name="font_preview_numbers">0123456789</string>
+    <string name="add_font">Add Font</string>
+    <string name="cancel">Cancel</string>
+    <string name="change_custom_font">Change custom font</string>
+    <string name="add_custom_font">Add custom font</string>
+    
+    <!-- Misc -->
+    <string name="no_custom_font">No custom font installed</string>
+    <string name="custom_font">Custom font</string>
+    <string name="active_content_desc">Active</string>
+    <string name="reset">Reset</string>
+    <string name="reset_default_title">Reset to default?</string>
+    <string name="reset_default_message">This will restore the default font settings</string>
+
     <!-- Apply Button --> 
     <string name="apply_change_button_title">Apply</string>
 
