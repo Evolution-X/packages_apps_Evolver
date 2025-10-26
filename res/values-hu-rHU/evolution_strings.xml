@@ -763,6 +763,44 @@
     <string name="font_preview_text">A nőgyógyászod\neltiltott a szextől\n...de mit mondott a fogorvosod?\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
     <string name="apply_button_text">Beállítás</string>
     <string name="font_picker_select_font">Betűtípus-választás</string>
+    <!-- Custom Font Picker -->
+    <string name="font_mode_title">Betűtípus-választó</string>
+    <string name="custom_font_picker_title">Egyéni betűtípus kiválasztása</string>
+    <string name="custom_font_picker_summary">Válasszon TTF vagy OTF betűtípus-fájlt</string>
+    <!-- Custom Font Info -->
+    <string name="custom_font_installed_title">Az egyéni fontkészlet telepítve</string>
+    <string name="custom_font_installed_summary">%s fontkészlet</string>
+    <!-- Reset Custom Font -->
+    <string name="reset_custom_font_title">Egyéni betűtípus visszaállítása</string>
+    <string name="reset_custom_font_summary">Eltávolítja az egyéni betűtípust és visszaállítja az alapértelmezettet</string>
+    <string name="reset_custom_font_content_desc">Egyéni betűtípus visszaállítása</string>
+    <!-- Reboot -->
+    <string name="reboot_device">Készülék újraindítása</string>
+    <string name="reboot_required_title">Újraindítás szükséges</string>
+    <string name="reboot_required_message">Az egyéni betűkészlet teljes rendszerre való alkalmazásához újraindítás szükséges. Újraindítja most?</string>
+    <string name="reboot_required_custom_font_title">Egyéni betűkészlethez újraindítás kell</string>
+    <string name="reboot_required_custom_font_desc">Az egyéni betűtípusok érvénybe lépéséhez teljes rendszer-újraindítás szükséges</string>
+    <!-- Toast Messages -->
+    <string name="custom_font_installed_success">Az egyéni betűkészlet telepítésre került</string>
+    <string name="custom_font_install_failed">Nem sikerült telepíteni az egyéni betűkészletet</string>
+    <string name="custom_font_reset_success">Visszaállításra került az alapértelmezett</string>
+    <string name="toast_failed_apply_font">A betűtípus érvényesítése sikertelen</string>
+    <string name="toast_invalid_font_file">Hibás betűkészlet-fájl</string>
+    <!-- Font Preview -->
+    <string name="font_preview_dialog_title">Betűtípus-előnézet</string>
+    <string name="font_preview_quote">Csipp-csipp csóka, vak varjúcska</string>
+    <string name="font_preview_numbers">0123456789</string>
+    <string name="add_font">Betűtípus hozzáadása</string>
+    <string name="cancel">Mégsem</string>
+    <string name="change_custom_font">Egyéni készlet megváltoztatása</string>
+    <string name="add_custom_font">Egyéni betűtípus hozzáadása</string>
+    <!-- Misc -->
+    <string name="no_custom_font">Nincs egyéni betűtípus telepítva</string>
+    <string name="custom_font">Egyéni betűtípus</string>
+    <string name="active_content_desc">Aktív</string>
+    <string name="reset">Visszaállítás</string>
+    <string name="reset_default_title">Visszaállítás alaphelyzetbe?</string>
+    <string name="reset_default_message">Ez alapjelyzetbe állítja a betűtípus beállításait</string>
     <!-- Apply Button -->
     <string name="apply_change_button_title">Beállítás</string>
     <!-- Peek Display -->
