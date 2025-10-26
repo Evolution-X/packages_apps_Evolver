@@ -100,12 +100,45 @@
         android:key="themes_fonts_category"
         android:title="@string/themes_fonts_category">
 
-        <!-- System font -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="font_mode"
+            android:title="@string/font_mode_title"
+            android:summary="%s"
+            android:entries="@array/font_mode_entries"
+            android:entryValues="@array/font_mode_values"
+            android:defaultValue="prebuilt" />
+
+        <!-- Prebuilt Fonts -->
         <Preference
             android:key="android.theme.customization.fonts"
             android:title="@string/themes_system_font_title"
             android:summary="@string/themes_system_font_summary"
-            android:fragment="org.evolution.settings.fragments.themes.fonts.FontPickerPreview"/>
+            android:fragment="org.evolution.settings.fragments.themes.fonts.FontPickerPreview"
+            android:dependency="font_mode" />
+
+        <!-- Custom Font Picker -->
+        <Preference
+            android:key="custom_font_picker"
+            android:title="@string/custom_font_picker_title"
+            android:summary="@string/custom_font_picker_summary" />
+
+        <!-- Custom Font Info -->
+        <Preference
+            android:key="custom_font_info"
+            android:title="@string/custom_font_installed_title"
+            android:selectable="false" />
+
+        <!-- Reset Custom Font Button -->
+        <Preference
+            android:key="reset_custom_font"
+            android:title="@string/reset_custom_font_title"
+            android:summary="@string/reset_custom_font_summary" />
+
+        <!-- Reboot Button for Custom Font -->
+        <Preference
+            android:key="reboot_for_font"
+            android:title="@string/reboot_device"
+            android:summary="@string/reboot_required_custom_font_desc" />
     </PreferenceCategory>
 
     <PreferenceCategory

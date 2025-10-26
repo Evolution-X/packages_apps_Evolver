@@ -1145,4 +1145,14 @@
         <item>17</item>
         <item>18</item>
     </string-array>
+
+    <string-array name="font_mode_entries">
+        <item>Prebuilt fonts</item>
+        <item>Custom font</item>
+    </string-array>
+    
+    <string-array name="font_mode_values">
+        <item>prebuilt</item>
+        <item>custom</item>
+    </string-array>
 </resources>
