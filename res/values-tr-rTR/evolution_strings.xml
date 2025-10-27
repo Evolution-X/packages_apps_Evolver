@@ -150,7 +150,7 @@
     <string name="pulse_bar_count_title">Çubuk sayısı</string>
     <string name="pulse_bar_count_summary">Görselleştiricide kaç çubuğun gösterileceğini ayarlama</string>
     <string name="pulse_bar_count_units">çubuklar</string>
-    <string name="pulse_renderer">Görselleştirici stili</string>
+    <string name="pulse_renderer">Görselleştirici Stili</string>
     <string name="pulse_renderer_solid">Düz çizgiler</string>
     <string name="pulse_renderer_fading">Solan bloklar</string>
     <string name="pulse_renderer_neon_glow">Neon ışığı</string>
@@ -457,7 +457,7 @@
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">Kenar aydınlatması</string>
     <string name="edge_light_summary">Bildirimler için ortam ekranı kenarlarını aydınlat</string>
-    <string name="edge_light_color_mode_title">Renk modu</string>
+    <string name="edge_light_color_mode_title">Renk Modu</string>
     <string name="edge_light_pulse_count_title">Pulse sayısı</string>
     <string name="edge_light_pulse_count_summary">Kenar ışığı için pulse sayısı</string>
     <string name="edge_light_stroke_width_title">Kontur genişliği</string>
@@ -675,13 +675,13 @@
     <string name="ls_media_art_filter_grayscale">Gri tonlama</string>
     <string name="ls_media_art_filter_sepia">Sepya</string>
     <string name="ls_media_art_filter_tint">Vurgu renkli</string>
-    <string name="ls_media_art_filter_invert">Ters çevir</string>
-    <string name="ls_media_art_filter_grayblur">Gri tonlamalı ve bulanık</string>
+    <string name="ls_media_art_filter_invert">Tersine Çevir</string>
+    <string name="ls_media_art_filter_grayblur">Gri Tonu ve Bulanıklık</string>
     <!-- Lock screen media art fade level -->
     <string name="ls_media_art_fade_level_title">Medya kapak resmi solma seviyesi</string>
     <string name="ls_media_art_fade_level_summary">Medya kapak resmi solma seviyesini ayarlama</string>
     <!-- Lock screen media art blur level -->
-    <string name="ls_media_art_blur_level_title">Medya resmi bulanıklık seviyesi</string>
+    <string name="ls_media_art_blur_level_title">Medya Resmi Bulanıklık Seviyesi</string>
     <string name="ls_media_art_blur_level_summary">Bulanıklık Filtresi Uygulandığındaki Bulanıklık Yoğunluğu</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Sistem titreşimleri</string>
@@ -690,7 +690,7 @@
     <string name="brightness_slider_haptics_intensity_title">Parlaklık kaydırıcısı titreşim yoğunluğu</string>
     <string name="edge_scrolling_haptics_intensity_title">Kenar kaydırma titreşim yoğunluğu</string>
     <string name="volume_slider_haptics_intensity_title">Ses düzeyi kaydırıcısı titreşim yoğunluğu</string>
-    <string name="volume_sound_haptics_title">Ses seviyesi geri bildirimi</string>
+    <string name="volume_sound_haptics_title">Ses Seviyesi Geri Bildirimi</string>
     <string name="volume_sound_haptics_summary">Ses seviyesi satır ilerlemesini ayarlarken sesli geri bildirimi etkinleştirin</string>
     <string name="qs_panel_tile_haptic_intensity_title">Hızlı ayarlar karesi titreşim yoğunluğu</string>
     <string name="qs_haptics_intensity_title">Qs fling haptik yoğunluğu</string>
@@ -762,6 +762,44 @@
     <string name="font_preview_text">Pijamalı\nhasta\nyağız\nşoföre\nçabucak\ngüvendi\n\nABCÇDEFGĞHIİJKLM\nNOÖPRSŞTUÜVYZXQW\nabcçdefgğhıijkl\nmnoöprsştuüvyzxqw\n1234567890</string>
     <string name="apply_button_text">Uygula</string>
     <string name="font_picker_select_font">Yazı tipi seçin</string>
+    <!-- Custom Font Picker -->
+    <string name="font_mode_title">Yazı tipi mod</string>
+    <string name="custom_font_picker_title">Özel yazı tipi seç</string>
+    <string name="custom_font_picker_summary">TTF ya da OTF yazı tipi dosyası seçin</string>
+    <!-- Custom Font Info -->
+    <string name="custom_font_installed_title">Özel yazı tipi indirildi</string>
+    <string name="custom_font_installed_summary">Yazı tipi: %s</string>
+    <!-- Reset Custom Font -->
+    <string name="reset_custom_font_title">Özel yazı tipini sıfırla</string>
+    <string name="reset_custom_font_summary">Özel yazı tipini kaldır ve normale döndür</string>
+    <string name="reset_custom_font_content_desc">Özel yazı tipini sıfırla</string>
+    <!-- Reboot -->
+    <string name="reboot_device">Cihazı yeniden başlat</string>
+    <string name="reboot_required_title">Yeniden başlatma gerekiyor</string>
+    <string name="reboot_required_message">Özel yazı tipini bütün sisteme uygulamak için cihazın yeniden başlatılması gerekiyor. Yeniden başlatılsın mı?</string>
+    <string name="reboot_required_custom_font_title">Özel yazı tipleri için yeniden başlatma gerekli</string>
+    <string name="reboot_required_custom_font_desc">Özel yazı tiplerinin uygulanması için sistemin yeniden başlatılması gerekir</string>
+    <!-- Toast Messages -->
+    <string name="custom_font_installed_success">Özel yazı tipi başarıyla indirildi</string>
+    <string name="custom_font_install_failed">Özel yazı tipi indirilemedi</string>
+    <string name="custom_font_reset_success">Özel yazı tipi sıfırlaması tamamlandı</string>
+    <string name="toast_failed_apply_font">Özel yazı tipi uygulanamadı</string>
+    <string name="toast_invalid_font_file">Geçersiz yazı tipi dosyası</string>
+    <!-- Font Preview -->
+    <string name="font_preview_dialog_title">Yazı tipi önizlemesi</string>
+    <string name="font_preview_quote">Hızlı Kahverengi Tilki</string>
+    <string name="font_preview_numbers">0123456789</string>
+    <string name="add_font">Yazı tipi ekle</string>
+    <string name="cancel">İptal</string>
+    <string name="change_custom_font">Özel yazı tipini değiştir</string>
+    <string name="add_custom_font">Özel yazı tipi ekle</string>
+    <!-- Misc -->
+    <string name="no_custom_font">Hiçbir Özel yazı tipi indirilmedi</string>
+    <string name="custom_font">Özel yazı tipi</string>
+    <string name="active_content_desc">Etkin</string>
+    <string name="reset">Sıfırla</string>
+    <string name="reset_default_title">Normale Sıfırla?</string>
+    <string name="reset_default_message">Bu normal font ayarlarını geri getirecektir</string>
     <!-- Apply Button -->
     <string name="apply_change_button_title">Uygula</string>
     <!-- Peek Display -->
@@ -884,18 +922,18 @@
     <string name="wireless_charging_dynamic_color_summary">Şarj dalgalanma animasyon rengini belirlemek için pil seviyesini kullanın</string>
     <!-- Shake Gestures -->
     <string name="shake_gestures_enabled_title">Sallama Hareketleri</string>
-    <string name="shake_gestures_enabled_summary">Eylemleri gerçekleştirmek için cihazınızı sallayın</string>
-    <string name="shake_gestures_action_title">Sallama hareketleri eylemleri</string>
-    <string name="shake_gestures_toggle_flashlight">El fenerini aç/kapat</string>
+    <string name="shake_gestures_enabled_summary">Eylemleri Gerçekleştirmek İçin Cihazınızı Sallayın</string>
+    <string name="shake_gestures_action_title">Sallama Hareketi Eylemleri</string>
+    <string name="shake_gestures_toggle_flashlight">El Fenerini Aç/Kapat</string>
     <string name="shake_gestures_media_playback">Medyayı Oynat/Atla</string>
-    <string name="shake_gestures_volume_panel">Ses panelini göster</string>
-    <string name="shake_gestures_screen_wake">Ekranı aç/kapat</string>
+    <string name="shake_gestures_volume_panel">Ses Panelini Göster</string>
+    <string name="shake_gestures_screen_wake">Ekranı Aç/Kapat</string>
     <string name="shake_gestures_clear_notifs">Tüm bildirimleri temizle</string>
-    <string name="shake_gestures_toggle_ringer">Zil sesini aç/kapat</string>
-    <string name="shake_gestures_screenshot">Ekran görüntüsü al</string>
-    <string name="shake_gestures_intensity_title">Sallama hareketleri yoğunluğu</string>
-    <string name="shake_gestures_intensity_summary">Sallama hareketlerinin hassasiyetini ayarla</string>
+    <string name="shake_gestures_toggle_ringer">Zil Modunu Değiştir</string>
+    <string name="shake_gestures_screenshot">Ekran Resmi Al</string>
+    <string name="shake_gestures_intensity_title">Sallama Hareketleri Yoğunluğu</string>
+    <string name="shake_gestures_intensity_summary">Sallama Hareketlerinin Hassasiyetini Ayarla</string>
     <!-- Ambient Wallpaper -->
-    <string name="doze_always_on_wallpaper_title">Ortam Ekranı</string>
+    <string name="doze_always_on_wallpaper_title">Her Zaman Açık Ekran Duvar Kağıdı</string>
     <string name="doze_always_on_wallpaper_summary">Kilit Ekranı Duvar Kağıdını Her Zaman Açık Ekranda Göster</string>
 </resources>
