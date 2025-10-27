@@ -134,7 +134,7 @@
     <string name="lock_screen_miscellaneous_category">Diversos</string>
     <string name="lock_screen_pocket_detection_title">Detecção de bolso</string>
     <string name="lock_screen_pocket_detection_summary">Bloquear a tela e os botões quando o dispositivo estiver no bolso</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Modo de bolso sempre ativo</string>
+    <string name="lock_screen_always_on_pocket_mode_title">Modo de bolso do modo Sempre ativo</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Sempre bloquear a tela e os botões quando a tela estiver ativa</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Visualizador de pulso</string>
@@ -762,6 +762,44 @@
     <string name="font_preview_text">A rápida raposa\nsalta sobre o cão\npreguiçoso\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
     <string name="apply_button_text">Aplicar</string>
     <string name="font_picker_select_font">Selecionar Fonte</string>
+    <!-- Custom Font Picker -->
+    <string name="font_mode_title">Modo de fonte</string>
+    <string name="custom_font_picker_title">Escolha uma fonte personalizada</string>
+    <string name="custom_font_picker_summary">Selecione um arquivo de fonte TTF ou OTF</string>
+    <!-- Custom Font Info -->
+    <string name="custom_font_installed_title">Fonte personalizada instalada</string>
+    <string name="custom_font_installed_summary">Fonte: %s</string>
+    <!-- Reset Custom Font -->
+    <string name="reset_custom_font_title">Redefinir fonte personalizada</string>
+    <string name="reset_custom_font_summary">Remover fonte personalizada e restaurar o padrão</string>
+    <string name="reset_custom_font_content_desc">Redefinir fonte personalizada</string>
+    <!-- Reboot -->
+    <string name="reboot_device">Reiniciar dispositivo</string>
+    <string name="reboot_required_title">Reinicialização necessária</string>
+    <string name="reboot_required_message">Uma reinicialização do dispositivo é necessária para aplicar o sistema de fontes personalizadas. Reiniciar agora?</string>
+    <string name="reboot_required_custom_font_title">Reinicialização necessária para fontes personalizadas</string>
+    <string name="reboot_required_custom_font_desc">Fontes personalizadas requerem uma reinicialização completa do sistema para ter efeito</string>
+    <!-- Toast Messages -->
+    <string name="custom_font_installed_success">Fonte personalizada instalada com sucesso</string>
+    <string name="custom_font_install_failed">Falha ao instalar fonte personalizada</string>
+    <string name="custom_font_reset_success">Fonte personalizada redefinida com sucesso</string>
+    <string name="toast_failed_apply_font">Falha ao aplicar fonte</string>
+    <string name="toast_invalid_font_file">Arquivo de fonte inválido</string>
+    <!-- Font Preview -->
+    <string name="font_preview_dialog_title">Visualização da Fonte</string>
+    <string name="font_preview_quote">A Raposa Marrom Rápida</string>
+    <string name="font_preview_numbers">0123456789</string>
+    <string name="add_font">Adicionar fonte</string>
+    <string name="cancel">Cancelar</string>
+    <string name="change_custom_font">Alterar fonte personalizada</string>
+    <string name="add_custom_font">Adicionar fonte personalizada</string>
+    <!-- Misc -->
+    <string name="no_custom_font">Nenhuma fonte personalizada instalada</string>
+    <string name="custom_font">Fonte personalizada</string>
+    <string name="active_content_desc">Ativo</string>
+    <string name="reset">Redefinir</string>
+    <string name="reset_default_title">Redefinir para o padrão?</string>
+    <string name="reset_default_message">Isto irá restaurar as configurações padrão de fonte</string>
     <!-- Apply Button -->
     <string name="apply_change_button_title">Aplicar</string>
     <!-- Peek Display -->
