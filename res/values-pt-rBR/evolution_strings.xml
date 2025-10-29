@@ -762,44 +762,6 @@
     <string name="font_preview_text">A rápida raposa\nsalta sobre o cão\npreguiçoso\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
     <string name="apply_button_text">Aplicar</string>
     <string name="font_picker_select_font">Selecionar Fonte</string>
-    <!-- Custom Font Picker -->
-    <string name="font_mode_title">Modo de fonte</string>
-    <string name="custom_font_picker_title">Escolha uma fonte personalizada</string>
-    <string name="custom_font_picker_summary">Selecione um arquivo de fonte TTF ou OTF</string>
-    <!-- Custom Font Info -->
-    <string name="custom_font_installed_title">Fonte personalizada instalada</string>
-    <string name="custom_font_installed_summary">Fonte: %s</string>
-    <!-- Reset Custom Font -->
-    <string name="reset_custom_font_title">Redefinir fonte personalizada</string>
-    <string name="reset_custom_font_summary">Remover fonte personalizada e restaurar o padrão</string>
-    <string name="reset_custom_font_content_desc">Redefinir fonte personalizada</string>
-    <!-- Reboot -->
-    <string name="reboot_device">Reiniciar dispositivo</string>
-    <string name="reboot_required_title">Reinicialização necessária</string>
-    <string name="reboot_required_message">Uma reinicialização do dispositivo é necessária para aplicar o sistema de fontes personalizadas. Reiniciar agora?</string>
-    <string name="reboot_required_custom_font_title">Reinicialização necessária para fontes personalizadas</string>
-    <string name="reboot_required_custom_font_desc">Fontes personalizadas requerem uma reinicialização completa do sistema para ter efeito</string>
-    <!-- Toast Messages -->
-    <string name="custom_font_installed_success">Fonte personalizada instalada com sucesso</string>
-    <string name="custom_font_install_failed">Falha ao instalar fonte personalizada</string>
-    <string name="custom_font_reset_success">Fonte personalizada redefinida com sucesso</string>
-    <string name="toast_failed_apply_font">Falha ao aplicar fonte</string>
-    <string name="toast_invalid_font_file">Arquivo de fonte inválido</string>
-    <!-- Font Preview -->
-    <string name="font_preview_dialog_title">Visualização da Fonte</string>
-    <string name="font_preview_quote">A Raposa Marrom Rápida</string>
-    <string name="font_preview_numbers">0123456789</string>
-    <string name="add_font">Adicionar fonte</string>
-    <string name="cancel">Cancelar</string>
-    <string name="change_custom_font">Alterar fonte personalizada</string>
-    <string name="add_custom_font">Adicionar fonte personalizada</string>
-    <!-- Misc -->
-    <string name="no_custom_font">Nenhuma fonte personalizada instalada</string>
-    <string name="custom_font">Fonte personalizada</string>
-    <string name="active_content_desc">Ativo</string>
-    <string name="reset">Redefinir</string>
-    <string name="reset_default_title">Redefinir para o padrão?</string>
-    <string name="reset_default_message">Isto irá restaurar as configurações padrão de fonte</string>
     <!-- Apply Button -->
     <string name="apply_change_button_title">Aplicar</string>
     <!-- Peek Display -->
@@ -920,19 +882,6 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <!-- Dynamic charging animation -->
     <string name="wireless_charging_dynamic_color_title">Cor de carregamento dinâmica</string>
     <string name="wireless_charging_dynamic_color_summary">Usar o nível de bateria para determinar a cor da animação do ondulação</string>
-    <!-- Shake Gestures -->
-    <string name="shake_gestures_enabled_title">Gestos ao agitar</string>
-    <string name="shake_gestures_enabled_summary">Agite seu dispositivo para executar ações</string>
-    <string name="shake_gestures_action_title">Ação do gesto ao agitar</string>
-    <string name="shake_gestures_toggle_flashlight">Alternar lanterna</string>
-    <string name="shake_gestures_media_playback">Reproduzir/pular mídia</string>
-    <string name="shake_gestures_volume_panel">Mostrar o painel de volume</string>
-    <string name="shake_gestures_screen_wake">Ligar/desligar a tela</string>
-    <string name="shake_gestures_clear_notifs">Limpar todas as notificações</string>
-    <string name="shake_gestures_toggle_ringer">Alternar Modo de toque</string>
-    <string name="shake_gestures_screenshot">Fazer uma captura de tela</string>
-    <string name="shake_gestures_intensity_title">Intensidade de agitação</string>
-    <string name="shake_gestures_intensity_summary">Ajustar a sensibilidade dos gestos de agitação</string>
     <!-- Ambient Wallpaper -->
     <string name="doze_always_on_wallpaper_title">Papel de parede ambiente</string>
     <string name="doze_always_on_wallpaper_summary">Mostrar papel de parede da tela de bloqueio na Tela Ambiente</string>
