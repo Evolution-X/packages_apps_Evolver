@@ -638,6 +638,7 @@
     <string name="default_value">Default</string>
     <string name="top">Top</string>
     <string name="bottom">Bottom</string>
+    <string name="reset">Reset</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">milliseconds</string>
@@ -1002,4 +1003,31 @@
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Floating rotate button</string>
     <string name="floating_rotation_button_summary">Show a floating rotate button when device is rotated</string>
+
+    <!-- Fonts Screen -->
+    <string name="font_title">Font</string>
+    <string name="font_style">Font style</string>
+    <string name="font_preview_dialog_title">Font Preview</string>
+    <string name="apply">Apply</string>
+    <string name="applied">Applied</string>
+    <string name="reboot_device">Reboot device</string>
+    <string name="reboot_required_title">Reboot Required</string>
+    <string name="reboot_required_message">A reboot is required to apply the font changes.\nWould you like to reboot now?</string>
+    <string name="reboot_now">Reboot Now</string>
+    <string name="later">Later</string>
+    <string name="reset_default_title">Reset to Default</string>
+    <string name="reset_default_message">This will reset your font to the default system font. Are you sure?</string>
+    <string name="add_font">Add font</string>
+    <string name="custom_font">Custom font</string>
+    <string name="no_custom_font">No custom font</string>
+    <string name="add_custom_font">Add custom font</string>
+    <string name="change_custom_font">Change custom font</string>
+    <string name="reset_custom_font_content_desc">Reset custom font</string>
+    <string name="reboot_required_custom_font_title">Reboot required for custom font changes</string>
+    <string name="reboot_required_custom_font_desc">Skipping reboot after changing the custom font may cause UI inconsistencies across apps.</string>
+    <string name="font_preview_quote">Fear is the enemy of innovation.</string>
+    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
+    <string name="active_content_desc">Active</string>
+    <string name="toast_failed_apply_font">Failed to apply font</string>
+    <string name="toast_invalid_font_file">Invalid font file</string>
 </resources>
