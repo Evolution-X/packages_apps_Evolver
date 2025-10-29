@@ -762,44 +762,6 @@
     <string name="font_preview_text">Pijamalı\nhasta\nyağız\nşoföre\nçabucak\ngüvendi\n\nABCÇDEFGĞHIİJKLM\nNOÖPRSŞTUÜVYZXQW\nabcçdefgğhıijkl\nmnoöprsştuüvyzxqw\n1234567890</string>
     <string name="apply_button_text">Uygula</string>
     <string name="font_picker_select_font">Yazı tipi seçin</string>
-    <!-- Custom Font Picker -->
-    <string name="font_mode_title">Yazı tipi mod</string>
-    <string name="custom_font_picker_title">Özel yazı tipi seç</string>
-    <string name="custom_font_picker_summary">TTF ya da OTF yazı tipi dosyası seçin</string>
-    <!-- Custom Font Info -->
-    <string name="custom_font_installed_title">Özel yazı tipi indirildi</string>
-    <string name="custom_font_installed_summary">Yazı tipi: %s</string>
-    <!-- Reset Custom Font -->
-    <string name="reset_custom_font_title">Özel yazı tipini sıfırla</string>
-    <string name="reset_custom_font_summary">Özel yazı tipini kaldır ve normale döndür</string>
-    <string name="reset_custom_font_content_desc">Özel yazı tipini sıfırla</string>
-    <!-- Reboot -->
-    <string name="reboot_device">Cihazı yeniden başlat</string>
-    <string name="reboot_required_title">Yeniden başlatma gerekiyor</string>
-    <string name="reboot_required_message">Özel yazı tipini bütün sisteme uygulamak için cihazın yeniden başlatılması gerekiyor. Yeniden başlatılsın mı?</string>
-    <string name="reboot_required_custom_font_title">Özel yazı tipleri için yeniden başlatma gerekli</string>
-    <string name="reboot_required_custom_font_desc">Özel yazı tiplerinin uygulanması için sistemin yeniden başlatılması gerekir</string>
-    <!-- Toast Messages -->
-    <string name="custom_font_installed_success">Özel yazı tipi başarıyla indirildi</string>
-    <string name="custom_font_install_failed">Özel yazı tipi indirilemedi</string>
-    <string name="custom_font_reset_success">Özel yazı tipi sıfırlaması tamamlandı</string>
-    <string name="toast_failed_apply_font">Özel yazı tipi uygulanamadı</string>
-    <string name="toast_invalid_font_file">Geçersiz yazı tipi dosyası</string>
-    <!-- Font Preview -->
-    <string name="font_preview_dialog_title">Yazı tipi önizlemesi</string>
-    <string name="font_preview_quote">Hızlı Kahverengi Tilki</string>
-    <string name="font_preview_numbers">0123456789</string>
-    <string name="add_font">Yazı tipi ekle</string>
-    <string name="cancel">İptal</string>
-    <string name="change_custom_font">Özel yazı tipini değiştir</string>
-    <string name="add_custom_font">Özel yazı tipi ekle</string>
-    <!-- Misc -->
-    <string name="no_custom_font">Hiçbir Özel yazı tipi indirilmedi</string>
-    <string name="custom_font">Özel yazı tipi</string>
-    <string name="active_content_desc">Etkin</string>
-    <string name="reset">Sıfırla</string>
-    <string name="reset_default_title">Normale Sıfırla?</string>
-    <string name="reset_default_message">Bu normal font ayarlarını geri getirecektir</string>
     <!-- Apply Button -->
     <string name="apply_change_button_title">Uygula</string>
     <!-- Peek Display -->
@@ -920,19 +882,6 @@
     <!-- Dynamic charging animation -->
     <string name="wireless_charging_dynamic_color_title">Dinamik Şarj Rengi</string>
     <string name="wireless_charging_dynamic_color_summary">Şarj dalgalanma animasyon rengini belirlemek için pil seviyesini kullanın</string>
-    <!-- Shake Gestures -->
-    <string name="shake_gestures_enabled_title">Sallama Hareketleri</string>
-    <string name="shake_gestures_enabled_summary">Eylemleri Gerçekleştirmek İçin Cihazınızı Sallayın</string>
-    <string name="shake_gestures_action_title">Sallama Hareketi Eylemleri</string>
-    <string name="shake_gestures_toggle_flashlight">El Fenerini Aç/Kapat</string>
-    <string name="shake_gestures_media_playback">Medyayı Oynat/Atla</string>
-    <string name="shake_gestures_volume_panel">Ses Panelini Göster</string>
-    <string name="shake_gestures_screen_wake">Ekranı Aç/Kapat</string>
-    <string name="shake_gestures_clear_notifs">Tüm bildirimleri temizle</string>
-    <string name="shake_gestures_toggle_ringer">Zil Modunu Değiştir</string>
-    <string name="shake_gestures_screenshot">Ekran Resmi Al</string>
-    <string name="shake_gestures_intensity_title">Sallama Hareketleri Yoğunluğu</string>
-    <string name="shake_gestures_intensity_summary">Sallama Hareketlerinin Hassasiyetini Ayarla</string>
     <!-- Ambient Wallpaper -->
     <string name="doze_always_on_wallpaper_title">Her Zaman Açık Ekran Duvar Kağıdı</string>
     <string name="doze_always_on_wallpaper_summary">Kilit Ekranı Duvar Kağıdını Her Zaman Açık Ekranda Göster</string>
