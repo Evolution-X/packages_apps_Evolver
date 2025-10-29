@@ -761,44 +761,6 @@
     <string name="font_preview_text">Швидка бура лисиця перестрибує через лінивого собаку</string>
     <string name="apply_button_text">Застосувати</string>
     <string name="font_picker_select_font">Вибрати шрифт</string>
-    <!-- Custom Font Picker -->
-    <string name="font_mode_title">Стиль шрифту</string>
-    <string name="custom_font_picker_title">Вибрати власний шрифт</string>
-    <string name="custom_font_picker_summary">Виберіть файл шрифту TTF або OTF</string>
-    <!-- Custom Font Info -->
-    <string name="custom_font_installed_title">Довільний шрифт встановлено</string>
-    <string name="custom_font_installed_summary">Шрифт: %s</string>
-    <!-- Reset Custom Font -->
-    <string name="reset_custom_font_title">Скинути користувацький шрифт</string>
-    <string name="reset_custom_font_summary">Видалити свій шрифт і відновити типові</string>
-    <string name="reset_custom_font_content_desc">Скинути користувацький шрифт</string>
-    <!-- Reboot -->
-    <string name="reboot_device">Перезавантажити пристрій</string>
-    <string name="reboot_required_title">Потрібне перезавантаження</string>
-    <string name="reboot_required_message">Для використання користувацьких шрифтів потрібен перезавантаження пристрою. Перезавантажити зараз?</string>
-    <string name="reboot_required_custom_font_title">Перезавантажитись потрібно для користувацьких шрифтів</string>
-    <string name="reboot_required_custom_font_desc">Користувацькі шрифти потребують перезавантаження системи для застосування ефекту</string>
-    <!-- Toast Messages -->
-    <string name="custom_font_installed_success">Користувацький шрифт успішно встановлений</string>
-    <string name="custom_font_install_failed">Не вдалося встановити користувацький шрифт</string>
-    <string name="custom_font_reset_success">Користувацький шрифт успішно скинуто</string>
-    <string name="toast_failed_apply_font">Не вдалося застосувати шрифт</string>
-    <string name="toast_invalid_font_file">Неправильний файл шрифту</string>
-    <!-- Font Preview -->
-    <string name="font_preview_dialog_title">Попередній перегляд шрифту</string>
-    <string name="font_preview_quote">Швидкий Коричневий Лис</string>
-    <string name="font_preview_numbers">0123456789</string>
-    <string name="add_font">Додати шрифт</string>
-    <string name="cancel">Скасувати</string>
-    <string name="change_custom_font">Змінити користувацький шрифт</string>
-    <string name="add_custom_font">Додати свій шрифт</string>
-    <!-- Misc -->
-    <string name="no_custom_font">Не встановлено жодного користувацького шрифту</string>
-    <string name="custom_font">Користувацький шрифт</string>
-    <string name="active_content_desc">Активований</string>
-    <string name="reset">Скинути</string>
-    <string name="reset_default_title">Скинути до стандартних?</string>
-    <string name="reset_default_message">Відновити типові налаштування шрифту</string>
     <!-- Apply Button -->
     <string name="apply_change_button_title">Застосувати</string>
     <!-- Peek Display -->
@@ -914,19 +876,6 @@
     <!-- Dynamic charging animation -->
     <string name="wireless_charging_dynamic_color_title">Динамічний колір при заряджанні</string>
     <string name="wireless_charging_dynamic_color_summary">Використовуйте рівень заряду акумулятора для визначення кольору анімації пульсації</string>
-    <!-- Shake Gestures -->
-    <string name="shake_gestures_enabled_title">Жести струшування</string>
-    <string name="shake_gestures_enabled_summary">Струсіть ваш пристрій, щоб виконати дії</string>
-    <string name="shake_gestures_action_title">Дії жестів струшування</string>
-    <string name="shake_gestures_toggle_flashlight">Ввімкнути/Вимкнути ліхтарик</string>
-    <string name="shake_gestures_media_playback">Відтворити/Пропустити Медіа</string>
-    <string name="shake_gestures_volume_panel">Показати панель гучності</string>
-    <string name="shake_gestures_screen_wake">Вкл/викл екран</string>
-    <string name="shake_gestures_clear_notifs">Очистити всі сповіщення</string>
-    <string name="shake_gestures_toggle_ringer">Перемкнути режим дзвінка</string>
-    <string name="shake_gestures_screenshot">Зробити знімок екрану</string>
-    <string name="shake_gestures_intensity_title">Інтенсивність жестів струшування</string>
-    <string name="shake_gestures_intensity_summary">Відрегулюйте чутливість жестів струшування</string>
     <!-- Ambient Wallpaper -->
     <string name="doze_always_on_wallpaper_title">Тло на Ambient Display</string>
     <string name="doze_always_on_wallpaper_summary">Показувати шпалери екрану блокування на Ambient Display</string>
