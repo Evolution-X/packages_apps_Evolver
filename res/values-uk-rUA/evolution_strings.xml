@@ -783,16 +783,31 @@
     <string name="media_squiggle_animation_title">Анамація хвилястих ліній</string>
     <string name="media_squiggle_animation_summary">Показувати анімацію перемотки екрану при відтворенні медіа</string>
     <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Статус мікросхеми дій панелі</string>
+    <string name="ongoing_progress_settings_title">Поточний прогрес чіпу</string>
     <string name="ongoing_progress_settings_summary">Налаштування схованки в рядку стану</string>
-    <string name="ongoing_action_chip_title">Фішка поточних дій</string>
-    <string name="ongoing_action_chip_summary">Показувати індикатор прогресу в рядку стану для активних дій, таких як завантаження</string>
-    <string name="ongoing_action_chip_opacity_title">Непрозорість індикатора прогресу</string>
-    <string name="ongoing_action_chip_opacity_summary">Регулювання непрозорості індикатора прогресу</string>
-    <string name="compact_progress_mode_title">Компактний індикатор прогресу</string>
-    <string name="compact_progress_mode_summary">Використовуйте компактний круговий індикатор для поточних дій</string>
+    <string name="ongoing_action_chip_title">Увімкнути поточні дії чіпа</string>
+    <string name="ongoing_action_chip_summary">Показувати прогрес для поточних сповіщень в рядку стану</string>
+    <string name="compact_progress_mode_title">Режим компактного прогресу</string>
+    <string name="compact_progress_mode_summary">Використовувати індикатор циклічного прогресу замість панелі</string>
     <string name="show_media_progress_title">Показувати прогрес у медіа</string>
-    <string name="show_media_progress_summary">\"Відображення прогресу відтворення медіа в рядку стану</string>
+    <string name="show_media_progress_summary">Показувати прогрес відтворення медіа в рядку стану</string>
+    <string name="progress_bar_opacity_title">Непрозорість індикатора прогресу</string>
+    <string name="progress_bar_opacity_summary">Налаштуйте прозорість чіпа прогресу </string>
+    <string name="progress_enable_category_title">Загальні налаштування</string>
+    <string name="standard_chip_position_title">Стандартне положення чіпів</string>
+    <string name="circular_chip_position_title">Кругове положення чіпа</string>
+    <string name="chip_position_x_title">Горизонтальна позиція</string>
+    <string name="chip_position_x_summary">Рухати чіп ліворуч або праворуч від точки вирівнювання</string>
+    <string name="chip_position_y_title">Вертикальна позиція</string>
+    <string name="chip_position_y_summary">Перемістити чіп вгору або вниз в рядок стану</string>
+    <string name="chip_size_title">Ширина чіпа</string>
+    <string name="chip_size_summary">Налаштуйте прозорість чіпа прогресу</string>
+    <string name="circular_chip_size_title">Круговий розмір чіпів</string>
+    <string name="circular_chip_size_summary">Налаштуйте діаметр кругового чіпа</string>
+    <string name="circular_position_x_title">Горизонтальне зміщення</string>
+    <string name="circular_position_x_summary">Точне налаштування горизонтальної позиції</string>
+    <string name="circular_position_y_title">Вертикальне зміщення</string>
+    <string name="circular_position_y_summary">Точне налаштування вертикального положення</string>
     <string name="progress_footer_text">Панель прогресу в рядку стану надає оновлення в режимі реального часу як для відтворення медіафайлів, так і для активних завантажень/вивантажень. 
 - 🎵 Хід відтворення медіафайлів:
  • Відображає хід відтворення музики та відео під час відтворення медіафайлів.
