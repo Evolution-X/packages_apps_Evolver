@@ -785,16 +785,31 @@
     <string name="media_squiggle_animation_title">Hullámzó animáció</string>
     <string name="media_squiggle_animation_summary">Média lejátszásakor a keresősáv hullámzó animációjának megjelenítése</string>
     <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Folyamatkijelzés az értesítési sávban</string>
+    <string name="ongoing_progress_settings_title">Műveletfolyamatok kijelzője</string>
     <string name="ongoing_progress_settings_summary">Az értesítési sáv kijelzési beállításai</string>
-    <string name="ongoing_action_chip_title">Épp zajló művelet kijelzése</string>
-    <string name="ongoing_action_chip_summary">Folyamatban lévő műveletek, pl. letöltések kijelzőjének megjelenítése az állapotsoron</string>
-    <string name="ongoing_action_chip_opacity_title">A sáv átlátszósága</string>
-    <string name="ongoing_action_chip_opacity_summary">A folyamatjelző átlátszóságának beállítása</string>
-    <string name="compact_progress_mode_title">Kompakt folyamatjelző</string>
-    <string name="compact_progress_mode_summary">Kompakt, kör alakú jelző használata a folyamatban lévő műveletekhez</string>
+    <string name="ongoing_action_chip_title">A műveletfolyamatok kijelzésének bekapcsolása</string>
+    <string name="ongoing_action_chip_summary">Az értesítések állapotának megjelenítése az állapotsorban</string>
+    <string name="compact_progress_mode_title">Körkörös kijelzés</string>
+    <string name="compact_progress_mode_summary">Kör alakú folyamatjelző használata a sáv helyett</string>
     <string name="show_media_progress_title">Médiafolyamat-kijelzés</string>
     <string name="show_media_progress_summary">A médialejátszási folyamat megjelenítése az állapotsorban</string>
+    <string name="progress_bar_opacity_title">A sáv átlátszósága</string>
+    <string name="progress_bar_opacity_summary">A folyamatjelző átlátszóságának beállítása</string>
+    <string name="progress_enable_category_title">Általános beállítások</string>
+    <string name="standard_chip_position_title">A megszokott kijelző helye</string>
+    <string name="circular_chip_position_title">A körkörös kijelző helye</string>
+    <string name="chip_position_x_title">Vízszintes elhelyezkedés</string>
+    <string name="chip_position_x_summary">A kijelző mozgatása balra vagy jobbra az igazítási ponttól</string>
+    <string name="chip_position_y_title">Függőleges elhelyezkedés</string>
+    <string name="chip_position_y_summary">A kijelző mozgatása felfelé vagy lefelé az állapotsorban</string>
+    <string name="chip_size_title">A kijelző magassága</string>
+    <string name="chip_size_summary">A folyamatjelző magasságának beállítása</string>
+    <string name="circular_chip_size_title">A körkörös kijelző mérete</string>
+    <string name="circular_chip_size_summary">A körkörös kijelző átmérőjének változtatása</string>
+    <string name="circular_position_x_title">Vízszintes eltolás</string>
+    <string name="circular_position_x_summary">A vízszintes pozíció finomhangolása</string>
+    <string name="circular_position_y_title">Függőleges eltolás</string>
+    <string name="circular_position_y_summary">A függőleges pozíció finomhangolása</string>
     <string name="progress_footer_text">     \"Az állapotsor folyamatjelzője valós idejű infókat nyújt mind a médialejátszásról, mind az aktív letöltésekről/feltöltésekről.
  
      - 🎵 Médiafolyamatok:
