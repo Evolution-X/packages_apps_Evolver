@@ -784,16 +784,31 @@
     <string name="media_squiggle_animation_title">Animação de rabisco</string>
     <string name="media_squiggle_animation_summary">Mostrar animação de rabisco na barra de busca ao reproduzir mídia</string>
     <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip de ação barra de status</string>
+    <string name="ongoing_progress_settings_title">Chip de progresso contínuo</string>
     <string name="ongoing_progress_settings_summary">Opções do chip da barra de status</string>
-    <string name="ongoing_action_chip_title">Chip de ação em andamento</string>
-    <string name="ongoing_action_chip_summary">Mostre o indicador de progresso na barra de status para ações em andamento, como downloads</string>
-    <string name="ongoing_action_chip_opacity_title">Opacidade da barra de progresso</string>
-    <string name="ongoing_action_chip_opacity_summary">Ajustar a opacidade do chip na barra de progresso</string>
-    <string name="compact_progress_mode_title">Indicador de progresso compacto</string>
-    <string name="compact_progress_mode_summary">Usar um indicador circular compacto para ações em andamento</string>
+    <string name="ongoing_action_chip_title">Habilitar o chip de ação em andamento</string>
+    <string name="ongoing_action_chip_summary">Mostrar o progresso das notificações em andamento na barra de status</string>
+    <string name="compact_progress_mode_title">Modo de progresso compacto</string>
+    <string name="compact_progress_mode_summary">Usar indicador de progresso circular em vez de barra</string>
     <string name="show_media_progress_title">Mostrar progresso da mídia</string>
-    <string name="show_media_progress_summary">\"Exibir progresso da reprodução de mídia na barra de status</string>
+    <string name="show_media_progress_summary">Exibir progresso da reprodução de mídia na barra de status</string>
+    <string name="progress_bar_opacity_title">Opacidade da barra de progresso</string>
+    <string name="progress_bar_opacity_summary">Ajustar a opacidade do chip na barra de progresso</string>
+    <string name="progress_enable_category_title">Configurações gerais</string>
+    <string name="standard_chip_position_title">Posição padrão do chip</string>
+    <string name="circular_chip_position_title">Posição do chip Circular</string>
+    <string name="chip_position_x_title">Posição horizontal</string>
+    <string name="chip_position_x_summary">Mover chip para esquerda ou direita do ponto de alinhamento</string>
+    <string name="chip_position_y_title">Posição vertical</string>
+    <string name="chip_position_y_summary">Mover a ficha para cima ou para baixo na barra de status</string>
+    <string name="chip_size_title">Largura do chip</string>
+    <string name="chip_size_summary">Ajustar a opacidade do chip na barra de progresso</string>
+    <string name="circular_chip_size_title">Posição do chip Circular</string>
+    <string name="circular_chip_size_summary">Ajustar o diâmetro do chip circular</string>
+    <string name="circular_position_x_title">Offset horizontal</string>
+    <string name="circular_position_x_summary">Ajuste fino da posição horizontal</string>
+    <string name="circular_position_y_title">Offset vertical</string>
+    <string name="circular_position_y_summary">Ajuste fino da posição vertical</string>
     <string name="progress_footer_text">A barra de progresso da barra de status fornece atualizações em tempo real tanto para reprodução de mídia quanto para downloads/uploads ativos.
 
 - 🎵 Progresso da Mídia:
