@@ -12,6 +12,13 @@
         android:key="spoofing_system_wide_category"
         android:title="@string/spoofing_system_wide_category">
 
+        <!-- Vbmeta hash attestation -->
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.vbmeta.update"
+            android:title="@string/vbmeta_attestation_title"
+            android:summary="@string/vbmeta_attestation_summary"
+            android:defaultValue="true" />
+
         <!-- Keybox Data -->
         <org.evolution.settings.preferences.KeyboxDataPreference
             android:key="keybox_data_setting"

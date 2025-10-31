@@ -1214,4 +1214,8 @@
     <!-- QS media player -->
     <string name="qs_show_media_player_title">QS Media player</string>
     <string name="qs_show_media_player_summary">Display media controls in Quick Settings</string>
+
+    <!-- Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Autofix VBMeta detection</string>
+    <string name="vbmeta_attestation_summary">Perform key attestation to generate verified boot hash on boot. Requires system restart.</string>
 </resources>
