@@ -61,45 +61,12 @@
     	    android:max="210"
             android:dependency="keyguard_now_bar_enabled" />-->
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="ls_media_art_enabled"
+        <!-- Lockscreen Media Art -->
+        <Preference
+            android:key="media_art_settings"
             android:title="@string/ls_media_art_title"
             android:summary="@string/ls_media_art_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="ambient_media_art_enabled"
-            android:title="@string/ambient_media_art_title"
-            android:summary="@string/ambient_media_art_summary"
-            android:dependency="ls_media_art_enabled"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="ls_media_art_filter"
-            android:title="@string/ls_media_art_filter_title"
-            android:entries="@array/ls_media_art_filter_entries"
-            android:entryValues="@array/ls_media_art_filter_values"
-            android:dependency="ls_media_art_enabled"
-            android:defaultValue="0" />
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="ls_media_art_fade_level"
-            android:title="@string/ls_media_art_fade_level_title"
-            android:summary="@string/ls_media_art_fade_level_summary"
-            android:defaultValue="40"
-            settings:interval="1"
-            settings:units="%"
-            android:max="100"
-            android:min="0"
-            android:dependency="ls_media_art_enabled" />
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:title="@string/ls_media_art_blur_level_title"
-            android:summary="@string/ls_media_art_blur_level_summary"
-            android:max="600"
-            android:min="0"
-            android:defaultValue="200"
-            android:dependency="ls_media_art_enabled" />
+            android:fragment="org.evolution.settings.fragments.lockscreen.MediaArtSettings" />
 
         <!-- Charging stats -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
