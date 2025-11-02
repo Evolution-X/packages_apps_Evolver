@@ -37,7 +37,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.KeyProviderManager;
 import com.android.internal.util.evolution.SystemRestartUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -76,7 +75,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
     private static final String KEY_UPDATE_JSON_BUTTON = "update_pif_json";
     private static final String SYS_GMS_SPOOF = "persist.sys.pp.gms";
-    private static final String SYS_GMS_CERT_SPOOF = "persist.sys.pp.gmscertchain";
     private static final String SYS_GOOGLE_SPOOF = "persist.sys.pp";
     private static final String SYS_GAMES_SPOOF = "persist.sys.pp.games";
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pp.photos";
@@ -90,7 +88,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private Preference mPifJsonFilePreference;
     private Preference mUpdateJsonButton;
     private PreferenceCategory mSystemWideCategory;
-    private SystemPropertySwitchPreference mDisableForceIntegrity;
     private SystemPropertySwitchPreference mGmsSpoof;
     private SystemPropertySwitchPreference mGoogleSpoof;
     private SystemPropertySwitchPreference mGamesSpoof;
@@ -146,11 +143,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mSnapchatSpoof.setOnPreferenceChangeListener(this);
         mTensorSpoof.setOnPreferenceChangeListener(this);
 
-        mDisableForceIntegrity = findPreference(SYS_GMS_CERT_SPOOF);
-        if (mDisableForceIntegrity != null) {
-            mDisableForceIntegrity.setEnabled(KeyProviderManager.isKeyboxAvailable());
-        }
-
         mKeyboxFilePickerLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -159,9 +151,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
                     Preference pref = findPreference(KEYBOX_DATA_KEY);
                     if (pref instanceof KeyboxDataPreference) {
                         ((KeyboxDataPreference) pref).handleFileSelected(uri);
-                    }
-                    if (mDisableForceIntegrity != null) {
-                        mDisableForceIntegrity.setEnabled(KeyProviderManager.isKeyboxAvailable());
                     }
                 }
             }
