@@ -66,6 +66,13 @@
             android:summary="@string/ls_media_art_summary"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="ambient_media_art_enabled"
+            android:title="@string/ambient_media_art_title"
+            android:summary="@string/ambient_media_art_summary"
+            android:dependency="ls_media_art_enabled"
+            android:defaultValue="true" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="ls_media_art_filter"
             android:title="@string/ls_media_art_filter_title"
