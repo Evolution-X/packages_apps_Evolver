@@ -560,8 +560,8 @@
     <string name="keybox_toast_file_loaded">A Keybox betöltve</string>
     <string name="keybox_toast_file_cleared">A Keybox tisztítva</string>
     <!-- Block attestation even with Keybox Data -->
-    <string name="pi_gmscertchain_title">Az erős integritás kényszerítés letiltása</string>
-    <string name="pi_gmscertchain_summary">Ha engedélyezve van, nem kényszerít erős integritást érvényes egyéni keybox-okból, és a Google Play integritáshamisítására támaszkodik az olyan alkalmazások javításához, mint a Google Pay</string>
+    <string name="gms_cert_chain_title">Az erős integritás kényszerítés letiltása</string>
+    <string name="gms_cert_chain_summary">Ha engedélyezve van, nem kényszerít erős integritást érvényes egyéni keybox-okból, és a Google Play integritáshamisítására támaszkodik az olyan alkalmazások javításához, mint a Google Pay</string>
     <!-- About -->
     <string name="about_info">Az Evolution X egy egyedi Android ROM, amelynek célja a Google Pixel élményének reprodukálása, csak sokkal több testreszabási lehetőséggel. A Lineage OS Project-re támaszkodva.</string>
     <string name="about_website_title">Honlap</string>
@@ -669,6 +669,9 @@
     <!-- Lock screen media art -->
     <string name="ls_media_art_title">Albumborító</string>
     <string name="ls_media_art_summary">Az albumborító megjelenítése, ha elérhető</string>
+    <!-- Lock screen media art on Ambient Display -->
+    <string name="ambient_media_art_title">Lemezborító a \'Környezeti kijelzőn\'</string>
+    <string name="ambient_media_art_summary">Amennyiben rendelkezésre áll a lemezborító, az jelenjen meg a \'Környezeti kijelzőn\' is</string>
     <!-- Lock screen album art filter -->
     <string name="ls_media_art_filter_title">Médiaborító-szűrő</string>
     <string name="ls_media_art_filter_none">Nincs</string>
@@ -902,4 +905,17 @@
     <!-- Ambient Wallpaper -->
     <string name="doze_always_on_wallpaper_title">Környezeti háttérkép</string>
     <string name="doze_always_on_wallpaper_summary">Környezeti kijelzőn is a képernyőzár háttérképe jelenik meg</string>
+    <!-- Floating rotation button -->
+    <string name="floating_rotation_button_title">\'Lebegő elforgatás\'-gomb</string>
+    <string name="floating_rotation_button_summary">Egy lebegő gombbal jelzi, ha a készüléket elforgatták</string>
+    <!-- Refresh rate -->
+    <string name="refresh_rate_settings_title">A képernyőfrissítés megjelenîtése</string>
+    <string name="refresh_rate_dynamic">Dinamikus</string>
+    <string name="refresh_rate_high">Intenzív</string>
+    <string name="refresh_rate_standard">Alap</string>
+    <string name="refresh_rate_dynamic_summary">        Dinamikusan vált frissítési gyakoriságot a tartalomnak megfelelően, az akku-élettartam optimalizálása érdekében.
+    </string>
+    <string name="refresh_rate_summary">Képernyőfrissítési maximum</string>
+    <string name="refresh_rate_high_summary">a simább görgetés és animációk érdekében.</string>
+    <string name="refresh_rate_standard_summary">a hosszabb akku-élettartam érdekében.</string>
 </resources>
