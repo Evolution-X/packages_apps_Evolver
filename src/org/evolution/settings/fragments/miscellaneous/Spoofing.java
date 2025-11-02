@@ -37,7 +37,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.KeyProviderManager;
 import com.android.internal.util.evolution.SystemRestartUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -59,6 +58,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.evolution.settings.preferences.KeyboxDataPreference;
+import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 
@@ -76,7 +76,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
     private static final String KEY_UPDATE_JSON_BUTTON = "update_pif_json";
     private static final String SYS_GMS_SPOOF = "persist.sys.pp.gms";
-    private static final String SYS_GMS_CERT_SPOOF = "persist.sys.pp.gmscertchain";
+    private static final String KEY_CERT_CHAIN = "gms_cert_chain";
     private static final String SYS_GOOGLE_SPOOF = "persist.sys.pp";
     private static final String SYS_GAMES_SPOOF = "persist.sys.pp.games";
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pp.photos";
@@ -90,7 +90,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private Preference mPifJsonFilePreference;
     private Preference mUpdateJsonButton;
     private PreferenceCategory mSystemWideCategory;
-    private SystemPropertySwitchPreference mDisableForceIntegrity;
+    private SecureSettingSwitchPreference mDisableForceIntegrity;
     private SystemPropertySwitchPreference mGmsSpoof;
     private SystemPropertySwitchPreference mGoogleSpoof;
     private SystemPropertySwitchPreference mGamesSpoof;
@@ -113,6 +113,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final Resources resources = context.getResources();
 
         mSystemWideCategory = (PreferenceCategory) findPreference(KEY_SYSTEM_WIDE_CATEGORY);
+        mDisableForceIntegrity = (SecureSettingSwitchPreference) findPreference(KEY_CERT_CHAIN);
         mGamesSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GAMES_SPOOF);
         mPhotosSpoof = (SystemPropertySwitchPreference) findPreference(SYS_PHOTOS_SPOOF);
         mGmsSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GMS_SPOOF);
@@ -145,11 +146,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mQsbSpoof.setOnPreferenceChangeListener(this);
         mSnapchatSpoof.setOnPreferenceChangeListener(this);
         mTensorSpoof.setOnPreferenceChangeListener(this);
-
-        mDisableForceIntegrity = findPreference(SYS_GMS_CERT_SPOOF);
-        if (mDisableForceIntegrity != null) {
-            mDisableForceIntegrity.setEnabled(KeyProviderManager.isKeyboxAvailable());
-        }
+        mDisableForceIntegrity.setOnPreferenceChangeListener(this);
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -159,9 +156,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
                     Preference pref = findPreference(KEYBOX_DATA_KEY);
                     if (pref instanceof KeyboxDataPreference) {
                         ((KeyboxDataPreference) pref).handleFileSelected(uri);
-                    }
-                    if (mDisableForceIntegrity != null) {
-                        mDisableForceIntegrity.setEnabled(KeyProviderManager.isKeyboxAvailable());
                     }
                 }
             }
@@ -261,7 +255,9 @@ public class Spoofing extends SettingsPreferenceFragment implements
         try {
             ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
             String[] packages = {
+                "com.google.android.apps.nbu.paisa.user",
                 "com.google.android.apps.photos",
+                "com.google.android.apps.walletnfcrel",
                 "com.google.android.gms",
                 "com.google.android.googlequicksearchbox",
                 "com.android.vending",
@@ -339,6 +335,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         if (preference == mGmsSpoof
+            || preference == mDisableForceIntegrity
             || preference == mPhotosSpoof
             || preference == mQsbSpoof
             || preference == mSnapchatSpoof) {
