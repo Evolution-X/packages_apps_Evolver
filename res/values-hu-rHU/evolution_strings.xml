@@ -908,14 +908,4 @@
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">\'Lebegő elforgatás\'-gomb</string>
     <string name="floating_rotation_button_summary">Egy lebegő gombbal jelzi, ha a készüléket elforgatták</string>
-    <!-- Refresh rate -->
-    <string name="refresh_rate_settings_title">A képernyőfrissítés megjelenîtése</string>
-    <string name="refresh_rate_dynamic">Dinamikus</string>
-    <string name="refresh_rate_high">Intenzív</string>
-    <string name="refresh_rate_standard">Alap</string>
-    <string name="refresh_rate_dynamic_summary">        Dinamikusan vált frissítési gyakoriságot a tartalomnak megfelelően, az akku-élettartam optimalizálása érdekében.
-    </string>
-    <string name="refresh_rate_summary">Képernyőfrissítési maximum</string>
-    <string name="refresh_rate_high_summary">a simább görgetés és animációk érdekében.</string>
-    <string name="refresh_rate_standard_summary">a hosszabb akku-élettartam érdekében.</string>
 </resources>
