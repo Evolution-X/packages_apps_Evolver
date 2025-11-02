@@ -59,6 +59,13 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Rotation button -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="enable_rotation_button"
+            android:title="@string/floating_rotation_button_title"
+            android:summary="@string/floating_rotation_button_summary"
+            android:defaultValue="true" />
+
         <!-- Smart Pixels -->
         <Preference
             android:key="smart_pixels"
