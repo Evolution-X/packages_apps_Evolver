@@ -127,8 +127,6 @@
     <string name="lock_screen_fingerprint_category">指纹</string>
     <string name="lock_screen_fingerprint_ripple_title">磁贴动画</string>
     <string name="lock_screen_fingerprint_ripple_summary">使用指纹解锁时显示波纹效果</string>
-    <string name="lock_screen_screen_off_udfps_title">息屏指纹</string>
-    <string name="lock_screen_screen_off_udfps_summary">息屏状态保持屏下指纹开启</string>
     <string name="lock_screen_fingerprint_success_vibration_title">解锁成功后震动</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">指纹识别成功时振动</string>
     <string name="lock_screen_fingerprint_error_vibration_title">解锁错误后震动</string>
@@ -139,38 +137,25 @@
     <string name="lock_screen_always_on_pocket_mode_title">总是开启口袋检测</string>
     <string name="lock_screen_always_on_pocket_mode_summary">（口袋检测下）开启屏幕时总是屏蔽屏幕和按钮输入</string>
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">关于脉冲</string>
-    <string name="pulse_help_policy_notice_summary">当音乐在设备上播放时，脉冲是一个优秀的音频图形可视化器</string>
-    <string name="lock_screen_pulse_settings_title">脉冲</string>
-    <string name="lock_screen_pulse_settings_summary">导航栏和锁屏的音频图形可视化器</string>
-    <string name="show_navbar_pulse_title">脉冲导航栏</string>
-    <string name="show_navbar_pulse_summary">导航栏上的音频可视化效果</string>
-    <string name="show_lockscreen_pulse_title">锁屏界面的Pulse</string>
-    <string name="show_lockscreen_pulse_summary">在锁屏界面显示音频可视化效果</string>
-    <string name="show_ambient_pulse_title">息屏脉冲</string>
-    <string name="show_ambient_pulse_summary">在息屏显示界面显示音频可视化效果</string>
-    <string name="pulse_render_mode_title">渲染模式</string>
-    <string name="pulse_render_mode_fading_bars">渐变块</string>
-    <string name="pulse_render_mode_solid_lines">实线</string>
-    <string name="pulse_legacy_mode_advanced_category">渐变块模式设置</string>
-    <string name="pulse_custom_fudge_factor">清晰等级</string>
-    <string name="pulse_lavalamp_speed_title">跑马灯速度</string>
-    <string name="pulse_solid_units_rounded_title">自定义圆角</string>
-    <string name="pulse_solid_units_rounded_summary">带圆形提示的实线</string>
-    <string name="pulse_solid_units_count">实线数量</string>
-    <string name="pulse_solid_units_opacity">实线不透明度</string>
-    <string name="pulse_solid_dimen_category">实线模式设置</string>
-    <string name="pulse_color_mode_title">颜色</string>
+    <string name="pulse_settings_title">脉冲视觉效果</string>
+    <string name="pulse_settings_summary">播放音乐时在锁屏界面显示条形频谱效果</string>
+    <string name="ambient_pulse_enabled_title">息屏脉冲</string>
+    <string name="ambient_pulse_enabled_summary">息屏显示视觉效果</string>
+    <string name="pulse_rounded_bars_title">圆形条</string>
+    <string name="pulse_rounded_bars_summary">显示带圆角的频谱效果</string>
+    <string name="pulse_color">频谱效果颜色</string>
+    <string name="pulse_color_lavalamp">熔岩灯</string>
+    <string name="pulse_color_album">专辑封面</string>
     <string name="pulse_color_accent">主题色</string>
-    <string name="pulse_color_custom">自定义</string>
-    <string name="pulse_color_lava_lamp">跑马灯</string>
-    <string name="pulse_color_user_title">选择颜色</string>
-    <string name="pulse_smoothing_enabled_title">开启平滑模式</string>
-    <string name="pulse_smoothing_enabled_summary">使每个柱状的动画更平滑</string>
-    <string name="pulse_custom_dimen">脉冲条宽度</string>
-    <string name="pulse_custom_div">脉冲条间距</string>
-    <string name="pulse_filled_block_size">色块大小</string>
-    <string name="pulse_empty_block_size">色块间距</string>
+    <string name="pulse_bar_count_title">长条数量</string>
+    <string name="pulse_bar_count_summary">设置频谱效果显示长条数量</string>
+    <string name="pulse_bar_count_units">长条</string>
+    <string name="pulse_renderer">频谱效果样式</string>
+    <string name="pulse_renderer_solid">实线</string>
+    <string name="pulse_renderer_fading">渐变块</string>
+    <string name="pulse_renderer_neon_glow">霓虹灯</string>
+    <string name="pulse_renderer_retro_vu_meter">复古电平计</string>
+    <string name="pulse_renderer_minimal_wave">极简潮</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">向左或向右滑动即可预览时钟样式</string>
     <!-- Lock screen Clock Revamp -->
@@ -450,6 +435,7 @@
     <string name="quick_settings_tile_shape_title">快速设置磁贴形状</string>
     <string name="quick_settings_tile_shape_dynamic">动态</string>
     <string name="quick_settings_tile_shape_circle">圆环</string>
+    <string name="quick_settings_tile_shape_rounded_square_smooth">圆角正方形(平滑)</string>
     <string name="quick_settings_tile_shape_rounded_square">圆角方形</string>
     <string name="quick_settings_tile_shape_square">方型</string>
     <string name="quick_settings_tile_haptic_summary">点击快速设置磁贴时提供触发反馈</string>
@@ -457,8 +443,6 @@
     <string name="notifications_heads_up_title">浮动通知</string>
     <string name="notifications_heads_up_summary">允许弹出通知</string>
     <string name="notifications_interface_category">界面</string>
-    <string name="notifications_edge_light_title">边缘灯效</string>
-    <string name="notifications_edge_light_summary">当收到通知时在屏幕边缘显示光效</string>
     <string name="notifications_kill_app_button_title">终止程序</string>
     <string name="notifications_kill_app_button_summary">在通知长按菜单中显示强制关闭应用按键</string>
     <string name="notifications_sounds_vibration_category">声音和振动</string>
@@ -471,17 +455,23 @@
     <string name="compact_heads_up_notifications_enabled_title">紧凑型浮动通知</string>
     <string name="compact_heads_up_notifications_enabled_summary">以紧凑尺寸显示通知</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_always_trigger_on_pulse_title">始终在脉冲时触发</string>
-    <string name="notifications_edge_light_always_trigger_on_pulse_summary">是否在显示息屏显示时显示边缘灯效，而不仅仅是为了通知</string>
-    <string name="notifications_edge_light_repeat_animation_title">重复动画</string>
-    <string name="notifications_edge_light_repeat_animation_summary_on">重复直到超时</string>
-    <string name="notifications_edge_light_repeat_animation_summary_off">只显示一次</string>
-    <string name="notifications_edge_light_color_mode_title">边缘灯效颜色模式</string>
-    <string name="notifications_edge_light_style_title">Edge light 样式</string>
-    <string name="notifications_edge_light_stroke_width_title">Edge light 描边参数</string>
-    <string name="notifications_edge_light_stroke_width_summary">配置 edge light 光线稠密度</string>
-    <string name="notifications_edge_light_style_1">绘制线</string>
-    <string name="notifications_edge_light_style_2">闪烁脉冲</string>
+    <string name="edge_light_title">边缘灯效</string>
+    <string name="edge_light_summary">当收到通知时在屏幕边缘显示光效</string>
+    <string name="edge_light_color_mode_title">边缘灯效颜色模式</string>
+    <string name="edge_light_pulse_count_title">脉冲数量</string>
+    <string name="edge_light_pulse_count_summary">边缘闪光脉冲数量</string>
+    <string name="edge_light_stroke_width_title">轮廓宽度</string>
+    <string name="edge_light_stroke_width_summary">设置边缘闪光条的厚度</string>
+    <string name="edge_light_style_title">渲染样式</string>
+    <string name="edge_light_style_default">默认 (左/右)</string>
+    <string name="edge_light_style_frame">框 (所有侧)</string>
+    <string name="edge_light_animation_effect_title">动画效果</string>
+    <string name="edge_light_animation_effect_none">标准</string>
+    <string name="edge_light_animation_effect_breathing">呼吸</string>
+    <string name="edge_light_animation_effect_wave">波浪</string>
+    <string name="edge_light_animation_effect_sparkle">闪烁</string>
+    <string name="edge_light_animation_effect_chase">跑马灯</string>
+    <string name="edge_light_animation_effect_comet">彗星</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">减少浮动通知频率</string>
     <string name="notifications_less_boring_heads_up_summary">仅显示电话或消息应用程序的浮动通知</string>
@@ -541,13 +531,9 @@
     <string name="tensor_spoof_summary">解锁功能仅在基于张力的Pixel设备中可用</string>
     <string name="gms_spoof_title">Play完整性修复</string>
     <string name="gms_spoof_summary">伪装您的设备以通过 Google Play 认证</string>
-    <string name="spoofing_storage_encryption_title">存储加密</string>
-    <string name="spoofing_storage_encryption_summary">伪装存储加密状态为加密\'</string>
     <string name="spoofing_app_specific_category">针对特定应用程序</string>
     <string name="spoofing_qsb_title">Google 应用</string>
     <string name="spoofing_qsb_summary">将Google应用伪装成最新的 Pixel 设备以解锁专属功能</string>
-    <string name="spoofing_vending_title">Play 商店</string>
-    <string name="spoofing_vending_summary">对Play Store伪装成最新的 Pixel 设备</string>
     <string name="spoofing_photos_title">Google 相册</string>
     <string name="spoofing_photos_summary">把谷歌相册应用伪装成Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
@@ -573,8 +559,9 @@
     <string name="keybox_toast_missing_data">无效的Keybox XML：缺少必填字段</string>
     <string name="keybox_toast_file_loaded">Keybox已加载</string>
     <string name="keybox_toast_file_cleared">Keybox已清除</string>
-    <string name="keybox_check_title">私钥盒欺骗</string>
-    <string name="keybox_check_summary">只有当您有一个有效的密钥箱以实现适当的强完整性时，才可以伪造私钥</string>
+    <!-- Block attestation even with Keybox Data -->
+    <string name="gms_cert_chain_title">禁用强制严格完整性检查</string>
+    <string name="gms_cert_chain_summary">启用后，不要从有效的自定义密钥箱强制执行强完整性，而是依靠Google Play 完整性欺骗来修复Google Pay等应用程序</string>
     <!-- About -->
     <string name="about_info">Evolution X 是一款致力于复刻 Google Pixel 体验的定制化 Android 项目，拥有诸多自定义项目。本项目基于 LineageOS 项目。</string>
     <string name="about_website_title">网站</string>
@@ -590,7 +577,7 @@
     <string name="accent_color">首选颜色 (默认)</string>
     <string name="notification_color">通知颜色</string>
     <string name="wallpaper_color">壁纸颜色</string>
-    <string name="rainbow_gradient_color">彩虹渐变颜色</string>
+    <string name="rainbow_color">彩虹色</string>
     <string name="custom_color">自定义颜色</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">值: <xliff:g id="v">%s</xliff:g></string>
@@ -677,21 +664,27 @@
     <string name="depth_wallpaper_offset_x_title">景深壁纸水平偏移</string>
     <string name="depth_wallpaper_offset_y_title">景深壁纸垂直偏移</string>
     <string name="dw_footer_text">深度壁纸功能的灵感来自于ios的壁纸主题分割，可以将一个主题叠加在锁屏时钟上方，以显示壁纸深度效果。\n\n设置深度壁纸功能：\n1. 设置一个带有主题的壁纸，或者您希望主题位于其上方的背景。\n2. 选择要跟踪的主题图像，该图像将叠加在锁屏时钟上方。\n3. 根据您的需要修改偏移量和不透明度。    </string>
-    <!-- Media art -->
-    <string name="media_art_title">媒体封面</string>
-    <string name="media_art_summary">可用时显示媒体封面</string>
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">媒体封面</string>
+    <string name="ls_media_art_summary">可用时显示媒体封面</string>
+    <!-- Lock screen media art on Ambient Display -->
+    <string name="ambient_media_art_title">息屏显示媒体封面</string>
+    <string name="ambient_media_art_summary">息屏显示可用时显示媒体封面</string>
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">媒体封面艺术滤镜</string>
+    <string name="ls_media_art_filter_none">无</string>
+    <string name="ls_media_art_filter_blur">模糊</string>
+    <string name="ls_media_art_filter_grayscale">灰度</string>
+    <string name="ls_media_art_filter_sepia">复古</string>
+    <string name="ls_media_art_filter_tint">主题色</string>
+    <string name="ls_media_art_filter_invert">反转</string>
+    <string name="ls_media_art_filter_grayblur">灰度和模糊</string>
+    <!-- Lock screen media art fade level -->
     <string name="ls_media_art_fade_level_title">媒体封面艺术淡入淡出级别</string>
     <string name="ls_media_art_fade_level_summary">设置媒体封面艺术淡入淡出级别</string>
-    <!-- Lock screen album art filter -->
-    <string name="lockscreen_albumart_filter_title">媒体封面艺术滤镜</string>
-    <string name="lockscreen_albumart_filter_none">无</string>
-    <string name="lockscreen_albumart_filter_grayscale">灰度</string>
-    <string name="lockscreen_albumart_filter_tint">主题色</string>
-    <string name="lockscreen_albumart_filter_blur">模糊</string>
-    <string name="lockscreen_albumart_filter_grayblur">灰度和模糊</string>
-    <!-- Media Art Blur Level -->
-    <string name="lockscreen_media_art_blur_level_title">专辑封面模糊强度</string>
-    <string name="lockscreen_media_art_blur_level_summary">应用模糊过滤器时的模糊强度</string>
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">媒体封面模糊等级</string>
+    <string name="ls_media_art_blur_level_summary">应用模糊时的强度</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">系统震动</string>
     <string name="haptics_settings_summary">修改系统震动强度</string>
@@ -789,17 +782,35 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">通知图标</string>
     <string name="max_visible_notification_icons_summary">状态栏可显示图标</string>
+    <!-- Squiggle animation for media notification -->
+    <string name="media_squiggle_animation_title">扭曲动画</string>
+    <string name="media_squiggle_animation_summary">播放媒体时在媒体面板中显示搜索栏方形动画</string>
     <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">状态栏操作胶囊</string>
+    <string name="ongoing_progress_settings_title">进度指示器</string>
     <string name="ongoing_progress_settings_summary">状态栏操作胶囊设置</string>
-    <string name="ongoing_action_chip_title">持续操作胶囊</string>
-    <string name="ongoing_action_chip_summary">在状态栏显示下载等持续操作的进度条</string>
-    <string name="ongoing_action_chip_opacity_title">进度条不透明度</string>
-    <string name="ongoing_action_chip_opacity_summary">调整操作胶囊进度条的透明度</string>
-    <string name="compact_progress_mode_title">紧凑型进度指示器</string>
-    <string name="compact_progress_mode_summary">为持续操作使用紧凑型圆形指示器</string>
+    <string name="ongoing_action_chip_title">启用进度指示器</string>
+    <string name="ongoing_action_chip_summary">在状态栏显示正在进行的通知的进度</string>
+    <string name="compact_progress_mode_title">简洁的进度模式</string>
+    <string name="compact_progress_mode_summary">使用循环进度指示器而不是指示栏</string>
     <string name="show_media_progress_title">显示媒体播放进度</string>
     <string name="show_media_progress_summary">在状态栏显示媒体播放进度</string>
+    <string name="progress_bar_opacity_title">进度条不透明度</string>
+    <string name="progress_bar_opacity_summary">调整操作提示组件的透明度</string>
+    <string name="progress_enable_category_title">常用设置</string>
+    <string name="standard_chip_position_title">标准提示组件位置</string>
+    <string name="circular_chip_position_title">圆形提示组件的位置</string>
+    <string name="chip_position_x_title">水平位置</string>
+    <string name="chip_position_x_summary">从对齐点向左移动或右移动提示组件</string>
+    <string name="chip_position_y_title">垂直位置</string>
+    <string name="chip_position_y_summary">在状态栏向上或向下移动提示组件</string>
+    <string name="chip_size_title">提示组件宽度</string>
+    <string name="chip_size_summary">调整操作提示组件的宽度</string>
+    <string name="circular_chip_size_title">圆形提示组件的大小</string>
+    <string name="circular_chip_size_summary">调整循环提示组件的直径</string>
+    <string name="circular_position_x_title">水平偏移</string>
+    <string name="circular_position_x_summary">微调水平位置</string>
+    <string name="circular_position_y_title">垂直偏移</string>
+    <string name="circular_position_y_summary">微调垂直位置</string>
     <string name="progress_footer_text">\"状态栏进度条提供媒体播放和活动下载/上传的实时更新。
  
      - 🎵 媒体进度：
@@ -817,12 +828,6 @@
  
      进度条会动态切换媒体和下载状态，确保您一目了然地获取最相关的信息。\"
     </string>
-    <!-- Squiggle animation -->
-    <string name="show_squiggle_animation_title">显示波浪动画</string>
-    <string name="show_squiggle_animation_summary">显示媒体面板波浪动画\n更改后需要切换音乐、暂停音乐或移动进度条才能应用</string>
-    <!-- AOD wallpaper -->
-    <string name="aod_wallpaper_title">壁纸</string>
-    <string name="aod_wallpaper_summary">开启时显示壁纸</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">电量条</string>
     <string name="battery_bar_summary">显示和自定义在状态栏或导航栏附近的电量条</string>
@@ -851,9 +856,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">小横屏通知</string>
     <string name="small_landscape_notification_summary">在横屏模式下显示通知面板宽度小于AOSP</string>
-    <!-- Notification Row -->
-    <string name="notification_row_transparency_title">通知栏透明度</string>
-    <string name="notification_row_transparency_summary">显示半透明快捷设置通知</string>
     <!-- Button settings -->
     <string name="touchscreen_gesture_action_play_pause_music">播放/暂停播放音乐</string>
     <string name="hardware_keys_action_nothing">无动作</string>
@@ -890,4 +892,18 @@
     <string name="power_off_verify_footer">关机验证会保护您的设备，防止他人在设备丢失后立即关闭它，从而增加恢复的机会。 您只需要在关闭或从锁屏界面重新启动手机时输入锁屏密码。</string>
     <string name="power_off_verify_summary">当您的设备被锁定时，您需要使用您的密码来关闭或重启。</string>
     <string name="power_off_verify_title">关机验证</string>
+    <!-- Notification row transparency -->
+    <string name="notification_row_transparency_title">通知栏透明度</string>
+    <string name="notification_row_transparency_summary">显示半透明快捷设置通知</string>
+    <string name="notification_row_transparency_lockscreen_title">半透明锁屏通知</string>
+    <string name="notification_row_transparency_lockscreen_summary">设置锁屏通知的半透明背景</string>
+    <!-- Dynamic charging animation -->
+    <string name="wireless_charging_dynamic_color_title">动态充电颜色</string>
+    <string name="wireless_charging_dynamic_color_summary">使用电池电量来确定充电波动画颜色</string>
+    <!-- Ambient Wallpaper -->
+    <string name="doze_always_on_wallpaper_title">息屏墙纸</string>
+    <string name="doze_always_on_wallpaper_summary">息屏显示时显示锁屏壁纸</string>
+    <!-- Floating rotation button -->
+    <string name="floating_rotation_button_title">浮动旋转按钮</string>
+    <string name="floating_rotation_button_summary">旋转设备时显示浮动按钮</string>
 </resources>
