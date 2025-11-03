@@ -146,7 +146,7 @@
     <string name="pulse_color">Цвет визуализатора</string>
     <string name="pulse_color_lavalamp">Эффект лавовой лампы</string>
     <string name="pulse_color_album">Обложка песни</string>
-    <string name="pulse_color_accent">Акцент</string>
+    <string name="pulse_color_accent">Цветовой акцент</string>
     <string name="pulse_bar_count_title">Количество полос</string>
     <string name="pulse_bar_count_summary">Установите количество полос, отображаемых в визуализаторе.</string>
     <string name="pulse_bar_count_units">Полосы</string>
@@ -405,7 +405,7 @@
     <string name="quick_settings_data_usage_title">Использование данных</string>
     <string name="quick_settings_data_usage_summary">Отображать расход трафика в нижней части быстрых настроек</string>
     <string name="quick_settings_lock_screen_category">Экран блокировки</string>
-    <string name="quick_settings_secure_lock_screen_title">Смахните вниз на заблокированном экране для открытия быстрых настроек</string>
+    <string name="quick_settings_secure_lock_screen_title">Быстрые настройки на экране блокировки</string>
     <string name="quick_settings_secure_lock_screen_summary">Разрешить проводить пальцем вниз по экрану блокировки для просмотра быстрых настроек</string>
     <string name="quick_settings_require_unlock_title">Доступ к быстрым настройкам требует разблокировки</string>
     <string name="quick_settings_require_unlock_summary">Следующие элементы быстрых настроек будут требовать разблокировки устройства, прежде чем вы сможете взаимодействовать с ними:\nРежим полёта, Режим энергосбережения, Bluetooth, Передача данных, Экономия трафика, Точка доступа, Интернет, NFC, Автоповорот и Wi-Fi</string>
