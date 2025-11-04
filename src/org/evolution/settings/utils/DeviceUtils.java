@@ -15,6 +15,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.hardware.fingerprint.FingerprintManager;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.camera2.CameraAccessException;
@@ -23,6 +24,7 @@ import android.hardware.camera2.CameraManager;
 import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.SystemProperties;
+import android.os.Vibrator;
 import android.telephony.TelephonyManager;
 import android.telephony.SubscriptionManager;
 import android.text.TextUtils;
@@ -264,6 +266,22 @@ public class DeviceUtils {
             // Ignore
         }
         return false;
+    }
+
+    public static boolean hasVibrator(Context context) {
+        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator == null || !vibrator.hasVibrator()) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean hasFingerprint(Context context) {
+        FingerprintManager fp = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+        if (fp == null || !fp.isHardwareDetected()) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean isMobileDataEnabled(Context context) {

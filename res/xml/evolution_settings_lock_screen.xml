@@ -121,7 +121,7 @@
     </PreferenceCategory>-->
 
     <PreferenceCategory
-        android:key="lock_screen_fingerprint_category"
+        android:key="lockscreen_gestures_category"
         android:title="@string/lock_screen_fingerprint_category">
 
         <!-- Fingerprint unlock ripple animation -->

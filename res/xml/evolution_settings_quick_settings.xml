@@ -10,56 +10,6 @@
     android:title="@string/quick_settings_title">
 
     <PreferenceCategory
-        android:key="quick_settings_brightness_slider_category"
-        android:title="@string/quick_settings_brightness_slider_category">
-
-        <!-- Brightness slider -->
-        <lineageos.preference.LineageSecureSettingListPreference
-            android:key="qs_show_brightness_slider"
-            android:title="@string/quick_settings_show_brightness_slider_title"
-            android:entries="@array/quick_settings_show_brightness_slider_entries"
-            android:entryValues="@array/quick_settings_show_brightness_slider_values"
-            android:defaultValue="1" />
-
-        <!-- Brightness Slider Style -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_brightness_slider_shape"
-            android:title="@string/qs_brightness_slider_shape_title"
-            android:entries="@array/qs_brightness_slider_shape_entries"
-            android:entryValues="@array/qs_brightness_slider_shape_values"
-            android:defaultValue="0" />
-
-        <!-- Brightness slider position -->
-        <lineageos.preference.LineageSecureSettingListPreference
-            android:key="qs_brightness_slider_position"
-            android:title="@string/quick_settings_brightness_slider_position_title"
-            android:entries="@array/quick_settings_brightness_slider_position_entries"
-            android:entryValues="@array/quick_settings_brightness_slider_position_values"
-            android:defaultValue="0" />
-
-        <!-- Haptic feedback on brightness slider -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_brightness_slider_haptic"
-            android:title="@string/quick_settings_brightness_slider_haptic_title"
-            android:summary="@string/quick_settings_brightness_slider_haptic_summary"
-            android:defaultValue="false" />
-
-        <!-- Auto brightness icon -->
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="qs_show_auto_brightness"
-            android:title="@string/quick_settings_auto_brightness_icon_title"
-            android:summary="@string/quick_settings_auto_brightness_icon_summary"
-            android:defaultValue="true" />
-
-        <!-- Brightness slider percentage -->
-        <!--<lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="qs_show_brightness_percentage"
-            android:title="@string/quick_settings_show_brightness_percentage_title"
-            android:summary="@string/quick_settings_show_brightness_percentage_summary"
-            android:defaultValue="false" />-->
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="quick_settings_interface_category"
         android:title="@string/quick_settings_interface_category">
 
@@ -126,13 +76,6 @@
             android:summary="@string/qs_widgets_enabled_summary"
             android:defaultValue="false" />-->
 
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_tile_shape"
-            android:title="@string/quick_settings_tile_shape_title"
-            android:entries="@array/quick_settings_tile_shape_entries"
-            android:entryValues="@array/quick_settings_tile_shape_values"
-            android:defaultValue="0" />
-
         <!--<ListPreference
             android:key="qs_tile_ui_style"
             android:title="@string/quick_settings_tile_ui_style_title"
@@ -151,9 +94,71 @@
             android:key="qs_split_shade_enabled"
             android:title="@string/qs_split_shade_enabled_title"
             android:summary="@string/qs_split_shade_enabled_summary"
+            android:defaultValue="false" />-->
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_brightness_slider_category"
+        android:title="@string/quick_settings_brightness_slider_category">
+
+        <!-- Brightness slider -->
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/quick_settings_show_brightness_slider_title"
+            android:entries="@array/quick_settings_show_brightness_slider_entries"
+            android:entryValues="@array/quick_settings_show_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <!-- Brightness Slider Style -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_brightness_slider_shape"
+            android:title="@string/qs_brightness_slider_shape_title"
+            android:entries="@array/qs_brightness_slider_shape_entries"
+            android:entryValues="@array/qs_brightness_slider_shape_values"
+            android:defaultValue="0" />
+
+        <!-- Brightness slider position -->
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_brightness_slider_position"
+            android:title="@string/quick_settings_brightness_slider_position_title"
+            android:entries="@array/quick_settings_brightness_slider_position_entries"
+            android:entryValues="@array/quick_settings_brightness_slider_position_values"
+            android:defaultValue="0" />
+
+        <!-- Haptic feedback on brightness slider -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_slider_haptic"
+            android:title="@string/quick_settings_brightness_slider_haptic_title"
+            android:summary="@string/quick_settings_brightness_slider_haptic_summary"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!-- Auto brightness icon -->
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/quick_settings_auto_brightness_icon_title"
+            android:summary="@string/quick_settings_auto_brightness_icon_summary"
+            android:defaultValue="true" />
+
+        <!-- Brightness slider percentage -->
+        <!--<lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_brightness_percentage"
+            android:title="@string/quick_settings_show_brightness_percentage_title"
+            android:summary="@string/quick_settings_show_brightness_percentage_summary"
+            android:defaultValue="false" />-->
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_layout_category"
+        android:title="@string/quick_settings_layout_category_title">
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_tile_shape"
+            android:title="@string/quick_settings_tile_shape_title"
+            android:entries="@array/quick_settings_tile_shape_entries"
+            android:entryValues="@array/quick_settings_tile_shape_values"
+            android:defaultValue="0" />
+
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_tile_label_hide"
             android:title="@string/quick_settings_tile_label_hide_title"
             android:summary="@string/quick_settings_tile_label_hide_summary"
