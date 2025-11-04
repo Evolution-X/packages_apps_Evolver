@@ -61,6 +61,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private static final String KEY_TILE_ANIM_STYLE = "qs_tile_animation_style";
 //    private static final String KEY_TILE_ANIM_DURATION = "qs_tile_animation_duration";
 //    private static final String KEY_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
+    private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -74,6 +75,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private ListPreference mQsUI;
     private SwitchPreferenceCompat mBrightnessSliderHaptic;
     private SwitchPreferenceCompat mShowAutoBrightness;
+    private SwitchPreferenceCompat mQsTileHaptic;
     private SystemSettingListPreference mBatteryStyle;
     private SystemSettingListPreference mBatteryPercent;
 //    private SystemSettingListPreference mTileAnimationInterpolator;
@@ -118,7 +120,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mBrightnessSliderPosition.setEnabled(showSlider);
 
         mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
-        mBrightnessSliderHaptic.setEnabled(showSlider);
+        mQsTileHaptic = findPreference(KEY_QS_TILE_HAPTIC);
+        boolean hapticAvailable = DeviceUtils.hasVibrator(context);
+
+        if (hapticAvailable) {
+            mBrightnessSliderHaptic.setEnabled(showSlider);
+        } else {
+            prefScreen.removePreference(mBrightnessSliderHaptic);
+            prefScreen.removePreference(mQsTileHaptic);
+        }
 
         mShowAutoBrightness = findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
         boolean automaticAvailable = context.getResources().getBoolean(
@@ -166,7 +176,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         if (preference == mShowBrightnessSlider) {
             int value = Integer.parseInt((String) newValue);
             mBrightnessSliderPosition.setEnabled(value > 0);
-            mBrightnessSliderHaptic.setEnabled(value > 0);
+            if (mBrightnessSliderHaptic != null)
+                mBrightnessSliderHaptic.setEnabled(value > 0);
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
             return true;
@@ -339,9 +350,17 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 if (!automaticAvailable) {
                     keys.add(KEY_SHOW_AUTO_BRIGHTNESS);
                 }
+
+                boolean hapticAvailable = DeviceUtils.hasVibrator(context);
+                if (!hapticAvailable) {
+                    keys.add(KEY_BRIGHTNESS_SLIDER_HAPTIC);
+                    keys.add(KEY_QS_TILE_HAPTIC);
+                }
+
                 if (!DeviceUtils.deviceSupportsBluetooth(context)) {
                     keys.add(KEY_QS_BLUETOOTH_SHOW_DIALOG);
                 }
+
                 return keys;
             }
         };

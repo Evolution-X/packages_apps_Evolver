@@ -10,7 +10,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -21,8 +20,8 @@ import android.widget.Toast;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -33,6 +32,7 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
+import org.evolution.settings.utils.DeviceUtils;
 // import org.evolution.settings.utils.ImageUtils;
 
 @SearchIndexable
@@ -41,15 +41,17 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockScreen";
 
-    private static final String KEY_FINGERPRINT_CATEGORY = "lock_screen_fingerprint_category";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
-    private static final String KEY_AUTHENTICATION_SUCCESS = "fp_success_vibrate";
-    private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
+    private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
+    private static final String KEY_FP_ERROR = "fp_error_vibrate";
 //    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
 //    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
 
 //    private Preference mCustomImagePreference;
-    private PreferenceCategory mFingerprintCategory;
+    private Preference mRippleEffect;
+
+    private SwitchPreferenceCompat mFpSuccessVib;
+    private SwitchPreferenceCompat mFpErrorVib;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
         final ContentResolver resolver = context.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
+
+        mFpSuccessVib = findPreference(KEY_FP_SUCCESS);
+        mFpErrorVib = findPreference(KEY_FP_ERROR);
+        mRippleEffect = (Preference) findPreference(KEY_RIPPLE_EFFECT);
 
 //        mCustomImagePreference = findPreference(CUSTOM_IMAGE_REQUEST_CODE_KEY);
 //        int clockStyle = Settings.Secure.getIntForUser(getContext().getContentResolver(), "clock_style", 0, UserHandle.USER_CURRENT);
@@ -72,13 +78,15 @@ public class LockScreen extends SettingsPreferenceFragment implements
 //            mCustomImagePreference.setEnabled(false);
 //        }
 
-        mFingerprintCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_CATEGORY);
+        boolean hasFingerprint = DeviceUtils.hasFingerprint(context);
+        if (!hasFingerprint) {
+            prefScreen.removePreference(mRippleEffect);
+        }
 
-        FingerprintManager fingerprintManager = (FingerprintManager)
-                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
-
-        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
-            prefScreen.removePreference(mFingerprintCategory);
+        boolean hapticAvailable = DeviceUtils.hasVibrator(context);
+        if (!hasFingerprint || !hapticAvailable) {
+            prefScreen.removePreference(mFpSuccessVib);
+            prefScreen.removePreference(mFpErrorVib);
         }
     }
 
@@ -131,16 +139,18 @@ public class LockScreen extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
-                final Resources resources = context.getResources();
 
-                FingerprintManager fingerprintManager = (FingerprintManager)
-                    context.getSystemService(Context.FINGERPRINT_SERVICE);
-
-                if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+                boolean hasFingerprint = DeviceUtils.hasFingerprint(context);
+                if (!hasFingerprint) {
                     keys.add(KEY_RIPPLE_EFFECT);
-                    keys.add(KEY_AUTHENTICATION_SUCCESS);
-                    keys.add(KEY_AUTHENTICATION_ERROR);
                 }
+
+                boolean hapticAvailable = DeviceUtils.hasVibrator(context);
+                if (!hasFingerprint || !hapticAvailable) {
+                    keys.add(KEY_FP_SUCCESS);
+                    keys.add(KEY_FP_ERROR);
+                }
+
                 return keys;
             }
         };
