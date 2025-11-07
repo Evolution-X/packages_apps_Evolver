@@ -591,6 +591,7 @@
     <string name="default_value">Alapértelmezett</string>
     <string name="top">Felül</string>
     <string name="bottom">Alul</string>
+    <string name="reset">Visszaállítás</string>
     <!-- Units -->
     <string name="unit_milliseconds">ezredmásodperc</string>
     <string name="unit_seconds">másodperc</string>
@@ -908,4 +909,30 @@
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">\'Lebegő elforgatás\'-gomb</string>
     <string name="floating_rotation_button_summary">Egy lebegő gombbal jelzi, ha a készüléket elforgatták</string>
+    <!-- Fonts Screen -->
+    <string name="font_title">Betűtípus</string>
+    <string name="font_style">Betűstílus</string>
+    <string name="font_preview_dialog_title">Betűtípus-előnézet</string>
+    <string name="apply">Alkalmazás</string>
+    <string name="applied">Alkalmazva</string>
+    <string name="reboot_device">Készülék-újraindítás</string>
+    <string name="reboot_required_title">Újraindítás szükséges</string>
+    <string name="reboot_required_message">A betűtípus módosításhoz újraindítás szükséges.\nÚjra szeretné indítani most?</string>
+    <string name="reboot_now">Újraindítás most</string>
+    <string name="later">Később</string>
+    <string name="reset_default_title">Visszaállítás alapértelmezettre</string>
+    <string name="reset_default_message">Ez a művelet a betűtípust visszaállítja az eredetire. Biztosan ezt akarja?</string>
+    <string name="add_font">Betűtípus hozzáadása</string>
+    <string name="custom_font">Egyéni betűtípus</string>
+    <string name="no_custom_font">Nem áll rendelkezésre betűtípus</string>
+    <string name="add_custom_font">Egyéni betűtípus hozzáadása</string>
+    <string name="change_custom_font">Egyéni készlet megváltoztatása</string>
+    <string name="reset_custom_font_content_desc">Egyéni betűtípus visszaállítása</string>
+    <string name="reboot_required_custom_font_title">Az egyéni betűkészlet módosításához újraindítás szükséges</string>
+    <string name="reboot_required_custom_font_desc">Amennyiben módosítás után kihagyja az újraindítást az problémákat okozhat a rendszerfelület alkalmazásai között.</string>
+    <string name="font_preview_quote">Ez a tesztszöveg a módosításhoz.</string>
+    <string name="font_preview_numbers">0987654321!@#$%&amp;*()_+=-</string>
+    <string name="active_content_desc">Aktív</string>
+    <string name="toast_failed_apply_font">A betűtípus érvényesítése sikertelen</string>
+    <string name="toast_invalid_font_file">Hibás betűkészlet-fájl</string>
 </resources>
