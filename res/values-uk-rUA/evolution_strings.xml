@@ -591,6 +591,7 @@
     <string name="default_value">За замовчуванням</string>
     <string name="top">Зверху</string>
     <string name="bottom">Знизу</string>
+    <string name="reset">Скинути</string>
     <!-- Units -->
     <string name="unit_milliseconds">мілісекунди</string>
     <string name="unit_seconds">секунди</string>
@@ -900,4 +901,30 @@
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Використовувати плаваючу кнопку обертання</string>
     <string name="floating_rotation_button_summary">Показувати кнопку з плаваючим обертанням на пристрої</string>
+    <!-- Fonts Screen -->
+    <string name="font_title">Шрифт</string>
+    <string name="font_style">Стиль шрифту</string>
+    <string name="font_preview_dialog_title">Попередній перегляд шрифту</string>
+    <string name="apply">Застосувати</string>
+    <string name="applied">Застосовано</string>
+    <string name="reboot_device">Перезавантажити пристрій</string>
+    <string name="reboot_required_title">Необхідне перезавантаження</string>
+    <string name="reboot_required_message">Щоб застосувати зміни шрифту, потрібне перезавантаження.\nПерезавантажити зараз?</string>
+    <string name="reboot_now">Перезавантажити зараз</string>
+    <string name="later">Пізніше</string>
+    <string name="reset_default_title">Відновити за замовчуванням</string>
+    <string name="reset_default_message">Це скине ваш шрифт до системного шрифту за замовчуванням. Ви впевнені?</string>
+    <string name="add_font">Додати шрифт</string>
+    <string name="custom_font">Користувацький шрифт</string>
+    <string name="no_custom_font">Немає користувацького шрифту</string>
+    <string name="add_custom_font">Додати свій шрифт</string>
+    <string name="change_custom_font">Змінити користувацький шрифт</string>
+    <string name="reset_custom_font_content_desc">Скинути користувацький шрифт</string>
+    <string name="reboot_required_custom_font_title">Перезавантажитись для зміни індивідуального шрифту</string>
+    <string name="reboot_required_custom_font_desc">Пропуск перезавантаження після зміни власного шрифту може призвести до невідповідностей інтерфейсу користувача в різних програмах.</string>
+    <string name="font_preview_quote">Страх - це ворог інновацій.</string>
+    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
+    <string name="active_content_desc">Активний</string>
+    <string name="toast_failed_apply_font">Не вдалося застосувати шрифт</string>
+    <string name="toast_invalid_font_file">Неправильний файл шрифту</string>
 </resources>
