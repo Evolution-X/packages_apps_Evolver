@@ -9,21 +9,21 @@
     <string name="evolver_dashboard_summary">Розвиток вашого пристрою, твій шлях</string>
     <!-- Categories -->
     <string name="themes_title">Теми</string>
-    <string name="themes_summary">Кольорова палітра, стилі інтерфейсу, шрифти, пакети іконок</string>
+    <string name="themes_summary">Двигун Монет, шрифти, іконки, анімація</string>
     <string name="lock_screen_title">Екран блокування</string>
-    <string name="lock_screen_summary">Інтерфейс, відбиток пальця, різне</string>
+    <string name="lock_screen_summary">Інтерфейс, відбиток</string>
     <string name="status_bar_title">Рядок стану</string>
-    <string name="status_bar_summary">Жести, значки</string>
+    <string name="status_bar_summary">Жести, значки, логотип</string>
     <string name="quick_settings_title">Швидкі налаштування</string>
-    <string name="quick_settings_summary">Повзунок яскравості та інтерфейсу, екрану блокування</string>
+    <string name="quick_settings_summary">Інтерфейс, слайдер яскравості, макет</string>
     <string name="notifications_title">Сповіщення</string>
-    <string name="notifications_summary">Вспливаючі сповіщення, інтерфейс</string>
+    <string name="notifications_summary">Вспливаючі сповіщення, інтерфейс, звуки</string>
     <string name="power_menu_title">Меню живлення</string>
     <string name="power_menu_summary">Дії, екран блокування</string>
     <string name="buttons_title">Кнопки</string>
     <string name="buttons_summary">Кнопка живлення, кнопки гучності</string>
     <string name="miscellaneous_title">Різне</string>
-    <string name="miscellaneous_summary">Параметри розробника, спуфінг</string>
+    <string name="miscellaneous_summary">Спуфінг, налаштування для розробника</string>
     <string name="about_title">Логотип Evolution X</string>
     <string name="about_summary">Про прошивку</string>
     <!-- Themes -->
@@ -852,42 +852,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Маленькі ландшафтні сповіщення</string>
     <string name="small_landscape_notification_summary">Відображає сповіщення, менші за ширину в панелі сповіщень в ландшафтному режимі просто як AOSP призначений</string>
-    <!-- Button settings -->
-    <string name="touchscreen_gesture_action_play_pause_music">Відтворити/призупинити відтворення музики</string>
-    <string name="hardware_keys_action_nothing">Жодної дії</string>
-    <string name="hardware_keys_action_menu">Відкрити/закрити меню</string>
-    <string name="hardware_keys_action_app_switch">Перемикач останніх додатків</string>
-    <string name="hardware_keys_action_search">Помічник пошуку</string>
-    <string name="hardware_keys_action_voice_search">Голосовий пошук</string>
-    <string name="hardware_keys_action_in_app_search">Пошук в додатку</string>
-    <string name="hardware_keys_action_launch_camera">Запустити камеру</string>
-    <string name="hardware_keys_action_sleep">Вимкнути екран</string>
-    <string name="hardware_keys_action_last_app">Остання програма</string>
-    <string name="hardware_keys_action_split_screen">Розділення екрана</string>
-    <string name="hardware_keys_action_close_app">Завершити додаток</string>
-    <string name="hardware_keys_action_torch">Ліхтарик</string>
-    <string name="hardware_keys_action_screenshot">Зробити знімок екрану</string>
-    <string name="hardware_keys_action_volume_panel">Перемикач панелі гучності</string>
-    <string name="hardware_keys_action_clear_all_notifications">Очистити всі сповіщення</string>
-    <string name="hardware_keys_action_notifications_panel">Перемикач панелі сповіщень</string>
-    <string name="hardware_keys_action_expand_qs_panel">Розгорнути панель швидких налаштувань</string>
-    <string name="hardware_keys_action_ringer_modes">Змінити режим дзвінка</string>
-    <!-- Three Finger Gestures -->
-    <string name="three_finger_gesture_action_title">Жест проведення трьома пальцями</string>
-    <string name="three_finger_gesture_action_dialog_title">Дія жесту проведення трьома пальцями</string>
-    <string name="three_finger_long_press_action_title">Жест довгого натискання трьома пальцями</string>
-    <string name="three_finger_long_press_action_dialog_title">Дія жесту проведення трьома пальцями</string>
-    <!-- NT Three finger -->
-    <string name="nt_gesture_three_finger_swipe">Проведіть трьома пальцями</string>
-    <string name="nt_gesture_three_finger_swipe_summary">Проведіть вниз трьома пальцями на екрані, щоб зробити знімок екрану.</string>
-    <string name="nt_gesture_three_finger_long_press">Дія довгого натискання трьома пальцями</string>
-    <string name="nt_gesture_three_finger_long_press_summary">Натисніть і утримуйте трьома пальцями, а потім проведіть вниз, щоб зробити знімок екрану.</string>
-    <string name="nt_combination_power_volume_click">Вимкнути кнопку живлення та кнопку зменшення гучності</string>
-    <string name="nt_combination_power_volume_click_summary">Вимкніть функцію знімку екрана, натиснувши та утримуючи кнопку живлення та кнопку регулювання гучності.</string>
-    <!-- Power off verify -->
-    <string name="power_off_verify_footer">Вимкнення перевірки, що захищає ваш пристрій, не даючи іншим вимикати його відразу після його втрати, збільшуючи шанси на відновлення. Вам лише потрібно ввести пароль екрану блокування під час вимкнення або перезапуску телефону на екрані блокування.</string>
-    <string name="power_off_verify_summary">Коли пристрій заблоковано, вам потрібно буде використовувати свій пароль, щоб вимкнути або перезавантажитися.</string>
-    <string name="power_off_verify_title">Вимкнути перевірку</string>
     <!-- Notification row transparency -->
     <string name="notification_row_transparency_title">Прозорість рядка сповіщень</string>
     <string name="notification_row_transparency_summary">Показувати сповіщення про напівпрозорі налаштування швидкого доступу</string>
