@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     Copyright (C) 2019-2025 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -358,6 +358,7 @@
     <string name="quick_settings_panel_style_reflected">Tükrözött</string>
     <string name="quick_settings_panel_style_surround">Térhatású</string>
     <string name="quick_settings_panel_style_thin">Vékony vonalú</string>
+    <string name="quick_settings_layout_category_title">Csempe-elrendezés</string>
     <string name="quick_settings_tile_label_hide_title">Címke-elrejtés</string>
     <string name="quick_settings_tile_label_size_title">Cimke-méret</string>
     <string name="quick_settings_tile_label_hide_summary">Csak az ikonok látszanak a csempén</string>
