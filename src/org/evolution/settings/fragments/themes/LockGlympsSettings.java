@@ -45,6 +45,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_ENABLE = "lock_glymps_enabled";
     private static final String KEY_SOURCE = "lock_glymps_source";
     private static final String KEY_CHANGE_ON = "lock_glymps_change_on";
+    private static final String KEY_TIMER_INTERVAL = "lock_glymps_timer_interval";
     private static final String KEY_WIFI_ONLY = "lock_glymps_wifi_only";
     private static final String KEY_CACHE_SIZE = "lock_glymps_cache_size";
     private static final String KEY_CUSTOM_URLS = "lock_glymps_custom_urls";
@@ -55,6 +56,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private SystemSettingSwitchPreference mEnablePreference;
     private SystemSettingListPreference mSourcePreference;
     private SystemSettingListPreference mChangeOnPreference;
+    private SystemSettingListPreference mTimerIntervalPreference;
     private SystemSettingSwitchPreference mWifiOnlyPreference;
     private SystemSettingListPreference mCacheSizePreference;
     private Preference mCustomUrlsPreference;
@@ -85,6 +87,15 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         mChangeOnPreference = findPreference(KEY_CHANGE_ON);
         if (mChangeOnPreference != null) {
             mChangeOnPreference.setOnPreferenceChangeListener(this);
+            String currentMode = mChangeOnPreference.getValue();
+            if (currentMode != null) {
+                updateTimerVisibility(currentMode);
+            }
+        }
+        
+        mTimerIntervalPreference = findPreference(KEY_TIMER_INTERVAL);
+        if (mTimerIntervalPreference != null) {
+            mTimerIntervalPreference.setOnPreferenceChangeListener(this);
         }
 
         mWifiOnlyPreference = findPreference(KEY_WIFI_ONLY);
@@ -145,12 +156,24 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             return true;
 
         } else if (KEY_CHANGE_ON.equals(key)) {
+            updateTimerVisibility((String) newValue);
+            notifyServiceToRefresh(context);
+            return true;
+
+        } else if (KEY_TIMER_INTERVAL.equals(key)) {
             notifyServiceToRefresh(context);
             return true;
         }
 
         notifyServiceToRefresh(context);
         return true;
+    }
+
+    private void updateTimerVisibility(String changeOnValue) {
+        if (mTimerIntervalPreference != null) {
+            boolean showTimer = "2".equals(changeOnValue);
+            mTimerIntervalPreference.setVisible(showTimer);
+        }
     }
 
     private void updateSourceDependentPrefs(String sourceValue) {
