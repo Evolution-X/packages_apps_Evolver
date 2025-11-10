@@ -48,6 +48,15 @@
             android:entryValues="@array/lock_glymps_change_on_values"
             android:defaultValue="1" />
 
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lock_glymps_timer_interval"
+            android:title="@string/lock_glymps_timer_interval_title"
+            android:summary="@string/lock_glymps_timer_interval_summary"
+            android:entries="@array/lock_glymps_timer_entries"
+            android:entryValues="@array/lock_glymps_timer_values"
+            android:defaultValue="1800000"
+            android:dependency="lock_glymps_enabled" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
