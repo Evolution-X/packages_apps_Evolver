@@ -982,4 +982,29 @@
     <string name="active_content_desc">Active</string>
     <string name="toast_failed_apply_font">Failed to apply font</string>
     <string name="toast_invalid_font_file">Invalid font file</string>
+
+    <!-- Now Playing -->
+    <string name="nowplaying_title">Now playing</string>
+    <string name="nowplaying_summary">Show currently playing music info on lockscreen and AOD</string>
+    <string name="nowplaying_appearance_title">Appearance</string>
+    <string name="nowplaying_use_accent_color_title">Use accent color</string>
+    <string name="nowplaying_use_accent_color_summary">Use system accent color instead of white</string>
+    <string name="nowplaying_vertical_position_title">Vertical position</string>
+    <string name="nowplaying_vertical_position_summary">Adjust position from top to bottom of screen</string>
+    <string name="nowplaying_track_text_size_title">Track title size</string>
+    <string name="nowplaying_track_text_size_summary">Size of the track title text</string>
+    <string name="nowplaying_artist_text_size_title">Artist name size</string>
+    <string name="nowplaying_artist_text_size_summary">Size of the artist/album name text</string>
+    <string name="nowplaying_display_title">Display options</string>
+    <string name="nowplaying_show_on_lockscreen_title">Show on lockscreen</string>
+    <string name="nowplaying_show_on_lockscreen_summary">Display music info when device is locked</string>
+    <string name="nowplaying_icon_style_title">Icon style</string>
+    <string name="nowplaying_icon_style_summary">Choose which icon to display</string>
+    <string name="nowplaying_icon_size_title">Icon size</string>
+    <string name="nowplaying_icon_size_summary">Adjust the icon size</string>
+    <string name="nowplaying_show_on_aod_title">Show on Always-On Display</string>
+    <string name="nowplaying_show_on_aod_summary">Display music info on ambient display</string>
+    <string name="nowplaying_compact_style_title">Compact style</string>
+    <string name="nowplaying_compact_style_summary">Show as on a single line using the track text size</string>
+    <string name="nowplaying_info_summary">Now Playing displays the currently playing music title and artist on your lockscreen and Always-On Display. It automatically appears when music is playing and disappears when stopped. The position can be adjusted to appear anywhere from the top to bottom of the screen.</string>
 </resources>

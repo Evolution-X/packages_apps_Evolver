@@ -13,6 +13,12 @@
         android:key="lock_screen_interface_category"
         android:title="@string/lock_screen_interface_category">
 
+        <Preference
+            android:key="nowplaying_settings"
+            android:title="@string/nowplaying_title"
+            android:summary="@string/nowplaying_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.NowplayingSettings" />
+
         <!-- Ambient Wallpaper -->
         <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="doze_always_on_wallpaper_enabled"
