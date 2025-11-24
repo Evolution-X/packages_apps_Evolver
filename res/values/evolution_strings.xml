@@ -1445,11 +1445,11 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="cutout_progress_music_aod_title">Show on AOD</string>
     <string name="cutout_progress_music_aod_summary">Keep music ring visible on the Ambient Display</string>
 
-    <!-- Lock Glymps -->
-    <string name="lock_glymps_title">Lock Glymps</string>
-    <string name="lock_glymps_enable_title">Enable Lock Glymps</string>
-    <string name="lock_glymps_enable_summary">Change lockscreen wallpaper every time screen lights up</string>
-    
+    <!-- Wallpaper Glymps -->
+    <string name="lock_glymps_title">Wallpaper Glymps</string>
+    <string name="lock_glymps_enable_title">Enable Wallpaper Glymps</string>
+    <string name="lock_glymps_enable_summary">Change wallpaper every time screen lights up</string>
+    <string name="lock_glymps_wallpaper_target_title">Wallpaper apply to</string>    
     <string name="lock_glymps_source_category">Wallpaper Source</string>
     <string name="lock_glymps_source_title">Wallpaper source</string>
     <string name="lock_glymps_source_summary">Choose where to get wallpapers from</string>
@@ -1473,12 +1473,12 @@ The progress bar dynamically switches between media and download states, ensurin
 
     <string name="lock_glymps_behavior_category">Behavior</string>
     <string name="lock_glymps_change_on_title">Change wallpaper on</string>
-    <string name="lock_glymps_change_on_summary">When to change the lock screen wallpaper</string>
+    <string name="lock_glymps_change_on_summary">When to change the screen wallpaper</string>
 
     <string name="lock_glymps_timer_interval_title">Timer interval</string>
     <string name="lock_glymps_timer_interval_summary">How often to change wallpaper automatically</string>
     
     <!-- Footer -->
     <string name="lock_glymps_footer_title">Important Information</string>
-    <string name="lock_glymps_footer_text">📁 Local folder: /sdcard/LockGlymps\n\n⚠️ Low-end devices may experience slight lag\n\n🎨 Tip: Use Custom Accent in Monet Settings for stable colors</string>
+    <string name="lock_glymps_footer_text">📁 Local folder: /sdcard/Glymps\n\n⚠️ Low-end devices may experience slight lag\n\n🎨 Tip: Use Custom Accent in Monet Settings for stable colors</string>
 </resources>

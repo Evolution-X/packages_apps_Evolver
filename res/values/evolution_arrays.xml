@@ -1474,6 +1474,19 @@
         <item>2</item>
     </string-array>
 
+    <!-- Wallpaper Target -->
+    <string-array name="lock_glymps_wallpaper_target_entries">
+        <item>@string/monet_engine_color_source_lock</item>
+        <item>@string/monet_engine_color_source_home</item>
+        <item>@string/monet_engine_color_source_both</item>
+    </string-array>
+    
+    <string-array name="lock_glymps_wallpaper_target_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- Lock Glymps Cache Size -->
     <string-array name="lock_glymps_cache_size_entries">
         <item>3 wallpapers (~30MB)</item>

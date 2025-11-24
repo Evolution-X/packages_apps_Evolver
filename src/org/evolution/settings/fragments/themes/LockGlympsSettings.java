@@ -44,6 +44,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
     private static final String KEY_ENABLE = "lock_glymps_enabled";
     private static final String KEY_SOURCE = "lock_glymps_source";
+    private static final String KEY_WALLPAPER_TARGET = "lock_glymps_wallpaper_target";
     private static final String KEY_CHANGE_ON = "lock_glymps_change_on";
     private static final String KEY_TIMER_INTERVAL = "lock_glymps_timer_interval";
     private static final String KEY_WIFI_ONLY = "lock_glymps_wifi_only";
@@ -55,6 +56,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String STORAGE_FOLDER = "LockGlymps";
     private SystemSettingSwitchPreference mEnablePreference;
     private SystemSettingListPreference mSourcePreference;
+    private SystemSettingListPreference mWallpaperTargetPreference;
     private SystemSettingListPreference mChangeOnPreference;
     private SystemSettingListPreference mTimerIntervalPreference;
     private SystemSettingSwitchPreference mWifiOnlyPreference;
@@ -82,6 +84,11 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             if (currentSource != null) {
                 updateSourceDependentPrefs(currentSource);
             }
+        }
+
+        mWallpaperTargetPreference = findPreference(KEY_WALLPAPER_TARGET);
+        if (mWallpaperTargetPreference != null) {
+            mWallpaperTargetPreference.setOnPreferenceChangeListener(this);
         }
 
         mChangeOnPreference = findPreference(KEY_CHANGE_ON);
@@ -152,6 +159,10 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         } else if (KEY_SOURCE.equals(key)) {
             updateSourceDependentPrefs((String) newValue);
+            notifyServiceToRefresh(context);
+            return true;
+
+        } else if (KEY_WALLPAPER_TARGET.equals(key)) {
             notifyServiceToRefresh(context);
             return true;
 
