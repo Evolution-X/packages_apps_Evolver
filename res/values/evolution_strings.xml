@@ -1481,4 +1481,15 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- Footer -->
     <string name="lock_glymps_footer_title">Important Information</string>
     <string name="lock_glymps_footer_text">📁 Local folder: /sdcard/Glymps\n\n⚠️ Low-end devices may experience slight lag\n\n🎨 Tip: Use Custom Accent in Monet Settings for stable colors</string>
+
+    <!-- Preview strings -->
+    <string name="lock_glymps_preview_category">Current Wallpapers</string>
+    <string name="lock_glymps_preview_title">Wallpaper Preview</string>
+    <string name="lock_glymps_preview_summary">Current lock and home screen wallpapers</string>
+    <string name="lock_glymps_lock_screen">Lock Screen</string>
+    <string name="lock_glymps_home_screen">Home Screen</string>
+    <string name="lock_glymps_apply_now">Apply New Wallpaper</string>
+    <string name="lock_glymps_applying">Applying...</string>
+    <string name="lock_glymps_lock_preview_desc">Lock screen wallpaper preview</string>
+    <string name="lock_glymps_home_preview_desc">Home screen wallpaper preview</string>
 </resources>
