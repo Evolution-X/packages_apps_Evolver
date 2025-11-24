@@ -19,6 +19,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -27,8 +29,11 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
+import lineageos.preference.SystemSettingMainSwitchPreference;
+
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
+import org.evolution.settings.preferences.WallpaperPreviewPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -42,6 +47,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
     private static final String TAG = "LockGlympsSettings";
 
+    private static final String KEY_PREVIEW = "lock_glymps_preview";
     private static final String KEY_ENABLE = "lock_glymps_enabled";
     private static final String KEY_SOURCE = "lock_glymps_source";
     private static final String KEY_WALLPAPER_TARGET = "lock_glymps_wallpaper_target";
@@ -53,8 +59,10 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_CLEAR_CACHE = "lock_glymps_clear_cache";
     private static final String KEY_FOLDER_INFO = "lock_glymps_folder_info";
 
-    private static final String STORAGE_FOLDER = "LockGlymps";
-    private SystemSettingSwitchPreference mEnablePreference;
+    private static final String STORAGE_FOLDER = "Glymps";
+
+    private WallpaperPreviewPreference mPreviewPreference;
+    private SystemSettingMainSwitchPreference mEnablePreference;
     private SystemSettingListPreference mSourcePreference;
     private SystemSettingListPreference mWallpaperTargetPreference;
     private SystemSettingListPreference mChangeOnPreference;
@@ -65,12 +73,22 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private Preference mClearCachePreference;
     private Preference mFolderInfoPreference;
 
+    private Handler mHandler;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mHandler = new Handler(Looper.getMainLooper());
+    }
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.lock_glymps_settings);
 
         Context context = getActivity();
         if (context == null) return;
+
+        mPreviewPreference = findPreference(KEY_PREVIEW);
 
         mEnablePreference = findPreference(KEY_ENABLE);
         if (mEnablePreference != null) {
@@ -164,6 +182,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         } else if (KEY_WALLPAPER_TARGET.equals(key)) {
             notifyServiceToRefresh(context);
+            schedulePreviewRefresh();
             return true;
 
         } else if (KEY_CHANGE_ON.equals(key)) {
@@ -178,6 +197,16 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         notifyServiceToRefresh(context);
         return true;
+    }
+
+    private void schedulePreviewRefresh() {
+        if (mHandler != null && mPreviewPreference != null) {
+            mHandler.postDelayed(() -> {
+                if (mPreviewPreference != null) {
+                    mPreviewPreference.refreshPreviews();
+                }
+            }, 1500);
+        }
     }
 
     private void updateTimerVisibility(String changeOnValue) {
@@ -363,6 +392,15 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         builder.show();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+            mHandler = null;
+        }
+    }
+    
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.EVOLVER;

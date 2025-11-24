@@ -9,35 +9,45 @@
         android:title="@string/enable"
         android:defaultValue="false" />
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:key="lock_glymps_source"
-        android:title="@string/lock_glymps_source_title"
-        android:summary="%s"
-        android:entries="@array/lock_glymps_source_entries"
-        android:entryValues="@array/lock_glymps_source_values"
-        android:defaultValue="0"
-        android:dependency="lock_glymps_enabled" />
-    
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:key="lock_glymps_wallpaper_target"
-        android:summary="%s"
-        android:title="@string/lock_glymps_wallpaper_target_title"
-        android:entries="@array/lock_glymps_wallpaper_target_entries"
-        android:entryValues="@array/lock_glymps_wallpaper_target_values"
-        android:defaultValue="0"
-        android:dependency="lock_glymps_enabled" />
+    <org.evolution.settings.preferences.WallpaperPreviewPreference
+        android:key="lock_glymps_preview"
+        android:selectable="false" 
+        android:dependency="lock_glymps_enabled"/>
 
-    <Preference
-        android:key="lock_glymps_custom_urls"
-        android:title="@string/lock_glymps_custom_urls_title"
-        android:summary="@string/lock_glymps_custom_urls_summary"
-        android:dependency="lock_glymps_enabled" />
+    <PreferenceCategory
+        android:title="@string/lock_glymps_source_category">
 
-    <Preference
-        android:key="lock_glymps_folder_info"
-        android:title="@string/lock_glymps_folder_title"
-        android:summary="@string/lock_glymps_folder_summary"
-        android:dependency="lock_glymps_enabled" />
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lock_glymps_source"
+            android:title="@string/lock_glymps_source_title"
+            android:summary="%s"
+            android:entries="@array/lock_glymps_source_entries"
+            android:entryValues="@array/lock_glymps_source_values"
+            android:defaultValue="0"
+            android:dependency="lock_glymps_enabled" />
+        
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lock_glymps_wallpaper_target"
+            android:summary="%s"
+            android:title="@string/lock_glymps_wallpaper_target_title"
+            android:entries="@array/lock_glymps_wallpaper_target_entries"
+            android:entryValues="@array/lock_glymps_wallpaper_target_values"
+            android:defaultValue="0"
+            android:dependency="lock_glymps_enabled" />
+
+        <Preference
+            android:key="lock_glymps_custom_urls"
+            android:title="@string/lock_glymps_custom_urls_title"
+            android:summary="@string/lock_glymps_custom_urls_summary"
+            android:dependency="lock_glymps_enabled" />
+
+        <Preference
+            android:key="lock_glymps_folder_info"
+            android:title="@string/lock_glymps_folder_title"
+            android:summary="@string/lock_glymps_folder_summary"
+            android:dependency="lock_glymps_enabled" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/lock_glymps_behavior_category"
