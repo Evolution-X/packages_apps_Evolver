@@ -58,7 +58,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.evolution.settings.preferences.KeyboxDataPreference;
-import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 
@@ -76,11 +75,9 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
     private static final String KEY_UPDATE_JSON_BUTTON = "update_pif_json";
     private static final String SYS_GMS_SPOOF = "persist.sys.pp.gms";
-    private static final String KEY_CERT_CHAIN = "gms_cert_chain";
     private static final String SYS_GOOGLE_SPOOF = "persist.sys.pp";
     private static final String SYS_GAMES_SPOOF = "persist.sys.pp.games";
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pp.photos";
-    private static final String SYS_QSB_SPOOF = "persist.sys.pp.qsb";
     private static final String SYS_SNAPCHAT_SPOOF = "persist.sys.pp.snapchat";
     private static final String SYS_TENSOR_SPOOF = "persist.sys.pp.tensor";
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
@@ -90,12 +87,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private Preference mPifJsonFilePreference;
     private Preference mUpdateJsonButton;
     private PreferenceCategory mSystemWideCategory;
-    private SecureSettingSwitchPreference mDisableForceIntegrity;
     private SystemPropertySwitchPreference mGmsSpoof;
     private SystemPropertySwitchPreference mGoogleSpoof;
     private SystemPropertySwitchPreference mGamesSpoof;
     private SystemPropertySwitchPreference mPhotosSpoof;
-    private SystemPropertySwitchPreference mQsbSpoof;
     private SystemPropertySwitchPreference mSnapchatSpoof;
     private SystemPropertySwitchPreference mTensorSpoof;
 
@@ -113,13 +108,11 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final Resources resources = context.getResources();
 
         mSystemWideCategory = (PreferenceCategory) findPreference(KEY_SYSTEM_WIDE_CATEGORY);
-        mDisableForceIntegrity = (SecureSettingSwitchPreference) findPreference(KEY_CERT_CHAIN);
         mGamesSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GAMES_SPOOF);
         mPhotosSpoof = (SystemPropertySwitchPreference) findPreference(SYS_PHOTOS_SPOOF);
         mGmsSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GMS_SPOOF);
         mGoogleSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GOOGLE_SPOOF);
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
-        mQsbSpoof = (SystemPropertySwitchPreference) findPreference(SYS_QSB_SPOOF);
         mSnapchatSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAPCHAT_SPOOF);
         mTensorSpoof = (SystemPropertySwitchPreference) findPreference(SYS_TENSOR_SPOOF);
         mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
@@ -143,10 +136,8 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGoogleSpoof.setOnPreferenceChangeListener(this);
         mPhotosSpoof.setOnPreferenceChangeListener(this);
         mGamesSpoof.setOnPreferenceChangeListener(this);
-        mQsbSpoof.setOnPreferenceChangeListener(this);
         mSnapchatSpoof.setOnPreferenceChangeListener(this);
         mTensorSpoof.setOnPreferenceChangeListener(this);
-        mDisableForceIntegrity.setOnPreferenceChangeListener(this);
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -335,9 +326,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         if (preference == mGmsSpoof
-            || preference == mDisableForceIntegrity
             || preference == mPhotosSpoof
-            || preference == mQsbSpoof
             || preference == mSnapchatSpoof) {
             killGMSPackages();
             return true;

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 crDroid Android Project
+ * Copyright (C) 2024-2025 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,13 +49,5 @@ public class LayoutSettings extends SettingsPreferenceFragment {
      * For search
      */
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.qs_layout_settings) {
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-
-                    return keys;
-                }
-            };
+            new BaseSearchIndexProvider(R.xml.qs_layout_settings);
 }
