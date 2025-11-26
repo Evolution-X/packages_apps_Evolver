@@ -30,7 +30,6 @@ import java.util.List;
 
 import org.evolution.settings.preferences.GlobalSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingListPreference;
-import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
@@ -42,49 +41,18 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_LOCK_SOUND = "lock_sound";
     private static final String KEY_UNLOCK_SOUND = "unlock_sound";
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
-    private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
     private static final String KEY_UDFPS_ICON = "udfps_icon";
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
-    private static final String KEY_PGB_STYLE = "progress_bar_style";
-    private static final String KEY_NOTIFICATION_STYLE = "notification_style";
-    private static final String KEY_POWERMENU_STYLE = "powermenu_style";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
-
-    private static final String[] POWERMENU_OVERLAYS = {
-            "com.android.theme.powermenu.cyberpunk",
-            "com.android.theme.powermenu.duoline",
-            "com.android.theme.powermenu.fluid",
-            "com.android.theme.powermenu.ios",
-            "com.android.theme.powermenu.layers"
-    };
-
-    private static final String[] NOTIF_OVERLAYS = {
-            "com.android.theme.notification.cyberpunk",
-            "com.android.theme.notification.duoline",
-            "com.android.theme.notification.fluid",
-            "com.android.theme.notification.ios",
-            "com.android.theme.notification.layers"
-    };
-
-    private static final String[] PROGRESS_BAR_OVERLAYS = {
-            "com.android.theme.progressbar.blocky_thumb",
-            "com.android.theme.progressbar.minimal_thumb",
-            "com.android.theme.progressbar.outline_thumb",
-            "com.android.theme.progressbar.shishu"
-    };
 
     private GlobalSettingListPreference mLockSound;
     private GlobalSettingListPreference mUnlockSound;
     private PreferenceCategory mLauncherCategory;
     private PreferenceCategory mIconsCategory;
-    private Preference mSignalIcon;
     private Preference mUdfpsIcon;
     private PreferenceCategory mAnimationsCategory;
     private Preference mUdfpsAnimation;
-    private SystemSettingListPreference mNotificationStylePref;
-    private SystemSettingListPreference mPowerMenuStylePref;
-    private SystemSettingListPreference mProgressBarPref;
     private ThemeUtils mThemeUtils;
 
     @Override
@@ -104,14 +72,9 @@ public class Themes extends SettingsPreferenceFragment implements
         mUnlockSound.setOnPreferenceChangeListener(this);
         mLauncherCategory = (PreferenceCategory) findPreference(KEY_LAUNCHER_CATEGORY);
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
-        mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
         mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
-
-        if (!DeviceUtils.deviceSupportsMobileData(context)) {
-            mIconsCategory.removePreference(mSignalIcon);
-        }
 
         FingerprintManager fingerprintManager = (FingerprintManager)
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
@@ -128,38 +91,9 @@ public class Themes extends SettingsPreferenceFragment implements
             }
         }
 
-        mProgressBarPref = findPreference(KEY_PGB_STYLE);
-        mProgressBarPref.setOnPreferenceChangeListener(this);
-
-        mNotificationStylePref = findPreference(KEY_NOTIFICATION_STYLE);
-        mNotificationStylePref.setOnPreferenceChangeListener(this);
-
-        mPowerMenuStylePref = findPreference(KEY_POWERMENU_STYLE);
-        mPowerMenuStylePref.setOnPreferenceChangeListener(this);
-
         if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
             prefScreen.removePreference(mLauncherCategory);
         }
-    }
-
-    private void updateStyle(String key, String category, String target,
-            int defaultValue, String[] overlayPackages, int style) {
-        mThemeUtils.setOverlayEnabled(category, target, target);
-        if (style > 0 && style <= overlayPackages.length) {
-            mThemeUtils.setOverlayEnabled(category, overlayPackages[style - 1], target);
-        }
-    }
-
-    private void updatePowermenuStyle(int style) {
-        updateStyle(KEY_POWERMENU_STYLE, "android.theme.customization.powermenu", "com.android.systemui", 0, POWERMENU_OVERLAYS, style);
-    }
-
-    private void updateNotifStyle(int style) {
-        updateStyle(KEY_NOTIFICATION_STYLE, "android.theme.customization.notification", "com.android.systemui", 0, NOTIF_OVERLAYS, style);
-    }
-
-    private void updateProgressBarStyle(int style) {
-        updateStyle(KEY_PGB_STYLE, "android.theme.customization.progress_bar", "android", 0, PROGRESS_BAR_OVERLAYS, style);
     }
 
     @Override
@@ -180,19 +114,6 @@ public class Themes extends SettingsPreferenceFragment implements
                 return false;
             }
         }
-        if (preference == mProgressBarPref) {
-            int value2 = Integer.parseInt((String) newValue);
-            updateProgressBarStyle(value2);
-            return true;
-        } else if (preference == mNotificationStylePref) {
-            int value2 = Integer.parseInt((String) newValue);
-            updateNotifStyle(value2);
-            return true;
-        } else if (preference == mPowerMenuStylePref) {
-            int value2 = Integer.parseInt((String) newValue);
-            updatePowermenuStyle(value2);
-            return true;
-        }
         return false;
     }
 
@@ -211,10 +132,6 @@ public class Themes extends SettingsPreferenceFragment implements
 
                 FingerprintManager fingerprintManager = (FingerprintManager)
                         context.getSystemService(Context.FINGERPRINT_SERVICE);
-
-                if (!DeviceUtils.deviceSupportsMobileData(context)) {
-                    keys.add(KEY_SIGNAL_ICON);
-                }
 
                 if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
                     keys.add(KEY_LAUNCHER_CATEGORY);

@@ -54,20 +54,20 @@
             android:defaultValue="0" />-->
 
         <!-- Battery styles -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_battery_style"
             android:title="@string/status_bar_battery_style_title"
             android:entries="@array/qs_battery_style_entries"
             android:entryValues="@array/qs_battery_style_values"
-            android:defaultValue="-1" />
+            android:defaultValue="-1" />-->
 
         <!-- Battery percent -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_show_battery_percent"
             android:title="@string/status_bar_battery_percent_title"
             android:entries="@array/status_bar_battery_percent_entries"
             android:entryValues="@array/status_bar_battery_percent_values"
-            android:defaultValue="2" />
+            android:defaultValue="2" />-->
 
         <!-- QS widgets -->
         <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -130,7 +130,7 @@
             android:key="qs_brightness_slider_haptic"
             android:title="@string/quick_settings_brightness_slider_haptic_title"
             android:summary="@string/quick_settings_brightness_slider_haptic_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <!-- Auto brightness icon -->
         <lineageos.preference.LineageSecureSettingSwitchPreference
@@ -189,7 +189,7 @@
             android:key="qs_tile_haptic"
             android:title="@string/quick_settings_brightness_slider_haptic_title"
             android:summary="@string/quick_settings_tile_haptic_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <!--<PreferenceCategory
