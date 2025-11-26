@@ -9,7 +9,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/miscellaneous_title">
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="haptics_settings_category"
         android:title="@string/haptics_settings_title">
 
@@ -19,7 +19,7 @@
             android:summary="@string/haptics_settings_summary"
             android:fragment="com.android.settings.sound.HapticsPreferenceFragment"/>
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="miscellaneous_spoofing_category"
