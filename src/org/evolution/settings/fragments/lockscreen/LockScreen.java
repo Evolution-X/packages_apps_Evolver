@@ -43,15 +43,15 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String LOCKSCREEN_GESTURES_CATEGORY = "lockscreen_gestures_category";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
-    private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
-    private static final String KEY_FP_ERROR = "fp_error_vibrate";
+//    private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
+//    private static final String KEY_FP_ERROR = "fp_error_vibrate";
 //    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
 //    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
 
 //    private Preference mCustomImagePreference;
     private Preference mRippleEffect;
-    private SwitchPreferenceCompat mFpSuccessVib;
-    private SwitchPreferenceCompat mFpErrorVib;
+//    private SwitchPreferenceCompat mFpSuccessVib;
+//    private SwitchPreferenceCompat mFpErrorVib;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,8 +64,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
         PreferenceCategory gestCategory = (PreferenceCategory) findPreference(LOCKSCREEN_GESTURES_CATEGORY);
 
-        mFpSuccessVib = findPreference(KEY_FP_SUCCESS);
-        mFpErrorVib = findPreference(KEY_FP_ERROR);
+//        mFpSuccessVib = findPreference(KEY_FP_SUCCESS);
+//        mFpErrorVib = findPreference(KEY_FP_ERROR);
         mRippleEffect = (Preference) findPreference(KEY_RIPPLE_EFFECT);
 
 //        mCustomImagePreference = findPreference(CUSTOM_IMAGE_REQUEST_CODE_KEY);
@@ -84,11 +84,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
             gestCategory.removePreference(mRippleEffect);
         }
 
-        boolean hapticAvailable = DeviceUtils.hasVibrator(context);
-        if (!hasFingerprint || !hapticAvailable) {
-            gestCategory.removePreference(mFpSuccessVib);
-            gestCategory.removePreference(mFpErrorVib);
-        }
+//        boolean hapticAvailable = DeviceUtils.hasVibrator(context);
+//        if (!hasFingerprint || !hapticAvailable) {
+//            gestCategory.removePreference(mFpSuccessVib);
+//            gestCategory.removePreference(mFpErrorVib);
+//        }
     }
 
     @Override
@@ -146,11 +146,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
                     keys.add(KEY_RIPPLE_EFFECT);
                 }
 
-                boolean hapticAvailable = DeviceUtils.hasVibrator(context);
-                if (!hasFingerprint || !hapticAvailable) {
-                    keys.add(KEY_FP_SUCCESS);
-                    keys.add(KEY_FP_ERROR);
-                }
+//                boolean hapticAvailable = DeviceUtils.hasVibrator(context);
+//                if (!hasFingerprint || !hapticAvailable) {
+//                    keys.add(KEY_FP_SUCCESS);
+//                    keys.add(KEY_FP_ERROR);
+///                }
 
                 return keys;
             }

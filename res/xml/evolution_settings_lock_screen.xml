@@ -14,11 +14,11 @@
         android:title="@string/lock_screen_interface_category">
 
         <!-- Ambient Wallpaper -->
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="doze_always_on_wallpaper_enabled"
             android:title="@string/doze_always_on_wallpaper_title"
             android:summary="@string/doze_always_on_wallpaper_summary"
-            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
+            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />-->
 
         <!-- Lockscreen Clock Font and styles -->
         <!--<Preference
@@ -69,11 +69,11 @@
             android:fragment="org.evolution.settings.fragments.lockscreen.MediaArtSettings" />
 
         <!-- Charging stats -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_battery_info"
             android:title="@string/lock_screen_charging_stats_title"
             android:summary="@string/lock_screen_charging_stats_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
 
         <!-- Lockscreen remaining charging time -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -132,18 +132,18 @@
             android:defaultValue="true" />
 
         <!-- Authentication success vibration -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="fp_success_vibrate"
             android:title="@string/lock_screen_fingerprint_success_vibration_title"
             android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
 
         <!-- Authentication error vibration -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="fp_error_vibrate"
             android:title="@string/lock_screen_fingerprint_error_vibration_title"
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
     </PreferenceCategory>
 
     <!--<PreferenceCategory

@@ -25,18 +25,18 @@
             android:min="1" />-->
 
         <!-- Data usage -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_show_data_usage"
             android:title="@string/quick_settings_data_usage_title"
             android:summary="@string/quick_settings_data_usage_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- QS Header -->
-        <Preference
+        <!--<Preference
             android:key="qs_header_image"
             android:title="@string/quick_settings_header_image_title"
             android:summary="@string/quick_settings_header_image_summary"
-            android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings" />
+            android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings" />-->
 
         <!-- QS Media Player  -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -54,20 +54,20 @@
             android:defaultValue="0" />-->
 
         <!-- Battery styles -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_battery_style"
             android:title="@string/status_bar_battery_style_title"
             android:entries="@array/qs_battery_style_entries"
             android:entryValues="@array/qs_battery_style_values"
-            android:defaultValue="-1" />
+            android:defaultValue="-1" />-->
 
         <!-- Battery percent -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_show_battery_percent"
             android:title="@string/status_bar_battery_percent_title"
             android:entries="@array/status_bar_battery_percent_entries"
             android:entryValues="@array/status_bar_battery_percent_values"
-            android:defaultValue="2" />
+            android:defaultValue="2" />-->
 
         <!-- QS widgets -->
         <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -110,12 +110,12 @@
             android:defaultValue="1" />
 
         <!-- Brightness Slider Style -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_brightness_slider_shape"
             android:title="@string/qs_brightness_slider_shape_title"
             android:entries="@array/qs_brightness_slider_shape_entries"
             android:entryValues="@array/qs_brightness_slider_shape_values"
-            android:defaultValue="0" />
+            android:defaultValue="0" />-->
 
         <!-- Brightness slider position -->
         <lineageos.preference.LineageSecureSettingListPreference
@@ -126,11 +126,11 @@
             android:defaultValue="0" />
 
         <!-- Haptic feedback on brightness slider -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_slider_haptic"
             android:title="@string/quick_settings_brightness_slider_haptic_title"
             android:summary="@string/quick_settings_brightness_slider_haptic_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Auto brightness icon -->
         <lineageos.preference.LineageSecureSettingSwitchPreference
@@ -147,7 +147,7 @@
             android:defaultValue="false" />-->
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="qs_layout_category"
         android:title="@string/quick_settings_layout_category_title">
 
@@ -158,7 +158,7 @@
             android:entryValues="@array/quick_settings_tile_shape_values"
             android:defaultValue="0" />
 
-        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_tile_label_hide"
             android:title="@string/quick_settings_tile_label_hide_title"
             android:summary="@string/quick_settings_tile_label_hide_summary"
@@ -177,7 +177,7 @@
             android:key="qs_tile_vertical_layout"
             android:title="@string/quick_settings_tile_layout_title"
             android:summary="@string/quick_settings_tile_layout_summary"
-            android:defaultValue="false" />-->
+            android:defaultValue="false" />
 
         <Preference
             android:key="qs_layout_columns_rows"
@@ -192,7 +192,7 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
-    <!--<PreferenceCategory
+    <PreferenceCategory
         android:key="quick_settings_animations_category"
         android:title="@string/quick_settings_animations_category">
 
