@@ -17,7 +17,7 @@
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_summary">Gestures, icons, logo</string>
     <string name="quick_settings_title">Quick settings</string>
-    <string name="quick_settings_summary">Interface, brightness slider, layout</string>
+    <string name="quick_settings_summary">Interface, brightness slider, lock screen</string>
     <string name="notifications_title">Notifications</string>
     <string name="notifications_summary">Heads up, interface, sounds</string>
     <string name="power_menu_title">Power menu</string>
@@ -128,7 +128,7 @@
     <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_stats_title">Charging stats</string>
     <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
-    <string name="lock_screen_charging_time_title">Lock screen charging time</string>
+    <string name="lock_screen_charging_time_title">Charging time</string>
     <string name="lock_screen_charging_time_summary">Display the remaining time for charging to finish</string>
     <string name="lock_screen_fingerprint_category">Fingerprint</string>
     <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
@@ -144,9 +144,9 @@
     <string name="lock_screen_always_on_pocket_mode_summary">Always block screen and button inputs when screen is turned on</string>
 
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_settings_title">Pulse Visualizer</string>
+    <string name="pulse_settings_title">Pulse visualizer</string>
     <string name="pulse_settings_summary">Show a bar visualizer on the lock screen while music is playing</string>
-    <string name="ambient_pulse_enabled_title">Ambient Pulse</string>
+    <string name="ambient_pulse_enabled_title">Ambient pulse</string>
     <string name="ambient_pulse_enabled_summary">Show visualizer on Ambient Display</string>
     <string name="pulse_rounded_bars_title">Rounded bars</string>
     <string name="pulse_rounded_bars_summary">Display visualizer bars with rounded corners</string>
@@ -219,6 +219,7 @@
     <string name="status_bar_battery_percent_title">Battery percent</string>
     <string name="status_bar_battery_percent_hidden">Hidden</string>
     <string name="status_bar_battery_percent_text_inside">Inside the icon</string>
+    <string name="status_bar_battery_percent_text_next">Next to the icon</string>
     <string name="status_bar_battery_percent_text_next_right">Next to the icon (right)</string> 
     <string name="status_bar_battery_percent_text_next_left">Next to the icon (left)</string> 
     <string name="status_bar_battery_text_charging_title">Battery percentage when charging</string>
@@ -286,7 +287,7 @@
     <string name="status_bar_location_privacy_indicator_summary">Display an indicator when an app accesses your location</string>
     <string name="status_bar_projection_privacy_indicator_title">Screen projection</string>
     <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
-    <string name="status_bar_carrier_lock_screen_title">Carrier name on lock screen</string>
+    <string name="status_bar_carrier_lock_screen_title">Carrier name</string>
     <string name="status_bar_carrier_lock_screen_summary">Display carrier name on lock screen status bar</string>
     <string name="status_bar_lyric_title">Status bar lyric</string>
     <string name="status_bar_lyric_summary">Show lyric in status bar (need app support)</string>
@@ -295,21 +296,14 @@
     <string name="disguise_props_for_music_app_summary">Disguise device in some music applications for support status bar lyric. After changing this toggle, you have to restart applications for the change to take effect.</string>
 
     <!-- Status bar/Clock & date-->
-    <string name="status_bar_clock_position_title">Clock position</string>
+    <string name="status_bar_clock_position_title">Clock style</string>
     <string name="status_bar_clock_position_right">Right</string>
     <string name="status_bar_clock_position_left">Left</string>
     <string name="status_bar_clock_position_center">Center</string>
-    <string name="status_bar_clock_position_hidden">Hidden</string>
     <string name="status_bar_clock_seconds_title">Clock seconds</string>
     <string name="status_bar_clock_seconds_summary">Display seconds next to clock in status bar</string>
-    <string name="status_bar_clock_auto_hide_intervals_title">Auto hide at intervals</string>
-    <string name="status_bar_clock_auto_hide_intervals_summary">Hide clock at specific time based intervals</string>
-    <string name="status_bar_clock_auto_hide_hdur_title">Hide duration</string>
-    <string name="status_bar_clock_auto_hide_hdur_summary">Number of seconds to hide clock</string>
-    <string name="status_bar_clock_auto_hide_sdur_title">Show duration</string>
-    <string name="status_bar_clock_auto_hide_sdur_summary">Number of seconds to wait before hiding clock</string>
-    <string name="status_bar_clock_auto_hide_launcher_title">Auto hide on launcher</string>
-    <string name="status_bar_clock_auto_hide_launcher_summary">Hide clock if launcher is visible</string>
+    <string name="status_bar_clock_auto_hide_title">Auto hide</string>
+    <string name="status_bar_clock_auto_hide_summary">Hide clock if launcher is visible</string>
     <string name="status_bar_clock_chip_title">Background chip</string>
     <string name="status_bar_clock_chip_summary">Display accented chip behind clock</string>
     <string name="status_bar_am_pm_title">AM/PM style</string>
@@ -542,7 +536,7 @@
 
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Smart pixels is a power saving feature. Depending on how many pixels you decide to turn off, you could see improvement in battery life. Note that in some cases it can result in unresponsive areas on touch screen</string>
-    <string name="smart_pixels_title">Smart Pixels</string>
+    <string name="smart_pixels_title">Smart pixels</string>
     <string name="smart_pixels_summary">Save battery by shutting off extra pixels</string>
     <string name="smart_pixels_on_power_save_title">Auto-enable on battery saver</string>
     <string name="smart_pixels_on_power_save_summary">Enable Smart Pixels when battery saver is enabled</string>
@@ -561,8 +555,6 @@
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
-    <string name="spoofing_qsb_title">Google app</string>
-    <string name="spoofing_qsb_summary">Spoof the Google app to the latest Pixel device to unlock exclusive features</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
@@ -590,10 +582,6 @@
     <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
-
-    <!-- Block attestation even with Keybox Data -->
-    <string name="gms_cert_chain_title">Disable forcing strong integrity</string>
-    <string name="gms_cert_chain_summary">When enabled, do not enforce strong integrity from valid custom keybox and depend on Google Play Integrity spoof to fix apps like Google Pay</string>
 
     <!-- About -->
     <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>
@@ -781,8 +769,10 @@
     <string name="lockscreen_weather_location_summary">Display current weather location</string>
     <string name="lockscreen_weather_text_title">Current condition</string>
     <string name="lockscreen_weather_text_summary">Display current weather condition summary</string>
-    <string name="lockscreen_weather_style_title">Pixel style</string>
-    <string name="lockscreen_weather_style_summary">Display weather as separate row</string>
+    <string name="lockscreen_weather_wind_info_title">Wind info</string>
+    <string name="lockscreen_weather_wind_info_summary">Display current wind speed and direction</string>
+    <string name="lockscreen_weather_humidity_info_title">Humidity info</string>
+    <string name="lockscreen_weather_humidity_info_summary">Display current humidity in percentage</string>
 
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Always-On-Display</string>
@@ -916,7 +906,7 @@
      The progress bar dynamically switches between media and download states, ensuring you always have the most relevant information at a glance."
     </string>
 
-    <!-- Battery bar -->
+    <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Battery bar</string>
     <string name="battery_bar_summary">Display and customize battery bar above status bar</string>
     <string name="battery_bar_color">Color</string>
@@ -991,4 +981,8 @@
     <string name="active_content_desc">Active</string>
     <string name="toast_failed_apply_font">Failed to apply font</string>
     <string name="toast_invalid_font_file">Invalid font file</string>
+
+    <!-- Double tap to sleep on lock screen -->
+    <string name="lock_screen_double_tap_to_sleep_title">Tap to sleep</string>
+    <string name="lock_screen_double_tap_to_sleep_summary">Double-tap on the lock screen to turn off the display</string>
 </resources>
