@@ -24,6 +24,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.android.OmniJawsClient;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
@@ -34,6 +35,7 @@ import java.util.List;
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 // import org.evolution.settings.utils.ImageUtils;
+import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
 public class LockScreen extends SettingsPreferenceFragment implements
@@ -43,6 +45,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String LOCKSCREEN_GESTURES_CATEGORY = "lockscreen_gestures_category";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
+    private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
+    private static final String KEY_WEATHER = "lockscreen_weather_enabled";
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
 //    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
@@ -50,6 +54,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
 //    private Preference mCustomImagePreference;
     private Preference mRippleEffect;
+    private SwitchPreferenceCompat mSmartspace;
+    private SwitchPreferenceCompat mWeather;
     private SwitchPreferenceCompat mFpSuccessVib;
     private SwitchPreferenceCompat mFpErrorVib;
 
@@ -89,12 +95,30 @@ public class LockScreen extends SettingsPreferenceFragment implements
             gestCategory.removePreference(mFpSuccessVib);
             gestCategory.removePreference(mFpErrorVib);
         }
+
+        mSmartspace = (SwitchPreferenceCompat) findPreference(KEY_SMARTSPACE);
+        mSmartspace.setOnPreferenceChangeListener(this);
+
+        mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
+        mWeather.setOnPreferenceChangeListener(this);
+
+        updateWeatherSettings();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
+        if (preference == mSmartspace) {
+            mSmartspace.setChecked((Boolean)newValue);
+            updateWeatherSettings();
+            SystemUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mWeather) {
+            mWeather.setChecked((Boolean)newValue);
+            SystemUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        }
         return false;
     }
 
@@ -128,6 +152,21 @@ public class LockScreen extends SettingsPreferenceFragment implements
 //            }
 //        }
 //    }
+
+    private void updateWeatherSettings() {
+        if (mWeather == null || mSmartspace == null) return;
+
+        boolean weatherEnabled = OmniJawsClient.get().isOmniJawsEnabled(getContext());
+        mWeather.setEnabled(!mSmartspace.isChecked() && weatherEnabled);
+        mWeather.setSummary(!mSmartspace.isChecked() && weatherEnabled ? R.string.lockscreen_weather_summary :
+            R.string.lockscreen_weather_enabled_info);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateWeatherSettings();
+    }
 
     @Override
     public int getMetricsCategory() {

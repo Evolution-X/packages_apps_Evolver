@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016-2024 crDroid Android Project
+ * Copyright (C) 2016-2025 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.Menu;
-import android.view.View;
 import android.widget.EditText;
 
 import androidx.preference.ListPreference;
@@ -41,14 +40,12 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.Date;
-import java.util.List;
 
 import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.providers.LineageSettings;
 
 import org.evolution.settings.preferences.CustomSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingListPreference;
-import org.evolution.settings.utils.DeviceUtils;
 
 @SearchIndexable
 public class Clock extends SettingsPreferenceFragment implements
@@ -56,7 +53,6 @@ public class Clock extends SettingsPreferenceFragment implements
 
     private static final String TAG = "Clock";
 
-    private static final String STATUS_BAR_CLOCK_POSITION = "status_bar_clock";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String CLOCK_DATE_DISPLAY = "status_bar_clock_date_display";
     private static final String CLOCK_DATE_POSITION = "status_bar_clock_date_position";
@@ -67,7 +63,6 @@ public class Clock extends SettingsPreferenceFragment implements
     private static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
 
-    private LineageSystemSettingListPreference mClockPosition;
     private LineageSystemSettingListPreference mStatusBarAmPm;
     private SystemSettingListPreference mClockDateDisplay;
     private SystemSettingListPreference mClockDatePosition;
@@ -81,23 +76,6 @@ public class Clock extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.status_bar_clock);
 
         ContentResolver resolver = getActivity().getContentResolver();
-        Context mContext = getActivity().getApplicationContext();
-
-        mClockPosition =
-                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_POSITION);
-
-        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            if (DeviceUtils.hasCenteredCutout(mContext)) {
-                mClockPosition.setEntries(R.array.status_bar_clock_position_entries_notch_rtl);
-                mClockPosition.setEntryValues(R.array.status_bar_clock_position_values_notch_rtl);
-            } else {
-                mClockPosition.setEntries(R.array.status_bar_clock_position_entries_rtl);
-                mClockPosition.setEntryValues(R.array.status_bar_clock_position_values_rtl);
-            }
-        } else if (DeviceUtils.hasCenteredCutout(mContext)) {
-            mClockPosition.setEntries(R.array.status_bar_clock_position_entries_notch);
-            mClockPosition.setEntryValues(R.array.status_bar_clock_position_values_notch);
-        }
 
         mStatusBarAmPm =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_AM_PM);
@@ -237,12 +215,5 @@ public class Clock extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.status_bar_clock) {
-
-            @Override
-            public List<String> getNonIndexableKeys(Context context) {
-                List<String> keys = super.getNonIndexableKeys(context);
-                return keys;
-            }
-        };
+        new BaseSearchIndexProvider(R.xml.status_bar_clock);
 }
