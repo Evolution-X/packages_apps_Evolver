@@ -9,72 +9,71 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/evolver_dashboard_title">
 
-    <!-- About -->
-    <PreferenceCategory
-        android:key="category_about"
-        android:layout="@layout/settingslib_preference_category_no_title">
-        
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="top_level_evolver_category">
+
+        <!-- About -->
         <Preference
             android:key="about"
             android:title="@string/about_title"
             android:summary="@string/about_summary"
             android:icon="@drawable/ic_evolver_about"
-            android:fragment="org.evolution.settings.fragments.about.About" />
-    </PreferenceCategory>
+            android:fragment="org.evolution.settings.fragments.about.About"/>
 
-    <!-- Themes -->
-    <Preference
-        android:key="themes"
-        android:title="@string/themes_title"
-        android:summary="@string/themes_summary"
-        android:icon="@drawable/ic_evolver_themes"
-        android:fragment="org.evolution.settings.fragments.themes.Themes" />
+        <!-- Themes -->
+        <Preference
+            android:key="themes"
+            android:title="@string/themes_title"
+            android:summary="@string/themes_summary"
+            android:icon="@drawable/ic_evolver_themes"
+            android:fragment="org.evolution.settings.fragments.themes.Themes"/>
 
-    <!-- Lock screen -->
-    <Preference
-        android:key="lock_screen"
-        android:title="@string/lock_screen_title"
-        android:summary="@string/lock_screen_summary"
-        android:icon="@drawable/ic_evolver_lock_screen"
-        android:fragment="org.evolution.settings.fragments.lockscreen.LockScreen" />
+        <!-- Lock screen -->
+        <Preference
+            android:key="lock_screen"
+            android:title="@string/lock_screen_title"
+            android:summary="@string/lock_screen_summary"
+            android:icon="@drawable/ic_evolver_lock_screen"
+            android:fragment="org.evolution.settings.fragments.lockscreen.LockScreen"/>
 
-    <!-- Status bar -->
-    <Preference
-        android:key="status_bar"
-        android:title="@string/status_bar_title"
-        android:summary="@string/status_bar_summary"
-        android:icon="@drawable/ic_evolver_status_bar"
-        android:fragment="org.evolution.settings.fragments.statusbar.StatusBar" />
+        <!-- Status bar -->
+        <Preference
+            android:key="status_bar"
+            android:title="@string/status_bar_title"
+            android:summary="@string/status_bar_summary"
+            android:icon="@drawable/ic_evolver_status_bar"
+            android:fragment="org.evolution.settings.fragments.statusbar.StatusBar"/>
 
-    <!-- Quick settings -->
-    <Preference
-        android:key="quick_settings"
-        android:title="@string/quick_settings_title"
-        android:summary="@string/quick_settings_summary"
-        android:icon="@drawable/ic_evolver_quick_settings"
-        android:fragment="org.evolution.settings.fragments.quicksettings.QuickSettings" />
+        <!-- Quick settings -->
+        <Preference
+            android:key="quick_settings"
+            android:title="@string/quick_settings_title"
+            android:summary="@string/quick_settings_summary"
+            android:icon="@drawable/ic_evolver_quick_settings"
+            android:fragment="org.evolution.settings.fragments.quicksettings.QuickSettings"/>
 
-    <!-- Notifications -->
-    <Preference
-        android:key="notifications"
-        android:title="@string/notifications_title"
-        android:summary="@string/notifications_summary"
-        android:icon="@drawable/ic_evolver_notifications"
-        android:fragment="org.evolution.settings.fragments.notifications.Notifications" />
+        <!-- Notifications -->
+        <Preference
+            android:key="notifications"
+            android:title="@string/notifications_title"
+            android:summary="@string/notifications_summary"
+            android:icon="@drawable/ic_evolver_notifications"
+            android:fragment="org.evolution.settings.fragments.notifications.Notifications"/>
 
-    <!-- Power menu -->
-    <Preference
-        android:key="power_menu"
-        android:title="@string/power_menu_title"
-        android:summary="@string/power_menu_summary"
-        android:icon="@drawable/ic_evolver_power_menu"
-        android:fragment="org.evolution.settings.fragments.powermenu.PowerMenu" />
+        <!-- Power menu -->
+        <Preference
+            android:key="power_menu"
+            android:title="@string/power_menu_title"
+            android:summary="@string/power_menu_summary"
+            android:icon="@drawable/ic_evolver_power_menu"
+            android:fragment="org.evolution.settings.fragments.powermenu.PowerMenu"/>
 
-    <!-- Miscellaneous -->
-    <Preference
-        android:key="miscellaneous"
-        android:title="@string/miscellaneous_title"
-        android:summary="@string/miscellaneous_summary"
-        android:icon="@drawable/ic_evolver_miscellaneous"
-        android:fragment="org.evolution.settings.fragments.miscellaneous.Miscellaneous" />
+        <!-- Miscellaneous -->
+        <Preference
+            android:key="miscellaneous"
+            android:title="@string/miscellaneous_title"
+            android:summary="@string/miscellaneous_summary"
+            android:icon="@drawable/ic_evolver_miscellaneous"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.Miscellaneous"/>
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
 </PreferenceScreen>

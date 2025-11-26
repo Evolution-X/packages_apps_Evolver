@@ -42,9 +42,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
 
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
-    private static final String KEY_BATTERY_STYLE = "status_bar_battery_style";
-    private static final String KEY_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
+//    private static final String KEY_BATTERY_STYLE = "status_bar_battery_style";
+//    private static final String KEY_BATTERY_PERCENT = "status_bar_show_battery_percent";
+//    private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
     private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
 
@@ -52,16 +52,16 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
     private static final int PULLDOWN_DIR_BOTH = 3;
-    private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 4;
-    private static final int BATTERY_STYLE_HIDDEN = 5;
+//    private static final int BATTERY_STYLE_PORTRAIT = 0;
+//    private static final int BATTERY_STYLE_TEXT = 4;
+//    private static final int BATTERY_STYLE_HIDDEN = 5;
 
     private LineageSystemSettingListPreference mQuickPulldown;
 
     private PreferenceCategory mIconsCategory;
-    private SystemSettingListPreference mBatteryPercent;
-    private SystemSettingListPreference mBatteryStyle;
-    private SystemSettingSwitchPreference mBatteryTextCharging;
+//    private SystemSettingListPreference mBatteryPercent;
+//    private SystemSettingListPreference mBatteryStyle;
+//    private SystemSettingSwitchPreference mBatteryTextCharging;
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
     private SystemSettingSwitchPreference mColoredIcons;
 
@@ -81,9 +81,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
-        mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
-        mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
-        mBatteryTextCharging = (SystemSettingSwitchPreference) findPreference(KEY_BATTERY_TEXT_CHARGING);
+//        mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
+//        mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
+//        mBatteryTextCharging = (SystemSettingSwitchPreference) findPreference(KEY_BATTERY_TEXT_CHARGING);
         mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
         mColoredIcons = (SystemSettingSwitchPreference) findPreference(KEY_COLORED_ICONS);
         mColoredIcons.setOnPreferenceChangeListener(this);
@@ -93,19 +93,19 @@ public class StatusBar extends SettingsPreferenceFragment implements
             mQuickPulldown.setEntryValues(R.array.status_bar_quick_pull_down_values_rtl);
         }
 
-        int batterystyle = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
-        int batterypercent = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
+//        int batterystyle = Settings.System.getIntForUser(resolver,
+//                Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
+//        int batterypercent = Settings.System.getIntForUser(resolver,
+//                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
 
-        mBatteryStyle.setOnPreferenceChangeListener(this);
+//        mBatteryStyle.setOnPreferenceChangeListener(this);
 
-        mBatteryPercent.setEnabled(
-                batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
-        mBatteryPercent.setOnPreferenceChangeListener(this);
+//        mBatteryPercent.setEnabled(
+//                batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+//        mBatteryPercent.setOnPreferenceChangeListener(this);
 
-        mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
-                (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
+//        mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
+//                (batterystyle != BATTERY_STYLE_TEXT && batterypercent != 2));
 
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
             mIconsCategory.removePreference(mBluetoothBatteryStatus);
@@ -120,22 +120,22 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
             return true;
-        } else if (preference == mBatteryStyle) {
-            int value = Integer.parseInt((String) newValue);
-            int batterypercent = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
-            mBatteryPercent.setEnabled(
-                    value != BATTERY_STYLE_TEXT && value != BATTERY_STYLE_HIDDEN);
-            mBatteryTextCharging.setEnabled(value == BATTERY_STYLE_HIDDEN ||
-                    (value != BATTERY_STYLE_TEXT && batterypercent != 2));
-            return true;
-        } else if (preference == mBatteryPercent) {
-            int value = Integer.parseInt((String) newValue);
-            int batterystyle = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
-            mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
-                    (batterystyle != BATTERY_STYLE_TEXT && value != 2));
-            return true;
+//        } else if (preference == mBatteryStyle) {
+//            int value = Integer.parseInt((String) newValue);
+//            int batterypercent = Settings.System.getIntForUser(resolver,
+//                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
+//            mBatteryPercent.setEnabled(
+//                    value != BATTERY_STYLE_TEXT && value != BATTERY_STYLE_HIDDEN);
+//            mBatteryTextCharging.setEnabled(value == BATTERY_STYLE_HIDDEN ||
+//                    (value != BATTERY_STYLE_TEXT && batterypercent != 2));
+//            return true;
+//        } else if (preference == mBatteryPercent) {
+//            int value = Integer.parseInt((String) newValue);
+//            int batterystyle = Settings.System.getIntForUser(resolver,
+//                    Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
+//            mBatteryTextCharging.setEnabled(batterystyle == BATTERY_STYLE_HIDDEN ||
+//                    (batterystyle != BATTERY_STYLE_TEXT && value != 2));
+//            return true;
         } else if (preference == mColoredIcons) {
             SystemUtils.showSystemUiRestartDialog(context);
             return true;
