@@ -1146,4 +1146,40 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <!-- Charging Animation Style Options -->
+    <string-array name="charging_animation_style_entries">
+        <item>Bubble Stream</item>
+        <item>Neon glow spray</item>
+        <item>Beam effects</item>
+        <item>Plasma effect</item>
+        <item>Quantum Sparks</item>
+        <item>Nebula Diffusion</item>
+        <item>Digital Matrix</item>
+        <item>Geoflow</item>
+    </string-array>
+
+    <string-array name="charging_animation_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <!-- Charging Animation Color Mode Options -->
+    <string-array name="charging_color_mode_entries">
+        <item>Default green</item>
+        <item>Accent color</item>
+        <item>Rainbow</item>
+    </string-array>
+
+    <string-array name="charging_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
