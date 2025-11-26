@@ -75,6 +75,20 @@ public class IconShapes extends SettingsPreferenceFragment {
     }
 
     @Override
+    public void setDivider(@Nullable final Drawable divider) {
+        RecyclerView list = getListView();
+        if (list == null) {
+            View root = getView();
+            if (root != null) {
+                root.post(() -> setDivider(divider));
+            }
+            return;
+        }
+
+        super.setDivider(divider);
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         if (mRecyclerView != null) {

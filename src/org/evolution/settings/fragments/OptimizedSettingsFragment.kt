@@ -17,6 +17,7 @@
 package org.evolution.settings.fragments
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -215,5 +216,21 @@ abstract class OptimizedSettingsFragment : SettingsPreferenceFragment() {
      */
     protected fun removeCallbacks() {
         mHandler?.removeCallbacksAndMessages(null)
+    }
+
+    /**
+     * Fix crash: RecyclerView is sometimes null when setDivider() is called.
+     * We retry after view is attached instead of crashing.
+     */
+    override fun setDivider(divider: Drawable?) {
+        val list = listView
+        if (list == null) {
+            view?.post {
+                if (isAdded) setDivider(divider)
+            }
+            return
+        }
+
+        super.setDivider(divider)
     }
 }
