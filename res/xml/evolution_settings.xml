@@ -10,17 +10,12 @@
     android:title="@string/evolver_dashboard_title">
 
     <!-- About -->
-    <PreferenceCategory
-        android:key="category_about"
-        android:layout="@layout/settingslib_preference_category_no_title">
-        
-        <Preference
-            android:key="about"
-            android:title="@string/about_title"
-            android:summary="@string/about_summary"
-            android:icon="@drawable/ic_evolver_about"
-            android:fragment="org.evolution.settings.fragments.about.About" />
-    </PreferenceCategory>
+    <Preference
+        android:key="about"
+        android:title="@string/about_title"
+        android:summary="@string/about_summary"
+        android:icon="@drawable/ic_evolver_about"
+        android:fragment="org.evolution.settings.fragments.about.About" />
 
     <!-- Themes -->
     <Preference

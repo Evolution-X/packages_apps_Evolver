@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
-     Copyright (C) 2016-2024 crDroid Android Project
+     Copyright (C) 2016-2025 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,11 +19,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+    <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="statusbar_battery_bar"
-        android:title="@string/battery_bar_title"
-        android:summary="@string/battery_bar_summary"
-        android:defaultValue="false" />
+        android:title="@string/enable" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="statusbar_battery_bar_thickness"
