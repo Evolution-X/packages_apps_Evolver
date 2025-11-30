@@ -1706,4 +1706,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="video_wallpaper_picker_error">Unable to open picker. Please try again.</string>
     <string name="video_wallpaper_processing">Processing selected file...</string>
     <string name="video_wallpaper_saved">Video wallpaper saved successfully</string>
+
+    <!-- Single Tone QS -->
+    <string name="qs_single_tone_title">Single Tone QS</string>
+    <string name="qs_single_tone_summary">Hide notification scrim for unified Quick Settings appearance</string>
 </resources>

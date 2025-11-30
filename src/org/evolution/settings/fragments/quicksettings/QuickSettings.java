@@ -67,6 +67,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_TILE_ICON_SHAPE = "qs_tile_icon_shape";
     private static final String KEY_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
     private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
+    private static final String KEY_SINGLE_QS_TONE_ENABLED = "single_qs_tone_enabled";
 
 //    private static final int BATTERY_STYLE_PORTRAIT = 0;
 //    private static final int BATTERY_STYLE_TEXT = 4;
@@ -86,6 +87,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mMediaWaveformSeekBar;
     private SecureSettingSwitchPreference mMediaSquiggleAnimation;
     private SecureSettingSwitchPreference mQsShowMediaPlayer;
+    private SystemSettingSwitchPreference mSingleQsToneEnabled;
 //    private SystemSettingListPreference mBatteryStyle;
 //    private SystemSettingListPreference mBatteryPercent;
 //    private SystemSettingListPreference mTileAnimationInterpolator;
@@ -122,6 +124,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsShowMediaPlayer = (SecureSettingSwitchPreference) findPreference(KEY_QS_SHOW_MEDIA_PLAYER);
         if (mQsShowMediaPlayer != null) {
             mQsShowMediaPlayer.setOnPreferenceChangeListener(this);
+        }
+
+        mSingleQsToneEnabled = (SystemSettingSwitchPreference) findPreference(KEY_SINGLE_QS_TONE_ENABLED);
+        if (mSingleQsToneEnabled != null) {
+            mSingleQsToneEnabled.setOnPreferenceChangeListener(this);
         }
 
         mMediaWaveformSeekBar = (SystemSettingSwitchPreference) findPreference(KEY_MEDIA_WAVEFORM_SEEKBAR);
@@ -220,6 +227,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             SystemUtils.showSystemUiRestartDialog(context);
             return true;
         } else if (preference == mQsShowMediaPlayer) {
+            SystemUtils.showSystemUiRestartDialog(getActivity());
+            return true;
+        } else if (preference == mSingleQsToneEnabled) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         } else if (preference == mMediaWaveformSeekBar) {

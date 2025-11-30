@@ -31,6 +31,13 @@
             android:summary="@string/quick_settings_header_image_summary"
             android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings" />
 
+        <!-- Single Tone QS -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="single_qs_tone_enabled"
+            android:title="@string/qs_single_tone_title"
+            android:summary="@string/qs_single_tone_summary"
+            android:defaultValue="false" />
+
         <!-- QS Media Player  -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_show_media_player"
