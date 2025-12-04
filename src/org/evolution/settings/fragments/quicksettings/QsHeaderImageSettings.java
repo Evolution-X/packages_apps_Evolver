@@ -149,7 +149,9 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
         if (preference == mFileHeader) {
             try {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                intent.setType("image/*");
+                // Explicitly allow all image types to ensure GIFs/WebPs are selectable
+                intent.setType("image/*"); 
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[] {"image/jpeg", "image/png", "image/gif", "image/webp"});
                 startActivityForResult(intent, REQUEST_PICK_IMAGE);
                 return true;
             } catch (Exception e) {
