@@ -687,6 +687,7 @@
         <item>@string/pulse_renderer_retro_vu_meter</item>
         <item>@string/pulse_renderer_minimal_wave</item>
         <item>@string/pulse_renderer_sparkle</item>
+        <item>@string/pulse_renderer_matrix</item>
     </string-array>
 
     <string-array name="pulse_renderer_values" translatable="false">
@@ -696,6 +697,7 @@
         <item>retro</item>
         <item>minimal</item>
         <item>sparkle</item>
+        <item>matrix</item>
     </string-array>
 
     <!-- Quick settings - Tiles animation -->
