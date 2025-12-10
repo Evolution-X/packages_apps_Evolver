@@ -46,12 +46,12 @@
         android:key="themes_fonts_category"
         android:title="@string/themes_fonts_category">
 
-        <!-- System font -->
+        <!-- Fonts -->
         <Preference
-            android:key="android.theme.customization.fonts"
-            android:title="@string/themes_system_font_title"
-            android:summary="@string/themes_system_font_summary"
-            android:fragment="org.evolution.settings.fragments.themes.fonts.FontPickerPreview"/>
+            android:key="font_settings"
+            android:title="@string/font_settings_title"
+            android:summary="@string/font_settings_summary"
+            android:fragment="org.evolution.settings.fragments.themes.fonts.FontSettingsFragment" />
     </PreferenceCategory>
 
     <PreferenceCategory

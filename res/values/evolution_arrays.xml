@@ -1084,6 +1084,18 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="font_mode_entries">
+        <item>Prebuilt fonts</item>
+        <item>Custom font from storage</item>
+        <item>Download from GitHub</item>
+    </string-array>
+    
+    <string-array name="font_mode_values">
+        <item>prebuilt</item>
+        <item>custom</item>
+        <item>github</item>
+    </string-array>
+
     <string-array name="nowplaying_icon_style_entries">
         <item>Disabled</item>
         <item>App icon</item>

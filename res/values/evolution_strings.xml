@@ -960,32 +960,40 @@
     <string name="floating_rotation_button_title">Floating rotate button</string>
     <string name="floating_rotation_button_summary">Show a floating rotate button when device is rotated</string>
 
-    <!-- Fonts Screen -->
-    <string name="font_title">Font</string>
-    <string name="font_style">Font style</string>
-    <string name="font_preview_dialog_title">Font Preview</string>
-    <string name="apply">Apply</string>
-    <string name="applied">Applied</string>
-    <string name="reboot_device">Reboot device</string>
-    <string name="reboot_required_title">Reboot Required</string>
-    <string name="reboot_required_message">A reboot is required to apply the font changes.\nWould you like to reboot now?</string>
-    <string name="reboot_now">Reboot Now</string>
-    <string name="later">Later</string>
-    <string name="reset_default_title">Reset to Default</string>
-    <string name="reset_default_message">This will reset your font to the default system font. Are you sure?</string>
-    <string name="add_font">Add font</string>
-    <string name="custom_font">Custom font</string>
-    <string name="no_custom_font">No custom font</string>
-    <string name="add_custom_font">Add custom font</string>
-    <string name="change_custom_font">Change custom font</string>
+    <!-- Font Mode -->
+    <string name="font_mode_title">Font source</string>
+    <string name="font_settings_title">Font Settings</string>
+    <string name="font_settings_summary">Customize system fonts</string>
+
+    <!-- Custom Font Picker -->
+    <string name="custom_font_picker_title">Pick custom font</string>
+    <string name="custom_font_picker_summary">Select a font file from storage</string>
+    <string name="github_font_picker_title">Browse GitHub fonts</string>
+    <string name="github_font_picker_summary">Download and preview fonts from repository</string>
+    <string name="custom_font_installed_title">Current font</string>
+    <string name="custom_font_installed_summary">%s</string>
+    <string name="reset_custom_font_title">Reset to default</string>
+    <string name="reset_custom_font_summary">Remove custom font and restore system default</string>
     <string name="reset_custom_font_content_desc">Reset custom font</string>
-    <string name="reboot_required_custom_font_title">Reboot required for custom font changes</string>
-    <string name="reboot_required_custom_font_desc">Skipping reboot after changing the custom font may cause UI inconsistencies across apps.</string>
-    <string name="font_preview_quote">Fear is the enemy of innovation.</string>
-    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
-    <string name="active_content_desc">Active</string>
-    <string name="toast_failed_apply_font">Failed to apply font</string>
-    <string name="toast_invalid_font_file">Invalid font file</string>
+    <string name="custom_font_reset_success">Font reset to default</string>
+    <string name="reboot_device">Reboot device</string>
+    <string name="reboot_required_title">Reboot required</string>
+    <string name="reboot_required_message">A reboot is required for the font changes to take effect</string>
+    <string name="reboot_required_custom_font_desc">Reboot to apply custom font changes</string>
+    <string name="custom_font">Custom font</string>
+    <string name="custom_font_installed_success">Font installed successfully</string>
+    <string name="custom_font_install_failed">Failed to install font</string>
+    <string name="font_preview_error">Failed to preview font</string>
+    <string name="font_download_error">Failed to download font</string>
+    <string name="font_preview_title">Font Preview</string>
+    <string name="install_font">Install</string>
+    <string name="github_fonts_header">Available Fonts</string>
+    <string name="no_fonts_available">No fonts available</string>
+    <string name="github_fonts_error">Unable to load fonts from GitHub</string>
+    <string name="github_fonts_fetch_error">Failed to fetch fonts from GitHub</string>
+    <string name="preview">Preview</string>
+    <string name="install">Install</string>
+    <string name="download_first_message">Download the font first by tapping Preview</string>
 
     <!-- Now Playing -->
     <string name="nowplaying_title">Now playing</string>

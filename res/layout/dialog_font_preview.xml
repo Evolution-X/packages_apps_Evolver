@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2025 the RisingOS Revived Android Project
+     Copyright (C) 2024-2025 Lunaris AOSP
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,11 +22,96 @@
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/preview_text"
+        android:id="@+id/font_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/font_preview_quote"
-        android:textSize="18sp"
-        android:lineSpacingMultiplier="1.3" />
+        android:text="@string/font_preview_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:maxHeight="400dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="?android:attr/colorBackground">
+
+            <TextView
+                android:id="@+id/preview_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The Quick Brown Fox"
+                android:textSize="28sp"
+                android:textColor="@color/op_control_text_color_primary"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/preview_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jumps Over The Lazy Dog"
+                android:textSize="20sp"
+                android:textColor="@color/op_control_text_color_primary"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/preview_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs."
+                android:textSize="16sp"
+                android:textColor="@color/op_control_text_color_primary"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/preview_numbers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0123456789"
+                android:textSize="18sp"
+                android:textColor="@color/op_control_text_color_primary"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/preview_special"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="!@#$%^&amp;*()_+-=[]{}|;':&quot;,.&lt;&gt;?/"
+                android:textSize="16sp"
+                android:textColor="@color/op_control_text_color_primary" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/install_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/install_font"
+            style="?android:attr/buttonBarButtonStyle" />
+
+    </LinearLayout>
 
 </LinearLayout>
