@@ -70,10 +70,15 @@
 
         <!-- Games FPS -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.games"
+            android:key="persist.sys.gameprops.enabled"
             android:title="@string/gameprops_title"
             android:summary="@string/gameprops_summary"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
+            
+        <Preference
+            android:key="game_props_json_file_preference"
+            android:title="@string/gameprops_load_json_title"
+            android:summary="@string/gameprops_load_json_summary" />
 
         <!-- Snapchat -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
