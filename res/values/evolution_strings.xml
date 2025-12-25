@@ -1285,4 +1285,8 @@
     <string name="dynamic_bar_guide_keyguard_title">Lock screen chip</string>
     <string name="dynamic_bar_footer_title">About Dynamic Bar</string>
     <string name="dynamic_bar_footer_body">Dynamic Bar transforms your status bar into an interactive hub. Status chips appear and animate based on system events, giving you at-a-glance information without interrupting your workflow.\n\nEach event type has its own accent color and expanded card with quick actions.</string>
+
+    <!-- Media art QS background -->
+    <string name="media_waveform_seekbar_title">Waveform media seekbar</string>
+    <string name="media_waveform_seekbar_summary">Enable animated waveform effect for media playback progress</string>
 </resources>

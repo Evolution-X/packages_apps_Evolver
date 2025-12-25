@@ -38,6 +38,20 @@
             android:summary="@string/qs_show_media_player_summary"
             android:defaultValue="true" />
 
+        <!-- Waveform seekbar -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="media_waveform_seekbar"
+            android:title="@string/media_waveform_seekbar_title"
+            android:summary="@string/media_waveform_seekbar_summary"
+            android:defaultValue="false" />
+
+        <!-- Squiggle animation for media notification -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="media_squiggle_animation"
+            android:title="@string/media_squiggle_animation_title"
+            android:summary="@string/media_squiggle_animation_summary"
+            android:defaultValue="true" />
+
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_compact_media_player_mode"
             android:title="@string/qs_compact_media_player_mode_title"

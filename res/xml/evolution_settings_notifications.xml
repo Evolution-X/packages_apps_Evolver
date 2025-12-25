@@ -60,13 +60,6 @@
             android:summary="@string/notification_row_transparency_lockscreen_summary"
             android:defaultValue="true" />
 
-        <!-- Squiggle animation for media notification -->
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="media_squiggle_animation"
-            android:title="@string/media_squiggle_animation_title"
-            android:summary="@string/media_squiggle_animation_summary"
-            android:defaultValue="true" />
-
         <!-- Small landscape notifications -->
         <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="small_landscape_notification"
