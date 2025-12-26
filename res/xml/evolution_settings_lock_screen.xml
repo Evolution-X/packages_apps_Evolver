@@ -81,6 +81,13 @@
             android:summary="@string/lock_screen_charging_stats_summary"
             android:defaultValue="true" />
 
+        <!-- Smartspace -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_smartspace_enabled"
+            android:title="@string/lockscreen_smartspace_title"
+            android:summary="@string/lockscreen_smartspace_summary"
+            android:defaultValue="true" />
+
         <!-- Lockscreen remaining charging time -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_charging_time"
