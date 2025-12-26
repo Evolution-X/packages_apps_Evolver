@@ -15,7 +15,7 @@
     <string name="status_bar_title">Állapotsor</string>
     <string name="status_bar_summary">Mozdulatvezérlők, ikonok, logó</string>
     <string name="quick_settings_title">Gyorsbeállítások</string>
-    <string name="quick_settings_summary">Felhasználói felület, fényerőszabályzó, kinézet</string>
+    <string name="quick_settings_summary">Felhasználói felület, fényerőszabályzó, kinézet, képernyőzár</string>
     <string name="notifications_title">Értesítések</string>
     <string name="notifications_summary">Felugró értesítések, felhasználói felület, hangok</string>
     <string name="power_menu_title">Kikapcsolási menü</string>
@@ -156,6 +156,8 @@
     <string name="pulse_renderer_neon_glow">Neoncső</string>
     <string name="pulse_renderer_retro_vu_meter">Retro hangerőmérő</string>
     <string name="pulse_renderer_minimal_wave">Egyszerű hullám</string>
+    <string name="pulse_renderer_sparkle">Sziporkázó</string>
+    <string name="pulse_renderer_matrix">Mátrix</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Csúsztassa balra vagy jobbra az órastílus-előnézetek megtekintéséhez</string>
     <!-- Lock screen Clock Revamp -->
@@ -207,6 +209,7 @@
     <string name="status_bar_battery_percent_title">Akkumulátorszázalék</string>
     <string name="status_bar_battery_percent_hidden">Rejtett</string>
     <string name="status_bar_battery_percent_text_inside">Az ikonon belül</string>
+    <string name="status_bar_battery_percent_text_next">Az ikon mellett</string>
     <string name="status_bar_battery_percent_text_next_right">Az ikon mellett (jobb)</string>
     <string name="status_bar_battery_percent_text_next_left">Az ikon mellett (bal)</string>
     <string name="status_bar_battery_text_charging_title">Akkuszázalék töltés közben</string>
@@ -281,24 +284,17 @@
     <string name="status_bar_lyric_options_title">Lehetőségek</string>
     <string name="disguise_props_for_music_app_title">Készülékálcázás zenealkalmazásokhoz</string>
     <string name="disguise_props_for_music_app_summary">A készülék álcázása egyes zenei alkalmazásokban, hogy az állapotsorban megjelenhessen a dalszöveg. Átkapcsolás után újra kell indítani az alkalmazást, hogy a módosítás érvénybe lépjen.</string>
-    <!-- Status bar/Clock & date-->
-    <string name="status_bar_clock_position_title">Az óra helyzete</string>
+    <!-- Status bar - Clock -->
+    <string name="status_bar_clock_title">Óra és dátum</string>
+    <string name="status_bar_clock_summary">Az \'Óra és dátum\' testreszabása</string>
+    <string name="status_bar_clock_seconds_title">Másodpercmutató</string>
+    <string name="status_bar_clock_seconds_summary">Ez egy állapotsori másodpercmutató</string>
+    <string name="status_bar_clock_position_title">Órastílus</string>
     <string name="status_bar_clock_position_right">Jobbra</string>
     <string name="status_bar_clock_position_left">Balra</string>
     <string name="status_bar_clock_position_center">Középre</string>
-    <string name="status_bar_clock_position_hidden">Rejtett</string>
-    <string name="status_bar_clock_seconds_title">Másodpercmutató</string>
-    <string name="status_bar_clock_seconds_summary">Ez egy állapotsori másodpercmutató</string>
-    <string name="status_bar_clock_auto_hide_intervals_title">Elrejtés időközönként</string>
-    <string name="status_bar_clock_auto_hide_intervals_summary">Az Óra elrejtése meghatározott időalapú intervallumban</string>
-    <string name="status_bar_clock_auto_hide_hdur_title">Az elrejtés hossza</string>
-    <string name="status_bar_clock_auto_hide_hdur_summary">Az elrejtési idő hosszúsága másodpercben</string>
-    <string name="status_bar_clock_auto_hide_sdur_title">A megjelenítés hossza</string>
-    <string name="status_bar_clock_auto_hide_sdur_summary">A megjelenítési idő hosszúsága másodpercben</string>
-    <string name="status_bar_clock_auto_hide_launcher_title">Elrejtés a Launcheren</string>
-    <string name="status_bar_clock_auto_hide_launcher_summary">Rejtse el az órát, ha a launcher látható</string>
-    <string name="status_bar_clock_chip_title">Hátteres óra</string>
-    <string name="status_bar_clock_chip_summary">Az óra mögött megjelenít egy hátteret</string>
+    <string name="status_bar_clock_auto_hide_title">Automatikus elrejtés</string>
+    <string name="status_bar_clock_auto_hide_summary">Rejtse el az órát, ha a launcher látható</string>
     <string name="status_bar_am_pm_title">A DE/DU megjelenítés stílusa</string>
     <string name="status_bar_am_pm_info">A 24-órás formátum engedélyezett</string>
     <string name="status_bar_am_pm_normal">Normál</string>
@@ -316,9 +312,12 @@
     <string name="status_bar_date_format_custom">Egyéni java-formátum</string>
     <string name="status_bar_date_string_edittext_title">A dátumformátum pl. HH/nn/éé kell legyen</string>
     <string name="status_bar_date_string_edittext_summary">Írja be</string>
-    <string name="status_bar_clock_date_position">Dátumelhelyezés</string>
-    <string name="status_bar_clock_date_right">Az órától jobbra</string>
-    <string name="status_bar_clock_date_left">Az órától balra</string>
+    <string name="clock_date_position">Dátumelhelyezés</string>
+    <string name="clock_date_right">Az órától jobbra</string>
+    <string name="clock_date_left">Az órától balra</string>
+    <!-- Statusbar Clock background chip -->
+    <string name="statusbar_clock_chip_title">Hátterezett óra</string>
+    <string name="statusbar_clock_chip_summary">Az óra mögött megjelenít egy hátteret</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Helymeghatározás</string>
     <string name="network_traffic_location_disable">Kikapcsolva</string>
@@ -533,14 +532,14 @@
     <string name="gms_spoof_title">Áruházi Integritásjavítás</string>
     <string name="gms_spoof_summary">Készülékálcázás, hogy megfeleljen a Google Áruház tanusítványi feltételeinek</string>
     <string name="spoofing_app_specific_category">Alkalmazás-specifikus</string>
-    <string name="spoofing_qsb_title">Google-alkalmazás</string>
-    <string name="spoofing_qsb_summary">Álcázás a legújabb Pixel-készülékre, hogy különleges funkciók elérhetővé váljanak</string>
     <string name="spoofing_photos_title">Google Fényképek</string>
     <string name="spoofing_photos_summary">Pixel XL-re álcázás a Google Fényképek alkalmazáshoz</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">A Snapchat-ben Pixel XL-nek álcázza az Ön készülékét a lehetséges csevegési problémák elkerüléséért</string>
-    <string name="gameprops_title">Magasabb FPS feloldása játékokhoz</string>
+    <string name="gameprops_title">A Prop-ok hamisítása játékokhoz</string>
     <string name="gameprops_summary">Más modellnek álcázza az Ön készülékét, hogy játék közben elérhetők legyenek magasabb FPS-értékek</string>
+    <string name="gameprops_load_json_title">Válasszon JSON-fájlokat a játékhoz</string>
+    <string name="gameprops_load_json_summary">Válassza ki a játékok átveréséhez használni kívánt játék JSON-fájlt</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">A pif.json letöltése sikeres. Az Áruházi Integritáshoz álcázás a következőre: %1$s</string>
     <string name="toast_spoofing_failure">Nem sikerült álcázni a tulajdonságokat.</string>
@@ -560,9 +559,6 @@
     <string name="keybox_toast_missing_data">Érvénytelen Keybox-XML: kötelező mezők hiányoznak</string>
     <string name="keybox_toast_file_loaded">A Keybox betöltve</string>
     <string name="keybox_toast_file_cleared">A Keybox tisztítva</string>
-    <!-- Block attestation even with Keybox Data -->
-    <string name="gms_cert_chain_title">Az erős integritás kényszerítés letiltása</string>
-    <string name="gms_cert_chain_summary">Ha engedélyezve van, nem kényszerít erős integritást érvényes egyéni keybox-okból, és a Google Play integritáshamisítására támaszkodik az olyan alkalmazások javításához, mint a Google Pay</string>
     <!-- About -->
     <string name="about_info">Az Evolution X egy egyedi Android ROM, amelynek célja a Google Pixel élményének reprodukálása, csak sokkal több testreszabási lehetőséggel. A Lineage OS Project-re támaszkodva.</string>
     <string name="about_website_title">Honlap</string>
@@ -712,8 +708,10 @@
     <string name="lockscreen_weather_location_summary">A jelenlegi tartózkodási hely adatait jeleníti meg</string>
     <string name="lockscreen_weather_text_title">Aktuális időjárás-viszonyok</string>
     <string name="lockscreen_weather_text_summary">Az időjárás jelenlegi viszonyait foglalja össze</string>
-    <string name="lockscreen_weather_style_title">Pixel-stílus</string>
-    <string name="lockscreen_weather_style_summary">Az időjárás külön sorban jelenik meg</string>
+    <string name="lockscreen_weather_wind_info_title">Szél-adatok</string>
+    <string name="lockscreen_weather_wind_info_summary">Megjeleníti az aktuális szélsebességet és szélirányt</string>
+    <string name="lockscreen_weather_humidity_info_title">Páratartalom-adatok</string>
+    <string name="lockscreen_weather_humidity_info_summary">Megjeleníti az aktuális páratartalom százalékos értékét</string>
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Mindig látható (AOD)</string>
     <string name="aod_pulse_category_title">Pulzálás/Doze</string>
@@ -832,7 +830,7 @@
  
      A folyamatjelző sáv dinamikusan vált a média és a letöltési állapotok között, így Ön mindig egy pillantással áttekintheti a legfontosabb információkat.\"
     </string>
-    <!-- Battery bar -->
+    <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Akkumulátorsáv</string>
     <string name="battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
     <string name="battery_bar_color">Szín</string>
@@ -852,8 +850,8 @@
     <string name="battery_bar_blend_color_reverse_summary_on">Teljesen &#8594; üres: piros &#8594; zöld &#8594; kék &#8594; piros</string>
     <string name="battery_bar_use_gradient_color">Színátmenet használata</string>
     <string name="battery_bar_gradient_color_summary">Színátmenet használata az akkumulátor töltöttségi szintjéhez</string>
-    <string name="battery_bar_high_color">Magas töltöttség színe\"</string>
-    <string name="battery_bar_low_color">Alacsony töltöttség színe\"</string>
+    <string name="battery_bar_high_color">A magas töltöttség színe\"</string>
+    <string name="battery_bar_low_color">Az alacsony töltöttség színe\"</string>
     <string name="battery_bar_animate_color">A töltési animáció színe</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">A Fényerőcsúszka alakja</string>
@@ -900,4 +898,38 @@
     <string name="active_content_desc">Aktív</string>
     <string name="toast_failed_apply_font">A betűtípus érvényesítése sikertelen</string>
     <string name="toast_invalid_font_file">Hibás betűkészlet-fájl</string>
+    <!-- Now Playing -->
+    <string name="nowplaying_title">\'Most hallható\'</string>
+    <string name="nowplaying_summary">Az aktuálisan lejátszott zene adatainak megjelenítése lezárt képernyőn és a „Mindig bekapcsolva\" módban</string>
+    <string name="nowplaying_appearance_title">Megjelenés</string>
+    <string name="nowplaying_use_accent_color_title">Kiemelőszín használata</string>
+    <string name="nowplaying_use_accent_color_summary">A fehér helyett a rendszer kiemelőszínét használja</string>
+    <string name="nowplaying_vertical_position_title">Függőleges helyzet</string>
+    <string name="nowplaying_vertical_position_summary">A képernyő tetejétől az aljáig való helyzet beállítása</string>
+    <string name="nowplaying_track_text_size_title">A számcím mérete</string>
+    <string name="nowplaying_track_text_size_summary">A számcím szövegének mérete</string>
+    <string name="nowplaying_artist_text_size_title">Az előadó-név mérete</string>
+    <string name="nowplaying_artist_text_size_summary">Előadó/Lemezcím szövegének mérete</string>
+    <string name="nowplaying_display_title">Megjelenítési beállítások</string>
+    <string name="nowplaying_show_on_lockscreen_title">Megjelenítés a záróképernyőn</string>
+    <string name="nowplaying_show_on_lockscreen_summary">A zenei infók a lezárt készüléken is megjelennek</string>
+    <string name="nowplaying_icon_style_title">Ikonstílus</string>
+    <string name="nowplaying_icon_style_summary">Itt választhatja ki, melyik ikon látszódjon</string>
+    <string name="nowplaying_icon_size_title">Ikonméret</string>
+    <string name="nowplaying_icon_size_summary">Az ikonméret szabályzása</string>
+    <string name="nowplaying_show_on_aod_title">Megjelenítés \'Mindig bekapcsolva\' módban</string>
+    <string name="nowplaying_show_on_aod_summary">A zenei infók AOD-módban is megjelennek</string>
+    <string name="nowplaying_compact_style_title">Kompakt stílus</string>
+    <string name="nowplaying_compact_style_summary">Megjelenítés egyetlen sorban a számcím szövegméretének használatával</string>
+    <string name="nowplaying_info_summary">A \'Most hallható\' funkció megjeleníti az aktuálisan lejátszott zene címét és előadóját a lezárt képernyőn és a \'Mindig bekapcsolva\' módban. Automatikusan megjelenik, amikor zene szól, és eltűnik, amikor leáll. A pozíciója a képernyő tetejétől az aljáig bárhová beállítható.</string>
+    <!-- Ripple Shape -->
+    <string name="ripple_shape_title">Hullámforma töltéskor</string>
+    <!-- Adaptive Playback -->
+    <string name="adaptive_playback_title">Adaptív lejátszás</string>
+    <string name="adaptive_playback_summary">Megállítja a lejátszást, ha a média elnémul, de folytatja ha gyosan időkorláton belül felhangosításra kerül</string>
+    <string name="adaptive_playback_intro_text">Hangerőnémításkor automatikusan leállítja a lejátszást és automatikusan újra is indítja, ha a némítás megszűnik</string>
+    <string name="adaptive_playback_timeout_title">Lejátszási időkorlát</string>
+    <!-- Smartspace -->
+    <string name="lockscreen_smartspace_title">Smartspace</string>
+    <string name="lockscreen_smartspace_summary">Ha elérhető, akkor megjeleníti a Google Smartspace-t</string>
 </resources>
