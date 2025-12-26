@@ -116,6 +116,15 @@
             android:summary="@string/wireless_charging_dynamic_color_summary"
             android:defaultValue="true" />
 
+        <!-- Ripple Shape -->
+        <org.evolution.settings.preferences.SystemSettingListPreference  
+            android:key="wireless_charging_ripple_shape"
+            android:title="@string/ripple_shape_title"
+            android:summary="%s"
+            android:entries="@array/ripple_shape_entries"
+            android:entryValues="@array/ripple_shape_values"
+            android:defaultValue="0" />
+
         <!-- Screen Off animation -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="screen_off_animation"
