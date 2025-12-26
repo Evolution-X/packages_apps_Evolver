@@ -61,7 +61,7 @@
     <string name="themes_animations_category">Animations</string>
     <string name="themes_boot_animation_title">Boot animation</string>
     <string name="themes_boot_animation_summary">Set boot animation style</string>
-    <string name="themes_charging_animation_title">Charging animation</string>
+    <string name="themes_charging_animation_title">Charging ripple animation</string>
     <string name="themes_charging_animation_summary">Display an animation when the device is plugged in</string>
     <string name="themes_screen_off_animation_title">Screen off animation</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
@@ -1009,4 +1009,21 @@
 
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Charging ripple shape</string>
+
+    <!-- Charging Animation Settings -->
+    <string name="charging_animation_title">Charging animation</string>
+    <string name="charging_animation_summary">Show visual effects when device is charging on lockscreen or AOD</string>
+    <string name="charging_animation_style_category_title">Animation style</string>
+    <string name="charging_animation_style_title">Effect type</string>
+    <string name="charging_ripple_opacity_title">Ripple opacity</string>
+    <string name="charging_ripple_opacity_summary">Adjust visibility of ripple waves</string>
+    <string name="charging_glow_intensity_title">Glow intensity</string>
+    <string name="charging_glow_intensity_summary">Adjust brightness of glow and particles</string>
+    <string name="charging_arc_count_title">Number of waves</string>
+    <string name="charging_arc_count_summary">Set how many waves appear</string>
+    <string name="charging_appearance_category_title">Appearance</string>
+    <string name="charging_color_mode_title">Color mode</string>
+    <string name="charging_display_category_title">Display options</string>
+    <string name="charging_show_on_lockscreen_summary">Display animation when lockscreen is visible</string>
+    <string name="charging_show_on_aod_summary">Display animation in ambient mode</string>
 </resources>
