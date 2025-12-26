@@ -1130,11 +1130,13 @@
     <string-array name="ripple_shape_entries">
         <item>Circle</item>
         <item>Rounded Box</item>
+        <item>Nothing Animation</item>
     </string-array>
 
     <string-array name="ripple_shape_values" translatable="false">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
 
     <!-- Charging Animation Style Options -->
