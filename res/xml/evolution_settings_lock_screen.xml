@@ -74,6 +74,13 @@
             android:summary="@string/ls_media_art_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.MediaArtSettings" />
 
+        <!-- Smartspace -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_smartspace_enabled"
+            android:title="@string/lockscreen_smartspace_title"
+            android:summary="@string/lockscreen_smartspace_summary"
+            android:defaultValue="true" />
+
         <!-- Charging stats -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_battery_info"
