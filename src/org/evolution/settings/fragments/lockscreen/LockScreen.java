@@ -33,6 +33,7 @@ import java.util.List;
 
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
+import org.evolution.settings.utils.TelephonyUtils;
 // import org.evolution.settings.utils.ImageUtils;
 
 @SearchIndexable
@@ -42,9 +43,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String TAG = "LockScreen";
 
     private static final String LOCKSCREEN_GESTURES_CATEGORY = "lockscreen_gestures_category";
+    private static final String LOCKSCREEN_INTERFACE_CATEGORY = "lockscreen_interface_category";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
+    private static final String KEY_CARRIER_NAME = "lockscreen_show_carrier";
 //    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
 //    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
 
@@ -88,6 +91,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (!hasFingerprint || !hapticAvailable) {
             gestCategory.removePreference(mFpSuccessVib);
             gestCategory.removePreference(mFpErrorVib);
+        }
+
+        if (!TelephonyUtils.isVoiceCapable(context)) {
+            PreferenceCategory intCategory = (PreferenceCategory) findPreference(LOCKSCREEN_INTERFACE_CATEGORY);
+            SwitchPreferenceCompat carrierName = findPreference(KEY_CARRIER_NAME);
+            intCategory.removePreference(carrierName);
         }
     }
 
@@ -150,6 +159,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 if (!hasFingerprint || !hapticAvailable) {
                     keys.add(KEY_FP_SUCCESS);
                     keys.add(KEY_FP_ERROR);
+                }
+
+                if (!TelephonyUtils.isVoiceCapable(context)) {
+                    keys.add(KEY_CARRIER_NAME);
                 }
 
                 return keys;
