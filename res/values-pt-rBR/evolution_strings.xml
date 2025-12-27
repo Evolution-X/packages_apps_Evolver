@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     Copyright (C) 2019-2025 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -156,6 +156,8 @@
     <string name="pulse_renderer_neon_glow">Brilho de néon</string>
     <string name="pulse_renderer_retro_vu_meter">Medidor Retro VU</string>
     <string name="pulse_renderer_minimal_wave">Onda mínima</string>
+    <string name="pulse_renderer_sparkle">Brilho</string>
+    <string name="pulse_renderer_matrix">Matriz</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Deslize para a esquerda ou direita para visualizar os estilos de relógio</string>
     <!-- Lock screen Clock Revamp -->
@@ -207,6 +209,7 @@
     <string name="status_bar_battery_percent_title">Porcentagem da bateria</string>
     <string name="status_bar_battery_percent_hidden">Oculto</string>
     <string name="status_bar_battery_percent_text_inside">Dentro do ícone</string>
+    <string name="status_bar_battery_percent_text_next">Ao lado do ícone</string>
     <string name="status_bar_battery_percent_text_next_right">Ao lado do ícone (direita)</string>
     <string name="status_bar_battery_percent_text_next_left">Ao lado do ícone (esquerda)</string>
     <string name="status_bar_battery_text_charging_title">Porcentagem da bateria durante carregamento</string>
@@ -281,24 +284,17 @@
     <string name="status_bar_lyric_options_title">Opções</string>
     <string name="disguise_props_for_music_app_title">Disfarçar o dispositivo para aplicativos de música</string>
     <string name="disguise_props_for_music_app_summary">Disfarce o dispositivo em alguns aplicativos de música para suportar o recurso de \"letras na barra de status\". Após alterar, é necessário reiniciar o aplicativo para que a alteração tenha efeito.</string>
-    <!-- Status bar/Clock & date-->
+    <!-- Status bar - Clock -->
+    <string name="status_bar_clock_title">Relógio e data</string>
+    <string name="status_bar_clock_summary">Personalizar relógio e data</string>
+    <string name="status_bar_clock_seconds_title">Mostrar segundos</string>
+    <string name="status_bar_clock_seconds_summary">Mostrar segundos ao lado do relógio na barra de status</string>
     <string name="status_bar_clock_position_title">Posição do relógio</string>
     <string name="status_bar_clock_position_right">Direita</string>
     <string name="status_bar_clock_position_left">Esquerda</string>
     <string name="status_bar_clock_position_center">Centro</string>
-    <string name="status_bar_clock_position_hidden">Oculto</string>
-    <string name="status_bar_clock_seconds_title">Mostrar segundos</string>
-    <string name="status_bar_clock_seconds_summary">Mostrar segundos ao lado do relógio na barra de status</string>
-    <string name="status_bar_clock_auto_hide_intervals_title">Ocultar automaticamente em intervalos</string>
-    <string name="status_bar_clock_auto_hide_intervals_summary">Ocultar o relógio em intervalos de tempo específicos</string>
-    <string name="status_bar_clock_auto_hide_hdur_title">Duração do ocultamento</string>
-    <string name="status_bar_clock_auto_hide_hdur_summary">Segundos para manter o relógio oculto</string>
-    <string name="status_bar_clock_auto_hide_sdur_title">Duração da exibição</string>
-    <string name="status_bar_clock_auto_hide_sdur_summary">Segundos antes de ocultar o relógio</string>
-    <string name="status_bar_clock_auto_hide_launcher_title">Ocultar automaticamente na tela inicial</string>
-    <string name="status_bar_clock_auto_hide_launcher_summary">Ocultar relógio quando na tela inicial</string>
-    <string name="status_bar_clock_chip_title">Fundo do relógio colorido</string>
-    <string name="status_bar_clock_chip_summary">Colorir o fundo do relógio na barra de status</string>
+    <string name="status_bar_clock_auto_hide_title">Ocultar automaticamente</string>
+    <string name="status_bar_clock_auto_hide_summary">Ocultar relógio quando na tela inicial</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
     <string name="status_bar_am_pm_info">O relógio estilo 24 horas está ativado</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -316,9 +312,12 @@
     <string name="status_bar_date_format_custom">Formato java personalizado</string>
     <string name="status_bar_date_string_edittext_title">Deve estar em formato de data, por exemplo: DD/MM/AA</string>
     <string name="status_bar_date_string_edittext_summary">Insira o texto</string>
-    <string name="status_bar_clock_date_position">Posição da data</string>
-    <string name="status_bar_clock_date_right">À direita do relógio</string>
-    <string name="status_bar_clock_date_left">À esquerda do relógio</string>
+    <string name="clock_date_position">Posição da data</string>
+    <string name="clock_date_right">À direita do relógio</string>
+    <string name="clock_date_left">À esquerda do relógio</string>
+    <!-- Statusbar Clock background chip -->
+    <string name="statusbar_clock_chip_title">Chip de Fundo</string>
+    <string name="statusbar_clock_chip_summary">Exibir chip acentuado atrás do relógio</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Local</string>
     <string name="network_traffic_location_disable">Desativado</string>
@@ -358,6 +357,7 @@
     <string name="quick_settings_panel_style_reflected">Refletido</string>
     <string name="quick_settings_panel_style_surround">Envolvente</string>
     <string name="quick_settings_panel_style_thin">Borrado</string>
+    <string name="quick_settings_layout_category_title">Estilo dos blocos</string>
     <string name="quick_settings_tile_label_hide_title">Ocultar rótulo</string>
     <string name="quick_settings_tile_label_size_title">Tamanho do rótulo</string>
     <string name="quick_settings_tile_label_hide_summary">Mostrar apenas o ícone no bloco</string>
@@ -532,14 +532,14 @@
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Mascarar seu aparelho para burlar a Certificação do Google Play</string>
     <string name="spoofing_app_specific_category">Específico do Aplicativo</string>
-    <string name="spoofing_qsb_title">Google app</string>
-    <string name="spoofing_qsb_summary">Simular o Google app como o dispositivo Pixel mais recente para desbloquear recursos exclusivos</string>
     <string name="spoofing_photos_title">Fotos</string>
     <string name="spoofing_photos_summary">Falsear o aplicativo Google Fotos como Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Falsear o aplicativo Snapchat como Pixel XL para corrigir possíveis problemas no chat</string>
     <string name="gameprops_title">Desbloquear máximo de FPS nos jogos</string>
     <string name="gameprops_summary">Mostrando seu dispositivo como um modelo diferente para desbloquear mais FPS nos jogos</string>
+    <string name="gameprops_load_json_title">Selecionar Arquivo JSON para Props de Jogo</string>
+    <string name="gameprops_load_json_summary">Selecione o arquivo JSON de propriedades do jogo a ser usado para falsificar jogos</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Pif.json baixado com sucesso. Mostrando como %1$s para Play Integrity.</string>
     <string name="toast_spoofing_failure">Falha ao mascarar as propriedades.</string>
@@ -559,9 +559,6 @@
     <string name="keybox_toast_missing_data">XML de caixa de chaves inválido: campos obrigatórios ausentes</string>
     <string name="keybox_toast_file_loaded">Caixa de chaves carregada</string>
     <string name="keybox_toast_file_cleared">Caixa de chaves limpa</string>
-    <!-- Block attestation even with Keybox Data -->
-    <string name="gms_cert_chain_title">Desabilitar forçar integridade forte</string>
-    <string name="gms_cert_chain_summary">Quando ativado, não impõe forte integridade a partir de uma caixa de chave personalizada válida e depende do spoof de Integridade do Google Play para corrigir aplicativos como o Google Pay</string>
     <!-- About -->
     <string name="about_info">Evolução X visa fornecer aos usuários uma sensação de Pixel à primeira vista, com recursos adicionais à sua disposição</string>
     <string name="about_website_title">Site</string>
@@ -591,6 +588,7 @@
     <string name="default_value">Padrão</string>
     <string name="top">Topo</string>
     <string name="bottom">Inferior</string>
+    <string name="reset">Redefinir</string>
     <!-- Units -->
     <string name="unit_milliseconds">milissegundos</string>
     <string name="unit_seconds">segundos</string>
@@ -709,8 +707,10 @@
     <string name="lockscreen_weather_location_summary">Exibir localização do clima atual</string>
     <string name="lockscreen_weather_text_title">Condição atual</string>
     <string name="lockscreen_weather_text_summary">Exibir o resumo atual da condição climática</string>
-    <string name="lockscreen_weather_style_title">Estilo Pixel</string>
-    <string name="lockscreen_weather_style_summary">Exibir o clima como uma linha separada</string>
+    <string name="lockscreen_weather_wind_info_title">Informações sobre o vento</string>
+    <string name="lockscreen_weather_wind_info_summary">Exibir velocidade e direção atuais do vento</string>
+    <string name="lockscreen_weather_humidity_info_title">Informações sobre umidade</string>
+    <string name="lockscreen_weather_humidity_info_summary">Exibir a umidade atual em porcentagem</string>
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Sempre em exibição</string>
     <string name="aod_pulse_category_title">Pulse/Doze</string>
@@ -828,7 +828,7 @@
 • Um toque abre o aplicativo responsável pelo download.
 
 A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à primeira vista.    </string>
-    <!-- Battery bar -->
+    <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Barra de bateria</string>
     <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
     <string name="battery_bar_color">Cor</string>
@@ -850,48 +850,12 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="battery_bar_gradient_color_summary">Usar cor gradiente como uma escala para o nível da bateria</string>
     <string name="battery_bar_high_color">Cor de nível alto</string>
     <string name="battery_bar_low_color">Cor de nível baixo</string>
-    <string name="battery_bar_animate_color">Cor da animação de carregamento</string>
+    <string name="battery_bar_animate_color">Animação de carregamento colorida</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Forma do controle deslizante de brilho</string>
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Notificações de paisagem pequenas</string>
     <string name="small_landscape_notification_summary">Mostrar notificações menores na largura do painel de notificação no modo paisagem, assim como o AOSP pretendido</string>
-    <!-- Button settings -->
-    <string name="touchscreen_gesture_action_play_pause_music">Reproduzir/pausar a reprodução de música</string>
-    <string name="hardware_keys_action_nothing">Nenhuma ação</string>
-    <string name="hardware_keys_action_menu">Abrir/fechar menu</string>
-    <string name="hardware_keys_action_app_switch">Alternador de aplicativos recentes</string>
-    <string name="hardware_keys_action_search">Assistente de busca</string>
-    <string name="hardware_keys_action_voice_search">Pesquisa por voz</string>
-    <string name="hardware_keys_action_in_app_search">Busca dentro do aplicativo</string>
-    <string name="hardware_keys_action_launch_camera">Iniciar a câmera</string>
-    <string name="hardware_keys_action_sleep">Desligar a tela</string>
-    <string name="hardware_keys_action_last_app">Último aplicativo</string>
-    <string name="hardware_keys_action_split_screen">Dividir a tela</string>
-    <string name="hardware_keys_action_close_app">Encerrar aplicativo</string>
-    <string name="hardware_keys_action_torch">Alternar lanterna</string>
-    <string name="hardware_keys_action_screenshot">Tirar uma captura de tela</string>
-    <string name="hardware_keys_action_volume_panel">Alternar painel de volume</string>
-    <string name="hardware_keys_action_clear_all_notifications">Limpar todas as notificações</string>
-    <string name="hardware_keys_action_notifications_panel">Alternar painel de notificações</string>
-    <string name="hardware_keys_action_expand_qs_panel">Expandir painel de configurações rápidas</string>
-    <string name="hardware_keys_action_ringer_modes">Alterar modo de toque</string>
-    <!-- Three Finger Gestures -->
-    <string name="three_finger_gesture_action_title">Três gestos de deslize de dedo</string>
-    <string name="three_finger_gesture_action_dialog_title">Ações do gesto de deslizar com três dedos</string>
-    <string name="three_finger_long_press_action_title">Três gestos de toque longo</string>
-    <string name="three_finger_long_press_action_dialog_title">Ações do gesto de deslizar com três dedos</string>
-    <!-- NT Three finger -->
-    <string name="nt_gesture_three_finger_swipe">Deslizar três dedos</string>
-    <string name="nt_gesture_three_finger_swipe_summary">Deslize para baixo com três dedos para executar ações.</string>
-    <string name="nt_gesture_three_finger_long_press">Pressionamento longo com três dedos</string>
-    <string name="nt_gesture_three_finger_long_press_summary">Pressione e segure com três dedos e então deslize para baixo para capturar a tela da área.</string>
-    <string name="nt_combination_power_volume_click">Desativar o botão liga/desliga &amp; botão de volume para baixo</string>
-    <string name="nt_combination_power_volume_click_summary">Desativar a função de capturar uma tela pressionando e segurando o botão liga/desliga e diminuindo o volume.</string>
-    <!-- Power off verify -->
-    <string name="power_off_verify_footer">A verificação de desligamento protege seu dispositivo, impedindo que outras pessoas o desliguem imediatamente após a perda, aumentando as chances de recuperação. Você só precisa digitar a senha da tela de bloqueio ao desligar ou reiniciar o telefone a partir da tela de bloqueio.</string>
-    <string name="power_off_verify_summary">Quando o dispositivo estiver bloqueado, você precisará usar sua senha para desligar ou reiniciar.</string>
-    <string name="power_off_verify_title">Desligar a verificação</string>
     <!-- Notification row transparency -->
     <string name="notification_row_transparency_title">Transparência da linha de notificação</string>
     <string name="notification_row_transparency_summary">Mostrar notificações de configurações rápidas translúcidas</string>
@@ -906,4 +870,64 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Botão de rotação flutuante</string>
     <string name="floating_rotation_button_summary">Mostrar um botão de rotação flutuante quando o dispositivo for rotacionado</string>
+    <!-- Fonts Screen -->
+    <string name="font_title">Fonte</string>
+    <string name="font_style">Estilo da fonte</string>
+    <string name="font_preview_dialog_title">Visualização da Fonte</string>
+    <string name="apply">Aplicar</string>
+    <string name="applied">Aplicado</string>
+    <string name="reboot_device">Reiniciar dispositivo</string>
+    <string name="reboot_required_title">Reinicialização necessária</string>
+    <string name="reboot_required_message">É necessário reiniciar o computador para aplicar as alterações de fonte.\nDeseja reiniciar agora?</string>
+    <string name="reboot_now">Reiniciar agora</string>
+    <string name="later">Mais tarde</string>
+    <string name="reset_default_title">Redefinir para o padrão</string>
+    <string name="reset_default_message">Isso redefinirá sua fonte para a fonte padrão do sistema. Tem certeza?</string>
+    <string name="add_font">Adicionar fonte</string>
+    <string name="custom_font">Fonte personalizada</string>
+    <string name="no_custom_font">Nenhuma fonte personalizada</string>
+    <string name="add_custom_font">Adicionar fonte personalizada</string>
+    <string name="change_custom_font">Alterar fonte personalizada</string>
+    <string name="reset_custom_font_content_desc">Redefinir fonte personalizada</string>
+    <string name="reboot_required_custom_font_title">Reinicialização necessária para fontes personalizadas</string>
+    <string name="reboot_required_custom_font_desc">Ignorar a reinicialização após alterar a fonte personalizada pode causar inconsistências na interface do usuário entre os aplicativos.</string>
+    <string name="font_preview_quote">O medo é inimigo da inovação.</string>
+    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
+    <string name="active_content_desc">Ativo</string>
+    <string name="toast_failed_apply_font">Falha ao aplicar fonte</string>
+    <string name="toast_invalid_font_file">Arquivo de fonte inválido</string>
+    <!-- Now Playing -->
+    <string name="nowplaying_title">Reproduzindo Agora</string>
+    <string name="nowplaying_summary">Mostrar informações de música atualmente reproduzindo na tela de bloqueio e AOD</string>
+    <string name="nowplaying_appearance_title">Aparência</string>
+    <string name="nowplaying_use_accent_color_title">Usar cor de destaque</string>
+    <string name="nowplaying_use_accent_color_summary">Usar cor de acento do sistema em vez do branco</string>
+    <string name="nowplaying_vertical_position_title">Posição vertical</string>
+    <string name="nowplaying_vertical_position_summary">Ajustar posição de cima para baixo da tela</string>
+    <string name="nowplaying_track_text_size_title">Tamanho do título da faixa</string>
+    <string name="nowplaying_track_text_size_summary">Tamanho do texto do título da faixa</string>
+    <string name="nowplaying_artist_text_size_title">Tamanho do nome do artista</string>
+    <string name="nowplaying_artist_text_size_summary">Tamanho do texto do nome do artista/álbum</string>
+    <string name="nowplaying_display_title">Opções de visualização</string>
+    <string name="nowplaying_show_on_lockscreen_title">Mostrar na tela de bloqueio</string>
+    <string name="nowplaying_show_on_lockscreen_summary">Exibir informações de música quando o dispositivo estiver bloqueado</string>
+    <string name="nowplaying_icon_style_title">Estilos de ícone</string>
+    <string name="nowplaying_icon_style_summary">Escolha qual ícone exibir</string>
+    <string name="nowplaying_icon_size_title">Tamanho do ícone</string>
+    <string name="nowplaying_icon_size_summary">Ajustar o tamanho do ícone</string>
+    <string name="nowplaying_show_on_aod_title">Mostrar na tela sempre ativa</string>
+    <string name="nowplaying_show_on_aod_summary">Exibir informações de música na tela ambiente</string>
+    <string name="nowplaying_compact_style_title">Estilo compacto</string>
+    <string name="nowplaying_compact_style_summary">Mostrar como em uma única linha usando o tamanho do texto da faixa</string>
+    <string name="nowplaying_info_summary">Reproduzindo agora mostra o título e o artista atualmente reproduzindo na sua tela de bloqueio e exibição sempre ativa. Ele aparece automaticamente quando a música está tocando e desaparece quando parado. A posição pode ser ajustada para aparecer em qualquer lugar da parte superior para a parte inferior da tela.</string>
+    <!-- Ripple Shape -->
+    <string name="ripple_shape_title">Forma de carregamento ondulação</string>
+    <!-- Adaptive Playback -->
+    <string name="adaptive_playback_title">Reprodução adaptável</string>
+    <string name="adaptive_playback_summary">Pausar mídia quando o volume é silenciado e retomá-la aumentando o volume dentro do tempo limite</string>
+    <string name="adaptive_playback_intro_text">Pausa automaticamente a mídia quando o volume é silenciado e retoma automaticamente quando o volume é restaurado dentro do tempo definido</string>
+    <string name="adaptive_playback_timeout_title">Tempo limite de reprodução</string>
+    <!-- Smartspace -->
+    <string name="lockscreen_smartspace_title">Smartspace</string>
+    <string name="lockscreen_smartspace_summary">Mostrar Google Smartspace quando disponível</string>
 </resources>
