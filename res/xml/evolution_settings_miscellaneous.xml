@@ -59,6 +59,13 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Sensor block per package -->
+        <Preference
+            android:key="sensor_block_settings"
+            android:title="@string/sensor_block_title"
+            android:summary="@string/sensor_block_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.SensorBlock" />
+
         <!-- Floating rotation button -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="show_rotation_suggestions"
