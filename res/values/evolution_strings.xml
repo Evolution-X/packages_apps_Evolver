@@ -632,6 +632,8 @@
     <string name="top">Top</string>
     <string name="bottom">Bottom</string>
     <string name="reset">Reset</string>
+    <string name="delete_message">Remove selected item?</string>
+    <string name="choose_app">Choose app</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">milliseconds</string>
@@ -1032,4 +1034,11 @@
     <string name="statusbar_extra_padding_start_title">Start padding</string>
     <string name="statusbar_extra_padding_top_title">Top padding</string>
     <string name="statusbar_extra_padding_end_title">End padding</string>
+
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">Sensor block per-package</string>
+    <string name="sensor_block_summary">Block access to certain sensors for some apps to save battery</string>
+    <string name="sensor_block_app_picker_title">Block sensors for these apps</string>
+    <string name="add_sensor_block_package_title">Add apps for Sensor block</string>
+    <string name="add_sensor_block_package_summary">Significant motion, accelerometer, linear acceleration sensors will be blocked for these apps</string>
 </resources>
