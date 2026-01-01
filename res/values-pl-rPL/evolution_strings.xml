@@ -284,17 +284,17 @@
     <string name="status_bar_lyric_options_title">Opcje</string>
     <string name="disguise_props_for_music_app_title">Podszywaj się pod inny model urządzenia dla aplikacji muzycznych</string>
     <string name="disguise_props_for_music_app_summary">Ukryj urządzenie w niektórych aplikacjach muzycznych do obsługi tekstu na pasku stanu. Po zmianie tego przełącznika należy ponownie uruchomić aplikacje, aby zmiana zaczęła działać.</string>
-    <!-- Status bar - Clock -->
-    <string name="status_bar_clock_title">Zegar i data</string>
-    <string name="status_bar_clock_summary">Dostosuj zegar i datę</string>
-    <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
-    <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
+    <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Styl zegara</string>
     <string name="status_bar_clock_position_right">Prawy</string>
     <string name="status_bar_clock_position_left">Lewy</string>
     <string name="status_bar_clock_position_center">Na środku</string>
+    <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
+    <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
     <string name="status_bar_clock_auto_hide_title">Autoukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli widoczny jest launcher</string>
+    <string name="status_bar_clock_chip_title">Pasek w tle</string>
+    <string name="status_bar_clock_chip_summary">Wyświetlaj zabarwione podświetlenie za zegarem</string>
     <string name="status_bar_am_pm_title">Format 12-godzinny</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
     <string name="status_bar_am_pm_normal">Normalny</string>
@@ -312,12 +312,9 @@
     <string name="status_bar_date_format_custom">Niestandardowy format (java)</string>
     <string name="status_bar_date_string_edittext_title">Musi to być format daty np. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Wprowadź ciąg znaków</string>
-    <string name="clock_date_position">Położenie daty</string>
-    <string name="clock_date_right">Po prawej stronie zegara</string>
-    <string name="clock_date_left">Po lewej stronie zegara</string>
-    <!-- Statusbar Clock background chip -->
-    <string name="statusbar_clock_chip_title">Rozmycie tła</string>
-    <string name="statusbar_clock_chip_summary">Wyświetl akcentowany chip za zegarem</string>
+    <string name="status_bar_clock_date_position">Położenie daty</string>
+    <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
+    <string name="status_bar_clock_date_left">Po lewej stronie zegara</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Lokalizacja</string>
     <string name="network_traffic_location_disable">Wyłączone</string>
@@ -590,6 +587,8 @@
     <string name="top">U góry</string>
     <string name="bottom">Dolny</string>
     <string name="reset">Resetuj</string>
+    <string name="delete_message">Usunąć zaznaczony element?</string>
+    <string name="choose_app">Wybierz aplikację</string>
     <!-- Units -->
     <string name="unit_milliseconds">milisekundy</string>
     <string name="unit_seconds">sekundy</string>
@@ -896,6 +895,9 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="active_content_desc">Aktywny</string>
     <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
     <string name="toast_invalid_font_file">Nieprawidłowy plik czcionki</string>
+    <!-- Double tap to sleep on lock screen -->
+    <string name="lock_screen_double_tap_to_sleep_title">Dotknij, aby uśpić</string>
+    <string name="lock_screen_double_tap_to_sleep_summary">Aby wyłączyć wyświetlacz, dotknij dwukrotnie paska stanu</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">Teraz odtwarzane</string>
     <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i zawsze aktywnym ekranie</string>
@@ -930,4 +932,15 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <!-- Smartspace -->
     <string name="lockscreen_smartspace_title">Inteligentna przestrzeń</string>
     <string name="lockscreen_smartspace_summary">Pokaż inteligentną przestrzeń Google, jeśli jest dostępna</string>
+    <!-- Statusbar Padding -->
+    <string name="statusbar_extra_padding_category">Dodatkowe wypełnienie</string>
+    <string name="statusbar_extra_padding_start_title">Rozpocznij wypełnianie</string>
+    <string name="statusbar_extra_padding_top_title">Górne wypełnienie</string>
+    <string name="statusbar_extra_padding_end_title">Końcowe wypełnienie</string>
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">Blokowanie czujników dla aplikacji</string>
+    <string name="sensor_block_summary">Zablokuj dostęp do niektórych czujników dla niektórych aplikacji aby oszczędzać baterię</string>
+    <string name="sensor_block_app_picker_title">Blokuj czujniki dla tych aplikacji</string>
+    <string name="add_sensor_block_package_title">Dodaj aplikacje do blokady czujników</string>
+    <string name="add_sensor_block_package_summary">Znaczący ruch, akcelerometr, czujniki przyspieszenia liniowego zostaną zablokowane dla tych aplikacji</string>
 </resources>
