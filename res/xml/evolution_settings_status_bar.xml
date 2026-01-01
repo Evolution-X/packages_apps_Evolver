@@ -199,4 +199,36 @@
             android:summary="@string/status_bar_projection_privacy_indicator_summary"
             android:defaultValue="true" />
     </PreferenceCategory>-->
+
+    <PreferenceCategory
+        android:title="@string/statusbar_extra_padding_category">
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="statusbar_extra_padding_start"
+            android:title="@string/statusbar_extra_padding_start_title"
+            android:defaultValue="0"
+            settings:interval="1"
+            settings:units="@string/unit_pixels"
+            android:max="30"
+            settings:min="-30" />
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="statusbar_extra_padding_top"
+            android:title="@string/statusbar_extra_padding_top_title"
+            android:defaultValue="0"
+            settings:interval="1"
+            settings:units="@string/unit_pixels"
+            android:max="30"
+            settings:min="-30" />
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="statusbar_extra_padding_end"
+            android:title="@string/statusbar_extra_padding_end_title"
+            android:defaultValue="0"
+            settings:interval="1"
+            settings:units="@string/unit_pixels"
+            android:max="30"
+            settings:min="-30" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
