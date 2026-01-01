@@ -284,17 +284,17 @@
     <string name="status_bar_lyric_options_title">Lehetőségek</string>
     <string name="disguise_props_for_music_app_title">Készülékálcázás zenealkalmazásokhoz</string>
     <string name="disguise_props_for_music_app_summary">A készülék álcázása egyes zenei alkalmazásokban, hogy az állapotsorban megjelenhessen a dalszöveg. Átkapcsolás után újra kell indítani az alkalmazást, hogy a módosítás érvénybe lépjen.</string>
-    <!-- Status bar - Clock -->
-    <string name="status_bar_clock_title">Óra és dátum</string>
-    <string name="status_bar_clock_summary">Az \'Óra és dátum\' testreszabása</string>
-    <string name="status_bar_clock_seconds_title">Másodpercmutató</string>
-    <string name="status_bar_clock_seconds_summary">Ez egy állapotsori másodpercmutató</string>
+    <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Órastílus</string>
     <string name="status_bar_clock_position_right">Jobbra</string>
     <string name="status_bar_clock_position_left">Balra</string>
     <string name="status_bar_clock_position_center">Középre</string>
+    <string name="status_bar_clock_seconds_title">Másodpercmutató</string>
+    <string name="status_bar_clock_seconds_summary">Ez egy állapotsori másodpercmutató</string>
     <string name="status_bar_clock_auto_hide_title">Automatikus elrejtés</string>
     <string name="status_bar_clock_auto_hide_summary">Rejtse el az órát, ha a launcher látható</string>
+    <string name="status_bar_clock_chip_title">Hátterezett óra</string>
+    <string name="status_bar_clock_chip_summary">Az óra mögött megjelenít egy hátteret</string>
     <string name="status_bar_am_pm_title">A DE/DU megjelenítés stílusa</string>
     <string name="status_bar_am_pm_info">A 24-órás formátum engedélyezett</string>
     <string name="status_bar_am_pm_normal">Normál</string>
@@ -312,12 +312,9 @@
     <string name="status_bar_date_format_custom">Egyéni java-formátum</string>
     <string name="status_bar_date_string_edittext_title">A dátumformátum pl. HH/nn/éé kell legyen</string>
     <string name="status_bar_date_string_edittext_summary">Írja be</string>
-    <string name="clock_date_position">Dátumelhelyezés</string>
-    <string name="clock_date_right">Az órától jobbra</string>
-    <string name="clock_date_left">Az órától balra</string>
-    <!-- Statusbar Clock background chip -->
-    <string name="statusbar_clock_chip_title">Hátterezett óra</string>
-    <string name="statusbar_clock_chip_summary">Az óra mögött megjelenít egy hátteret</string>
+    <string name="status_bar_clock_date_position">Dátumelhelyezés</string>
+    <string name="status_bar_clock_date_right">Az órától jobbra</string>
+    <string name="status_bar_clock_date_left">Az órától balra</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Helymeghatározás</string>
     <string name="network_traffic_location_disable">Kikapcsolva</string>
@@ -898,6 +895,9 @@
     <string name="active_content_desc">Aktív</string>
     <string name="toast_failed_apply_font">A betűtípus érvényesítése sikertelen</string>
     <string name="toast_invalid_font_file">Hibás betűkészlet-fájl</string>
+    <!-- Double tap to sleep on lock screen -->
+    <string name="lock_screen_double_tap_to_sleep_title">Dupla érintésre alvómód</string>
+    <string name="lock_screen_double_tap_to_sleep_summary">A záróképernyő dupla érintésével kikapcsolható a képernyő</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">\'Most hallható\'</string>
     <string name="nowplaying_summary">Az aktuálisan lejátszott zene adatainak megjelenítése lezárt képernyőn és a „Mindig bekapcsolva\" módban</string>
@@ -932,4 +932,15 @@
     <!-- Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Ha elérhető, akkor megjeleníti a Google Smartspace-t</string>
+    <!-- Statusbar Padding -->
+    <string name="statusbar_extra_padding_category">Extra kitöltés</string>
+    <string name="statusbar_extra_padding_start_title">Kezdeti kitöltés</string>
+    <string name="statusbar_extra_padding_top_title">Felső kitöltés</string>
+    <string name="statusbar_extra_padding_end_title">Végző kitöltés</string>
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">Az érzékelők blokkolása alkalmazásonként</string>
+    <string name="sensor_block_summary">Blokkolja a hozzáférést bizonyos érzékelőkhöz egyes alkalmazásoknál az akkumulátor kímélése érdekében</string>
+    <string name="sensor_block_app_picker_title">Az érzékelők blokkolása az alábbi alkalmazásoknál</string>
+    <string name="add_sensor_block_package_title">Alkalmazások hozzáadása az érzékelő blokkoláshoz</string>
+    <string name="add_sensor_block_package_summary">A mozgás, a gyorsulás és a lineáris gyorsulás-érzékelők blokkolva lesznek ezeknél alkalmazásoknál</string>
 </resources>
