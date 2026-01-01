@@ -1012,4 +1012,10 @@
 
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Charging ripple shape</string>
+
+    <!-- Statusbar Padding -->
+    <string name="statusbar_extra_padding_category">Extra padding</string>
+    <string name="statusbar_extra_padding_start_title">Start padding</string>
+    <string name="statusbar_extra_padding_top_title">Top padding</string>
+    <string name="statusbar_extra_padding_end_title">End padding</string>
 </resources>
