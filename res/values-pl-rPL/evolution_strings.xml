@@ -28,8 +28,8 @@
     <string name="about_summary">O naszym ROM</string>
     <!-- Themes -->
     <string name="themes_general_category">Ogólne</string>
-    <string name="themes_monet_category">Monet</string>
-    <string name="themes_monet_title">Ustawienia Monet</string>
+    <string name="themes_monet_category">Silnik Monet</string>
+    <string name="themes_monet_title">Ustawienia silnika Monet</string>
     <string name="themes_monet_summary">Dostosuj wbudowany silnik motywów Androida</string>
     <string name="themes_audio_category">Dźwięk</string>
     <string name="themes_lock_sound_title">Dźwięk blokady</string>
@@ -480,7 +480,7 @@
     <string name="power_menu_lock_screen_secure_title">Pokaż na ekranie blokady</string>
     <string name="power_menu_lock_screen_secure_summary">Pokaż menu zasilania, gdy urządzenie jest zablokowane</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_advanced_reboot_title">Zaawansowane opcje restartu</string>
+    <string name="power_menu_actions_advanced_reboot_title">Zaawansowane opcje ponownego uruchomienia</string>
     <string name="power_menu_actions_screenshot_title">Zrzut ekranu</string>
     <string name="power_menu_actions_onthego_title">Tryb OTG</string>
     <string name="power_menu_actions_airplane_title">Tryb samolotowy</string>
@@ -488,7 +488,7 @@
     <string name="power_menu_actions_settings_title">Ustawienia</string>
     <string name="power_menu_actions_lockdown_title">Blokada</string>
     <string name="power_menu_actions_lockdown_unavailable">Wyłączono możliwość blokowania, ponieważ blokada ekranu nie jest bezpieczna</string>
-    <string name="power_menu_actions_soundpanel_title">Panel Głośności</string>
+    <string name="power_menu_actions_soundpanel_title">Panel dźwięku</string>
     <string name="power_menu_actions_users_title">Użytkownicy</string>
     <string name="power_menu_actions_logout_title">Wyloguj się</string>
     <string name="power_menu_actions_emergency_title">Nagły wypadek</string>
@@ -497,16 +497,16 @@
     <string name="miscellaneous_spoofing_category">Fałszowanie</string>
     <string name="miscellaneous_developer_options_category">Opcje programisty</string>
     <string name="miscellaneous_app_downgrade_title">Zezwalaj na powrót do poprzedniej wersji aplikacji</string>
-    <string name="miscellaneous_app_downgrade_summary">Zezwalaj na obniżanie jakości aplikacji systemowych, co może skutkować awariami i utratą danych</string>
-    <string name="miscellaneous_block_wallpaper_dimming_title">Ignorowanie żądanie przyciemnienia tapety</string>
-    <string name="miscellaneous_block_wallpaper_dimming_summary">Blokuje wszystkim aplikacjom możliwość ustawienia przyciemnienia tapety \n Wymusza przyciemnienie do 0</string>
+    <string name="miscellaneous_app_downgrade_summary">Zezwalaj na obniżanie wersji aplikacji systemowych, może skutkować awariami i utratą danych</string>
+    <string name="miscellaneous_block_wallpaper_dimming_title">Ignoruj żądania przyciemniania tapety</string>
+    <string name="miscellaneous_block_wallpaper_dimming_summary">Blokuje wszystkim aplikacjom możliwość ustawienia przyciemnienia tapety\nWymusza przyciemnienie na 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj bezpieczne flagi okna</string>
-    <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji, potencjalnie ryzykując wycieki prywatności</string>
+    <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrań ekranu dla wszystkich aplikacji, co może wiązać się z ryzykiem wycieku danych osobowych</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GiB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Ukryj listę aplikacji</string>
-    <string name="hide_applist_summary">Uniemożliw aplikacjom sprawdzania wybranych aplikacji z listy aplikacji</string>
+    <string name="hide_applist_summary">Zapobiegaj sprawdzaniu przez aplikacje wybranych aplikacji z listy aplikacji</string>
     <string name="menu_show_overlay">Pokaż nakładkę</string>
     <string name="menu_hide_overlay">Ukryj nakładkę</string>
     <!-- Miscellaneous/Smart Pixels -->
@@ -519,27 +519,27 @@
     <string name="smart_pixels_shift_title">Ochrona przed wypaleniem ekranu</string>
     <string name="smart_pixels_shift_summary">Zapobiega wypalaniu na urządzeniach OLED przez częstsze przesuwanie pikseli</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Podszywanie się </string>
-    <string name="spoofing_summary">Pomiń ograniczenia aplikacji przez spoofing komponentów</string>
+    <string name="spoofing_title">Fałszowanie komponentu</string>
+    <string name="spoofing_summary">Omijanie ograniczeń aplikacji poprzez fałszowanie komponentów</string>
     <string name="spoofing_system_wide_category">Szerokość systemu</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
-    <string name="spoofing_pixel_props_summary">Podszyj wybrane aplikacje Google pod najnowsze urządzenie Pixel</string>
-    <string name="tensor_spoof_title">Usprawnij funkcję tensora</string>
-    <string name="tensor_spoof_summary">Odblokuj funkcje Tensor/Pixel</string>
+    <string name="spoofing_pixel_props_summary">Podszywaj wybraną grupę aplikacji Google na najnowsze urządzenie Pixel</string>
+    <string name="tensor_spoof_title">Funkcje Pixel tensor</string>
+    <string name="tensor_spoof_summary">Odblokuj funkcje dostępne wyłącznie w urządzeniach Pixel opartych na tensorze</string>
     <string name="gms_spoof_title">Play Integrity Fix</string>
-    <string name="gms_spoof_summary">Popraw certyfikat urządzenia, aby przejść integralność Play</string>
+    <string name="gms_spoof_summary">Sfałszuj swoje urządzenie, aby przejść certyfikację Google Play</string>
     <string name="spoofing_app_specific_category">Specyficzne dla aplikacji</string>
     <string name="spoofing_photos_title">Zdjęcia Google</string>
     <string name="spoofing_photos_summary">Podszyj się pod Pixel XL w Zdjęciach Google</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Podszyj się pod Pixel XL w Snapchacie, aby naprawić możliwe problemy z czatem</string>
-    <string name="gameprops_title">Odblokuj wyższe FPS w grach</string>
+    <string name="gameprops_title">Włącz fałszowanie ustawień gier</string>
     <string name="gameprops_summary">Fałszowanie urządzenia jako inny model w określonych grach w celu odblokowania wyższej liczby klatek na sekundę.</string>
     <string name="gameprops_load_json_title">Wybierz plik JSON rekwizytów gry</string>
     <string name="gameprops_load_json_summary">Wybierz plik JSON rekwizytów gry, który będzie używany do fałszowania gier</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">Pomyślnie pobrano pif.json. Podszywanie się pod %1$s dla certyfikatu Play.</string>
-    <string name="toast_spoofing_failure">Nie udało się poszyć właściwości.</string>
+    <string name="toast_spoofing_success">Pomyślnie pobrano plik pif.json. Podszywanie się pod %1$s w celu zachowania integralności Google Play.</string>
+    <string name="toast_spoofing_failure">Nie udało się sfałszować właściwości.</string>
     <string name="update_pif_json_title">Zaktualizuj Play Integrity Fix</string>
     <string name="update_pif_json_summary">Aby zaktualizować urządzenie podszywające się pod PIF, wymagane jest połączenie z internetem.</string>
     <string name="show_pif_properties_title">Właściwości Play Integrity Fix</string>
@@ -648,20 +648,20 @@
     <string name="wallpaper_dim_level_summary">Konfiguracja poziomu przyciemnienia tapety</string>
     <string name="glass_blur">Szklane rozmycie</string>
     <string name="frosted_blur">Matowe rozmycie</string>
-    <string name="wallpaper_styles_footer">Aby style tapet działały efektywnie, użytkownicy muszą ustawić tapety dla ekranu blokady i ekranu głównego w różnych momentach.\n Można użyć tej samej tapety, ale nie należy jej stosować jednocześnie na ekranie blokady i ekranie głównym.\n Jest to opcjonalne w przypadku korzystania z OPCJI OBA dla stylów rozmycia i przyciemnienia tapety.</string>
+    <string name="wallpaper_styles_footer">Aby style tapet działały efektywnie, użytkownicy muszą ustawić tapety dla ekranu blokady i ekranu głównego w różnych momentach.\n Można użyć tej samej tapety, ale nie należy jej stosować jednocześnie na ekranie blokady i ekranie głównym.\n Jest to opcjonalne w przypadku korzystania z obu opcji dla stylów rozmycia i przyciemnienia tapety    </string>
     <!-- Compact QS Media Player-->
-    <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimediów QS</string>
+    <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimedialny szybkich ustawień</string>
     <string name="qs_compact_media_player_mode_summary">Włącz tryb kompaktowy dla odtwarzacza multimedialnego szybkich ustawień</string>
     <!-- Depth Wallpaper -->
-    <string name="dw_file_header_select_title">Wybierz temat tapety głębi</string>
-    <string name="dw_file_header_select_summary">Wybór obrazu tapety głębi z pamięci masowej</string>
-    <string name="dw_wallpaper_enabled_title">Głębia tapety</string>
+    <string name="dw_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
+    <string name="dw_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
+    <string name="dw_wallpaper_enabled_title">Tapeta z efektem głębi</string>
     <string name="dw_wallpaper_enabled_summary_tile">Zastosuj efekt głębi \n do tapety</string>
-    <string name="dw_wallpaper_enabled_summary">Włącz tapetę głębi inspirowaną systemem iOS. Wymaga obiekt obrazu.</string>
-    <string name="dw_wallpaper_opacity_title">Nieprzezroczystość tapety głębokości</string>
-    <string name="depth_wallpaper_offset_x_title">Poziome przesunięcie tapety głębokości</string>
-    <string name="depth_wallpaper_offset_y_title">Pionowe przesunięcie tapety głębokości</string>
-    <string name="dw_footer_text">Funkcja tapety głębi, zainspirowana segmentacją tematu tapety w systemie iOS, umożliwia nakładanie obiektu nad zegarem ekranu blokady w celu wyświetlenia efektu głębi tapety.\n\n Aby skonfigurować funkcję tapety głębi: \n1. Ustaw tapetę z obiektem lub tłem, nad którym obiekt ma się znajdować. \n2. Wybierz obraz obiektu do śledzenia, obraz ten zostanie nałożony na zegar ekranu blokady.\n3. Zmodyfikuj przesunięcia i krycie zgodnie z własnymi potrzebami.</string>
+    <string name="dw_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu.</string>
+    <string name="dw_wallpaper_opacity_title">Przezroczystość tapety z efektem głębi</string>
+    <string name="depth_wallpaper_offset_x_title">Poziome przesunięcie tapety z efektem głębi</string>
+    <string name="depth_wallpaper_offset_y_title">Pionowe przesunięcie tapety z efektem głębi</string>
+    <string name="dw_footer_text">Funkcja tapety z efektem głębi, inspirowana segmentacją obiektów na ekranie blokady w systemie iOS, umożliwia nałożenie obiektu na zegar na ekranie blokady, aby pokazać efekt głębi tapety.\n\nAby skonfigurować funkcję tapety głębi:\n1. Ustaw tapetę z obiektem lub tłem, nad którym ma się on znajdować.\n2. Wybierz obraz obiektu do śledzenia. Zostanie on nałożony na zegar na ekranie blokady.\n3. Dostosuj przesunięcia i krycie według własnych potrzeb    </string>
     <!-- Lock screen media art -->
     <string name="ls_media_art_title">Okładka albumu</string>
     <string name="ls_media_art_summary">Wyświetlaj okładki albumów, gdy są dostępne</string>
@@ -675,7 +675,7 @@
     <string name="ls_media_art_filter_grayscale">Odcienie szarości</string>
     <string name="ls_media_art_filter_sepia">Sepia</string>
     <string name="ls_media_art_filter_tint">Akcentowane przyciemnienie</string>
-    <string name="ls_media_art_filter_invert">Odwrotnie</string>
+    <string name="ls_media_art_filter_invert">Odwrócone</string>
     <string name="ls_media_art_filter_grayblur">Skala szarości i rozmycie</string>
     <!-- Lock screen media art fade level -->
     <string name="ls_media_art_fade_level_title">Poziom zanikania okładki multimedia</string>
@@ -684,16 +684,16 @@
     <string name="ls_media_art_blur_level_title">Poziom rozmycia okładki albumu</string>
     <string name="ls_media_art_blur_level_summary">Intensywność rozmycia przy zastosowaniu filtra rozmycia</string>
     <!-- Haptics Settings -->
-    <string name="haptics_settings_title">Haptyka systemu</string>
-    <string name="haptics_settings_summary">Modyfikuj intensywność haptyki systemu</string>
-    <string name="back_gesture_haptic_intensity_title">Intensywność haptyki gestu wstecz</string>
-    <string name="brightness_slider_haptics_intensity_title">Intensywność haptyki suwaka jasności</string>
-    <string name="edge_scrolling_haptics_intensity_title">Intensywność przewijania krawędzi</string>
-    <string name="volume_slider_haptics_intensity_title">Intensywność haptyki suwaka głośności</string>
-    <string name="volume_sound_haptics_title">Informacja zwrotna o głośności</string>
-    <string name="volume_sound_haptics_summary">Włącz informację zwrotną przy dostosowywaniu postępu wiersza głośności</string>
-    <string name="qs_panel_tile_haptic_intensity_title">Intensywność haptyki gestu wstecz</string>
-    <string name="qs_haptics_intensity_title">Intensywność odczucia wibracji QS</string>
+    <string name="haptics_settings_title">Systemowe wibracje</string>
+    <string name="haptics_settings_summary">Modyfikuj intensywność wibracji systemu</string>
+    <string name="back_gesture_haptic_intensity_title">Intensywność wibracji gestu wstecz</string>
+    <string name="brightness_slider_haptics_intensity_title">Intensywność wibracji suwaka jasności</string>
+    <string name="edge_scrolling_haptics_intensity_title">Intensywność wibracji podczas przewijania krawędzi</string>
+    <string name="volume_slider_haptics_intensity_title">Intensywność wibracji suwaka głośności</string>
+    <string name="volume_sound_haptics_title">Dźwiękowe potwierdzenie podczas regulacji głośności</string>
+    <string name="volume_sound_haptics_summary">Włącz dźwiękowe potwierdzenie podczas regulacji głośności</string>
+    <string name="qs_panel_tile_haptic_intensity_title">Intensywność wibracji gestu wstecz</string>
+    <string name="qs_haptics_intensity_title">Siła wibracji gestu szybkich ustawień</string>
     <string name="qs_tiles_haptic_feedback_title">Wibruj przy dotknięciu kafelków szybkich ustawień</string>
     <!-- Weather -->
     <string name="weather_settings_title">Ustawienia pogody</string>
@@ -918,7 +918,7 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="nowplaying_show_on_aod_summary">Wyświetlaj informacje o muzyce na ekranie otoczenia</string>
     <string name="nowplaying_compact_style_title">Styl kompaktowy</string>
     <string name="nowplaying_compact_style_summary">Pokaż jako pojedynczą linię używając rozmiaru tekstu utworu</string>
-    <string name="nowplaying_info_summary">Teraz odtwarzanie wyświetla aktualnie odtwarzany tytuł muzyki i artystę na ekranie blokady i na wyświetlaczu zawsze włączonym. Występuje automatycznie, gdy muzyka jest odtwarzana i zniknie po zatrzymaniu. Pozycja może być ustawiona tak, aby pojawiała się gdziekolwiek od góry do dołu ekranu.</string>
+    <string name="nowplaying_info_summary">Funkcja Teraz odtwarzane wyświetla tytuł i wykonawcę aktualnie odtwarzanego utworu na ekranie blokady i w trybie Ekran zawsze wlaczony. Wyświetla się automatycznie podczas odtwarzania muzyki i znika po jej zatrzymaniu. Pozycję wyświetlania można dostosować, aby wyświetlać ją w dowolnym miejscu, od góry do dołu ekranu.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Kształt fali ładowania</string>
     <!-- Adaptive Playback -->
