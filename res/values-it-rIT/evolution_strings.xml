@@ -122,7 +122,7 @@
     <string name="lock_screen_interface_category">Interfaccia</string>
     <string name="lock_screen_charging_stats_title">Statistiche di ricarica</string>
     <string name="lock_screen_charging_stats_summary">Mostra la corrente e la tensione del caricatore e la temperatura della batteria sulla schermata di blocco durante la carica</string>
-    <string name="lock_screen_charging_time_title">Tempo di ricarica nella schermata di blocco</string>
+    <string name="lock_screen_charging_time_title">Tempo di ricarica</string>
     <string name="lock_screen_charging_time_summary">Mostra il tempo rimanente per terminare la ricarica</string>
     <string name="lock_screen_fingerprint_category">Impronta digitale</string>
     <string name="lock_screen_fingerprint_ripple_title">Animazione onda</string>
@@ -277,7 +277,7 @@
     <string name="status_bar_location_privacy_indicator_summary">Mostra un indicatore quando un\'app accede alla tua posizione</string>
     <string name="status_bar_projection_privacy_indicator_title">Proiezione dello schermo</string>
     <string name="status_bar_projection_privacy_indicator_summary">Mostra un indicatore quando lo schermo viene proiettato</string>
-    <string name="status_bar_carrier_lock_screen_title">Nome operatore nella schermata di blocco</string>
+    <string name="status_bar_carrier_lock_screen_title">Nome operatore</string>
     <string name="status_bar_carrier_lock_screen_summary">Mostra il nome dell\'operatore nella barra di stato della schermata di blocco</string>
     <string name="status_bar_lyric_title">Testi nella barra di stato</string>
     <string name="status_bar_lyric_summary">Mostra il testo nella barra di stato (serve un\'app compatibile)</string>
@@ -897,9 +897,6 @@
     <string name="active_content_desc">Attivo</string>
     <string name="toast_failed_apply_font">Impossibile applicare il carattere</string>
     <string name="toast_invalid_font_file">File di carattere non valido</string>
-    <!-- Double tap to sleep on lock screen -->
-    <string name="lock_screen_double_tap_to_sleep_title">Tocca per spegnere</string>
-    <string name="lock_screen_double_tap_to_sleep_summary">Doppio tocco sulla schermata di blocco per spegnere lo schermo</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">Now Playing</string>
     <string name="nowplaying_summary">Mostra informazioni sulla musica attualmente in riproduzione sulla schermata di blocco e AOD</string>
