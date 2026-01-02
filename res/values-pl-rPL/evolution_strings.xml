@@ -231,7 +231,7 @@
     <string name="status_bar_logo_position_title">Pozycja loga</string>
     <string name="status_bar_logo_position_left">Lewa strona</string>
     <string name="status_bar_logo_position_right">Prawa strona</string>
-    <string name="status_bar_logo_style_title">Styl loga</string>
+    <string name="status_bar_logo_style_title">Styl logo</string>
     <string name="status_bar_logo_style_evolution">Evolution X</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
@@ -271,7 +271,7 @@
     <string name="status_bar_notif_count_title">Licznik powiadomień</string>
     <string name="status_bar_notif_count_summary">Wyświetlaj liczbę nieprzeczytanych powiadomień na każdej ikonie aplikacji</string>
     <string name="status_bar_privacy_indicators_category">Wskaźniki prywatności</string>
-    <string name="status_bar_mic_camera_privacy_indicator_title">Mikrofon i aparat</string>
+    <string name="status_bar_mic_camera_privacy_indicator_title">Mikrofon &amp; aparat</string>
     <string name="status_bar_mic_camera_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do mikrofonu lub kamery</string>
     <string name="status_bar_location_privacy_indicator_title">Lokalizacja</string>
     <string name="status_bar_location_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do Twojej lokalizacji</string>
@@ -350,7 +350,7 @@
     <string name="quick_settings_panel_style_color_pop">Tryb kolorów</string>
     <string name="quick_settings_panel_style_shaded">Cieniowany</string>
     <string name="quick_settings_panel_style_cyberpunk">Cyberpunk</string>
-    <string name="quick_settings_panel_style_neumorph">Neumorph</string>
+    <string name="quick_settings_panel_style_neumorph">Neumorf</string>
     <string name="quick_settings_panel_style_reflected">Odbicie</string>
     <string name="quick_settings_panel_style_surround">Dźwięk przestrzenny</string>
     <string name="quick_settings_panel_style_thin">Ciężka linia</string>
@@ -360,15 +360,15 @@
     <string name="quick_settings_tile_label_hide_summary">Pokaż tylko ikonę w kafelku</string>
     <string name="quick_settings_tile_layout_title">Układ poziomy</string>
     <string name="quick_settings_tile_layout_summary">Personalizacja układu przełączników w panelu ustawień</string>
-    <string name="quick_settings_layout_columns_rows_title">Kolumny i wiersze</string>
-    <string name="quick_settings_layout_columns_rows_summary">Dostosuj kolumny i wiersze QS</string>
-    <string name="quick_settings_layout_columns_rows_footer_text">Wiersze QS powinny być równe lub większe niż wiersze QQS. Użyj większej liczby kolumn dla okrągłych/kwadratowych (A11) kafelków QS.</string>
+    <string name="quick_settings_layout_columns_rows_title">Kolumny &amp; wiersze</string>
+    <string name="quick_settings_layout_columns_rows_summary">Dostosuj kolumny i wiersze szybkich ustawień</string>
+    <string name="quick_settings_layout_columns_rows_footer_text">Wiersze szybkich ustawień powinny być równe lub większe niż szybkich wierszy. Użyj większej liczby kolumn dla okrągłych/kwadratowych (A11) kafelków szybkich ustawień.</string>
     <string name="quick_settings_columns_portrait_title">Kolumny (pionowo)</string>
     <string name="quick_settings_columns_landscape_title">Kolumny (poziomo)</string>
     <string name="quick_settings_rows_portrait_title">Rzędy (pionowe)</string>
     <string name="quick_settings_rows_landscape_title">Rzędy (poziome)</string>
     <string name="quick_settings_qqs_rows_portrait_title">Wiersze szybkich ustawień (pionowo)</string>
-    <string name="quick_settings_qqs_rows_landscape_title">Szybkie wiersze QS (poziomo)</string>
+    <string name="quick_settings_qqs_rows_landscape_title">Wiersze szybkich ustawień (poziomo)</string>
     <string name="quick_settings_brightness_slider_category">Suwak jasności</string>
     <string name="quick_settings_show_brightness_slider_title">Suwak jasności</string>
     <string name="quick_settings_show_brightness_slider_never">Nigdy nie pokazuj</string>
@@ -381,8 +381,8 @@
     <string name="quick_settings_brightness_slider_position_bottom">Na dole</string>
     <string name="quick_settings_auto_brightness_icon_title">Ikona automatycznej jasności</string>
     <string name="quick_settings_auto_brightness_icon_summary">Pokaż ikonę przełącznika adaptacyjnej jasności obok suwaka</string>
-    <string name="quick_settings_brightness_slider_haptic_title">Wibracje zwrotne</string>
-    <string name="quick_settings_brightness_slider_haptic_summary">Wibracje zwrotne podczas zmiany jasności za pomocą suwaka</string>
+    <string name="quick_settings_brightness_slider_haptic_title">Wibracja przy dotknięciu</string>
+    <string name="quick_settings_brightness_slider_haptic_summary">Wibracje przy zmianie jasności za pomocą suwaka</string>
     <string name="quick_settings_animations_category">Animacje</string>
     <string name="quick_settings_tile_animation_style_title">Styl animacji kafelków</string>
     <string name="quick_settings_tile_animation_duration_title">Czas trwania animacji</string>
@@ -854,10 +854,10 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="qs_brightness_slider_shape_title">Styl suwaka jasności</string>
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Małe powiadomienia poziome</string>
-    <string name="small_landscape_notification_summary">Wyświetla powiadomienia w panelu powiadomień w trybie poziomym, tak jak zamierzał to AOSP</string>
+    <string name="small_landscape_notification_summary">Wyświetla powiadomienia w panelu powiadomień w trybie poziomym, zgodnie z zamierzonym AOSP</string>
     <!-- Notification row transparency -->
     <string name="notification_row_transparency_title">Przezroczyste powiadomienia</string>
-    <string name="notification_row_transparency_summary">Ustaw półprzezroczyste tło dla powiadomień w QS</string>
+    <string name="notification_row_transparency_summary">Ustaw przezroczyste tło dla powiadomień w szybkich ustawieniach</string>
     <string name="notification_row_transparency_lockscreen_title">Przezroczyste powiadomienia na ekranie blokady</string>
     <string name="notification_row_transparency_lockscreen_summary">Ustaw przezroczyste tło dla powiadomień na ekranie blokady</string>
     <!-- Dynamic charging animation -->
@@ -888,8 +888,8 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="add_custom_font">Dodaj niestandardową czcionkę</string>
     <string name="change_custom_font">Zmień niestandardową czcionkę</string>
     <string name="reset_custom_font_content_desc">Zresetuj niestandardową czcionkę</string>
-    <string name="reboot_required_custom_font_title">Wymagany restart, aby zmienić czcionkę</string>
-    <string name="reboot_required_custom_font_desc">Pominięcie restartu po zmianie czcionki może spowodować niespójności interfejsu użytkownika w aplikacjach.</string>
+    <string name="reboot_required_custom_font_title">Wymagane ponowne uruchomienie, aby zmienić czcionkę</string>
+    <string name="reboot_required_custom_font_desc">Pominięcie ponownego uruchomienia po zmianie czcionki może spowodować niespójności interfejsu użytkownika w aplikacjach.</string>
     <string name="font_preview_quote">Strach jest wrogiem innowacji.</string>
     <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
     <string name="active_content_desc">Aktywny</string>
