@@ -11,13 +11,13 @@
     <string name="themes_title">Motywy</string>
     <string name="themes_summary">Monet, czcionki, ikony</string>
     <string name="lock_screen_title">Ekran blokady</string>
-    <string name="lock_screen_summary">Interfejs, różne</string>
+    <string name="lock_screen_summary">Interfejs, pogoda, odcisk palca</string>
     <string name="status_bar_title">Pasek stanu</string>
-    <string name="status_bar_summary">Gesty, ikony, wskaźniki prywatności</string>
+    <string name="status_bar_summary">Gesty, ikony, logo, wypełnienie</string>
     <string name="quick_settings_title">Szybkie ustawienia</string>
-    <string name="quick_settings_summary">Interfejs, ekran blokady</string>
+    <string name="quick_settings_summary">Interfejs, suwak jasności, układ</string>
     <string name="notifications_title">Powiadomienia</string>
-    <string name="notifications_summary">Alarmy, interfejs</string>
+    <string name="notifications_summary">Wyskakujące powiadomienia, podświetlenie krawędzi, dźwięki</string>
     <string name="power_menu_title">Menu zasilania</string>
     <string name="power_menu_summary">Akcje, ekran blokady</string>
     <string name="buttons_title">Przyciski</string>
@@ -98,12 +98,12 @@
     <string name="monet_engine_color_override_title">Własny kolor</string>
     <string name="monet_engine_luminance_factor_title">Luminacja</string>
     <string name="monet_engine_luminance_factor_summary">Wyższe wartości dają jaśniejsze kolory</string>
-    <string name="monet_engine_chroma_factor_title">Współczynnik chroma</string>
+    <string name="monet_engine_chroma_factor_title">Współczynnik jaskrawości</string>
     <string name="monet_engine_chroma_factor_summary">Wyższe wartości tworzą silniejsze kolory</string>
     <string name="monet_engine_whole_palette_title">Cała paleta</string>
-    <string name="monet_engine_whole_palette_summary">Spraw, by wybór efektu Luminancje i Chroma wpływał również na kolory dodatkowe.</string>
+    <string name="monet_engine_whole_palette_summary">Ustaw jasność i jaskrawość tak, aby miały wpływ również na kolory dodatkowe</string>
     <string name="monet_engine_tint_background_title">Akcentowane tło</string>
-    <string name="monet_engine_tint_background_summary">Spraw, aby jaskrawość i wybór barwy również wpływały na kolory tła</string>
+    <string name="monet_engine_tint_background_summary">Spraw, aby wybór jasności i jaskrawości wpływał również na kolory tła</string>
     <string name="monet_engine_style_title">Styl motywu</string>
     <string name="monet_engine_style_tonal_spot">Punkt tonalny (domyślny)</string>
     <string name="monet_engine_style_vibrant">Intensywny</string>
@@ -115,14 +115,14 @@
     <string name="monet_engine_style_monochromatic">Monochromatyczne</string>
     <string name="monet_engine_color_source_title">Źródło kolorów</string>
     <string name="monet_engine_color_source_both">Oba (domyślne)</string>
-    <string name="monet_engine_color_source_home">Tapeta domowa</string>
+    <string name="monet_engine_color_source_home">Tapeta ekranu głównego</string>
     <string name="monet_engine_color_source_lock">Tapeta ekranu blokady</string>
     <string name="monet_engine_color_source_preset">Predefiniowane</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interfejs</string>
     <string name="lock_screen_charging_stats_title">Statystyki ładowania</string>
-    <string name="lock_screen_charging_stats_summary">Wyświetlaj statystyki dotyczące prądu, napięcia, mocy i temperatury podczas ładowania</string>
-    <string name="lock_screen_charging_time_title">Informacje o ładowaniu na ekranie blokady</string>
+    <string name="lock_screen_charging_stats_summary">Wyświetlaj bieżącą wartość prądu ładowania, napięcia i temperatury baterii na ekranie blokady podczas ładowania</string>
+    <string name="lock_screen_charging_time_title">Czas ładowania</string>
     <string name="lock_screen_charging_time_summary">Wyświetl pozostały czas ładowania do zakończenia</string>
     <string name="lock_screen_fingerprint_category">Odcisk palca</string>
     <string name="lock_screen_fingerprint_ripple_title">Animacja fali</string>
@@ -139,7 +139,7 @@
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator pulsacyjny</string>
     <string name="pulse_settings_summary">Wyświetl wizualizację paska na ekranie blokady podczas odtwarzania muzyki</string>
-    <string name="ambient_pulse_enabled_title">Pulse na ekranie ambient</string>
+    <string name="ambient_pulse_enabled_title">Pulse na ekranie dostosowanym do otoczenia</string>
     <string name="ambient_pulse_enabled_summary">Pokaż wizualizator na wyświetlaczu otoczenia</string>
     <string name="pulse_rounded_bars_title">Zaokrąglone paski</string>
     <string name="pulse_rounded_bars_summary">Wyświetl paski wizualizatora z zaokrąglonymi rogami</string>
@@ -152,12 +152,12 @@
     <string name="pulse_bar_count_units">paski</string>
     <string name="pulse_renderer">Styl wizualizatora</string>
     <string name="pulse_renderer_solid">Linie ciągłe</string>
-    <string name="pulse_renderer_fading">Zanikanie bloków</string>
+    <string name="pulse_renderer_fading">Zanikające bloki</string>
     <string name="pulse_renderer_neon_glow">Neonowy połysk</string>
     <string name="pulse_renderer_retro_vu_meter">Miernik głośności w stylu retro</string>
     <string name="pulse_renderer_minimal_wave">Minimalna fala</string>
     <string name="pulse_renderer_sparkle">Blask</string>
-    <string name="pulse_renderer_matrix">Matryca</string>
+    <string name="pulse_renderer_matrix">Matrix</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Przeciągnij w lewo lub prawo, aby zobaczyć styl zegara</string>
     <!-- Lock screen Clock Revamp -->
@@ -187,7 +187,7 @@
     <string name="status_bar_battery_style_icon_landscape">Ikona pozioma (po lewej)</string>
     <string name="status_bar_battery_style_icon_landscape_buddy">Kapsuła pozioma</string>
     <string name="status_bar_battery_style_icon_landscape_line">Lorn Poziomo</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">Pionowo iOS</string>
+    <string name="status_bar_battery_style_icon_landscape_musku">iOS pionowo </string>
     <string name="status_bar_battery_style_icon_landscape_pill">Pionowo Mx</string>
     <string name="status_bar_battery_style_icon_landscape_signal">Airoo poziomo</string>
     <string name="status_bar_battery_style_icon_rlandscape_style_a">Poziomo R Styl A</string>
@@ -265,7 +265,7 @@
     <string name="status_bar_logo_style_tux">Tux</string>
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
-    <string name="status_bar_logo_style_amogus">Amongus</string>
+    <string name="status_bar_logo_style_amogus">Amogus</string>
     <string name="status_bar_network_traffic_settings_title">Monitor połączenia internetowego</string>
     <string name="status_bar_network_traffic_settings_summary">Wyświetl i dostosuj wskaźnik ruchu sieci</string>
     <string name="status_bar_notif_count_title">Licznik powiadomień</string>
@@ -277,7 +277,7 @@
     <string name="status_bar_location_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do Twojej lokalizacji</string>
     <string name="status_bar_projection_privacy_indicator_title">Projekcja ekranu</string>
     <string name="status_bar_projection_privacy_indicator_summary">Wyświetlaj wskaźnik podczas wyświetlania ekranu</string>
-    <string name="status_bar_carrier_lock_screen_title">Nazwa operatora na ekranie blokady</string>
+    <string name="status_bar_carrier_lock_screen_title">Nazwa operatora</string>
     <string name="status_bar_carrier_lock_screen_summary">Wyświetl nazwę operatora na pasku statusu ekranu blokady</string>
     <string name="status_bar_lyric_title">Tekst piosenki na pasku stanu</string>
     <string name="status_bar_lyric_summary">Pokaż tekst piosenki na pasku stanu (wymaga wsparcia aplikacji)</string>
@@ -286,12 +286,12 @@
     <string name="disguise_props_for_music_app_summary">Ukryj urządzenie w niektórych aplikacjach muzycznych do obsługi tekstu na pasku stanu. Po zmianie tego przełącznika należy ponownie uruchomić aplikacje, aby zmiana zaczęła działać.</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Styl zegara</string>
-    <string name="status_bar_clock_position_right">Prawy</string>
-    <string name="status_bar_clock_position_left">Lewy</string>
+    <string name="status_bar_clock_position_right">Prawo</string>
+    <string name="status_bar_clock_position_left">Lewo</string>
     <string name="status_bar_clock_position_center">Na środku</string>
     <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
     <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
-    <string name="status_bar_clock_auto_hide_title">Autoukrywanie</string>
+    <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli widoczny jest launcher</string>
     <string name="status_bar_clock_chip_title">Pasek w tle</string>
     <string name="status_bar_clock_chip_summary">Wyświetlaj zabarwione podświetlenie za zegarem</string>
@@ -310,21 +310,21 @@
     <string name="status_bar_date_style_lowercase">Małe litery</string>
     <string name="status_bar_date_style_uppercase">Wielkie litery</string>
     <string name="status_bar_date_format_custom">Niestandardowy format (java)</string>
-    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. mm/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Wprowadź ciąg znaków</string>
     <string name="status_bar_clock_date_position">Położenie daty</string>
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
     <string name="status_bar_clock_date_left">Po lewej stronie zegara</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Lokalizacja</string>
-    <string name="network_traffic_location_disable">Wyłączone</string>
+    <string name="network_traffic_location_disable">Wyłączony</string>
     <string name="network_traffic_location_statusbar">Pasek stanu</string>
     <string name="network_traffic_location_quick_statusbar">Panel Szybkich Ustawień</string>
     <string name="network_traffic_mode_title">Tryb ekranu</string>
     <string name="network_traffic_mode_up">Tylko wysyłanie</string>
     <string name="network_traffic_mode_down">Tylko pobieranie</string>
     <string name="network_traffic_mode_all">Wysyłanie i pobieranie</string>
-    <string name="network_traffic_autohide">Autoukrywanie</string>
+    <string name="network_traffic_autohide">Automatyczne ukrywanie</string>
     <string name="network_traffic_autohide_summary">Ukryj monitor ruchu przy braku aktywności</string>
     <string name="network_traffic_autohide_threshold">Próg bezczynności</string>
     <string name="network_traffic_refresh_interval_title">Częstotliwość odświeżania</string>
@@ -354,7 +354,7 @@
     <string name="quick_settings_panel_style_reflected">Odbicie</string>
     <string name="quick_settings_panel_style_surround">Dźwięk przestrzenny</string>
     <string name="quick_settings_panel_style_thin">Ciężka linia</string>
-    <string name="quick_settings_layout_category_title">Układ włączników</string>
+    <string name="quick_settings_layout_category_title">Układ kafelków</string>
     <string name="quick_settings_tile_label_hide_title">Ukryj etykietę</string>
     <string name="quick_settings_tile_label_size_title">Rozmiar tekstu etykiety</string>
     <string name="quick_settings_tile_label_hide_summary">Pokaż tylko ikonę w kafelku</string>
@@ -378,7 +378,7 @@
     <string name="quick_settings_show_brightness_percentage_summary">Wyświetlaj procent jasności obok suwaka</string>
     <string name="quick_settings_brightness_slider_position_title">Pozycja suwaka jasności</string>
     <string name="quick_settings_brightness_slider_position_top">U góry</string>
-    <string name="quick_settings_brightness_slider_position_bottom">Dolny</string>
+    <string name="quick_settings_brightness_slider_position_bottom">Na dole</string>
     <string name="quick_settings_auto_brightness_icon_title">Ikona automatycznej jasności</string>
     <string name="quick_settings_auto_brightness_icon_summary">Pokaż ikonę przełącznika adaptacyjnej jasności obok suwaka</string>
     <string name="quick_settings_brightness_slider_haptic_title">Wibracje zwrotne</string>
@@ -388,7 +388,7 @@
     <string name="quick_settings_tile_animation_duration_title">Czas trwania animacji</string>
     <string name="quick_settings_tile_animation_interpolator_title">Animacja interpolatora</string>
     <string name="quick_settings_tile_animation_style_off">Bez animacji</string>
-    <string name="quick_settings_tile_animation_style_rotate">Rotacja</string>
+    <string name="quick_settings_tile_animation_style_rotate">Obróć</string>
     <string name="qs_tile_animation_style_flipx">Obróć X</string>
     <string name="qs_tile_animation_style_flipy">Obróć Y</string>
     <string name="quick_settings_tile_animation_interpolator_linear">Liniowa</string>
@@ -494,8 +494,8 @@
     <string name="power_menu_actions_emergency_title">Nagły wypadek</string>
     <string name="power_menu_actions_devicecontrols_title">Sterowanie urządzeniami</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">Podszywanie się</string>
-    <string name="miscellaneous_developer_options_category">Opcje programistyczne</string>
+    <string name="miscellaneous_spoofing_category">Fałszowanie</string>
+    <string name="miscellaneous_developer_options_category">Opcje programisty</string>
     <string name="miscellaneous_app_downgrade_title">Zezwalaj na powrót do poprzedniej wersji aplikacji</string>
     <string name="miscellaneous_app_downgrade_summary">Zezwalaj na obniżanie jakości aplikacji systemowych, co może skutkować awariami i utratą danych</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignorowanie żądanie przyciemnienia tapety</string>
@@ -514,7 +514,7 @@
     <string name="smart_pixels_title">Inteligentne piksele</string>
     <string name="smart_pixels_summary">Oszczędzaj baterię poprzez wyłączanie dodatkowych pikseli</string>
     <string name="smart_pixels_on_power_save_title">Automatyczne włączanie trybu oszczędzania baterii</string>
-    <string name="smart_pixels_on_power_save_summary">Włącz Inteligentne Piksele, gdy oszczędzanie baterii jest włączone</string>
+    <string name="smart_pixels_on_power_save_summary">Włącz inteligentne piksele, gdy oszczędzanie baterii jest włączone</string>
     <string name="smart_pixels_percent">Procent pikseli do wyłączenia</string>
     <string name="smart_pixels_shift_title">Ochrona przed wypaleniem ekranu</string>
     <string name="smart_pixels_shift_summary">Zapobiega wypalaniu na urządzeniach OLED przez częstsze przesuwanie pikseli</string>
@@ -583,9 +583,9 @@
     <string name="enable">Włącz</string>
     <string name="disable">Wyłącz</string>
     <string name="boot_animation_applied">Animacja rozruchu została zastosowana</string>
-    <string name="default_value">Domyślnie</string>
+    <string name="default_value">Domyślny</string>
     <string name="top">U góry</string>
-    <string name="bottom">Dolny</string>
+    <string name="bottom">Na dole</string>
     <string name="reset">Resetuj</string>
     <string name="delete_message">Usunąć zaznaczony element?</string>
     <string name="choose_app">Wybierz aplikację</string>
@@ -843,8 +843,8 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="battery_bar_blend_color_title">Mieszanie kolorów</string>
     <string name="battery_bar_blend_color_summary">Mieszaj kolory pełnej/pustej baterii odpowiadające jej procentowi</string>
     <string name="battery_bar_blend_color_reverse_title">Odwróć kierunek kolorów</string>
-    <string name="battery_bar_blend_color_reverse_summary_off">Pełna → pusta: czerwony ← zielony ← niebieski ← czerwony</string>
-    <string name="battery_bar_blend_color_reverse_summary_on">Pełna → pusta: czerwony → zielony → niebieski → czerwony</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Pełna &#8594; pusta: czerwony &#8592; zielony &#8592; niebieski &#8592; czerwony</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Pełna &#8594; pusta: czerwony &#8594; zielony &#8594; niebieski &#8594; czerwony</string>
     <string name="battery_bar_use_gradient_color">Użyj koloru gradientowego</string>
     <string name="battery_bar_gradient_color_summary">Użyj koloru gradientowego jako skali poziomu naładowania baterii</string>
     <string name="battery_bar_high_color">Kolor wysokiego poziomu</string>
@@ -895,9 +895,6 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="active_content_desc">Aktywny</string>
     <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
     <string name="toast_invalid_font_file">Nieprawidłowy plik czcionki</string>
-    <!-- Double tap to sleep on lock screen -->
-    <string name="lock_screen_double_tap_to_sleep_title">Dotknij, aby uśpić</string>
-    <string name="lock_screen_double_tap_to_sleep_summary">Aby wyłączyć wyświetlacz, dotknij dwukrotnie paska stanu</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">Teraz odtwarzane</string>
     <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i zawsze aktywnym ekranie</string>
