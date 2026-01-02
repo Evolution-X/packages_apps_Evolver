@@ -6,10 +6,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Ewoluuj jak nigdy wcześniej</string>
+    <string name="evolver_dashboard_summary">Rozwijamy Twoje urządzenie na Twój sposób</string>
     <!-- Categories -->
     <string name="themes_title">Motywy</string>
-    <string name="themes_summary">Monet, czcionki, ikony</string>
+    <string name="themes_summary">Silnik Monet, czcionki, ikony, animacje</string>
     <string name="lock_screen_title">Ekran blokady</string>
     <string name="lock_screen_summary">Interfejs, pogoda, odcisk palca</string>
     <string name="status_bar_title">Pasek stanu</string>
@@ -23,7 +23,7 @@
     <string name="buttons_title">Przyciski</string>
     <string name="buttons_summary">Przycisk zasilania, przyciski głośności</string>
     <string name="miscellaneous_title">Różne</string>
-    <string name="miscellaneous_summary">Opcje programisty, spoofing</string>
+    <string name="miscellaneous_summary">Fałszowanie, opcje programistyczne</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">O naszym ROM</string>
     <!-- Themes -->
@@ -50,14 +50,14 @@
     <string name="themes_wifi_icon_summary">Ustaw niestandardowy wygląd ikony WiFi</string>
     <string name="themes_navigation_bar_icons_title">Ikona paska nawigacji</string>
     <string name="themes_navigation_bar_icons_summary">Ustaw styl ikony paska nawigacji</string>
-    <string name="themes_udfps_icon_title">Ikony UDFPS</string>
-    <string name="themes_udfps_icon_summary">Ustaw styl ikon UDFPS</string>
+    <string name="themes_udfps_icon_title">Ikony odcisku palca</string>
+    <string name="themes_udfps_icon_summary">Ustaw styl ikon odcisku palca</string>
     <string name="themes_brightness_category">Suwak jasności</string>
     <string name="themes_brightness_slider_title">Styl suwaka jasności</string>
     <string name="themes_brightness_slider_summary">Ustaw styl suwaka jasności</string>
     <string name="themes_animations_category">Animacje</string>
     <string name="themes_boot_animation_title">Animacja uruchamiania</string>
-    <string name="themes_boot_animation_summary">Ustaw styl animacji startowej</string>
+    <string name="themes_boot_animation_summary">Ustaw styl animacji uruchamiania</string>
     <string name="themes_charging_animation_title">Animacja ładowania</string>
     <string name="themes_charging_animation_summary">Wyświetl animację podczas podłączania urządzenia do ładowania</string>
     <string name="themes_screen_off_animation_title">Animacja wyłączania ekranu</string>
@@ -196,8 +196,8 @@
     <string name="status_bar_battery_style_icon_landscape_style_b">Poziomo L Styl B</string>
     <string name="status_bar_battery_style_icon_landscape_ios15">IOS 15 w poziomie</string>
     <string name="status_bar_battery_style_icon_landscape_ios16">iOS 16 w poziomie</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">Poziomo Origami</string>
-    <string name="status_bar_battery_style_icon_landscape_oneui7">Krajobraz OneUI 7</string>
+    <string name="status_bar_battery_style_icon_landscape_origami">Poziomo origami</string>
+    <string name="status_bar_battery_style_icon_landscape_oneui7">OneUI 7 poziomo</string>
     <string name="status_bar_battery_style_circle">Okrąg</string>
     <string name="status_bar_battery_style_dotted_circle">Wypunktowany okrąg</string>
     <string name="status_bar_battery_style_filled_circle">Wypełniony okrąg</string>
@@ -319,8 +319,8 @@
     <string name="network_traffic_location_title">Lokalizacja</string>
     <string name="network_traffic_location_disable">Wyłączony</string>
     <string name="network_traffic_location_statusbar">Pasek stanu</string>
-    <string name="network_traffic_location_quick_statusbar">Panel Szybkich Ustawień</string>
-    <string name="network_traffic_mode_title">Tryb ekranu</string>
+    <string name="network_traffic_location_quick_statusbar">Panel szybkich ustawień</string>
+    <string name="network_traffic_mode_title">Tryb wyświetlania</string>
     <string name="network_traffic_mode_up">Tylko wysyłanie</string>
     <string name="network_traffic_mode_down">Tylko pobieranie</string>
     <string name="network_traffic_mode_all">Wysyłanie i pobieranie</string>
@@ -344,7 +344,7 @@
     <string name="quick_settings_tile_ui_style_a11_circle">Okrągłe kafelki</string>
     <string name="quick_settings_tile_ui_style_a11_square">Kwadratowe kafelki</string>
     <string name="quick_settings_tile_ui_style_a11_mix">Okrągłe &amp; kwadratowe kafelki</string>
-    <string name="quick_settings_panel_style_title">Styl panelu \"Szybkich ustawień\"</string>
+    <string name="quick_settings_panel_style_title">Styl panelu szybkich ustawień</string>
     <string name="quick_settings_panel_style_outline">Obrys</string>
     <string name="quick_settings_panel_style_two_tone">Dwutonowy akcent</string>
     <string name="quick_settings_panel_style_color_pop">Tryb kolorów</string>
@@ -386,7 +386,7 @@
     <string name="quick_settings_animations_category">Animacje</string>
     <string name="quick_settings_tile_animation_style_title">Styl animacji kafelków</string>
     <string name="quick_settings_tile_animation_duration_title">Czas trwania animacji</string>
-    <string name="quick_settings_tile_animation_interpolator_title">Animacja interpolatora</string>
+    <string name="quick_settings_tile_animation_interpolator_title">Szybkość animacji</string>
     <string name="quick_settings_tile_animation_style_off">Bez animacji</string>
     <string name="quick_settings_tile_animation_style_rotate">Obróć</string>
     <string name="qs_tile_animation_style_flipx">Obróć X</string>
@@ -405,11 +405,11 @@
     <string name="quick_settings_secure_lock_screen_title">Ukryj szybkie ustawienia z poziomu blokady ekranu</string>
     <string name="quick_settings_secure_lock_screen_summary">Ukryj wszystkie szybkie ustawienia w cieniu powiadomień, gdy urządzenie jest zablokowane</string>
     <string name="quick_settings_require_unlock_title">Zabezpieczone kafelki wymagają odblokowania</string>
-    <string name="quick_settings_require_unlock_summary">Następujące szybkie ustawienia wymagają odblokowania urządzenia, zanim będzie można z nich korzystać: Samolotowy, Oszczędzanie baterii, Bluetooth, Sieć komórkowa, Oszczędzanie danych, Hotspot, Internet, NFC, Blokada obrotu i Wi-Fi.</string>
+    <string name="quick_settings_require_unlock_summary">Następujące szybkie ustawienia wymagają odblokowania urządzenia przed wejściem z nimi w interakcję:\nTryb samolotowy, Oszczędzanie baterii, Bluetooth, Sieć komórkowa, Oszczędzanie danych, Hotspot, Internet, NFC, Blokada obrotu i Wi-Fi</string>
     <string name="quick_settings_miscellaneous_category">Różne</string>
     <string name="quick_settings_bluetooth_show_dialog_title">Okno dialogowe kafelka Bluetooth</string>
     <string name="quick_settings_bluetooth_show_dialog_summary">Wyświetlanie okna dialogowego bluetooth lub przełączanie stanu bluetooth po dotknięciu kafelka bluetooth</string>
-    <string name="quick_settings_header_image_title">Obraz nagłówka QS</string>
+    <string name="quick_settings_header_image_title">Obraz nagłówka szybkich ustawień</string>
     <string name="quick_settings_header_image_summary">Wybierz tło nagłówka szybkich ustawień</string>
     <string name="quick_settings_header_daylight_pack_title">Galeria obrazów nagłówka</string>
     <string name="quick_settings_header_shadow_title">Cień obrazu nagłówka</string>
@@ -442,7 +442,7 @@
     <string name="notifications_interface_category">Interfejs</string>
     <string name="notifications_kill_app_button_title">Zatrzymaj aplikację</string>
     <string name="notifications_kill_app_button_summary">Pokaż przycisk wyłączania aplikacji po długim przytrzymaniu w menu powiadomień</string>
-    <string name="notifications_sounds_vibration_category">Dźwięki i wibracje</string>
+    <string name="notifications_sounds_vibration_category">Dźwięki &amp; Wibracje</string>
     <string name="notifications_alert_display_on_title">Alarm podczas włączonego wyświetlacza</string>
     <string name="notifications_alert_display_on_summary">Odtwarzaj dźwięk i wibracje dla powiadomień, gdy ekran jest włączony</string>
     <!-- Notifications/Alert Slider Notifications (OnePlus devices) -->
@@ -546,23 +546,23 @@
     <string name="show_pif_properties_summary">Pokaż wszystkie aktualnie ustawione właściwości PIF</string>
     <string name="error_loading_properties">Błąd ładowania właściwości PIF</string>
     <string name="pif_spoofing_title">Wybierz plik PIF JSON</string>
-    <string name="pif_spoofing_summary">Wybierz plik PIF JSON, który będzie używany do podszywania certyfikatu Play</string>
+    <string name="pif_spoofing_summary">Wybierz plik JSON PIF, który ma posłużyć do sfałszowania integralności Google Play</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Zastąpienie poświadczenia kluczy</string>
-    <string name="keybox_data_summary">Załaduj własny plik XML z zestawem kluczy, aby zastąpić poświadczenie klucza urządzenia</string>
-    <string name="keybox_data_loaded_summary">Załadowano własny plik XML zestawu kluczy. Usuń, aby wyczyścić.</string>
-    <string name="keybox_delete_content_description">Wyczyść dane zestawu kluczy</string>
+    <string name="keybox_data_title">Zastąpienie poświadczenia klucza</string>
+    <string name="keybox_data_summary">Załaduj własny plik XML klucza, aby zastąpić poświadczenie klucza urządzenia</string>
+    <string name="keybox_data_loaded_summary">Załadowano własny plik XML klucza. Usuń, aby wyczyścić.</string>
+    <string name="keybox_delete_content_description">Wyczyść dane klucza</string>
     <string name="keybox_toast_invalid_file_selected">Nie jest to plik XML. Wybierz prawidłowy plik XML.</string>
-    <string name="keybox_toast_missing_data">Nieprawidłowy plik XML zestawu. Brakuje wymaganych pól</string>
-    <string name="keybox_toast_file_loaded">Zestaw załadowany</string>
-    <string name="keybox_toast_file_cleared">Zestaw wyczyszczony</string>
+    <string name="keybox_toast_missing_data">Nieprawidłowy plik XML klucza. Brakuje wymaganych pól</string>
+    <string name="keybox_toast_file_loaded">Klucz załadowany</string>
+    <string name="keybox_toast_file_cleared">Klucz wyczyszczony</string>
     <!-- About -->
-    <string name="about_info">Evolution X ma na celu zapewnienie użytkownikom poczucia podobnego do modelu Pixel na pierwszy rzut oka z dodatkowymi funkcjami, którymi dysponujesz</string>
+    <string name="about_info">Evolution X to niestandardowy ROM Androida, który ma odzwierciedlać wrażenia z Google Pixel, z dodatkowymi możliwościami personalizacji. Oparty na projekcie LineageOS.</string>
     <string name="about_website_title">Strona internetowa</string>
-    <string name="about_website_summary">Stuknij tutaj, aby odwiedzić naszą niesamowitą stronę</string>
-    <string name="about_x_summary">Zobacz nasze posty</string>
-    <string name="about_discord_summary">Dołącz do naszej społeczności już teraz</string>
-    <string name="about_github_summary">Stuknij tutaj, aby otworzyć nasz GitHub</string>
+    <string name="about_website_summary">Odwiedź naszą stronę, aby być na bieżąco z aktualizacjami</string>
+    <string name="about_x_summary">Dowiedz się więcej na X</string>
+    <string name="about_discord_summary">Porozmawiaj z nami na Discordzie</string>
+    <string name="about_github_summary">Przeglądaj nasz kod na GitHubie</string>
     <string name="about_founders_title">Założyciele</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Wybór kolorów</string>
@@ -582,7 +582,7 @@
     <!-- General -->
     <string name="enable">Włącz</string>
     <string name="disable">Wyłącz</string>
-    <string name="boot_animation_applied">Animacja rozruchu została zastosowana</string>
+    <string name="boot_animation_applied">Animacja uruchamiania została zastosowana</string>
     <string name="default_value">Domyślny</string>
     <string name="top">U góry</string>
     <string name="bottom">Na dole</string>
@@ -593,22 +593,22 @@
     <string name="unit_milliseconds">milisekundy</string>
     <string name="unit_seconds">sekundy</string>
     <!-- SystemUI restart dialog -->
-    <string name="systemui_restart_title">Wymagany restart SystemUI</string>
-    <string name="systemui_restart_message">Aby zmiany zaczęły obowiązywać, wymagane jest ponowne uruchomienie SystemUI. Zrestartować SystemUI teraz?</string>
+    <string name="systemui_restart_title">Wymagane ponowne uruchomienie interfejsu systemu</string>
+    <string name="systemui_restart_message">Aby zmiany zaczęły obowiązywać, wymagane jest ponowne uruchomienie interfejsu systemu. Uruchomić ponownie interfejs systemu teraz?</string>
     <string name="systemui_restart_yes">Tak</string>
     <string name="systemui_restart_not_now">Nie teraz</string>
     <!-- Split Shade -->
-    <string name="qs_split_shade_enabled_title">Lepszy poziomy QS</string>
-    <string name="qs_split_shade_enabled_summary">Włącz nowe eksperymentalne ustawienia szybkiego szybkich ustawień, \n przerywa powiadomienia headsup w poziome</string>
+    <string name="qs_split_shade_enabled_title">Lepsze poziome szybkie ustawienia</string>
+    <string name="qs_split_shade_enabled_summary">Włącz nowe eksperymentalne szybkie ustawienia podziału cienia,\nprzerwij powiadomienia w trybie poziomym</string>
     <!-- Power Menu Styles -->
     <string name="powermenu_style_title">Styl menu zasilania</string>
     <string name="powermenu_style1">Cyberpunk</string>
     <string name="powermenu_style2">Podwójna linia</string>
-    <string name="powermenu_style3">iOS</string>
-    <string name="powermenu_style4">Warstwy</string>
+    <string name="powermenu_style3">Płynny (przeźroczysty)</string>
+    <string name="powermenu_style4">IOS</string>
     <string name="powermenu_style5">Warstwy</string>
     <!-- QS Header Clock Styles -->
-    <string name="qs_header_clock_style_title">Styl zegara QS</string>
+    <string name="qs_header_clock_style_title">Styl zegara w nagłówku szybkich ustawień</string>
     <string name="qs_header_style1">Pasek</string>
     <string name="qs_header_style2">Oxygen</string>
     <string name="qs_header_style3">Analogowy</string>
@@ -617,7 +617,7 @@
     <string name="notif_style_title">Styl powiadomień</string>
     <string name="notif_style1">Cyberpunk</string>
     <string name="notif_style2">Podwójna linia </string>
-    <string name="notif_style3">Płyn (przezroczysty)</string>
+    <string name="notif_style3">Płynny (przeźroczysty)</string>
     <string name="notif_style4">iOS</string>
     <string name="notif_style5">Warstwy</string>
     <!-- Progress Bar Styles -->
@@ -627,8 +627,8 @@
     <string name="progress_bar_style3">Kontur gestu</string>
     <string name="progress_bar_style4">Shishu</string>
     <!-- Volume Styles -->
-    <string name="revamped_aosp_style">Zmieniony styl interfejsu AOSP</string>
-    <string name="rui_style">Styl Realme UI</string>
+    <string name="revamped_aosp_style">Zmieniony styl interfejsu użytkownika AOSP</string>
+    <string name="rui_style">Styl interfejsu użytkownika Realme</string>
     <string name="aosp_style">Domyślny styl AOSP</string>
     <string name="double_layer_style">Styl dwuwarstwowy</string>
     <string name="gradient_style">Styl gradientu</string>
@@ -705,7 +705,7 @@
     <string name="lockscreen_weather_location_title">Aktualna lokalizacja</string>
     <string name="lockscreen_weather_location_summary">Wyświetl bieżącą lokalizację pogody</string>
     <string name="lockscreen_weather_text_title">Obecny stan</string>
-    <string name="lockscreen_weather_text_summary">Wyświetlanie podsumowania bieżących warunków pogodowych</string>
+    <string name="lockscreen_weather_text_summary">Wyświetl podsumowanie aktualnych warunków pogodowych</string>
     <string name="lockscreen_weather_wind_info_title">Informacje o wietrze</string>
     <string name="lockscreen_weather_wind_info_summary">Wyświetl aktualną prędkość i kierunek wiatru</string>
     <string name="lockscreen_weather_humidity_info_title">Informacje o wilgotności</string>
@@ -720,8 +720,8 @@
     <string name="lockscreen_custom_image_pick_summary">Wybierz obraz AOD z galerii</string>
     <string name="custom_aod_image_not_supported">Styl zegara nie jest obsługiwany</string>
     <!-- QS Widgets -->
-    <string name="qs_widgets_enabled_title">Widżety QS</string>
-    <string name="qs_widgets_enabled_summary">Pokaż widżety dla szybkiego dostępu. n\ Ogranicza wiersze QS do 2, aby uniknąć przerwania przewijania panelu AOSP QS.</string>
+    <string name="qs_widgets_enabled_title">Widgety szybkich ustawień</string>
+    <string name="qs_widgets_enabled_summary">Pokaż widżety dla szybkiego dostępu. n\ Ogranicza wiersze szybkich ustawień do 2, aby uniknąć przerwania przewijania panelu szybkich ustawień AOSP</string>
     <!-- Lockscreen widgets  -->
     <string name="lockscreen_widgets_title">Widżety</string>
     <string name="lockscreen_widgets_enabled_title">Włącz widżety ekranu blokady</string>
@@ -752,8 +752,8 @@
     <string name="wallet">Portfel</string>
     <!-- Lockscreen Widgets Styles -->
     <string name="lockscreen_widgets_style_title">Styl widżetów ekranu blokady</string>
-    <string name="lockscreen_widgets_style1">Material (zaokrąglony)</string>
-    <string name="lockscreen_widgets_style2">Material (kwadratowy)</string>
+    <string name="lockscreen_widgets_style1">Zaokrąglony materiał</string>
+    <string name="lockscreen_widgets_style2">Kwadratowy materiał</string>
     <string name="lockscreen_widgets_style3">Przezroczysty (kwadratowy)</string>
     <string name="lockscreen_widgets_style4">Przezroczysty (zaokrąglony)</string>
     <string name="lockscreen_widgets_transparency_title">Przezroczystość widżetu w stylu przezroczystym</string>
