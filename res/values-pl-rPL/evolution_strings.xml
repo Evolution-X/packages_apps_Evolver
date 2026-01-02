@@ -317,7 +317,7 @@
     <string name="status_bar_clock_date_left">Po lewej stronie zegara</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Lokalizacja</string>
-    <string name="network_traffic_location_disable">Wyłączone</string>
+    <string name="network_traffic_location_disable">Wyłączony</string>
     <string name="network_traffic_location_statusbar">Pasek stanu</string>
     <string name="network_traffic_location_quick_statusbar">Panel Szybkich Ustawień</string>
     <string name="network_traffic_mode_title">Tryb ekranu</string>
@@ -378,7 +378,7 @@
     <string name="quick_settings_show_brightness_percentage_summary">Wyświetlaj procent jasności obok suwaka</string>
     <string name="quick_settings_brightness_slider_position_title">Pozycja suwaka jasności</string>
     <string name="quick_settings_brightness_slider_position_top">U góry</string>
-    <string name="quick_settings_brightness_slider_position_bottom">Dolny</string>
+    <string name="quick_settings_brightness_slider_position_bottom">Na dole</string>
     <string name="quick_settings_auto_brightness_icon_title">Ikona automatycznej jasności</string>
     <string name="quick_settings_auto_brightness_icon_summary">Pokaż ikonę przełącznika adaptacyjnej jasności obok suwaka</string>
     <string name="quick_settings_brightness_slider_haptic_title">Wibracje zwrotne</string>
@@ -494,7 +494,7 @@
     <string name="power_menu_actions_emergency_title">Nagły wypadek</string>
     <string name="power_menu_actions_devicecontrols_title">Sterowanie urządzeniami</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">Podszywanie się</string>
+    <string name="miscellaneous_spoofing_category">Fałszowanie</string>
     <string name="miscellaneous_developer_options_category">Opcje programistyczne</string>
     <string name="miscellaneous_app_downgrade_title">Zezwalaj na powrót do poprzedniej wersji aplikacji</string>
     <string name="miscellaneous_app_downgrade_summary">Zezwalaj na obniżanie jakości aplikacji systemowych, co może skutkować awariami i utratą danych</string>
@@ -583,9 +583,9 @@
     <string name="enable">Włącz</string>
     <string name="disable">Wyłącz</string>
     <string name="boot_animation_applied">Animacja rozruchu została zastosowana</string>
-    <string name="default_value">Domyślnie</string>
+    <string name="default_value">Domyślny</string>
     <string name="top">U góry</string>
-    <string name="bottom">Dolny</string>
+    <string name="bottom">Na dole</string>
     <string name="reset">Resetuj</string>
     <string name="delete_message">Usunąć zaznaczony element?</string>
     <string name="choose_app">Wybierz aplikację</string>
