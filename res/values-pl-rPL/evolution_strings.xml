@@ -139,7 +139,7 @@
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator pulsacyjny</string>
     <string name="pulse_settings_summary">Wyświetl wizualizację paska na ekranie blokady podczas odtwarzania muzyki</string>
-    <string name="ambient_pulse_enabled_title">Pulse na ekranie ambient</string>
+    <string name="ambient_pulse_enabled_title">Pulse na ekranie dostosowanym do otoczenia</string>
     <string name="ambient_pulse_enabled_summary">Pokaż wizualizator na wyświetlaczu otoczenia</string>
     <string name="pulse_rounded_bars_title">Zaokrąglone paski</string>
     <string name="pulse_rounded_bars_summary">Wyświetl paski wizualizatora z zaokrąglonymi rogami</string>
@@ -152,7 +152,7 @@
     <string name="pulse_bar_count_units">paski</string>
     <string name="pulse_renderer">Styl wizualizatora</string>
     <string name="pulse_renderer_solid">Linie ciągłe</string>
-    <string name="pulse_renderer_fading">Zanikanie bloków</string>
+    <string name="pulse_renderer_fading">Zanikające bloki</string>
     <string name="pulse_renderer_neon_glow">Neonowy połysk</string>
     <string name="pulse_renderer_retro_vu_meter">Miernik głośności w stylu retro</string>
     <string name="pulse_renderer_minimal_wave">Minimalna fala</string>
@@ -187,7 +187,7 @@
     <string name="status_bar_battery_style_icon_landscape">Ikona pozioma (po lewej)</string>
     <string name="status_bar_battery_style_icon_landscape_buddy">Kapsuła pozioma</string>
     <string name="status_bar_battery_style_icon_landscape_line">Lorn Poziomo</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">Pionowo iOS</string>
+    <string name="status_bar_battery_style_icon_landscape_musku">iOS pionowo </string>
     <string name="status_bar_battery_style_icon_landscape_pill">Pionowo Mx</string>
     <string name="status_bar_battery_style_icon_landscape_signal">Airoo poziomo</string>
     <string name="status_bar_battery_style_icon_rlandscape_style_a">Poziomo R Styl A</string>
@@ -265,7 +265,7 @@
     <string name="status_bar_logo_style_tux">Tux</string>
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
-    <string name="status_bar_logo_style_amogus">Amongus</string>
+    <string name="status_bar_logo_style_amogus">Amogus</string>
     <string name="status_bar_network_traffic_settings_title">Monitor połączenia internetowego</string>
     <string name="status_bar_network_traffic_settings_summary">Wyświetl i dostosuj wskaźnik ruchu sieci</string>
     <string name="status_bar_notif_count_title">Licznik powiadomień</string>
@@ -286,12 +286,12 @@
     <string name="disguise_props_for_music_app_summary">Ukryj urządzenie w niektórych aplikacjach muzycznych do obsługi tekstu na pasku stanu. Po zmianie tego przełącznika należy ponownie uruchomić aplikacje, aby zmiana zaczęła działać.</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Styl zegara</string>
-    <string name="status_bar_clock_position_right">Prawy</string>
-    <string name="status_bar_clock_position_left">Lewy</string>
+    <string name="status_bar_clock_position_right">Prawo</string>
+    <string name="status_bar_clock_position_left">Lewo</string>
     <string name="status_bar_clock_position_center">Na środku</string>
     <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
     <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
-    <string name="status_bar_clock_auto_hide_title">Autoukrywanie</string>
+    <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli widoczny jest launcher</string>
     <string name="status_bar_clock_chip_title">Pasek w tle</string>
     <string name="status_bar_clock_chip_summary">Wyświetlaj zabarwione podświetlenie za zegarem</string>
@@ -324,7 +324,7 @@
     <string name="network_traffic_mode_up">Tylko wysyłanie</string>
     <string name="network_traffic_mode_down">Tylko pobieranie</string>
     <string name="network_traffic_mode_all">Wysyłanie i pobieranie</string>
-    <string name="network_traffic_autohide">Autoukrywanie</string>
+    <string name="network_traffic_autohide">Automatyczne ukrywanie</string>
     <string name="network_traffic_autohide_summary">Ukryj monitor ruchu przy braku aktywności</string>
     <string name="network_traffic_autohide_threshold">Próg bezczynności</string>
     <string name="network_traffic_refresh_interval_title">Częstotliwość odświeżania</string>
@@ -514,7 +514,7 @@
     <string name="smart_pixels_title">Inteligentne piksele</string>
     <string name="smart_pixels_summary">Oszczędzaj baterię poprzez wyłączanie dodatkowych pikseli</string>
     <string name="smart_pixels_on_power_save_title">Automatyczne włączanie trybu oszczędzania baterii</string>
-    <string name="smart_pixels_on_power_save_summary">Włącz Inteligentne Piksele, gdy oszczędzanie baterii jest włączone</string>
+    <string name="smart_pixels_on_power_save_summary">Włącz inteligentne piksele, gdy oszczędzanie baterii jest włączone</string>
     <string name="smart_pixels_percent">Procent pikseli do wyłączenia</string>
     <string name="smart_pixels_shift_title">Ochrona przed wypaleniem ekranu</string>
     <string name="smart_pixels_shift_summary">Zapobiega wypalaniu na urządzeniach OLED przez częstsze przesuwanie pikseli</string>
@@ -843,8 +843,8 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="battery_bar_blend_color_title">Mieszanie kolorów</string>
     <string name="battery_bar_blend_color_summary">Mieszaj kolory pełnej/pustej baterii odpowiadające jej procentowi</string>
     <string name="battery_bar_blend_color_reverse_title">Odwróć kierunek kolorów</string>
-    <string name="battery_bar_blend_color_reverse_summary_off">Pełna → pusta: czerwony ← zielony ← niebieski ← czerwony</string>
-    <string name="battery_bar_blend_color_reverse_summary_on">Pełna → pusta: czerwony → zielony → niebieski → czerwony</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Pełna &#8594; pusta: czerwony &#8592; zielony &#8592; niebieski &#8592; czerwony</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Pełna &#8594; pusta: czerwony &#8594; zielony &#8594; niebieski &#8594; czerwony</string>
     <string name="battery_bar_use_gradient_color">Użyj koloru gradientowego</string>
     <string name="battery_bar_gradient_color_summary">Użyj koloru gradientowego jako skali poziomu naładowania baterii</string>
     <string name="battery_bar_high_color">Kolor wysokiego poziomu</string>
