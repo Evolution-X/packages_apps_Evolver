@@ -541,7 +541,7 @@
     <string name="toast_spoofing_success">Pomyślnie pobrano plik pif.json. Podszywanie się pod %1$s w celu zachowania integralności Google Play.</string>
     <string name="toast_spoofing_failure">Nie udało się sfałszować właściwości.</string>
     <string name="update_pif_json_title">Zaktualizuj Play Integrity Fix</string>
-    <string name="update_pif_json_summary">Aby zaktualizować urządzenie podszywające się pod PIF, wymagane jest połączenie z internetem.</string>
+    <string name="update_pif_json_summary">Aktualizacja PIF do fałszowania urządzenia, wymaga połączenia z internetem.</string>
     <string name="show_pif_properties_title">Właściwości Play Integrity Fix</string>
     <string name="show_pif_properties_summary">Pokaż wszystkie aktualnie ustawione właściwości PIF</string>
     <string name="error_loading_properties">Błąd ładowania właściwości PIF</string>
@@ -633,7 +633,7 @@
     <string name="double_layer_style">Styl dwuwarstwowy</string>
     <string name="gradient_style">Styl gradientu</string>
     <string name="neumorph_style">Styl neumorficzny</string>
-    <string name="neumorph_outline_style">Styl neumorficzny z obramowaniem</string>
+    <string name="neumorph_outline_style">Styl konturu neumorfa</string>
     <string name="outline_style">Styl obramowania</string>
     <string name="shaded_layer_style">Styl warstwy zacieniowanej</string>
     <string name="volume_style_title">Style panelu głośności</string>
@@ -767,35 +767,35 @@
     <!-- Apply Button -->
     <string name="apply_change_button_title">Zastosuj</string>
     <!-- Peek Display -->
-    <string name="peek_display_notifications_title">Podgląd wyświetlacza</string>
+    <string name="peek_display_notifications_title">Podgląd ekranu</string>
     <string name="peek_display_notifications_summary">Włącz minimalny styl powiadomień na ekranie blokady</string>
-    <string name="peek_display_location_title">Lokalizacja wyświetlacza podglądu</string>
-    <string name="peek_display_bottom_margin_title">Górny margines podglądu (dolny)</string>
+    <string name="peek_display_location_title">Lokalizacja podglądu ekranu</string>
+    <string name="peek_display_bottom_margin_title">Górny margines dolnego podglądu ekranu</string>
     <!-- Peek Display Styles -->
     <string name="peek_display_minimalist">Minimalistyczny</string>
     <string name="peek_display_style_title">Styl wyświetlania podglądu</string>
     <!-- Now Bar -->
-    <string name="keyguard_now_bar_enabled_title">Pasek teraz</string>
-    <string name="keyguard_now_bar_enabled_summary">Włącz widżety paska teraz na ekranie blokady</string>
-    <string name="keyguard_now_bar_height_title">Wysokość paska teraz</string>
-    <string name="keyguard_now_bar_height_summary">Dostosuj wysokość paska now</string>
+    <string name="keyguard_now_bar_enabled_title">Pasek Teraz</string>
+    <string name="keyguard_now_bar_enabled_summary">Włącz widżety paska Teraz na ekranie blokady</string>
+    <string name="keyguard_now_bar_height_title">Wysokość paska Teraz</string>
+    <string name="keyguard_now_bar_height_summary">Dostosuj wysokość paska Teraz</string>
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Ikony powiadomień</string>
     <string name="max_visible_notification_icons_summary">Maksymalna liczba ikon powiadomień widocznych na pasku statusu</string>
     <!-- Squiggle animation for media notification -->
-    <string name="media_squiggle_animation_title">Animacja Squiggle</string>
+    <string name="media_squiggle_animation_title">Animacja falowania</string>
     <string name="media_squiggle_animation_summary">Pokaż animację falowania paska wyszukiwania w panelu multimediów podczas odtwarzania multimediów</string>
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Etykieta postępu w toku</string>
-    <string name="ongoing_progress_settings_summary">Podsumowanie ustawień postępu</string>
-    <string name="ongoing_action_chip_title">Tytuł układu trwającej akcji</string>
-    <string name="ongoing_action_chip_summary">Pokaż układ paska postępu na pasku statusu, który pokazuje postęp trwającej akcji z powiadomienia</string>
+    <string name="ongoing_progress_settings_summary">Opcje akcji paska stanu</string>
+    <string name="ongoing_action_chip_title">Włącz aktywny element akcji</string>
+    <string name="ongoing_action_chip_summary">Pokaż postęp bieżących powiadomień na pasku stanu</string>
     <string name="compact_progress_mode_title">Kompaktowy tryb postępu</string>
     <string name="compact_progress_mode_summary">Użyj wskaźnika postępu w kształcie okręgu zamiast paska</string>
-    <string name="show_media_progress_title">pokaż tytuł postępu mediów</string>
+    <string name="show_media_progress_title">Pokaż postęp mediów</string>
     <string name="show_media_progress_summary">Wyświetlaj postęp odtwarzania multimediów na pasku stanu</string>
-    <string name="progress_bar_opacity_title">Nieprzezroczystość paska postępu</string>
-    <string name="progress_bar_opacity_summary">Dostosuj przezroczystość znacznika postępu</string>
+    <string name="progress_bar_opacity_title">Przezroczystość paska postępu</string>
+    <string name="progress_bar_opacity_summary">Dostosuj przezroczystość paska postępu</string>
     <string name="progress_enable_category_title">Ustawienia ogólne</string>
     <string name="standard_chip_position_title">Standardowa pozycja paska</string>
     <string name="circular_chip_position_title">Pozycja okrągłego paska postępu</string>
@@ -803,8 +803,8 @@
     <string name="chip_position_x_summary">Przesuń pasek w lewo lub w prawo od punktu wyrównania</string>
     <string name="chip_position_y_title">Pozycja pionowa</string>
     <string name="chip_position_y_summary">Przesuń pasek w górę lub w dół na pasku stanu</string>
-    <string name="chip_size_title">Szerokość znacznika postępu</string>
-    <string name="chip_size_summary">Dostosuj szerokość znacznika postępu</string>
+    <string name="chip_size_title">Szerokość paska postępu</string>
+    <string name="chip_size_summary">Dostosuj szerokość paska postępu</string>
     <string name="circular_chip_size_title">Rozmiar okrągłego paska postępu </string>
     <string name="circular_chip_size_summary">Dostosuj średnicę okrągłego paska postępu </string>
     <string name="circular_position_x_title">Przesunięcie poziome</string>
