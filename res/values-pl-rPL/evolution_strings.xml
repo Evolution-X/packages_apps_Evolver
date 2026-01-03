@@ -65,7 +65,7 @@
     <string name="themes_screen_off_animation_scale">Skala</string>
     <string name="themes_udfps_animation_title">Animacja odcisku palca</string>
     <string name="themes_udfps_animation_summary">Ustaw styl animacji odcisku palca</string>
-    <string name="themes_launcher_category">Pixel Launcher</string>
+    <string name="themes_launcher_category">Program uruchamiający Pixel</string>
     <string name="themes_launcher_background_blur_title">Rozmycie tła</string>
     <string name="themes_launcher_background_blur_summary">Włącz efekt rozmycia dla tła strony ostatnich elementów</string>
     <string name="themes_launcher_more_themed_icons_title">Więcej ikon tematycznych</string>
@@ -173,7 +173,7 @@
     <string name="status_bar_brightness_control_title">Kontrola jasności</string>
     <string name="status_bar_brightness_control_summary">Dostosuj jasność, przeciągając palcem po pasku stanu</string>
     <string name="status_bar_quick_pull_down_title">Szybkie rozwijanie</string>
-    <string name="status_bar_quick_pull_down_summary">%1$s Krawędzi paska statusu rozwija szybkie ustawienia</string>
+    <string name="status_bar_quick_pull_down_summary">%1$s krawędzi paska statusu rozwija szybkie ustawienia</string>
     <string name="status_bar_quick_pull_down_off">Wyłącz</string>
     <string name="status_bar_quick_pull_down_right">Prawa strona</string>
     <string name="status_bar_quick_pull_down_left">Lewa strona</string>
@@ -214,8 +214,8 @@
     <string name="status_bar_battery_percent_text_next_left">Obok ikony (po lewej)</string>
     <string name="status_bar_battery_text_charging_title">Poziom baterii w trakcie ładowania</string>
     <string name="status_bar_battery_text_charging_summary">Zawsze wyświetlaj poziom baterii w trakcie ładowania</string>
-    <string name="status_bar_clock_and_date_title">Zegar i data</string>
-    <string name="status_bar_clock_and_date_summary">Dostosuj zegar i datę</string>
+    <string name="status_bar_clock_and_date_title">Zegar &amp; data</string>
+    <string name="status_bar_clock_and_date_summary">Dostosuj zegar &amp; datę</string>
     <string name="status_bar_data_disabled_icon_title">Ikona wyłączonych danych</string>
     <string name="status_bar_data_disabled_icon_summary">Wyświetlaj wskaźnik obok ikony sygnału, gdy dane są wyłączone</string>
     <string name="status_bar_4g_icon_title">Ikona 4G</string>
@@ -225,7 +225,7 @@
     <string name="status_bar_bluetooth_battery_title">Stan naładowania baterii Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Pokaż aktualny stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępny</string>
     <string name="status_bar_colored_icons_title">Kolorowe ikony</string>
-    <string name="status_bar_colored_icons_summary">Użyj ikon launchera do powiadomień aplikacji</string>
+    <string name="status_bar_colored_icons_summary">Użyj ikon programu uruchamiającego do powiadomień aplikacji</string>
     <string name="status_bar_logo_title">Logo</string>
     <string name="status_bar_logo_summary">Wyświetl niestandardowe logo paska statusu</string>
     <string name="status_bar_logo_position_title">Pozycja logo</string>
@@ -266,7 +266,7 @@
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Amogus</string>
-    <string name="status_bar_network_traffic_settings_title">Monitor połączenia internetowego</string>
+    <string name="status_bar_network_traffic_settings_title">Monitor ruchu sieciowego</string>
     <string name="status_bar_network_traffic_settings_summary">Wyświetl i dostosuj wskaźnik ruchu sieci</string>
     <string name="status_bar_notif_count_title">Licznik powiadomień</string>
     <string name="status_bar_notif_count_summary">Wyświetlaj liczbę nieprzeczytanych powiadomień na każdej ikonie aplikacji</string>
@@ -292,7 +292,7 @@
     <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
     <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
     <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
-    <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli widoczny jest launcher</string>
+    <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli program uruchamiający jest widoczny</string>
     <string name="status_bar_clock_chip_title">Pasek w tle</string>
     <string name="status_bar_clock_chip_summary">Wyświetlaj zabarwione podświetlenie za zegarem</string>
     <string name="status_bar_am_pm_title">Styl AM/PM</string>
@@ -310,7 +310,7 @@
     <string name="status_bar_date_style_lowercase">Małe litery</string>
     <string name="status_bar_date_style_uppercase">Wielkie litery</string>
     <string name="status_bar_date_format_custom">Niestandardowy format (java)</string>
-    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. mm/dd/yy</string>
+    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Wprowadź ciąg znaków</string>
     <string name="status_bar_clock_date_position">Położenie daty</string>
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
@@ -442,7 +442,7 @@
     <string name="notifications_interface_category">Interfejs</string>
     <string name="notifications_kill_app_button_title">Zatrzymaj aplikację</string>
     <string name="notifications_kill_app_button_summary">Pokaż przycisk wyłączania aplikacji po długim przytrzymaniu w menu powiadomień</string>
-    <string name="notifications_sounds_vibration_category">Dźwięki &amp; Wibracje</string>
+    <string name="notifications_sounds_vibration_category">Dźwięki &amp; wibracje</string>
     <string name="notifications_alert_display_on_title">Alarm podczas włączonego wyświetlacza</string>
     <string name="notifications_alert_display_on_summary">Odtwarzaj dźwięk i wibracje dla powiadomień, gdy ekran jest włączony</string>
     <!-- Notifications/Alert Slider Notifications (OnePlus devices) -->
@@ -503,7 +503,7 @@
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj bezpieczne flagi okna</string>
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrań ekranu dla wszystkich aplikacji, co może wiązać się z ryzykiem wycieku danych osobowych</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
-    <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GiB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
+    <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Ukryj listę aplikacji</string>
     <string name="hide_applist_summary">Zapobiegaj sprawdzaniu przez aplikacje wybranych aplikacji z listy aplikacji</string>
@@ -535,8 +535,8 @@
     <string name="spoofing_snap_summary">Podszyj się pod Pixel XL w Snapchacie, aby naprawić możliwe problemy z czatem</string>
     <string name="gameprops_title">Włącz fałszowanie ustawień gier</string>
     <string name="gameprops_summary">Fałszowanie urządzenia jako inny model w określonych grach w celu odblokowania wyższej liczby klatek na sekundę.</string>
-    <string name="gameprops_load_json_title">Wybierz plik JSON rekwizytów gry</string>
-    <string name="gameprops_load_json_summary">Wybierz plik JSON rekwizytów gry, który będzie używany do fałszowania gier</string>
+    <string name="gameprops_load_json_title">Wybierz plik JSON ustawień gry</string>
+    <string name="gameprops_load_json_summary">Wybierz plik JSON ustawień gry, który będzie używany do fałszowania gier</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Pomyślnie pobrano plik pif.json. Podszywanie się pod %1$s w celu zachowania integralności Google Play.</string>
     <string name="toast_spoofing_failure">Nie udało się sfałszować właściwości.</string>
@@ -594,7 +594,7 @@
     <string name="unit_seconds">sekundy</string>
     <!-- SystemUI restart dialog -->
     <string name="systemui_restart_title">Wymagane ponowne uruchomienie interfejsu systemu</string>
-    <string name="systemui_restart_message">Aby zmiany zaczęły obowiązywać, wymagane jest ponowne uruchomienie interfejsu systemu. Uruchomić ponownie interfejs systemu teraz?</string>
+    <string name="systemui_restart_message">Aby zmiany zaczęły obowiązywać, wymagane jest ponowne uruchomienie interfejsu systemu. Uruchomić ponownie teraz?</string>
     <string name="systemui_restart_yes">Tak</string>
     <string name="systemui_restart_not_now">Nie teraz</string>
     <!-- Split Shade -->
@@ -729,8 +729,8 @@
     <string name="lockscreen_display_widgets_title">Widżet informacji o urządzeniu</string>
     <string name="lockscreen_display_widgets_summary">Wyświetlanie widżetu informacji o urządzeniu na ekranie blokady</string>
     <string name="large_widgets_category_title">Duże widżety</string>
-    <string name="main_custom_widgets1">Duży widget 1</string>
-    <string name="main_custom_widgets2">Duży widget 2</string>
+    <string name="main_custom_widgets1">Duży widżet 1</string>
+    <string name="main_custom_widgets2">Duży widżet 2</string>
     <string name="mini_widgets_category_title">Mini widżety</string>
     <string name="custom_widgets1">Mini widżet 1</string>
     <string name="custom_widgets2">Mini widżet 2</string>
@@ -745,7 +745,7 @@
     <string name="controls_media_button_play">Graj</string>
     <string name="weather">Pogoda</string>
     <string name="wifi">Wi-Fi</string>
-    <string name="data">Dane</string>
+    <string name="data">Dane mobilne</string>
     <string name="ringer">Dzwonek</string>
     <string name="bt">Bluetooth</string>
     <string name="hotspot">Punkt dostępu</string>
@@ -912,7 +912,7 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="nowplaying_show_on_lockscreen_summary">Wyświetlaj informacje o muzyce, gdy urządzenie jest zablokowane</string>
     <string name="nowplaying_icon_style_title">Styl ikony</string>
     <string name="nowplaying_icon_style_summary">Wybierz ikonę do wyświetlenia</string>
-    <string name="nowplaying_icon_size_title">Rozmiar ikon</string>
+    <string name="nowplaying_icon_size_title">Rozmiar ikony</string>
     <string name="nowplaying_icon_size_summary">Dostosuj rozmiar ikony</string>
     <string name="nowplaying_show_on_aod_title">Pokaż w trybie Ekran zawsze włączony</string>
     <string name="nowplaying_show_on_aod_summary">Wyświetlaj informacje o muzyce na ekranie otoczenia</string>
