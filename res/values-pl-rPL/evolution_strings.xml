@@ -99,7 +99,7 @@
     <string name="monet_engine_luminance_factor_title">Jasność</string>
     <string name="monet_engine_luminance_factor_summary">Wyższe wartości dają jaśniejsze kolory</string>
     <string name="monet_engine_chroma_factor_title">Współczynnik nasycenia</string>
-    <string name="monet_engine_chroma_factor_summary">Wyższe wartości tworzą silniejsze kolory</string>
+    <string name="monet_engine_chroma_factor_summary">Wyższe wartości tworzą mocniejsze kolory</string>
     <string name="monet_engine_whole_palette_title">Cała paleta</string>
     <string name="monet_engine_whole_palette_summary">Ustaw jasność i nasycenie tak, aby miały wpływ również na kolory dodatkowe</string>
     <string name="monet_engine_tint_background_title">Akcentowane tło</string>
@@ -139,8 +139,8 @@
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
     <string name="pulse_settings_summary">Wyświetl wizualizację paska na ekranie blokady podczas odtwarzania muzyki</string>
-    <string name="ambient_pulse_enabled_title">Wizualizator Pulse w trybie otoczenia</string>
-    <string name="ambient_pulse_enabled_summary">Pokaż wizualizacje na ekranie otoczenia</string>
+    <string name="ambient_pulse_enabled_title">Pulse w trybie otoczenia</string>
+    <string name="ambient_pulse_enabled_summary">Pokaż wizualizator na ekranie otoczenia</string>
     <string name="pulse_rounded_bars_title">Zaokrąglone paski</string>
     <string name="pulse_rounded_bars_summary">Wyświetl paski wizualizatora z zaokrąglonymi rogami</string>
     <string name="pulse_color">Kolor wizualizatora</string>
@@ -185,7 +185,7 @@
     <string name="status_bar_battery_style_icon_portrait">Ikona pionowa</string>
     <string name="status_bar_battery_style_icon_rlandscape">Ikona pozioma (po prawej)</string>
     <string name="status_bar_battery_style_icon_landscape">Ikona pozioma (po lewej)</string>
-    <string name="status_bar_battery_style_icon_landscape_buddy">Kapsuła pozioma</string>
+    <string name="status_bar_battery_style_icon_landscape_buddy">Pozioma kapsuła</string>
     <string name="status_bar_battery_style_icon_landscape_line">Lorn poziomo</string>
     <string name="status_bar_battery_style_icon_landscape_musku">iOS pionowo </string>
     <string name="status_bar_battery_style_icon_landscape_pill">Maksimum pionowo</string>
@@ -216,10 +216,10 @@
     <string name="status_bar_battery_text_charging_summary">Zawsze wyświetlaj poziom baterii w trakcie ładowania</string>
     <string name="status_bar_clock_and_date_title">Zegar &amp; data</string>
     <string name="status_bar_clock_and_date_summary">Dostosuj zegar &amp; datę</string>
-    <string name="status_bar_data_disabled_icon_title">Ikona wyłączonych danych</string>
-    <string name="status_bar_data_disabled_icon_summary">Wyświetlaj wskaźnik obok ikony sygnału, gdy dane są wyłączone</string>
+    <string name="status_bar_data_disabled_icon_title">Ikona wyłączonych danych mobilnych</string>
+    <string name="status_bar_data_disabled_icon_summary">Wyświetlaj wskaźnik obok ikony sygnału, gdy dane mobilne są wyłączone</string>
     <string name="status_bar_4g_icon_title">Ikona 4G</string>
-    <string name="status_bar_4g_icon_summary">Zamień ikonę \'LTE\' na \'4G\'</string>
+    <string name="status_bar_4g_icon_summary">Zamień ikonę LTE na 4G</string>
     <string name="status_bar_wifi_standard_icon_title">Standard Wi-Fi</string>
     <string name="status_bar_wifi_standard_icon_summary">Wyświetl standard Wi-Fi obok ikony Wi-Fi</string>
     <string name="status_bar_bluetooth_battery_title">Stan naładowania baterii Bluetooth</string>
@@ -243,16 +243,16 @@
     <string name="status_bar_logo_style_beats">Uderzenia</string>
     <string name="status_bar_logo_style_biohazard">Zagrożenie biologiczne</string>
     <string name="status_bar_logo_style_blackberry">Jeżyna</string>
-    <string name="status_bar_logo_style_cannabis">Konopie indyjskie</string>
+    <string name="status_bar_logo_style_cannabis">Marihuana</string>
     <string name="status_bar_logo_style_emoticon_cool">Emotikona spoko</string>
-    <string name="status_bar_logo_style_emoticon_devil">Emotikona diabła</string>
+    <string name="status_bar_logo_style_emoticon_devil">Emotikona diabeł</string>
     <string name="status_bar_logo_style_fire">Ogień</string>
     <string name="status_bar_logo_style_heart">Serce</string>
     <string name="status_bar_logo_style_nike">Nike</string>
-    <string name="status_bar_logo_style_pacman">Pac-man</string>
+    <string name="status_bar_logo_style_pacman">Pac man</string>
     <string name="status_bar_logo_style_puma">Puma</string>
     <string name="status_bar_logo_style_rog">ROG</string>
-    <string name="status_bar_logo_style_spiderman">Spider-Man</string>
+    <string name="status_bar_logo_style_spiderman">Spider Man</string>
     <string name="status_bar_logo_style_superman">Superman</string>
     <string name="status_bar_logo_style_windows">Windows</string>
     <string name="status_bar_logo_style_xbox">Xbox</string>
@@ -310,7 +310,7 @@
     <string name="status_bar_date_style_lowercase">Małe litery</string>
     <string name="status_bar_date_style_uppercase">Wielkie litery</string>
     <string name="status_bar_date_format_custom">Niestandardowy format (java)</string>
-    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. mm/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Wprowadź ciąg znaków</string>
     <string name="status_bar_clock_date_position">Położenie daty</string>
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
@@ -392,20 +392,20 @@
     <string name="qs_tile_animation_style_flipx">Obróć X</string>
     <string name="qs_tile_animation_style_flipy">Obróć Y</string>
     <string name="quick_settings_tile_animation_interpolator_linear">Liniowo</string>
-    <string name="quick_settings_tile_animation_interpolator_accelerate">Przyśpiesz</string>
-    <string name="quick_settings_tile_animation_interpolator_decelerate">Zwolnij</string>
+    <string name="quick_settings_tile_animation_interpolator_accelerate">Przyśpieszona</string>
+    <string name="quick_settings_tile_animation_interpolator_decelerate">Spowolniona</string>
     <string name="quick_settings_tile_animation_interpolator_accelerateDecelerate">Przyśpieszona, spowolniona</string>
     <string name="quick_settings_tile_animation_interpolator_bounce">Odbicie</string>
     <string name="quick_settings_tile_animation_interpolator_overshoot">Przestrzelenie</string>
     <string name="quick_settings_tile_animation_interpolator_anticipate">Przewidywanie</string>
-    <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Przewiduj modyfikacje</string>
-    <string name="quick_settings_data_usage_title">Wykorzystanie danych</string>
-    <string name="quick_settings_data_usage_summary">Wyświetlanie podsumowania wykorzystania danych w sekcji szybkich ustawień</string>
+    <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Przewiduj przekroczenie</string>
+    <string name="quick_settings_data_usage_title">Wykorzystanie danych mobilnych</string>
+    <string name="quick_settings_data_usage_summary">Wyświetlanie podsumowania wykorzystania danych mobilnych w sekcji szybkich ustawień</string>
     <string name="quick_settings_lock_screen_category">Ekran blokady</string>
     <string name="quick_settings_secure_lock_screen_title">Ukryj szybkie ustawienia z poziomu ekranu blokady</string>
-    <string name="quick_settings_secure_lock_screen_summary">Zezwól na przesunięcie palcem w dół na ekranie blokady, aby wyświetlić Szybkie ustawienia</string>
+    <string name="quick_settings_secure_lock_screen_summary">Zezwól na przesunięcie palcem w dół na ekranie blokady, aby wyświetlić szybkie ustawienia</string>
     <string name="quick_settings_require_unlock_title">Zabezpieczone kafelki wymagają odblokowania</string>
-    <string name="quick_settings_require_unlock_summary">Następujące szybkie ustawienia wymagają odblokowania urządzenia przed wejściem z nimi w interakcję:\nTryb samolotowy, Oszczędzanie baterii, Bluetooth, Sieć komórkowa, Oszczędzanie danych, Punkt dostępu, Internet, NFC, Blokada obrotu i Wi-Fi</string>
+    <string name="quick_settings_require_unlock_summary">Następujące szybkie ustawienia wymagają odblokowania urządzenia przed wejściem z nimi w interakcję:\nTryb samolotowy, Oszczędzanie baterii, Bluetooth, Dane mobilne, Oszczędzanie danych, Punkt dostępu, Internet, NFC, Blokada obrotu i Wi-Fi</string>
     <string name="quick_settings_miscellaneous_category">Różne</string>
     <string name="quick_settings_bluetooth_show_dialog_title">Okno dialogowe kafelka Bluetooth</string>
     <string name="quick_settings_bluetooth_show_dialog_summary">Wyświetlanie okna dialogowego bluetooth lub przełączanie stanu bluetooth po dotknięciu kafelka bluetooth</string>
@@ -471,7 +471,7 @@
     <string name="edge_light_animation_effect_comet">Kometa</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Mniej wyskakujących powiadomień</string>
-    <string name="notifications_less_boring_heads_up_summary">Pokaż wyskakujące powiadomienia tylko dla dialera, wiadomości i alarmu</string>
+    <string name="notifications_less_boring_heads_up_summary">Pokaż wyskakujące powiadomienia tylko dla telefonu, wiadomości i alarmu</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interfejs</string>
     <string name="power_menu_actions_title">Opcje menu zasilania</string>
@@ -498,7 +498,7 @@
     <string name="miscellaneous_developer_options_category">Opcje programisty</string>
     <string name="miscellaneous_app_downgrade_title">Zezwalaj na powrót do poprzedniej wersji aplikacji</string>
     <string name="miscellaneous_app_downgrade_summary">Zezwalaj na obniżanie wersji aplikacji systemowych, może skutkować awariami i utratą danych</string>
-    <string name="miscellaneous_block_wallpaper_dimming_title">Ignoruj żądania przyciemniania tapety</string>
+    <string name="miscellaneous_block_wallpaper_dimming_title">Ignoruj żądania przyciemnienia tapety</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Blokuje wszystkim aplikacjom możliwość ustawienia przyciemnienia tapety\nWymusza przyciemnienie na 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj bezpieczne flagi okna</string>
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrań ekranu dla wszystkich aplikacji, co może wiązać się z ryzykiem wycieku danych osobowych</string>
@@ -523,7 +523,7 @@
     <string name="spoofing_summary">Omijanie ograniczeń aplikacji poprzez fałszowanie komponentów</string>
     <string name="spoofing_system_wide_category">W całym systemie</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
-    <string name="spoofing_pixel_props_summary">Podszywaj wybraną grupę aplikacji Google na najnowsze urządzenie Pixel</string>
+    <string name="spoofing_pixel_props_summary">Podszywaj wybraną grupę aplikacji Google pod najnowsze urządzenie Pixel</string>
     <string name="tensor_spoof_title">Funkcje Pixel tensor</string>
     <string name="tensor_spoof_summary">Odblokuj funkcje dostępne wyłącznie w urządzeniach Pixel opartych na tensorze</string>
     <string name="gms_spoof_title">Play Integrity Fix</string>
@@ -546,7 +546,7 @@
     <string name="show_pif_properties_summary">Pokaż wszystkie aktualnie ustawione właściwości PIF</string>
     <string name="error_loading_properties">Błąd ładowania właściwości PIF</string>
     <string name="pif_spoofing_title">Wybierz plik PIF JSON</string>
-    <string name="pif_spoofing_summary">Wybierz plik JSON PIF, który ma posłużyć do sfałszowania integralności Google Play</string>
+    <string name="pif_spoofing_summary">Wybierz plik PIF JSON, który ma posłużyć do sfałszowania integralności Google Play</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Zastąpienie poświadczenia klucza</string>
     <string name="keybox_data_summary">Załaduj własny plik XML klucza, aby zastąpić poświadczenie klucza urządzenia</string>
@@ -557,7 +557,7 @@
     <string name="keybox_toast_file_loaded">Klucz załadowany</string>
     <string name="keybox_toast_file_cleared">Klucz wyczyszczony</string>
     <!-- About -->
-    <string name="about_info">Evolution X to niestandardowy ROM Androida, który ma odzwierciedlać wrażenia z Google Pixel, z dodatkowymi możliwościami personalizacji. Oparty na projekcie LineageOS.</string>
+    <string name="about_info">Evolution X to niestandardowy ROM Android, który ma odzwierciedlać wrażenia z Google Pixel, z dodatkowymi możliwościami personalizacji. Oparty na projekcie LineageOS.</string>
     <string name="about_website_title">Strona internetowa</string>
     <string name="about_website_summary">Odwiedź naszą stronę, aby być na bieżąco z aktualizacjami</string>
     <string name="about_x_summary">Dowiedz się więcej na X</string>
@@ -666,7 +666,7 @@
     <string name="ls_media_art_title">Okładka albumu</string>
     <string name="ls_media_art_summary">Wyświetlaj okładki albumów, gdy są dostępne</string>
     <!-- Lock screen media art on Ambient Display -->
-    <string name="ambient_media_art_title">Okładka multimediów w trybie otoczenia</string>
+    <string name="ambient_media_art_title">Okładka multimediów na ekranie otoczenia</string>
     <string name="ambient_media_art_summary">Wyświetlaj okładkę multimediów na ekranie otoczenia, gdy jest dostępna</string>
     <!-- Lock screen album art filter -->
     <string name="ls_media_art_filter_title">Filtr okładki albumu</string>
@@ -775,10 +775,10 @@
     <string name="peek_display_minimalist">Minimalistyczny</string>
     <string name="peek_display_style_title">Styl wyświetlania podglądu</string>
     <!-- Now Bar -->
-    <string name="keyguard_now_bar_enabled_title">Pasek Teraz</string>
-    <string name="keyguard_now_bar_enabled_summary">Włącz widżety paska Teraz na ekranie blokady</string>
-    <string name="keyguard_now_bar_height_title">Wysokość paska Teraz</string>
-    <string name="keyguard_now_bar_height_summary">Dostosuj wysokość paska Teraz</string>
+    <string name="keyguard_now_bar_enabled_title">Pasek teraz</string>
+    <string name="keyguard_now_bar_enabled_summary">Włącz widżety paska teraz na ekranie blokady</string>
+    <string name="keyguard_now_bar_height_title">Wysokość paska teraz</string>
+    <string name="keyguard_now_bar_height_summary">Dostosuj wysokość paska teraz</string>
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Ikony powiadomień</string>
     <string name="max_visible_notification_icons_summary">Maksymalna liczba ikon powiadomień widocznych na pasku statusu</string>
@@ -810,7 +810,7 @@
     <string name="circular_position_x_title">Przesunięcie poziome</string>
     <string name="circular_position_x_summary">Dokładne dostrojenie pozycji poziomej</string>
     <string name="circular_position_y_title">Przesunięcie pionowe</string>
-    <string name="circular_position_y_summary">Dokładne dostrojenie pozycji pionowej</string>
+    <string name="circular_position_y_summary">Dokładne dostosowanie pozycji pionowej</string>
     <string name="progress_footer_text">&#x201E;Pasek postępu na pasku stanu zapewnia aktualizacje w czasie rzeczywistym zarówno dla odtwarzania multimediów, jak i aktywnych pobierań/przesyłania.
 
 - 🎵 postęp multimediów:
@@ -829,12 +829,12 @@
 Pasek postępu dynamicznie przełącza się między stanami multimediów i pobierania, zapewniając zawsze dostęp do najważniejszych informacji na pierwszy rzut oka.</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Pasek baterii</string>
-    <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii w pobliżu paska stanu lub paska nawigacji</string>
-    <string name="battery_bar_color">Kolor paska baterii</string>
-    <string name="battery_bar_charging_color">Kolor paska baterii podczas ładowania</string>
-    <string name="battery_bar_battery_low_color">Kolor paska baterii przy niskim poziomie naładowania</string>
+    <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii nad paskiem stanu</string>
+    <string name="battery_bar_color">Kolor</string>
+    <string name="battery_bar_charging_color">Kolor podczas ładowania</string>
+    <string name="battery_bar_battery_low_color">Kolor niskiego poziomu naładowania baterii</string>
     <string name="battery_bar_style_title">Wyrównanie</string>
-    <string name="battery_bar_thickness_title">Grubość paska baterii</string>
+    <string name="battery_bar_thickness_title">Grubość</string>
     <string name="battery_bar_animate_title">Animacja ładowania</string>
     <string name="battery_bar_style_regular">Regularna</string>
     <string name="battery_bar_style_center_mirrored">Wyśrodkowanie lustrzane</string>
@@ -864,8 +864,8 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="wireless_charging_dynamic_color_title">Dynamiczny kolor ładowania</string>
     <string name="wireless_charging_dynamic_color_summary">Użyj poziomu naładowania baterii, aby określić kolor animacji ładowania</string>
     <!-- Ambient Wallpaper -->
-    <string name="doze_always_on_wallpaper_title">Tapeta otoczenia</string>
-    <string name="doze_always_on_wallpaper_summary">Pokaż tapetę ekranu blokady na wyświetlaczu otoczenia</string>
+    <string name="doze_always_on_wallpaper_title">Tapeta ekranu otoczenia</string>
+    <string name="doze_always_on_wallpaper_summary">Pokaż tapetę ekranu blokady na ekranie otoczenia</string>
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Pływający przycisk obracania</string>
     <string name="floating_rotation_button_summary">Pokaż pływający przycisk obracania, gdy urządzenie jest obracane</string>
