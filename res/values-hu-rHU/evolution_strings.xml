@@ -871,32 +871,39 @@
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">\'Lebegő elforgatás\'-gomb</string>
     <string name="floating_rotation_button_summary">Egy lebegő gombbal jelzi, ha a készüléket elforgatták</string>
-    <!-- Fonts Screen -->
-    <string name="font_title">Betűtípus</string>
-    <string name="font_style">Betűstílus</string>
-    <string name="font_preview_dialog_title">Betűtípus-előnézet</string>
-    <string name="apply">Alkalmazás</string>
-    <string name="applied">Alkalmazva</string>
+    <!-- Font Mode -->
+    <string name="font_mode_title">Betűtípus-forrás</string>
+    <string name="font_settings_title">Betűtípus-beállítások</string>
+    <string name="font_settings_summary">Személyre szabhatja a rendszer betűtípusait</string>
+    <!-- Custom Font Picker -->
+    <string name="custom_font_picker_title">Egyéni betűtípus kiválasztása</string>
+    <string name="custom_font_picker_summary">Válasszon betűtípus-fájlt a belső tárhelyről</string>
+    <string name="github_font_picker_title">Válogasson a fontok közül a GitHub-on</string>
+    <string name="github_font_picker_summary">Betűtípusok letöltése és kipróbálása a gyűjteményből</string>
+    <string name="custom_font_installed_title">Jelenlegi betűtípus</string>
+    <string name="custom_font_installed_summary">%s</string>
+    <string name="reset_custom_font_title">Visszaállítás alaphelyzetbe</string>
+    <string name="reset_custom_font_summary">Eltávolítja az egyéni betűtípust és visszaállítja a rendszer alapértelmezettjét</string>
+    <string name="reset_custom_font_content_desc">Az egyéni betűtípus visszaállítása</string>
+    <string name="custom_font_reset_success">Betűtípus visszaállítása alapértelmezettre</string>
     <string name="reboot_device">Készülék-újraindítás</string>
     <string name="reboot_required_title">Újraindítás szükséges</string>
-    <string name="reboot_required_message">A betűtípus módosításhoz újraindítás szükséges.\nÚjra szeretné indítani most?</string>
-    <string name="reboot_now">Újraindítás most</string>
-    <string name="later">Később</string>
-    <string name="reset_default_title">Visszaállítás alapértelmezettre</string>
-    <string name="reset_default_message">Ez a művelet a betűtípust visszaállítja az eredetire. Biztosan ezt akarja?</string>
-    <string name="add_font">Betűtípus hozzáadása</string>
+    <string name="reboot_required_message">Egy újraindítás szükséges, hogy a betűtípusok megváltozzanak</string>
+    <string name="reboot_required_custom_font_desc">Újraindítás az egyéni betűtípus-módosításokhoz</string>
     <string name="custom_font">Egyéni betűtípus</string>
-    <string name="no_custom_font">Nem áll rendelkezésre betűtípus</string>
-    <string name="add_custom_font">Egyéni betűtípus hozzáadása</string>
-    <string name="change_custom_font">Egyéni készlet megváltoztatása</string>
-    <string name="reset_custom_font_content_desc">Egyéni betűtípus visszaállítása</string>
-    <string name="reboot_required_custom_font_title">Az egyéni betűkészlet módosításához újraindítás szükséges</string>
-    <string name="reboot_required_custom_font_desc">Amennyiben módosítás után kihagyja az újraindítást az problémákat okozhat a rendszerfelület alkalmazásai között.</string>
-    <string name="font_preview_quote">Ez a tesztszöveg a módosításhoz.</string>
-    <string name="font_preview_numbers">0987654321!@#$%&amp;*()_+=-</string>
-    <string name="active_content_desc">Aktív</string>
-    <string name="toast_failed_apply_font">A betűtípus érvényesítése sikertelen</string>
-    <string name="toast_invalid_font_file">Hibás betűkészlet-fájl</string>
+    <string name="custom_font_installed_success">A betűkészlet telepítésre került</string>
+    <string name="custom_font_install_failed">Nem sikerült telepíteni a betűkészletet</string>
+    <string name="font_preview_error">A betűkészletet előnézete meghiúsult</string>
+    <string name="font_download_error">A betűkészlet letöltése meghiúsult</string>
+    <string name="font_preview_title">Betűtípus-előnézet</string>
+    <string name="install_font">Telepítés</string>
+    <string name="github_fonts_header">Elérhető betűtípusok</string>
+    <string name="no_fonts_available">Nincs elérhető betűtípus</string>
+    <string name="github_fonts_error">Nem tölthető be a GitHub-ról betűkészlet</string>
+    <string name="github_fonts_fetch_error">Nem sikerült betűtípusokat lekérni a GitHub-ról</string>
+    <string name="preview">Előnézet</string>
+    <string name="install">Telepítés</string>
+    <string name="download_first_message">Először töltse le a betűtípust az Előnézet gombra kattintva</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">Most hallható </string>
     <string name="nowplaying_summary">Az aktuálisan lejátszott zene adatainak megjelenítése lezárt képernyőn és a „Mindig bekapcsolva\" módban</string>
