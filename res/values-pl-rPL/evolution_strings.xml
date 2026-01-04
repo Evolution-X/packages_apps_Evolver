@@ -121,7 +121,7 @@
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interfejs</string>
     <string name="lock_screen_charging_stats_title">Statystyki ładowania</string>
-    <string name="lock_screen_charging_stats_summary">Wyświetlaj bieżącą wartość prądu ładowania, napięcia i temperatury baterii na ekranie blokady podczas ładowania</string>
+    <string name="lock_screen_charging_stats_summary">Wyświetlanie statystyk prądu, napięcia, mocy i temperatury podczas ładowania</string>
     <string name="lock_screen_charging_time_title">Czas ładowania</string>
     <string name="lock_screen_charging_time_summary">Wyświetl pozostały czas ładowania do zakończenia</string>
     <string name="lock_screen_fingerprint_category">Odcisk palca</string>
@@ -134,7 +134,7 @@
     <string name="lock_screen_miscellaneous_category">Różne</string>
     <string name="lock_screen_pocket_detection_title">Wykrywanie kieszeni</string>
     <string name="lock_screen_pocket_detection_summary">Zablokuj funkcje ekranu i przycisków, gdy urządzenie jest w kieszeni</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Zawsze włączony tryb kieszonkowy</string>
+    <string name="lock_screen_always_on_pocket_mode_title">Zawsze w trybie kieszonkowym</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Zawsze blokuj działanie ekranu i przycisków, kiedy ekran jest włączony</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
@@ -188,13 +188,13 @@
     <string name="status_bar_battery_style_icon_landscape_buddy">Pozioma kapsuła</string>
     <string name="status_bar_battery_style_icon_landscape_line">Lorn poziomo</string>
     <string name="status_bar_battery_style_icon_landscape_musku">iOS pionowo </string>
-    <string name="status_bar_battery_style_icon_landscape_pill">Maksimum pionowo</string>
+    <string name="status_bar_battery_style_icon_landscape_pill">Mx pionowo</string>
     <string name="status_bar_battery_style_icon_landscape_signal">Airoo poziomo</string>
     <string name="status_bar_battery_style_icon_rlandscape_style_a">Poziomo R styl A</string>
     <string name="status_bar_battery_style_icon_landscape_style_a">Poziomo L styl A</string>
     <string name="status_bar_battery_style_icon_rlandscape_style_b">Poziomo R styl B</string>
     <string name="status_bar_battery_style_icon_landscape_style_b">Poziomo L styl B</string>
-    <string name="status_bar_battery_style_icon_landscape_ios15">IOS 15 w poziomie</string>
+    <string name="status_bar_battery_style_icon_landscape_ios15">iOS 15 w poziomie</string>
     <string name="status_bar_battery_style_icon_landscape_ios16">iOS 16 w poziomie</string>
     <string name="status_bar_battery_style_icon_landscape_origami">Origami poziomo</string>
     <string name="status_bar_battery_style_icon_landscape_oneui7">OneUI 7 poziomo</string>
@@ -244,12 +244,12 @@
     <string name="status_bar_logo_style_biohazard">Zagrożenie biologiczne</string>
     <string name="status_bar_logo_style_blackberry">Jeżyna</string>
     <string name="status_bar_logo_style_cannabis">Marihuana</string>
-    <string name="status_bar_logo_style_emoticon_cool">Emotikona spoko</string>
-    <string name="status_bar_logo_style_emoticon_devil">Emotikona diabeł</string>
+    <string name="status_bar_logo_style_emoticon_cool">Emotka spoko</string>
+    <string name="status_bar_logo_style_emoticon_devil">Emotka diabeł</string>
     <string name="status_bar_logo_style_fire">Ogień</string>
     <string name="status_bar_logo_style_heart">Serce</string>
     <string name="status_bar_logo_style_nike">Nike</string>
-    <string name="status_bar_logo_style_pacman">Pac-man</string>
+    <string name="status_bar_logo_style_pacman">Pac Man</string>
     <string name="status_bar_logo_style_puma">Puma</string>
     <string name="status_bar_logo_style_rog">ROG</string>
     <string name="status_bar_logo_style_spiderman">Spider Man</string>
@@ -605,7 +605,7 @@
     <string name="powermenu_style1">Cyberpunk</string>
     <string name="powermenu_style2">Podwójna linia</string>
     <string name="powermenu_style3">Płynny (przeźroczysty)</string>
-    <string name="powermenu_style4">IOS</string>
+    <string name="powermenu_style4">iOS</string>
     <string name="powermenu_style5">Warstwy</string>
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">Styl zegara w nagłówku szybkich ustawień</string>
@@ -693,8 +693,8 @@
     <string name="volume_sound_haptics_title">Dźwiękowe potwierdzenie podczas regulacji głośności</string>
     <string name="volume_sound_haptics_summary">Włącz dźwiękowe potwierdzenie podczas regulacji głośności</string>
     <string name="qs_panel_tile_haptic_intensity_title">Intensywność wibracji gestu wstecz</string>
-    <string name="qs_haptics_intensity_title">Siła wibracji gestu szybkich ustawień</string>
-    <string name="qs_tiles_haptic_feedback_title">Wibruj przy dotknięciu kafelków szybkich ustawień</string>
+    <string name="qs_haptics_intensity_title">Intensywność wibracji gestu szybkich ustawień</string>
+    <string name="qs_tiles_haptic_feedback_title">Wibruj przy dotykaniu kafelków szybkich ustawień</string>
     <!-- Weather -->
     <string name="weather_settings_title">Ustawienia pogody</string>
     <string name="weather_settings_summary">Konfiguracja pakietu ikon i usługi pogodowej</string>
@@ -712,7 +712,7 @@
     <string name="lockscreen_weather_humidity_info_summary">Wyświetla aktualną wilgotność w procentach</string>
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Ekran zawsze włączony</string>
-    <string name="aod_pulse_category_title">Puls/Drzemka</string>
+    <string name="aod_pulse_category_title">Puls/drzemka</string>
     <!-- AOD custom image -->
     <string name="lockscreen_custom_image_enabled_title">Obraz AOD</string>
     <string name="lockscreen_custom_image_title">Wybierz obraz AOD</string>
@@ -737,7 +737,7 @@
     <string name="custom_widgets3">Mini widżet 3</string>
     <string name="custom_widgets4">Mini widżet 4</string>
     <string name="camera">Aparat</string>
-    <string name="clock_timer">Zegar/Stoper</string>
+    <string name="clock_timer">Zegar/stoper</string>
     <string name="calculator">Kalkulator</string>
     <string name="gallery">Galeria</string>
     <string name="media">Odtwarzacz multimediów</string>
@@ -808,7 +808,7 @@
     <string name="circular_chip_size_title">Rozmiar okrągłego paska postępu </string>
     <string name="circular_chip_size_summary">Dostosuj średnicę okrągłego paska postępu </string>
     <string name="circular_position_x_title">Przesunięcie poziome</string>
-    <string name="circular_position_x_summary">Dokładne dostrojenie pozycji poziomej</string>
+    <string name="circular_position_x_summary">Dokładne dostosowanie pozycji poziomej</string>
     <string name="circular_position_y_title">Przesunięcie pionowe</string>
     <string name="circular_position_y_summary">Dokładne dostosowanie pozycji pionowej</string>
     <string name="progress_footer_text">&#x201E;Pasek postępu na pasku stanu zapewnia aktualizacje w czasie rzeczywistym zarówno dla odtwarzania multimediów, jak i aktywnych pobierań/przesyłania.
@@ -845,7 +845,7 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="battery_bar_blend_color_reverse_title">Odwróć kierunek kolorów</string>
     <string name="battery_bar_blend_color_reverse_summary_off">Pełna &#8594; pusta: czerwony &#8592; zielony &#8592; niebieski &#8592; czerwony</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Pełna &#8594; pusta: czerwony &#8594; zielony &#8594; niebieski &#8594; czerwony</string>
-    <string name="battery_bar_use_gradient_color">Użyj płynnego przejścia koloru</string>
+    <string name="battery_bar_use_gradient_color">Użyj płynnego przejścia kolorów</string>
     <string name="battery_bar_gradient_color_summary">Użyj płynnego przejścia kolorów dla poziomu naładowania baterii</string>
     <string name="battery_bar_high_color">Kolor wysokiego poziomu</string>
     <string name="battery_bar_low_color">Kolor niskiego poziomu</string>
@@ -854,7 +854,7 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="qs_brightness_slider_shape_title">Styl suwaka jasności</string>
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Małe powiadomienia poziome</string>
-    <string name="small_landscape_notification_summary">Wyświetla powiadomienia w panelu powiadomień w trybie poziomym, zgodnie z zamierzonym AOSP</string>
+    <string name="small_landscape_notification_summary">Wyświetla powiadomienia w panelu powiadomień w trybie poziomym, zgodnie z zamierzeniem AOSP</string>
     <!-- Notification row transparency -->
     <string name="notification_row_transparency_title">Przezroczyste powiadomienia</string>
     <string name="notification_row_transparency_summary">Ustaw przezroczyste tło dla powiadomień w szybkich ustawieniach</string>
