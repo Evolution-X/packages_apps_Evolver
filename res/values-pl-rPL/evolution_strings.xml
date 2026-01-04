@@ -505,8 +505,8 @@
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
     <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Ukryj listę aplikacji</string>
-    <string name="hide_applist_summary">Zapobiegaj sprawdzaniu przez aplikacje wybranych aplikacji z listy aplikacji</string>
+    <string name="hide_applist_title">Lista ukrytych aplikacji</string>
+    <string name="hide_applist_summary">Zapobiegaj wykrywaniu przez aplikacje wybranych aplikacji z listy</string>
     <string name="menu_show_overlay">Pokaż nakładkę</string>
     <string name="menu_hide_overlay">Ukryj nakładkę</string>
     <!-- Miscellaneous/Smart Pixels -->
@@ -869,32 +869,39 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Pływający przycisk obracania</string>
     <string name="floating_rotation_button_summary">Pokaż pływający przycisk obracania, gdy urządzenie jest obracane</string>
-    <!-- Fonts Screen -->
-    <string name="font_title">Czcionka</string>
-    <string name="font_style">Styl czcionki</string>
-    <string name="font_preview_dialog_title">Podgląd czcionki</string>
-    <string name="apply">Zastosuj</string>
-    <string name="applied">Zastosowano</string>
+    <!-- Font Mode -->
+    <string name="font_mode_title">Źródło czcionki</string>
+    <string name="font_settings_title">Ustawienia czcionki</string>
+    <string name="font_settings_summary">Dostosuj czcionki systemowe</string>
+    <!-- Custom Font Picker -->
+    <string name="custom_font_picker_title">Dodaj niestandardową czcionkę</string>
+    <string name="custom_font_picker_summary">Wybierz plik czcionki z pamięci</string>
+    <string name="github_font_picker_title">Przeglądaj czcionki z GitHuba</string>
+    <string name="github_font_picker_summary">Pobierz i wyświetl podgląd czcionek z repozytorium</string>
+    <string name="custom_font_installed_title">Aktualna czcionka</string>
+    <string name="custom_font_installed_summary">%s</string>
+    <string name="reset_custom_font_title">Przywróć ustawienia domyślne</string>
+    <string name="reset_custom_font_summary">Usuń niestandardową czcionkę i przywróć domyślną czcionkę systemu</string>
+    <string name="reset_custom_font_content_desc">Zresetuj niestandardową czcionkę</string>
+    <string name="custom_font_reset_success">Przywróć domyślną czcionkę</string>
     <string name="reboot_device">Uruchom ponownie urządzenie</string>
     <string name="reboot_required_title">Wymagane ponowne uruchomienie</string>
-    <string name="reboot_required_message">Aby zastosować zmiany czcionek, wymagane jest ponowne uruchomienie urządzenia.\nCzy chcesz teraz ponownie uruchomić?</string>
-    <string name="reboot_now">Uruchom ponownie teraz</string>
-    <string name="later">Później</string>
-    <string name="reset_default_title">Przywróć ustawienia domyślne</string>
-    <string name="reset_default_message">Spowoduje to przywrócenie domyślnej czcionki systemowej. Jesteś pewien?</string>
-    <string name="add_font">Dodaj czcionkę</string>
+    <string name="reboot_required_message">Aby zmiany czcionek zaczęły obowiązywać, wymagane jest ponowne uruchomienie</string>
+    <string name="reboot_required_custom_font_desc">Uruchom ponownie, aby zastosować niestandardowe zmiany czcionek</string>
     <string name="custom_font">Niestandardowa czcionka</string>
-    <string name="no_custom_font">Brak niestandardowej czcionki</string>
-    <string name="add_custom_font">Dodaj niestandardową czcionkę</string>
-    <string name="change_custom_font">Zmień niestandardową czcionkę</string>
-    <string name="reset_custom_font_content_desc">Zresetuj niestandardową czcionkę</string>
-    <string name="reboot_required_custom_font_title">Wymagane ponowne uruchomienie, aby zmienić czcionkę</string>
-    <string name="reboot_required_custom_font_desc">Pominięcie ponownego uruchomienia po zmianie czcionki może spowodować niespójności interfejsu użytkownika w aplikacjach.</string>
-    <string name="font_preview_quote">Strach jest wrogiem innowacji.</string>
-    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
-    <string name="active_content_desc">Aktywny</string>
-    <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
-    <string name="toast_invalid_font_file">Nieprawidłowy plik czcionki</string>
+    <string name="custom_font_installed_success">Czcionka zainstalowana pomyślnie</string>
+    <string name="custom_font_install_failed">Nie udało się zainstalować czcionki</string>
+    <string name="font_preview_error">Nie udało się wyświetlić podglądu czcionki</string>
+    <string name="font_download_error">Nie udało się pobrać czcionki</string>
+    <string name="font_preview_title">Podgląd czcionki</string>
+    <string name="install_font">Instaluj</string>
+    <string name="github_fonts_header">Dostępne czcionki</string>
+    <string name="no_fonts_available">Brak dostępnych czcionek</string>
+    <string name="github_fonts_error">Nie można załadować czcionek z GitHuba</string>
+    <string name="github_fonts_fetch_error">Nie można załadować czcionek z GitHuba</string>
+    <string name="preview">Podgląd</string>
+    <string name="install">Instaluj</string>
+    <string name="download_first_message">Najpierw pobierz czcionkę, klikając Podgląd</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">Teraz odtwarzane</string>
     <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i w trybie Ekran zawsze włączony</string>
