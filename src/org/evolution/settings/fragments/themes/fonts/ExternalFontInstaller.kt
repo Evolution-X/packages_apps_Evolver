@@ -46,8 +46,8 @@ class ExternalFontInstaller(private val context: Context) {
         private const val CUSTOM_FONT_FILE = "cust_font.ttf"
         private const val TEMP_PREVIEW_FONT = "preview_font.ttf"
         private const val OVERLAY_CATEGORY_FONT = "android.theme.customization.font"
-        const val DEFAULT_FONT_FAMILY = "Rookery-Regular"
-        private const val DEFAULT_FONT_OVERLAY = "com.android.theme.font.rookery"
+        const val DEFAULT_FONT_FAMILY = "google-sans-flex"
+        private const val DEFAULT_FONT_OVERLAY = "com.android.theme.font.googlesansflex"
 
         fun rebootDevice() {
             runCatching {
