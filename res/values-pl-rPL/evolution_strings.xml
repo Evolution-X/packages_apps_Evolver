@@ -132,10 +132,10 @@
     <string name="lock_screen_fingerprint_error_vibration_title">Wibracja błędu uwierzytelniania</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Wibruj po nieudanym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_miscellaneous_category">Różne</string>
-    <string name="lock_screen_pocket_detection_title">Wykrywanie kieszeni</string>
-    <string name="lock_screen_pocket_detection_summary">Zablokuj funkcje ekranu i przycisków, gdy urządzenie jest w kieszeni</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Zawsze w trybie kieszonkowym</string>
-    <string name="lock_screen_always_on_pocket_mode_summary">Zawsze blokuj działanie ekranu i przycisków, kiedy ekran jest włączony</string>
+    <string name="lock_screen_pocket_detection_title">Wykrywanie zasłonięcia</string>
+    <string name="lock_screen_pocket_detection_summary">Blokuj ekran i przyciski, gdy urządzenie jest zasłonięte</string>
+    <string name="lock_screen_always_on_pocket_mode_title">Ochrona przed przypadkowymi dotknięciami jest zawsze aktywna</string>
+    <string name="lock_screen_always_on_pocket_mode_summary">Zawsze blokuj ekran i przyciski przy włączonym ekranie</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
     <string name="pulse_settings_summary">Wyświetl wizualizację paska na ekranie blokady podczas odtwarzania muzyki</string>
