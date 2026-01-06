@@ -138,25 +138,25 @@
     <string name="lock_screen_always_on_pocket_mode_summary">Zawsze blokuj ekran i przyciski przy włączonym ekranie</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
-    <string name="pulse_settings_summary">Wyświetl wizualizację paska na ekranie blokady podczas odtwarzania muzyki</string>
-    <string name="ambient_pulse_enabled_title">Pulse w trybie otoczenia</string>
+    <string name="pulse_settings_summary">Wyświetlaj wizualizator słupkowy na ekranie blokady podczas odtwarzania muzyki</string>
+    <string name="ambient_pulse_enabled_title">Wizualizator na ekranie otoczenia</string>
     <string name="ambient_pulse_enabled_summary">Pokaż wizualizator na ekranie otoczenia</string>
-    <string name="pulse_rounded_bars_title">Zaokrąglone paski</string>
-    <string name="pulse_rounded_bars_summary">Wyświetl paski wizualizatora z zaokrąglonymi rogami</string>
+    <string name="pulse_rounded_bars_title">Zaokrąglone słupki</string>
+    <string name="pulse_rounded_bars_summary">Wyświetl słupki wizualizatora z zaokrąglonymi rogami</string>
     <string name="pulse_color">Kolor wizualizatora</string>
-    <string name="pulse_color_lavalamp">Lampa lawowa</string>
+    <string name="pulse_color_lavalamp">Efekt lawowy</string>
     <string name="pulse_color_album">Okładka albumu</string>
     <string name="pulse_color_accent">Kolor akcentu</string>
-    <string name="pulse_bar_count_title">Liczba pasków</string>
-    <string name="pulse_bar_count_summary">Ustaw ile pasków jest wyświetlanych w wizualizatorze</string>
-    <string name="pulse_bar_count_units">paski</string>
+    <string name="pulse_bar_count_title">Liczba słupków</string>
+    <string name="pulse_bar_count_summary">Ustaw ile słupków jest wyświetlanych w wizualizatorze</string>
+    <string name="pulse_bar_count_units">słupki</string>
     <string name="pulse_renderer">Styl wizualizatora</string>
     <string name="pulse_renderer_solid">Linie ciągłe</string>
     <string name="pulse_renderer_fading">Zanikające bloki</string>
     <string name="pulse_renderer_neon_glow">Neonowy połysk</string>
     <string name="pulse_renderer_retro_vu_meter">Miernik głośności w stylu retro</string>
     <string name="pulse_renderer_minimal_wave">Minimalna fala</string>
-    <string name="pulse_renderer_sparkle">Blask</string>
+    <string name="pulse_renderer_sparkle">Iskierki</string>
     <string name="pulse_renderer_matrix">Matrix</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Przeciągnij w lewo lub prawo, aby zobaczyć styl zegara</string>
