@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     Copyright (C) 2019-2025 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -11,13 +11,13 @@
     <string name="themes_title">Temas</string>
     <string name="themes_summary">Motor Monet, estilos de UI, fuentes, paquetes de iconos</string>
     <string name="lock_screen_title">Pantalla de bloqueo</string>
-    <string name="lock_screen_summary">Interfaz, huella dactilar, misceláneo</string>
+    <string name="lock_screen_summary">Interfaz, Sonando ahora, Huella digital</string>
     <string name="status_bar_title">Barra de estado</string>
-    <string name="status_bar_summary">Gestos, íconos</string>
+    <string name="status_bar_summary">Gestos, iconos, logotipo, relleno</string>
     <string name="quick_settings_title">Ajustes rápidos</string>
-    <string name="quick_settings_summary">Control deslizante de brillo, interfaz, pantalla de bloqueo</string>
+    <string name="quick_settings_summary">Interfaz, deslizador de brillo, disposición</string>
     <string name="notifications_title">Notificaciones</string>
-    <string name="notifications_summary">Avisos, interfaz</string>
+    <string name="notifications_summary">Avisos, Edge, Sonidos</string>
     <string name="power_menu_title">Menú de apagado</string>
     <string name="power_menu_summary">Acciones, pantalla de bloqueo</string>
     <string name="buttons_title">Botones</string>
@@ -122,13 +122,11 @@
     <string name="lock_screen_interface_category">Interfaz</string>
     <string name="lock_screen_charging_stats_title">Estadísticas de carga</string>
     <string name="lock_screen_charging_stats_summary">Mostrar la corriente máxima del cargador, voltaje y temperatura de la batería en la pantalla de bloqueo durante la carga</string>
-    <string name="lock_screen_charging_time_title">Tiempo de carga de la pantalla de bloqueo</string>
+    <string name="lock_screen_charging_time_title">Tiempo de carga</string>
     <string name="lock_screen_charging_time_summary">Mostrar el tiempo restante para finalizar la carga</string>
     <string name="lock_screen_fingerprint_category">Huella dactilar</string>
     <string name="lock_screen_fingerprint_ripple_title">Animación de ola</string>
     <string name="lock_screen_fingerprint_ripple_summary">Muestra una animación de ola al desbloquear con huella dactilar</string>
-    <string name="lock_screen_screen_off_udfps_title">UDFPS con pantalla apagada</string>
-    <string name="lock_screen_screen_off_udfps_summary">Mantener UDFPS activo mientras la pantalla está apagada</string>
     <string name="lock_screen_fingerprint_success_vibration_title">Vibración de éxito de autenticación</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Vibrar con la autenticación exitosa de la huella</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Vibración de error autenticación</string>
@@ -139,38 +137,27 @@
     <string name="lock_screen_always_on_pocket_mode_title">Siempre en modo bolsillo</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Bloquear siempre las entradas de la pantalla y los botones cuando la pantalla está encendida</string>
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">Acerca de Pulse</string>
-    <string name="pulse_help_policy_notice_summary">Pulse es un brillante ecualizador gráfico de audio para cuando se reproduce música en el dispositivo</string>
-    <string name="lock_screen_pulse_settings_title">Pulso</string>
-    <string name="lock_screen_pulse_settings_summary">Ecualizador gráfico de audio para la barra de navegación y pantalla de bloqueo</string>
-    <string name="show_navbar_pulse_title">Pulso de la barra de navegación</string>
-    <string name="show_navbar_pulse_summary">Ecualizador gráfico de audio en la barra de navegación</string>
-    <string name="show_lockscreen_pulse_title">Pulso en pantalla de bloqueo</string>
-    <string name="show_lockscreen_pulse_summary">Ecualizador gráfico de audio en la pantalla de bloqueo</string>
-    <string name="show_ambient_pulse_title">Pulso Ambiental</string>
-    <string name="show_ambient_pulse_summary">Ecualizador gráfico de audio en la pantalla ambiente</string>
-    <string name="pulse_render_mode_title">Modo de renderizado</string>
-    <string name="pulse_render_mode_fading_bars">Bloques desvaneciéndose</string>
-    <string name="pulse_render_mode_solid_lines">Líneas sólidas</string>
-    <string name="pulse_legacy_mode_advanced_category">Ajustes del modo de bloques desvaneciéndose</string>
-    <string name="pulse_custom_fudge_factor">Nivel de sensibilidad</string>
-    <string name="pulse_lavalamp_speed_title">Velocidad de la lámpara de lava</string>
-    <string name="pulse_solid_units_rounded_title">Esquinas redondeadas</string>
-    <string name="pulse_solid_units_rounded_summary">Líneas sólidas con punta redondeada</string>
-    <string name="pulse_solid_units_count">Cantidad de líneas sólidas</string>
-    <string name="pulse_solid_units_opacity">Opacidad de líneas sólidas</string>
-    <string name="pulse_solid_dimen_category">Ajustes del modo de líneas sólidas</string>
-    <string name="pulse_color_mode_title">Color</string>
+    <string name="pulse_settings_title">Visualizador de pulso</string>
+    <string name="pulse_settings_summary">Mostrar un visualizador de barra en la pantalla de bloqueo mientras se reproduce música</string>
+    <string name="ambient_pulse_enabled_title">Pulso Ambiental</string>
+    <string name="ambient_pulse_enabled_summary"></string>
+    <string name="pulse_rounded_bars_title">Barras redondeadas</string>
+    <string name="pulse_rounded_bars_summary">Barras de visualización con esquinas redondeadas</string>
+    <string name="pulse_color">Color del visualizador</string>
+    <string name="pulse_color_lavalamp">Lámpara de lava</string>
+    <string name="pulse_color_album">Portada del álbum</string>
     <string name="pulse_color_accent">Acento</string>
-    <string name="pulse_color_custom">Personalizado</string>
-    <string name="pulse_color_lava_lamp">Lámpara de lava</string>
-    <string name="pulse_color_user_title">Elegir el color</string>
-    <string name="pulse_smoothing_enabled_title">Activar suavizado</string>
-    <string name="pulse_smoothing_enabled_summary">La animación de las barras es más suave</string>
-    <string name="pulse_custom_dimen">Ancho de la barra</string>
-    <string name="pulse_custom_div">Espaciado de la barra</string>
-    <string name="pulse_filled_block_size">Tamaño del bloque</string>
-    <string name="pulse_empty_block_size">Espaciado del bloque</string>
+    <string name="pulse_bar_count_title">Número de barras</string>
+    <string name="pulse_bar_count_summary">Establecer cuántas barras se muestran en el visualizador</string>
+    <string name="pulse_bar_count_units">barras</string>
+    <string name="pulse_renderer">Estilo del visualizador</string>
+    <string name="pulse_renderer_solid">Líneas sólidas</string>
+    <string name="pulse_renderer_fading">Bloques desvaneciéndose</string>
+    <string name="pulse_renderer_neon_glow"></string>
+    <string name="pulse_renderer_retro_vu_meter"></string>
+    <string name="pulse_renderer_minimal_wave"></string>
+    <string name="pulse_renderer_sparkle">Brillo</string>
+    <string name="pulse_renderer_matrix">Matriz</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Desliza hacia la izquierda o derecha para previsualizar los estilos de reloj</string>
     <!-- Lock screen Clock Revamp -->
@@ -222,6 +209,7 @@
     <string name="status_bar_battery_percent_title">Porcentaje de batería</string>
     <string name="status_bar_battery_percent_hidden">Oculto</string>
     <string name="status_bar_battery_percent_text_inside">Dentro del icono</string>
+    <string name="status_bar_battery_percent_text_next">Al lado del icono</string>
     <string name="status_bar_battery_percent_text_next_right">Junto al icono (derecha)</string>
     <string name="status_bar_battery_percent_text_next_left">Junto al icono (izquierda)</string>
     <string name="status_bar_battery_text_charging_title">Porcentaje de batería al cargar</string>
@@ -289,7 +277,7 @@
     <string name="status_bar_location_privacy_indicator_summary">Mostrar un indicador cuando una app acceda a su ubicación</string>
     <string name="status_bar_projection_privacy_indicator_title">Proyección de pantalla</string>
     <string name="status_bar_projection_privacy_indicator_summary">Mostrar un indicador cuando la pantalla está siendo proyectada</string>
-    <string name="status_bar_carrier_lock_screen_title">Nombre del operador en la pantalla de bloqueo</string>
+    <string name="status_bar_carrier_lock_screen_title">Nombre del operador</string>
     <string name="status_bar_carrier_lock_screen_summary">Mostrar nombre del operador en la barra de estado de la pantalla de bloqueo</string>
     <string name="status_bar_lyric_title">Letras en la barra de estado</string>
     <string name="status_bar_lyric_summary">Mostrar letras en la barra de estado (necesita soporte de la app)</string>
@@ -297,23 +285,16 @@
     <string name="disguise_props_for_music_app_title">Disfrazar dispositivo para aplicaciones de música</string>
     <string name="disguise_props_for_music_app_summary">Disfrazar dispositivo en algunas aplicaciones de música para soportar letras en la barra de estado. Después de cambiar este interruptor, debes reiniciar las aplicaciones para que surta efecto.</string>
     <!-- Status bar/Clock & date-->
-    <string name="status_bar_clock_position_title">Posición del reloj</string>
+    <string name="status_bar_clock_position_title">Estilo de reloj</string>
     <string name="status_bar_clock_position_right">Derecha</string>
     <string name="status_bar_clock_position_left">Izquierda</string>
     <string name="status_bar_clock_position_center">Centro</string>
-    <string name="status_bar_clock_position_hidden">Oculto</string>
     <string name="status_bar_clock_seconds_title">Segundos del reloj</string>
     <string name="status_bar_clock_seconds_summary">Mostrar segundos junto al reloj en la barra de estado</string>
-    <string name="status_bar_clock_auto_hide_intervals_title">Ocultar automáticamente en intervalos</string>
-    <string name="status_bar_clock_auto_hide_intervals_summary">Ocultar reloj en intervalos de tiempo específicos</string>
-    <string name="status_bar_clock_auto_hide_hdur_title">Tiempo oculto</string>
-    <string name="status_bar_clock_auto_hide_hdur_summary">Tiempo que el reloj permanece oculto</string>
-    <string name="status_bar_clock_auto_hide_sdur_title">Tiempo visible</string>
-    <string name="status_bar_clock_auto_hide_sdur_summary">Número de segundos antes de ocultar el reloj</string>
-    <string name="status_bar_clock_auto_hide_launcher_title">Ocultar automáticamente en el launcher</string>
-    <string name="status_bar_clock_auto_hide_launcher_summary">Ocultar reloj en la pantalla de inicio</string>
+    <string name="status_bar_clock_auto_hide_title">Auto ocultar el reloj</string>
+    <string name="status_bar_clock_auto_hide_summary">Ocultar reloj en la pantalla de inicio</string>
     <string name="status_bar_clock_chip_title">Fondo del reloj</string>
-    <string name="status_bar_clock_chip_summary">Mostrar color de acento detrás del reloj</string>
+    <string name="status_bar_clock_chip_summary">Mostar color de acento detrás del reloj</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
     <string name="status_bar_am_pm_info">Reloj de 24 horas activado</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -373,6 +354,7 @@
     <string name="quick_settings_panel_style_reflected">Reflejado</string>
     <string name="quick_settings_panel_style_surround">Contorno</string>
     <string name="quick_settings_panel_style_thin">Línea fina</string>
+    <string name="quick_settings_layout_category_title">Distribución de ajustes rápidos</string>
     <string name="quick_settings_tile_label_hide_title">Ocultar etiqueta</string>
     <string name="quick_settings_tile_label_size_title">Tamaño de texto de la etiqueta</string>
     <string name="quick_settings_tile_label_hide_summary">Mostrar solo el icono en el mosaico</string>
@@ -450,6 +432,7 @@
     <string name="quick_settings_tile_shape_title">Forma de los ajustes rápidos</string>
     <string name="quick_settings_tile_shape_dynamic">Dinámico</string>
     <string name="quick_settings_tile_shape_circle">Círculo</string>
+    <string name="quick_settings_tile_shape_rounded_square_smooth"></string>
     <string name="quick_settings_tile_shape_rounded_square">Cuadrado redondeado</string>
     <string name="quick_settings_tile_shape_square">Cuadrado</string>
     <string name="quick_settings_tile_haptic_summary">Proporcionar retroalimentación háptica al tocar los mosaicos de ajustes rápidos</string>
@@ -457,8 +440,6 @@
     <string name="notifications_heads_up_title">Notificaciones emergentes</string>
     <string name="notifications_heads_up_summary">Permitir notificaciones emergentes</string>
     <string name="notifications_interface_category">Interfaz</string>
-    <string name="notifications_edge_light_title">Iluminación de bordes</string>
-    <string name="notifications_edge_light_summary">Ilumina los bordes de la pantalla al recibir una notificación</string>
     <string name="notifications_kill_app_button_title">Detener aplicación</string>
     <string name="notifications_kill_app_button_summary">Muestra el botón de forzar cierre de aplicación en el menú de pulsación prolongada de la notificación</string>
     <string name="notifications_sounds_vibration_category">Sonido y vibración</string>
@@ -471,17 +452,23 @@
     <string name="compact_heads_up_notifications_enabled_title">Notificaciones compactas</string>
     <string name="compact_heads_up_notifications_enabled_summary">Mostrar notificaciones en tamaño compacto</string>
     <!-- Notifications/Edge light -->
-    <string name="notifications_edge_light_always_trigger_on_pulse_title">Siempre activa en pulso</string>
-    <string name="notifications_edge_light_always_trigger_on_pulse_summary">Mostrar la luz del borde siempre que se muestra la pantalla ambiente y no sólo para las notificaciones</string>
-    <string name="notifications_edge_light_repeat_animation_title">Repetir animación</string>
-    <string name="notifications_edge_light_repeat_animation_summary_on">Repetir hasta el tiempo de espera</string>
-    <string name="notifications_edge_light_repeat_animation_summary_off">Mostrar solo una vez</string>
-    <string name="notifications_edge_light_color_mode_title">Color de la luz del borde</string>
-    <string name="notifications_edge_light_style_title">Estilo de iluminación de borde</string>
-    <string name="notifications_edge_light_stroke_width_title">Ancho del trazo de la iluminación de borde</string>
-    <string name="notifications_edge_light_stroke_width_summary">Configurar grosor de la iluminación de bordes</string>
-    <string name="notifications_edge_light_style_1">Dibujar línea</string>
-    <string name="notifications_edge_light_style_2">Parpadeo/Pulso</string>
+    <string name="edge_light_title">Iluminación de bordes</string>
+    <string name="edge_light_summary"></string>
+    <string name="edge_light_color_mode_title"></string>
+    <string name="edge_light_pulse_count_title">Control de pulsado</string>
+    <string name="edge_light_pulse_count_summary">Número de pulsaciones para la luz del borde</string>
+    <string name="edge_light_stroke_width_title">Ancho del borde</string>
+    <string name="edge_light_stroke_width_summary">Establecer ancho para la luz del borde</string>
+    <string name="edge_light_style_title">Estilo del renderizado</string>
+    <string name="edge_light_style_default">Por omisión (izquierda/derecha)</string>
+    <string name="edge_light_style_frame">Contorno (todos los lados)</string>
+    <string name="edge_light_animation_effect_title">Efecto de animación</string>
+    <string name="edge_light_animation_effect_none">Estándar</string>
+    <string name="edge_light_animation_effect_breathing">Respiración</string>
+    <string name="edge_light_animation_effect_wave">Ola</string>
+    <string name="edge_light_animation_effect_sparkle">Brillo</string>
+    <string name="edge_light_animation_effect_chase">Persecución</string>
+    <string name="edge_light_animation_effect_comet">Cometa</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Notificaciones emergentes menos molestas</string>
     <string name="notifications_less_boring_heads_up_summary">Mostrar notificaciones emergentes solo para la aplicación de teléfono, mensajería y alarma</string>
@@ -523,7 +510,7 @@
     <string name="menu_show_overlay">Mostrar superposición</string>
     <string name="menu_hide_overlay">Ocultar superposición</string>
     <!-- Miscellaneous/Smart Pixels -->
-    <string name="smart_pixels_warning_text">Los píxeles inteligentes son una opción de ahorro de batería. Dependiendo de cuantos pixeles decidas apagar, tal vez veas mejoras en la duración de la batería</string>
+    <string name="smart_pixels_warning_text">Smart Pixels es una característica de ahorro de batería. Dependiendo de cuántos píxeles desactives, podrás ver mejoras en la vida útil de la batería. En algunos casos, puede resultar en zonas no receptivas en la pantalla</string>
     <string name="smart_pixels_title">Píxeles Inteligentes</string>
     <string name="smart_pixels_summary">Ahorra batería apagando píxeles adicionales</string>
     <string name="smart_pixels_on_power_save_title">Activación automática en ahorro de batería</string>
@@ -541,19 +528,15 @@
     <string name="tensor_spoof_summary">Desbloquear características disponibles solo en dispositivos Pixel basados en Tensor</string>
     <string name="gms_spoof_title">Arreglo de la integridad de Google Play</string>
     <string name="gms_spoof_summary">Suplantar dispositivo para pasar la atestación de Google Play</string>
-    <string name="spoofing_storage_encryption_title">Cifrado del almacenamiento</string>
-    <string name="spoofing_storage_encryption_summary">Suplanta el estado de cifrado de almacenamiento a \"Cifrado\"</string>
     <string name="spoofing_app_specific_category">Aplicación específica</string>
-    <string name="spoofing_qsb_title">Aplicación de Google</string>
-    <string name="spoofing_qsb_summary">Suplanta la aplicación de Google al último dispositivo Pixel para desbloquear características exclusivas</string>
-    <string name="spoofing_vending_title">Play Store</string>
-    <string name="spoofing_vending_summary">Utiliza Play Store como el último dispositivo Pixel</string>
     <string name="spoofing_photos_title">Google Fotos</string>
     <string name="spoofing_photos_summary">Suplanta el dispositivo como Pixel XL en la aplicación Google Fotos para desbloquear el respaldo de imágenes limitado</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Utiliza Snapchat como un Pixel XL para solucionar posibles problemas con el chat</string>
     <string name="gameprops_title">Desbloquear el uso de FPS altos en juegos</string>
     <string name="gameprops_summary">Suplanta tu dispositivo como modelo diferente para juegos específicos para desbloquear FPS más altos</string>
+    <string name="gameprops_load_json_title">Seleccionar un archivo JSON de Game Props</string>
+    <string name="gameprops_load_json_summary">Escoger archivo JSON de Game Props para falsificar juegos</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Descargado correctamente pif.json. Suplantando como %1$s para la integridad de Google Play.</string>
     <string name="toast_spoofing_failure">Error al suplantar las propiedades.</string>
@@ -588,12 +571,12 @@
     <string name="accent_color">Color de acento (por defecto)</string>
     <string name="notification_color">Color de notificación</string>
     <string name="wallpaper_color">Color del fondo de pantalla</string>
-    <string name="rainbow_gradient_color">Color degradado del arco iris</string>
+    <string name="rainbow_color">Color arcoíris</string>
     <string name="custom_color">Color personalizado</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Valor: <xliff:g id="v">%s</xliff:g></string>
-    <string name="custom_seekbar_default_value">Predeterminado</string>
-    <string name="custom_seekbar_default_value_to_set">Valor por defecto: <xliff:g id="v">%s</xliff:g>\nMantener presionado para establecer</string>
+    <string name="custom_seekbar_default_value">por omisión</string>
+    <string name="custom_seekbar_default_value_to_set">Valor por defecto: <xliff:g id="v">%s</xliff:g>\nMantener pulsado para establecer</string>
     <string name="custom_seekbar_default_value_is_set">Valor por defecto establecido</string>
     <!-- General -->
     <string name="enable">Habilitar</string>
@@ -602,6 +585,9 @@
     <string name="default_value">Por defecto</string>
     <string name="top">Arriba</string>
     <string name="bottom">Inferior</string>
+    <string name="reset">Restablecer</string>
+    <string name="delete_message">¿Borrar selección?</string>
+    <string name="choose_app">Elije aplicación</string>
     <!-- Units -->
     <string name="unit_milliseconds">milisegundos</string>
     <string name="unit_seconds">segundos</string>
@@ -675,21 +661,27 @@
     <string name="depth_wallpaper_offset_x_title">Desplazamiento horizontal del fondo de pantalla</string>
     <string name="depth_wallpaper_offset_y_title">Desplazamiento vertical del fondo de pantalla</string>
     <string name="dw_footer_text">La función de fondo de pantalla de profundidad, inspirada en la segmentación subjetiva de fondo de pantalla de iOS, permite superponer un objeto sobre el reloj de la pantalla de bloqueo para mostrar un efecto de profundidad de fondo de pantalla.\n\nPara configurar la función de fondo de pantalla de profundidad:\n1. Establezca un fondo de pantalla con el objeto o un fondo sobre el que desea que el objeto esté.\n2. Seleccione una imagen para utilizar, esta imagen se superpondrá sobre el reloj de la pantalla de bloqueo.\n3. Modifique los desplazamientos y la opacidad según sus necesidades.    </string>
-    <!-- Media art -->
-    <string name="media_art_title">Carátula multimedia</string>
-    <string name="media_art_summary">Mostrar carátula multimedia si está disponible</string>
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Carátula multimedia</string>
+    <string name="ls_media_art_summary">Mostrar carátula multimedia si está disponible</string>
+    <!-- Lock screen media art on Ambient Display -->
+    <string name="ambient_media_art_title">Portada en la Pantalla ambiente</string>
+    <string name="ambient_media_art_summary">Mostrar portada en Pantalla ambiente cuando esté disponible</string>
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">Filtro de carátulas multimedia</string>
+    <string name="ls_media_art_filter_none">Ninguno</string>
+    <string name="ls_media_art_filter_blur">Desenfoque</string>
+    <string name="ls_media_art_filter_grayscale">Escala de grises</string>
+    <string name="ls_media_art_filter_sepia">Sepia</string>
+    <string name="ls_media_art_filter_tint">Acentuado tintado</string>
+    <string name="ls_media_art_filter_invert">Invertir</string>
+    <string name="ls_media_art_filter_grayblur">Escala de grises y desenfocado</string>
+    <!-- Lock screen media art fade level -->
     <string name="ls_media_art_fade_level_title">Nivel de difuminado de carátula multimedia</string>
     <string name="ls_media_art_fade_level_summary">Establecer el nivel de difuminado de la carátula multimedia</string>
-    <!-- Lock screen album art filter -->
-    <string name="lockscreen_albumart_filter_title">Filtro de carátulas multimedia</string>
-    <string name="lockscreen_albumart_filter_none">Ninguno</string>
-    <string name="lockscreen_albumart_filter_grayscale">Escala de grises</string>
-    <string name="lockscreen_albumart_filter_tint">Acentuado tintado</string>
-    <string name="lockscreen_albumart_filter_blur">Desenfoque</string>
-    <string name="lockscreen_albumart_filter_grayblur">Escala de grises y desenfoque</string>
-    <!-- Media Art Blur Level -->
-    <string name="lockscreen_media_art_blur_level_title">Nivel de desenfoque de carátula multimedia</string>
-    <string name="lockscreen_media_art_blur_level_summary">Intensidad cuando se aplica el filtro de desenfoque</string>
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">Nivel de desenfoque de la imagen de medios</string>
+    <string name="ls_media_art_blur_level_summary">Intensidad cuando se aplica el filtro de desenfoque</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Respuestas hápticas del sistema</string>
     <string name="haptics_settings_summary">Modificar las intensidades hápticas del sistema</string>
@@ -713,8 +705,10 @@
     <string name="lockscreen_weather_location_summary">Mostrar la ubicación actual</string>
     <string name="lockscreen_weather_text_title">Condición actual</string>
     <string name="lockscreen_weather_text_summary">Mostrar resumen de las condiciones climáticas actuales</string>
-    <string name="lockscreen_weather_style_title">Estilo Pixel</string>
-    <string name="lockscreen_weather_style_summary">Mostrar el clima como una fila separada</string>
+    <string name="lockscreen_weather_wind_info_title">Información del viento</string>
+    <string name="lockscreen_weather_wind_info_summary">Muestra la dirección y la velocidad actual del viento</string>
+    <string name="lockscreen_weather_humidity_info_title">Información de humedad</string>
+    <string name="lockscreen_weather_humidity_info_summary">Mostrar la humedad actual como porcentaje</string>
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Pantalla siempre activa</string>
     <string name="aod_pulse_category_title">Pulso/Inactividad</string>
@@ -787,17 +781,35 @@
     <!-- Max visible notification icons -->
     <string name="max_visible_notification_icons_title">Iconos de notificación</string>
     <string name="max_visible_notification_icons_summary">Número máximo de iconos de notificación visibles en la barra de estado</string>
+    <!-- Squiggle animation for media notification -->
+    <string name="media_squiggle_animation_title">Animación de garabato</string>
+    <string name="media_squiggle_animation_summary">Mostrar la animación de garabato en la barra de búsqueda del panel multimedia al reproducir medios</string>
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Chip de acción en la barra de estado</string>
     <string name="ongoing_progress_settings_summary">Opciones del chip de acción de la barra de estado</string>
     <string name="ongoing_action_chip_title">Chip de acción en curso</string>
     <string name="ongoing_action_chip_summary">Mostrar el indicador de progreso en la barra de estado para acciones en curso como las descargas</string>
-    <string name="ongoing_action_chip_opacity_title">Opacidad de la barra de progreso</string>
-    <string name="ongoing_action_chip_opacity_summary">Ajusta la opacidad del chip de la barra de progreso</string>
     <string name="compact_progress_mode_title">Indicador de progreso compacto</string>
     <string name="compact_progress_mode_summary">Utiliza un indicador circular compacto para acciones en curso</string>
     <string name="show_media_progress_title">Mostrar el progreso multimedia</string>
     <string name="show_media_progress_summary">\"Mostrar el progreso de la reproducción multimedia en la barra de estado</string>
+    <string name="progress_bar_opacity_title">Opacidad de la barra de progreso</string>
+    <string name="progress_bar_opacity_summary">Ajustar la transparencia del chip de la barra de progreso</string>
+    <string name="progress_enable_category_title">Configuración general</string>
+    <string name="standard_chip_position_title">Posición estándar del chip</string>
+    <string name="circular_chip_position_title">Posición de chip circular</string>
+    <string name="chip_position_x_title">Posición horizontal</string>
+    <string name="chip_position_x_summary">Mover el chip a la izquierda o a la derecha desde el punto de alineación</string>
+    <string name="chip_position_y_title">Posición vertical</string>
+    <string name="chip_position_y_summary">Mover el chip arriba o abajo en la barra de estado</string>
+    <string name="chip_size_title">Ancho del chip</string>
+    <string name="chip_size_summary">Ajustar el ancho del chip de la barra de progreso</string>
+    <string name="circular_chip_size_title">Tamaño del chip circular</string>
+    <string name="circular_chip_size_summary">Ajustar el diámetro del chip circular</string>
+    <string name="circular_position_x_title">Desplazamiento horizontal</string>
+    <string name="circular_position_x_summary">Ajustar posición horizontal</string>
+    <string name="circular_position_y_title">Desplazamiento vertical</string>
+    <string name="circular_position_y_summary">Ajustar posición vertical</string>
     <string name="progress_footer_text">\"La barra de progreso de la barra de estado proporciona actualizaciones en tiempo real tanto para la reproducción multimedia como para las descargas/subidas activas.
  
      - 🎵 Progreso Multimedia:
@@ -815,13 +827,7 @@
  
      La barra de progreso cambia dinámicamente entre los estados multimedia y descarga, asegurando que siempre tengas la información más relevante de un vistazo.\"
     </string>
-    <!-- Squiggle animation -->
-    <string name="show_squiggle_animation_title">Mostrar animación de garabato</string>
-    <string name="show_squiggle_animation_summary">Mostrar animación de garabato del panel multimedia\nDespués del cambio, es necesario cambiar la música, pausarla o mover la barra de progreso para aplicarla</string>
-    <!-- AOD wallpaper -->
-    <string name="aod_wallpaper_title">Fondo de pantalla siempre activa</string>
-    <string name="aod_wallpaper_summary">Mostrar fondo en pantalla siempre activa</string>
-    <!-- Battery bar -->
+    <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Barra de la batería</string>
     <string name="battery_bar_summary">Muestra y personaliza la barra de batería junto a la de estado o la de navegación</string>
     <string name="battery_bar_color">Color de la barra de batería</string>
@@ -840,55 +846,95 @@
     <string name="battery_bar_blend_color_reverse_summary_off">Lleno &#8594; vacío: rojo &#8592; verde &#8592; azul &#8592; rojo</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Lleno &#8594; vacío: rojo &#8594; verde &#8594; azul &#8594; rojo</string>
     <string name="battery_bar_use_gradient_color">Usar color degradado</string>
-    <string name="battery_bar_gradient_color_summary">Usar color degradado como una escala para el nivel de batería</string>
-    <string name="battery_bar_high_color">Color de alto nivel\"</string>
-    <string name="battery_bar_low_color">Color de bajo nivel\"</string>
-    <string name="battery_bar_animate_color">Color de animación de carga</string>
-    <!-- Single tap for keyguard affordance -->
-    <string name="keyguard_affordance_single_tap_title">Toque simple para elementos Keyguard</string>
-    <string name="keyguard_affordance_single_tap_summary">Activar elementos de Keyguard con un solo toque</string>
+    <string name="battery_bar_gradient_color_summary">Usar color degradado como una escala para el porcentaje de batería</string>
+    <string name="battery_bar_high_color">Color de nivel alto\'\'</string>
+    <string name="battery_bar_low_color">Color de nivel bajo\'\'</string>
+    <string name="battery_bar_animate_color">Color de la animación de carga</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Forma del deslizador de brillo</string>
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Notificaciones pequeñas en horizontal</string>
     <string name="small_landscape_notification_summary">Muestra las notificaciones más pequeñas en ancho en el panel de notificaciones en modo horizontal tal como se pretende con AOSP</string>
-    <!-- Notification Row -->
+    <!-- Notification row transparency -->
     <string name="notification_row_transparency_title">Transparencia de la fila de notificación</string>
     <string name="notification_row_transparency_summary">Mostrar notificaciones traslúcidas en configuración rápida</string>
-    <!-- Button settings -->
-    <string name="touchscreen_gesture_action_play_pause_music"></string>
-    <string name="hardware_keys_action_nothing">Sin acción</string>
-    <string name="hardware_keys_action_menu">Abrir/cerrar menú</string>
-    <string name="hardware_keys_action_app_switch">Selector de aplicaciones recientes</string>
-    <string name="hardware_keys_action_search">Asistente de búsqueda</string>
-    <string name="hardware_keys_action_voice_search">Búsqueda por voz</string>
-    <string name="hardware_keys_action_in_app_search">Búsqueda en la aplicación</string>
-    <string name="hardware_keys_action_launch_camera">Abrir cámara</string>
-    <string name="hardware_keys_action_sleep">Apagar la pantalla</string>
-    <string name="hardware_keys_action_last_app">Última aplicación</string>
-    <string name="hardware_keys_action_split_screen">Pantalla dividida</string>
-    <string name="hardware_keys_action_close_app">Detener aplicación</string>
-    <string name="hardware_keys_action_torch">Activar linterna</string>
-    <string name="hardware_keys_action_screenshot">Tomar captura de pantalla</string>
-    <string name="hardware_keys_action_volume_panel">Alternar panel de volumen</string>
-    <string name="hardware_keys_action_clear_all_notifications">Limpiar todas las notificaciones</string>
-    <string name="hardware_keys_action_notifications_panel">Alternar panel de notificaciones</string>
-    <string name="hardware_keys_action_expand_qs_panel">Expandir panel de ajustes rápidos</string>
-    <string name="hardware_keys_action_ringer_modes">Cambiar el modo de timbre</string>
-    <!-- Three Finger Gestures -->
-    <string name="three_finger_gesture_action_title">Gestos al deslizar tres dedos</string>
-    <string name="three_finger_gesture_action_dialog_title">Acciones de los gestos al deslizar tres dedos</string>
-    <string name="three_finger_long_press_action_title">Gestos de presión prolongada con tres dedos</string>
-    <string name="three_finger_long_press_action_dialog_title">Acciones de los gestos al deslizar tres dedos</string>
-    <!-- NT Three finger -->
-    <string name="nt_gesture_three_finger_swipe">Deslizar con tres dedos</string>
-    <string name="nt_gesture_three_finger_swipe_summary">Desliza hacia abajo con tres dedos para realizar acciones.</string>
-    <string name="nt_gesture_three_finger_long_press">Pulsación larga de tres dedos</string>
-    <string name="nt_gesture_three_finger_long_press_summary">Mantén presionado con tres dedos y luego desliza hacia abajo para tomar una captura de pantalla de área.</string>
-    <string name="nt_combination_power_volume_click">Desactivar botón de encendido &amp; botón de baja de volumen</string>
-    <string name="nt_combination_power_volume_click_summary">Desactive la función de tomar una captura de pantalla presionando y manteniendo presionado el botón de encendido y el botón de bajar volumen.</string>
-    <!-- Power off verify -->
-    <string name="power_off_verify_footer">La verificación de apagado protege tu dispositivo al prevenir que otras personas lo apaguen inmediatamente después de que se haya perdido, lo que aumenta las posibilidades de recuperación. Solo necesitas ingresar tu contraseña de la pantalla de bloqueo al apagar o reiniciar el teléfono desde la pantalla de bloqueo.</string>
-    <string name="power_off_verify_summary">Cuando tu dispositivo esté bloqueado, necesitarás usar tu contraseña para apagar o reiniciar.</string>
-    <string name="power_off_verify_title">Verificar apagado</string>
+    <string name="notification_row_transparency_lockscreen_title">Notificaciones transparentes en la pantalla de bloqueo</string>
+    <string name="notification_row_transparency_lockscreen_summary">Establecer fondo transparente en las notificaciones de la pantalla de bloqueo</string>
+    <!-- Dynamic charging animation -->
+    <string name="wireless_charging_dynamic_color_title">Color dinámico de carga</string>
+    <string name="wireless_charging_dynamic_color_summary">Usar el nivel de batería para determinar el color de la animación de la carga</string>
+    <!-- Ambient Wallpaper -->
+    <string name="doze_always_on_wallpaper_title">Fondo ambiente</string>
+    <string name="doze_always_on_wallpaper_summary">Mostrar fondo de bloqueo en Pantalla ambiente</string>
+    <!-- Floating rotation button -->
+    <string name="floating_rotation_button_title">Botón flotante de rotación</string>
+    <string name="floating_rotation_button_summary">Mostrar un botón de rotación cuando se gira el dispositivo</string>
+    <!-- Fonts Screen -->
+    <string name="font_title">Fuente</string>
+    <string name="font_style">Tipo de fuente</string>
+    <string name="font_preview_dialog_title">Previsualización de fuente</string>
+    <string name="apply">Aplicar</string>
+    <string name="applied">Aplicado</string>
+    <string name="reboot_device">Reiniciar dispositivo</string>
+    <string name="reboot_required_title">Se requiere reiniciar</string>
+    <string name="reboot_required_message">Para que los cambios de fuente se apliquen, es necesario reiniciar el sistema.\n¿Reiniciar ahora?</string>
+    <string name="reboot_now">Reiniciar ahora</string>
+    <string name="later">Más tarde</string>
+    <string name="reset_default_title">Restablecer a los ajustes por omisión</string>
+    <string name="reset_default_message">Esto restablecerá la fuente a la que viene por omisión en el sistema. ¿Estás seguro?</string>
+    <string name="add_font">Añadir fuente</string>
+    <string name="custom_font">Fuente personalizada</string>
+    <string name="no_custom_font">Sin fuente personalizada</string>
+    <string name="add_custom_font">Añadir fuente personalizada</string>
+    <string name="change_custom_font">Cambiar la fuente personalizada</string>
+    <string name="reset_custom_font_content_desc">Restablecer fuente personalizada</string>
+    <string name="reboot_required_custom_font_title">Para que los cambios de personalización de fuente se apliquen, es necesario reiniciar</string>
+    <string name="reboot_required_custom_font_desc">Saltar el reinicio después de modificar la fuente personalizada puede causar errores en la UI de las aplicaciones.</string>
+    <string name="font_preview_quote">El miedo es el enemigo de la innovación.</string>
+    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
+    <string name="active_content_desc">Activo</string>
+    <string name="toast_failed_apply_font">Error al aplicar la fuente</string>
+    <string name="toast_invalid_font_file">El archivo de la fuente no es válido</string>
+    <!-- Now Playing -->
+    <string name="nowplaying_title">Está sonando</string>
+    <string name="nowplaying_summary">Mostrar qué está sonando en la Pantalla de bloqueo y Pantalla siempre activa</string>
+    <string name="nowplaying_appearance_title">Apariencia</string>
+    <string name="nowplaying_use_accent_color_title">Usar color de acento</string>
+    <string name="nowplaying_use_accent_color_summary">Usar el color de acento del sistema en vez del blanco</string>
+    <string name="nowplaying_vertical_position_title">Posición vertical</string>
+    <string name="nowplaying_vertical_position_summary">Ajustar posición de arriba a abajo de la pantalla</string>
+    <string name="nowplaying_track_text_size_title">Tamaño del título de la canción</string>
+    <string name="nowplaying_track_text_size_summary">Tamaño del texto del título de la canción</string>
+    <string name="nowplaying_artist_text_size_title">Tamaño del nombre del artista</string>
+    <string name="nowplaying_artist_text_size_summary">Tamaño del texto del artista o el nombre del álbum</string>
+    <string name="nowplaying_display_title">Opciones de visualización</string>
+    <string name="nowplaying_show_on_lockscreen_title">Mostrar en la Pantalla de bloqueo</string>
+    <string name="nowplaying_show_on_lockscreen_summary">Mostrar información de música cuando el dispositivo está bloqueado</string>
+    <string name="nowplaying_icon_style_title">Estilo del ícono</string>
+    <string name="nowplaying_icon_style_summary">Escoger qué ícono se muestra</string>
+    <string name="nowplaying_icon_size_title">Tamaño de los iconos</string>
+    <string name="nowplaying_icon_size_summary">Ajustar el tamaño del ícono</string>
+    <string name="nowplaying_show_on_aod_title">Mostrar en Pantalla siempre activa</string>
+    <string name="nowplaying_show_on_aod_summary">Mostrar información de música en Pantalla ambiente</string>
+    <string name="nowplaying_compact_style_title">Estilo compacto</string>
+    <string name="nowplaying_compact_style_summary">Mostrar como una sola línea usando el tamaño del texto de la pista</string>
+    <string name="nowplaying_info_summary">Está sonando muestra el título de la canción y el artista actuales en tu Pantalla de bloqueo y Pantalla siempre activa. Se muestra cuando la canción se reproduce y deja de mostrarse cuando se para. La posición puede ser ajustada para que aparezca desde la parte superior hasta la parte inferior de la pantalla.</string>
+    <!-- Ripple Shape -->
+    <string name="ripple_shape_title">Forma del efecto de onda de carga</string>
+    <!-- Adaptive Playback -->
+    <string name="adaptive_playback_title">Reproducción inteligente</string>
+    <string name="adaptive_playback_summary">Pausa la reproducción cuando se silencia el volumen y reanuda la reproducción aumentándolo dentro del tiempo establecido</string>
+    <string name="adaptive_playback_intro_text">Pausa automáticamente la reproducción cuando el volumen está silenciado, y se reanudará cuando el volumen sea aumentado en el tiempo establecido</string>
+    <string name="adaptive_playback_timeout_title">Tiempo de espera de reproducción</string>
+    <!-- Statusbar Padding -->
+    <string name="statusbar_extra_padding_category">Margen extra</string>
+    <string name="statusbar_extra_padding_start_title">Margen inicial</string>
+    <string name="statusbar_extra_padding_top_title">Margen superior</string>
+    <string name="statusbar_extra_padding_end_title">Margen final</string>
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">Bloqueo de sensor por paquete</string>
+    <string name="sensor_block_summary">Bloquear el acceso a ciertos sensores para algunas apps para ahorrar batería</string>
+    <string name="sensor_block_app_picker_title">Bloquear sensores para estas aplicaciones</string>
+    <string name="add_sensor_block_package_title">Añadir aplicaciones para el bloqueo de sensores</string>
+    <string name="add_sensor_block_package_summary">Movimiento significativo, acelerómetro, sensores de aceleración lineal serán bloqueados para estas aplicaciones</string>
 </resources>
