@@ -11,7 +11,7 @@
     <string name="themes_title">Motywy</string>
     <string name="themes_summary">Silnik Monet, czcionki, ikony, animacje</string>
     <string name="lock_screen_title">Ekran blokady</string>
-    <string name="lock_screen_summary">Interfejs, pogoda, odcisk palca</string>
+    <string name="lock_screen_summary">Interfejs, teraz odtwarzane, odcisk palca</string>
     <string name="status_bar_title">Pasek stanu</string>
     <string name="status_bar_summary">Gesty, ikony, logo, wypełnienie</string>
     <string name="quick_settings_title">Szybkie ustawienia</string>
@@ -139,7 +139,7 @@
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
     <string name="pulse_settings_summary">Wyświetlaj wizualizator słupkowy na ekranie blokady podczas odtwarzania muzyki</string>
-    <string name="ambient_pulse_enabled_title">Wizualizator na ekranie otoczenia</string>
+    <string name="ambient_pulse_enabled_title">Pulse na ekranie otoczenia</string>
     <string name="ambient_pulse_enabled_summary">Pokaż wizualizator na ekranie otoczenia</string>
     <string name="pulse_rounded_bars_title">Zaokrąglone słupki</string>
     <string name="pulse_rounded_bars_summary">Wyświetl słupki wizualizatora z zaokrąglonymi rogami</string>
@@ -295,7 +295,7 @@
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli program uruchamiający jest widoczny</string>
     <string name="status_bar_clock_chip_title">Pasek w tle</string>
     <string name="status_bar_clock_chip_summary">Wyświetlaj zabarwione podświetlenie za zegarem</string>
-    <string name="status_bar_am_pm_title">Styl AM/PM</string>
+    <string name="status_bar_am_pm_title">Format 12-godzinny (AM/PM)</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
     <string name="status_bar_am_pm_normal">Normalny</string>
     <string name="status_bar_am_pm_small">Mały</string>
@@ -869,39 +869,32 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Pływający przycisk obracania</string>
     <string name="floating_rotation_button_summary">Pokaż pływający przycisk podczas obracania urządzenia</string>
-    <!-- Font Mode -->
-    <string name="font_mode_title">Źródło czcionki</string>
-    <string name="font_settings_title">Ustawienia czcionki</string>
-    <string name="font_settings_summary">Dostosuj czcionki systemowe</string>
-    <!-- Custom Font Picker -->
-    <string name="custom_font_picker_title">Dodaj niestandardową czcionkę</string>
-    <string name="custom_font_picker_summary">Wybierz plik czcionki z pamięci</string>
-    <string name="github_font_picker_title">Przeglądaj czcionki z GitHuba</string>
-    <string name="github_font_picker_summary">Pobierz i wyświetl podgląd czcionek z repozytorium</string>
-    <string name="custom_font_installed_title">Aktualna czcionka</string>
-    <string name="custom_font_installed_summary">%s</string>
-    <string name="reset_custom_font_title">Przywróć ustawienia domyślne</string>
-    <string name="reset_custom_font_summary">Usuń niestandardową czcionkę i przywróć domyślną czcionkę systemu</string>
-    <string name="reset_custom_font_content_desc">Zresetuj niestandardową czcionkę</string>
-    <string name="custom_font_reset_success">Przywróć domyślną czcionkę</string>
+    <!-- Fonts Screen -->
+    <string name="font_title">Czcionka</string>
+    <string name="font_style">Styl czcionki</string>
+    <string name="font_preview_dialog_title">Podgląd czcionki</string>
+    <string name="apply">Zastosuj</string>
+    <string name="applied">Zastosowano</string>
     <string name="reboot_device">Uruchom ponownie urządzenie</string>
     <string name="reboot_required_title">Wymagane ponowne uruchomienie</string>
-    <string name="reboot_required_message">Aby zmiany czcionek zaczęły obowiązywać, wymagane jest ponowne uruchomienie</string>
-    <string name="reboot_required_custom_font_desc">Uruchom ponownie, aby zastosować niestandardowe zmiany czcionek</string>
+    <string name="reboot_required_message">Aby zastosować zmiany czcionek, wymagane jest ponowne uruchomienie urządzenia.\nCzy chcesz teraz ponownie uruchomić?</string>
+    <string name="reboot_now">Uruchom ponownie teraz</string>
+    <string name="later">Później</string>
+    <string name="reset_default_title">Przywróć ustawienia domyślne</string>
+    <string name="reset_default_message">Spowoduje to przywrócenie domyślnej czcionki systemowej. Jesteś pewien?</string>
+    <string name="add_font">Dodaj czcionkę</string>
     <string name="custom_font">Niestandardowa czcionka</string>
-    <string name="custom_font_installed_success">Czcionka zainstalowana pomyślnie</string>
-    <string name="custom_font_install_failed">Nie udało się zainstalować czcionki</string>
-    <string name="font_preview_error">Nie udało się wyświetlić podglądu czcionki</string>
-    <string name="font_download_error">Nie udało się pobrać czcionki</string>
-    <string name="font_preview_title">Podgląd czcionki</string>
-    <string name="install_font">Instaluj</string>
-    <string name="github_fonts_header">Dostępne czcionki</string>
-    <string name="no_fonts_available">Brak dostępnych czcionek</string>
-    <string name="github_fonts_error">Nie można załadować czcionek z GitHuba</string>
-    <string name="github_fonts_fetch_error">Nie można załadować czcionek z GitHuba</string>
-    <string name="preview">Podgląd</string>
-    <string name="install">Instaluj</string>
-    <string name="download_first_message">Najpierw pobierz czcionkę, klikając Podgląd</string>
+    <string name="no_custom_font">Brak niestandardowej czcionki</string>
+    <string name="add_custom_font">Dodaj niestandardową czcionkę</string>
+    <string name="change_custom_font">Zmień niestandardową czcionkę</string>
+    <string name="reset_custom_font_content_desc">Zresetuj niestandardową czcionkę</string>
+    <string name="reboot_required_custom_font_title">Wymagane ponowne uruchomienie, aby zmienić czcionkę</string>
+    <string name="reboot_required_custom_font_desc">Pominięcie ponownego uruchomienia po zmianie czcionki może spowodować niespójności interfejsu użytkownika w aplikacjach.</string>
+    <string name="font_preview_quote">Strach jest wrogiem innowacji.</string>
+    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
+    <string name="active_content_desc">Aktywny</string>
+    <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
+    <string name="toast_invalid_font_file">Nieprawidłowy plik czcionki</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">Teraz odtwarzane</string>
     <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i w trybie Ekran zawsze włączony</string>
@@ -933,9 +926,6 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="adaptive_playback_summary">Wstrzymaj odtwarzanie multimediów, gdy dźwięk jest wyciszony i wznów je, zwiększając głośność w ciągu limitu czasu</string>
     <string name="adaptive_playback_intro_text">Automatycznie zatrzymuje odtwarzanie multimediów, gdy dźwięk jest wyciszony i wznawia ich odtwarzanie, gdy dźwięk zostanie podgłośniony w określonym czasie</string>
     <string name="adaptive_playback_timeout_title">Limit czasu odtwarzania</string>
-    <!-- Smartspace -->
-    <string name="lockscreen_smartspace_title">Inteligentna przestrzeń</string>
-    <string name="lockscreen_smartspace_summary">Pokaż inteligentną przestrzeń Google, jeśli jest dostępna</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Dodatkowe wypełnienie</string>
     <string name="statusbar_extra_padding_start_title">Początkowe wypełnienie</string>
