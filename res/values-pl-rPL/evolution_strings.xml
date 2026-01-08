@@ -25,7 +25,7 @@
     <string name="miscellaneous_title">Różne</string>
     <string name="miscellaneous_summary">Fałszowanie, opcje programisty</string>
     <string name="about_title">Evolution X</string>
-    <string name="about_summary">O naszym ROM</string>
+    <string name="about_summary">O Evolution X</string>
     <!-- Themes -->
     <string name="themes_general_category">Ogólne</string>
     <string name="themes_monet_category">Silnik Monet</string>
@@ -38,16 +38,16 @@
     <string name="themes_system_font_title">Czcionka systemowa</string>
     <string name="themes_system_font_summary">Ustaw styl czcionki systemowej</string>
     <string name="themes_lock_screen_clock_font_title">Czcionka zegara na ekranie blokady</string>
-    <string name="themes_lock_screen_clock_font_summary">Ustaw styl czcionki zegara ekranu blokady</string>
+    <string name="themes_lock_screen_clock_font_summary">Ustaw styl czcionki zegara na ekranie blokady</string>
     <string name="themes_icons_category">Ikony</string>
     <string name="themes_system_icons_title">Ikony systemowe</string>
-    <string name="themes_system_icons_summary">Wybierz niestandardową paczkę ikon</string>
+    <string name="themes_system_icons_summary">Ustaw styl ikon systemowych</string>
     <string name="themes_icon_shape_title">Kształt ikon</string>
     <string name="themes_icon_shape_summary">Ustaw kształt ikon systemowych</string>
     <string name="themes_signal_icon_title">Ikona sygnału</string>
-    <string name="themes_signal_icon_summary">Ustaw niestandardowy wygląd ikony sygnału</string>
+    <string name="themes_signal_icon_summary">Ustaw styl ikony sygnału</string>
     <string name="themes_wifi_icon_title">Ikona Wi-Fi</string>
-    <string name="themes_wifi_icon_summary">Ustaw niestandardowy wygląd ikony Wi-Fi</string>
+    <string name="themes_wifi_icon_summary">Ustaw styl ikony Wi-Fi</string>
     <string name="themes_navigation_bar_icons_title">Ikony paska nawigacyjnego</string>
     <string name="themes_navigation_bar_icons_summary">Ustaw styl ikony paska nawigacyjnego</string>
     <string name="themes_udfps_icon_title">Ikona odcisku palca</string>
@@ -56,8 +56,8 @@
     <string name="themes_brightness_slider_title">Styl suwaka jasności</string>
     <string name="themes_brightness_slider_summary">Ustaw styl suwaka jasności</string>
     <string name="themes_animations_category">Animacje</string>
-    <string name="themes_boot_animation_title">Animacja uruchamiania</string>
-    <string name="themes_boot_animation_summary">Ustaw styl animacji uruchamiania</string>
+    <string name="themes_boot_animation_title">Animacja startowa</string>
+    <string name="themes_boot_animation_summary">Ustaw styl animacji startowej</string>
     <string name="themes_charging_animation_title">Animacja ładowania</string>
     <string name="themes_charging_animation_summary">Wyświetl animację podczas podłączania urządzenia do ładowania</string>
     <string name="themes_screen_off_animation_title">Animacja wyłączania ekranu</string>
@@ -67,9 +67,9 @@
     <string name="themes_udfps_animation_summary">Ustaw styl animacji odcisku palca</string>
     <string name="themes_launcher_category">Program uruchamiający Pixel</string>
     <string name="themes_launcher_background_blur_title">Rozmycie tła</string>
-    <string name="themes_launcher_background_blur_summary">Włącz efekt rozmycia dla tła strony ostatnich elementów</string>
+    <string name="themes_launcher_background_blur_summary">Włącz efekt rozmycia tła dla strony z ostatnimi elementami</string>
     <string name="themes_launcher_more_themed_icons_title">Więcej ikon tematycznych</string>
-    <string name="themes_launcher_more_themed_icons_summary">Rozszerza obsługę dynamicznych ikon o różnych kolorach dla zainstalowanych aplikacji</string>
+    <string name="themes_launcher_more_themed_icons_summary">Rozszerza obsługę ikon tematycznych opartych na kolorach motywu dla zainstalowanych aplikacji</string>
     <string name="theme_customization_font_title">Styl czcionki</string>
     <string name="theme_customization_font_summary">Ustaw styl czcionki systemowej</string>
     <string name="theme_customization_icon_pack_title">Pakiet ikon</string>
@@ -83,13 +83,13 @@
     <string name="theme_customization_navbar_title">Styl paska nawigacji</string>
     <string name="theme_customization_navbar_summary">Ustaw własny styl paska nawigacji</string>
     <string name="theme_customization_lock_clock_title">Styl czcionki zegara</string>
-    <string name="theme_customization_lock_clock_summary">Ustaw styl czcionki zegara ekranu blokady</string>
+    <string name="theme_customization_lock_clock_summary">Ustaw styl czcionki zegara na ekranie blokady</string>
     <string name="theme_customization_brightness_slider_title">Styl suwaka jasności</string>
     <string name="theme_customization_brightness_slider_summary">Ustaw niestandardowy styl suwaka jasności</string>
     <!-- Themes/Boot animation preview -->
-    <string name="boot_animation_preview_desc">Podgląd wybranej animacji uruchamiania</string>
-    <string name="boot_animation_preview_summary">Podgląd aktualnie wybranej animacji uruchamiania</string>
-    <string name="boot_animation_preview_title">Podgląd animacji uruchamiania</string>
+    <string name="boot_animation_preview_desc">Podgląd wybranej animacji startowej</string>
+    <string name="boot_animation_preview_summary">Podgląd aktualnie wybranej animacji startowej</string>
+    <string name="boot_animation_preview_title">Podgląd animacji startowej</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Kolor akcentu</string>
     <string name="monet_engine_custom_color_summary">Wybierz niestandardowy kolor akcentu</string>
@@ -102,7 +102,7 @@
     <string name="monet_engine_chroma_factor_summary">Wyższe wartości tworzą mocniejsze kolory</string>
     <string name="monet_engine_whole_palette_title">Cała paleta</string>
     <string name="monet_engine_whole_palette_summary">Ustaw jasność i nasycenie tak, aby miały wpływ również na kolory dodatkowe</string>
-    <string name="monet_engine_tint_background_title">Akcentowane tło</string>
+    <string name="monet_engine_tint_background_title">Odcień tła</string>
     <string name="monet_engine_tint_background_summary">Spraw, aby wybór jasności i nasycenia wpływał również na kolory tła</string>
     <string name="monet_engine_style_title">Styl motywu</string>
     <string name="monet_engine_style_tonal_spot">Punkt tonalny (domyślny)</string>
@@ -112,7 +112,7 @@
     <string name="monet_engine_style_rainbow">Tęcza</string>
     <string name="monet_engine_style_fruit_salad">Sałatka owocowa</string>
     <string name="monet_engine_style_content">Zawartość</string>
-    <string name="monet_engine_style_monochromatic">Monochromatyczne</string>
+    <string name="monet_engine_style_monochromatic">Monochromatyczny</string>
     <string name="monet_engine_color_source_title">Źródło kolorów</string>
     <string name="monet_engine_color_source_both">Oba (domyślne)</string>
     <string name="monet_engine_color_source_home">Tapeta ekranu głównego</string>
@@ -121,15 +121,15 @@
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interfejs</string>
     <string name="lock_screen_charging_stats_title">Statystyki ładowania</string>
-    <string name="lock_screen_charging_stats_summary">Wyświetlanie statystyk prądu, napięcia, mocy i temperatury podczas ładowania</string>
+    <string name="lock_screen_charging_stats_summary">Wyświetlaj statystyki prądu, napięcia, mocy i temperatury podczas ładowania</string>
     <string name="lock_screen_charging_time_title">Czas ładowania</string>
-    <string name="lock_screen_charging_time_summary">Wyświetl pozostały czas ładowania do zakończenia</string>
+    <string name="lock_screen_charging_time_summary">Wyświetl pozostały czas do zakończenia ładowania</string>
     <string name="lock_screen_fingerprint_category">Odcisk palca</string>
-    <string name="lock_screen_fingerprint_ripple_title">Animacja fali</string>
-    <string name="lock_screen_fingerprint_ripple_summary">Pokaż efekt fali podczas odblokowywania odciskiem palca</string>
-    <string name="lock_screen_fingerprint_success_vibration_title">Wibracja poprawnego uwierzytelniania</string>
+    <string name="lock_screen_fingerprint_ripple_title">Animacja falowania</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Pokaż animację falowania podczas odblokowywania odciskiem palca</string>
+    <string name="lock_screen_fingerprint_success_vibration_title">Wibracja po udanej autoryzacji</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Wibruj po pomyślnym uwierzytelnieniu odcisku palca</string>
-    <string name="lock_screen_fingerprint_error_vibration_title">Wibracja błędu uwierzytelniania</string>
+    <string name="lock_screen_fingerprint_error_vibration_title">Wibracja po nieudanej autoryzacji</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Wibruj po nieudanym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_miscellaneous_category">Różne</string>
     <string name="lock_screen_pocket_detection_title">Wykrywanie zasłonięcia</string>
@@ -167,13 +167,13 @@
     <string name="lockscreen_clock_category_summary">Konfiguruj styl zegara ekranu blokady</string>
     <string name="custom_clock_style">Niestandardowy styl zegara</string>
     <string name="theme_customization_lock_clock_face_title">Tarcza zegara</string>
-    <string name="theme_customization_lock_clock_face_summary">Zmodyfikuj wygląd zegara ekranu blokady</string>
+    <string name="theme_customization_lock_clock_face_summary">Zmodyfikuj wygląd zegara na ekranie blokady</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Gesty</string>
     <string name="status_bar_brightness_control_title">Kontrola jasności</string>
     <string name="status_bar_brightness_control_summary">Dostosuj jasność, przeciągając palcem po pasku stanu</string>
     <string name="status_bar_quick_pull_down_title">Szybkie rozwijanie</string>
-    <string name="status_bar_quick_pull_down_summary">%1$s krawędzi paska statusu rozwija szybkie ustawienia</string>
+    <string name="status_bar_quick_pull_down_summary">%1$s krawędzi paska stanu rozwija szybkie ustawienia</string>
     <string name="status_bar_quick_pull_down_off">Wyłącz</string>
     <string name="status_bar_quick_pull_down_right">Prawa strona</string>
     <string name="status_bar_quick_pull_down_left">Lewa strona</string>
@@ -196,8 +196,8 @@
     <string name="status_bar_battery_style_icon_landscape_style_b">Poziomo L styl B</string>
     <string name="status_bar_battery_style_icon_landscape_ios15">iOS 15 w poziomie</string>
     <string name="status_bar_battery_style_icon_landscape_ios16">iOS 16 w poziomie</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">Origami poziomo</string>
-    <string name="status_bar_battery_style_icon_landscape_oneui7">OneUI 7 poziomo</string>
+    <string name="status_bar_battery_style_icon_landscape_origami">Origami w poziomie</string>
+    <string name="status_bar_battery_style_icon_landscape_oneui7">OneUI 7 w poziomie</string>
     <string name="status_bar_battery_style_circle">Okrąg</string>
     <string name="status_bar_battery_style_dotted_circle">Wypunktowany okrąg</string>
     <string name="status_bar_battery_style_filled_circle">Wypełniony okrąg</string>
@@ -216,7 +216,7 @@
     <string name="status_bar_battery_text_charging_summary">Zawsze wyświetlaj poziom baterii w trakcie ładowania</string>
     <string name="status_bar_clock_and_date_title">Zegar &amp; data</string>
     <string name="status_bar_clock_and_date_summary">Dostosuj zegar &amp; datę</string>
-    <string name="status_bar_data_disabled_icon_title">Ikona wyłączonych danych mobilnych</string>
+    <string name="status_bar_data_disabled_icon_title">Wskaźnik wyłączonych danych mobilnych</string>
     <string name="status_bar_data_disabled_icon_summary">Wyświetlaj wskaźnik obok ikony sygnału, gdy dane mobilne są wyłączone</string>
     <string name="status_bar_4g_icon_title">Ikona 4G</string>
     <string name="status_bar_4g_icon_summary">Zamień ikonę LTE na 4G</string>
@@ -227,7 +227,7 @@
     <string name="status_bar_colored_icons_title">Kolorowe ikony</string>
     <string name="status_bar_colored_icons_summary">Użyj ikon programu uruchamiającego do powiadomień aplikacji</string>
     <string name="status_bar_logo_title">Logo</string>
-    <string name="status_bar_logo_summary">Wyświetl niestandardowe logo paska statusu</string>
+    <string name="status_bar_logo_summary">Wyświetl niestandardowe logo na pasku stanu</string>
     <string name="status_bar_logo_position_title">Pozycja logo</string>
     <string name="status_bar_logo_position_left">Lewa strona</string>
     <string name="status_bar_logo_position_right">Prawa strona</string>
@@ -271,14 +271,14 @@
     <string name="status_bar_notif_count_title">Licznik powiadomień</string>
     <string name="status_bar_notif_count_summary">Wyświetlaj liczbę nieprzeczytanych powiadomień na każdej ikonie aplikacji</string>
     <string name="status_bar_privacy_indicators_category">Wskaźniki prywatności</string>
-    <string name="status_bar_mic_camera_privacy_indicator_title">Mikrofon &amp; aparat</string>
-    <string name="status_bar_mic_camera_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do mikrofonu lub kamery</string>
+    <string name="status_bar_mic_camera_privacy_indicator_title">Mikrofon i aparat</string>
+    <string name="status_bar_mic_camera_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do mikrofonu lub aparatu</string>
     <string name="status_bar_location_privacy_indicator_title">Lokalizacja</string>
     <string name="status_bar_location_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do twojej lokalizacji</string>
     <string name="status_bar_projection_privacy_indicator_title">Projekcja ekranu</string>
-    <string name="status_bar_projection_privacy_indicator_summary">Wyświetlaj wskaźnik podczas wyświetlania ekranu</string>
+    <string name="status_bar_projection_privacy_indicator_summary">Wyświetlaj wskaźnik podczas projekcji ekranu</string>
     <string name="status_bar_carrier_lock_screen_title">Nazwa operatora</string>
-    <string name="status_bar_carrier_lock_screen_summary">Wyświetl nazwę operatora na pasku statusu ekranu blokady</string>
+    <string name="status_bar_carrier_lock_screen_summary">Wyświetl nazwę operatora na pasku stanu ekranu blokady</string>
     <string name="status_bar_lyric_title">Tekst piosenki na pasku stanu</string>
     <string name="status_bar_lyric_summary">Pokaż tekst piosenki na pasku stanu (wymaga wsparcia aplikacji)</string>
     <string name="status_bar_lyric_options_title">Opcje</string>
