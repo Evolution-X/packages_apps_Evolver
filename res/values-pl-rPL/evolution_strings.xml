@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Rozwijamy Twoje urządzenie na Twój sposób</string>
+    <string name="evolver_dashboard_summary">Rozwijaj swoje urządzenie na swój sposób</string>
     <!-- Categories -->
     <string name="themes_title">Motywy</string>
     <string name="themes_summary">Silnik Monet, czcionki, ikony, animacje</string>
@@ -274,7 +274,7 @@
     <string name="status_bar_mic_camera_privacy_indicator_title">Mikrofon &amp; aparat</string>
     <string name="status_bar_mic_camera_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do mikrofonu lub kamery</string>
     <string name="status_bar_location_privacy_indicator_title">Lokalizacja</string>
-    <string name="status_bar_location_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do Twojej lokalizacji</string>
+    <string name="status_bar_location_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do twojej lokalizacji</string>
     <string name="status_bar_projection_privacy_indicator_title">Projekcja ekranu</string>
     <string name="status_bar_projection_privacy_indicator_summary">Wyświetlaj wskaźnik podczas wyświetlania ekranu</string>
     <string name="status_bar_carrier_lock_screen_title">Nazwa operatora</string>
@@ -325,7 +325,7 @@
     <string name="network_traffic_mode_down">Tylko pobieranie</string>
     <string name="network_traffic_mode_all">Wysyłanie i pobieranie</string>
     <string name="network_traffic_autohide">Automatyczne ukrywanie</string>
-    <string name="network_traffic_autohide_summary">Ukryj monitor ruchu przy braku aktywności</string>
+    <string name="network_traffic_autohide_summary">Ukryj monitor ruchu przy braku aktywności sieci</string>
     <string name="network_traffic_autohide_threshold">Próg bezczynności</string>
     <string name="network_traffic_refresh_interval_title">Częstotliwość odświeżania</string>
     <string name="network_traffic_refresh_interval_summary">Czas, po którym prędkość jest ponownie mierzona</string>
@@ -650,8 +650,8 @@
     <string name="frosted_blur">Matowe rozmycie</string>
     <string name="wallpaper_styles_footer">Aby style tapet działały efektywnie, użytkownicy muszą ustawić tapety dla ekranu blokady i ekranu głównego w różnych momentach.\n Można użyć tej samej tapety, ale nie należy jej stosować jednocześnie na ekranie blokady i ekranie głównym.\n Jest to opcjonalne w przypadku korzystania z obu opcji dla stylów rozmycia i przyciemnienia tapety    </string>
     <!-- Compact QS Media Player-->
-    <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimedialny szybkich ustawień</string>
-    <string name="qs_compact_media_player_mode_summary">Włącz tryb kompaktowy dla odtwarzacza multimedialnego szybkich ustawień</string>
+    <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimedialny w szybkich ustawieniach</string>
+    <string name="qs_compact_media_player_mode_summary">Włącz tryb kompaktowy dla odtwarzacza multimedialnego w szybkich ustawieniach</string>
     <!-- Depth Wallpaper -->
     <string name="dw_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
     <string name="dw_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
@@ -740,7 +740,7 @@
     <string name="clock_timer">Zegar/stoper</string>
     <string name="calculator">Kalkulator</string>
     <string name="gallery">Galeria</string>
-    <string name="media">Odtwarzacz multimediów</string>
+    <string name="media">Odtwarzacz multimedialny</string>
     <string name="torch">Latarka</string>
     <string name="controls_media_button_play">Graj</string>
     <string name="weather">Pogoda</string>
