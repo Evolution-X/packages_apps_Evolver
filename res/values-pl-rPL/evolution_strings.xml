@@ -185,7 +185,7 @@
     <string name="status_bar_battery_style_icon_portrait">Ikona pionowa</string>
     <string name="status_bar_battery_style_icon_rlandscape">Ikona pozioma (po prawej)</string>
     <string name="status_bar_battery_style_icon_landscape">Ikona pozioma (po lewej)</string>
-    <string name="status_bar_battery_style_icon_landscape_buddy">Pozioma kapsuła</string>
+    <string name="status_bar_battery_style_icon_landscape_buddy">Kapsuła poziomo</string>
     <string name="status_bar_battery_style_icon_landscape_line">Lorn poziomo</string>
     <string name="status_bar_battery_style_icon_landscape_musku">iOS pionowo </string>
     <string name="status_bar_battery_style_icon_landscape_pill">Mx pionowo</string>
@@ -214,8 +214,8 @@
     <string name="status_bar_battery_percent_text_next_left">Obok ikony (po lewej)</string>
     <string name="status_bar_battery_text_charging_title">Poziom baterii w trakcie ładowania</string>
     <string name="status_bar_battery_text_charging_summary">Zawsze wyświetlaj poziom baterii w trakcie ładowania</string>
-    <string name="status_bar_clock_and_date_title">Zegar &amp; data</string>
-    <string name="status_bar_clock_and_date_summary">Dostosuj zegar &amp; datę</string>
+    <string name="status_bar_clock_and_date_title">Zegar i data</string>
+    <string name="status_bar_clock_and_date_summary">Dostosuj zegar i datę</string>
     <string name="status_bar_data_disabled_icon_title">Wskaźnik wyłączonych danych mobilnych</string>
     <string name="status_bar_data_disabled_icon_summary">Wyświetlaj wskaźnik obok ikony sygnału, gdy dane mobilne są wyłączone</string>
     <string name="status_bar_4g_icon_title">Ikona 4G</string>
@@ -396,9 +396,9 @@
     <string name="quick_settings_tile_animation_interpolator_decelerate">Spowolniona</string>
     <string name="quick_settings_tile_animation_interpolator_accelerateDecelerate">Przyśpieszona, spowolniona</string>
     <string name="quick_settings_tile_animation_interpolator_bounce">Odbicie</string>
-    <string name="quick_settings_tile_animation_interpolator_overshoot">Przestrzelenie</string>
-    <string name="quick_settings_tile_animation_interpolator_anticipate">Przewidywanie</string>
-    <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Przewiduj przekroczenie</string>
+    <string name="quick_settings_tile_animation_interpolator_overshoot">Przeregulowanie</string>
+    <string name="quick_settings_tile_animation_interpolator_anticipate">Cofnięcie</string>
+    <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Cofnięcie z przeregulowaniem</string>
     <string name="quick_settings_data_usage_title">Wykorzystanie danych mobilnych</string>
     <string name="quick_settings_data_usage_summary">Wyświetla podsumowanie wykorzystania danych mobilnych w sekcji szybkich ustawień</string>
     <string name="quick_settings_lock_screen_category">Ekran blokady</string>
@@ -446,8 +446,8 @@
     <string name="notifications_alert_display_on_title">Komunikat przy włączonym ekranie</string>
     <string name="notifications_alert_display_on_summary">Odtwarzaj dźwięk i wibracje dla powiadomień, gdy ekran jest włączony</string>
     <!-- Notifications/Alert Slider Notifications (OnePlus devices) -->
-    <string name="alert_slider_notifications_title">Powiadomienia suwaka</string>
-    <string name="alert_slider_notifications_summary">Wyświetlaj powiadomienie podczas zmiany pozycji suwaka powiadomień</string>
+    <string name="alert_slider_notifications_title">Powiadomienia suwaka komunikatów</string>
+    <string name="alert_slider_notifications_summary">Wyświetlaj powiadomienie podczas zmiany pozycji suwaka komunikatów</string>
     <!-- Notifications/Compact Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Kompaktowe wyskakujące powiadomienia</string>
     <string name="compact_heads_up_notifications_enabled_summary">Wyświetla powiadomienia w kompaktowym rozmiarze</string>
@@ -482,7 +482,7 @@
     <!-- Power menu/Power menu actions -->
     <string name="power_menu_actions_advanced_reboot_title">Zaawansowany restart</string>
     <string name="power_menu_actions_screenshot_title">Zrzut ekranu</string>
-    <string name="power_menu_actions_onthego_title">Tryb OTG</string>
+    <string name="power_menu_actions_onthego_title">Tryb przeźroczystego ekranu</string>
     <string name="power_menu_actions_airplane_title">Tryb samolotowy</string>
     <string name="power_menu_actions_torch_title">Latarka</string>
     <string name="power_menu_actions_settings_title">Ustawienia</string>
@@ -500,7 +500,7 @@
     <string name="miscellaneous_app_downgrade_summary">Zezwolenie na obniżenie wersji aplikacji systemowych, może skutkować awariami i utratą danych</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignoruj żądania przyciemnienia tapety</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Blokuje wszystkim aplikacjom możliwość ustawienia przyciemnienia tapety\nWymusza przyciemnienie na 0</string>
-    <string name="miscellaneous_ignore_window_secure_title">Ignoruj bezpieczne flagi okna</string>
+    <string name="miscellaneous_ignore_window_secure_title">Ignoruj flagi bezpieczeństwa okna</string>
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów i nagrywania ekranu dla wszystkich aplikacji, potencjalne ryzyko wycieku danych osobowych</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
@@ -690,7 +690,7 @@
     <string name="brightness_slider_haptics_intensity_title">Intensywność wibracji suwaka jasności</string>
     <string name="edge_scrolling_haptics_intensity_title">Intensywność wibracji podczas przewijania krawędzi</string>
     <string name="volume_slider_haptics_intensity_title">Intensywność wibracji suwaka głośności</string>
-    <string name="volume_sound_haptics_title">Dźwiękowe potwierdzenie podczas regulacji głośności</string>
+    <string name="volume_sound_haptics_title">Informacja zwrotna o głośności</string>
     <string name="volume_sound_haptics_summary">Włącz dźwiękowe potwierdzenie podczas regulacji głośności</string>
     <string name="qs_panel_tile_haptic_intensity_title">Intensywność wibracji gestu wstecz</string>
     <string name="qs_haptics_intensity_title">Intensywność wibracji gestu szybkich ustawień</string>
@@ -714,10 +714,10 @@
     <string name="aod_display_category_title">Ekran zawsze włączony</string>
     <string name="aod_pulse_category_title">Puls/drzemka</string>
     <!-- AOD custom image -->
-    <string name="lockscreen_custom_image_enabled_title">Obraz AOD</string>
-    <string name="lockscreen_custom_image_title">Wybierz obraz AOD</string>
-    <string name="lockscreen_custom_image_summary">Ustaw niestandardowy obraz AOD</string>
-    <string name="lockscreen_custom_image_pick_summary">Wybierz obraz AOD z galerii</string>
+    <string name="lockscreen_custom_image_enabled_title">Obraz dla Ekran zawsze włączony</string>
+    <string name="lockscreen_custom_image_title">Wybierz obraz dla Ekran zawsze włączony</string>
+    <string name="lockscreen_custom_image_summary">Ustaw niestandardowy obraz dla Ekran zawsze włączony</string>
+    <string name="lockscreen_custom_image_pick_summary">Wybierz obraz dla Ekran zawsze włączony z galerii</string>
     <string name="custom_aod_image_not_supported">Styl zegara nie jest obsługiwany</string>
     <!-- QS Widgets -->
     <string name="qs_widgets_enabled_title">Widżety szybkich ustawień</string>
@@ -752,8 +752,8 @@
     <string name="wallet">Portfel</string>
     <!-- Lockscreen Widgets Styles -->
     <string name="lockscreen_widgets_style_title">Styl widżetów ekranu blokady</string>
-    <string name="lockscreen_widgets_style1">Zaokrąglony materiał</string>
-    <string name="lockscreen_widgets_style2">Kwadratowy materiał</string>
+    <string name="lockscreen_widgets_style1">Zaokrąglony styl Material</string>
+    <string name="lockscreen_widgets_style2">Kwadratowy styl Material</string>
     <string name="lockscreen_widgets_style3">Przezroczysty (kwadratowy)</string>
     <string name="lockscreen_widgets_style4">Przezroczysty (zaokrąglony)</string>
     <string name="lockscreen_widgets_transparency_title">Przezroczystość widżetu w stylu przezroczystym</string>
@@ -887,7 +887,7 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="no_custom_font">Brak niestandardowej czcionki</string>
     <string name="add_custom_font">Dodaj niestandardową czcionkę</string>
     <string name="change_custom_font">Zmień niestandardową czcionkę</string>
-    <string name="reset_custom_font_content_desc">Zresetuj niestandardową czcionkę</string>
+    <string name="reset_custom_font_content_desc">Resetuj niestandardową czcionkę</string>
     <string name="reboot_required_custom_font_title">Wymagane ponowne uruchomienie, aby zmienić czcionkę</string>
     <string name="reboot_required_custom_font_desc">Pominięcie ponownego uruchomienia po zmianie czcionki może spowodować niespójności interfejsu użytkownika w aplikacjach.</string>
     <string name="font_preview_quote">Strach jest wrogiem innowacji.</string>
@@ -899,8 +899,8 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="nowplaying_title">Teraz odtwarzane</string>
     <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i w trybie Ekran zawsze włączony</string>
     <string name="nowplaying_appearance_title">Wygląd</string>
-    <string name="nowplaying_use_accent_color_title">Użyj koloru akcentującego</string>
-    <string name="nowplaying_use_accent_color_summary">Użyj systemowego koloru akcentującego zamiast białego</string>
+    <string name="nowplaying_use_accent_color_title">Użyj koloru akcentu</string>
+    <string name="nowplaying_use_accent_color_summary">Użyj systemowego koloru akcentu zamiast białego</string>
     <string name="nowplaying_vertical_position_title">Pozycja pionowa</string>
     <string name="nowplaying_vertical_position_summary">Dostosuj położenie od góry do dołu ekranu</string>
     <string name="nowplaying_track_text_size_title">Rozmiar tytułu utworu</string>
@@ -920,7 +920,7 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="nowplaying_compact_style_summary">Pokaż jako pojedynczą linię używając rozmiaru tekstu utworu</string>
     <string name="nowplaying_info_summary">Funkcja Teraz odtwarzane wyświetla tytuł i wykonawcę aktualnie odtwarzanego utworu na ekranie blokady i w trybie Ekran zawsze wlaczony. Wyświetla się automatycznie podczas odtwarzania muzyki i znika po jej zatrzymaniu. Pozycję wyświetlania można dostosować, aby wyświetlać ją w dowolnym miejscu, od góry do dołu ekranu.</string>
     <!-- Ripple Shape -->
-    <string name="ripple_shape_title">Kształt fali ładowania</string>
+    <string name="ripple_shape_title">Kształt ładowania fali</string>
     <!-- Adaptive Playback -->
     <string name="adaptive_playback_title">Odtwarzanie adaptacyjne</string>
     <string name="adaptive_playback_summary">Wstrzymaj odtwarzanie multimediów, gdy dźwięk jest wyciszony i wznów je, zwiększając głośność w ciągu limitu czasu</string>
