@@ -520,42 +520,42 @@
     <string name="smart_pixels_shift_summary">Zapobiega wypalaniu na urządzeniach OLED przez częstsze przesuwanie pikseli</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Fałszowanie komponentu</string>
-    <string name="spoofing_summary">Omijanie ograniczeń aplikacji poprzez fałszowanie komponentów</string>
+    <string name="spoofing_summary">Pomiń ograniczenia aplikacji poprzez fałszowanie komponentów</string>
     <string name="spoofing_system_wide_category">W całym systemie</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
     <string name="spoofing_pixel_props_summary">Podszywaj wybraną grupę aplikacji Google pod najnowsze urządzenie Pixel</string>
-    <string name="tensor_spoof_title">Funkcje Pixel tensor</string>
-    <string name="tensor_spoof_summary">Odblokuj funkcje dostępne wyłącznie w urządzeniach Pixel opartych na tensorze</string>
-    <string name="gms_spoof_title">Play Integrity Fix</string>
-    <string name="gms_spoof_summary">Sfałszuj swoje urządzenie, aby przejść certyfikację Google Play</string>
+    <string name="tensor_spoof_title">Funkcje AI oparte na Tensor</string>
+    <string name="tensor_spoof_summary">Odblokuj funkcje AI dostępne wyłącznie w urządzeniach Pixel opartych na Tensor</string>
+    <string name="gms_spoof_title">Naprawa integralności Google Play</string>
+    <string name="gms_spoof_summary">Sfałszuj właściwości urządzenia, aby przejść weryfikację Google Play</string>
     <string name="spoofing_app_specific_category">Specyficzne dla aplikacji</string>
     <string name="spoofing_photos_title">Zdjęcia Google</string>
-    <string name="spoofing_photos_summary">Podszyj się pod Pixel XL w Zdjęciach Google</string>
+    <string name="spoofing_photos_summary">Podszyj się pod Pixel XL w aplikacji Zdjęcia Google</string>
     <string name="spoofing_snap_title">Snapchat</string>
-    <string name="spoofing_snap_summary">Podszyj się pod Pixel XL w Snapchacie, aby naprawić możliwe problemy z czatem</string>
-    <string name="gameprops_title">Włącz fałszowanie ustawień gier</string>
-    <string name="gameprops_summary">Fałszowanie urządzenia jako inny model w określonych grach w celu odblokowania wyższej liczby klatek na sekundę.</string>
-    <string name="gameprops_load_json_title">Wybierz plik JSON ustawień gry</string>
-    <string name="gameprops_load_json_summary">Wybierz plik JSON ustawień gry, który będzie używany do fałszowania gier</string>
+    <string name="spoofing_snap_summary">Podszyj się pod Pixel XL w aplikacji Snapchat, aby naprawić możliwe problemy z czatem</string>
+    <string name="gameprops_title">Włącz fałszowanie właściwości gier</string>
+    <string name="gameprops_summary">Podszyj swoje urządzenie pod inny model w określonych grach w celu odblokowania wyższej liczby klatek na sekundę</string>
+    <string name="gameprops_load_json_title">Wybierz plik JSON właściwości gry</string>
+    <string name="gameprops_load_json_summary">Wybierz plik JSON właściwości gry, który będzie używany do fałszowania gier</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Pomyślnie pobrano plik pif.json. Podszywanie się pod %1$s w celu zachowania integralności Google Play.</string>
     <string name="toast_spoofing_failure">Nie udało się sfałszować właściwości.</string>
-    <string name="update_pif_json_title">Zaktualizuj Play Integrity Fix</string>
-    <string name="update_pif_json_summary">Aktualizacja PIF do fałszowania urządzenia, wymaga połączenia z internetem.</string>
-    <string name="show_pif_properties_title">Właściwości Play Integrity Fix</string>
-    <string name="show_pif_properties_summary">Pokaż wszystkie aktualnie ustawione właściwości PIF</string>
-    <string name="error_loading_properties">Błąd ładowania właściwości PIF</string>
+    <string name="update_pif_json_title">Zaktualizuj poprawkę integralności Google Play</string>
+    <string name="update_pif_json_summary">Aktualizacja poprawki integralności Google Play wymaga połączenia z internetem.</string>
+    <string name="show_pif_properties_title">Właściwości poprawki integralności Google Play</string>
+    <string name="show_pif_properties_summary">Pokaż właściwości ustawionej poprawki integralności Google Play</string>
+    <string name="error_loading_properties">Błąd ładowania właściwości poprawki integralności Google Play</string>
     <string name="pif_spoofing_title">Wybierz plik PIF JSON</string>
     <string name="pif_spoofing_summary">Wybierz plik PIF JSON, który ma posłużyć do sfałszowania integralności Google Play</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Zastąpienie poświadczenia klucza</string>
-    <string name="keybox_data_summary">Załaduj własny plik XML klucza, aby zastąpić poświadczenie klucza urządzenia</string>
-    <string name="keybox_data_loaded_summary">Załadowano własny plik XML klucza. Usuń, aby wyczyścić.</string>
-    <string name="keybox_delete_content_description">Wyczyść dane klucza</string>
+    <string name="keybox_data_title">Zastąp zestaw kluczy uwierzytelniania</string>
+    <string name="keybox_data_summary">Wczytaj własny plik keybox.xml, aby nadpisać zestaw kluczy uwierzytelniania urządzenia</string>
+    <string name="keybox_data_loaded_summary">Załadowano własny plik keybox.xml. Usuń, aby wyczyścić.</string>
+    <string name="keybox_delete_content_description">Wyczyść dane zestawu kluczy</string>
     <string name="keybox_toast_invalid_file_selected">Nie jest to plik XML. Wybierz prawidłowy plik XML.</string>
-    <string name="keybox_toast_missing_data">Nieprawidłowy plik XML klucza. Brakuje wymaganych pól</string>
-    <string name="keybox_toast_file_loaded">Klucz załadowany</string>
-    <string name="keybox_toast_file_cleared">Klucz wyczyszczony</string>
+    <string name="keybox_toast_missing_data">Nieprawidłowy plik keybox.xml. Brakuje wymaganych pól</string>
+    <string name="keybox_toast_file_loaded">Załadowano zestaw kluczy</string>
+    <string name="keybox_toast_file_cleared">Wyczyszczono zestaw kluczy</string>
     <!-- About -->
     <string name="about_info">Evolution X to niestandardowy ROM Android, który ma odzwierciedlać wrażenia z Google Pixel, z dodatkowymi możliwościami personalizacji. Oparty na projekcie LineageOS.</string>
     <string name="about_website_title">Strona internetowa</string>
@@ -582,7 +582,7 @@
     <!-- General -->
     <string name="enable">Włącz</string>
     <string name="disable">Wyłącz</string>
-    <string name="boot_animation_applied">Animacja uruchamiania została zastosowana</string>
+    <string name="boot_animation_applied">Animacja startowa została zastosowana</string>
     <string name="default_value">Domyślny</string>
     <string name="top">U góry</string>
     <string name="bottom">Na dole</string>
@@ -599,7 +599,7 @@
     <string name="systemui_restart_not_now">Nie teraz</string>
     <!-- Split Shade -->
     <string name="qs_split_shade_enabled_title">Lepsze poziome szybkie ustawienia</string>
-    <string name="qs_split_shade_enabled_summary">Włącz nowe eksperymentalne szybkie ustawienia podziału cienia,\nprzerwij powiadomienia w trybie poziomym</string>
+    <string name="qs_split_shade_enabled_summary">Włącz nowe eksperymentalne podzielone szybkie ustawienia,\npowoduje problemy z wyskakującymi powiadomieniami w trybie poziomym</string>
     <!-- Power Menu Styles -->
     <string name="powermenu_style_title">Styl menu zasilania</string>
     <string name="powermenu_style1">Cyberpunk</string>
@@ -609,7 +609,7 @@
     <string name="powermenu_style5">Warstwy</string>
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">Styl zegara w nagłówku szybkich ustawień</string>
-    <string name="qs_header_style1">Pasek</string>
+    <string name="qs_header_style1">Kompaktowy</string>
     <string name="qs_header_style2">Oxygen</string>
     <string name="qs_header_style3">Analogowy</string>
     <string name="qs_header_style4">Prosty</string>
