@@ -1,126 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2024-2025 the Lunaris-OS Android Project
+ <!--
+      Copyright (C) 2024-2025 the Lunaris-OS Android Project
+ 
+      Licensed under the Apache License, Version 2.0 (the "License");
+      you may not use this file except in compliance with the License.
+      You may obtain a copy of the License at
+ 
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ <PreferenceScreen
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:title="@string/ongoing_progress_settings_title" >
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
+     <org.evolution.settings.preferences.SystemSettingSwitchPreference
+         android:key="ongoing_action_chip"
+         android:title="@string/ongoing_action_chip_title"
+         android:summary="@string/ongoing_action_chip_summary"
+         android:defaultValue="true" />
 
-          http://www.apache.org/licenses/LICENSE-2.0
+     <org.evolution.settings.preferences.SystemSettingSwitchPreference
+         android:key="compact_progress_mode"
+         android:title="@string/compact_progress_mode_title"
+         android:summary="@string/compact_progress_mode_summary"
+         android:defaultValue="false" />
+ 
+     <org.evolution.settings.preferences.SystemSettingSwitchPreference
+         android:key="show_media_progress"
+         android:title="@string/show_media_progress_title"
+         android:summary="@string/show_media_progress_summary"
+         android:defaultValue="false" />
 
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:title="@string/ongoing_progress_settings_title" >
-
-    <!-- Enable/Disable Settings -->
-    <PreferenceCategory
-        android:key="progress_enable_category"
-        android:title="@string/progress_enable_category_title">
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="ongoing_action_chip"
-            android:title="@string/ongoing_action_chip_title"
-            android:summary="@string/ongoing_action_chip_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="compact_progress_mode"
-            android:title="@string/compact_progress_mode_title"
-            android:summary="@string/compact_progress_mode_summary"
-            android:defaultValue="false"
-            android:dependency="ongoing_action_chip" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="show_media_progress"
-            android:title="@string/show_media_progress_title"
-            android:summary="@string/show_media_progress_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="progress_bar_opacity"
-            android:title="@string/progress_bar_opacity_title"
-            android:summary="@string/progress_bar_opacity_summary"
-            android:defaultValue="100"
-            settings:units="%"
-            settings:interval="1"   
-            android:max="100"
-            settings:min="10" />
-    </PreferenceCategory>
-
-    <!-- Standard Chip Position Settings -->
-    <PreferenceCategory
-        android:key="standard_chip_category"
-        android:title="@string/standard_chip_position_title">
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="chip_position_x"
-            android:title="@string/chip_position_x_title"
-            android:summary="@string/chip_position_x_summary"
-            android:defaultValue="0"
-            settings:units="dp"
-            settings:interval="1"
-            android:max="100"
-            settings:min="-95" />
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="chip_position_y"
-            android:title="@string/chip_position_y_title"
-            android:summary="@string/chip_position_y_summary"
-            android:defaultValue="0"
-            settings:units="dp"
-            settings:interval="1"
-            android:max="40"
-            settings:min="-95" />
-    </PreferenceCategory>
-
-    <!-- Circular Chip Position Settings -->
-    <PreferenceCategory
-        android:key="circular_chip_category"
-        android:title="@string/circular_chip_position_title">
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="circular_chip_size"
-            android:title="@string/circular_chip_size_title"
-            android:summary="@string/circular_chip_size_summary"
-            android:defaultValue="28"
-            settings:units="dp"
-            settings:interval="2"
-            android:max="100"
-            android:min="15" />
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="circular_position_x"
-            android:title="@string/circular_position_x_title"
-            android:summary="@string/circular_position_x_summary"
-            android:defaultValue="0"
-            settings:units="dp"
-            settings:interval="1"
-            android:max="90"
-            settings:min="-95" />
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="circular_position_y"
-            android:title="@string/circular_position_y_title"
-            android:summary="@string/circular_position_y_summary"
-            android:defaultValue="0"
-            settings:units="dp"
-            settings:interval="1"
-            android:max="40"
-            settings:min="-95" />
-    </PreferenceCategory>
-
-    <com.android.settingslib.widget.FooterPreference
-        android:key="progress_footer"
-        android:title="@string/progress_footer_text"
-        android:selectable="false"
-        settings:searchable="false" />
-
-</PreferenceScreen>
+     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+         android:key="progress_bar_opacity"
+         android:title="@string/ongoing_action_chip_opacity_title"
+         android:summary="@string/ongoing_action_chip_opacity_summary"
+         android:defaultValue="100"
+         settings:units="%"
+         settings:interval="1"   
+         android:max="100"
+         android:min="0" />
+ 
+     <com.android.settingslib.widget.FooterPreference
+         android:key="progress_footer"
+         android:title="@string/progress_footer_text"
+         android:selectable="false"
+         settings:searchable="false" />
+ 
+ </PreferenceScreen>
