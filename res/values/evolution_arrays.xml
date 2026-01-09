@@ -960,51 +960,6 @@
         <item>19</item>
     </string-array>
 
-    <string-array name="widget_entries">
-        <item>@string/status_bar_date_none</item>
-    	<item>@string/calculator</item>
-    	<item>@string/media</item>
-    	<item>@string/clock_timer</item>
-        <item>@string/torch</item>
-        <item>@string/weather</item>
-        <item>@string/wifi</item>
-        <item>@string/data</item>
-        <item>@string/ringer</item>
-        <item>@string/bt</item>
-        <item>@string/hotspot</item>
-        <item>@string/wallet</item>
-    </string-array>
-
-    <string-array name="widget_values">
-    	<item></item>
-    	<item>calculator</item>
-    	<item>media</item>
-    	<item>timer</item>
-        <item>torch</item>
-        <item>weather</item>
-        <item>wifi</item>
-        <item>data</item>
-        <item>ringer</item>
-        <item>bt</item>
-        <item>hotspot</item>
-        <item>wallet</item>
-    </string-array>
-
-    <!-- Lockscreen widget style  -->
-    <string-array name="lockscreen_widgets_style_entries">
-        <item>@string/lockscreen_widgets_style1</item>
-        <item>@string/lockscreen_widgets_style2</item>
-        <item>@string/lockscreen_widgets_style3</item>
-        <item>@string/lockscreen_widgets_style4</item>
-    </string-array>
-
-    <string-array name="lockscreen_widgets_style_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
     <!-- Peek display style -->
     <string-array name="peek_display_style_entries">
         <item>@string/default_value</item>
@@ -1070,18 +1025,6 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-    </string-array>
-
-    <string-array name="chip_alignment_entries">
-        <item>@string/status_bar_clock_position_left</item>
-        <item>@string/status_bar_clock_position_center</item>
-        <item>@string/status_bar_clock_position_right</item>
-    </string-array>
-
-    <string-array name="chip_alignment_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
 
     <string-array name="nowplaying_icon_style_entries">
