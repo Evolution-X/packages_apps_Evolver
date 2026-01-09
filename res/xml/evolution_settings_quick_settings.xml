@@ -24,13 +24,6 @@
             android:max="100"
             android:min="1" />-->
 
-        <!-- Data usage -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_show_data_usage"
-            android:title="@string/quick_settings_data_usage_title"
-            android:summary="@string/quick_settings_data_usage_summary"
-            android:defaultValue="false" />
-
         <!-- QS Header -->
         <Preference
             android:key="qs_header_image"
@@ -68,13 +61,6 @@
             android:entries="@array/status_bar_battery_percent_entries"
             android:entryValues="@array/status_bar_battery_percent_values"
             android:defaultValue="2" />-->
-
-        <!-- QS widgets -->
-        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_widgets_enabled"
-            android:title="@string/qs_widgets_enabled_title"
-            android:summary="@string/qs_widgets_enabled_summary"
-            android:defaultValue="false" />-->
 
         <!--<ListPreference
             android:key="qs_tile_ui_style"
@@ -192,6 +178,32 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
+    <PreferenceCategory 
+         android:title="@string/quick_settings_footer_category">
+
+        <!-- Data usage -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_data_usage"
+            android:title="@string/quick_settings_data_usage_title"
+            android:summary="@string/quick_settings_data_usage_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_edit"
+            android:title="@string/quick_settings_footer_edit_icon_title"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_power_menu"
+            android:title="@string/quick_settings_footer_show_power_menu_title"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_settings"
+            android:title="@string/quick_settings_footer_settings_icon_title"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
     <!--<PreferenceCategory
         android:key="quick_settings_animations_category"
         android:title="@string/quick_settings_animations_category">
@@ -232,11 +244,11 @@
             android:defaultValue="true" />
 
         <!-- Secure QS tiles require unlock -->
-        <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="qstile_requires_unlocking"
             android:title="@string/quick_settings_require_unlock_title"
             android:summary="@string/quick_settings_require_unlock_summary"
-            android:defaultValue="true"/>-->
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory

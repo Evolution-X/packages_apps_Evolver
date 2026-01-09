@@ -20,12 +20,12 @@
             android:summary="@string/heads_up_notifications_enabled_summary" />
 
         <!-- Compact Heads up -->
-        <!--<org.evolution.settings.preferences.SystemPropertySwitchPreference
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.compact_heads_up_notification.always_show"
             android:title="@string/compact_heads_up_notifications_enabled_title"
             android:summary="@string/compact_heads_up_notifications_enabled_summary"
             android:defaultValue="false"
-            android:dependency="heads_up_notifications_enabled" />-->
+            android:dependency="heads_up_notifications_enabled" />
 
         <!-- Less boring heads up -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -48,7 +48,7 @@
             android:fragment="org.evolution.settings.fragments.notifications.EdgeLightSettings" />
 
         <!-- Notification row transparency -->
-        <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="notification_row_transparency"
             android:title="@string/notification_row_transparency_title"
             android:summary="@string/notification_row_transparency_summary"
@@ -58,7 +58,7 @@
             android:key="notification_row_transparency_lockscreen"
             android:title="@string/notification_row_transparency_lockscreen_title"
             android:summary="@string/notification_row_transparency_lockscreen_summary"
-            android:defaultValue="true" />-->
+            android:defaultValue="true" />
 
         <!-- Squiggle animation for media notification -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
@@ -91,11 +91,11 @@
             android:defaultValue="true" />
 
         <!-- Kill app button -->
-        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_guts_kill_app_button"
             android:title="@string/notifications_kill_app_button_title"
             android:summary="@string/notifications_kill_app_button_summary"
-            android:defaultValue="false" />-->
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
