@@ -20,11 +20,11 @@
             android:fragment="org.evolution.settings.fragments.lockscreen.NowplayingSettings" />
 
         <!-- Ambient Wallpaper -->
-        <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="doze_always_on_wallpaper_enabled"
             android:title="@string/doze_always_on_wallpaper_title"
             android:summary="@string/doze_always_on_wallpaper_summary"
-            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />-->
+            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
 
         <!-- Lockscreen Clock Font and styles -->
         <!--<Preference
@@ -33,12 +33,6 @@
             android:title="@string/theme_customization_lock_clock_face_title"
             android:summary="@string/theme_customization_lock_clock_face_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.LockClockFontsPickerPreview" />
-
-        <Preference
-            android:key="lockscreen_widgets"
-            android:title="@string/lockscreen_widgets_title"
-            android:summary="@string/lockscreen_widgets_enabled_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.LockScreenWidgets" />
 
         <Preference
             android:key="depth_wallpaper"
@@ -152,21 +146,16 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
-    <!--<PreferenceCategory
-        android:key="lock_screen_miscellaneous_category"
-        android:title="@string/lock_screen_miscellaneous_category">
+    <PreferenceCategory
+        android:key="lock_screen_power_menu_category"
+        android:title="@string/power_menu_title">
 
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="pocket_mode_enabled"
-            android:title="@string/lock_screen_pocket_detection_title"
-            android:summary="@string/lock_screen_pocket_detection_summary"
-            android:defaultValue="false" />
+        <!-- Secure lock screen power menu -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_enable_power_menu"
+            android:title="@string/power_menu_lock_screen_secure_title"
+            android:summary="@string/power_menu_lock_screen_secure_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="always_on_pocket_mode_enabled"
-            android:title="@string/lock_screen_always_on_pocket_mode_title"
-            android:summary="@string/lock_screen_always_on_pocket_mode_summary"
-            android:dependency="pocket_mode_enabled"
-            android:defaultValue="false" />
-    </PreferenceCategory>-->
 </PreferenceScreen>
