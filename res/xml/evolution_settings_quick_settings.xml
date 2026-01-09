@@ -69,13 +69,6 @@
             android:entryValues="@array/status_bar_battery_percent_values"
             android:defaultValue="2" />-->
 
-        <!-- QS widgets -->
-        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_widgets_enabled"
-            android:title="@string/qs_widgets_enabled_title"
-            android:summary="@string/qs_widgets_enabled_summary"
-            android:defaultValue="false" />-->
-
         <!--<ListPreference
             android:key="qs_tile_ui_style"
             android:title="@string/quick_settings_tile_ui_style_title"
@@ -232,11 +225,11 @@
             android:defaultValue="true" />
 
         <!-- Secure QS tiles require unlock -->
-        <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="qstile_requires_unlocking"
             android:title="@string/quick_settings_require_unlock_title"
             android:summary="@string/quick_settings_require_unlock_summary"
-            android:defaultValue="true"/>-->
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
