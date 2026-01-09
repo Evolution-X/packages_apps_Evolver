@@ -50,7 +50,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private static final String KEY_BATTERY_PERCENT = "qs_show_battery_percent";
 //    private static final String KEY_BATTERY_STYLE = "qs_battery_style";
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
-    private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
+//    private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
 //    private static final String KEY_INTERFACE_CATEGORY = "quick_settings_interface_category";
     private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
     private static final String KEY_QS_BLUETOOTH_SHOW_DIALOG = "qs_bt_show_dialog";
@@ -62,7 +62,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private static final String KEY_TILE_ANIM_STYLE = "qs_tile_animation_style";
 //    private static final String KEY_TILE_ANIM_DURATION = "qs_tile_animation_duration";
 //    private static final String KEY_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
-//    private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
+    private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
 
 //    private static final int BATTERY_STYLE_PORTRAIT = 0;
 //    private static final int BATTERY_STYLE_TEXT = 4;
@@ -74,9 +74,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mBrightnessSliderPosition;
 //    private ListPreference mQsPanelStyle;
 //    private ListPreference mQsUI;
-    private SwitchPreferenceCompat mBrightnessSliderHaptic;
+//    private SwitchPreferenceCompat mBrightnessSliderHaptic;
     private SwitchPreferenceCompat mShowAutoBrightness;
-//    private SwitchPreferenceCompat mQsTileHaptic;
+    private SwitchPreferenceCompat mQsTileHaptic;
 //    private SystemSettingListPreference mBatteryStyle;
 //    private SystemSettingListPreference mBatteryPercent;
 //    private SystemSettingListPreference mTileAnimationInterpolator;
@@ -123,15 +123,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
         mBrightnessSliderPosition.setEnabled(showSlider);
 
-        mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
-//        mQsTileHaptic = findPreference(KEY_QS_TILE_HAPTIC);
+//        mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
+        mQsTileHaptic = findPreference(KEY_QS_TILE_HAPTIC);
         boolean hapticAvailable = DeviceUtils.hasVibrator(context);
 
-        if (hapticAvailable) {
-            mBrightnessSliderHaptic.setEnabled(showSlider);
-        } else {
-            brightnessCategory.removePreference(mBrightnessSliderHaptic);
-//            tileCategory.removePreference(mQsTileHaptic);
+        if (!hapticAvailable) {
+//            mBrightnessSliderHaptic.setEnabled(showSlider);
+//        } else {
+//            brightnessCategory.removePreference(mBrightnessSliderHaptic);
+            tileCategory.removePreference(mQsTileHaptic);
         }
 
         mShowAutoBrightness = findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
@@ -180,8 +180,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         if (preference == mShowBrightnessSlider) {
             int value = Integer.parseInt((String) newValue);
             mBrightnessSliderPosition.setEnabled(value > 0);
-            if (mBrightnessSliderHaptic != null)
-                mBrightnessSliderHaptic.setEnabled(value > 0);
+//            if (mBrightnessSliderHaptic != null)
+//                mBrightnessSliderHaptic.setEnabled(value > 0);
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
             return true;
@@ -357,8 +357,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
                 boolean hapticAvailable = DeviceUtils.hasVibrator(context);
                 if (!hapticAvailable) {
-                    keys.add(KEY_BRIGHTNESS_SLIDER_HAPTIC);
-//                      keys.add(KEY_QS_TILE_HAPTIC);
+//                    keys.add(KEY_BRIGHTNESS_SLIDER_HAPTIC);
+                      keys.add(KEY_QS_TILE_HAPTIC);
                 }
 
                 if (!DeviceUtils.deviceSupportsBluetooth(context)) {

@@ -35,12 +35,6 @@
             android:fragment="org.evolution.settings.fragments.lockscreen.LockClockFontsPickerPreview" />
 
         <Preference
-            android:key="lockscreen_widgets"
-            android:title="@string/lockscreen_widgets_title"
-            android:summary="@string/lockscreen_widgets_enabled_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.LockScreenWidgets" />
-
-        <Preference
             android:key="depth_wallpaper"
             android:title="@string/dw_wallpaper_enabled_title"
             android:summary="@string/dw_wallpaper_enabled_summary"
@@ -151,22 +145,4 @@
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
             android:defaultValue="true" />
     </PreferenceCategory>
-
-    <!--<PreferenceCategory
-        android:key="lock_screen_miscellaneous_category"
-        android:title="@string/lock_screen_miscellaneous_category">
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="pocket_mode_enabled"
-            android:title="@string/lock_screen_pocket_detection_title"
-            android:summary="@string/lock_screen_pocket_detection_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="always_on_pocket_mode_enabled"
-            android:title="@string/lock_screen_always_on_pocket_mode_title"
-            android:summary="@string/lock_screen_always_on_pocket_mode_summary"
-            android:dependency="pocket_mode_enabled"
-            android:defaultValue="false" />
-    </PreferenceCategory>-->
 </PreferenceScreen>

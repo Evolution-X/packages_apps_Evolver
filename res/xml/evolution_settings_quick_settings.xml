@@ -126,11 +126,11 @@
             android:defaultValue="0" />
 
         <!-- Haptic feedback on brightness slider -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_slider_haptic"
             android:title="@string/quick_settings_brightness_slider_haptic_title"
             android:summary="@string/quick_settings_brightness_slider_haptic_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
 
         <!-- Auto brightness icon -->
         <lineageos.preference.LineageSecureSettingSwitchPreference
@@ -232,11 +232,11 @@
             android:defaultValue="true" />
 
         <!-- Secure QS tiles require unlock -->
-        <!--<org.evolution.settings.preferences.SecureSettingSwitchPreference
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="qstile_requires_unlocking"
             android:title="@string/quick_settings_require_unlock_title"
             android:summary="@string/quick_settings_require_unlock_summary"
-            android:defaultValue="true"/>-->
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
