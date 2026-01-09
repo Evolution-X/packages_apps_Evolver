@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Evolução</string>
-    <string name="evolver_dashboard_summary">Evoluindo como nunca antes</string>
+    <string name="evolver_dashboard_summary">Evolua seu dispositivo, do seu jeito</string>
     <!-- Categories -->
     <string name="themes_title">Temas</string>
     <string name="themes_summary">Tema, fontes, ícones</string>
@@ -48,7 +48,7 @@
     <string name="themes_signal_icon_summary">Definir o estilo do ícone de rede móvel</string>
     <string name="themes_wifi_icon_title">Estilo do ícone Wi-Fi</string>
     <string name="themes_wifi_icon_summary">Definir o estilo do ícone de wi-fi</string>
-    <string name="themes_navigation_bar_icons_title">Estilo da barra de navegação</string>
+    <string name="themes_navigation_bar_icons_title">Ícones da barra de navegação</string>
     <string name="themes_navigation_bar_icons_summary">Definir estilo personalizado para a barra de navegação</string>
     <string name="themes_udfps_icon_title">Ícone de impressão digital</string>
     <string name="themes_udfps_icon_summary">Definir ícone de impressão digital</string>
@@ -500,7 +500,7 @@
     <string name="miscellaneous_app_downgrade_summary">Permitir downgrade de aplicativos do sistema, que podem resultar em falhas e perda de dados</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignorar pedidos de escurecimento do papel de parede</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Impede que todos os aplicativos definam o escurecimento do papel de parede\nForça o escurecimento para 0</string>
-    <string name="miscellaneous_ignore_window_secure_title">Remover restrição de captura de tela</string>
+    <string name="miscellaneous_ignore_window_secure_title">Ignorar restrições de captura de tela</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas e gravações de tela para todos os aplicativos, correndo potencialmente o risco de vazamentos de privacidade</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela sem limite</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remova o limite de tamanho de arquivo 15GiB\nPode resultar em um arquivo de saída maior que o necessário</string>
