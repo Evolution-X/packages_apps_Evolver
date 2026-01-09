@@ -138,10 +138,6 @@
     <string name="lock_screen_fingerprint_error_vibration_title">Authentication error vibration</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Vibrate when fingerprint authentication fails</string>
     <string name="lock_screen_miscellaneous_category">Miscellaneous</string>
-    <string name="lock_screen_pocket_detection_title">Pocket detection</string>
-    <string name="lock_screen_pocket_detection_summary">Block screen and button inputs when device is in pocket</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Always on Pocket mode</string>
-    <string name="lock_screen_always_on_pocket_mode_summary">Always block screen and button inputs when screen is turned on</string>
 
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Pulse Visualizer</string>
@@ -227,12 +223,6 @@
     <string name="status_bar_battery_text_charging_summary">Always display battery percentage when charging</string>
     <string name="status_bar_clock_and_date_title">Clock &amp; date</string>
     <string name="status_bar_clock_and_date_summary">Customize clock &amp; date</string>
-    <string name="status_bar_data_disabled_icon_title">Data disabled indicator</string>
-    <string name="status_bar_data_disabled_icon_summary">Display an indicator next to signal icon when data is disabled</string>
-    <string name="status_bar_4g_icon_title">4G icon</string>
-    <string name="status_bar_4g_icon_summary">Replace \'LTE\' icon with \'4G\'</string>
-    <string name="status_bar_wifi_standard_icon_title">Wi-Fi standard</string>
-    <string name="status_bar_wifi_standard_icon_summary">Display Wi-Fi standard next the Wi-Fi icon</string>
     <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
     <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
     <string name="status_bar_colored_icons_title">Colored icons</string>
@@ -555,8 +545,6 @@
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
-    <string name="tensor_spoof_title">Tensor features</string>
-    <string name="tensor_spoof_summary">Unlock features only available in tensor-based Pixel devices</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
@@ -798,44 +786,6 @@
     <string name="qs_widgets_enabled_title">QS widgets</string>
     <string name="qs_widgets_enabled_summary">Show widgets for quick access. \nLimits QS rows to 2 to avoid breaking AOSP QS Panel scrolling</string>
 
-    <!-- Lockscreen widgets  -->
-    <string name="lockscreen_widgets_title">Widgets</string>
-    <string name="lockscreen_widgets_enabled_title">Enable lock screen widgets</string>
-    <string name="lockscreen_widgets_enabled_summary">Add widgets to lock screen</string>
-    <string name="lockscreen_display_widgets_title">Device info widget</string>
-    <string name="lockscreen_display_widgets_summary">Show device info widget on lock screen</string>
-    <string name="large_widgets_category_title">Big widgets</string>
-    <string name="main_custom_widgets1">Big widget 1</string>
-    <string name="main_custom_widgets2">Big widget 2</string>
-    <string name="mini_widgets_category_title">Mini widgets</string>
-    <string name="custom_widgets1">Mini widget 1</string>
-    <string name="custom_widgets2">Mini widget 2</string>
-    <string name="custom_widgets3">Mini widget 3</string>
-    <string name="custom_widgets4">Mini widget 4</string>
-    <string name="camera">Camera</string>
-    <string name="clock_timer">Clock/Timer</string>
-    <string name="calculator">Calculator</string>
-    <string name="gallery">Gallery</string>
-    <string name="media">Media Player</string>
-    <string name="torch">Torch</string>
-    <string name="controls_media_button_play">Play</string>
-    <string name="weather">Weather</string>
-    <string name="wifi">Wifi</string>
-    <string name="data">Data</string>
-    <string name="ringer">Ringer</string>
-    <string name="bt">Bluetooth</string>
-    <string name="hotspot">Hotspot</string>
-    <string name="wallet">Wallet</string>
-
-    <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">Lock screen widgets style</string>
-    <string name="lockscreen_widgets_style1">Material Rounded</string>
-    <string name="lockscreen_widgets_style2">Material Square</string>
-    <string name="lockscreen_widgets_style3">Translucent (Square)</string>
-    <string name="lockscreen_widgets_style4">Translucent (Rounded)</string>
-    <string name="lockscreen_widgets_transparency_title">Translucent style widget transparency</string>
-    <string name="lockscreen_widgets_transparency_summary">Configure translucent style widget opacity level</string>
-
     <!-- Font styles -->
     <string name="font_styles_title">Font Styles</string>
     <string name="font_styles_summary">Change system font style</string>
@@ -871,31 +821,16 @@
     <string name="media_squiggle_animation_summary">Show seekbar squiggle animation in media panel when playing media</string>
 
     <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Ongoing progress chip</string>
+    <string name="ongoing_progress_settings_title">Status bar action chip</string>
     <string name="ongoing_progress_settings_summary">Status bar action chip options</string>
-    <string name="ongoing_action_chip_title">Enable ongoing action chip</string>
-    <string name="ongoing_action_chip_summary">Show progress for ongoing notifications in status bar</string>
-    <string name="compact_progress_mode_title">Compact progress mode</string>
-    <string name="compact_progress_mode_summary">Use circular progress indicator instead of bar</string>
+    <string name="ongoing_action_chip_title">Ongoing action chip</string>
+    <string name="ongoing_action_chip_summary">Show progress indicator in status bar for ongoing actions like downloads</string>
+    <string name="ongoing_action_chip_opacity_title">Progress bar opacity</string>
+    <string name="ongoing_action_chip_opacity_summary">Adjust the opacity of the progress bar chip</string>
+    <string name="compact_progress_mode_title">Compact progress indicator</string>
+    <string name="compact_progress_mode_summary">Use a compact circular indicator for ongoing actions</string>
     <string name="show_media_progress_title">Show media progress</string>
-    <string name="show_media_progress_summary">Display media playback progress in status bar</string>
-    <string name="progress_bar_opacity_title">Progress bar opacity</string>
-    <string name="progress_bar_opacity_summary">Adjust the transparency of the progress chip</string>
-    <string name="progress_enable_category_title">General settings</string>
-    <string name="standard_chip_position_title">Standard chip position</string>
-    <string name="circular_chip_position_title">Circular chip position</string>
-    <string name="chip_position_x_title">Horizontal position</string>
-    <string name="chip_position_x_summary">Move chip left or right from alignment point</string>
-    <string name="chip_position_y_title">Vertical position</string>
-    <string name="chip_position_y_summary">Move chip up or down in status bar</string>
-    <string name="chip_size_title">Chip width</string>
-    <string name="chip_size_summary">Adjust the width of the progress chip</string>
-    <string name="circular_chip_size_title">Circular chip size</string>
-    <string name="circular_chip_size_summary">Adjust the diameter of the circular chip</string>
-    <string name="circular_position_x_title">Horizontal offset</string>
-    <string name="circular_position_x_summary">Fine-tune horizontal position</string>
-    <string name="circular_position_y_title">Vertical offset</string>
-    <string name="circular_position_y_summary">Fine-tune vertical position</string>
+    <string name="show_media_progress_summary">"Display media playback progress in the status bar</string>
     <string name="progress_footer_text">
      "The status bar progress bar provides real-time updates for both media playback and active downloads/uploads.
  

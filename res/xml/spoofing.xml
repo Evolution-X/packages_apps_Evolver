@@ -55,13 +55,6 @@
             android:title="@string/spoofing_pixel_props_title"
             android:summary="@string/spoofing_pixel_props_summary"
             android:defaultValue="true" />
-
-        <!-- Tensor features -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.tensor"
-            android:title="@string/tensor_spoof_title"
-            android:summary="@string/tensor_spoof_summary"
-            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
