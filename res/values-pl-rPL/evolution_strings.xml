@@ -113,7 +113,7 @@
     <string name="monet_engine_style_fruit_salad">Sałatka owocowa</string>
     <string name="monet_engine_style_content">Zawartość</string>
     <string name="monet_engine_style_monochromatic">Monochromatyczny</string>
-    <string name="monet_engine_color_source_title">Źródło kolorów</string>
+    <string name="monet_engine_color_source_title">Źródło koloru</string>
     <string name="monet_engine_color_source_both">Oba (domyślne)</string>
     <string name="monet_engine_color_source_home">Tapeta ekranu głównego</string>
     <string name="monet_engine_color_source_lock">Tapeta ekranu blokady</string>
@@ -132,7 +132,7 @@
     <string name="lock_screen_fingerprint_error_vibration_title">Wibracja po nieudanej autoryzacji</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Wibruj po nieudanym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_miscellaneous_category">Różne</string>
-    <string name="lock_screen_pocket_detection_title">Wykrywanie zasłonięcia</string>
+    <string name="lock_screen_pocket_detection_title">Wykrywanie zasłonięcia czujnika zbliżeniowego</string>
     <string name="lock_screen_pocket_detection_summary">Blokuj ekran i przyciski, gdy urządzenie jest zasłonięte</string>
     <string name="lock_screen_always_on_pocket_mode_title">Ochrona przed przypadkowymi dotknięciami jest zawsze aktywna</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Zawsze blokuj ekran i przyciski przy włączonym ekranie</string>
@@ -391,7 +391,7 @@
     <string name="quick_settings_tile_animation_style_rotate">Obrót</string>
     <string name="qs_tile_animation_style_flipx">Odbicie w poziomie</string>
     <string name="qs_tile_animation_style_flipy">Odbicie w pionie</string>
-    <string name="quick_settings_tile_animation_interpolator_linear">Liniowo</string>
+    <string name="quick_settings_tile_animation_interpolator_linear">Liniowa</string>
     <string name="quick_settings_tile_animation_interpolator_accelerate">Przyśpieszona</string>
     <string name="quick_settings_tile_animation_interpolator_decelerate">Spowolniona</string>
     <string name="quick_settings_tile_animation_interpolator_accelerateDecelerate">Przyśpieszona, spowolniona</string>
@@ -492,7 +492,7 @@
     <string name="power_menu_actions_users_title">Użytkownicy</string>
     <string name="power_menu_actions_logout_title">Wyloguj się</string>
     <string name="power_menu_actions_emergency_title">Tryb awaryjny</string>
-    <string name="power_menu_actions_devicecontrols_title">Sterowanie urządzeniami</string>
+    <string name="power_menu_actions_devicecontrols_title">Sterowanie urządzeniem</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Fałszowanie</string>
     <string name="miscellaneous_developer_options_category">Opcje programisty</string>
@@ -504,6 +504,9 @@
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów i nagrywania ekranu dla wszystkich aplikacji, potencjalne ryzyko wycieku danych osobowych</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Automatyczna naprawa wykrywania VBMeta</string>
+    <string name="vbmeta_attestation_summary">Wykonaj weryfikację klucza, aby wygenerować hash zweryfikowanego rozruchu podczas uruchamiania. Wymagane ponowne uruchomienie systemu.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Lista ukrytych aplikacji</string>
     <string name="hide_applist_summary">Zapobiegaj wykrywaniu przez aplikacje wybranych aplikacji z listy</string>
@@ -513,7 +516,7 @@
     <string name="smart_pixels_warning_text">Inteligentne piksele to funkcja oszczędzania energii. Poprawa żywotności baterii będzie zauważalna w zależności od ilości wyłączonych pikseli. Pamiętaj, że w niektórych przypadkach może to spowodować brak reakcji części ekranu dotykowego</string>
     <string name="smart_pixels_title">Inteligentne piksele</string>
     <string name="smart_pixels_summary">Oszczędzaj baterię poprzez wyłączanie dodatkowych pikseli</string>
-    <string name="smart_pixels_on_power_save_title">Automatyczne włączanie trybu oszczędzania baterii</string>
+    <string name="smart_pixels_on_power_save_title">Automatyczne włączanie w trybie oszczędzania baterii</string>
     <string name="smart_pixels_on_power_save_summary">Włącz inteligentne piksele, gdy oszczędzanie baterii jest włączone</string>
     <string name="smart_pixels_percent">Procent pikseli do wyłączenia</string>
     <string name="smart_pixels_shift_title">Ochrona przed wypaleniem ekranu</string>
@@ -526,7 +529,7 @@
     <string name="spoofing_pixel_props_summary">Podszywaj wybraną grupę aplikacji Google pod najnowsze urządzenie Pixel</string>
     <string name="tensor_spoof_title">Funkcje AI oparte na Tensor</string>
     <string name="tensor_spoof_summary">Odblokuj funkcje AI dostępne wyłącznie w urządzeniach Pixel opartych na Tensor</string>
-    <string name="gms_spoof_title">Naprawa integralności Google Play</string>
+    <string name="gms_spoof_title">Poprawka integralności Google Play</string>
     <string name="gms_spoof_summary">Sfałszuj właściwości urządzenia, aby przejść weryfikację Google Play</string>
     <string name="spoofing_app_specific_category">Specyficzne dla aplikacji</string>
     <string name="spoofing_photos_title">Zdjęcia Google</string>
@@ -545,8 +548,8 @@
     <string name="show_pif_properties_title">Właściwości poprawki integralności Google Play</string>
     <string name="show_pif_properties_summary">Pokaż właściwości ustawionej poprawki integralności Google Play</string>
     <string name="error_loading_properties">Błąd ładowania właściwości poprawki integralności Google Play</string>
-    <string name="pif_spoofing_title">Wybierz plik PIF JSON</string>
-    <string name="pif_spoofing_summary">Wybierz plik PIF JSON, który ma posłużyć do sfałszowania integralności Google Play</string>
+    <string name="pif_spoofing_title">Wybierz plik pif.json</string>
+    <string name="pif_spoofing_summary">Wybierz plik pif.json, który ma posłużyć do sfałszowania integralności Google Play</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Zastąp zestaw kluczy uwierzytelniania</string>
     <string name="keybox_data_summary">Wczytaj własny plik keybox.xml, aby nadpisać zestaw kluczy uwierzytelniania urządzenia</string>
@@ -674,7 +677,7 @@
     <string name="ls_media_art_filter_blur">Rozmycie</string>
     <string name="ls_media_art_filter_grayscale">Odcienie szarości</string>
     <string name="ls_media_art_filter_sepia">Sepia</string>
-    <string name="ls_media_art_filter_tint">Akcentowane przyciemnienie</string>
+    <string name="ls_media_art_filter_tint">Kolor akcentu</string>
     <string name="ls_media_art_filter_invert">Odwrócone</string>
     <string name="ls_media_art_filter_grayblur">Skala szarości i rozmycie</string>
     <!-- Lock screen media art fade level -->
@@ -690,7 +693,7 @@
     <string name="brightness_slider_haptics_intensity_title">Intensywność wibracji suwaka jasności</string>
     <string name="edge_scrolling_haptics_intensity_title">Intensywność wibracji podczas przewijania krawędzi</string>
     <string name="volume_slider_haptics_intensity_title">Intensywność wibracji suwaka głośności</string>
-    <string name="volume_sound_haptics_title">Informacja zwrotna o głośności</string>
+    <string name="volume_sound_haptics_title">Dźwiękowe potwierdzenie podczas regulacji głośności</string>
     <string name="volume_sound_haptics_summary">Włącz dźwiękowe potwierdzenie podczas regulacji głośności</string>
     <string name="qs_panel_tile_haptic_intensity_title">Intensywność wibracji gestu wstecz</string>
     <string name="qs_haptics_intensity_title">Intensywność wibracji gestu szybkich ustawień</string>
@@ -836,7 +839,7 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="battery_bar_style_title">Wyrównanie</string>
     <string name="battery_bar_thickness_title">Grubość</string>
     <string name="battery_bar_animate_title">Animacja ładowania</string>
-    <string name="battery_bar_style_regular">Regularna</string>
+    <string name="battery_bar_style_regular">Regularny</string>
     <string name="battery_bar_style_center_mirrored">Wyśrodkowanie lustrzane</string>
     <string name="battery_bar_style_reversed">Odwrócenie</string>
     <string name="battery_bar_use_charging_color">Własny kolor podczas ładowania</string>
