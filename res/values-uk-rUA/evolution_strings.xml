@@ -504,6 +504,9 @@
     <string name="miscellaneous_ignore_window_secure_summary">Зняти обмеження на знятках і записи екрану для всіх додатків, потенційно ризикуючи витіком конфіденційності</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Скасувати обмеження запису екрану</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Видалити обмеження розміру 15 Гб файлу\nМоже призвести до більшого, ніж необхідний файл виводу</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Автовиправлення розпізнавання VBMeta</string>
+    <string name="vbmeta_attestation_summary">Виконайте хеш ключа при завантаженні щоб генерувати перевірений хеш. Для запуску необхідно перезапустити систему.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Приховати список додатків</string>
     <string name="hide_applist_summary">Не дозволяти додаткам перевіряти обрані додатки зі списку</string>
