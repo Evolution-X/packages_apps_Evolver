@@ -11,7 +11,7 @@
     <string name="themes_title">Témák</string>
     <string name="themes_summary">Monet motor, betűtípusok, ikonok, animációk</string>
     <string name="lock_screen_title">Záróképernyő</string>
-    <string name="lock_screen_summary">Fellhasználói felület, időjárás, ujjlenyomat</string>
+    <string name="lock_screen_summary">Fellhasználói felület, Most hallható, ujjlenyomat</string>
     <string name="status_bar_title">Állapotsor</string>
     <string name="status_bar_summary">Mozdulatvezérlők, ikonok, logó, kitöltés</string>
     <string name="quick_settings_title">Gyorsbeállítások</string>
@@ -139,7 +139,7 @@
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Pulzáló vizualizáció</string>
     <string name="pulse_settings_summary">Zenelejátszás közben a képernyőzáron egy sávnyi vizualizáció látszik</string>
-    <string name="ambient_pulse_enabled_title">Pulzáló környezeti kijelző</string>
+    <string name="ambient_pulse_enabled_title">Pulse a környezeti kijelzőhöz</string>
     <string name="ambient_pulse_enabled_summary">A \'Környezeti kijelző\' vizualizálása</string>
     <string name="pulse_rounded_bars_title">Lekerekített sávok</string>
     <string name="pulse_rounded_bars_summary">A vizualizáció sávjai lekerekítetten jelennek meg</string>
@@ -504,6 +504,9 @@
     <string name="miscellaneous_ignore_window_secure_summary">Eltávolítja a képernyőképekre és a képernyőfelvételekre vonatkozó korlátozásokat az összes alkalmazásnál, ami az adatvédelmi szivárgások kockázatát eredményezheti</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Végtelen fájlméret</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Eltörli a 15GB-os fájlméret-limitet\nA szükségesnél nagyobb kimenő fájlméretet eredményezhet</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">A VBMeta-észlelés automatikus javítása</string>
+    <string name="vbmeta_attestation_summary">Kulcshitelesítés végrehajtása ellenőrzött rendszerindítási hash létrehozásához rendszerindításkor. A rendszer újraindítását igényli.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Elrejtés az alkalmazáslistából</string>
     <string name="hide_applist_summary">Az alkalmazások nem ellenőrizhetik az alkalmazáslistában szereplő kiválasztott alkalmazásokat</string>
@@ -876,7 +879,7 @@
     <string name="font_style">Betűstílus</string>
     <string name="font_preview_dialog_title">Betűtípus-előnézet</string>
     <string name="apply">Alkalmazás</string>
-    <string name="applied">Alkalmazva</string>
+    <string name="applied">Beállítva</string>
     <string name="reboot_device">Készülék-újraindítás</string>
     <string name="reboot_required_title">Újraindítás szükséges</string>
     <string name="reboot_required_message">A betűtípus módosításhoz újraindítás szükséges.\nÚjra szeretné indítani most?</string>
@@ -886,19 +889,19 @@
     <string name="reset_default_message">Ez a művelet a betűtípust visszaállítja az eredetire. Biztosan ezt akarja?</string>
     <string name="add_font">Betűtípus hozzáadása</string>
     <string name="custom_font">Egyéni betűtípus</string>
-    <string name="no_custom_font">Nem áll rendelkezésre betűtípus</string>
+    <string name="no_custom_font">Nem áll rendelkezésre egyéni betűtípus</string>
     <string name="add_custom_font">Egyéni betűtípus hozzáadása</string>
-    <string name="change_custom_font">Egyéni készlet megváltoztatása</string>
-    <string name="reset_custom_font_content_desc">Egyéni betűtípus visszaállítása</string>
+    <string name="change_custom_font">Egyéni betűkészlet megváltoztatása</string>
+    <string name="reset_custom_font_content_desc">Az egyéni betűtípus visszaállítása</string>
     <string name="reboot_required_custom_font_title">Az egyéni betűkészlet módosításához újraindítás szükséges</string>
     <string name="reboot_required_custom_font_desc">Amennyiben módosítás után kihagyja az újraindítást az problémákat okozhat a rendszerfelület alkalmazásai között.</string>
     <string name="font_preview_quote">Ez a tesztszöveg a módosításhoz.</string>
     <string name="font_preview_numbers">0987654321!@#$%&amp;*()_+=-</string>
     <string name="active_content_desc">Aktív</string>
-    <string name="toast_failed_apply_font">A betűtípus érvényesítése sikertelen</string>
+    <string name="toast_failed_apply_font">A betűtípus beállítása sikertelen</string>
     <string name="toast_invalid_font_file">Hibás betűkészlet-fájl</string>
     <!-- Now Playing -->
-    <string name="nowplaying_title">Most hallható </string>
+    <string name="nowplaying_title">\'Most hallható\'</string>
     <string name="nowplaying_summary">Az aktuálisan lejátszott zene adatainak megjelenítése lezárt képernyőn és a „Mindig bekapcsolva\" módban</string>
     <string name="nowplaying_appearance_title">Megjelenés</string>
     <string name="nowplaying_use_accent_color_title">Kiemelőszín használata</string>
@@ -928,9 +931,6 @@
     <string name="adaptive_playback_summary">Megállítja a lejátszást, ha a média elnémul, de folytatja ha gyosan időkorláton belül felhangosításra kerül</string>
     <string name="adaptive_playback_intro_text">Hangerőnémításkor automatikusan leállítja a lejátszást és automatikusan újra is indítja, ha a némítás megszűnik</string>
     <string name="adaptive_playback_timeout_title">Lejátszási időkorlát</string>
-    <!-- Smartspace -->
-    <string name="lockscreen_smartspace_title">Smartspace</string>
-    <string name="lockscreen_smartspace_summary">Ha elérhető, akkor megjeleníti a Google Smartspace-t</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Extra kitöltés</string>
     <string name="statusbar_extra_padding_start_title">Kezdeti kitöltés</string>
