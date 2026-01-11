@@ -6,12 +6,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Evolução</string>
-    <string name="evolver_dashboard_summary">Evoluindo como nunca antes</string>
+    <string name="evolver_dashboard_summary">Evolua seu dispositivo, do seu jeito</string>
     <!-- Categories -->
     <string name="themes_title">Temas</string>
     <string name="themes_summary">Tema, fontes, ícones</string>
     <string name="lock_screen_title">Tela de bloqueio</string>
-    <string name="lock_screen_summary">Interface, clima, impressão digital</string>
+    <string name="lock_screen_summary">Interface, Tocando Agora, Impressão digital</string>
     <string name="status_bar_title">Barra de status</string>
     <string name="status_bar_summary">Gestos, ícones, logotipo, preenchimento</string>
     <string name="quick_settings_title">Configurações rápidas</string>
@@ -48,7 +48,7 @@
     <string name="themes_signal_icon_summary">Definir o estilo do ícone de rede móvel</string>
     <string name="themes_wifi_icon_title">Estilo do ícone Wi-Fi</string>
     <string name="themes_wifi_icon_summary">Definir o estilo do ícone de wi-fi</string>
-    <string name="themes_navigation_bar_icons_title">Estilo da barra de navegação</string>
+    <string name="themes_navigation_bar_icons_title">Ícones da barra de navegação</string>
     <string name="themes_navigation_bar_icons_summary">Definir estilo personalizado para a barra de navegação</string>
     <string name="themes_udfps_icon_title">Ícone de impressão digital</string>
     <string name="themes_udfps_icon_summary">Definir ícone de impressão digital</string>
@@ -134,12 +134,12 @@
     <string name="lock_screen_miscellaneous_category">Diversos</string>
     <string name="lock_screen_pocket_detection_title">Detecção de bolso</string>
     <string name="lock_screen_pocket_detection_summary">Bloquear a tela e os botões quando o dispositivo estiver no bolso</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Modo de bolso do modo Sempre ativo</string>
+    <string name="lock_screen_always_on_pocket_mode_title">Modo de bolso Sempre ativo</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Sempre bloquear a tela e os botões quando a tela estiver ativa</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Visualizador de pulso</string>
     <string name="pulse_settings_summary">Mostrar visualizador na tela de bloqueio quando uma música estiver sendo reproduzida</string>
-    <string name="ambient_pulse_enabled_title">Pulso de ambiente</string>
+    <string name="ambient_pulse_enabled_title">Pulse na tela ambiente</string>
     <string name="ambient_pulse_enabled_summary">Mostrar visualizador na tela ambiente</string>
     <string name="pulse_rounded_bars_title">Cantos arredondados</string>
     <string name="pulse_rounded_bars_summary">Exibir barras do visualizador com cantos arredondados</string>
@@ -402,8 +402,8 @@
     <string name="quick_settings_data_usage_title">Uso de dados</string>
     <string name="quick_settings_data_usage_summary">Mostrar resumo de uso de dados no rodapé das configurações rápidas</string>
     <string name="quick_settings_lock_screen_category">Tela de bloqueio</string>
-    <string name="quick_settings_secure_lock_screen_title">Ocultar na tela de bloqueio segura</string>
-    <string name="quick_settings_secure_lock_screen_summary">Ocultar todas as configurações rápidas na aba de notificações enquanto o dispositivo estiver bloqueado</string>
+    <string name="quick_settings_secure_lock_screen_title">Configurações Rápidas na tela de bloqueio</string>
+    <string name="quick_settings_secure_lock_screen_summary">Permitir que o gesto de deslizar para baixo na tela de bloqueio exiba as Configurações Rápidas</string>
     <string name="quick_settings_require_unlock_title">Blocos QS seguros na tela de bloqueio</string>
     <string name="quick_settings_require_unlock_summary">As seguintes configurações rápidas exigem que o dispositivo seja desbloqueado antes que você possa interagir com eles:\nModo avião, Economia de bateria, Bluetooth, Dados Móveis, Economia de Dados, Hotspot, Internet, NFC, Giro automático, e Wi-fi</string>
     <string name="quick_settings_miscellaneous_category">Diversos</string>
@@ -500,17 +500,20 @@
     <string name="miscellaneous_app_downgrade_summary">Permitir downgrade de aplicativos do sistema, que podem resultar em falhas e perda de dados</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignorar pedidos de escurecimento do papel de parede</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Impede que todos os aplicativos definam o escurecimento do papel de parede\nForça o escurecimento para 0</string>
-    <string name="miscellaneous_ignore_window_secure_title">Remover restrição de captura de tela</string>
+    <string name="miscellaneous_ignore_window_secure_title">Ignorar restrições de captura de tela</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas e gravações de tela para todos os aplicativos, correndo potencialmente o risco de vazamentos de privacidade</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela sem limite</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remova o limite de tamanho de arquivo 15GiB\nPode resultar em um arquivo de saída maior que o necessário</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Autocorreção detecção VBMeta</string>
+    <string name="vbmeta_attestation_summary">Realiza a autenticação da chave para gerar um hash de inicialização verificado durante a inicialização. Requer reinicialização do sistema.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Ocultar lista de apps</string>
     <string name="hide_applist_summary">Impedir que aplicativos verifiquem apps selecionados de uma lista de aplicativos</string>
     <string name="menu_show_overlay">Mostrar sobreposições</string>
     <string name="menu_hide_overlay">Ocultar as sobreposições</string>
     <!-- Miscellaneous/Smart Pixels -->
-    <string name="smart_pixels_warning_text">Pixels inteligentes é um recurso para economizar energia. Dependendo da quantidade de pixels a serem desativados, você notará a diferença na duração da bateria</string>
+    <string name="smart_pixels_warning_text">O recurso Smart Pixels permite economizar energia. Dependendo de quantos pixels você desativar, poderá notar uma melhora na duração da bateria. Observe que, em alguns casos, isso pode resultar em áreas sem resposta na tela sensível ao toque</string>
     <string name="smart_pixels_title">Pixels Inteligentes</string>
     <string name="smart_pixels_summary">Economiza bateria desligando alguns pixels da tela</string>
     <string name="smart_pixels_on_power_save_title">Ativar automaticamente na economia de bateria</string>
@@ -869,39 +872,32 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Botão de rotação flutuante</string>
     <string name="floating_rotation_button_summary">Mostrar um botão de rotação flutuante quando o dispositivo for rotacionado</string>
-    <!-- Font Mode -->
-    <string name="font_mode_title">Origem da fonte</string>
-    <string name="font_settings_title">Configurações de fonte</string>
-    <string name="font_settings_summary">Personalizar fontes do sistema</string>
-    <!-- Custom Font Picker -->
-    <string name="custom_font_picker_title">Escolha uma fonte personalizada</string>
-    <string name="custom_font_picker_summary">Selecione uma fonte de arquivo de armazenamento</string>
-    <string name="github_font_picker_title">Browse GitHub fonts</string>
-    <string name="github_font_picker_summary">Baixar e visualizar fontes do repositório</string>
-    <string name="custom_font_installed_title">Fonte atual</string>
-    <string name="custom_font_installed_summary">%s</string>
-    <string name="reset_custom_font_title">Redefinir para o padrão</string>
-    <string name="reset_custom_font_summary">Remover fonte personalizada e restaurar o padrão do sistema</string>
-    <string name="reset_custom_font_content_desc">Redefinir fonte personalizada</string>
-    <string name="custom_font_reset_success">Redefinir para o padrão</string>
+    <!-- Fonts Screen -->
+    <string name="font_title">Fonte</string>
+    <string name="font_style">Estilo da fonte</string>
+    <string name="font_preview_dialog_title">Visualização da Fonte</string>
+    <string name="apply">Aplicar</string>
+    <string name="applied">Aplicado</string>
     <string name="reboot_device">Reiniciar dispositivo</string>
     <string name="reboot_required_title">Reinicialização necessária</string>
-    <string name="reboot_required_message">É necessário reiniciar o dispositivo para que as alterações de fonte entrem em vigor</string>
-    <string name="reboot_required_custom_font_desc">Reinicie para aplicar as alterações de fonte personalizadas</string>
+    <string name="reboot_required_message">É necessário reiniciar para aplicar as alterações de fonte.\nDeseja reiniciar agora?</string>
+    <string name="reboot_now">Reiniciar agora</string>
+    <string name="later">Mais tarde</string>
+    <string name="reset_default_title">Redefinir para o padrão</string>
+    <string name="reset_default_message">Isso redefinirá sua fonte para a fonte padrão do sistema. Tem certeza?</string>
+    <string name="add_font">Adicionar fonte</string>
     <string name="custom_font">Fonte personalizada</string>
-    <string name="custom_font_installed_success">Fonte instalada com sucesso</string>
-    <string name="custom_font_install_failed">Falha ao instalar a fonte</string>
-    <string name="font_preview_error">Falha ao pré-visualizar a fonte</string>
-    <string name="font_download_error">Falha ao baixar a fonte</string>
-    <string name="font_preview_title">Visualização da Fonte</string>
-    <string name="install_font">Instalar</string>
-    <string name="github_fonts_header">Fontes Disponíveis</string>
-    <string name="no_fonts_available">Nenhum dispositivo disponível</string>
-    <string name="github_fonts_error">Não foi possível carregar fontes do GitHub</string>
-    <string name="github_fonts_fetch_error">Não foi possível carregar fontes do GitHub</string>
-    <string name="preview">Pré-visualizar</string>
-    <string name="install">Instalar</string>
-    <string name="download_first_message">Baixar a fonte primeiro tocando em Visualizar</string>
+    <string name="no_custom_font">Nenhuma fonte personalizada</string>
+    <string name="add_custom_font">Adicionar fonte personalizada</string>
+    <string name="change_custom_font">Alterar fonte personalizada</string>
+    <string name="reset_custom_font_content_desc">Redefinir fonte personalizada</string>
+    <string name="reboot_required_custom_font_title">Reinicialização necessária para fontes personalizadas</string>
+    <string name="reboot_required_custom_font_desc">Ignorar a reinicialização após alterar a fonte personalizada pode causar inconsistências na interface do usuário entre os aplicativos.</string>
+    <string name="font_preview_quote">O medo é inimigo da inovação.</string>
+    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
+    <string name="active_content_desc">Ativo</string>
+    <string name="toast_failed_apply_font">Falha ao aplicar fonte</string>
+    <string name="toast_invalid_font_file">Arquivo de fonte inválido</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">Tocando agora</string>
     <string name="nowplaying_summary">Mostrar informações de música atualmente reproduzindo na tela de bloqueio e AOD</string>
@@ -933,9 +929,6 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="adaptive_playback_summary">Pausar mídia quando o volume é silenciado e retomá-la aumentando o volume dentro do tempo limite</string>
     <string name="adaptive_playback_intro_text">Pausa automaticamente a mídia quando o volume é silenciado e retoma automaticamente quando o volume é restaurado dentro do tempo definido</string>
     <string name="adaptive_playback_timeout_title">Tempo limite de reprodução</string>
-    <!-- Smartspace -->
-    <string name="lockscreen_smartspace_title">Smartspace</string>
-    <string name="lockscreen_smartspace_summary">Mostrar Google Smartspace quando disponível</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Margem adicional</string>
     <string name="statusbar_extra_padding_start_title">Iniciar preenchimento</string>
