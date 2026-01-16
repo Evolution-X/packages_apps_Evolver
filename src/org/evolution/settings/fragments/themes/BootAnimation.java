@@ -142,6 +142,8 @@ public class BootAnimation extends SettingsPreferenceFragment implements OnPrefe
                 }
             }
             inputStream.close();
+            // Set permissions to 644 (rw-r--r--) so 'graphics' user can read it
+            customBootAnimation.setReadable(true, false);
             // Update system property to use custom boot animation
             SystemProperties.set(BOOTANIMATION_STYLE_KEY, "13"); // Custom option value
             updateBootAnimationPreview();
