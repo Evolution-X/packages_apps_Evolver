@@ -148,8 +148,8 @@
     <string name="pulse_color_album">Обложка песни</string>
     <string name="pulse_color_accent">Цветовой акцент</string>
     <string name="pulse_bar_count_title">Количество полос</string>
-    <string name="pulse_bar_count_summary">Установите количество полос, отображаемых в визуализаторе.</string>
-    <string name="pulse_bar_count_units">Полосы</string>
+    <string name="pulse_bar_count_summary">Установите количество полос, отображаемых в визуализаторе</string>
+    <string name="pulse_bar_count_units">колонки</string>
     <string name="pulse_renderer">Стиль визуализатора</string>
     <string name="pulse_renderer_solid">Сплошные линии</string>
     <string name="pulse_renderer_fading">Затухающие блоки</string>
@@ -435,7 +435,7 @@
     <string name="quick_settings_tile_shape_rounded_square_smooth">Скругленный квадрат (гладкий)</string>
     <string name="quick_settings_tile_shape_rounded_square">Закруглённый квадрат</string>
     <string name="quick_settings_tile_shape_square">Квадрат</string>
-    <string name="quick_settings_tile_haptic_summary">Обеспечить виброотклик при нажатии на плитки QS</string>
+    <string name="quick_settings_tile_haptic_summary">Вибрировать при касании плиток быстрых настроек</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Всплывающие уведомления</string>
     <string name="notifications_heads_up_summary">Разрешить всплывающие уведомления</string>
@@ -536,7 +536,7 @@
     <string name="spoofing_photos_summary">Подмена устройства на Pixel XL для приложения «Google Фото»</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Подмена устройства на Pixel XL для решения проблем с чатами в Snapchat</string>
-    <string name="gameprops_title">Разблокировка высокого FPS в играх</string>
+    <string name="gameprops_title">Включить подмена игровых свойств</string>
     <string name="gameprops_summary">Подмена вашего устройства на другую модель для определенных игр, чтобы разблокировать более высокий FPS</string>
     <string name="gameprops_load_json_title">Выберите JSON файл Game props</string>
     <string name="gameprops_load_json_summary">Выберите файл JSON Game Props для подменных игр</string>
@@ -560,7 +560,7 @@
     <string name="keybox_toast_file_loaded">Файл с ключами загружен</string>
     <string name="keybox_toast_file_cleared">Ключи очищены</string>
     <!-- About -->
-    <string name="about_info">Evolution X — это кастомная прошивка Android ROM, призванная воссоздать функционал Google Pixel с расширенными возможностями настройки. Основана на проекте LineageOS.</string>
+    <string name="about_info">Evolution X — это измененная прошивка Android ROM, призванная воссоздать функционал Google Pixel с расширенными возможностями настройки. Основана на проекте LineageOS.</string>
     <string name="about_website_title">Сайт</string>
     <string name="about_website_summary">Следите за обновлениями на нашем сайте</string>
     <string name="about_x_summary">Ловите наши свежие посты в X</string>
@@ -686,7 +686,7 @@
     <string name="ls_media_art_fade_level_summary">Установить уровень выцветания обложки медиа</string>
     <!-- Lock screen media art blur level -->
     <string name="ls_media_art_blur_level_title">Степень размытия обложки</string>
-    <string name="ls_media_art_blur_level_summary">Интенсивность размытия при применении блюра (размытия)</string>
+    <string name="ls_media_art_blur_level_summary">Интенсивность размытия при применении фильтра размытия</string>
     <!-- Haptics Settings -->
     <string name="haptics_settings_title">Системная вибрация</string>
     <string name="haptics_settings_summary">Изменить интенсивность системной вибрации</string>
