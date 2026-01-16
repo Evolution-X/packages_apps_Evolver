@@ -132,10 +132,6 @@
     <string name="lock_screen_fingerprint_error_vibration_title">Wibracja po nieudanej autoryzacji</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Wibruj po nieudanym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_miscellaneous_category">Różne</string>
-    <string name="lock_screen_pocket_detection_title">Wykrywanie zasłonięcia czujnika zbliżeniowego</string>
-    <string name="lock_screen_pocket_detection_summary">Blokuj ekran i przyciski, gdy urządzenie jest zasłonięte</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Ochrona przed przypadkowymi dotknięciami jest zawsze aktywna</string>
-    <string name="lock_screen_always_on_pocket_mode_summary">Zawsze blokuj ekran i przyciski przy włączonym ekranie</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
     <string name="pulse_settings_summary">Wyświetlaj wizualizator słupkowy na ekranie blokady podczas odtwarzania muzyki</string>
@@ -187,7 +183,7 @@
     <string name="status_bar_battery_style_icon_landscape">Ikona pozioma (po lewej)</string>
     <string name="status_bar_battery_style_icon_landscape_buddy">Kapsuła poziomo</string>
     <string name="status_bar_battery_style_icon_landscape_line">Lorn poziomo</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">iOS pionowo </string>
+    <string name="status_bar_battery_style_icon_landscape_musku">iOS pionowo</string>
     <string name="status_bar_battery_style_icon_landscape_pill">Mx pionowo</string>
     <string name="status_bar_battery_style_icon_landscape_signal">Airoo poziomo</string>
     <string name="status_bar_battery_style_icon_rlandscape_style_a">Poziomo R styl A</string>
@@ -216,12 +212,6 @@
     <string name="status_bar_battery_text_charging_summary">Zawsze wyświetlaj poziom baterii w trakcie ładowania</string>
     <string name="status_bar_clock_and_date_title">Zegar i data</string>
     <string name="status_bar_clock_and_date_summary">Dostosuj zegar i datę</string>
-    <string name="status_bar_data_disabled_icon_title">Wskaźnik wyłączonych danych mobilnych</string>
-    <string name="status_bar_data_disabled_icon_summary">Wyświetlaj wskaźnik obok ikony sygnału, gdy dane mobilne są wyłączone</string>
-    <string name="status_bar_4g_icon_title">Ikona 4G</string>
-    <string name="status_bar_4g_icon_summary">Zamień ikonę LTE na 4G</string>
-    <string name="status_bar_wifi_standard_icon_title">Standard Wi-Fi</string>
-    <string name="status_bar_wifi_standard_icon_summary">Wyświetl standard Wi-Fi obok ikony Wi-Fi</string>
     <string name="status_bar_bluetooth_battery_title">Stan baterii urządzenia Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Pokaż aktualny stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępny</string>
     <string name="status_bar_colored_icons_title">Kolorowe ikony</string>
@@ -725,42 +715,6 @@
     <!-- QS Widgets -->
     <string name="qs_widgets_enabled_title">Widżety szybkich ustawień</string>
     <string name="qs_widgets_enabled_summary">Pokaż widżety dla szybkiego dostępu. n\ Ogranicza wiersze szybkich ustawień do 2, aby uniknąć przerwania przewijania panelu szybkich ustawień AOSP</string>
-    <!-- Lockscreen widgets  -->
-    <string name="lockscreen_widgets_title">Widżety</string>
-    <string name="lockscreen_widgets_enabled_title">Włącz widżety ekranu blokady</string>
-    <string name="lockscreen_widgets_enabled_summary">Dodaj widżety do ekranu blokady</string>
-    <string name="lockscreen_display_widgets_title">Widżet informacji o urządzeniu</string>
-    <string name="lockscreen_display_widgets_summary">Wyświetlanie widżetu informacji o urządzeniu na ekranie blokady</string>
-    <string name="large_widgets_category_title">Duże widżety</string>
-    <string name="main_custom_widgets1">Duży widżet 1</string>
-    <string name="main_custom_widgets2">Duży widżet 2</string>
-    <string name="mini_widgets_category_title">Mini widżety</string>
-    <string name="custom_widgets1">Mini widżet 1</string>
-    <string name="custom_widgets2">Mini widżet 2</string>
-    <string name="custom_widgets3">Mini widżet 3</string>
-    <string name="custom_widgets4">Mini widżet 4</string>
-    <string name="camera">Aparat</string>
-    <string name="clock_timer">Zegar/stoper</string>
-    <string name="calculator">Kalkulator</string>
-    <string name="gallery">Galeria</string>
-    <string name="media">Odtwarzacz multimedialny</string>
-    <string name="torch">Latarka</string>
-    <string name="controls_media_button_play">Graj</string>
-    <string name="weather">Pogoda</string>
-    <string name="wifi">Wi-Fi</string>
-    <string name="data">Dane mobilne</string>
-    <string name="ringer">Dzwonek</string>
-    <string name="bt">Bluetooth</string>
-    <string name="hotspot">Punkt dostępu</string>
-    <string name="wallet">Portfel</string>
-    <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">Styl widżetów ekranu blokady</string>
-    <string name="lockscreen_widgets_style1">Zaokrąglony styl Material</string>
-    <string name="lockscreen_widgets_style2">Kwadratowy styl Material</string>
-    <string name="lockscreen_widgets_style3">Przezroczysty (kwadratowy)</string>
-    <string name="lockscreen_widgets_style4">Przezroczysty (zaokrąglony)</string>
-    <string name="lockscreen_widgets_transparency_title">Przezroczystość widżetu w stylu przezroczystym</string>
-    <string name="lockscreen_widgets_transparency_summary">Konfiguracja poziomu przezroczystości widżetu w stylu przezroczystym</string>
     <!-- Font styles -->
     <string name="font_styles_title">Style czcionek</string>
     <string name="font_styles_summary">Zmiana stylu czcionki systemowej</string>
@@ -789,31 +743,16 @@
     <string name="media_squiggle_animation_title">Animacja falowania</string>
     <string name="media_squiggle_animation_summary">Pokaż animację falowania paska wyszukiwania w panelu multimediów podczas odtwarzania multimediów</string>
     <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Etykieta postępu w toku</string>
+    <string name="ongoing_progress_settings_title">Znacznik akcji na pasku stanu</string>
     <string name="ongoing_progress_settings_summary">Opcje akcji paska stanu</string>
-    <string name="ongoing_action_chip_title">Włącz aktywny element akcji</string>
-    <string name="ongoing_action_chip_summary">Pokaż postęp bieżących powiadomień na pasku stanu</string>
-    <string name="compact_progress_mode_title">Kompaktowy tryb postępu</string>
-    <string name="compact_progress_mode_summary">Użyj wskaźnika postępu w kształcie okręgu zamiast paska</string>
+    <string name="ongoing_action_chip_title">Znacznik trwającej akcji</string>
+    <string name="ongoing_action_chip_summary">Pokaż wskaźnik postępu na pasku stanu dla trwających akcji, takich jak pobieranie</string>
+    <string name="ongoing_action_chip_opacity_title">Przezroczystość paska postępu</string>
+    <string name="ongoing_action_chip_opacity_summary">Dostosuj szerokość paska postępu</string>
+    <string name="compact_progress_mode_title">Kompaktowy wskaźnik postępu</string>
+    <string name="compact_progress_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
     <string name="show_media_progress_title">Pokaż postęp multimediów</string>
     <string name="show_media_progress_summary">Wyświetlaj postęp odtwarzania multimediów na pasku stanu</string>
-    <string name="progress_bar_opacity_title">Przezroczystość paska postępu</string>
-    <string name="progress_bar_opacity_summary">Dostosuj przezroczystość paska postępu</string>
-    <string name="progress_enable_category_title">Ustawienia ogólne</string>
-    <string name="standard_chip_position_title">Standardowa pozycja paska</string>
-    <string name="circular_chip_position_title">Pozycja okrągłego paska postępu</string>
-    <string name="chip_position_x_title">Pozycja pozioma</string>
-    <string name="chip_position_x_summary">Przesuń pasek w lewo lub w prawo od punktu wyrównania</string>
-    <string name="chip_position_y_title">Pozycja pionowa</string>
-    <string name="chip_position_y_summary">Przesuń pasek w górę lub w dół na pasku stanu</string>
-    <string name="chip_size_title">Szerokość paska postępu</string>
-    <string name="chip_size_summary">Dostosuj szerokość paska postępu</string>
-    <string name="circular_chip_size_title">Rozmiar okrągłego paska postępu </string>
-    <string name="circular_chip_size_summary">Dostosuj średnicę okrągłego paska postępu </string>
-    <string name="circular_position_x_title">Przesunięcie poziome</string>
-    <string name="circular_position_x_summary">Dokładne dostosowanie pozycji poziomej</string>
-    <string name="circular_position_y_title">Przesunięcie pionowe</string>
-    <string name="circular_position_y_summary">Dokładne dostosowanie pozycji pionowej</string>
     <string name="progress_footer_text">&#x201E;Pasek postępu na pasku stanu zapewnia aktualizacje w czasie rzeczywistym zarówno dla odtwarzania multimediów, jak i aktywnych pobierań/przesyłania.
 
 - 🎵 postęp multimediów:
