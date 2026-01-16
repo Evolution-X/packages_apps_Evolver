@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2024 Evolution X
+     Copyright (C) 2019-2025 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -11,13 +11,13 @@
     <string name="themes_title">Темы</string>
     <string name="themes_summary">Настройки Monet, шрифты, значки</string>
     <string name="lock_screen_title">Экран блокировки</string>
-    <string name="lock_screen_summary">Интерфейс, отпечаток пальца, разное</string>
+    <string name="lock_screen_summary">Интерфейс, воспроизводится, Отпечаток пальца</string>
     <string name="status_bar_title">Строка состояния</string>
-    <string name="status_bar_summary">Жесты и иконки</string>
+    <string name="status_bar_summary">Жесты, иконки, логотип, отступы</string>
     <string name="quick_settings_title">Быстрые настройки</string>
-    <string name="quick_settings_summary">Ползунок яркости, интерфейс, экран блокировки</string>
+    <string name="quick_settings_summary">Интерфейс, ползунок яркости, экран блокировки</string>
     <string name="notifications_title">Уведомления</string>
-    <string name="notifications_summary">Всплывающие уведомления и интерфейс</string>
+    <string name="notifications_summary">Головы вверх, краеугольный свет, звуки</string>
     <string name="power_menu_title">Меню питания</string>
     <string name="power_menu_summary">Действия, экран блокировки</string>
     <string name="buttons_title">Кнопки</string>
@@ -122,7 +122,7 @@
     <string name="lock_screen_interface_category">Интерфейс</string>
     <string name="lock_screen_charging_stats_title">Состояние зарядки</string>
     <string name="lock_screen_charging_stats_summary">Отображать максимальный ток зарядного устройства, напряжение и температуру батареи на экране блокировки во время зарядки</string>
-    <string name="lock_screen_charging_time_title">Информация о зарядке на экране блокировки</string>
+    <string name="lock_screen_charging_time_title">Время зарядки</string>
     <string name="lock_screen_charging_time_summary">Показывать оставшееся время зарядки</string>
     <string name="lock_screen_fingerprint_category">Отпечаток пальца</string>
     <string name="lock_screen_fingerprint_ripple_title">Эффект пульсации</string>
@@ -137,7 +137,7 @@
     <string name="lock_screen_always_on_pocket_mode_title">Всегда активный режим «В кармане»</string>
     <string name="lock_screen_always_on_pocket_mode_summary">Всегда блокировать экран и кнопки, даже при включенном экране</string>
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_settings_title">Pulse визуализация</string>
+    <string name="pulse_settings_title">Пульсирующий визуализатор</string>
     <string name="pulse_settings_summary">Показывать визуализатор pulse на экране блокировки во время воспроизведения музыки</string>
     <string name="ambient_pulse_enabled_title">Визуализатор на всегда включённом экране</string>
     <string name="ambient_pulse_enabled_summary">Показать визуализатор pulse на Ambient Display</string>
@@ -156,6 +156,8 @@
     <string name="pulse_renderer_neon_glow">Неоновое свечение</string>
     <string name="pulse_renderer_retro_vu_meter">Ретро VU</string>
     <string name="pulse_renderer_minimal_wave">Минимальная волна</string>
+    <string name="pulse_renderer_sparkle">Искры</string>
+    <string name="pulse_renderer_matrix">Матрица</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Проведите влево или вправо для просмотра стиля часов</string>
     <!-- Lock screen Clock Revamp -->
@@ -207,6 +209,7 @@
     <string name="status_bar_battery_percent_title">Процент батареи</string>
     <string name="status_bar_battery_percent_hidden">Скрыт</string>
     <string name="status_bar_battery_percent_text_inside">Внутри значка</string>
+    <string name="status_bar_battery_percent_text_next">Рядом со значком</string>
     <string name="status_bar_battery_percent_text_next_right">Рядом со значком (справа)</string>
     <string name="status_bar_battery_percent_text_next_left">Рядом со значком (слева)</string>
     <string name="status_bar_battery_text_charging_title">Проценты батареи при зарядке</string>
@@ -274,7 +277,7 @@
     <string name="status_bar_location_privacy_indicator_summary">Показывать индикатор, когда приложение использует ваше местоположение</string>
     <string name="status_bar_projection_privacy_indicator_title">Трансляция экрана</string>
     <string name="status_bar_projection_privacy_indicator_summary">Показывать индикатор, когда экран проецируется</string>
-    <string name="status_bar_carrier_lock_screen_title">Название сети на экране блокировки</string>
+    <string name="status_bar_carrier_lock_screen_title">Имя оператора</string>
     <string name="status_bar_carrier_lock_screen_summary">Отображать название сети в строке состояния на заблокированном экране</string>
     <string name="status_bar_lyric_title">Текст в строке состояния</string>
     <string name="status_bar_lyric_summary">Показывать текст песни в строке состояния (требуется поддержка приложения)</string>
@@ -286,17 +289,10 @@
     <string name="status_bar_clock_position_right">Справа</string>
     <string name="status_bar_clock_position_left">Слева</string>
     <string name="status_bar_clock_position_center">По центру</string>
-    <string name="status_bar_clock_position_hidden">Скрыт</string>
     <string name="status_bar_clock_seconds_title">Показывать секунды</string>
     <string name="status_bar_clock_seconds_summary">Отображать секунды рядом с часами в строке состояния</string>
-    <string name="status_bar_clock_auto_hide_intervals_title">Автоскрытие по интервалу</string>
-    <string name="status_bar_clock_auto_hide_intervals_summary">Скрывать часы через настраиваемые интервалы времени</string>
-    <string name="status_bar_clock_auto_hide_hdur_title">Продолжительность скрытия</string>
-    <string name="status_bar_clock_auto_hide_hdur_summary">Количество секунд для скрытия часов</string>
-    <string name="status_bar_clock_auto_hide_sdur_title">Продолжительность отображения</string>
-    <string name="status_bar_clock_auto_hide_sdur_summary">Количество секунд ожидания перед скрытием часов</string>
-    <string name="status_bar_clock_auto_hide_launcher_title">Автоскрытие в лаунчере</string>
-    <string name="status_bar_clock_auto_hide_launcher_summary">Скрывать часы, если открыт рабочий стол</string>
+    <string name="status_bar_clock_auto_hide_title">Автоскрытие часов</string>
+    <string name="status_bar_clock_auto_hide_summary">Скрывать часы, если открыт рабочий стол</string>
     <string name="status_bar_clock_chip_title">Фоновая подложка</string>
     <string name="status_bar_clock_chip_summary">Отображать фон акцентного цвета под часами</string>
     <string name="status_bar_am_pm_title">12-часовой (AM/PM)</string>
@@ -358,6 +354,7 @@
     <string name="quick_settings_panel_style_reflected">Отраженный</string>
     <string name="quick_settings_panel_style_surround">Объемный</string>
     <string name="quick_settings_panel_style_thin">Тонкая линия</string>
+    <string name="quick_settings_layout_category_title">Расположение плиток</string>
     <string name="quick_settings_tile_label_hide_title">Скрыть подписи</string>
     <string name="quick_settings_tile_label_size_title">Размер текста подписи</string>
     <string name="quick_settings_tile_label_hide_summary">Показывать только значок в плитке</string>
@@ -507,13 +504,16 @@
     <string name="miscellaneous_ignore_window_secure_summary">Снятие ограничений на скриншоты и запись экрана для всех приложений, потенциально увеличивая риск утечки конфиденциальных данных</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Неограниченная запись</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Убрать ограничение на размер в 15 ГБ\nИтоговый файл может быть очень большого размера</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Авто исправление обнаружения VBMeta</string>
+    <string name="vbmeta_attestation_summary">Выполните проверку ключа, чтобы сгенерировать подтверждённый загрузочный хеш. Требуется перезагрузка системы.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Скрыть список приложений</string>
     <string name="hide_applist_summary">Запретить приложениям проверять выбранные приложения из списка приложений</string>
     <string name="menu_show_overlay">Показать наложение</string>
     <string name="menu_hide_overlay">Скрыть наложение</string>
     <!-- Miscellaneous/Smart Pixels -->
-    <string name="smart_pixels_warning_text">Умные пиксели - это функция энергосбережения. В зависимости от количества пикселей, которые вы решили выключить, вы можете видеть улучшения в жизни батареи. Заметьте, что в некоторых случаях это может привести к нереагирующим областям при сенсорном экране</string>
+    <string name="smart_pixels_warning_text">«Умные пиксели» - средство экономии заряда. В зависимости от того, сколько пикселей вы захотите отключить, это может привести к значительному увеличению времени работы от батареи. Обратите внимание, что в некоторых случаях это может привести к нереагирующим областям на сенсорном экране</string>
     <string name="smart_pixels_title">Умные пиксели</string>
     <string name="smart_pixels_summary">Экономьте батарею, отключая лишние пиксели</string>
     <string name="smart_pixels_on_power_save_title">Автоматическое включение при активации экономии зарядка батареи</string>
@@ -532,14 +532,14 @@
     <string name="gms_spoof_title">Исправление Play Integrity</string>
     <string name="gms_spoof_summary">Подмена вашего устройства для прохождения проверки Google Play</string>
     <string name="spoofing_app_specific_category">Для отдельных приложений</string>
-    <string name="spoofing_qsb_title">Приложение Google</string>
-    <string name="spoofing_qsb_summary">Подмена устройства на новейший Pixel для приложения Google, чтобы разблокировать эксклюзивные функции</string>
     <string name="spoofing_photos_title">Google Фото</string>
     <string name="spoofing_photos_summary">Подмена устройства на Pixel XL для приложения «Google Фото»</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Подмена устройства на Pixel XL для решения проблем с чатами в Snapchat</string>
     <string name="gameprops_title">Разблокировка высокого FPS в играх</string>
     <string name="gameprops_summary">Подмена вашего устройства на другую модель для определенных игр, чтобы разблокировать более высокий FPS</string>
+    <string name="gameprops_load_json_title">Выберите JSON файл Game props</string>
+    <string name="gameprops_load_json_summary">Выберите файл JSON Game Props для подменных игр</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Файл pif.json загружен. Подмена на %1$s для прохождения Play Integrity.</string>
     <string name="toast_spoofing_failure">Не удалось подменить.</string>
@@ -559,9 +559,6 @@
     <string name="keybox_toast_missing_data">Некорректный XML файл с ключами: отсутствуют обязательные поля</string>
     <string name="keybox_toast_file_loaded">Файл с ключами загружен</string>
     <string name="keybox_toast_file_cleared">Ключи очищены</string>
-    <!-- Block attestation even with Keybox Data -->
-    <string name="gms_cert_chain_title">Отключить принудительную strong integrity</string>
-    <string name="gms_cert_chain_summary">Если включено, не требовать сильную целостность от валидного кастомного keybox и полагаться на спуфинг Google Play Integrity для исправления приложений вроде Google Pay</string>
     <!-- About -->
     <string name="about_info">Evolution X — это кастомная прошивка Android ROM, призванная воссоздать функционал Google Pixel с расширенными возможностями настройки. Основана на проекте LineageOS.</string>
     <string name="about_website_title">Сайт</string>
@@ -591,6 +588,9 @@
     <string name="default_value">По умолчанию</string>
     <string name="top">Сверху</string>
     <string name="bottom">Внизу</string>
+    <string name="reset">Сбросить</string>
+    <string name="delete_message">Удалить выбранный элемент?</string>
+    <string name="choose_app">Выберите приложение</string>
     <!-- Units -->
     <string name="unit_milliseconds">миллисекунд</string>
     <string name="unit_seconds">секунд</string>
@@ -710,8 +710,10 @@
     <string name="lockscreen_weather_location_summary">Показать погоду текущего местоположения</string>
     <string name="lockscreen_weather_text_title">Текущее состояние</string>
     <string name="lockscreen_weather_text_summary">Показывать сводку текущих погодных условий</string>
-    <string name="lockscreen_weather_style_title">Стиль Pixel</string>
-    <string name="lockscreen_weather_style_summary">Отображать погоду как отдельную строку</string>
+    <string name="lockscreen_weather_wind_info_title">Информация о ветре</string>
+    <string name="lockscreen_weather_wind_info_summary">Текущая скорость и направление ветра</string>
+    <string name="lockscreen_weather_humidity_info_title">Информация о влажности</string>
+    <string name="lockscreen_weather_humidity_info_summary">Текущая влажность в процентах</string>
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Всегда включенный экран</string>
     <string name="aod_pulse_category_title">Пульсация</string>
@@ -830,7 +832,7 @@
  
      Индикатор автоматически переключается между режимами медиа и загрузки, всегда отображая самую актуальную информацию.\"
     </string>
-    <!-- Battery bar -->
+    <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Полоса заряда батареи</string>
     <string name="battery_bar_summary">Отображение и настройка полосы батареи над строке состония</string>
     <string name="battery_bar_color">Цвет</string>
@@ -848,8 +850,8 @@
     <string name="battery_bar_blend_color_reverse_title">Обратное направление цвета</string>
     <string name="battery_bar_blend_color_reverse_summary_off">Полный &#8594; пустой: красный &#8592; зелёный &#8592; синий &#8592; красный</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Полный &#8594; пустой: красный &#8594; зелёный &#8594; синий &#8594; красный</string>
-    <string name="battery_bar_use_gradient_color">Использовать цвет градиента</string>
-    <string name="battery_bar_gradient_color_summary">Использовать градиентный цвет для шкалы заряда батареи</string>
+    <string name="battery_bar_use_gradient_color">Использовать градиент</string>
+    <string name="battery_bar_gradient_color_summary">Использовать градиент для шкалы заряда батареи</string>
     <string name="battery_bar_high_color">Цвет высокого уровня заряда</string>
     <string name="battery_bar_low_color">Цвет низкого уровня заряда</string>
     <string name="battery_bar_animate_color">Цвет анимации зарядки</string>
@@ -858,42 +860,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Маленькие уведомления в горизонтальном режиме</string>
     <string name="small_landscape_notification_summary">Показывать уведомления меньше по ширине в панели уведомлений в альбомном режиме так же, как в AOSP</string>
-    <!-- Button settings -->
-    <string name="touchscreen_gesture_action_play_pause_music">Воспроизведение/пауза музыки</string>
-    <string name="hardware_keys_action_nothing">Не задано</string>
-    <string name="hardware_keys_action_menu">Открыть / закрыть меню</string>
-    <string name="hardware_keys_action_app_switch">Переключатель недавних приложений</string>
-    <string name="hardware_keys_action_search">Поисковый помощник</string>
-    <string name="hardware_keys_action_voice_search">Голосовой поиск</string>
-    <string name="hardware_keys_action_in_app_search">Поиск в приложении</string>
-    <string name="hardware_keys_action_launch_camera">Запустить камеру</string>
-    <string name="hardware_keys_action_sleep">Выключить экран</string>
-    <string name="hardware_keys_action_last_app">Последнее приложение</string>
-    <string name="hardware_keys_action_split_screen">Разделить экран</string>
-    <string name="hardware_keys_action_close_app">Закрыть приложение</string>
-    <string name="hardware_keys_action_torch">Включить / выключить фонарик</string>
-    <string name="hardware_keys_action_screenshot">Сделать снимок экрана</string>
-    <string name="hardware_keys_action_volume_panel">Показать/скрыть панель громкости</string>
-    <string name="hardware_keys_action_clear_all_notifications">Очистить все уведомления</string>
-    <string name="hardware_keys_action_notifications_panel">Показать/скрыть панель уведомлений</string>
-    <string name="hardware_keys_action_expand_qs_panel">Развернуть панель быстрого доступа</string>
-    <string name="hardware_keys_action_ringer_modes">Изменение режима звонка</string>
-    <!-- Three Finger Gestures -->
-    <string name="three_finger_gesture_action_title">Жесты смахивания тремя пальцами</string>
-    <string name="three_finger_gesture_action_dialog_title">Действия жестов смахивания тремя пальцами</string>
-    <string name="three_finger_long_press_action_title">Жесты долгого нажатия тремя пальцами</string>
-    <string name="three_finger_long_press_action_dialog_title">Действия жестов смахивания тремя пальцами</string>
-    <!-- NT Three finger -->
-    <string name="nt_gesture_three_finger_swipe">Жест тремя пальцами</string>
-    <string name="nt_gesture_three_finger_swipe_summary">Проведите вниз тремя пальцами для выполнения действия.</string>
-    <string name="nt_gesture_three_finger_long_press">Жесты долгого удержания тремя пальцами</string>
-    <string name="nt_gesture_three_finger_long_press_summary">Нажмите и удерживайте тремя пальцами, а затем проведите пальцем вниз, чтобы сделать скриншот области.</string>
-    <string name="nt_combination_power_volume_click">Отключить кнопку питания &amp; кнопка громкости вниз</string>
-    <string name="nt_combination_power_volume_click_summary">Отключите функцию создания снимков экрана, нажав и удерживая кнопку питания и кнопку уменьшения громкости.</string>
-    <!-- Power off verify -->
-    <string name="power_off_verify_footer">Проверка выключения питания защищает ваше устройство, не позволяя другим людям выключить его сразу после потери, что увеличивает шансы на его возвращение. Вам нужно только ввести пароль блокировки экрана при выключении или перезапуске телефона с экрана блокировки.</string>
-    <string name="power_off_verify_summary">Когда ваше устройство заблокировано, вам нужно будет использовать пароль для выключения или перезапуска.</string>
-    <string name="power_off_verify_title">Проверка выключения питания</string>
     <!-- Notification row transparency -->
     <string name="notification_row_transparency_title">Прозрачность строки уведомлений</string>
     <string name="notification_row_transparency_summary">Показать полупрозрачные уведомления в быстрых настройках</string>
@@ -908,4 +874,72 @@
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Плавающая кнопка поворота</string>
     <string name="floating_rotation_button_summary">Показывать плавающую кнопку поворота при вращении устройства</string>
+    <!-- Fonts Screen -->
+    <string name="font_title">Шрифт</string>
+    <string name="font_style">Стиль шрифта</string>
+    <string name="font_preview_dialog_title">Предпросмотр шрифта</string>
+    <string name="apply">Применить</string>
+    <string name="applied">Применено</string>
+    <string name="reboot_device">Перезагрузить устройство</string>
+    <string name="reboot_required_title">Требуется перезагрузка</string>
+    <string name="reboot_required_message">Чтобы применить изменения шрифта, требуется перезагрузка.\nПерезагрузить сейчас?</string>
+    <string name="reboot_now">Перезагрузить сейчас</string>
+    <string name="later">Позже</string>
+    <string name="reset_default_title">Вернуть значения по умолчанию</string>
+    <string name="reset_default_message">Это действие сбросит ваш шрифт на системный по умолчанию. Вы уверены?</string>
+    <string name="add_font">Добавить шрифт</string>
+    <string name="custom_font">Пользовательский шрифт</string>
+    <string name="no_custom_font">Пользовательский шрифт не установлен</string>
+    <string name="add_custom_font">Добавить пользовательский шрифт</string>
+    <string name="change_custom_font">Изменить пользовательский шрифт</string>
+    <string name="reset_custom_font_content_desc">Сбросить пользовательский шрифт</string>
+    <string name="reboot_required_custom_font_title">Для применения изменений пользовательского шрифта требуется перезагрузка</string>
+    <string name="reboot_required_custom_font_desc">Пропуск перезагрузки после изменения пользовательского шрифта может вызвать несоответствия интерфейса в разных приложениях.</string>
+    <string name="font_preview_quote">Страх — враг инноваций.</string>
+    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
+    <string name="active_content_desc">Активно</string>
+    <string name="toast_failed_apply_font">Не удалось применить шрифт</string>
+    <string name="toast_invalid_font_file">Некорректный файл шрифта</string>
+    <!-- Now Playing -->
+    <string name="nowplaying_title">Сейчас играет</string>
+    <string name="nowplaying_summary">Показывать информацию о проигрывании музыки на экране блокировки и AOD</string>
+    <string name="nowplaying_appearance_title">Внешний вид</string>
+    <string name="nowplaying_use_accent_color_title">Использовать акцентный цвет</string>
+    <string name="nowplaying_use_accent_color_summary">Использовать системный акцент цвета вместо белого</string>
+    <string name="nowplaying_vertical_position_title">Вертикальное положение</string>
+    <string name="nowplaying_vertical_position_summary">Изменение положения с верхней части экрана на нижнюю</string>
+    <string name="nowplaying_track_text_size_title">Размер заголовка трека</string>
+    <string name="nowplaying_track_text_size_summary">Размер текста заголовка трека</string>
+    <string name="nowplaying_artist_text_size_title">Размер имени исполнителя</string>
+    <string name="nowplaying_artist_text_size_summary">Размер текста имени исполнителя/альбома</string>
+    <string name="nowplaying_display_title">Параметры отображения</string>
+    <string name="nowplaying_show_on_lockscreen_title">Показывать на экране блокировки</string>
+    <string name="nowplaying_show_on_lockscreen_summary">Отображать информацию о музыке, когда устройство заблокировано</string>
+    <string name="nowplaying_icon_style_title">Стиль иконок</string>
+    <string name="nowplaying_icon_style_summary">Выберите иконку для отображения</string>
+    <string name="nowplaying_icon_size_title">Размер значка</string>
+    <string name="nowplaying_icon_size_summary">Изменить размер значка</string>
+    <string name="nowplaying_show_on_aod_title">Показывать в режиме AOD</string>
+    <string name="nowplaying_show_on_aod_summary">Отображать информацию о музыке  на ambient display</string>
+    <string name="nowplaying_compact_style_title">Компактный стиль</string>
+    <string name="nowplaying_compact_style_summary">Показывать текст на одной строке, используя размер шрифта трека</string>
+    <string name="nowplaying_info_summary">Функция «сейчас играет» будет отображаться на экране блокировки и в режиме AOD. Она автоматически появляется, когда музыка проигрывается и исчезает при остановке. Позицию можно настроить так, чтобы она появлялась любой части экрана – от верха до верхней части до нижней.</string>
+    <!-- Ripple Shape -->
+    <string name="ripple_shape_title">Форма кольцевой зарядки</string>
+    <!-- Adaptive Playback -->
+    <string name="adaptive_playback_title">Адаптивное воспроизведение</string>
+    <string name="adaptive_playback_summary">Приостанавливать воспроизведение при выключенном звуке и возобновлять его, при увеличении громкость в пределах таймаута</string>
+    <string name="adaptive_playback_intro_text">Автоматически приостанавливает воспроизведение медиа при отключении громкости и автоматически возобновляет его при увеличении громкости в течение заданного времени</string>
+    <string name="adaptive_playback_timeout_title">Таймаут воспроизведения</string>
+    <!-- Statusbar Padding -->
+    <string name="statusbar_extra_padding_category">Дополнительный отступ</string>
+    <string name="statusbar_extra_padding_start_title">Начало отступа</string>
+    <string name="statusbar_extra_padding_top_title">Верхний отступ</string>
+    <string name="statusbar_extra_padding_end_title">Конец отступа</string>
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">Блокировка сенсоров по-пакетно</string>
+    <string name="sensor_block_summary">Заблокировать доступ к датчикам для некоторых приложений для экономии заряда батареи</string>
+    <string name="sensor_block_app_picker_title">Блокировать датчики для этих приложений</string>
+    <string name="add_sensor_block_package_title">Выбрать приложения, для которых блокируются датчики</string>
+    <string name="add_sensor_block_package_summary">Акселерометр, датчики движения и линейного ускорения будут заблокированы для выбранных приложений</string>
 </resources>
