@@ -132,14 +132,10 @@
     <string name="lock_screen_fingerprint_error_vibration_title">A sikertelen hitelesítés rezeg</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Rezgéssel jelzi az ujjlenyomat sikertelen hitelesítését</string>
     <string name="lock_screen_miscellaneous_category">Különlegességek</string>
-    <string name="lock_screen_pocket_detection_title">Zsebészlelés</string>
-    <string name="lock_screen_pocket_detection_summary">Ha a készüléket zsebben érzékeli, megakadályozza a véletlen érintéseket a képernyőn és a fizikai gombokon</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Állandó Zsebmód</string>
-    <string name="lock_screen_always_on_pocket_mode_summary">Ha be van kapcsolva a képernyő, folyamatos a kijelző és a gombok blokkolása</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Pulzáló vizualizáció</string>
     <string name="pulse_settings_summary">Zenelejátszás közben a képernyőzáron egy sávnyi vizualizáció látszik</string>
-    <string name="ambient_pulse_enabled_title">Pulzáló környezeti kijelző</string>
+    <string name="ambient_pulse_enabled_title">Pulse a környezeti kijelzőhöz</string>
     <string name="ambient_pulse_enabled_summary">A \'Környezeti kijelző\' vizualizálása</string>
     <string name="pulse_rounded_bars_title">Lekerekített sávok</string>
     <string name="pulse_rounded_bars_summary">A vizualizáció sávjai lekerekítetten jelennek meg</string>
@@ -216,12 +212,6 @@
     <string name="status_bar_battery_text_charging_summary">Töltés közben állandóan jelenítse meg az akkuszázalékot</string>
     <string name="status_bar_clock_and_date_title">Óra és dátum</string>
     <string name="status_bar_clock_and_date_summary">Az \'Óra és dátum\' testreszabása</string>
-    <string name="status_bar_data_disabled_icon_title">A letiltott adatforgalom kijelzője</string>
-    <string name="status_bar_data_disabled_icon_summary">A térerő mellett X-jel megjelenítése, ha a mobiladat-forgalom le van tiltva</string>
-    <string name="status_bar_4g_icon_title">4G-ikon</string>
-    <string name="status_bar_4g_icon_summary">\'4G\'-ikonra cseréli le az \'LTE\'-ikont</string>
-    <string name="status_bar_wifi_standard_icon_title">Wi-Fi-szabvány</string>
-    <string name="status_bar_wifi_standard_icon_summary">A Wi-Fi-jel mellett a szabványt is megjeleníti</string>
     <string name="status_bar_bluetooth_battery_title">Bluetooth-akkuállapot</string>
     <string name="status_bar_bluetooth_battery_summary">A csatlakoztatott bluetooth eszköz akkuállapotának megjelenítése, ha rendelkezésre áll</string>
     <string name="status_bar_colored_icons_title">Színes ikonok</string>
@@ -504,6 +494,9 @@
     <string name="miscellaneous_ignore_window_secure_summary">Eltávolítja a képernyőképekre és a képernyőfelvételekre vonatkozó korlátozásokat az összes alkalmazásnál, ami az adatvédelmi szivárgások kockázatát eredményezheti</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Végtelen fájlméret</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Eltörli a 15GB-os fájlméret-limitet\nA szükségesnél nagyobb kimenő fájlméretet eredményezhet</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">A VBMeta-észlelés automatikus javítása</string>
+    <string name="vbmeta_attestation_summary">Kulcshitelesítés végrehajtása ellenőrzött rendszerindítási hash létrehozásához rendszerindításkor. A rendszer újraindítását igényli.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Elrejtés az alkalmazáslistából</string>
     <string name="hide_applist_summary">Az alkalmazások nem ellenőrizhetik az alkalmazáslistában szereplő kiválasztott alkalmazásokat</string>
@@ -723,42 +716,6 @@
     <!-- QS Widgets -->
     <string name="qs_widgets_enabled_title">Kisalkalmazások a Gyorsbeállításokhoz</string>
     <string name="qs_widgets_enabled_summary">Widgetek megjelenítése a gyors eléréshez.\nA sorokat kettőre korlátozza, hogy elkerülje az AOSP-panel görgetésmegszakítását</string>
-    <!-- Lockscreen widgets  -->
-    <string name="lockscreen_widgets_title">Kisalkalmazások</string>
-    <string name="lockscreen_widgets_enabled_title">Engedélyezi a widgeteket a záróképernyőn</string>
-    <string name="lockscreen_widgets_enabled_summary">Új kisalkalmazás hozzáadása a záróképernyőhöz</string>
-    <string name="lockscreen_display_widgets_title">Készülékinformáció</string>
-    <string name="lockscreen_display_widgets_summary">Megjeleníti a készülékinfót a záróképernyőn</string>
-    <string name="large_widgets_category_title">Nagy kisalkalmazások</string>
-    <string name="main_custom_widgets1">Nagyméretű 1</string>
-    <string name="main_custom_widgets2">Nagyméretű 2</string>
-    <string name="mini_widgets_category_title">Mini kisalkalmazások</string>
-    <string name="custom_widgets1">Kisméretű 1</string>
-    <string name="custom_widgets2">Kisméretű 2</string>
-    <string name="custom_widgets3">Kisméretű 3</string>
-    <string name="custom_widgets4">Kisméretű 4</string>
-    <string name="camera">Kamera</string>
-    <string name="clock_timer">Óra/Időzítő</string>
-    <string name="calculator">Számológép</string>
-    <string name="gallery">Galéria</string>
-    <string name="media">Médialejátszó</string>
-    <string name="torch">Zseblámpa</string>
-    <string name="controls_media_button_play">Lejátszás</string>
-    <string name="weather">Időjárás</string>
-    <string name="wifi">Wi-Fi</string>
-    <string name="data">Adat</string>
-    <string name="ringer">Csengés</string>
-    <string name="bt">Bluetooth</string>
-    <string name="hotspot">Hotspot</string>
-    <string name="wallet">Pénztárca</string>
-    <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">A záróképernyő kisalkalmazások stílusa</string>
-    <string name="lockscreen_widgets_style1">Material lekerekített</string>
-    <string name="lockscreen_widgets_style2">Material négyzetes</string>
-    <string name="lockscreen_widgets_style3">Átlátszó (Négyzetes)</string>
-    <string name="lockscreen_widgets_style4">Átlátszó (Lekerekített)</string>
-    <string name="lockscreen_widgets_transparency_title">Az átlátszó stílus áttetszőség-erőssége</string>
-    <string name="lockscreen_widgets_transparency_summary">Szabályzhatja a stílus átlátszósági szintjét</string>
     <!-- Font styles -->
     <string name="font_styles_title">Betűstílus</string>
     <string name="font_styles_summary">Itt állíthatja be a rendszer-betűtípusát</string>
@@ -787,31 +744,16 @@
     <string name="media_squiggle_animation_title">Hullámzó animáció</string>
     <string name="media_squiggle_animation_summary">Média lejátszásakor a keresősáv hullámzó animációjának megjelenítése</string>
     <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Műveletfolyamatok kijelzője</string>
+    <string name="ongoing_progress_settings_title">Folyamatkijelzés az értesítési sávban</string>
     <string name="ongoing_progress_settings_summary">Az értesítési sáv kijelzési beállításai</string>
-    <string name="ongoing_action_chip_title">A műveletfolyamatok kijelzésének bekapcsolása</string>
-    <string name="ongoing_action_chip_summary">Az értesítések állapotának megjelenítése az állapotsorban</string>
-    <string name="compact_progress_mode_title">Körkörös kijelzés</string>
+    <string name="ongoing_action_chip_title">Épp zajló művelet kijelzése</string>
+    <string name="ongoing_action_chip_summary">Folyamatban lévő műveletek, pl. letöltések kijelzőjének megjelenítése az állapotsoron</string>
+    <string name="ongoing_action_chip_opacity_title">A sáv átlátszósága</string>
+    <string name="ongoing_action_chip_opacity_summary">A folyamatjelző átlátszóságának beállítása</string>
+    <string name="compact_progress_mode_title">Kompakt folyamatjelző</string>
     <string name="compact_progress_mode_summary">Kör alakú folyamatjelző használata a sáv helyett</string>
     <string name="show_media_progress_title">Médiafolyamat-kijelzés</string>
     <string name="show_media_progress_summary">A médialejátszási folyamat megjelenítése az állapotsorban</string>
-    <string name="progress_bar_opacity_title">A sáv átlátszósága</string>
-    <string name="progress_bar_opacity_summary">A folyamatjelző átlátszóságának beállítása</string>
-    <string name="progress_enable_category_title">Általános beállítások</string>
-    <string name="standard_chip_position_title">A megszokott kijelző helye</string>
-    <string name="circular_chip_position_title">A körkörös kijelző helye</string>
-    <string name="chip_position_x_title">Vízszintes elhelyezkedés</string>
-    <string name="chip_position_x_summary">A kijelző mozgatása balra vagy jobbra az igazítási ponttól</string>
-    <string name="chip_position_y_title">Függőleges elhelyezkedés</string>
-    <string name="chip_position_y_summary">A kijelző mozgatása felfelé vagy lefelé az állapotsorban</string>
-    <string name="chip_size_title">A kijelző magassága</string>
-    <string name="chip_size_summary">A folyamatjelző magasságának beállítása</string>
-    <string name="circular_chip_size_title">A körkörös kijelző mérete</string>
-    <string name="circular_chip_size_summary">A körkörös kijelző átmérőjének változtatása</string>
-    <string name="circular_position_x_title">Vízszintes eltolás</string>
-    <string name="circular_position_x_summary">A vízszintes pozíció finomhangolása</string>
-    <string name="circular_position_y_title">Függőleges eltolás</string>
-    <string name="circular_position_y_summary">A függőleges pozíció finomhangolása</string>
     <string name="progress_footer_text">     \"Az állapotsor folyamatjelzője valós idejű infókat nyújt mind a médialejátszásról, mind az aktív letöltésekről/feltöltésekről.
  
      - 🎵 Médiafolyamatok:
@@ -889,7 +831,7 @@
     <string name="no_custom_font">Nem áll rendelkezésre betűtípus</string>
     <string name="add_custom_font">Egyéni betűtípus hozzáadása</string>
     <string name="change_custom_font">Egyéni készlet megváltoztatása</string>
-    <string name="reset_custom_font_content_desc">Egyéni betűtípus visszaállítása</string>
+    <string name="reset_custom_font_content_desc">Az egyéni betűtípus visszaállítása</string>
     <string name="reboot_required_custom_font_title">Az egyéni betűkészlet módosításához újraindítás szükséges</string>
     <string name="reboot_required_custom_font_desc">Amennyiben módosítás után kihagyja az újraindítást az problémákat okozhat a rendszerfelület alkalmazásai között.</string>
     <string name="font_preview_quote">Ez a tesztszöveg a módosításhoz.</string>
@@ -928,9 +870,6 @@
     <string name="adaptive_playback_summary">Megállítja a lejátszást, ha a média elnémul, de folytatja ha gyosan időkorláton belül felhangosításra kerül</string>
     <string name="adaptive_playback_intro_text">Hangerőnémításkor automatikusan leállítja a lejátszást és automatikusan újra is indítja, ha a némítás megszűnik</string>
     <string name="adaptive_playback_timeout_title">Lejátszási időkorlát</string>
-    <!-- Smartspace -->
-    <string name="lockscreen_smartspace_title">Smartspace</string>
-    <string name="lockscreen_smartspace_summary">Ha elérhető, akkor megjeleníti a Google Smartspace-t</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Extra kitöltés</string>
     <string name="statusbar_extra_padding_start_title">Kezdeti kitöltés</string>
