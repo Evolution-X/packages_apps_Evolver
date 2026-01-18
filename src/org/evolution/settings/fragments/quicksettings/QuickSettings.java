@@ -57,6 +57,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private static final String KEY_QS_PANEL_STYLE  = "qs_panel_style";
 //    private static final String KEY_QS_UI_STYLE  = "qs_tile_ui_style";
 //    private static final String KEY_QS_WIDGETS_ENABLED  = "qs_widgets_enabled";
+    private static final String KEY_COMPACT_MEDIA_PLAYER_ENABLED = "qs_compact_media_player_mode";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
 //    private static final String KEY_TILE_ANIM_STYLE = "qs_tile_animation_style";
@@ -74,6 +75,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mBrightnessSliderPosition;
 //    private ListPreference mQsPanelStyle;
 //    private ListPreference mQsUI;
+    private SystemSettingSwitchPreference mCompactMediaPlayer;
     private SwitchPreferenceCompat mBrightnessSliderHaptic;
     private SwitchPreferenceCompat mShowAutoBrightness;
 //    private SwitchPreferenceCompat mQsTileHaptic;
@@ -115,6 +117,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //        mBatteryPercent.setEnabled(
 //                batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
 
+        mCompactMediaPlayer = findPreference(KEY_COMPACT_MEDIA_PLAYER_ENABLED);
+        mCompactMediaPlayer.setOnPreferenceChangeListener(this);
+
         mShowBrightnessSlider = findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
         mShowBrightnessSlider.setOnPreferenceChangeListener(this);
         boolean showSlider = LineageSettings.Secure.getIntForUser(resolver,
@@ -124,6 +129,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mBrightnessSliderPosition.setEnabled(showSlider);
 
         mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
+        mBrightnessSliderHaptic.setOnPreferenceChangeListener(this);
 //        mQsTileHaptic = findPreference(KEY_QS_TILE_HAPTIC);
         boolean hapticAvailable = DeviceUtils.hasVibrator(context);
 
@@ -217,6 +223,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //        } else if (preference == mQsWidgetsPref) {
 //            SystemUtils.showSystemUiRestartDialog(context);
 //            return true;
+        } else if (preference == mCompactMediaPlayer 
+            || preference == mBrightnessSliderHaptic) {
+            SystemUtils.showSystemUiRestartDialog(context);
+            return true;
         }
         return false;
     }
