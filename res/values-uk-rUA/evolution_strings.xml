@@ -132,10 +132,6 @@
     <string name="lock_screen_fingerprint_error_vibration_title">Помилка автентифікації</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Вібрувати при невдалому розпізнавання відбитку пальця</string>
     <string name="lock_screen_miscellaneous_category">Різне</string>
-    <string name="lock_screen_pocket_detection_title">Режим \"У кишені\"</string>
-    <string name="lock_screen_pocket_detection_summary">Заблокувати екран та фізичні кнопки, коли пристрій перебуває в кишені</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Завжди в кишеньковому режимі</string>
-    <string name="lock_screen_always_on_pocket_mode_summary">Завжди блокувати екран і кнопки при увімкненому екрані</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Візуалізатор пульсу</string>
     <string name="pulse_settings_summary">Показати візуалізацію на екрані блокування, коли грає музика</string>
@@ -216,12 +212,6 @@
     <string name="status_bar_battery_text_charging_summary">Завжди показувати відсотки акумулятора під час заряджання</string>
     <string name="status_bar_clock_and_date_title">Налаштування годинника та налаштування дати</string>
     <string name="status_bar_clock_and_date_summary">Налаштування години і дати</string>
-    <string name="status_bar_data_disabled_icon_title">Індикатор вимкнених мобільних даних</string>
-    <string name="status_bar_data_disabled_icon_summary">Відображати індикатор поруч з іконкою сигналу, коли мобільні дані вимкнуто</string>
-    <string name="status_bar_4g_icon_title">Значок 4G</string>
-    <string name="status_bar_4g_icon_summary">Замінити значок \'LTE\' на \'4G\'</string>
-    <string name="status_bar_wifi_standard_icon_title">Wi-Fi стандарт</string>
-    <string name="status_bar_wifi_standard_icon_summary">Показувати стандарт Wi-Fi поруч із іконкою Wi-Fi</string>
     <string name="status_bar_bluetooth_battery_title">Показати заряд Bluetooth-пристрою</string>
     <string name="status_bar_bluetooth_battery_summary">Показувати заряд батареї під\'єднаних в даний час bluetooth-пристроїв, якщо можливо</string>
     <string name="status_bar_colored_icons_title">Кольорові значки</string>
@@ -504,6 +494,9 @@
     <string name="miscellaneous_ignore_window_secure_summary">Зняти обмеження на знятках і записи екрану для всіх додатків, потенційно ризикуючи витіком конфіденційності</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Скасувати обмеження запису екрану</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Видалити обмеження розміру 15 Гб файлу\nМоже призвести до більшого, ніж необхідний файл виводу</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Автовиправлення розпізнавання VBMeta</string>
+    <string name="vbmeta_attestation_summary">Виконайте хеш ключа при завантаженні щоб генерувати перевірений хеш. Для запуску необхідно перезапустити систему.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Приховати список додатків</string>
     <string name="hide_applist_summary">Не дозволяти додаткам перевіряти обрані додатки зі списку</string>
@@ -721,42 +714,6 @@
     <!-- QS Widgets -->
     <string name="qs_widgets_enabled_title">Віджети швидких налаштувань</string>
     <string name="qs_widgets_enabled_summary">Показувати віджети для швидкого доступу. \nОбмежує кількість рядків QS до 2, щоб уникнути переривання прокручування панелі AOSP QS</string>
-    <!-- Lockscreen widgets  -->
-    <string name="lockscreen_widgets_title">Віджети</string>
-    <string name="lockscreen_widgets_enabled_title">Увімкнути віджети на екрані блокування</string>
-    <string name="lockscreen_widgets_enabled_summary">Додати віджети на екран блокування</string>
-    <string name="lockscreen_display_widgets_title">Віджет із інформацією про пристрій</string>
-    <string name="lockscreen_display_widgets_summary">Відображати віджет інформації про пристрій на екрані блокування</string>
-    <string name="large_widgets_category_title">Великі віджети</string>
-    <string name="main_custom_widgets1">Великий віджет 1</string>
-    <string name="main_custom_widgets2">Великий віджет 2</string>
-    <string name="mini_widgets_category_title">Міні-віджети</string>
-    <string name="custom_widgets1">Міні-віджет 1</string>
-    <string name="custom_widgets2">Міні-віджет 2</string>
-    <string name="custom_widgets3">Міні-віджет 3</string>
-    <string name="custom_widgets4">Міні-віджет 4</string>
-    <string name="camera">Камера</string>
-    <string name="clock_timer">Годинник / Таймер</string>
-    <string name="calculator">Калькулятор</string>
-    <string name="gallery">Галерея</string>
-    <string name="media">Медіа-плеєр</string>
-    <string name="torch">Ліхтарик</string>
-    <string name="controls_media_button_play">Грати</string>
-    <string name="weather">Погода</string>
-    <string name="wifi">Wi-Fi</string>
-    <string name="data">Мобільний інтернет</string>
-    <string name="ringer">Дзвінок</string>
-    <string name="bt">Bluetooth</string>
-    <string name="hotspot">Точка доступу</string>
-    <string name="wallet">Гаманець</string>
-    <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">Стиль віджетів на екрані блокування</string>
-    <string name="lockscreen_widgets_style1">Матеріал Округлений</string>
-    <string name="lockscreen_widgets_style2">Матеріал Square</string>
-    <string name="lockscreen_widgets_style3">Напівпрозорість (по всій площині)</string>
-    <string name="lockscreen_widgets_style4">Напівпрозорість (довкола)</string>
-    <string name="lockscreen_widgets_transparency_title">Прозорість віджетів напівпрозорих стилі</string>
-    <string name="lockscreen_widgets_transparency_summary">Налаштування непрозорості віджета напівпрозорого стилю</string>
     <!-- Font styles -->
     <string name="font_styles_title">Стиль шрифту</string>
     <string name="font_styles_summary">Змінити системний шрифт</string>
@@ -789,27 +746,12 @@
     <string name="ongoing_progress_settings_summary">Налаштування схованки в рядку стану</string>
     <string name="ongoing_action_chip_title">Увімкнути поточні дії чіпа</string>
     <string name="ongoing_action_chip_summary">Показувати прогрес для поточних сповіщень в рядку стану</string>
+    <string name="ongoing_action_chip_opacity_title">Непрозорість індикатора прогресу</string>
+    <string name="ongoing_action_chip_opacity_summary">Регулювання непрозорості індикатора прогресу</string>
     <string name="compact_progress_mode_title">Режим компактного прогресу</string>
     <string name="compact_progress_mode_summary">Використовувати індикатор циклічного прогресу замість панелі</string>
     <string name="show_media_progress_title">Показувати прогрес у медіа</string>
     <string name="show_media_progress_summary">Показувати прогрес відтворення медіа в рядку стану</string>
-    <string name="progress_bar_opacity_title">Непрозорість індикатора прогресу</string>
-    <string name="progress_bar_opacity_summary">Налаштуйте прозорість чіпа прогресу </string>
-    <string name="progress_enable_category_title">Загальні налаштування</string>
-    <string name="standard_chip_position_title">Стандартне положення чіпів</string>
-    <string name="circular_chip_position_title">Кругове положення чіпа</string>
-    <string name="chip_position_x_title">Горизонтальна позиція</string>
-    <string name="chip_position_x_summary">Рухати чіп ліворуч або праворуч від точки вирівнювання</string>
-    <string name="chip_position_y_title">Вертикальна позиція</string>
-    <string name="chip_position_y_summary">Перемістити чіп вгору або вниз в рядок стану</string>
-    <string name="chip_size_title">Ширина чіпа</string>
-    <string name="chip_size_summary">Налаштуйте прозорість чіпа прогресу</string>
-    <string name="circular_chip_size_title">Круговий розмір чіпів</string>
-    <string name="circular_chip_size_summary">Налаштуйте діаметр кругового чіпа</string>
-    <string name="circular_position_x_title">Горизонтальне зміщення</string>
-    <string name="circular_position_x_summary">Точне налаштування горизонтальної позиції</string>
-    <string name="circular_position_y_title">Вертикальне зміщення</string>
-    <string name="circular_position_y_summary">Точне налаштування вертикального положення</string>
     <string name="progress_footer_text">Панель прогресу в рядку стану надає оновлення в режимі реального часу як для відтворення медіафайлів, так і для активних завантажень/вивантажень. 
 - 🎵 Хід відтворення медіафайлів:
  • Відображає хід відтворення музики та відео під час відтворення медіафайлів.
