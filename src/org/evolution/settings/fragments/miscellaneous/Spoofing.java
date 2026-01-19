@@ -76,6 +76,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
     private static final String KEY_UPDATE_JSON_BUTTON = "update_pif_json";
     private static final String SYS_GMS_SPOOF = "persist.sys.pp.gms";
+    private static final String SYS_VENDING_SPOOF = "persist.sys.pp.vending";
     private static final String SYS_GOOGLE_SPOOF = "persist.sys.pp";
     private static final String SYS_GAMEPROP_ENABLED = "persist.sys.gameprops.enabled";
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pp.photos";
@@ -93,6 +94,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private Preference mUpdateJsonButton;
     private PreferenceCategory mSystemWideCategory;
     private SystemPropertySwitchPreference mGmsSpoof;
+    private SystemPropertySwitchPreference mVendingSpoof;
     private SystemPropertySwitchPreference mGoogleSpoof;
     private SystemPropertySwitchPreference mGamePropsEnabled;
     private SystemPropertySwitchPreference mPhotosSpoof;
@@ -115,6 +117,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGamePropsEnabled = (SystemPropertySwitchPreference) findPreference(SYS_GAMEPROP_ENABLED);
         mPhotosSpoof = (SystemPropertySwitchPreference) findPreference(SYS_PHOTOS_SPOOF);
         mGmsSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GMS_SPOOF);
+        mVendingSpoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_SPOOF);
         mGoogleSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GOOGLE_SPOOF);
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
         mGamePropsJsonFilePreference = findPreference(KEY_GAME_PROPS_JSON_FILE_PREFERENCE);
@@ -133,6 +136,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         }
 
         mGmsSpoof.setOnPreferenceChangeListener(this);
+        mVendingSpoof.setOnPreferenceChangeListener(this);
         mGoogleSpoof.setOnPreferenceChangeListener(this);
         mPhotosSpoof.setOnPreferenceChangeListener(this);
         if (mGamePropsEnabled != null) {
@@ -387,6 +391,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final ContentResolver resolver = context.getContentResolver();
         if (preference == mGmsSpoof) {
             killGMSPackages();
+            return true;
+        }
+        if (preference == mVendingSpoof) {
+            killVending();
             return true;
         }
         if (preference == mSnapchatSpoof) {
