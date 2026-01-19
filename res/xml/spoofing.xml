@@ -17,6 +17,13 @@
             android:key="keybox_data_setting"
             android:title="@string/keybox_data_title" />
 
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pp.vending"
+            android:title="@string/vending_spoof_title"
+            android:summary="@string/vending_spoof_summary"
+            android:dependency="persist.sys.pp.gms"
+            android:defaultValue="true" />
+
         <!-- GMS spoof -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pp.gms"
