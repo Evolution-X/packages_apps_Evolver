@@ -82,6 +82,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SYS_SNAPCHAT_SPOOF = "persist.sys.pp.snapchat";
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
+    private static final String GOOGLE_PHOTOS_PACKAGE = "com.google.android.apps.photos";
+    private static final String SNAPCHAT_PACKAGE = "com.snapchat.android";
+    private static final String VENDING_PACKAGE = "com.android.vending";
+
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
     private KeyboxDataPreference mKeyboxDataPreference;
     private Preference mPifJsonFilePreference;
@@ -245,30 +249,37 @@ public class Spoofing extends SettingsPreferenceFragment implements
             .show();
     }
 
+
+    private void killPackage(String pkg) {
+        try {
+            ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            am.getClass()
+                .getMethod("forceStopPackage", String.class)
+                .invoke(am, pkg);
+                Log.i(TAG, pkg + " process killed");  
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to kill package", e);
+        }
+    }
+
+    private void killVending() {
+        killPackage(VENDING_PACKAGE);
+    }
+
     /**
      * Kill packages that need to be restarted to pick up new PIF properties
      */
     private void killGMSPackages() {
-        try {
-            ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-            String[] packages = {
-                "com.google.android.apps.nbu.paisa.user",
-                "com.google.android.apps.photos",
-                "com.google.android.apps.walletnfcrel",
-                "com.google.android.gms",
-                "com.google.android.googlequicksearchbox",
-                "com.android.vending",
-                "com.snapchat.android"
-            };
-            for (String pkg : packages) {
-                am.getClass()
-                  .getMethod("forceStopPackage", String.class)
-                  .invoke(am, pkg);
-                Log.i(TAG, pkg + " process killed");
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Failed to kill packages", e);
+        String[] packages = {
+            "com.google.android.apps.nbu.paisa.user",
+            "com.google.android.apps.walletnfcrel",
+            "com.google.android.gms",
+            "com.google.android.googlequicksearchbox"
+        };
+        for (String pkg : packages) {
+            killPackage(pkg);
         }
+        killVending();
     }
 
     private void updatePropertiesFromUrl(String urlString) {
@@ -374,10 +385,16 @@ public class Spoofing extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
-        if (preference == mGmsSpoof
-            || preference == mPhotosSpoof
-            || preference == mSnapchatSpoof) {
+        if (preference == mGmsSpoof) {
             killGMSPackages();
+            return true;
+        }
+        if (preference == mSnapchatSpoof) {
+            killPackage(SNAPCHAT_PACKAGE);
+            return true;
+        }
+        if (preference == mPhotosSpoof) {
+            killPackage(GOOGLE_PHOTOS_PACKAGE);
             return true;
         }
         if (preference == mGoogleSpoof
