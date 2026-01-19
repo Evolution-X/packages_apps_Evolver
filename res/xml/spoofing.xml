@@ -31,6 +31,13 @@
             android:summary="@string/gms_spoof_summary"
             android:defaultValue="true" />
 
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pp.vending"
+            android:title="@string/vending_spoof_title"
+            android:summary="@string/vending_spoof_summary"
+            android:dependency="persist.sys.pp.gms"
+            android:defaultValue="true" />
+
         <Preference
             android:key="show_pif_properties"
             android:title="@string/show_pif_properties_title"
