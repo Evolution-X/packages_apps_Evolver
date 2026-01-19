@@ -132,10 +132,6 @@
     <string name="lock_screen_fingerprint_error_vibration_title">Getaran kesalahan autentikasi</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Bergetar saat autentikasi sidik jari gagal</string>
     <string name="lock_screen_miscellaneous_category">Lain-lain</string>
-    <string name="lock_screen_pocket_detection_title">Deteksi Saku</string>
-    <string name="lock_screen_pocket_detection_summary">Blokir sentuh tombol dan layar saat perangkat berada dalam saku</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Mode Saku selalu Aktif</string>
-    <string name="lock_screen_always_on_pocket_mode_summary">Selalu blokir input layar dan tombol saat layar dihidupkan</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Equalizer Visual Audio</string>
     <string name="pulse_settings_summary">Tampilkan visualisasi bar pada layar kunci saat musik diputar</string>
@@ -216,12 +212,6 @@
     <string name="status_bar_battery_text_charging_summary">Selalu tampilkan persentase baterai saat mengisi daya</string>
     <string name="status_bar_clock_and_date_title">Jam &amp; tanggal</string>
     <string name="status_bar_clock_and_date_summary">Kustomisasi jam &amp; tanggal</string>
-    <string name="status_bar_data_disabled_icon_title">Indikator data dinonaktifkan</string>
-    <string name="status_bar_data_disabled_icon_summary">Tampilkan indikator di sebelah ikon sinyal saat data dinonaktifkan</string>
-    <string name="status_bar_4g_icon_title">Ikon 4G</string>
-    <string name="status_bar_4g_icon_summary">Ganti ikon \'LTE\' dengan \'4G\'</string>
-    <string name="status_bar_wifi_standard_icon_title">Standar Wi-Fi</string>
-    <string name="status_bar_wifi_standard_icon_summary">Tampilkan standar Wi-Fi di samping ikon Wi-Fi</string>
     <string name="status_bar_bluetooth_battery_title">Status baterai Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Tampilkan status baterai untuk perangkat bluetooth yang terhubung, jika tersedia</string>
     <string name="status_bar_colored_icons_title">Ikon berwarna</string>
@@ -284,17 +274,17 @@
     <string name="status_bar_lyric_options_title">Opsi</string>
     <string name="disguise_props_for_music_app_title">Menyamarkan perangkat untuk aplikasi musik</string>
     <string name="disguise_props_for_music_app_summary">Menyamarkan perangkat di beberapa aplikasi musik untuk mendukung lirik pada bilah status. Setelah mengubah sakelar ini, Anda harus memulai ulang aplikasi agar perubahan tersebut berlaku.</string>
-    <!-- Status bar - Clock -->
-    <string name="status_bar_clock_title">Jam &amp; tanggal</string>
-    <string name="status_bar_clock_summary">Kustomisasi jam &amp; tanggal</string>
-    <string name="status_bar_clock_seconds_title">Detik jam</string>
-    <string name="status_bar_clock_seconds_summary">Tampilkan detik di samping jam pada bilah status</string>
+    <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Gaya jam</string>
     <string name="status_bar_clock_position_right">Kanan</string>
     <string name="status_bar_clock_position_left">Kiri</string>
     <string name="status_bar_clock_position_center">Tengah</string>
+    <string name="status_bar_clock_seconds_title">Detik jam</string>
+    <string name="status_bar_clock_seconds_summary">Tampilkan detik di samping jam pada bilah status</string>
     <string name="status_bar_clock_auto_hide_title">Sembunyikan jam otomatis</string>
     <string name="status_bar_clock_auto_hide_summary">Sembunyikan jam jika peluncur terlihat</string>
+    <string name="status_bar_clock_chip_title">Latar belakang chip</string>
+    <string name="status_bar_clock_chip_summary">Tampilkan chip beraksen di belakang jam</string>
     <string name="status_bar_am_pm_title">Gaya AM/PM</string>
     <string name="status_bar_am_pm_info">Waktu 24-jam diaktifkan</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -312,12 +302,9 @@
     <string name="status_bar_date_format_custom">Format java kustom</string>
     <string name="status_bar_date_string_edittext_title">Harus sesuai format tanggal contoh: MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Masukkan teks</string>
-    <string name="clock_date_position">Posisi tanggal</string>
-    <string name="clock_date_right">Sebelah kanan jam</string>
-    <string name="clock_date_left">Sebelah kiri jam</string>
-    <!-- Statusbar Clock background chip -->
-    <string name="statusbar_clock_chip_title">Latar belakang keping</string>
-    <string name="statusbar_clock_chip_summary">Tampilkan kepingan beraksen di belakang jam</string>
+    <string name="status_bar_clock_date_position">Posisi tanggal</string>
+    <string name="status_bar_clock_date_right">Sebelah kanan jam</string>
+    <string name="status_bar_clock_date_left">Sebelah kiri jam</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Lokasi</string>
     <string name="network_traffic_location_disable">Dinonaktifkan</string>
@@ -507,13 +494,16 @@
     <string name="miscellaneous_ignore_window_secure_summary">Hapus batasan pada tangkapan layar dan rekaman layar untuk semua aplikasi, yang berpotensi menimbulkan risiko kebocoran privasi</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Rekaman layar tanpa batas</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Hapus batas ukuran file 15GiB\nMungkin menghasilkan file keluaran yang lebih besar dari yang dibutuhkan</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Perbaikan otomatis untuk pendeteksi VBMeta</string>
+    <string name="vbmeta_attestation_summary">Lakukan pengesahan kunci untuk menghasilkan hash boot terverifikasi saat booting. Membutuhkan mulai ulang sistem.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Sembunyikan daftar aplikasi</string>
     <string name="hide_applist_summary">Cegah aplikasi memeriksa aplikasi yang dipilih dari daftar aplikasi</string>
     <string name="menu_show_overlay">Tampilkan hamparan</string>
     <string name="menu_hide_overlay">Sembunyikan hamparan</string>
     <!-- Miscellaneous/Smart Pixels -->
-    <string name="smart_pixels_warning_text">Piksel Cerdas adalah fitur hemat daya. Bergantung pada berapa banyak piksel yang Anda putuskan untuk dimatikan, Anda dapat melihat peningkatan dalam masa pakai baterai. Perhatikan bahwa dalam beberapa kasus dapat mengakibatkan area yang tidak responsif pada layar sentuh</string>
+    <string name="smart_pixels_warning_text">Piksel Cerdas adalah fitur penghemat daya. Tergantung pada berapa banyak piksel yang Anda putuskan untuk dimatikan, Anda mungkin melihat peningkatan masa pakai baterai. Perlu diingat bahwa dalam beberapa kasus, hal ini dapat mengakibatkan area yang tidak responsif pada layar sentuh</string>
     <string name="smart_pixels_title">Piksel Cerdas</string>
     <string name="smart_pixels_summary">Menghemat baterai dengan mematikan beberapa piksel</string>
     <string name="smart_pixels_on_power_save_title">Aktifkan otomatis pada penghemat baterai</string>
@@ -527,8 +517,6 @@
     <string name="spoofing_system_wide_category">Seluruh sistem</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Memalsukan perangkat sebagai Pixel 9 Pro untuk aplikasi Google tertentu</string>
-    <string name="tensor_spoof_title">Fitur Tensor</string>
-    <string name="tensor_spoof_summary">Buka fitur-fitur yang hanya tersedia di perangkat Pixel berbasis tensor</string>
     <string name="gms_spoof_title">Perbaikan Integritas Play</string>
     <string name="gms_spoof_summary">Memalsukan perangkat Anda agar lolos Sertifikasi Google Play</string>
     <string name="spoofing_app_specific_category">Aplikasi Spesifik</string>
@@ -589,6 +577,8 @@
     <string name="top">Atas</string>
     <string name="bottom">Bawah</string>
     <string name="reset">Atur ulang</string>
+    <string name="delete_message">Hapus item yang dipilih?</string>
+    <string name="choose_app">Pilih aplikasi</string>
     <!-- Units -->
     <string name="unit_milliseconds">milidetik</string>
     <string name="unit_seconds">detik</string>
@@ -723,42 +713,6 @@
     <!-- QS Widgets -->
     <string name="qs_widgets_enabled_title">Widget Setelan Cepat</string>
     <string name="qs_widgets_enabled_summary">Tampilkan widget untuk akses cepat. \nMembatasi baris Setelan Cepat menjadi 2 untuk menghindari gangguan pada pengguliran Panel Setelan Cepat AOSP</string>
-    <!-- Lockscreen widgets  -->
-    <string name="lockscreen_widgets_title">Widget</string>
-    <string name="lockscreen_widgets_enabled_title">Aktifkan widget layar kunci</string>
-    <string name="lockscreen_widgets_enabled_summary">Tambahkan widget ke layar kunci</string>
-    <string name="lockscreen_display_widgets_title">Widget info perangkat</string>
-    <string name="lockscreen_display_widgets_summary">Tampilkan widget info perangkat di layar kunci</string>
-    <string name="large_widgets_category_title">Widget besar</string>
-    <string name="main_custom_widgets1">Widget besar 1</string>
-    <string name="main_custom_widgets2">Widget besar 2</string>
-    <string name="mini_widgets_category_title">Widgets kecil</string>
-    <string name="custom_widgets1">Widget kecil 1</string>
-    <string name="custom_widgets2">Widget kecil 2</string>
-    <string name="custom_widgets3">Widget kecil 3</string>
-    <string name="custom_widgets4">Widget kecil 4</string>
-    <string name="camera">Kamera</string>
-    <string name="clock_timer">Jam/Pengatur Waktu</string>
-    <string name="calculator">Kalkulator</string>
-    <string name="gallery">Galeri</string>
-    <string name="media">Pemutar Media</string>
-    <string name="torch">Senter</string>
-    <string name="controls_media_button_play">Putar</string>
-    <string name="weather">Cuaca</string>
-    <string name="wifi">WiFi</string>
-    <string name="data">Data</string>
-    <string name="ringer">Dering</string>
-    <string name="bt">Bluetooth</string>
-    <string name="hotspot">Hotspot</string>
-    <string name="wallet">Dompet</string>
-    <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">Gaya widget layar kunci</string>
-    <string name="lockscreen_widgets_style1">Material Rounded</string>
-    <string name="lockscreen_widgets_style2">Material Square</string>
-    <string name="lockscreen_widgets_style3">Translucent (Square)</string>
-    <string name="lockscreen_widgets_style4">Translucent (Rounded)</string>
-    <string name="lockscreen_widgets_transparency_title">Widget gaya tembus pandang transparan</string>
-    <string name="lockscreen_widgets_transparency_summary">Konfigurasikan tingkat opasitas widget gaya tembus cahaya</string>
     <!-- Font styles -->
     <string name="font_styles_title">Gaya Huruf</string>
     <string name="font_styles_summary">Ubah gaya font sistem</string>
@@ -789,29 +743,14 @@
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Chip kemajuan yang sedang berlangsung</string>
     <string name="ongoing_progress_settings_summary">Opsi chip aksi bilah status</string>
-    <string name="ongoing_action_chip_title">Aktifkan chip aksi berkelanjutan</string>
-    <string name="ongoing_action_chip_summary">Tampilkan progres untuk notifikasi yang sedang berlangsung di bilah status</string>
-    <string name="compact_progress_mode_title">Mode kemajuan ringkas</string>
-    <string name="compact_progress_mode_summary">Gunakan indikator kemajuan berbentuk lingkaran, bukan bar</string>
+    <string name="ongoing_action_chip_title">Chip aksi berkelanjutan</string>
+    <string name="ongoing_action_chip_summary">Tampilkan indikator kemajuan di bilah status untuk tindakan yang sedang berlangsung seperti pengunduhan</string>
+    <string name="ongoing_action_chip_opacity_title">Opasitas bilah kemajuan</string>
+    <string name="ongoing_action_chip_opacity_summary">Sesuaikan opasitas chip bilah kemajuan</string>
+    <string name="compact_progress_mode_title">Indikator kemajuan ringkas</string>
+    <string name="compact_progress_mode_summary">Gunakan indikator melingkar yang ringkas untuk tindakan yang sedang berlangsung</string>
     <string name="show_media_progress_title">Tampilkan perkembangan media</string>
     <string name="show_media_progress_summary">Tampilkan kemajuan pemutaran media di bilah status</string>
-    <string name="progress_bar_opacity_title">Opasitas bilah kemajuan</string>
-    <string name="progress_bar_opacity_summary">Sesuaikan transparansi chip kemajuan</string>
-    <string name="progress_enable_category_title">Setelan umum</string>
-    <string name="standard_chip_position_title">Posisi chip standar</string>
-    <string name="circular_chip_position_title">Posisi chip melingkar</string>
-    <string name="chip_position_x_title">Posisi horizontal</string>
-    <string name="chip_position_x_summary">Geser chip ke kiri atau ke kanan dari titik penyelarasan</string>
-    <string name="chip_position_y_title">Posisi vertikal</string>
-    <string name="chip_position_y_summary">Gerakkan chip ke atas atau ke bawah pada bilah status</string>
-    <string name="chip_size_title">Lebar chip</string>
-    <string name="chip_size_summary">Sesuaikan lebar chip kemajuan</string>
-    <string name="circular_chip_size_title">Ukuran chip melingkar</string>
-    <string name="circular_chip_size_summary">Sesuaikan diameter chip bundar tersebut</string>
-    <string name="circular_position_x_title">Batas horizontal</string>
-    <string name="circular_position_x_summary">Sesuaikan posisi horizontal</string>
-    <string name="circular_position_y_title">Batas vertikal</string>
-    <string name="circular_position_y_summary">Sesuaikan posisi vertikal</string>
     <string name="progress_footer_text">\"Bilah kemajuan status memberikan pembaruan waktu nyata untuk pemutaran media dan unduhan/unggahan aktif.
 
      - 🎵 Kemajuan Media:
@@ -893,7 +832,7 @@
     <string name="reset_custom_font_content_desc">Atur ulang font kustom</string>
     <string name="reboot_required_custom_font_title">Mulai ulant diperlukan untuk perubahan font kustom</string>
     <string name="reboot_required_custom_font_desc">Melewatkan proses mulai ulang setelah mengubah font kustom dapat menyebabkan inkonsistensi UI di berbagai aplikasi.</string>
-    <string name="font_preview_quote">Rasa takut adalah musuh inovasi.</string>
+    <string name="font_preview_quote">Kedewasaan adalah ketika kamu tahu siapa yang peduli padamu dan menghargai dirimu, dan kamu memilih untuk tidak mengabaikan mereka.</string>
     <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
     <string name="active_content_desc">Aktif</string>
     <string name="toast_failed_apply_font">Gagal menerapkan font</string>
@@ -929,7 +868,15 @@
     <string name="adaptive_playback_summary">Jeda media saat volume dimatikan dan lanjutkan dengan meningkatkan volume dalam batas waktu</string>
     <string name="adaptive_playback_intro_text">Secara otomatis menjeda media saat volume dimatikan dan akan dilanjutkan secara otomatis saat volume dihidupkan dalam waktu yang ditentukan</string>
     <string name="adaptive_playback_timeout_title">Batas waktu pemutaran</string>
-    <!-- Smartspace -->
-    <string name="lockscreen_smartspace_title">Ruang pintar</string>
-    <string name="lockscreen_smartspace_summary">Tampilkan ruang pintar Google saat tersedia</string>
+    <!-- Statusbar Padding -->
+    <string name="statusbar_extra_padding_category">Ekstra padding</string>
+    <string name="statusbar_extra_padding_start_title">Padding awal</string>
+    <string name="statusbar_extra_padding_top_title">Padding atas</string>
+    <string name="statusbar_extra_padding_end_title">Padding akhir</string>
+    <!-- Sensor block per-package -->
+    <string name="sensor_block_title">Blok sensor per-paket</string>
+    <string name="sensor_block_summary">Blokir akses sensor tertentu untuk beberapa aplikasi untuk menghemat baterai</string>
+    <string name="sensor_block_app_picker_title">Blokir sensor untuk aplikasi ini</string>
+    <string name="add_sensor_block_package_title">Tambahkan aplikasi untuk blokir sensor</string>
+    <string name="add_sensor_block_package_summary">Gerakan signifikan, akselerometer, sensor percepatan linier akan diblokir untuk aplikasi ini</string>
 </resources>
