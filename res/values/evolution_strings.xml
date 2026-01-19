@@ -547,6 +547,8 @@
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
+    <string name="vending_spoof_title">Spoof vending</string>
+    <string name="vending_spoof_summary">Apply device spoofing to Google Play Store</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
