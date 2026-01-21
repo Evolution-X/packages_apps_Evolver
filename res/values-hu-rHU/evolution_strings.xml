@@ -534,7 +534,9 @@
     <string name="toast_spoofing_success">A pif.json letöltése sikeres. Az Áruházi Integritáshoz álcázás a következőre: %1$s</string>
     <string name="toast_spoofing_failure">Nem sikerült álcázni a tulajdonságokat.</string>
     <string name="update_pif_json_title">Az Áruházi integritásjavítás frissítése</string>
-    <string name="update_pif_json_summary">Frissítse a PIF-álcázóeszközt, internetkapcsolat szükséges.</string>
+    <string name="update_pif_json_summary">PIF-álcázókészülék frissítése (Internetkapcsolat szükséges.)</string>
+    <string name="update_pif_auto_random_title">Az Áruházi integritásjavítás frissítése (Véletlenszerű)</string>
+    <string name="update_pif_auto_random_summary">Szerezzen be véletlenszerű álcázó-készüléket a Google listájából. (Internetkapcsolat szükséges.)</string>
     <string name="show_pif_properties_title">Az Áruházi integritásjavítás értékei</string>
     <string name="show_pif_properties_summary">Az összes jelenleg beállított PIF-tulajdonság megjelenítése</string>
     <string name="error_loading_properties">Hiba a tulajdonságok betöltése közben</string>
