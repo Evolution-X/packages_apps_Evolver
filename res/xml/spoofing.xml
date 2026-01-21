@@ -45,6 +45,12 @@
             android:dependency="persist.sys.pp.gms" />
 
         <Preference
+            android:key="update_pif_auto_random"
+            android:title="@string/update_pif_auto_random_title"
+            android:summary="@string/update_pif_auto_random_summary"
+            android:dependency="persist.sys.pp.gms" />
+
+        <Preference
             android:key="update_pif_json"
             android:title="@string/update_pif_json_title"
             android:summary="@string/update_pif_json_summary"
