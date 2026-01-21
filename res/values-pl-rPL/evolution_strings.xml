@@ -535,6 +535,8 @@
     <string name="toast_spoofing_failure">Nie udało się sfałszować właściwości.</string>
     <string name="update_pif_json_title">Zaktualizuj poprawkę integralności Google Play</string>
     <string name="update_pif_json_summary">Aktualizacja poprawki integralności Google Play wymaga połączenia z internetem.</string>
+    <string name="update_pif_auto_random_title">Zaktualizuj poprawkę integralności Google Play (losowo)</string>
+    <string name="update_pif_auto_random_summary">Ustaw losowe urządzenie podszywające się z listy Google (wymaga połączenia z internetem)</string>
     <string name="show_pif_properties_title">Właściwości poprawki integralności Google Play</string>
     <string name="show_pif_properties_summary">Pokaż właściwości ustawionej poprawki integralności Google Play</string>
     <string name="error_loading_properties">Błąd ładowania właściwości poprawki integralności Google Play</string>
