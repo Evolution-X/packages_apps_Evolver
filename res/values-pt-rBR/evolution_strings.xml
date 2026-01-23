@@ -534,7 +534,9 @@
     <string name="toast_spoofing_success">Pif.json baixado com sucesso. Mostrando como %1$s para Play Integrity.</string>
     <string name="toast_spoofing_failure">Falha ao mascarar as propriedades.</string>
     <string name="update_pif_json_title">Atualizar correção do Play Integrity</string>
-    <string name="update_pif_json_summary">Atualizar dispositivo de falsificação PIF requer conexão com a internet.</string>
+    <string name="update_pif_json_summary">Atualizar dispositivo de falsificação de PIF (Requer conexão com a internet.)</string>
+    <string name="update_pif_auto_random_title">Atualizar correção do Play Integrity (aleatório)</string>
+    <string name="update_pif_auto_random_summary">Obtenha um dispositivo de falsificação aleatório da lista do Google. (Requer conexão com a internet.)</string>
     <string name="show_pif_properties_title">Propriedades de reparação do Play Integrity</string>
     <string name="show_pif_properties_summary">Mostrar todas as propriedades PIF definidas atualmente</string>
     <string name="error_loading_properties">Erro ao carregar propriedades PIF</string>
