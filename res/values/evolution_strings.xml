@@ -412,9 +412,6 @@
     <string name="quick_settings_secure_lock_screen_summary">Allow swipe down on lock screen to view Quick Settings</string>
     <string name="quick_settings_require_unlock_title">Secure QS tiles require unlock</string>
     <string name="quick_settings_require_unlock_summary">The following quick settings require the device to be unlocked before you can interact with them:\nAirplane, Battery saver, Bluetooth, Cellular, Data saver, Hotspot, Internet, NFC, Rotation lock, and Wi-Fi</string>
-    <string name="quick_settings_miscellaneous_category">Miscellaneous</string>
-    <string name="quick_settings_bluetooth_show_dialog_title">Bluetooth tile dialog</string>
-    <string name="quick_settings_bluetooth_show_dialog_summary">Show bluetooth dialog or toggle bluetooth state on tapping bluetooth tile</string>
     <string name="quick_settings_header_image_title">QS header image</string>
     <string name="quick_settings_header_image_summary">Select QS background header image</string>
     <string name="quick_settings_header_daylight_pack_title">Header image collection</string>
