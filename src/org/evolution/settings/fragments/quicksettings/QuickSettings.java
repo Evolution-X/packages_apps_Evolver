@@ -51,8 +51,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
 //    private static final String KEY_INTERFACE_CATEGORY = "quick_settings_interface_category";
-    private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
-    private static final String KEY_QS_BLUETOOTH_SHOW_DIALOG = "qs_bt_show_dialog";
     private static final String KEY_COMPACT_MEDIA_PLAYER_ENABLED = "qs_compact_media_player_mode";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
@@ -66,7 +64,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private static final int BATTERY_STYLE_HIDDEN = 5;
 
     private PreferenceCategory mInterfaceCategory;
-    private PreferenceCategory mMiscellaneousCategory;
     private ListPreference mShowBrightnessSlider;
     private ListPreference mBrightnessSliderPosition;
     private SystemSettingSwitchPreference mCompactMediaPlayer;
@@ -143,12 +140,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //        int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
 //                Settings.System.QS_TILE_ANIMATION_STYLE, 0, UserHandle.USER_CURRENT);
 //        updateTileAnimStyle(tileAnimationStyle);
-
-        mMiscellaneousCategory = (PreferenceCategory) findPreference(KEY_MISCELLANEOUS_CATEGORY);
-
-        if (!DeviceUtils.deviceSupportsBluetooth(context)) {
-            prefScreen.removePreference(mMiscellaneousCategory);
-        }
     }
 
     @Override
@@ -208,10 +199,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 if (!hapticAvailable) {
                     keys.add(KEY_BRIGHTNESS_SLIDER_HAPTIC);
                     keys.add(KEY_QS_TILE_HAPTIC);
-                }
-
-                if (!DeviceUtils.deviceSupportsBluetooth(context)) {
-                    keys.add(KEY_QS_BLUETOOTH_SHOW_DIALOG);
                 }
 
                 return keys;
