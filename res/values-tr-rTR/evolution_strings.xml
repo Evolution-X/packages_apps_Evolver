@@ -17,7 +17,7 @@
     <string name="quick_settings_title">Hızlı ayarlar</string>
     <string name="quick_settings_summary">Arayüz, parlaklık kaydırıcısı, düzen</string>
     <string name="notifications_title">Bildirimler</string>
-    <string name="notifications_summary">Eller serbest, kenar ışığı, sesler</string>
+    <string name="notifications_summary">Bildirim pencereleri, kenar ışığı, sesler</string>
     <string name="power_menu_title">Güç menüsü</string>
     <string name="power_menu_summary">Eylemler, kilit ekranı</string>
     <string name="buttons_title">Tuşlar</string>
@@ -122,7 +122,7 @@
     <string name="lock_screen_interface_category">Arayüz</string>
     <string name="lock_screen_charging_stats_title">Şarj istatistikleri</string>
     <string name="lock_screen_charging_stats_summary">Şarj olurken kilit ekranında şarj cihazının maksimum akımını, voltajını ve pil sıcaklığını görüntüle</string>
-    <string name="lock_screen_charging_time_title">Kilit ekranı şarj süresi</string>
+    <string name="lock_screen_charging_time_title">Şarj süresi</string>
     <string name="lock_screen_charging_time_summary">Şarj işleminin tamamlanması için kalan süreyi göster</string>
     <string name="lock_screen_fingerprint_category">Parmak izi</string>
     <string name="lock_screen_fingerprint_ripple_title">Dalgalanma animasyonu</string>
@@ -133,7 +133,7 @@
     <string name="lock_screen_fingerprint_error_vibration_summary">Parmak izi doğrulaması başarısız olduğunda titret</string>
     <string name="lock_screen_miscellaneous_category">Çeşitli</string>
     <!-- Lock screen/Pulse music visualizer -->
-    <string name="pulse_settings_title">Nabız (Pulse) Görselleştirici</string>
+    <string name="pulse_settings_title">Pulse Görselleştirici</string>
     <string name="pulse_settings_summary">Kilit ekranı ve gezinme çubuğunda ses görselleştirmesini gösterir</string>
     <string name="ambient_pulse_enabled_title">Ortam ekranında Pulse</string>
     <string name="ambient_pulse_enabled_summary">Ambient Display\'de görselleştiriciyi göster</string>
@@ -153,7 +153,7 @@
     <string name="pulse_renderer_retro_vu_meter">Retro VU ölçer</string>
     <string name="pulse_renderer_minimal_wave">Minimal dalga</string>
     <string name="pulse_renderer_sparkle">Parıltı</string>
-    <string name="pulse_renderer_matrix">Matris</string>
+    <string name="pulse_renderer_matrix">Matrix</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Saat stillerini önizlemek için sola veya sağa kaydırın</string>
     <!-- Lock screen Clock Revamp -->
@@ -396,9 +396,6 @@
     <string name="quick_settings_secure_lock_screen_summary">Cihaz kilitliyken bildirim çubuğundaki tüm hızlı ayarları gizleyin</string>
     <string name="quick_settings_require_unlock_title">Güvenli hızlı ayarlar kareleri kilit açma gerektirir</string>
     <string name="quick_settings_require_unlock_summary">Aşağıdaki hızlı ayarlarla etkileşim kurabilmeniz için önce cihazın kilidinin açılması gerekir:\nUçak, Pil tasarrufu, Bluetooth, Hücresel, Veri tasarrufu, Hotspot, İnternet, NFC, Döndürme kilidi ve Wi-Fi</string>
-    <string name="quick_settings_miscellaneous_category">Çeşitli</string>
-    <string name="quick_settings_bluetooth_show_dialog_title">Bluetooth ayarı iletisi</string>
-    <string name="quick_settings_bluetooth_show_dialog_summary">Bluetooth düğmesine dokununca Bluetooth iletişimini göster veya Bluetooth\'u kapat ya da aç</string>
     <string name="quick_settings_header_image_title">Hızlı ayarlar başlık resmi</string>
     <string name="quick_settings_header_image_summary">Hızlı ayarlar arka plan başlık resmi seç</string>
     <string name="quick_settings_header_daylight_pack_title">Başlık görüntü koleksiyonu</string>
@@ -496,7 +493,7 @@
     <string name="miscellaneous_unlimit_screenrecord_summary">15GiB dosya boyutu sınırını kaldırın\nGerektiğinden daha büyük bir dosyaya neden olabilir</string>
     <!-- Miscellaneous/Vbmeta hash attestation -->
     <string name="vbmeta_attestation_title">VBMeta algılamasını otomatik düzelt</string>
-    <string name="vbmeta_attestation_summary">Önyükleme sırasında doğrulanmış önyükleme hashı oluşturmak için anahtar doğrulama işlemi gerçekleştirin. Sistemin yeniden başlatılması gerekir.</string>
+    <string name="vbmeta_attestation_summary">Önyükleme sırasında doğrulanmış önyükleme hash\'ı oluşturmak için anahtar doğrulama işlemi gerçekleştir. Sistemin yeniden başlatılması gerekir.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Uygulama listesini gizle</string>
     <string name="hide_applist_summary">Uygulamaların, uygulama listesinden seçilen uygulamaları kontrol etmesini engelle</string>
@@ -704,7 +701,7 @@
     <string name="lockscreen_weather_wind_info_title">Rüzgar bilgisi</string>
     <string name="lockscreen_weather_wind_info_summary">Anlık rüzgar hızını ve yönünü göster</string>
     <string name="lockscreen_weather_humidity_info_title">Nem bilgisi</string>
-    <string name="lockscreen_weather_humidity_info_summary">Anlık nem oranını yüzdelik olarak gösterin</string>
+    <string name="lockscreen_weather_humidity_info_summary">Anlık nem oranını yüzdelik olarak göster</string>
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Her Zaman Açık Ekran</string>
     <string name="aod_pulse_category_title">Pulse/Doze</string>
@@ -748,7 +745,7 @@
     <string name="ongoing_progress_settings_title">Durum çubuğu eylem etiketi</string>
     <string name="ongoing_progress_settings_summary">Durum çubuğu eylem çipi seçenekleri</string>
     <string name="ongoing_action_chip_title">Devam eden eylem çipi</string>
-    <string name="ongoing_action_chip_summary">İndirmeler gibi devam eden eylemler için durum çubuğunda ilerleme göstergesi gösterin</string>
+    <string name="ongoing_action_chip_summary">İndirmeler gibi devam eden eylemler için durum çubuğunda ilerleme göstergesi göster</string>
     <string name="ongoing_action_chip_opacity_title">İlerleme çubuğu opaklığı</string>
     <string name="ongoing_action_chip_opacity_summary">İlerleme çubuğu çipinin opaklığını ayarlama</string>
     <string name="compact_progress_mode_title">Kompakt ilerleme göstergesi</string>
@@ -821,14 +818,14 @@
     <string name="applied">Uygulandı</string>
     <string name="reboot_device">Cihazı yeniden başlat</string>
     <string name="reboot_required_title">Yeniden başlatma gerekiyor</string>
-    <string name="reboot_required_message">Özel yazı tipini bütün sisteme uygulamak için cihazın yeniden başlatılması gerekiyor. Yeniden başlatılsın mı?</string>
+    <string name="reboot_required_message">Özel yazı tipini bütün sisteme uygulamak için cihazın yeniden başlatılması gerekiyor.\nYeniden başlatılsın mı?</string>
     <string name="reboot_now">Şimdi yeniden başlat</string>
     <string name="later">Daha sonra</string>
-    <string name="reset_default_title">Normale Sıfırla?</string>
-    <string name="reset_default_message">Bu normal font ayarlarını geri getirecektir</string>
+    <string name="reset_default_title">Varsayılana Sıfırla</string>
+    <string name="reset_default_message">Bu, yazı tipinizi varsayılan sistem yazı tipine sıfırlayacaktır. Emin misiniz?</string>
     <string name="add_font">Yazı tipi ekle</string>
     <string name="custom_font">Özel yazı tipi</string>
-    <string name="no_custom_font">Hiçbir Özel yazı tipi indirilmedi</string>
+    <string name="no_custom_font">Özel yazı tipi yok</string>
     <string name="add_custom_font">Özel yazı tipi ekle</string>
     <string name="change_custom_font">Özel yazı tipini değiştir</string>
     <string name="reset_custom_font_content_desc">Özel yazı tipini sıfırla</string>
@@ -842,7 +839,7 @@
     <!-- Now Playing -->
     <string name="nowplaying_title">Şimdi Oynatılıyor</string>
     <string name="nowplaying_summary">Kilit ekranında ve ortam ekranında şu anda çalmakta olan müzik bilgilerini göster</string>
-    <string name="nowplaying_appearance_title">Görünüş</string>
+    <string name="nowplaying_appearance_title">Görünüm</string>
     <string name="nowplaying_use_accent_color_title">Vurgu rengini kullan</string>
     <string name="nowplaying_use_accent_color_summary">Beyaz yerine sistem vurgu rengini kullan</string>
     <string name="nowplaying_vertical_position_title">Dikey pozisyon</string>
@@ -854,15 +851,15 @@
     <string name="nowplaying_display_title">Ekran seçenekleri</string>
     <string name="nowplaying_show_on_lockscreen_title">Kilit ekranında göster</string>
     <string name="nowplaying_show_on_lockscreen_summary">Müzik bilgisini cihaz kilitli olduğunda göster</string>
-    <string name="nowplaying_icon_style_title">İcon stili</string>
-    <string name="nowplaying_icon_style_summary">Hangi icon\'un gösterileceğini seç</string>
+    <string name="nowplaying_icon_style_title">Simge stili</string>
+    <string name="nowplaying_icon_style_summary">Hangi simgenin görüntüleneceğini seç</string>
     <string name="nowplaying_icon_size_title">Simge boyutu</string>
-    <string name="nowplaying_icon_size_summary">İcon boyutunu ayarla</string>
-    <string name="nowplaying_show_on_aod_title">Her-Zaman-Açık Ekranda göster</string>
-    <string name="nowplaying_show_on_aod_summary">Ortam ekranında müzik bilgilerini görüntüle</string>
+    <string name="nowplaying_icon_size_summary">Simge boyutunu ayarla</string>
+    <string name="nowplaying_show_on_aod_title">Her zaman açık ekranda göster</string>
+    <string name="nowplaying_show_on_aod_summary">Ortam ekranında müzik bilgisini göster</string>
     <string name="nowplaying_compact_style_title">Kompakt stil</string>
     <string name="nowplaying_compact_style_summary">Parça metnini tek satırda göster</string>
-    <string name="nowplaying_info_summary">Şimdi Çalınıyor özelliği, kilit ekranınızda ve Always-On Display\'de şu anda çalmakta olan müziğin adını ve sanatçısını gösterir. Müzik çalarken otomatik olarak görünür ve durdurulduğunda kaybolur. Konumu, ekranın üstünden altına kadar herhangi bir yere ayarlanabilir.</string>
+    <string name="nowplaying_info_summary">Şimdi Çalınıyor özelliği, kilit ekranınızda ve Her zaman açık ekran\'da şu anda çalmakta olan müziğin adını ve sanatçısını gösterir. Müzik çalarken otomatik olarak görünür ve durdurulduğunda kaybolur. Konumu, ekranın üstünden altına kadar herhangi bir yere ayarlanabilir.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Şarj dalgalanma şekli</string>
     <!-- Adaptive Playback -->
