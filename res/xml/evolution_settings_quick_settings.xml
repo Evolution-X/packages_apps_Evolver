@@ -38,6 +38,12 @@
             android:defaultValue="false" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_alternate_color"
+            android:title="@string/qs_tile_alternate_color_title"
+            android:summary="@string/qs_tile_alternate_color_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_bg_alternate_color"
             android:title="@string/notification_bg_alternate_color_title"
             android:summary="@string/notification_bg_alternate_color_summary"
