@@ -688,6 +688,8 @@
     <string name="statusbar_extra_padding_end_title">End padding</string>
     <string name="qs_single_tone_title">Single-tone QS</string>
     <string name="qs_single_tone_summary">Hide the notification scrim for a unified quick settings appearance</string>
+    <string name="qs_tile_alternate_color_title">Alternate QS tile color</string>
+    <string name="qs_tile_alternate_color_summary">Use an alternative background color for QS tiles</string>
     <string name="qs_brightness_slider_shape_title">Brightness slider shape</string>
     <string name="media_waveform_seekbar_title">Waveform seekbar</string>
     <string name="media_waveform_seekbar_summary">Show an animated waveform effect for media playback progress</string>
