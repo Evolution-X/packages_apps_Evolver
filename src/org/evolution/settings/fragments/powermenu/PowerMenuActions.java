@@ -17,6 +17,7 @@
 package org.evolution.settings.fragments.powermenu;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
@@ -28,7 +29,6 @@ import android.service.controls.ControlsProviderService;
 import androidx.preference.SwitchPreferenceCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
 
 import org.lineageos.internal.util.PowerMenuConstants;
 
@@ -54,8 +54,10 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
 
     private static final String CATEGORY_POWER_MENU_ITEMS = "power_menu_items";
 
+    private PreferenceCategory mPowerMenuItemsCategory;
+
     private SwitchPreferenceCompat mScreenshotPref;
-//    private SwitchPreferenceCompat mOnTheGoPref;
+    private SwitchPreferenceCompat mOnTheGoPref;
     private SwitchPreferenceCompat mAirplanePref;
     private SwitchPreferenceCompat mUsersPref;
     private SwitchPreferenceCompat mLockDownPref;
@@ -78,11 +80,13 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
         mUserManager = UserManager.get(mContext);
         mLineageGlobalActions = LineageGlobalActions.getInstance(mContext);
 
+        mPowerMenuItemsCategory = findPreference(CATEGORY_POWER_MENU_ITEMS);
+
         for (String action : PowerMenuConstants.getAllActions()) {
             if (action.equals(GLOBAL_ACTION_KEY_SCREENSHOT)) {
                 mScreenshotPref = (SwitchPreferenceCompat) findPreference(GLOBAL_ACTION_KEY_SCREENSHOT);
-//            } else if (action.equals(GLOBAL_ACTION_KEY_ONTHEGO)) {
-//                mOnTheGoPref = (SwitchPreferenceCompat) findPreference(GLOBAL_ACTION_KEY_ONTHEGO);
+            } else if (action.equals(GLOBAL_ACTION_KEY_ONTHEGO)) {
+                mOnTheGoPref = (SwitchPreferenceCompat) findPreference(GLOBAL_ACTION_KEY_ONTHEGO);
             } else if (action.equals(GLOBAL_ACTION_KEY_AIRPLANE)) {
                 mAirplanePref = (SwitchPreferenceCompat) findPreference(GLOBAL_ACTION_KEY_AIRPLANE);
             } else if (action.equals(GLOBAL_ACTION_KEY_USERS)) {
@@ -97,7 +101,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
         }
 
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
-            getPreferenceScreen().removePreference(mEmergencyPref);
+            mPowerMenuItemsCategory.removePreference(mEmergencyPref);
             mEmergencyPref = null;
         }
     }
@@ -111,10 +115,10 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
                     GLOBAL_ACTION_KEY_SCREENSHOT));
         }
 
-//        if (mOnTheGoPref != null) {
-//            mOnTheGoPref.setChecked(mLineageGlobalActions.userConfigContains(
-//                    GLOBAL_ACTION_KEY_ONTHEGO));
-//        }
+        if (mOnTheGoPref != null) {
+            mOnTheGoPref.setChecked(mLineageGlobalActions.userConfigContains(
+                    GLOBAL_ACTION_KEY_ONTHEGO));
+        }
 
         if (mAirplanePref != null) {
             mAirplanePref.setChecked(mLineageGlobalActions.userConfigContains(
@@ -160,9 +164,9 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
             value = mScreenshotPref.isChecked();
             mLineageGlobalActions.updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENSHOT);
 
-//        } else if (preference == mOnTheGoPref) {
-//            value = mOnTheGoPref.isChecked();
-//            mLineageGlobalActions.updateUserConfig(value, GLOBAL_ACTION_KEY_ONTHEGO);
+        } else if (preference == mOnTheGoPref) {
+            value = mOnTheGoPref.isChecked();
+            mLineageGlobalActions.updateUserConfig(value, GLOBAL_ACTION_KEY_ONTHEGO);
 
         } else if (preference == mAirplanePref) {
             value = mAirplanePref.isChecked();
@@ -204,7 +208,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
         }
         if (mUsersPref != null) {
             if (!UserHandle.MU_ENABLED || !UserManager.supportsMultipleUsers()) {
-                getPreferenceScreen().removePreference(mUsersPref);
+                mPowerMenuItemsCategory.removePreference(mUsersPref);
                 mUsersPref = null;
             } else {
                 List<UserInfo> users = mUserManager.getUsers();
