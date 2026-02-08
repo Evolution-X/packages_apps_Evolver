@@ -145,4 +145,17 @@
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
             android:defaultValue="true" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lock_screen_power_menu_category"
+        android:title="@string/power_menu_title">
+
+        <!-- Secure lock screen power menu -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_enable_power_menu"
+            android:title="@string/power_menu_lock_screen_secure_title"
+            android:summary="@string/power_menu_lock_screen_secure_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
