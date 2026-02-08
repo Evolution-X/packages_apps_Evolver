@@ -475,11 +475,11 @@
     <string name="power_menu_interface_category">Kezelőfelület</string>
     <string name="power_menu_actions_title">Kikapcsolási-menüfunkciók</string>
     <string name="power_menu_actions_summary">Itt választhatja ki, melyik műveletek látszódjanak</string>
+    <string name="power_menu_advanced_title">Speciális újraindítási lehetőségek</string>
     <string name="power_menu_lock_screen_category">Záróképernyő</string>
     <string name="power_menu_lock_screen_secure_title">Megjelenítés a biztonságos záróképernyőn</string>
     <string name="power_menu_lock_screen_secure_summary">A Kikapcsolási menü megjelenítése, ha a készülék le van zárva</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_advanced_reboot_title">Speciális újraindítás</string>
     <string name="power_menu_actions_screenshot_title">Képernyőkép</string>
     <string name="power_menu_actions_onthego_title">Menet közben mód (OnTheGo)</string>
     <string name="power_menu_actions_airplane_title">Repülőgép-üzemmód</string>
@@ -492,6 +492,11 @@
     <string name="power_menu_actions_logout_title">Kijelentkezés</string>
     <string name="power_menu_actions_emergency_title">Segélyhívás</string>
     <string name="power_menu_actions_devicecontrols_title">Készülékvezérlők</string>
+    <!-- Advanced restart options -->
+    <string name="advanced_reboot_title">Speciális újraindítás</string>
+    <string name="advanced_reboot_summary">Feloldott kijelzőnél a Recovery és a Bootloader újraindítási mód is jelenjen meg a kikapcsoló menüben</string>
+    <string name="advanced_reboot_secured_title">Biztonságos záróképernyő</string>
+    <string name="advanced_reboot_secured_summary">A speciális újraindítási lehetőségek megjelenítése a biztonságos záróképernyőnél is</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Hamisítás, álcázás</string>
     <string name="miscellaneous_developer_options_category">Fejlesztői lehetőségek</string>
@@ -593,6 +598,7 @@
     <string name="delete_message">Törli a kiválasztott elemeket?</string>
     <string name="choose_app">Válasszon alkalmazást</string>
     <!-- Units -->
+    <string name="unit_hz">hz</string>
     <string name="unit_milliseconds">ezredmásodperc</string>
     <string name="unit_seconds">másodperc</string>
     <!-- SystemUI restart dialog -->
@@ -892,4 +898,14 @@
     <string name="sensor_block_app_picker_title">Az érzékelők blokkolása az alábbi alkalmazásoknál</string>
     <string name="add_sensor_block_package_title">Alkalmazások hozzáadása az érzékelő blokkoláshoz</string>
     <string name="add_sensor_block_package_summary">A mozgás, a gyorsulás és a lineáris gyorsulás-érzékelők blokkolva lesznek ezeknél alkalmazásoknál</string>
+    <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">Bejövő hívás jelzése villogó LED-fénnyel</string>
+    <string name="flashlight_on_call_disabled">Letiltva</string>
+    <string name="flashlight_on_call_ringer">Csörgés közben is</string>
+    <string name="flashlight_on_call_no_ringer">Csak lenémított készüléken</string>
+    <string name="flashlight_on_call_silent">Teljes némításkor (se csengés, se rezgés)</string>
+    <string name="flashlight_on_call_always">Mindig</string>
+    <string name="flashlight_on_call_ignore_dnd_title">A \'Ne zavarjanak\' figyelmen kívül hagyása</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Villogjon-e \'Ne zavarjanak\' üzemmódban</string>
+    <string name="flashlight_on_call_rate_title">A villogás intenzitása</string>
 </resources>
