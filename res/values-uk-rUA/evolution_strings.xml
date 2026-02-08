@@ -285,6 +285,18 @@
     <string name="status_bar_clock_auto_hide_summary">Приховати годинник, якщо панель запуску видима</string>
     <string name="status_bar_clock_chip_title">Розмиття фону</string>
     <string name="status_bar_clock_chip_summary">Показувати виділений фон за годинником</string>
+    <string name="solid_accent">Акцент суцільних кольорів</string>
+    <string name="outline">Контур</string>
+    <string name="solid_accent_gradient">Градієнт суцільних кольорів</string>
+    <string name="solid_gradient">Суцільна сторона градієнта</string>
+    <string name="solid_gradient_corner">Суцільний акцент градієнт різкий</string>
+    <string name="solid_gradient_void">Градієнт пустоти</string>
+    <string name="solid_gradient_neumorph">Градієнт нейморфа</string>
+    <string name="solid_gradient_stroke">Різке градієнтне обведення</string>
+    <string name="solid_accent_transperent">Прозорий акцент</string>
+    <string name="solid_gradient_light">Градієнтне світло</string>
+    <string name="solid_gradient_shape">Гострий кут градієнта</string>
+    <string name="solid_gradient_void_light">Градієнтне світло порожнечі</string>
     <string name="status_bar_am_pm_title">До обіду / після обіду</string>
     <string name="status_bar_am_pm_info">24-годинний формат часу</string>
     <string name="status_bar_am_pm_normal">Звичайний</string>
@@ -396,9 +408,6 @@
     <string name="quick_settings_secure_lock_screen_summary">Проведіть вниз на екрані блокування для перегляду швидких налаштувань</string>
     <string name="quick_settings_require_unlock_title">Безпечні плитки швидких налаштувань потребують розблокування</string>
     <string name="quick_settings_require_unlock_summary">Ці швидкі налаштування вимагають розблокування пристрою, перш ніж ви зможете взаємодіяти з ними:\nРежим польоту, Запас акумулятора, Bluetooth, Cellular, Data saver, точка доступу, Інтернет, NFC, блокування обертання і Wi-Fi</string>
-    <string name="quick_settings_miscellaneous_category">Різне</string>
-    <string name="quick_settings_bluetooth_show_dialog_title">Діалогове вікно плитки Bluetooth</string>
-    <string name="quick_settings_bluetooth_show_dialog_summary">Показати діалогове вікно або змінити стан bluetooth при натисканні на плитку Bluetooth</string>
     <string name="quick_settings_header_image_title">Зображення заголовку</string>
     <string name="quick_settings_header_image_summary">Вибрати фонове зображення панелі швидких налаштувань</string>
     <string name="quick_settings_header_daylight_pack_title">Колекція зображень заголовка</string>
@@ -466,11 +475,11 @@
     <string name="power_menu_interface_category">Інтерфейс</string>
     <string name="power_menu_actions_title">Елементи меню живлення</string>
     <string name="power_menu_actions_summary">Виберіть, які дії відображаються</string>
+    <string name="power_menu_advanced_title">Розширене меню перезавантаження</string>
     <string name="power_menu_lock_screen_category">Екран блокування</string>
     <string name="power_menu_lock_screen_secure_title">Показувати на захищеному екрані блокування</string>
     <string name="power_menu_lock_screen_secure_summary">Показувати меню живлення під час блокування пристрою</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_advanced_reboot_title">Варіанти перезавантаження</string>
     <string name="power_menu_actions_screenshot_title">Скріншот</string>
     <string name="power_menu_actions_onthego_title">Режим «На ходу»</string>
     <string name="power_menu_actions_airplane_title">У літаку</string>
@@ -483,6 +492,11 @@
     <string name="power_menu_actions_logout_title">Вихід із системи</string>
     <string name="power_menu_actions_emergency_title">Екстрений виклик</string>
     <string name="power_menu_actions_devicecontrols_title">Керування пристроями</string>
+    <!-- Advanced restart options -->
+    <string name="advanced_reboot_title">Розширене перезавантаження</string>
+    <string name="advanced_reboot_summary">Коли пристрій розблоковано, в меню живлення доступні опції перезавантаження в режим відновлення і завантажувач</string>
+    <string name="advanced_reboot_secured_title">Захищений екран блокування</string>
+    <string name="advanced_reboot_secured_summary">Відображати додаткові параметри перезапуску на захищеному екрані блокування</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Підміна</string>
     <string name="miscellaneous_developer_options_category">Опції для розробника</string>
@@ -519,6 +533,8 @@
     <string name="spoofing_pixel_props_summary">Імітувати пристрій як Pixel 8 Pro для всіх додатків Google</string>
     <string name="gms_spoof_title">Відтворити виправлення цілісності</string>
     <string name="gms_spoof_summary">Імітувати дані вашого пристрою, щоб перейти до списку дозволів Google Play</string>
+    <string name="vending_spoof_title">Спотворення</string>
+    <string name="vending_spoof_summary">Застосувати примірник пристрою до Google Play</string>
     <string name="spoofing_app_specific_category">Спеціально для програми</string>
     <string name="spoofing_photos_title">Підробка Google Фото</string>
     <string name="spoofing_photos_summary">Імітувати пристрій як Pixel XL для додатку Google Photos щоб розблокувати необмежену кількість пам\'яті зображень</string>
@@ -532,7 +548,9 @@
     <string name="toast_spoofing_success">Успішно завантажено pif.json. Імітувати як %1$s для проходження Play Integrity.</string>
     <string name="toast_spoofing_failure">Помилка створення імітаційних властивостей.</string>
     <string name="update_pif_json_title">Оновити Play Integrity fix</string>
-    <string name="update_pif_json_summary">Оновлення PIF Spoofing пристрою, потребує підключення до Інтернету.</string>
+    <string name="update_pif_json_summary">Оновити PIF Spoofing пристрій (потрібне підключення до Інтернету)</string>
+    <string name="update_pif_auto_random_title">Оновлення виправлення інтеграції (випадково)</string>
+    <string name="update_pif_auto_random_summary">Отримати випадковий Spoofing пристрій зі списку Google. (Потребує підключення до Інтернету.)</string>
     <string name="show_pif_properties_title">Властивості Play Integrity fix</string>
     <string name="show_pif_properties_summary">Показати всі поточні налаштування PIF</string>
     <string name="error_loading_properties">Помилка при завантаженні властивостей PIF</string>
@@ -580,6 +598,7 @@
     <string name="delete_message">Видалити вибраний елемент?</string>
     <string name="choose_app">Обдереть додаток</string>
     <!-- Units -->
+    <string name="unit_hz">гц</string>
     <string name="unit_milliseconds">мілісекунди</string>
     <string name="unit_seconds">секунди</string>
     <!-- SystemUI restart dialog -->
@@ -871,4 +890,14 @@
     <string name="sensor_block_app_picker_title">Блокувати датчики для цих програм</string>
     <string name="add_sensor_block_package_title">Вибрати додатки, для яких блокуються датчики</string>
     <string name="add_sensor_block_package_summary">Датчики руху, акселерометра та лінійного прискорення будуть заблоковані для цих додатків</string>
+    <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">Блимати ліхтариком для вхідного дзвінка</string>
+    <string name="flashlight_on_call_disabled">Вимкнено</string>
+    <string name="flashlight_on_call_ringer">При дзвінку</string>
+    <string name="flashlight_on_call_no_ringer">Коли дзвінок беззвучний</string>
+    <string name="flashlight_on_call_silent">Коли повністю беззвучний (немає сигналу і вібросигналу)</string>
+    <string name="flashlight_on_call_always">Завжди</string>
+    <string name="flashlight_on_call_ignore_dnd_title">Ігнорувати DND</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Чи блимати, коли активовано режим \"Не турбувати\"</string>
+    <string name="flashlight_on_call_rate_title">Частота блимання</string>
 </resources>
