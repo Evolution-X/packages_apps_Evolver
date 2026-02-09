@@ -287,9 +287,9 @@
     <string name="status_bar_clock_chip_summary">Wyświetl akcentowane tło za zegarem</string>
     <string name="solid_accent">Stały kolor akcentu</string>
     <string name="outline">Obrys</string>
-    <string name="solid_accent_gradient">Wyraźny kolor akcentu gradientu</string>
-    <string name="solid_gradient">Wyraźny gradient boczny</string>
-    <string name="solid_gradient_corner">Wyraźny ostry akcent grandientu</string>
+    <string name="solid_accent_gradient">Jednolity kolor akcentu gradientowego</string>
+    <string name="solid_gradient">Jednolity gradient boczny</string>
+    <string name="solid_gradient_corner">Wyraźny, ostry akcent gradientu</string>
     <string name="solid_gradient_void">Gradientowa pustka</string>
     <string name="solid_gradient_neumorph">Neumorficzny gradient</string>
     <string name="solid_gradient_stroke">Ostry gradientowy kontur</string>
@@ -641,7 +641,7 @@
     <string name="rui_style">Styl interfejsu Realme</string>
     <string name="aosp_style">Domyślny styl AOSP</string>
     <string name="double_layer_style">Styl dwuwarstwowy</string>
-    <string name="gradient_style">Styl płynnego przejścia kolorów</string>
+    <string name="gradient_style">Styl gradientu</string>
     <string name="neumorph_style">Styl neumorficzny</string>
     <string name="neumorph_outline_style">Styl neumorficzny z obramowaniem</string>
     <string name="outline_style">Styl obramowania</string>
@@ -804,8 +804,8 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="battery_bar_blend_color_reverse_title">Odwróć kierunek kolorów</string>
     <string name="battery_bar_blend_color_reverse_summary_off">Pełna &#8594; pusta: czerwony &#8592; zielony &#8592; niebieski &#8592; czerwony</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Pełna &#8594; pusta: czerwony &#8594; zielony &#8594; niebieski &#8594; czerwony</string>
-    <string name="battery_bar_use_gradient_color">Użyj płynnego przejścia kolorów</string>
-    <string name="battery_bar_gradient_color_summary">Użyj płynnego przejścia kolorów dla poziomu naładowania baterii</string>
+    <string name="battery_bar_use_gradient_color">Użyj koloru gradientu</string>
+    <string name="battery_bar_gradient_color_summary">Użyj gradientowego koloru dla poziomu naładowania baterii</string>
     <string name="battery_bar_high_color">Kolor wysokiego poziomu</string>
     <string name="battery_bar_low_color">Kolor niskiego poziomu</string>
     <string name="battery_bar_animate_color">Kolor animacji ładowania</string>
