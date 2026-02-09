@@ -285,6 +285,18 @@
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli program uruchamiający jest widoczny</string>
     <string name="status_bar_clock_chip_title">Tło zegara</string>
     <string name="status_bar_clock_chip_summary">Wyświetl akcentowane tło za zegarem</string>
+    <string name="solid_accent">Stały kolor akcentu</string>
+    <string name="outline">Obrys</string>
+    <string name="solid_accent_gradient">Wyraźny kolor akcentu gradientu</string>
+    <string name="solid_gradient">Wyraźny gradient boczny</string>
+    <string name="solid_gradient_corner">Wyraźny ostry akcent grandientu</string>
+    <string name="solid_gradient_void">Gradientowa pustka</string>
+    <string name="solid_gradient_neumorph">Neumorficzny gradient</string>
+    <string name="solid_gradient_stroke">Ostry gradientowy kontur</string>
+    <string name="solid_accent_transperent">Przezroczysty akcent</string>
+    <string name="solid_gradient_light">Lekki gradient</string>
+    <string name="solid_gradient_shape">Ostry gradientowy narożnik</string>
+    <string name="solid_gradient_void_light">Lekka gradientowa pustka</string>
     <string name="status_bar_am_pm_title">Format 12-godzinny (AM/PM)</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
     <string name="status_bar_am_pm_normal">Normalny</string>
@@ -463,11 +475,11 @@
     <string name="power_menu_interface_category">Interfejs</string>
     <string name="power_menu_actions_title">Opcje menu zasilania</string>
     <string name="power_menu_actions_summary">Wybierz, które opcje mają być wyświetlane</string>
+    <string name="power_menu_advanced_title">Zaawansowane opcje restartu</string>
     <string name="power_menu_lock_screen_category">Ekran blokady</string>
     <string name="power_menu_lock_screen_secure_title">Pokaż na ekranie blokady</string>
     <string name="power_menu_lock_screen_secure_summary">Pokaż menu zasilania, gdy urządzenie jest zablokowane</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_advanced_reboot_title">Zaawansowany restart</string>
     <string name="power_menu_actions_screenshot_title">Zrzut ekranu</string>
     <string name="power_menu_actions_onthego_title">Tryb przeźroczystego ekranu</string>
     <string name="power_menu_actions_airplane_title">Tryb samolotowy</string>
@@ -480,6 +492,11 @@
     <string name="power_menu_actions_logout_title">Wyloguj się</string>
     <string name="power_menu_actions_emergency_title">Tryb awaryjny</string>
     <string name="power_menu_actions_devicecontrols_title">Sterowanie urządzeniem</string>
+    <!-- Advanced restart options -->
+    <string name="advanced_reboot_title">Zaawansowany restart</string>
+    <string name="advanced_reboot_summary">Po odblokowaniu uwzględnij w menu zasilania opcje ponownego uruchomienia w trybie odzyskiwania lub bootloadera</string>
+    <string name="advanced_reboot_secured_title">Zabezpieczony ekran blokady</string>
+    <string name="advanced_reboot_secured_summary">Wyświetlaj zaawansowane opcje ponownego uruchamiania na zabezpieczonym ekranie blokady</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Fałszowanie</string>
     <string name="miscellaneous_developer_options_category">Opcje programisty</string>
@@ -582,6 +599,7 @@
     <string name="delete_message">Usunąć zaznaczony element?</string>
     <string name="choose_app">Wybierz aplikację</string>
     <!-- Units -->
+    <string name="unit_hz">hz</string>
     <string name="unit_milliseconds">milisekundy</string>
     <string name="unit_seconds">sekundy</string>
     <!-- SystemUI restart dialog -->
@@ -878,4 +896,14 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="sensor_block_app_picker_title">Blokuj czujniki dla tych aplikacji</string>
     <string name="add_sensor_block_package_title">Dodaj aplikacje do blokady czujników</string>
     <string name="add_sensor_block_package_summary">Znaczący ruch, akcelerometr, czujniki przyspieszenia liniowego zostaną zablokowane dla tych aplikacji</string>
+    <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">Migaj latarką podczas połączenia przychodzącego</string>
+    <string name="flashlight_on_call_disabled">Wyłączone</string>
+    <string name="flashlight_on_call_ringer">Podczas dzwonienia</string>
+    <string name="flashlight_on_call_no_ringer">Gdy dzwonek jest wyciszony</string>
+    <string name="flashlight_on_call_silent">Gdy brak wibracji i dźwięku podczas połączenia przychodzącego</string>
+    <string name="flashlight_on_call_always">Zawsze</string>
+    <string name="flashlight_on_call_ignore_dnd_title">Ignoruj tryb nie przeszkadzać</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Czy lampa błyskowa ma migać w trybie nie przeszkadzać</string>
+    <string name="flashlight_on_call_rate_title">Szybkość migania</string>
 </resources>
