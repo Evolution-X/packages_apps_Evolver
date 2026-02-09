@@ -285,6 +285,18 @@
     <string name="status_bar_clock_auto_hide_summary">Başlatıcı görünürse saati gizle</string>
     <string name="status_bar_clock_chip_title">Arka plan etiketi</string>
     <string name="status_bar_clock_chip_summary">Vurgulu etiketi saatin arkasında göster</string>
+    <string name="solid_accent">Düz renk vurgusu</string>
+    <string name="outline">Çerçeve</string>
+    <string name="solid_accent_gradient">Düz renk vurgu gradyanı</string>
+    <string name="solid_gradient">Düz gradyan yanı</string>
+    <string name="solid_gradient_corner">Düz vurgu gradyanı keskin</string>
+    <string name="solid_gradient_void">Gradyan boşluğu</string>
+    <string name="solid_gradient_neumorph">Neumorph gradyanı</string>
+    <string name="solid_gradient_stroke">Keskin gradyan konturu</string>
+    <string name="solid_accent_transperent">Şeffaf vurgu</string>
+    <string name="solid_gradient_light">Gradyan ışığı</string>
+    <string name="solid_gradient_shape">Keskin gradyan köşesi</string>
+    <string name="solid_gradient_void_light">Gradyan boşluk ışığı</string>
     <string name="status_bar_am_pm_title">ÖÖ/ÖS</string>
     <string name="status_bar_am_pm_info">24 saat görünümü etkin</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -463,11 +475,11 @@
     <string name="power_menu_interface_category">Arayüz</string>
     <string name="power_menu_actions_title">Güç menüsü işlemleri</string>
     <string name="power_menu_actions_summary">Hangi eylemlerin görüntüleneceğini seçin</string>
+    <string name="power_menu_advanced_title">Gelişmiş yeniden başlatma seçenekleri</string>
     <string name="power_menu_lock_screen_category">Kilit ekranı</string>
     <string name="power_menu_lock_screen_secure_title">Güvenli kilit ekranında göster</string>
     <string name="power_menu_lock_screen_secure_summary">Cihaz kilitliyken güç menüsünü göster</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_advanced_reboot_title">Gelişmiş yeniden başlatma</string>
     <string name="power_menu_actions_screenshot_title">Ekran görüntüsü</string>
     <string name="power_menu_actions_onthego_title">Yürüme modu</string>
     <string name="power_menu_actions_airplane_title">Uçak modu</string>
@@ -480,6 +492,11 @@
     <string name="power_menu_actions_logout_title">Oturumu kapat</string>
     <string name="power_menu_actions_emergency_title">Acil durum</string>
     <string name="power_menu_actions_devicecontrols_title">Cihaz denetimleri</string>
+    <!-- Advanced restart options -->
+    <string name="advanced_reboot_title">Gelişmiş yeniden başlatma</string>
+    <string name="advanced_reboot_summary">Kilit açıldığında, kurtarma veya ön yükleyicide yeniden başlatmak için güç menüsüne seçenekler ekler</string>
+    <string name="advanced_reboot_secured_title">Güvenli kilit ekranı</string>
+    <string name="advanced_reboot_secured_summary">Kilit ekranında gelişmiş yeniden başlatma seçeneklerini görüntüle</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Sahte imza</string>
     <string name="miscellaneous_developer_options_category">Geliştirici seçenekleri</string>
@@ -581,6 +598,7 @@
     <string name="delete_message">Seçili öge kaldırılsın mı?</string>
     <string name="choose_app">Uygulama seç</string>
     <!-- Units -->
+    <string name="unit_hz">hz</string>
     <string name="unit_milliseconds">milisaniye</string>
     <string name="unit_seconds">saniye</string>
     <!-- SystemUI restart dialog -->
@@ -878,4 +896,14 @@
     <string name="sensor_block_app_picker_title">Uygulamalar için sensör bloklama</string>
     <string name="add_sensor_block_package_title">Sensör bloklaması için uygulama ekle</string>
     <string name="add_sensor_block_package_summary">Bu uygulamalar için önemli hareket, ivmeölçer, doğrusal ivme sensörleri engellenecektir</string>
+    <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">Gelen aramalarda el fenerini yakıp söndür</string>
+    <string name="flashlight_on_call_disabled">Devre dışı</string>
+    <string name="flashlight_on_call_ringer">Zil sesi çalarken</string>
+    <string name="flashlight_on_call_no_ringer">Zil sesi kapalıyken</string>
+    <string name="flashlight_on_call_silent">Tamamen sessizken (zil sesi veya titreşim yok)</string>
+    <string name="flashlight_on_call_always">Her zaman</string>
+    <string name="flashlight_on_call_ignore_dnd_title">Rahatsız etmeyini yoksay</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Rahatsız etmeyin modundayken yanıp yanmayacağı</string>
+    <string name="flashlight_on_call_rate_title">Yanıp sönme hızı</string>
 </resources>
