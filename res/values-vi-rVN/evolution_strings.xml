@@ -132,14 +132,10 @@
     <string name="lock_screen_fingerprint_error_vibration_title">Rung khi lỗi xác thực</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Rung khi xác thực dấu vân tay thất bại</string>
     <string name="lock_screen_miscellaneous_category">Cài đặt khác</string>
-    <string name="lock_screen_pocket_detection_title">Phát hiện trong túi</string>
-    <string name="lock_screen_pocket_detection_summary">Chặn thao tác màn hình và nút bấm khi thiết bị trong túi</string>
-    <string name="lock_screen_always_on_pocket_mode_title">Luôn bật chế độ cảm biến túi (Pocket Mode)</string>
-    <string name="lock_screen_always_on_pocket_mode_summary">Luôn chặn thao tác khi màn hình bật trong túi</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Trình trực quan hóa xung</string>
     <string name="pulse_settings_summary">Hiển thị thanh trực quan trên màn hình khóa trong khi nhạc đang phát</string>
-    <string name="ambient_pulse_enabled_title">Hiệu ứng xung khi màn hình tắt</string>
+    <string name="ambient_pulse_enabled_title">Hiển thị tương tác sóng nhạc</string>
     <string name="ambient_pulse_enabled_summary">Hiện hiệu ứng xung trên màn hình xem nhanh</string>
     <string name="pulse_rounded_bars_title">Thanh tròn</string>
     <string name="pulse_rounded_bars_summary">Hiển thị thanh trực quan có góc bo tròn</string>
@@ -216,12 +212,6 @@
     <string name="status_bar_battery_text_charging_summary">Luôn hiển thị phần trăm pin khi sạc</string>
     <string name="status_bar_clock_and_date_title">Đồng hồ &amp; ngày</string>
     <string name="status_bar_clock_and_date_summary">Tùy chỉnh đồng hồ &amp; ngày</string>
-    <string name="status_bar_data_disabled_icon_title">Chỉ báo dữ liệu bị vô hiệu hóa</string>
-    <string name="status_bar_data_disabled_icon_summary">Hiển thị chỉ báo khi dữ liệu di động tắt</string>
-    <string name="status_bar_4g_icon_title">Biểu tượng 4G</string>
-    <string name="status_bar_4g_icon_summary">Thay biểu tượng \'LTE\' bằng \'4G\'</string>
-    <string name="status_bar_wifi_standard_icon_title">Chuẩn Wi-Fi</string>
-    <string name="status_bar_wifi_standard_icon_summary">Hiển thị chuẩn Wi-Fi cạnh biểu tượng</string>
     <string name="status_bar_bluetooth_battery_title">Trạng thái pin bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Hiển thị trạng thái pin của thiết bị bluetooth đã kết nối, nếu có sẵn</string>
     <string name="status_bar_colored_icons_title">Màu biểu tượng rực rỡ</string>
@@ -295,6 +285,18 @@
     <string name="status_bar_clock_auto_hide_summary">Ẩn đồng hồ khi đang ở màn hình chính</string>
     <string name="status_bar_clock_chip_title">Chip nền</string>
     <string name="status_bar_clock_chip_summary">Hiển thị chip màu phía sau đồng hồ</string>
+    <string name="solid_accent">Điểm nhấn màu trơn</string>
+    <string name="outline">Đường nét</string>
+    <string name="solid_accent_gradient">Màu đơn sắc tạo điểm nhấn chuyển sắc</string>
+    <string name="solid_gradient">Mặt bên có độ dốc đồng nhất</string>
+    <string name="solid_gradient_corner">Màu sắc đậm, chuyển sắc rõ nét</string>
+    <string name="solid_gradient_void">Khoảng trống chuyển sắc</string>
+    <string name="solid_gradient_neumorph">Độ dốc Neumorph</string>
+    <string name="solid_gradient_stroke">Nét vẽ chuyển sắc nét</string>
+    <string name="solid_accent_transperent">Điểm nhấn trong suốt</string>
+    <string name="solid_gradient_light">Ánh sáng chuyển sắc</string>
+    <string name="solid_gradient_shape">Góc dốc sắc nét</string>
+    <string name="solid_gradient_void_light">Ánh sáng khoảng trống chuyển sắc</string>
     <string name="status_bar_am_pm_title">Kiểu AM/PM</string>
     <string name="status_bar_am_pm_info">Đồng hồ dạng 24 giờ đang bật</string>
     <string name="status_bar_am_pm_normal">Bình thường</string>
@@ -406,9 +408,6 @@
     <string name="quick_settings_secure_lock_screen_summary">Ẩn tất cả cài đặt nhanh khi thiết bị bị khóa</string>
     <string name="quick_settings_require_unlock_title">Yêu cầu mở khóa</string>
     <string name="quick_settings_require_unlock_summary">Các ô sau yêu cầu mở khóa trước khi tương tác:\nMáy bay, Tiết kiệm pin, Bluetooth, Di động, Tiết kiệm dữ liệu, Điểm phát sóng, Internet, NFC, Khóa xoay và Wi-Fi</string>
-    <string name="quick_settings_miscellaneous_category">Cài đặt khác</string>
-    <string name="quick_settings_bluetooth_show_dialog_title">Hộp thoại Bluetooth</string>
-    <string name="quick_settings_bluetooth_show_dialog_summary">Hiển thị hộp thoại hoặc bật/tắt Bluetooth khi chạm ô</string>
     <string name="quick_settings_header_image_title">Ảnh đầu bảng</string>
     <string name="quick_settings_header_image_summary">Chọn ảnh nền đầu bảng</string>
     <string name="quick_settings_header_daylight_pack_title">Bộ sưu tập ảnh</string>
@@ -476,11 +475,11 @@
     <string name="power_menu_interface_category">Giao diện</string>
     <string name="power_menu_actions_title">Hành động</string>
     <string name="power_menu_actions_summary">Chọn hành động hiển thị</string>
+    <string name="power_menu_advanced_title">Tùy chọn khởi động lại nâng cao</string>
     <string name="power_menu_lock_screen_category">Màn hình khóa</string>
     <string name="power_menu_lock_screen_secure_title">Hiện khi khóa bảo mật</string>
     <string name="power_menu_lock_screen_secure_summary">Hiển thị menu nguồn khi thiết bị bị khóa</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_advanced_reboot_title">Khởi động nâng cao</string>
     <string name="power_menu_actions_screenshot_title">Chụp ảnh màn hình</string>
     <string name="power_menu_actions_onthego_title">Chế độ On-The-Go</string>
     <string name="power_menu_actions_airplane_title">Chế độ máy bay</string>
@@ -493,6 +492,11 @@
     <string name="power_menu_actions_logout_title">Đăng xuất</string>
     <string name="power_menu_actions_emergency_title">Khẩn cấp</string>
     <string name="power_menu_actions_devicecontrols_title">Điều khiển thiết bị</string>
+    <!-- Advanced restart options -->
+    <string name="advanced_reboot_title">Khởi động lại nâng cao</string>
+    <string name="advanced_reboot_summary">Khi được mở khóa, hãy thêm các tùy chọn trong menu nguồn để khởi động lại vào chế độ recovery hoặc bootloader.</string>
+    <string name="advanced_reboot_secured_title">Màn hình khóa được bảo mật</string>
+    <string name="advanced_reboot_secured_summary">Hiển thị các tùy chọn khởi động lại nâng cao trên màn hình khóa được bảo mật</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Giả lập</string>
     <string name="miscellaneous_developer_options_category">Tùy chọn nhà phát triển</string>
@@ -504,6 +508,9 @@
     <string name="miscellaneous_ignore_window_secure_summary">Bỏ hạn chế chụp màn hình và ghi màn hình, có thể rò rỉ riêng tư</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Bỏ giới hạn ghi màn hình</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Gỡ bỏ giới hạn kích thước file 15GiB\nCó thể tạo file xuất lớn hơn mức cần thiết</string>
+    <!-- Miscellaneous/Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Tự động sửa lỗi phát hiện VBMeta</string>
+    <string name="vbmeta_attestation_summary">Thực hiện xác thực khóa để tạo mã băm khởi động đã được xác minh khi khởi động hệ thống. Yêu cầu khởi động lại hệ thống.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Ẩn danh sách ứng dụng</string>
     <string name="hide_applist_summary">Ngăn ứng dụng kiểm tra ứng dụng đã chọn từ danh sách</string>
@@ -524,10 +531,10 @@
     <string name="spoofing_system_wide_category">Toàn hệ thống</string>
     <string name="spoofing_pixel_props_title">Thuộc tính Pixel</string>
     <string name="spoofing_pixel_props_summary">Giả mạo nhóm ứng dụng Google thành thiết bị Pixel mới nhất</string>
-    <string name="tensor_spoof_title">Các tính năng tensor</string>
-    <string name="tensor_spoof_summary">Mở khóa các tính năng chỉ có trên các thiết bị Pixel dựa trên tensor</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Giả mạo thiết bị để vượt kiểm tra Play Integrity của Google</string>
+    <string name="vending_spoof_title">Máy bán hàng giả mạo</string>
+    <string name="vending_spoof_summary">Áp dụng tính năng giả mạo thiết bị cho Google Play Store</string>
     <string name="spoofing_app_specific_category">Theo ứng dụng</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Giả mạo Google Photos thành Pixel XL</string>
@@ -541,7 +548,9 @@
     <string name="toast_spoofing_success">Tải xuống pif.json thành công. Đang giả mạo %1$s cho Play Integrity.</string>
     <string name="toast_spoofing_failure">Không thể giả mạo thuộc tính.</string>
     <string name="update_pif_json_title">Cập nhật Play Integrity fix</string>
-    <string name="update_pif_json_summary">Cập nhật thiết bị giả mạo PIF, yêu cầu kết nối internet</string>
+    <string name="update_pif_json_summary">Cập nhật thiết bị giả mạo PIF (Yêu cầu kết nối internet.)</string>
+    <string name="update_pif_auto_random_title">Cập nhật bản vá lỗi Play Integrity (Ngẫu nhiên)</string>
+    <string name="update_pif_auto_random_summary">Chọn ngẫu nhiên thiết bị giả mạo từ danh sách của Google. (Yêu cầu kết nối internet.)</string>
     <string name="show_pif_properties_title">Thuộc tính Play Integrity fix</string>
     <string name="show_pif_properties_summary">Hiển thị tất cả thuộc tính PIF hiện tại</string>
     <string name="error_loading_properties">Lỗi khi tải thuộc tính PIF</string>
@@ -589,6 +598,7 @@
     <string name="delete_message">Xoá các mục đã chọn?</string>
     <string name="choose_app">Chọn ứng dụng</string>
     <!-- Units -->
+    <string name="unit_hz">Hz</string>
     <string name="unit_milliseconds">mili giây</string>
     <string name="unit_seconds">giây</string>
     <!-- SystemUI restart dialog -->
@@ -723,42 +733,6 @@
     <!-- QS Widgets -->
     <string name="qs_widgets_enabled_title">Tiện ích cài đặt</string>
     <string name="qs_widgets_enabled_summary">Hiển thị tiện ích để truy cập nhanh. \nGiới hạn hàng cài đặt để tránh lỗi cuộn</string>
-    <!-- Lockscreen widgets  -->
-    <string name="lockscreen_widgets_title">Tiện ích</string>
-    <string name="lockscreen_widgets_enabled_title">Bật tiện ích màn hình khóa</string>
-    <string name="lockscreen_widgets_enabled_summary">Thêm tiện ích vào màn hình khóa</string>
-    <string name="lockscreen_display_widgets_title">Tiện ích thông tin</string>
-    <string name="lockscreen_display_widgets_summary">Hiển thị thông tin thiết bị trên màn hình khóa</string>
-    <string name="large_widgets_category_title">Tiện ích lớn</string>
-    <string name="main_custom_widgets1">Tiện ích lớn 1</string>
-    <string name="main_custom_widgets2">Tiện ích lớn 2</string>
-    <string name="mini_widgets_category_title">Tiện ích nhỏ</string>
-    <string name="custom_widgets1">Tiện ích nhỏ 1</string>
-    <string name="custom_widgets2">Tiện ích nhỏ 2</string>
-    <string name="custom_widgets3">Tiện ích nhỏ 3</string>
-    <string name="custom_widgets4">Tiện ích nhỏ 4</string>
-    <string name="camera">Máy ảnh</string>
-    <string name="clock_timer">Đồng hồ/Hẹn giờ</string>
-    <string name="calculator">Máy tính</string>
-    <string name="gallery">Thư viện</string>
-    <string name="media">Trình phát nhạc</string>
-    <string name="torch">Đèn pin</string>
-    <string name="controls_media_button_play">Phát</string>
-    <string name="weather">Thời tiết</string>
-    <string name="wifi">WiFi</string>
-    <string name="data">Dữ liệu</string>
-    <string name="ringer">Chuông</string>
-    <string name="bt">Bluetooth</string>
-    <string name="hotspot">Điểm truy cập cá nhân</string>
-    <string name="wallet">Ví tiền</string>
-    <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">Kiểu tiện ích</string>
-    <string name="lockscreen_widgets_style1">Material Bo tròn</string>
-    <string name="lockscreen_widgets_style2">Material Vuông</string>
-    <string name="lockscreen_widgets_style3">Trong suốt (Vuông)</string>
-    <string name="lockscreen_widgets_style4">Trong suốt (Bo tròn)</string>
-    <string name="lockscreen_widgets_transparency_title">Độ trong suốt</string>
-    <string name="lockscreen_widgets_transparency_summary">Tùy chỉnh độ mờ cho kiểu trong suốt</string>
     <!-- Font styles -->
     <string name="font_styles_title">Kiểu phông chữ</string>
     <string name="font_styles_summary">Thay đổi kiểu phông chữ hệ thống</string>
@@ -791,27 +765,12 @@
     <string name="ongoing_progress_settings_summary">Tùy chọn chip hành động trên thanh trạng thái</string>
     <string name="ongoing_action_chip_title">Chip tiến trình</string>
     <string name="ongoing_action_chip_summary">Hiển thị chip tiến trình từ thông báo trên thanh trạng thái</string>
+    <string name="ongoing_action_chip_opacity_title">Độ mờ của thanh tiến độ</string>
+    <string name="ongoing_action_chip_opacity_summary">Điều chỉnh độ mờ của chip thanh tiến độ</string>
     <string name="compact_progress_mode_title">Chỉ báo tiến trình thu gọn</string>
     <string name="compact_progress_mode_summary">Sử dụng chỉ báo hình tròn thu gọn cho các hành động đang diễn ra</string>
     <string name="show_media_progress_title">Hiển thị tiến trình phát nhạc</string>
     <string name="show_media_progress_summary">Hiển thị tiến trình phát nhạc trên thanh trạng thái</string>
-    <string name="progress_bar_opacity_title">Độ mờ chip tiến trình</string>
-    <string name="progress_bar_opacity_summary">Điều chỉnh độ mờ của chip tiến trình</string>
-    <string name="progress_enable_category_title">Cài đặt chung</string>
-    <string name="standard_chip_position_title">Vị trí chip tiêu chuẩn</string>
-    <string name="circular_chip_position_title">Vị trí chip tròn</string>
-    <string name="chip_position_x_title">Vị trí ngang</string>
-    <string name="chip_position_x_summary">Di chuyển chip sang trái hoặc phải từ điểm căn chỉnh</string>
-    <string name="chip_position_y_title">Vị trí dọc</string>
-    <string name="chip_position_y_summary">Di chuyển chip lên trên hoặc xuống dưới trên thanh trạng thái</string>
-    <string name="chip_size_title">Chiều rộng chip</string>
-    <string name="chip_size_summary">Điều chỉnh độ rộng của chip tiến trình</string>
-    <string name="circular_chip_size_title">Kích thước chip tròn</string>
-    <string name="circular_chip_size_summary">Điều chỉnh đường kính của chip tròn</string>
-    <string name="circular_position_x_title">Độ lệch ngang</string>
-    <string name="circular_position_x_summary">Điều chỉnh vị trí ngang</string>
-    <string name="circular_position_y_title">Độ lệch dọc</string>
-    <string name="circular_position_y_summary">Điều chỉnh vị trí dọc</string>
     <string name="progress_footer_text">     \"Thanh tiến trình trên thanh trạng thái cung cấp cập nhật thời gian thực cho cả phát nhạc và tải lên/xuống.
  
      - 🎵 Tiến trình phát nhạc:
@@ -928,9 +887,6 @@
     <string name="adaptive_playback_summary">Tạm dừng media khi tắt âm lượng và tiếp tục khi tăng âm lượng trong thời gian cho phép</string>
     <string name="adaptive_playback_intro_text">Tự động tạm dừng media khi âm lượng bị tắt và tiếp tục phát khi âm lượng được khôi phục trong thời gian đã đặt</string>
     <string name="adaptive_playback_timeout_title">Thời gian chờ phát lại</string>
-    <!-- Smartspace -->
-    <string name="lockscreen_smartspace_title">Smartspace</string>
-    <string name="lockscreen_smartspace_summary">Hiển thị Google Smartspace khi khả dụng</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Khoảng cách thêm</string>
     <string name="statusbar_extra_padding_start_title">Khoảng cách đầu</string>
@@ -942,4 +898,14 @@
     <string name="sensor_block_app_picker_title">Chặn cảm biến cho các ứng dụng này</string>
     <string name="add_sensor_block_package_title">Thêm ứng dụng cho Chặn cảm biến</string>
     <string name="add_sensor_block_package_summary">Các cảm biến chuyển động, gia tốc kế, cảm biến gia tốc tuyến tính quan trọng sẽ bị chặn đối với các ứng dụng này</string>
+    <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">Nháy đèn pin khi có cuộc gọi đến</string>
+    <string name="flashlight_on_call_disabled">Vô hiệu hóa</string>
+    <string name="flashlight_on_call_ringer">Khi đổ chuông</string>
+    <string name="flashlight_on_call_no_ringer">Khi chuông đã im lặng</string>
+    <string name="flashlight_on_call_silent">Khi hoàn toàn im lặng (không có chuông hoặc bộ rung)</string>
+    <string name="flashlight_on_call_always">Luôn cho phép</string>
+    <string name="flashlight_on_call_ignore_dnd_title">Bỏ qua chế độ không làm phiền</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Đèn flash có nhấp nháy khi chế độ Không làm phiền được kích hoạt hay không</string>
+    <string name="flashlight_on_call_rate_title">Tốc độ nháy</string>
 </resources>
