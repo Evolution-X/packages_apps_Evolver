@@ -285,6 +285,18 @@
     <string name="status_bar_clock_auto_hide_summary">Ocultar relógio quando na tela inicial</string>
     <string name="status_bar_clock_chip_title">Chip de Fundo</string>
     <string name="status_bar_clock_chip_summary">Exibir chip acentuado atrás do relógio</string>
+    <string name="solid_accent">Destaque de cor sólida</string>
+    <string name="outline">Contornado</string>
+    <string name="solid_accent_gradient">Gradiente de cor sólida com destaque</string>
+    <string name="solid_gradient">Lateral com gradiente sólido</string>
+    <string name="solid_gradient_corner">Gradiente de destaque sólido nítido</string>
+    <string name="solid_gradient_void">Vazio gradiente</string>
+    <string name="solid_gradient_neumorph">Gradiente Neumorph</string>
+    <string name="solid_gradient_stroke">Traço de gradiente acentuado</string>
+    <string name="solid_accent_transperent">Transparente acentuado</string>
+    <string name="solid_gradient_light">Luz gradiente</string>
+    <string name="solid_gradient_shape">Canto com gradiente acentuado</string>
+    <string name="solid_gradient_void_light">Luz do Vazio Gradiente</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
     <string name="status_bar_am_pm_info">O relógio estilo 24 horas está ativado</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -463,11 +475,11 @@
     <string name="power_menu_interface_category">Interface</string>
     <string name="power_menu_actions_title">Ações do menu liga/desliga</string>
     <string name="power_menu_actions_summary">Escolha quais ações são exibidas</string>
+    <string name="power_menu_advanced_title">Menu de reinicialização avançada</string>
     <string name="power_menu_lock_screen_category">Tela de bloqueio</string>
     <string name="power_menu_lock_screen_secure_title">Mostrar na tela de bloqueio segura</string>
     <string name="power_menu_lock_screen_secure_summary">Mostrar o menu liga/desliga enquanto o dispositivo estiver bloqueado</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_advanced_reboot_title">Reinicialização avançada</string>
     <string name="power_menu_actions_screenshot_title">Captura de tela</string>
     <string name="power_menu_actions_onthego_title">Modo On-The-Go</string>
     <string name="power_menu_actions_airplane_title">Modo avião</string>
@@ -480,6 +492,11 @@
     <string name="power_menu_actions_logout_title">Sair</string>
     <string name="power_menu_actions_emergency_title">Emergência</string>
     <string name="power_menu_actions_devicecontrols_title">Controle do dispositivo</string>
+    <!-- Advanced restart options -->
+    <string name="advanced_reboot_title">Reinicialização avançada</string>
+    <string name="advanced_reboot_summary">Quando desbloqueado, incluir opções de reinicialização avançada no menu de energia</string>
+    <string name="advanced_reboot_secured_title">Tela de bloqueio segura</string>
+    <string name="advanced_reboot_secured_summary">Mostrar opções avançadas de reinicialização na tela de bloqueio protegida</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Mascarar dispositivo</string>
     <string name="miscellaneous_developer_options_category">Opções do desenvolvedor</string>
@@ -581,6 +598,7 @@
     <string name="delete_message">Remover o item selecionado?</string>
     <string name="choose_app">Escolher aplicativo</string>
     <!-- Units -->
+    <string name="unit_hz">hz</string>
     <string name="unit_milliseconds">milissegundos</string>
     <string name="unit_seconds">segundos</string>
     <!-- SystemUI restart dialog -->
@@ -878,4 +896,14 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="sensor_block_app_picker_title">Bloquear sensores para estes aplicativos</string>
     <string name="add_sensor_block_package_title">Adicionar aplicativos ao \"bloqueio de sensores\"</string>
     <string name="add_sensor_block_package_summary">Sensores significativos de movimento, acelerômetro e aceleração linear serão bloqueados para esses aplicativos</string>
+    <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">Piscar lanterna ao receber ligações</string>
+    <string name="flashlight_on_call_disabled">Desativado</string>
+    <string name="flashlight_on_call_ringer">Ao tocar</string>
+    <string name="flashlight_on_call_no_ringer">Quando o toque estiver silenciado</string>
+    <string name="flashlight_on_call_silent">Quando totalmente silencioso (sem toque ou vibração)</string>
+    <string name="flashlight_on_call_always">Sempre</string>
+    <string name="flashlight_on_call_ignore_dnd_title">Ignorar Não Perturbe</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Indica se o recurso \"Piscar\" deve funcionar quando o modo \"Não perturbe\" estiver ativo</string>
+    <string name="flashlight_on_call_rate_title">Taxa de piscadas</string>
 </resources>
