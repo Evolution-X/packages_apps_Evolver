@@ -508,9 +508,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Eltávolítja a képernyőképekre és a képernyőfelvételekre vonatkozó korlátozásokat az összes alkalmazásnál, ami az adatvédelmi szivárgások kockázatát eredményezheti</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Végtelen fájlméret</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Eltörli a 15GB-os fájlméret-limitet\nA szükségesnél nagyobb kimenő fájlméretet eredményezhet</string>
-    <!-- Miscellaneous/Vbmeta hash attestation -->
-    <string name="vbmeta_attestation_title">A VBMeta-észlelés automatikus javítása</string>
-    <string name="vbmeta_attestation_summary">Kulcshitelesítés végrehajtása ellenőrzött rendszerindítási hash létrehozásához rendszerindításkor. A rendszer újraindítását igényli.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Elrejtés az alkalmazáslistából</string>
     <string name="hide_applist_summary">Az alkalmazások nem ellenőrizhetik az alkalmazáslistában szereplő kiválasztott alkalmazásokat</string>
