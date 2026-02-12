@@ -508,9 +508,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Bỏ hạn chế chụp màn hình và ghi màn hình, có thể rò rỉ riêng tư</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Bỏ giới hạn ghi màn hình</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Gỡ bỏ giới hạn kích thước file 15GiB\nCó thể tạo file xuất lớn hơn mức cần thiết</string>
-    <!-- Miscellaneous/Vbmeta hash attestation -->
-    <string name="vbmeta_attestation_title">Tự động sửa lỗi phát hiện VBMeta</string>
-    <string name="vbmeta_attestation_summary">Thực hiện xác thực khóa để tạo mã băm khởi động đã được xác minh khi khởi động hệ thống. Yêu cầu khởi động lại hệ thống.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Ẩn danh sách ứng dụng</string>
     <string name="hide_applist_summary">Ngăn ứng dụng kiểm tra ứng dụng đã chọn từ danh sách</string>
