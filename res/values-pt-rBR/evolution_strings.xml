@@ -508,9 +508,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas e gravações de tela para todos os aplicativos, correndo potencialmente o risco de vazamentos de privacidade</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela sem limite</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remova o limite de tamanho de arquivo 15GiB\nPode resultar em um arquivo de saída maior que o necessário</string>
-    <!-- Miscellaneous/Vbmeta hash attestation -->
-    <string name="vbmeta_attestation_title">Autocorreção detecção VBMeta</string>
-    <string name="vbmeta_attestation_summary">Realiza a autenticação da chave para gerar um hash de inicialização verificado durante a inicialização. Requer reinicialização do sistema.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Ocultar lista de apps</string>
     <string name="hide_applist_summary">Impedir que aplicativos verifiquem apps selecionados de uma lista de aplicativos</string>
