@@ -230,7 +230,7 @@
     <string name="status_bar_logo_style_avengers">Avengers</string>
     <string name="status_bar_logo_style_batman">Batman</string>
     <string name="status_bar_logo_style_batman_tdk">Batman Mroczny Rycerz </string>
-    <string name="status_bar_logo_style_beats">Uderzenia</string>
+    <string name="status_bar_logo_style_beats">Beats Electronics</string>
     <string name="status_bar_logo_style_biohazard">Zagrożenie biologiczne</string>
     <string name="status_bar_logo_style_blackberry">Jeżyna</string>
     <string name="status_bar_logo_style_cannabis">Marihuana</string>
@@ -508,9 +508,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów i nagrywania ekranu dla wszystkich aplikacji, potencjalne ryzyko wycieku danych osobowych</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
-    <!-- Miscellaneous/Vbmeta hash attestation -->
-    <string name="vbmeta_attestation_title">Automatyczna naprawa wykrywania VBMeta</string>
-    <string name="vbmeta_attestation_summary">Wykonaj weryfikację klucza, aby wygenerować hash zweryfikowanego rozruchu podczas uruchamiania. Wymagane ponowne uruchomienie systemu.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Lista ukrytych aplikacji</string>
     <string name="hide_applist_summary">Zapobiegaj wykrywaniu przez aplikacje wybranych aplikacji z listy</string>
@@ -557,8 +554,8 @@
     <string name="pif_spoofing_title">Wybierz plik pif.json</string>
     <string name="pif_spoofing_summary">Wybierz plik pif.json, który ma posłużyć do sfałszowania integralności Google Play</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Zastąp zestaw kluczy uwierzytelniania</string>
-    <string name="keybox_data_summary">Wczytaj własny plik keybox.xml, aby nadpisać zestaw kluczy uwierzytelniania urządzenia</string>
+    <string name="keybox_data_title">Zastąp zestaw kluczy poświadczeń</string>
+    <string name="keybox_data_summary">Wczytaj własny plik keybox.xml, aby nadpisać zestaw kluczy poświadczeń urządzenia</string>
     <string name="keybox_data_loaded_summary">Załadowano własny plik keybox.xml. Usuń, aby wyczyścić.</string>
     <string name="keybox_delete_content_description">Wyczyść dane zestawu kluczy</string>
     <string name="keybox_toast_invalid_file_selected">Nie jest to plik XML. Wybierz prawidłowy plik XML.</string>
@@ -592,7 +589,7 @@
     <string name="enable">Włącz</string>
     <string name="disable">Wyłącz</string>
     <string name="boot_animation_applied">Animacja startowa została zastosowana</string>
-    <string name="default_value">Domyślny</string>
+    <string name="default_value">Domyślne</string>
     <string name="top">U góry</string>
     <string name="bottom">Na dole</string>
     <string name="reset">Resetuj</string>
@@ -770,22 +767,23 @@
     <string name="compact_progress_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
     <string name="show_media_progress_title">Pokaż postęp multimediów</string>
     <string name="show_media_progress_summary">Wyświetlaj postęp odtwarzania multimediów na pasku stanu</string>
-    <string name="progress_footer_text">&#x201E;Pasek postępu na pasku stanu zapewnia aktualizacje w czasie rzeczywistym zarówno dla odtwarzania multimediów, jak i aktywnych pobierań/przesyłania.
-
-- 🎵 postęp multimediów:
-&#x2022; Wyświetla postęp odtwarzania muzyki i wideo podczas odtwarzania multimediów.
-&#x2022; Pojedyncze dotknięcie otwiera przyciski sterowania odtwarzaniem (Poprzedni, Następny utwór).
-&#x2022; Dwukrotne dotknięcie przełącza odtwarzanie/pauzę.
-&#x2022; Przesunięcie w lewo powoduje przejście do poprzedniego utworu.
-&#x2022; Przesunięcie w prawo powoduje przejście do następnego utworu.
-&#x2022; Długie naciśnięcie otwiera aplikację multimediów.
-
-- 📥 Postęp pobierania/przesyłania:
-&#x2022; Pokazuje postęp trwających pobierań i przesyłań.
-&#x2022; Automatycznie ukrywa się, gdy nie wykryto aktywnych transferów.
-&#x2022; Pojedyncze dotknięcie otwiera aplikację odpowiedzialną za pobieranie.
-
-Pasek postępu dynamicznie przełącza się między stanami multimediów i pobierania, zapewniając zawsze dostęp do najważniejszych informacji na pierwszy rzut oka.</string>
+    <string name="progress_footer_text">     \"Pasek postępu na pasku stanu zawiera aktualizacje w czasie rzeczywistym zarówno dla odtwarzania multimediów, jak i dla aktywnego pobierania/wysyłania.
+ 
+     - 🎵 Postęp multimediów:
+     • Wyświetla postęp odtwarzania muzyki i wideo podczas odtwarzania multimediów.
+     • Pojedyncze dotknięcie otwiera ustawienia odtwarzania (poprzedni, następny utwór).
+     • Dwukrotne dotknięcie przełącza odtwarzanie/wstrzymanie.
+     • Przesuń w lewo do poprzedniego utworu.
+     • Przesuń palcem w prawo do następnego utworu.
+     • Długie naciśnięcie otwiera aplikację medialną. 
+ 
+     - 📥 Postęp pobierania/wysyłania:
+     • Pokazuje postępy w pobieraniu i wysyłaniu.
+     • Automatycznie ukrywa się, gdy nie wykryto żadnych aktywnych transferów.
+     • Pojedyncze dotknięcie otwiera aplikację odpowiedzialną za pobieranie.
+ 
+     Pasek postępu dynamicznie przełącza się między multimediami i stanami pobierania, zapewniając, że zawsze masz najodpowiedniejsze informacje w tym zakresie.
+    </string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Pasek baterii</string>
     <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii nad paskiem stanu</string>
@@ -879,7 +877,7 @@ Pasek postępu dynamicznie przełącza się między stanami multimediów i pobie
     <string name="nowplaying_compact_style_summary">Pokaż jako pojedynczą linię używając rozmiaru tekstu utworu</string>
     <string name="nowplaying_info_summary">Funkcja Teraz odtwarzane wyświetla tytuł i wykonawcę aktualnie odtwarzanego utworu na ekranie blokady i w trybie Ekran zawsze wlaczony. Wyświetla się automatycznie podczas odtwarzania muzyki i znika po jej zatrzymaniu. Pozycję wyświetlania można dostosować, aby wyświetlać ją w dowolnym miejscu, od góry do dołu ekranu.</string>
     <!-- Ripple Shape -->
-    <string name="ripple_shape_title">Kształt ładowania fali</string>
+    <string name="ripple_shape_title">Kształt fali ładowania</string>
     <!-- Adaptive Playback -->
     <string name="adaptive_playback_title">Odtwarzanie adaptacyjne</string>
     <string name="adaptive_playback_summary">Wstrzymaj odtwarzanie multimediów, gdy dźwięk jest wyciszony i wznów je, zwiększając głośność w ciągu limitu czasu</string>
