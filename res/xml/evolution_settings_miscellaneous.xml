@@ -59,6 +59,15 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
+        <!-- Three fingers swipe action -->
+        <ListPreference
+            android:key="three_fingers_swipe"
+            android:dialogTitle="@string/three_fingers_swipe_title"
+            android:title="@string/three_fingers_swipe_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false" />
+
         <!-- Sensor block per package -->
         <Preference
             android:key="sensor_block_settings"
