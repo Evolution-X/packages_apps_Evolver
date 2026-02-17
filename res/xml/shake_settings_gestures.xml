@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2023-2024 the risingOS Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/shake_gestures_enabled_title">
+
+    <PreferenceCategory
+        android:key="shake_gestures"
+        android:title="@string/shake_gestures_enabled_title">
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="shake_gestures_enabled"
+            android:title="@string/shake_gestures_enabled_title"
+            android:summary="@string/shake_gestures_enabled_summary"
+            android:defaultValue="false" />
+
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="shake_gestures_action"
+            android:title="@string/shake_gestures_action_title"
+            android:summary="%s"
+            android:dialogTitle="@string/shake_gestures_action_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:defaultValue="0"
+            android:dependency="shake_gestures_enabled" />
+
+         <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="shake_gestures_intensity"
+            android:title="@string/shake_gestures_intensity_title"
+            android:summary="@string/shake_gestures_intensity_summary"
+            android:dependency="shake_gestures_enabled"
+            android:defaultValue="3"
+            settings:interval="1"
+            android:max="12"
+            android:min="1" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
