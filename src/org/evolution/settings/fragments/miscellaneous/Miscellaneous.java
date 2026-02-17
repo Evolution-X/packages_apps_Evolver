@@ -10,7 +10,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
@@ -24,7 +26,11 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
+import lineageos.providers.LineageSettings;
+
 import org.evolution.settings.fragments.miscellaneous.SmartPixels;
+
+import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
 @SearchIndexable
 public class Miscellaneous extends SettingsPreferenceFragment implements
@@ -34,7 +40,9 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
 
     private static final String KEY_DEV_CATEGORY = "miscellaneous_developer_options_category";
     private static final String KEY_SMART_PIXELS = "smart_pixels";
+    private static final String KEY_THREE_FINGERS_SWIPE = "three_fingers_swipe";
 
+    private ListPreference mThreeFingersSwipeAction;
     private PreferenceCategory mDevOptionsCategory;
     private Preference mSmartPixels;
 
@@ -55,12 +63,42 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         if (!mSmartPixelsSupported) {
             mDevOptionsCategory.removePreference(mSmartPixels);
         }
+
+        Action threeFingersSwipeAction = Action.fromSettings(getContentResolver(),
+                LineageSettings.System.KEY_THREE_FINGERS_SWIPE_ACTION,
+                Action.NOTHING);
+        mThreeFingersSwipeAction = initList(KEY_THREE_FINGERS_SWIPE, threeFingersSwipeAction);
+    }
+
+    private ListPreference initList(String key, Action value) {
+        return initList(key, value.ordinal());
+    }
+
+    private ListPreference initList(String key, int value) {
+        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
+        if (list == null) return null;
+        list.setValue(Integer.toString(value));
+        list.setSummary(list.getEntry());
+        list.setOnPreferenceChangeListener(this);
+        return list;
+    }
+
+    private void handleListChange(ListPreference pref, Object newValue, String setting) {
+        String value = (String) newValue;
+        int index = pref.findIndexOfValue(value);
+        pref.setSummary(pref.getEntries()[index]);
+        LineageSettings.System.putIntForUser(getContentResolver(), setting, Integer.valueOf(value), UserHandle.USER_CURRENT);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
+        if (preference == mThreeFingersSwipeAction) {
+            handleListChange((ListPreference) preference, newValue,
+                    LineageSettings.System.KEY_THREE_FINGERS_SWIPE_ACTION);
+            return true;
+        }
         return false;
     }
 
