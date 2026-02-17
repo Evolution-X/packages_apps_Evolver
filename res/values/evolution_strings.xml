@@ -992,4 +992,11 @@
     <string name="hardware_keys_action_notifications_panel">Toggle notifications panel</string>
     <string name="hardware_keys_action_expand_qs_panel">Expand QS panel</string>
     <string name="hardware_keys_action_ringer_modes">Change ringer mode</string>
+
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Shake Gestures</string>
+    <string name="shake_gestures_enabled_summary">Shake your device to perform actions</string>
+    <string name="shake_gestures_action_title">Shake Gestures Actions</string>
+    <string name="shake_gestures_intensity_title">Shake Gestures Intensity</string>
+    <string name="shake_gestures_intensity_summary">Adjust the sensitivity of shake gestures</string>
 </resources>
