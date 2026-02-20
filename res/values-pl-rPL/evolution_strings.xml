@@ -58,14 +58,14 @@
     <string name="themes_animations_category">Animacje</string>
     <string name="themes_boot_animation_title">Animacja startowa</string>
     <string name="themes_boot_animation_summary">Ustaw styl animacji startowej</string>
-    <string name="themes_charging_animation_title">Animacja ładowania</string>
+    <string name="themes_charging_animation_title">Animacja falowania podczas ładowania</string>
     <string name="themes_charging_animation_summary">Wyświetl animację podczas podłączania urządzenia do ładowania</string>
     <string name="themes_screen_off_animation_title">Animacja wyłączania ekranu</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">Skala</string>
     <string name="themes_udfps_animation_title">Animacja odcisku palca</string>
     <string name="themes_udfps_animation_summary">Ustaw styl animacji odcisku palca</string>
-    <string name="themes_launcher_category">Program uruchamiający Pixel</string>
+    <string name="themes_launcher_category">Pixel Launcher</string>
     <string name="themes_launcher_background_blur_title">Rozmycie tła</string>
     <string name="themes_launcher_background_blur_summary">Włącz efekt rozmycia tła dla strony z ostatnimi elementami</string>
     <string name="themes_launcher_more_themed_icons_title">Więcej ikon tematycznych</string>
@@ -120,6 +120,7 @@
     <string name="monet_engine_color_source_preset">Predefiniowane</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interfejs</string>
+    <string name="lock_screen_charging_category">Ładowanie</string>
     <string name="lock_screen_charging_stats_title">Statystyki ładowania</string>
     <string name="lock_screen_charging_stats_summary">Wyświetlaj statystyki prądu, napięcia, mocy i temperatury podczas ładowania</string>
     <string name="lock_screen_charging_time_title">Czas ładowania</string>
@@ -177,6 +178,7 @@
     <string name="status_bar_icons_category">Ikony</string>
     <string name="status_bar_tuner_title">Edytor paska stanu</string>
     <string name="status_bar_tuner_summary">Wybierz, które ikony mogą być wyświetlane na pasku stanu</string>
+    <string name="status_bar_battery_category_title">Personalizacja ikony baterii</string>
     <string name="status_bar_battery_style_title">Styl ikony baterii</string>
     <string name="status_bar_battery_style_icon_portrait">Ikona pionowa</string>
     <string name="status_bar_battery_style_icon_rlandscape">Ikona pozioma (po prawej)</string>
@@ -215,13 +217,14 @@
     <string name="status_bar_bluetooth_battery_title">Stan baterii urządzenia Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Pokaż aktualny stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępny</string>
     <string name="status_bar_colored_icons_title">Kolorowe ikony</string>
-    <string name="status_bar_colored_icons_summary">Użyj ikon programu uruchamiającego do powiadomień aplikacji</string>
+    <string name="status_bar_colored_icons_summary">Użyj ikon launchera dla powiadomień aplikacji</string>
     <string name="status_bar_logo_title">Logo</string>
     <string name="status_bar_logo_summary">Wyświetl niestandardowe logo na pasku stanu</string>
     <string name="status_bar_logo_position_title">Pozycja logo</string>
     <string name="status_bar_logo_position_left">Lewa strona</string>
     <string name="status_bar_logo_position_right">Prawa strona</string>
     <string name="status_bar_logo_style_title">Styl logo</string>
+    <string name="status_bar_logo_style_summary">Wybierz niestandardowe logo, które ma być wyświetlane</string>
     <string name="status_bar_logo_style_evolution">Evolution X</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
@@ -282,7 +285,7 @@
     <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
     <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
     <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
-    <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli program uruchamiający jest widoczny</string>
+    <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli launcher jest widoczny</string>
     <string name="status_bar_clock_chip_title">Tło zegara</string>
     <string name="status_bar_clock_chip_summary">Wyświetl akcentowane tło za zegarem</string>
     <string name="solid_accent">Stały kolor akcentu</string>
@@ -415,14 +418,14 @@
     <string name="quick_settings_header_shadow_summary">Dla lepszej widoczności na jasnych obrazach</string>
     <string name="quick_settings_header_static_provider_title">Obraz statyczny</string>
     <string name="quick_settings_header_daylight_provider_title">Kolekcja obrazów</string>
-    <string name="quick_settings_header_file_provider_title">Niestandardowy obraz</string>
+    <string name="quick_settings_header_file_provider_title">Obraz niestandardowy/animowany GIF</string>
     <string name="quick_settings_header_provider_title">Główny dostawca</string>
     <string name="quick_settings_header_browse_title">Przeglądaj zainstalowane nagłówki</string>
     <string name="quick_settings_header_browse_summary">Przeglądaj wszystkie dostępne kolekcje nagłówków</string>
     <string name="quick_settings_header_pick_title">Wybierz obraz nagłówka</string>
     <string name="quick_settings_header_pick_summary">Wybierz obraz do użycia w trybie statycznym</string>
     <string name="quick_settings_header_file_select_title">Wybierz obraz</string>
-    <string name="quick_settings_header_file_select_summary">Wybierz niestandardowy obraz</string>
+    <string name="quick_settings_header_file_select_summary">Wybierz niestandardowy obraz/animowany GIF</string>
     <string name="quick_settings_header_needs_gallery">Musisz najpierw zainstalować aplikację galerii!</string>
     <string name="quick_settings_header_offset_title">Przesunięcie obrazu nagłówka</string>
     <string name="quick_settings_header_offset_summary">Dostosuj rozmiar nagłówka obrazu</string>
@@ -435,6 +438,11 @@
     <string name="quick_settings_tile_shape_rounded_square">Zaokrąglony kwadrat</string>
     <string name="quick_settings_tile_shape_square">Kwadrat</string>
     <string name="quick_settings_tile_haptic_summary">Zapewnij czułość dotykania kafelków szybkich ustawień</string>
+    <!-- QS footer icons -->
+    <string name="quick_settings_footer_category">Dolny pasek</string>
+    <string name="quick_settings_footer_edit_icon_title">Edytuj ikonę kafelków</string>
+    <string name="quick_settings_footer_show_power_menu_title">Skrót menu zasilania</string>
+    <string name="quick_settings_footer_settings_icon_title">Skrót do ustawień</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Wyskakujące powiadomienia</string>
     <string name="notifications_heads_up_summary">Zezwalaj na wyskakujące powiadomienia</string>
@@ -756,34 +764,6 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Animacja falowania</string>
     <string name="media_squiggle_animation_summary">Pokaż animację falowania paska wyszukiwania w panelu multimediów podczas odtwarzania multimediów</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Znacznik akcji na pasku stanu</string>
-    <string name="ongoing_progress_settings_summary">Opcje akcji paska stanu</string>
-    <string name="ongoing_action_chip_title">Znacznik trwającej akcji</string>
-    <string name="ongoing_action_chip_summary">Pokaż wskaźnik postępu na pasku stanu dla trwających akcji, takich jak pobieranie</string>
-    <string name="ongoing_action_chip_opacity_title">Przezroczystość paska postępu</string>
-    <string name="ongoing_action_chip_opacity_summary">Dostosuj szerokość paska postępu</string>
-    <string name="compact_progress_mode_title">Kompaktowy wskaźnik postępu</string>
-    <string name="compact_progress_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
-    <string name="show_media_progress_title">Pokaż postęp multimediów</string>
-    <string name="show_media_progress_summary">Wyświetlaj postęp odtwarzania multimediów na pasku stanu</string>
-    <string name="progress_footer_text">     \"Pasek postępu na pasku stanu zawiera aktualizacje w czasie rzeczywistym zarówno dla odtwarzania multimediów, jak i dla aktywnego pobierania/wysyłania.
- 
-     - 🎵 Postęp multimediów:
-     • Wyświetla postęp odtwarzania muzyki i wideo podczas odtwarzania multimediów.
-     • Pojedyncze dotknięcie otwiera ustawienia odtwarzania (poprzedni, następny utwór).
-     • Dwukrotne dotknięcie przełącza odtwarzanie/wstrzymanie.
-     • Przesuń w lewo do poprzedniego utworu.
-     • Przesuń palcem w prawo do następnego utworu.
-     • Długie naciśnięcie otwiera aplikację medialną. 
- 
-     - 📥 Postęp pobierania/wysyłania:
-     • Pokazuje postępy w pobieraniu i wysyłaniu.
-     • Automatycznie ukrywa się, gdy nie wykryto żadnych aktywnych transferów.
-     • Pojedyncze dotknięcie otwiera aplikację odpowiedzialną za pobieranie.
- 
-     Pasek postępu dynamicznie przełącza się między multimediami i stanami pobierania, zapewniając, że zawsze masz najodpowiedniejsze informacje w tym zakresie.
-    </string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Pasek baterii</string>
     <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii nad paskiem stanu</string>
@@ -875,7 +855,7 @@
     <string name="nowplaying_show_on_aod_summary">Wyświetlaj informacje o muzyce na ekranie otoczenia</string>
     <string name="nowplaying_compact_style_title">Styl kompaktowy</string>
     <string name="nowplaying_compact_style_summary">Pokaż jako pojedynczą linię używając rozmiaru tekstu utworu</string>
-    <string name="nowplaying_info_summary">Funkcja Teraz odtwarzane wyświetla tytuł i wykonawcę aktualnie odtwarzanego utworu na ekranie blokady i w trybie Ekran zawsze wlaczony. Wyświetla się automatycznie podczas odtwarzania muzyki i znika po jej zatrzymaniu. Pozycję wyświetlania można dostosować, aby wyświetlać ją w dowolnym miejscu, od góry do dołu ekranu.</string>
+    <string name="nowplaying_info_summary">Funkcja Teraz odtwarzane wyświetla tytuł i wykonawcę aktualnie odtwarzanego utworu na ekranie blokady i w trybie Ekran zawsze włączony. Wyświetla się automatycznie podczas odtwarzania muzyki i znika po jej zatrzymaniu. Pozycję wyświetlania można dostosować, aby wyświetlać ją w dowolnym miejscu, od góry do dołu ekranu.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Kształt fali ładowania</string>
     <!-- Adaptive Playback -->
@@ -904,4 +884,47 @@
     <string name="flashlight_on_call_ignore_dnd_title">Ignoruj tryb nie przeszkadzać</string>
     <string name="flashlight_on_call_ignore_dnd_summary">Czy lampa błyskowa ma migać w trybie nie przeszkadzać</string>
     <string name="flashlight_on_call_rate_title">Szybkość migania</string>
+    <!-- Three fingers swipe action -->
+    <string name="three_fingers_swipe_title">Przesunięcie trzema palcami</string>
+    <string name="hardware_keys_action_nothing">Brak działań</string>
+    <string name="hardware_keys_action_menu">Otwórz/zamknij menu</string>
+    <string name="hardware_keys_action_app_switch">Przełącznik ostatnich aplikacji</string>
+    <string name="hardware_keys_action_search">Asystent wyszukiwania</string>
+    <string name="hardware_keys_action_voice_search">Wyszukiwanie głosowe</string>
+    <string name="hardware_keys_action_in_app_search">Wyszukiwanie w aplikacji</string>
+    <string name="hardware_keys_action_launch_camera">Włącz aparat</string>
+    <string name="hardware_keys_action_sleep">Wyłącz ekran</string>
+    <string name="hardware_keys_action_last_app">Ostatnia aplikacja</string>
+    <string name="hardware_keys_action_split_screen">Podziel ekran</string>
+    <string name="hardware_keys_action_close_app">Zatrzymaj aplikację</string>
+    <string name="hardware_keys_action_play_pause_music">Odtwarzaj/wstrzymaj odtwarzanie muzyki</string>
+    <string name="hardware_keys_action_torch">Włącz/wyłącz latarkę</string>
+    <string name="hardware_keys_action_screenshot">Zrób zrzut ekranu</string>
+    <string name="hardware_keys_action_volume_panel">Przełącznik panelu głośności</string>
+    <string name="hardware_keys_action_clear_all_notifications">Wyczyść wszystkie powiadomienia</string>
+    <string name="hardware_keys_action_notifications_panel">Przełącz panel powiadomień</string>
+    <string name="hardware_keys_action_expand_qs_panel">Rozwiń panel szybkich ustawień</string>
+    <string name="hardware_keys_action_ringer_modes">Zmień tryb dzwonka</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Gesty potrząśnięcia</string>
+    <string name="shake_gestures_enabled_summary">Potrząśnij urządzeniem, aby wykonać akcje</string>
+    <string name="shake_gestures_action_title">Akcje gestów potrząsania</string>
+    <string name="shake_gestures_intensity_title">Intensywność gestów potrząsania</string>
+    <string name="shake_gestures_intensity_summary">Dostosuj czułość gestów potrząsania</string>
+    <!-- Charging Animation Settings -->
+    <string name="charging_animation_title">Animacja ładowania</string>
+    <string name="charging_animation_summary">Pokaż efekty wizualne podczas ładowania urządzenia na ekranie blokady lub Ekranie zawsze aktywnym</string>
+    <string name="charging_animation_style_category_title">Styl animacji</string>
+    <string name="charging_animation_style_title">Typ efektu</string>
+    <string name="charging_ripple_opacity_title">Nieprzezroczystość słupków</string>
+    <string name="charging_ripple_opacity_summary">Dostosuj widoczność słupków</string>
+    <string name="charging_glow_intensity_title">Intensywność świecenia</string>
+    <string name="charging_glow_intensity_summary">Dostosuj jasność świecenia i cząsteczek</string>
+    <string name="charging_arc_count_title">Liczba słupków</string>
+    <string name="charging_arc_count_summary">Ustaw liczbę pojawiających się słupków</string>
+    <string name="charging_appearance_category_title">Wygląd</string>
+    <string name="charging_color_mode_title">Tryb kolorów</string>
+    <string name="charging_display_category_title">Opcje wyświetlania</string>
+    <string name="charging_show_on_lockscreen_summary">Wyświetlaj animację, gdy ekran blokady jest widoczny</string>
+    <string name="charging_show_on_aod_summary">Wyświetlaj animację w trybie otoczenia</string>
 </resources>
