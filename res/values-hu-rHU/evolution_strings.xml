@@ -58,7 +58,7 @@
     <string name="themes_animations_category">Animációk</string>
     <string name="themes_boot_animation_title">Bootanimáció</string>
     <string name="themes_boot_animation_summary">Itt állíthatja be a boot-animáció stílusát</string>
-    <string name="themes_charging_animation_title">Töltési animáció</string>
+    <string name="themes_charging_animation_title">Fodrozódó töltési animáció</string>
     <string name="themes_charging_animation_summary">Animáció megjelenítése, ha a telefon a töltőhöz csatlakozik</string>
     <string name="themes_screen_off_animation_title">Képernyőkikapcsolási animáció</string>
     <string name="themes_screen_off_animation_crt">Képcső</string>
@@ -120,6 +120,7 @@
     <string name="monet_engine_color_source_preset">Előre beállatott</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Kezelőfelület</string>
+    <string name="lock_screen_charging_category">Töltés</string>
     <string name="lock_screen_charging_stats_title">Töltési statisztikák</string>
     <string name="lock_screen_charging_stats_summary">Töltés közben megjeleníti az aktuális áramerősséget, töltőfeszültséget és az akkumulátor hőmérsékletét a zárképernyőn</string>
     <string name="lock_screen_charging_time_title">Töltési idő</string>
@@ -177,6 +178,7 @@
     <string name="status_bar_icons_category">Ikonok</string>
     <string name="status_bar_tuner_title">Állapotsor-hangolás</string>
     <string name="status_bar_tuner_summary">Beállítható mely rendszer-ikonok jelenjenek meg</string>
+    <string name="status_bar_battery_category_title">Az akkumulátor testreszabása</string>
     <string name="status_bar_battery_style_title">Akkustílus</string>
     <string name="status_bar_battery_style_icon_portrait">Álló ikon</string>
     <string name="status_bar_battery_style_icon_rlandscape">Fekvő ikon (Jobb)</string>
@@ -222,6 +224,7 @@
     <string name="status_bar_logo_position_left">Bal oldalon</string>
     <string name="status_bar_logo_position_right">Jobb oldalon</string>
     <string name="status_bar_logo_style_title">A logó stílusa</string>
+    <string name="status_bar_logo_style_summary">Válasszon egyedi logót</string>
     <string name="status_bar_logo_style_evolution">Evolution X</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
@@ -284,7 +287,7 @@
     <string name="status_bar_clock_auto_hide_title">Automatikus elrejtés</string>
     <string name="status_bar_clock_auto_hide_summary">Rejtse el az órát, ha a launcher látható</string>
     <string name="status_bar_clock_chip_title">Hátterezett óra</string>
-    <string name="status_bar_clock_chip_summary">Az óra mögött megjelenít egy hátteret</string>
+    <string name="status_bar_clock_chip_summary">Válasszon egyéni hátteret az óra mögé</string>
     <string name="solid_accent">Egyszínű kiemelés</string>
     <string name="outline">Körvonal</string>
     <string name="solid_accent_gradient">Egyszínű átmenetes kiemelés</string>
@@ -415,14 +418,14 @@
     <string name="quick_settings_header_shadow_summary">A jobb láthatóság érdekében, világos képek esetén</string>
     <string name="quick_settings_header_static_provider_title">Statikus kép</string>
     <string name="quick_settings_header_daylight_provider_title">Képgyűjtemény</string>
-    <string name="quick_settings_header_file_provider_title">Egyéni kép</string>
+    <string name="quick_settings_header_file_provider_title">Egyéni kép/animált GIF</string>
     <string name="quick_settings_header_provider_title">Fejléc-szolgáltató</string>
     <string name="quick_settings_header_browse_title">Itt böngészhet a telepített fejlécek között</string>
     <string name="quick_settings_header_browse_summary">Itt böngészhet az összes elérhető fejléc között</string>
     <string name="quick_settings_header_pick_title">Fejléckép-választás</string>
     <string name="quick_settings_header_pick_summary">Válasszon ki egy képet a statikus üzemmódban való használatához</string>
     <string name="quick_settings_header_file_select_title">Válasszon képet</string>
-    <string name="quick_settings_header_file_select_summary">Válasszon egyéni képet</string>
+    <string name="quick_settings_header_file_select_summary">Válasszon egyéni képet/animált GIF-et</string>
     <string name="quick_settings_header_needs_gallery">Telepítenie kéne egy Galéria-alkalmazást!</string>
     <string name="quick_settings_header_offset_title">Fejléckép-elhelyezés</string>
     <string name="quick_settings_header_offset_summary">Állítsa be a kép fejlécméretét</string>
@@ -435,6 +438,11 @@
     <string name="quick_settings_tile_shape_rounded_square">Lekerekített négyzet</string>
     <string name="quick_settings_tile_shape_square">Négyzet</string>
     <string name="quick_settings_tile_haptic_summary">A Gyorsbeállítások érintésének rezgő visszajelzése</string>
+    <!-- QS footer icons -->
+    <string name="quick_settings_footer_category">Lábléc</string>
+    <string name="quick_settings_footer_edit_icon_title">Csempeikon-szerkesztés</string>
+    <string name="quick_settings_footer_show_power_menu_title">Kikapcsolómenű-parancsikon</string>
+    <string name="quick_settings_footer_settings_icon_title">Beállítások-parancsikon</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Lebegő értesítés</string>
     <string name="notifications_heads_up_summary">A felugró értesítések engedélyezése</string>
@@ -757,34 +765,6 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Hullámzó animáció</string>
     <string name="media_squiggle_animation_summary">Média lejátszásakor a keresősáv hullámzó animációjának megjelenítése</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Folyamatkijelzés az értesítési sávban</string>
-    <string name="ongoing_progress_settings_summary">Az értesítési sáv kijelzési beállításai</string>
-    <string name="ongoing_action_chip_title">Épp zajló művelet kijelzése</string>
-    <string name="ongoing_action_chip_summary">Folyamatban lévő műveletek, pl. letöltések kijelzőjének megjelenítése az állapotsoron</string>
-    <string name="ongoing_action_chip_opacity_title">A sáv átlátszósága</string>
-    <string name="ongoing_action_chip_opacity_summary">A folyamatjelző átlátszóságának beállítása</string>
-    <string name="compact_progress_mode_title">Kompakt folyamatjelző</string>
-    <string name="compact_progress_mode_summary">Kör alakú folyamatjelző használata a sáv helyett</string>
-    <string name="show_media_progress_title">Médiafolyamat-kijelzés</string>
-    <string name="show_media_progress_summary">A médialejátszási folyamat megjelenítése az állapotsorban</string>
-    <string name="progress_footer_text">     \"Az állapotsor folyamatjelzője valós idejű infókat nyújt mind a médialejátszásról, mind az aktív letöltésekről/feltöltésekről.
- 
-     - 🎵 Médiafolyamatok:
-     • Zene és videó lejátszásának folyamatát jeleníti meg lejátszás közben.
-     • Lejátszási vezérlők egy koppintással (Előző, Következő szám).
-     • Lejátszás/Leállítás duplakoppal.
-     • Balra húzással az előző számra ugorhat.
-     • Jobbra húzással a következő számra ugorhat.
-     • Hosszan nyomással megnyílik a Lejátszó alkalmazás. 
- 
-     - 📥 Le- és feltöltési folyamatok:
-     • A folyamatban lévő le- és feltöltések állapotát mutatja.
-     • Automatikusan eltűnik, ha nincs aktív folyamat.
-     • Egyetlen koppintással megnyílik a letöltő-alkalmazás.
- 
-     A folyamatjelző sáv dinamikusan vált a média és a letöltési állapotok között, így Ön mindig egy pillantással áttekintheti a legfontosabb információkat.\"
-    </string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Akkumulátorsáv</string>
     <string name="battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
@@ -905,4 +885,47 @@
     <string name="flashlight_on_call_ignore_dnd_title">A \'Ne zavarjanak\' figyelmen kívül hagyása</string>
     <string name="flashlight_on_call_ignore_dnd_summary">Villogjon-e \'Ne zavarjanak\' üzemmódban</string>
     <string name="flashlight_on_call_rate_title">A villogás intenzitása</string>
+    <!-- Three fingers swipe action -->
+    <string name="three_fingers_swipe_title">Háromujjas csúsztatás</string>
+    <string name="hardware_keys_action_nothing">Nincs művelet</string>
+    <string name="hardware_keys_action_menu">Menünyitás/zárás</string>
+    <string name="hardware_keys_action_app_switch">Alkalmazáselőzmények</string>
+    <string name="hardware_keys_action_search">Keresőasszisztens</string>
+    <string name="hardware_keys_action_voice_search">Hangalapú keresés</string>
+    <string name="hardware_keys_action_in_app_search">Alkalmazáson belüli keresés</string>
+    <string name="hardware_keys_action_launch_camera">Kameraindítás</string>
+    <string name="hardware_keys_action_sleep">Képernyő-kikapcsolás</string>
+    <string name="hardware_keys_action_last_app">Legutóbbi alkalmazás</string>
+    <string name="hardware_keys_action_split_screen">Osztott képernyő</string>
+    <string name="hardware_keys_action_close_app">Az alkalmazás kilövése</string>
+    <string name="hardware_keys_action_play_pause_music">Zenelejátszás indítása/szüneteltetése</string>
+    <string name="hardware_keys_action_torch">Zseblámpa-kapcsolás</string>
+    <string name="hardware_keys_action_screenshot">Képernyőkép-készítés</string>
+    <string name="hardware_keys_action_volume_panel">Hangerőszabályzó-kapcsoló</string>
+    <string name="hardware_keys_action_clear_all_notifications">Minden értesítés törlése</string>
+    <string name="hardware_keys_action_notifications_panel">Értesítésipanel-kapcsoló</string>
+    <string name="hardware_keys_action_expand_qs_panel">A Gyorsbeállítások-panel kinyitása</string>
+    <string name="hardware_keys_action_ringer_modes">Csengésmód-változtatás</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Rázásra induló műveletek</string>
+    <string name="shake_gestures_enabled_summary">Egy feladat indításához rázza meg készülékét</string>
+    <string name="shake_gestures_action_title">Rázással indított műveletek</string>
+    <string name="shake_gestures_intensity_title">A rázás erőssége</string>
+    <string name="shake_gestures_intensity_summary">Állítsa be a rázási érzékenységet</string>
+    <!-- Charging Animation Settings -->
+    <string name="charging_animation_title">Töltési animáció</string>
+    <string name="charging_animation_summary">Vizuális effekt megjelenítése töltéskor lezárt képernyőn vagy AOD-on</string>
+    <string name="charging_animation_style_category_title">Animációstílus</string>
+    <string name="charging_animation_style_title">Az effekt típusa</string>
+    <string name="charging_ripple_opacity_title">A fodrok átlátszósága</string>
+    <string name="charging_ripple_opacity_summary">Állítsa be a fodrozódó hullámok láthatóságát</string>
+    <string name="charging_glow_intensity_title">A ragyogás erőssége</string>
+    <string name="charging_glow_intensity_summary">Állítsa be a ragyogás és a részecskék fényerejét</string>
+    <string name="charging_arc_count_title">A hullámok száma</string>
+    <string name="charging_arc_count_summary">Állítsa be hány hullám látszódjon</string>
+    <string name="charging_appearance_category_title">Megjelenés</string>
+    <string name="charging_color_mode_title">Színmód</string>
+    <string name="charging_display_category_title">Megjelenítési beállítások</string>
+    <string name="charging_show_on_lockscreen_summary">Zárt képernyőn látható animáció</string>
+    <string name="charging_show_on_aod_summary">Kiterjesztett módban látható animáció</string>
 </resources>
