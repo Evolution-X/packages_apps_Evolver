@@ -88,7 +88,7 @@
             android:key="udfps_icon"
             android:title="@string/themes_udfps_icon_title"
             android:summary="@string/themes_udfps_icon_summary"
-            android:fragment="org.evolution.settings.fragments.themes.UdfpsIcons" />
+            android:fragment="org.evolution.settings.fragments.themes.UdfpsIconPicker" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -115,6 +115,6 @@
             android:key="udfps_animation"
             android:title="@string/themes_udfps_animation_title"
             android:summary="@string/themes_udfps_animation_summary"
-            android:fragment="org.evolution.settings.fragments.themes.UdfpsAnimations" />
+            android:fragment="org.evolution.settings.fragments.themes.UdfpsAnimation" />
     </PreferenceCategory>
 </PreferenceScreen>
