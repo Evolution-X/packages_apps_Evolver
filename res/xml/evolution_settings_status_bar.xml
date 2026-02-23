@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2025 Evolution X
+     Copyright (C) 2019-2026 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -46,6 +46,15 @@
             android:summary="@string/status_bar_tuner_summary">
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
+
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="status_bar_clock"
+            android:title="@string/status_bar_clock_position_title"
+            android:summary="%s"
+            android:dialogTitle="@string/status_bar_clock_position_title"
+            android:entries="@array/status_bar_clock_position_entries"
+            android:entryValues="@array/status_bar_clock_position_values"
+            android:defaultValue="2" />
 
         <!-- Clock & date -->
         <Preference
