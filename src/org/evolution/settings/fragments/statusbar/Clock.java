@@ -44,12 +44,11 @@ import java.util.Date;
 import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.providers.LineageSettings;
 
-import org.evolution.settings.preferences.CustomSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 
 @SearchIndexable
-public class Clock extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener  {
+public class Clock extends SettingsPreferenceFragment
+            implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "Clock";
 

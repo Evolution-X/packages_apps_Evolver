@@ -47,6 +47,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 //    private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
     private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
+    private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
@@ -56,8 +57,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
 //    private static final int BATTERY_STYLE_TEXT = 4;
 //    private static final int BATTERY_STYLE_HIDDEN = 5;
 
+    private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mQuickPulldown;
-
     private PreferenceCategory mIconsCategory;
 //    private SystemSettingListPreference mBatteryPercent;
 //    private SystemSettingListPreference mBatteryStyle;
@@ -71,9 +72,27 @@ public class StatusBar extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.evolution_settings_status_bar);
 
         final Context context = getContext();
+        Context mContext = getActivity().getApplicationContext();
         final ContentResolver resolver = context.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
+
+        mStatusBarClock =
+                (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
+
+        // Adjust status bar preferences for RTL
+        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            if (DeviceUtils.hasCenteredCutout(mContext)) {
+                mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch_rtl);
+                mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch_rtl);
+            } else {
+                mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_rtl);
+                mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_rtl);
+            }
+        } else if (DeviceUtils.hasCenteredCutout(mContext)) {
+            mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
+            mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
+        }
 
         mQuickPulldown =
                 (LineageSystemSettingListPreference) findPreference(KEY_QUICK_PULLDOWN);
