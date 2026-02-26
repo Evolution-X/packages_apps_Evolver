@@ -1434,4 +1434,16 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="cutout_progress_ring_color_mode_entries">
+        <item>@string/cutout_progress_ring_color_mode_accent</item>
+        <item>@string/cutout_progress_ring_color_mode_rainbow</item>
+        <item>@string/cutout_progress_ring_color_mode_custom</item>
+    </string-array>
+
+    <string-array name="cutout_progress_ring_color_mode_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
