@@ -1374,4 +1374,64 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="cutout_progress_finish_style_entries">
+        <item>Pop</item>
+        <item>Segmented cascade</item>
+        <item>Snap (instant)</item>
+    </string-array>
+
+    <string-array name="cutout_progress_finish_style_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="cutout_progress_easing_entries">
+        <item>Linear</item>
+        <item>Accelerate</item>
+        <item>Decelerate</item>
+        <item>Ease in–out</item>
+    </string-array>
+
+    <string-array name="cutout_progress_easing_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="cutout_progress_position_entries">
+        <item>Right</item>
+        <item>Left</item>
+        <item>Top</item>
+        <item>Bottom</item>
+        <item>Top right</item>
+        <item>Top left</item>
+        <item>Bottom right</item>
+        <item>Bottom left</item>
+    </string-array>
+
+    <string-array name="cutout_progress_position_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="cutout_progress_truncate_entries">
+        <item>Middle</item>
+        <item>Start</item>
+        <item>End</item>
+    </string-array>
+    
+    <string-array name="cutout_progress_truncate_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
