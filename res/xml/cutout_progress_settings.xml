@@ -77,6 +77,26 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="cutout_progress_cat_charging"
+        android:title="@string/cutout_progress_cat_charging"
+        android:dependency="cutout_progress_enabled">
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="cutout_progress_charging_ring_enabled"
+            android:title="@string/cutout_progress_charging_ring_title"
+            android:summary="@string/cutout_progress_charging_ring_summary"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="cutout_progress_charging_pulse_enabled"
+            android:title="@string/cutout_progress_charging_pulse_title"
+            android:summary="@string/cutout_progress_charging_pulse_summary"
+            android:defaultValue="true"
+            android:dependency="cutout_progress_charging_ring_enabled" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="cutout_progress_cat_behaviour"
         android:title="@string/cutout_progress_cat_behaviour"
         android:dependency="cutout_progress_enabled">
