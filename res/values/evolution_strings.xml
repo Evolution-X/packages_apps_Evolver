@@ -1362,7 +1362,7 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="cutout_progress_cat_geometry">Ring geometry</string>
     <string name="cutout_progress_cat_labels">Labels</string>
     <string name="cutout_progress_cat_badge">Download count badge</string>
-    <string name="cutout_progress_ring_color_title">Ring color</string>
+    <string name="cutout_progress_ring_color_title">Ring custom color</string>
     <string name="cutout_progress_error_color_title">Error color</string>
     <string name="cutout_progress_finish_flash_color_title">Finish flash color</string>
     <string name="cutout_progress_bg_ring_color_title">Background ring color</string>
@@ -1408,7 +1408,11 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="cutout_progress_badge_size_title">Badge text size</string>
     <string name="cutout_progress_badge_offset_x_title">Badge horizontal offset</string>
     <string name="cutout_progress_badge_offset_y_title">Badge vertical offset</string>
+    <string name="cutout_progress_ring_color_mode_title">Ring color</string>
     <string name="cutout_progress_color_picker_title">Choose color</string>
+    <string name="cutout_progress_ring_color_mode_accent">Accent</string>
+    <string name="cutout_progress_ring_color_mode_rainbow">Rainbow</string>
+    <string name="cutout_progress_ring_color_mode_custom">Custom</string>
 
     <!-- Charging Ring -->
     <string name="cutout_progress_cat_charging">Charging ring</string>

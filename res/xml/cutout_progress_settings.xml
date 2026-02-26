@@ -30,11 +30,20 @@
         android:title="@string/cutout_progress_cat_appearance"
         android:dependency="cutout_progress_enabled">
 
+        <org.evolution.settings.preferences.SecureSettingListPreference
+            android:key="cutout_progress_ring_color_mode"
+            android:title="@string/cutout_progress_ring_color_mode_title"
+            android:summary="%s"
+            android:entries="@array/cutout_progress_ring_color_mode_entries"
+            android:entryValues="@array/cutout_progress_ring_color_mode_values"
+            android:defaultValue="0" />
+
         <Preference
             android:key="cutout_progress_ring_color"
             android:title="@string/cutout_progress_ring_color_title"
             android:summary="#2196F3"
-            android:persistent="false" />
+            android:persistent="false"
+            android:dependency="cutout_progress_enabled" />
 
         <Preference
             android:key="cutout_progress_error_color"

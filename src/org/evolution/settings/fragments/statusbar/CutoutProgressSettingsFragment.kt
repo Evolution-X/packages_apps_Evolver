@@ -31,11 +31,15 @@ class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
     Preference.OnPreferenceChangeListener {
 
     companion object {
+        private const val KEY_RING_COLOR_MODE = "cutout_progress_ring_color_mode"
+        private const val COLOR_MODE_ACCENT = 0
+        private const val COLOR_MODE_RAINBOW = 1
+        private const val COLOR_MODE_CUSTOM = 2
+
         private const val KEY_RING_COLOR = "cutout_progress_ring_color"
         private const val KEY_ERROR_COLOR = "cutout_progress_error_color"
         private const val KEY_FLASH_COLOR = "cutout_progress_finish_flash_color"
         private const val KEY_BG_COLOR = "cutout_progress_bg_ring_color"
-
         private const val KEY_FINISH_STYLE = "cutout_progress_finish_style"
         private const val KEY_EASING = "cutout_progress_easing"
         private const val KEY_PERCENT_POSITION = "cutout_progress_percent_position"
@@ -48,10 +52,13 @@ class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
         private const val DEFAULT_BG_COLOR = 0xFF808080.toInt()
     }
 
+    private lateinit var ringColorModePref: ListPreference
+
     private lateinit var ringColorPref: Preference
     private lateinit var errorColorPref: Preference
     private lateinit var flashColorPref: Preference
     private lateinit var bgColorPref: Preference
+
     private lateinit var finishStylePref: ListPreference
     private lateinit var easingPref: ListPreference
     private lateinit var pctPosPref: ListPreference
@@ -61,10 +68,13 @@ class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.cutout_progress_settings)
 
+        ringColorModePref = findPreference(KEY_RING_COLOR_MODE)!!
+
         ringColorPref = findPreference(KEY_RING_COLOR)!!
         errorColorPref = findPreference(KEY_ERROR_COLOR)!!
         flashColorPref = findPreference(KEY_FLASH_COLOR)!!
         bgColorPref = findPreference(KEY_BG_COLOR)!!
+
         finishStylePref = findPreference(KEY_FINISH_STYLE)!!
         easingPref = findPreference(KEY_EASING)!!
         pctPosPref = findPreference(KEY_PERCENT_POSITION)!!
@@ -72,6 +82,13 @@ class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
         fnameTruncPref = findPreference(KEY_FILENAME_TRUNCATE)!!
 
         refreshColorSummaries()
+        syncListPreferences()
+
+        val storedMode = readSecureInt(KEY_RING_COLOR_MODE, COLOR_MODE_ACCENT)
+        ringColorModePref.value = storedMode.toString()
+        updateColorPickerVisibility(storedMode)
+
+        ringColorModePref.onPreferenceChangeListener = this
 
         ringColorPref.setOnPreferenceClickListener {
             showColorPicker(
@@ -111,14 +128,24 @@ class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
         pctPosPref.onPreferenceChangeListener = this
         fnamePosPref.onPreferenceChangeListener = this
         fnameTruncPref.onPreferenceChangeListener = this
-
-        syncListPreferences()
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
         val intValue = (newValue as? String)?.toIntOrNull() ?: return false
+
+        if (preference.key == KEY_RING_COLOR_MODE) {
+            writeSecureInt(KEY_RING_COLOR_MODE, intValue)
+            updateColorPickerVisibility(intValue)
+            return true
+        }
+
         writeSecureInt(preference.key, intValue)
         return true
+    }
+
+    private fun updateColorPickerVisibility(mode: Int) {
+        val isCustom = mode == COLOR_MODE_CUSTOM
+        ringColorPref.isVisible = isCustom
     }
 
     private fun syncListPreferences() {
@@ -129,8 +156,7 @@ class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
             fnamePosPref to 4,
             fnameTruncPref to 0
         ).forEach { (pref, default) ->
-            val current = readSecureInt(pref.key, default)
-            pref.value = current.toString()
+            pref.value = readSecureInt(pref.key, default).toString()
         }
     }
 
@@ -143,8 +169,7 @@ class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
             colorHex = currentHex
         )
         dialog.setOnColorSelectedListener { color: Color ->
-            val argb = color.toArgb()
-            writeSecureInt(key, argb)
+            writeSecureInt(key, color.toArgb())
             refreshColorSummaries()
         }
         dialog.show(parentFragmentManager, CutoutProgressColorPickerDialogFragment.TAG)
