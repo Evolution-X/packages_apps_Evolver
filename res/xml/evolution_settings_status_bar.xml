@@ -77,6 +77,13 @@
             android:summary="@string/ongoing_progress_settings_summary"
             android:fragment="org.evolution.settings.fragments.statusbar.OngoingProgressBar" />
 
+        <!-- Cutout Progress -->
+        <Preference
+            android:key="cutout_progress"
+            android:title="@string/cutout_progress_title"
+            android:summary="@string/cutout_progress_summary"
+            android:fragment="org.evolution.settings.fragments.statusbar.CutoutProgressSettingsFragment" />
+
         <!-- Statusbar lyric -->
         <!--<Preference
             android:key="status_bar_lyric_settings"
