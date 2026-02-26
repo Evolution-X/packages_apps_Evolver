@@ -1558,4 +1558,11 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="cutout_progress_badge_offset_x_title">Badge horizontal offset</string>
     <string name="cutout_progress_badge_offset_y_title">Badge vertical offset</string>
     <string name="cutout_progress_color_picker_title">Choose color</string>
+
+    <!-- Charging Ring -->
+    <string name="cutout_progress_cat_charging">Charging ring</string>
+    <string name="cutout_progress_charging_ring_title">Show charging ring</string>
+    <string name="cutout_progress_charging_ring_summary">Display battery level as a symmetric ring around the cutout while charging</string>
+    <string name="cutout_progress_charging_pulse_title">Charging pulse animation</string>
+    <string name="cutout_progress_charging_pulse_summary">Animate a repeating pulse from center outward while charging</string>
 </resources>
