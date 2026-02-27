@@ -20,70 +20,64 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/cutout_progress_title">
 
-    <org.evolution.settings.preferences.SecureSettingMainSwitchPreference
+    <lineageos.preference.SecureSettingMainSwitchPreference
         android:key="cutout_progress_enabled"
         android:title="@string/cutout_progress_enabled_title"
         android:defaultValue="false" />
 
-    <PreferenceCategory
-        android:key="cutout_progress_cat_appearance"
-        android:title="@string/cutout_progress_cat_appearance"
-        android:dependency="cutout_progress_enabled">
+    <org.evolution.settings.preferences.SecureSettingListPreference
+        android:key="cutout_progress_ring_color_mode"
+        android:title="@string/cutout_progress_ring_color_mode_title"
+        android:summary="%s"
+        android:entries="@array/cutout_progress_ring_color_mode_entries"
+        android:entryValues="@array/cutout_progress_ring_color_mode_values"
+        android:defaultValue="0" />
 
-        <org.evolution.settings.preferences.SecureSettingListPreference
-            android:key="cutout_progress_ring_color_mode"
-            android:title="@string/cutout_progress_ring_color_mode_title"
-            android:summary="%s"
-            android:entries="@array/cutout_progress_ring_color_mode_entries"
-            android:entryValues="@array/cutout_progress_ring_color_mode_values"
-            android:defaultValue="0" />
+    <Preference
+        android:key="cutout_progress_ring_color"
+        android:title="@string/cutout_progress_ring_color_title"
+        android:summary="#2196F3"
+        android:persistent="false"
+        android:dependency="cutout_progress_enabled" />
 
-        <Preference
-            android:key="cutout_progress_ring_color"
-            android:title="@string/cutout_progress_ring_color_title"
-            android:summary="#2196F3"
-            android:persistent="false"
-            android:dependency="cutout_progress_enabled" />
+    <Preference
+        android:key="cutout_progress_error_color"
+        android:title="@string/cutout_progress_error_color_title"
+        android:summary="#F44336"
+        android:persistent="false" />
 
-        <Preference
-            android:key="cutout_progress_error_color"
-            android:title="@string/cutout_progress_error_color_title"
-            android:summary="#F44336"
-            android:persistent="false" />
+    <Preference
+        android:key="cutout_progress_finish_flash_color"
+        android:title="@string/cutout_progress_finish_flash_color_title"
+        android:summary="#FFFFFF"
+        android:persistent="false" />
 
-        <Preference
-            android:key="cutout_progress_finish_flash_color"
-            android:title="@string/cutout_progress_finish_flash_color_title"
-            android:summary="#FFFFFF"
-            android:persistent="false" />
+    <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+        android:key="cutout_progress_opacity"
+        android:title="@string/cutout_progress_opacity_title"
+        android:max="100"
+        settings:min="0"
+        settings:interval="1"
+        settings:units="%"
+        android:defaultValue="90" />
 
-        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
-            android:key="cutout_progress_opacity"
-            android:title="@string/cutout_progress_opacity_title"
-            android:max="100"
-            settings:min="0"
-            settings:interval="1"
-            settings:units="%"
-            android:defaultValue="90" />
+    <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+        android:key="cutout_progress_stroke_width_dp10"
+        android:title="@string/cutout_progress_stroke_width_title"
+        android:max="80"
+        settings:min="5"
+        settings:interval="5"
+        settings:units=" (×0.1 dp)"
+        android:defaultValue="20" />
 
-        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
-            android:key="cutout_progress_stroke_width_dp10"
-            android:title="@string/cutout_progress_stroke_width_title"
-            android:max="80"
-            settings:min="5"
-            settings:interval="5"
-            settings:units=" (×0.1 dp)"
-            android:defaultValue="20" />
-
-        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
-            android:key="cutout_progress_ring_gap_x1000"
-            android:title="@string/cutout_progress_ring_gap_title"
-            android:max="2000"
-            settings:min="1000"
-            settings:interval="10"
-            settings:units=" (×0.001)"
-            android:defaultValue="1160" />
-    </PreferenceCategory>
+    <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+        android:key="cutout_progress_ring_gap_x1000"
+        android:title="@string/cutout_progress_ring_gap_title"
+        android:max="2000"
+        settings:min="1000"
+        settings:interval="10"
+        settings:units=" (×0.001)"
+        android:defaultValue="1160" />
 
     <PreferenceCategory
         android:key="cutout_progress_cat_charging"
