@@ -19,6 +19,13 @@
             android:title="@string/themes_monet_title"
             android:summary="@string/themes_monet_summary"
             android:fragment="org.evolution.settings.fragments.themes.MonetSettings" />
+
+        <!-- Gradient Customization -->
+        <Preference
+            android:key="gradient_settings"
+            android:title="@string/gradient_settings_title"
+            android:summary="@string/gradient_settings_summary"
+            android:fragment="org.evolution.settings.fragments.themes.GradientSettings" />
     </PreferenceCategory>
 
     <PreferenceCategory
