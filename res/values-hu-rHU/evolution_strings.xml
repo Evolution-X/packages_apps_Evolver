@@ -859,11 +859,6 @@
     <string name="nowplaying_info_summary">A \'Most hallható\' funkció megjeleníti az aktuálisan lejátszott zene címét és előadóját a lezárt képernyőn és a \'Mindig bekapcsolva\' módban. Automatikusan megjelenik, amikor zene szól, és eltűnik, amikor leáll. A pozíciója a képernyő tetejétől az aljáig bárhová beállítható.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Hullámforma töltéskor</string>
-    <!-- Adaptive Playback -->
-    <string name="adaptive_playback_title">Adaptív lejátszás</string>
-    <string name="adaptive_playback_summary">Megállítja a lejátszást, ha a média elnémul, de folytatja ha gyosan időkorláton belül felhangosításra kerül</string>
-    <string name="adaptive_playback_intro_text">Hangerőnémításkor automatikusan leállítja a lejátszást és automatikusan újra is indítja, ha a némítás megszűnik</string>
-    <string name="adaptive_playback_timeout_title">Lejátszási időkorlát</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Extra kitöltés</string>
     <string name="statusbar_extra_padding_start_title">Kezdeti kitöltés</string>
@@ -928,4 +923,20 @@
     <string name="charging_display_category_title">Megjelenítési beállítások</string>
     <string name="charging_show_on_lockscreen_summary">Zárt képernyőn látható animáció</string>
     <string name="charging_show_on_aod_summary">Kiterjesztett módban látható animáció</string>
+    <!-- Gradient styles -->
+    <string name="gradient_settings_title">Átmenetek testreszabása</string>
+    <string name="gradient_settings_summary">A rendszer különböző elemei színátmenetessé tehetők</string>
+    <string name="gradient_elements_category">Rendszerelemek</string>
+    <string name="gradient_colors_category">Átmenetes színek</string>
+    <string name="qs_tile_gradient_title">Színátmenetes csempeháttér</string>
+    <string name="qs_tile_gradient_summary">A gyorsbeállítási csempék színátmenetes hátterűek lehetnek</string>
+    <string name="qs_brightness_slider_gradient_title">Színátmenetes fényerőcsúszka</string>
+    <string name="qs_brightness_slider_gradient_summary">A fényerőcsúszka színátmenetes hátterű lehet</string>
+    <string name="volume_slider_gradient_title">Színátmenetes hangerőcsúszka</string>
+    <string name="volume_slider_gradient_summary">A hangerőcsúszka színátmenetes hátterű lehet</string>
+    <string name="custom_gradient_color_mode_title">A színátmenet módja</string>
+    <string name="custom_gradient_color_mode_auto">Automatikus mód</string>
+    <string name="custom_gradient_color_mode_custom">Egyéni mód</string>
+    <string name="custom_gradient_start_color_title">A színátmenet kezdeti színe</string>
+    <string name="custom_gradient_end_color_title">A színátmenet befejező színe</string>
 </resources>
