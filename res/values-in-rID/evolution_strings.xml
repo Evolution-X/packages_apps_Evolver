@@ -120,6 +120,7 @@
     <string name="monet_engine_color_source_preset">Preset</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Tampilan</string>
+    <string name="lock_screen_charging_category">Baterai sedang</string>
     <string name="lock_screen_charging_stats_title">Status pengisian daya</string>
     <string name="lock_screen_charging_stats_summary">Tampilkan arus dan tegangan maksimum pengisi daya yang dinegosiasikan, dan suhu baterai di layar kunci saat mengisi daya</string>
     <string name="lock_screen_charging_time_title">Waktu pengisian daya layar kunci</string>
@@ -177,6 +178,7 @@
     <string name="status_bar_icons_category">Ikon</string>
     <string name="status_bar_tuner_title">Penyetel bilah status</string>
     <string name="status_bar_tuner_summary">Pilih ikon sistem mana yang dapat ditampilkan</string>
+    <string name="status_bar_battery_category_title">Kustomisasi baterai</string>
     <string name="status_bar_battery_style_title">Gaya Baterai</string>
     <string name="status_bar_battery_style_icon_portrait">Ikon potret</string>
     <string name="status_bar_battery_style_icon_rlandscape">Ikon mendatar (Kanan)</string>
@@ -222,6 +224,7 @@
     <string name="status_bar_logo_position_left">Sisi kiri</string>
     <string name="status_bar_logo_position_right">Sisi kanan</string>
     <string name="status_bar_logo_style_title">Gaya logo</string>
+    <string name="status_bar_logo_style_summary">Pilih logo kustom yang ingin ditampilkan</string>
     <string name="status_bar_logo_style_evolution">Evolution X</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
@@ -285,6 +288,18 @@
     <string name="status_bar_clock_auto_hide_summary">Sembunyikan jam jika peluncur terlihat</string>
     <string name="status_bar_clock_chip_title">Latar belakang chip</string>
     <string name="status_bar_clock_chip_summary">Tampilkan chip beraksen di belakang jam</string>
+    <string name="solid_accent">Aksen warna padat</string>
+    <string name="outline">Garis luar</string>
+    <string name="solid_accent_gradient">Aksen warna padat bergradasi</string>
+    <string name="solid_gradient">Sisi gradien padat</string>
+    <string name="solid_gradient_corner">Gradien warna aksen padat dan tajam</string>
+    <string name="solid_gradient_void">Gradien Void</string>
+    <string name="solid_gradient_neumorph">Gradien neumorph</string>
+    <string name="solid_gradient_stroke">Gradien garis tajam</string>
+    <string name="solid_accent_transperent">Aksen transparan</string>
+    <string name="solid_gradient_light">Gradien terang</string>
+    <string name="solid_gradient_shape">Gradien pojok tajam</string>
+    <string name="solid_gradient_void_light">Gradien void terang</string>
     <string name="status_bar_am_pm_title">Gaya AM/PM</string>
     <string name="status_bar_am_pm_info">Waktu 24-jam diaktifkan</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -396,9 +411,6 @@
     <string name="quick_settings_secure_lock_screen_summary">Sembunyikan semua setelan cepat di bayangan notifikasi saat perangkat terkunci</string>
     <string name="quick_settings_require_unlock_title">Ubin Setelan Cepat yang aman memerlukan pembukaan kunci</string>
     <string name="quick_settings_require_unlock_summary">Setelan Cepat berikut ini mengharuskan perangkat dibuka kuncinya sebelum Anda dapat berinteraksi dengannya:\nMode pesawat, Penghemat baterai, Bluetooth, Seluler, Penghemat data, Hotspot, Internet, NFC, Kunci rotasi, dan Wi-Fi</string>
-    <string name="quick_settings_miscellaneous_category">Lain-lain</string>
-    <string name="quick_settings_bluetooth_show_dialog_title">Dialog ubin Bluetooth</string>
-    <string name="quick_settings_bluetooth_show_dialog_summary">Tampilkan dialog bluetooth atau alihkan status bluetooth saat mengetuk ubin bluetooth</string>
     <string name="quick_settings_header_image_title">Gambar QS Header</string>
     <string name="quick_settings_header_image_summary">Pilih gambar header latar belakang Setelan Cepat</string>
     <string name="quick_settings_header_daylight_pack_title">Koleksi gambar header</string>
@@ -426,6 +438,11 @@
     <string name="quick_settings_tile_shape_rounded_square">Persegi melengkung</string>
     <string name="quick_settings_tile_shape_square">Persegi</string>
     <string name="quick_settings_tile_haptic_summary">Umpan balik haptik saat menekan ubin Setelan Cepat</string>
+    <!-- QS footer icons -->
+    <string name="quick_settings_footer_category">Footer Setelan Cepat</string>
+    <string name="quick_settings_footer_edit_icon_title">Ikon edit ubin</string>
+    <string name="quick_settings_footer_show_power_menu_title">Pintasan menu daya</string>
+    <string name="quick_settings_footer_settings_icon_title">Pintasan setelan</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Notifikasi mengambang</string>
     <string name="notifications_heads_up_summary">Izinkan notifikasi mengambang</string>
@@ -466,11 +483,11 @@
     <string name="power_menu_interface_category">Tampilan</string>
     <string name="power_menu_actions_title">Aksi menu daya</string>
     <string name="power_menu_actions_summary">Pilih aksi yang akan ditampilkan</string>
+    <string name="power_menu_advanced_title">Opsi mulai ulang lanjutan</string>
     <string name="power_menu_lock_screen_category">Layar Kunci</string>
     <string name="power_menu_lock_screen_secure_title">Perlihatkan di layar kunci</string>
     <string name="power_menu_lock_screen_secure_summary">Tampilkan menu daya saat perangkat terkunci</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_advanced_reboot_title">Mulai ulang lanjutan</string>
     <string name="power_menu_actions_screenshot_title">Tangkapan layar</string>
     <string name="power_menu_actions_onthego_title">Mode On-The-Go</string>
     <string name="power_menu_actions_airplane_title">Mode pesawat</string>
@@ -483,6 +500,11 @@
     <string name="power_menu_actions_logout_title">Keluar</string>
     <string name="power_menu_actions_emergency_title">Darurat</string>
     <string name="power_menu_actions_devicecontrols_title">Kontrol Perangkat</string>
+    <!-- Advanced restart options -->
+    <string name="advanced_reboot_title">Mulai ulang lanjutan</string>
+    <string name="advanced_reboot_summary">Saat tidak terkunci, sertakan opsi di menu daya untuk memulai kembali ke recovery atau bootloader</string>
+    <string name="advanced_reboot_secured_title">Layar kunci yang aman</string>
+    <string name="advanced_reboot_secured_summary">Tampilkan opsi mulai ulang lanjutan di layar kunci aman</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Pemalsuan</string>
     <string name="miscellaneous_developer_options_category">Opsi Pengembang</string>
@@ -494,9 +516,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Hapus batasan pada tangkapan layar dan rekaman layar untuk semua aplikasi, yang berpotensi menimbulkan risiko kebocoran privasi</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Rekaman layar tanpa batas</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Hapus batas ukuran file 15GiB\nMungkin menghasilkan file keluaran yang lebih besar dari yang dibutuhkan</string>
-    <!-- Miscellaneous/Vbmeta hash attestation -->
-    <string name="vbmeta_attestation_title">Perbaikan otomatis untuk pendeteksi VBMeta</string>
-    <string name="vbmeta_attestation_summary">Lakukan pengesahan kunci untuk menghasilkan hash boot terverifikasi saat booting. Membutuhkan mulai ulang sistem.</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Sembunyikan daftar aplikasi</string>
     <string name="hide_applist_summary">Cegah aplikasi memeriksa aplikasi yang dipilih dari daftar aplikasi</string>
@@ -535,6 +554,8 @@
     <string name="toast_spoofing_failure">Gagal memasang tipuan perangkat.</string>
     <string name="update_pif_json_title">Perbarui perbaikan Integritas Play</string>
     <string name="update_pif_json_summary">Memperbarui perangkat pemalsuan, memerlukan koneksi internet.</string>
+    <string name="update_pif_auto_random_title">Pembaruan Perbaikan Integritas Play (Acak)</string>
+    <string name="update_pif_auto_random_summary">Dapatkan perangkat spoofing acak dari daftar Google. (Membutuhkan koneksi internet.)</string>
     <string name="show_pif_properties_title">Status tipuan Integritas Play</string>
     <string name="show_pif_properties_summary">Tampilkan semua properti PIF yang saat ini ditetapkan</string>
     <string name="error_loading_properties">Gagal memuat properti</string>
@@ -582,6 +603,7 @@
     <string name="delete_message">Hapus item yang dipilih?</string>
     <string name="choose_app">Pilih aplikasi</string>
     <!-- Units -->
+    <string name="unit_hz">hz</string>
     <string name="unit_milliseconds">milidetik</string>
     <string name="unit_seconds">detik</string>
     <!-- SystemUI restart dialog -->
@@ -742,35 +764,6 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Animasi coretan</string>
     <string name="media_squiggle_animation_summary">Tampilkan animasi coretan di panel media saat memutar media</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip kemajuan yang sedang berlangsung</string>
-    <string name="ongoing_progress_settings_summary">Opsi chip aksi bilah status</string>
-    <string name="ongoing_action_chip_title">Chip aksi berkelanjutan</string>
-    <string name="ongoing_action_chip_summary">Tampilkan indikator kemajuan di bilah status untuk tindakan yang sedang berlangsung seperti pengunduhan</string>
-    <string name="ongoing_action_chip_opacity_title">Opasitas bilah kemajuan</string>
-    <string name="ongoing_action_chip_opacity_summary">Sesuaikan opasitas chip bilah kemajuan</string>
-    <string name="compact_progress_mode_title">Indikator kemajuan ringkas</string>
-    <string name="compact_progress_mode_summary">Gunakan indikator melingkar yang ringkas untuk tindakan yang sedang berlangsung</string>
-    <string name="show_media_progress_title">Tampilkan perkembangan media</string>
-    <string name="show_media_progress_summary">Tampilkan kemajuan pemutaran media di bilah status</string>
-    <string name="progress_footer_text">\"Bilah kemajuan status memberikan pembaruan waktu nyata untuk pemutaran media dan unduhan/unggahan aktif.
-
-     - 🎵 Kemajuan Media:
-
-     • Menampilkan kemajuan pemutaran musik dan video saat media diputar.
-     • Ketuk sekali untuk membuka kontrol pemutaran (Sebelumnya, Lagu berikutnya).
-     • Ketuk dua kali untuk beralih antara putar/jeda.
-     • Geser ke kiri untuk melompat ke lagu sebelumnya.
-     • Geser ke kanan untuk melompat ke lagu berikutnya.
-     • Tekan lama untuk membuka aplikasi media.
-
-     - 📥 Kemajuan Unduhan/Unggahan:
-
-     • Menunjukkan kemajuan untuk unduhan dan unggahan yang sedang berlangsung.
-     • Secara otomatis disembunyikan saat tidak ada transfer aktif yang terdeteksi.
-     • Ketuk sekali untuk membuka aplikasi yang bertanggung jawab atas unduhan tersebut.
-
-     Bilah kemajuan secara dinamis beralih antara status media dan unduhan, memastikan Anda selalu memiliki informasi yang paling relevan dalam sekejap.\"    </string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Bilah baterai</string>
     <string name="battery_bar_summary">Menampilkan dan menyesuaikan bilah baterai di atas bilah status</string>
@@ -881,4 +874,57 @@
     <string name="sensor_block_app_picker_title">Blokir sensor untuk aplikasi ini</string>
     <string name="add_sensor_block_package_title">Tambahkan aplikasi untuk blokir sensor</string>
     <string name="add_sensor_block_package_summary">Gerakan signifikan, akselerometer, sensor percepatan linier akan diblokir untuk aplikasi ini</string>
+    <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">Kedipkan senter untuk panggilan masuk</string>
+    <string name="flashlight_on_call_disabled">Dinonaktifkan</string>
+    <string name="flashlight_on_call_ringer">Saat berdering</string>
+    <string name="flashlight_on_call_no_ringer">Saat dering disenyapkan</string>
+    <string name="flashlight_on_call_silent">Saat benar-benar senyap (tidak ada dering atau getar)</string>
+    <string name="flashlight_on_call_always">Selalu</string>
+    <string name="flashlight_on_call_ignore_dnd_title">Abaikan DND</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Apakah akan berkedip saat mode Jangan Ganggu aktif</string>
+    <string name="flashlight_on_call_rate_title">Tingkat kedipan</string>
+    <!-- Three fingers swipe action -->
+    <string name="three_fingers_swipe_title">Gesekan tiga jari</string>
+    <string name="hardware_keys_action_nothing">Tidak ada tindakan</string>
+    <string name="hardware_keys_action_menu">Buka/Tutup menu</string>
+    <string name="hardware_keys_action_app_switch">Pengganti aplikasi latar belakang</string>
+    <string name="hardware_keys_action_search">Asisten pencarian</string>
+    <string name="hardware_keys_action_voice_search">Pencarian suara</string>
+    <string name="hardware_keys_action_in_app_search">Penelusuran dalam aplikasi</string>
+    <string name="hardware_keys_action_launch_camera">Membuka kamera</string>
+    <string name="hardware_keys_action_sleep">Matikan layar</string>
+    <string name="hardware_keys_action_last_app">Aplikasi terakhir</string>
+    <string name="hardware_keys_action_split_screen">Layar terpisah</string>
+    <string name="hardware_keys_action_close_app">Matikan aplikasi</string>
+    <string name="hardware_keys_action_play_pause_music">Putar/jeda pemutaran musik</string>
+    <string name="hardware_keys_action_torch">Hidup/matikan senter</string>
+    <string name="hardware_keys_action_screenshot">Ambil tangkapan layar</string>
+    <string name="hardware_keys_action_volume_panel">Tombol alihkan Panel Volume</string>
+    <string name="hardware_keys_action_clear_all_notifications">Hapus semua notifikasi</string>
+    <string name="hardware_keys_action_notifications_panel">Tombol alihkan panel notifikasi</string>
+    <string name="hardware_keys_action_expand_qs_panel">Perluas panel Setelan Cepat</string>
+    <string name="hardware_keys_action_ringer_modes">Ubah mode dering</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Gestur Goyang</string>
+    <string name="shake_gestures_enabled_summary">Goyangkan perangkat Anda untuk melakukan tindakan</string>
+    <string name="shake_gestures_action_title">Tindakan Gestur Goyang</string>
+    <string name="shake_gestures_intensity_title">Intensitas Gestur Goyang</string>
+    <string name="shake_gestures_intensity_summary">Sesuaikan sensitivitas gestur goyang</string>
+    <!-- Charging Animation Settings -->
+    <string name="charging_animation_title">Animasi pengisian</string>
+    <string name="charging_animation_summary">Tampilkan efek visual saat perangkat sedang mengisi daya di layar kunci atau Always On Display (AOD)</string>
+    <string name="charging_animation_style_category_title">Gaya animasi</string>
+    <string name="charging_animation_style_title">Jenis efek</string>
+    <string name="charging_ripple_opacity_title">Opasitas riak</string>
+    <string name="charging_ripple_opacity_summary">Sesuaikan visibilitas gelombang riak</string>
+    <string name="charging_glow_intensity_title">Intensitas cahaya</string>
+    <string name="charging_glow_intensity_summary">Sesuaikan kecerahan cahaya dan partikel</string>
+    <string name="charging_arc_count_title">Jumlah gelombang</string>
+    <string name="charging_arc_count_summary">Atur berapa banyak gelombang yang muncul</string>
+    <string name="charging_appearance_category_title">Penampilan</string>
+    <string name="charging_color_mode_title">Mode warna</string>
+    <string name="charging_display_category_title">Opsi tampilan</string>
+    <string name="charging_show_on_lockscreen_summary">Tampilkan animasi saat layar kunci terlihat</string>
+    <string name="charging_show_on_aod_summary">Tampilkan animasi di mode AOD</string>
 </resources>
