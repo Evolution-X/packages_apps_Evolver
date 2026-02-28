@@ -859,11 +859,6 @@
     <string name="nowplaying_info_summary">Now Playing hiển thị tên bài hát và nghệ sĩ đang phát trên màn hình khóa và Always-On Display. Tính năng này tự động xuất hiện khi có nhạc và ẩn khi dừng phát. Vị trí có thể điều chỉnh từ trên xuống dưới màn hình.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Hình dạng hiệu ứng sạc</string>
-    <!-- Adaptive Playback -->
-    <string name="adaptive_playback_title">Phát lại thích ứng</string>
-    <string name="adaptive_playback_summary">Tạm dừng media khi tắt âm lượng và tiếp tục khi tăng âm lượng trong thời gian cho phép</string>
-    <string name="adaptive_playback_intro_text">Tự động tạm dừng media khi âm lượng bị tắt và tiếp tục phát khi âm lượng được khôi phục trong thời gian đã đặt</string>
-    <string name="adaptive_playback_timeout_title">Thời gian chờ phát lại</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Khoảng cách thêm</string>
     <string name="statusbar_extra_padding_start_title">Khoảng cách đầu</string>
@@ -928,4 +923,20 @@
     <string name="charging_display_category_title">Tùy chọn hiển thị</string>
     <string name="charging_show_on_lockscreen_summary">Hiển thị hiệu ứng khi đang ở màn hình khóa</string>
     <string name="charging_show_on_aod_summary">Hiển thị hiệu ứng ở màn hình xem nhanh</string>
+    <!-- Gradient styles -->
+    <string name="gradient_settings_title">Tuỳ chỉnh gradient</string>
+    <string name="gradient_settings_summary">Áp dụng màu gradient cho các thành phần hệ thống khác nhau</string>
+    <string name="gradient_elements_category">Thành phần hệ thống</string>
+    <string name="gradient_colors_category">Màu gradient</string>
+    <string name="qs_tile_gradient_title">Gradient ô QS</string>
+    <string name="qs_tile_gradient_summary">Bật nền gradient cho ô QS</string>
+    <string name="qs_brightness_slider_gradient_title">Gradient thanh trượt độ sáng QS</string>
+    <string name="qs_brightness_slider_gradient_summary">Bật nền gradient cho thanh trượt độ sáng QS</string>
+    <string name="volume_slider_gradient_title">Gradient thanh trượt âm lượng</string>
+    <string name="volume_slider_gradient_summary">Bật nền gradient cho thanh trượt âm lượng</string>
+    <string name="custom_gradient_color_mode_title">Chế độ màu gradient</string>
+    <string name="custom_gradient_color_mode_auto">Chế độ tự động</string>
+    <string name="custom_gradient_color_mode_custom">Chế độ tùy chỉnh</string>
+    <string name="custom_gradient_start_color_title">Màu bắt đầu gradient</string>
+    <string name="custom_gradient_end_color_title">Màu kết thúc gradient</string>
 </resources>
