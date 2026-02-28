@@ -70,6 +70,12 @@
             android:title="@string/themes_launcher_more_themed_icons_title"
             android:summary="@string/themes_launcher_more_themed_icons_summary"
             android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.velvet.force_onesearch"
+            android:title="@string/themes_launcher_force_new_search_bar"
+            android:summary="@string/themes_launcher_force_new_search_bar_summary"
+            android:defaultValue="true" />            
     </PreferenceCategory>
 
     <PreferenceCategory
