@@ -26,15 +26,13 @@
             android:summary="@string/doze_always_on_wallpaper_summary"
             android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
 
-        <!-- Lockscreen Clock Font and styles -->
-        <!--<Preference
-        <Preference
-            android:key="android.theme.customization.lockscreen_clock_font"
-            android:title="@string/theme_customization_lock_clock_face_title"
-            android:summary="@string/theme_customization_lock_clock_face_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.LockClockFontsPickerPreview" />
+        <!-- Lockscreen Clock Font style -->
+        <org.evolution.settings.preferences.LockClockFontsPreference
+            android:key="lock_clock_font"
+            android:title="@string/theme_customization_lock_clock_title"
+            android:summary="theme_customization_lock_clock_summary" />
 
-        <Preference
+        <!--<Preference
             android:key="depth_wallpaper"
             android:title="@string/dw_wallpaper_enabled_title"
             android:summary="@string/dw_wallpaper_enabled_summary"
