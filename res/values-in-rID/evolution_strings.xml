@@ -58,7 +58,7 @@
     <string name="themes_animations_category">Animasi</string>
     <string name="themes_boot_animation_title">Animasi boot</string>
     <string name="themes_boot_animation_summary">Setel gaya animasi boot</string>
-    <string name="themes_charging_animation_title">Animasi pengisian</string>
+    <string name="themes_charging_animation_title">Animasi riak pengisian daya</string>
     <string name="themes_charging_animation_summary">Tampilkan animasi saat perangkat diisi daya</string>
     <string name="themes_screen_off_animation_title">Animasi layar mati</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
@@ -70,6 +70,8 @@
     <string name="themes_launcher_background_blur_summary">Aktifkan Efek Buram Latar Belakang Terkini</string>
     <string name="themes_launcher_more_themed_icons_title">Tema Ikon Lainnya</string>
     <string name="themes_launcher_more_themed_icons_summary">Dukungan ikon bertema dinamis untuk aplikasi terpasang</string>
+    <string name="themes_launcher_force_new_search_bar">Bilah pencarian yang diperbarui</string>
+    <string name="themes_launcher_force_new_search_bar_summary">Aktifkan gaya bilah pencarian Google yang baru</string>
     <string name="theme_customization_font_title">Gaya huruf</string>
     <string name="theme_customization_font_summary">Setel gaya font sistem</string>
     <string name="theme_customization_icon_pack_title">Paket ikon</string>
@@ -286,8 +288,8 @@
     <string name="status_bar_clock_seconds_summary">Tampilkan detik di samping jam pada bilah status</string>
     <string name="status_bar_clock_auto_hide_title">Sembunyikan jam otomatis</string>
     <string name="status_bar_clock_auto_hide_summary">Sembunyikan jam jika peluncur terlihat</string>
-    <string name="status_bar_clock_chip_title">Latar belakang chip</string>
-    <string name="status_bar_clock_chip_summary">Tampilkan chip beraksen di belakang jam</string>
+    <string name="status_bar_clock_chip_title">Chip latar belakang jam</string>
+    <string name="status_bar_clock_chip_summary">Pilih chip latar belakang kustom di belakang jam</string>
     <string name="solid_accent">Aksen warna padat</string>
     <string name="outline">Garis luar</string>
     <string name="solid_accent_gradient">Aksen warna padat bergradasi</string>
@@ -418,14 +420,14 @@
     <string name="quick_settings_header_shadow_summary">Untuk visibilitas yang lebih baik pada gambar yang cerah</string>
     <string name="quick_settings_header_static_provider_title">Gambar statis</string>
     <string name="quick_settings_header_daylight_provider_title">Koleksi gambar</string>
-    <string name="quick_settings_header_file_provider_title">Gambar kustom</string>
+    <string name="quick_settings_header_file_provider_title">Gambar kustom/GIF animasi</string>
     <string name="quick_settings_header_provider_title">Penyedia header</string>
     <string name="quick_settings_header_browse_title">Telusuri header terpasang</string>
     <string name="quick_settings_header_browse_summary">Telusuri semua koleksi header yang tersedia</string>
     <string name="quick_settings_header_pick_title">Pilih gambar header</string>
     <string name="quick_settings_header_pick_summary">Pilih sebuah gambar untuk digunakan pada mode statis</string>
     <string name="quick_settings_header_file_select_title">Pilih gambar</string>
-    <string name="quick_settings_header_file_select_summary">Pilih gambar kustom</string>
+    <string name="quick_settings_header_file_select_summary">Pilih gambar/GIF animasi kustom</string>
     <string name="quick_settings_header_needs_gallery">Anda harus menginstall aplikasi galeri!</string>
     <string name="quick_settings_header_offset_title">Offset gambar header</string>
     <string name="quick_settings_header_offset_summary">Sesuaikan ukuran header gambar</string>
@@ -611,6 +613,7 @@
     <string name="systemui_restart_message">Agar perubahan diterapkan, mulai ulang SistemUI diperlukan. Mulai ulang SistemUI sekarang?</string>
     <string name="systemui_restart_yes">Ya</string>
     <string name="systemui_restart_not_now">Tidak sekarang</string>
+    <string name="systemui_restart_process">Memulai ulang SistemUI untuk menerapkan perubahan...</string>
     <!-- Split Shade -->
     <string name="qs_split_shade_enabled_title">Lanskap Setelan Cepat yang lebih baik</string>
     <string name="qs_split_shade_enabled_summary">Aktifkan setelan cepat bayangan terpisah eksperimental baru,\nmemecah notifikasi mengambang lanskap</string>
@@ -858,11 +861,6 @@
     <string name="nowplaying_info_summary">Now Playing menampilkan judul dan artis musik yang sedang diputar di layar kunci dan Always-On Display Anda. Fitur ini muncul secara otomatis saat musik diputar dan menghilang saat musik berhenti. Posisinya dapat disesuaikan agar muncul di mana saja, dari bagian atas hingga bawah layar.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Bentuk riak pengisian</string>
-    <!-- Adaptive Playback -->
-    <string name="adaptive_playback_title">Pemutaran Adaptif</string>
-    <string name="adaptive_playback_summary">Jeda media saat volume dimatikan dan lanjutkan dengan meningkatkan volume dalam batas waktu</string>
-    <string name="adaptive_playback_intro_text">Secara otomatis menjeda media saat volume dimatikan dan akan dilanjutkan secara otomatis saat volume dihidupkan dalam waktu yang ditentukan</string>
-    <string name="adaptive_playback_timeout_title">Batas waktu pemutaran</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Ekstra padding</string>
     <string name="statusbar_extra_padding_start_title">Padding awal</string>
@@ -927,4 +925,46 @@
     <string name="charging_display_category_title">Opsi tampilan</string>
     <string name="charging_show_on_lockscreen_summary">Tampilkan animasi saat layar kunci terlihat</string>
     <string name="charging_show_on_aod_summary">Tampilkan animasi di mode AOD</string>
+    <!-- Gradient styles -->
+    <string name="gradient_settings_title">Kustomisasi gradien</string>
+    <string name="gradient_settings_summary">Terapkan warna gradien ke berbagai elemen sistem</string>
+    <string name="gradient_elements_category">Elemen sistem</string>
+    <string name="gradient_colors_category">Warna gradien</string>
+    <string name="qs_tile_gradient_title">Gradien ubin Setelan Cepat</string>
+    <string name="qs_tile_gradient_summary">Aktifkan latar belakang gradien untuk ubin Setelan Cepat</string>
+    <string name="qs_brightness_slider_gradient_title">Gradien penggeser kecerahan</string>
+    <string name="qs_brightness_slider_gradient_summary">Aktifkan latar belakang gradien untuk penggeser kecerahan Setelan Cepat</string>
+    <string name="volume_slider_gradient_title">Gradien penggeser volume</string>
+    <string name="volume_slider_gradient_summary">Aktifkan latar belakang gradien untuk penggeser volume</string>
+    <string name="custom_gradient_color_mode_title">Mode warna gradien</string>
+    <string name="custom_gradient_color_mode_auto">Mode otomatis</string>
+    <string name="custom_gradient_color_mode_custom">Mode kustom</string>
+    <string name="custom_gradient_start_color_title">Warna awal gradien</string>
+    <string name="custom_gradient_end_color_title">Warna akhir gradien</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Chip aksi bilah status</string>
+    <string name="ongoing_progress_settings_summary">Sesuaikan chip aksi untuk menampilkan indikator kemajuan</string>
+    <string name="ongoing_action_chip_title">Chip aksi berkelanjutan</string>
+    <string name="ongoing_action_chip_summary">Tampilkan indikator kemajuan untuk tindakan yang sedang berlangsung seperti pengunduhan</string>
+    <string name="ongoing_media_progress_title">Kemajuan media</string>
+    <string name="ongoing_media_progress_summary">Menampilkan kemajuan pemutaran media</string>
+    <string name="ongoing_progress_footer_text">\"Chip aksi bilah status menyediakan pembaruan waktu nyata untuk pemutaran media dan unduhan/unggahan aktif.
+
+Kemajuan Media:
+• Menampilkan kemajuan pemutaran musik dan video saat media diputar.
+• Ketuk sekali untuk membuka kontrol pemutaran.
+• Ketuk dua kali untuk beralih antara putar/jeda.
+• Geser ke kiri untuk melompati ke trek sebelumnya.
+• Geser ke kanan untuk melompati ke trek berikutnya.
+• Tekan lama untuk membuka aplikasi media.
+
+Kemajuan Unduhan/Unggahan:
+• Menampilkan kemajuan untuk unduhan dan unggahan yang sedang berlangsung.
+• Secara otomatis disembunyikan saat tidak ada transfer aktif yang terdeteksi.
+• Ketuk sekali untuk membuka aplikasi yang bertanggung jawab atas unduhan.
+
+Bilah kemajuan secara dinamis beralih antara status media dan unduhan, memastikan Anda selalu memiliki informasi yang paling relevan dalam sekejap.\"
+    </string>
+    <string name="ongoing_compact_mode_title">Indikator kemajuan ringkas</string>
+    <string name="ongoing_compact_mode_summary">Gunakan indikator melingkar yang ringkas untuk tindakan yang sedang berlangsung</string>
 </resources>
