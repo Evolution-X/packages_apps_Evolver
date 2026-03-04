@@ -70,6 +70,8 @@
     <string name="themes_launcher_background_blur_summary">Ativar o efeito de desfoque para a página de fundo dos itens recentes</string>
     <string name="themes_launcher_more_themed_icons_title">Mais ícones temáticos</string>
     <string name="themes_launcher_more_themed_icons_summary">Estender suporte a ícones temáticos para aplicativos instalados</string>
+    <string name="themes_launcher_force_new_search_bar">Barra de pesquisa renovada</string>
+    <string name="themes_launcher_force_new_search_bar_summary">Ativar o novo estilo da barra de pesquisa do Google</string>
     <string name="theme_customization_font_title">Estilo da fonte</string>
     <string name="theme_customization_font_summary">Definir o estilo da fonte do sistema</string>
     <string name="theme_customization_icon_pack_title">Pacote de ícones</string>
@@ -120,6 +122,7 @@
     <string name="monet_engine_color_source_preset">Predefinido</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
+    <string name="lock_screen_charging_category">Carregando</string>
     <string name="lock_screen_charging_stats_title">Estatísticas de carregamento</string>
     <string name="lock_screen_charging_stats_summary">Exibe a corrente de carga, tensão e temperatura da bateria na tela de bloqueio durante o carregamento</string>
     <string name="lock_screen_charging_time_title">Tempo de carregamento</string>
@@ -177,6 +180,7 @@
     <string name="status_bar_icons_category">Ícones</string>
     <string name="status_bar_tuner_title">Sintonizador da barra de status</string>
     <string name="status_bar_tuner_summary">Escolha quais ícones do sistema podem ser mostrados</string>
+    <string name="status_bar_battery_category_title">Personalizações da bateria</string>
     <string name="status_bar_battery_style_title">Estilo do ícone da bateria</string>
     <string name="status_bar_battery_style_icon_portrait">Ícone retrato</string>
     <string name="status_bar_battery_style_icon_rlandscape">Ícone paisagem (direita)</string>
@@ -222,6 +226,7 @@
     <string name="status_bar_logo_position_left">Lado esquerdo</string>
     <string name="status_bar_logo_position_right">Lado direito</string>
     <string name="status_bar_logo_style_title">Estilo do logotipo</string>
+    <string name="status_bar_logo_style_summary">Selecione o logotipo personalizado para ser exibido</string>
     <string name="status_bar_logo_style_evolution">Evolution X</string>
     <string name="status_bar_logo_style_android">Android</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
@@ -283,7 +288,7 @@
     <string name="status_bar_clock_seconds_summary">Mostrar segundos ao lado do relógio na barra de status</string>
     <string name="status_bar_clock_auto_hide_title">Ocultar automaticamente</string>
     <string name="status_bar_clock_auto_hide_summary">Ocultar relógio quando na tela inicial</string>
-    <string name="status_bar_clock_chip_title">Chip de Fundo</string>
+    <string name="status_bar_clock_chip_title">Chip de fundo do relógio</string>
     <string name="status_bar_clock_chip_summary">Exibir chip acentuado atrás do relógio</string>
     <string name="solid_accent">Destaque de cor sólida</string>
     <string name="outline">Contornado</string>
@@ -435,6 +440,11 @@
     <string name="quick_settings_tile_shape_rounded_square">Cantos arredondados</string>
     <string name="quick_settings_tile_shape_square">Quadrado</string>
     <string name="quick_settings_tile_haptic_summary">Vibrar ao tocar nos ícones de configurações rápidas</string>
+    <!-- QS footer icons -->
+    <string name="quick_settings_footer_category">Rodapé</string>
+    <string name="quick_settings_footer_edit_icon_title">Ícone editar (lápis)</string>
+    <string name="quick_settings_footer_show_power_menu_title">Atalho do menu de energia</string>
+    <string name="quick_settings_footer_settings_icon_title">Atalho para as configurações</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Notificações flutuantes</string>
     <string name="notifications_heads_up_summary">Permitir notificações flutuantes</string>
@@ -603,6 +613,7 @@
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
     <string name="systemui_restart_yes">Sim</string>
     <string name="systemui_restart_not_now">Agora não</string>
+    <string name="systemui_restart_process">Reiniciando a Interface do Sistema para aplicar as alterações...</string>
     <!-- Split Shade -->
     <string name="qs_split_shade_enabled_title">Melhor paisagem QS</string>
     <string name="qs_split_shade_enabled_summary">Ativar nova sombra experimental de configurações rápidas,\nquebra notificações headsup paisagem</string>
@@ -756,33 +767,6 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Animação de rabisco</string>
     <string name="media_squiggle_animation_summary">Mostrar animação de rabisco na barra de busca ao reproduzir mídia</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip de progresso contínuo</string>
-    <string name="ongoing_progress_settings_summary">Opções do chip da barra de status</string>
-    <string name="ongoing_action_chip_title">Habilitar o chip de ação em andamento</string>
-    <string name="ongoing_action_chip_summary">Mostrar o progresso das notificações em andamento na barra de status</string>
-    <string name="ongoing_action_chip_opacity_title">Opacidade da barra de progresso</string>
-    <string name="ongoing_action_chip_opacity_summary">Ajustar a opacidade do chip na barra de progresso</string>
-    <string name="compact_progress_mode_title">Modo de progresso compacto</string>
-    <string name="compact_progress_mode_summary">Usar indicador de progresso circular em vez de barra</string>
-    <string name="show_media_progress_title">Mostrar progresso da mídia</string>
-    <string name="show_media_progress_summary">Exibir progresso da reprodução de mídia na barra de status</string>
-    <string name="progress_footer_text">A barra de progresso da barra de status fornece atualizações em tempo real tanto para reprodução de mídia quanto para downloads/uploads ativos.
-
-- 🎵 Progresso da Mídia:
-• Exibe o progresso da reprodução de músicas e vídeos enquanto a mídia está sendo reproduzida.
-• Um toque abre os controles de reprodução (faixa anterior, próxima).
-• Um toque duplo alterna entre reproduzir/pausar.
-• Deslizar para a esquerda pula para a faixa anterior.
-• Deslizar para a direita pula para a próxima faixa.
-• Pressionar longamente abre o aplicativo de mídia.
-
-- 📥 Progresso do Download/Upload:
-• Mostra o progresso dos downloads e uploads em andamento.
-• Oculta automaticamente quando nenhuma transferência ativa é detectada.
-• Um toque abre o aplicativo responsável pelo download.
-
-A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à primeira vista.    </string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Barra de bateria</string>
     <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
@@ -877,11 +861,6 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="nowplaying_info_summary">Reproduzindo agora mostra o título e o artista atualmente reproduzindo na sua tela de bloqueio e exibição sempre ativa. Ele aparece automaticamente quando a música está tocando e desaparece quando parado. A posição pode ser ajustada para aparecer em qualquer lugar da parte superior para a parte inferior da tela.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Forma de carregamento ondulação</string>
-    <!-- Adaptive Playback -->
-    <string name="adaptive_playback_title">Reprodução adaptável</string>
-    <string name="adaptive_playback_summary">Pausar mídia quando o volume é silenciado e retomá-la aumentando o volume dentro do tempo limite</string>
-    <string name="adaptive_playback_intro_text">Pausa automaticamente a mídia quando o volume é silenciado e retoma automaticamente quando o volume é restaurado dentro do tempo definido</string>
-    <string name="adaptive_playback_timeout_title">Tempo limite de reprodução</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Margem adicional</string>
     <string name="statusbar_extra_padding_start_title">Iniciar preenchimento</string>
@@ -903,4 +882,88 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="flashlight_on_call_ignore_dnd_title">Ignorar Não Perturbe</string>
     <string name="flashlight_on_call_ignore_dnd_summary">Indica se o recurso \"Piscar\" deve funcionar quando o modo \"Não perturbe\" estiver ativo</string>
     <string name="flashlight_on_call_rate_title">Taxa de piscadas</string>
+    <!-- Three fingers swipe action -->
+    <string name="three_fingers_swipe_title">Deslizar três dedos</string>
+    <string name="hardware_keys_action_nothing">Nenhuma ação</string>
+    <string name="hardware_keys_action_menu">Abrir/fechar menu</string>
+    <string name="hardware_keys_action_app_switch">Alternador de aplicativos recentes</string>
+    <string name="hardware_keys_action_search">Assistente de busca</string>
+    <string name="hardware_keys_action_voice_search">Pesquisa por voz</string>
+    <string name="hardware_keys_action_in_app_search">Busca dentro do aplicativo</string>
+    <string name="hardware_keys_action_launch_camera">Iniciar a câmera</string>
+    <string name="hardware_keys_action_sleep">Desligar a tela</string>
+    <string name="hardware_keys_action_last_app">Último app</string>
+    <string name="hardware_keys_action_split_screen">Dividir a tela</string>
+    <string name="hardware_keys_action_close_app">Encerrar aplicativo</string>
+    <string name="hardware_keys_action_play_pause_music">Reproduzir/pausar reprodução de música</string>
+    <string name="hardware_keys_action_torch">Alternar lanterna</string>
+    <string name="hardware_keys_action_screenshot">Fazer uma captura de tela</string>
+    <string name="hardware_keys_action_volume_panel">Alternar painel de volume</string>
+    <string name="hardware_keys_action_clear_all_notifications">Limpar todas as notificações</string>
+    <string name="hardware_keys_action_notifications_panel">Alternar painel de notificações</string>
+    <string name="hardware_keys_action_expand_qs_panel">Expandir painel de configurações rápidas</string>
+    <string name="hardware_keys_action_ringer_modes">Alterar modo de toque</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Gestos de agitar</string>
+    <string name="shake_gestures_enabled_summary">Agite seu dispositivo para executar ações</string>
+    <string name="shake_gestures_action_title">Ação do gesto ao agitar</string>
+    <string name="shake_gestures_intensity_title">Intensidade do gesto de agitar</string>
+    <string name="shake_gestures_intensity_summary">Ajustar a sensibilidade dos gestos de agitação</string>
+    <!-- Charging Animation Settings -->
+    <string name="charging_animation_title">Animação de carregamento</string>
+    <string name="charging_animation_summary">Mostrar efeitos visuais quando o dispositivo estiver carregando na tela de bloqueio ou AOD</string>
+    <string name="charging_animation_style_category_title">Estilo da animação</string>
+    <string name="charging_animation_style_title">Tipo de efeito</string>
+    <string name="charging_ripple_opacity_title">Opacidade da ondulação</string>
+    <string name="charging_ripple_opacity_summary">Ajustar visibilidade das ondas de ondas de ondas</string>
+    <string name="charging_glow_intensity_title">Intensidade do Brilho</string>
+    <string name="charging_glow_intensity_summary">Ajustar brilho do brilho e partículas</string>
+    <string name="charging_arc_count_title">Número de ondas</string>
+    <string name="charging_arc_count_summary">Definir quantas ondas aparecem</string>
+    <string name="charging_appearance_category_title">Aparência</string>
+    <string name="charging_color_mode_title">Modo de cor</string>
+    <string name="charging_display_category_title">Opções de visualização</string>
+    <string name="charging_show_on_lockscreen_summary">Exibir animação quando a tela de bloqueio estiver visível</string>
+    <string name="charging_show_on_aod_summary">Exibir animação no modo ambiente</string>
+    <!-- Gradient styles -->
+    <string name="gradient_settings_title">Personalização dos gradientes</string>
+    <string name="gradient_settings_summary">Aplicar cores gradientes a vários elementos do sistema</string>
+    <string name="gradient_elements_category">Elementos do sistema</string>
+    <string name="gradient_colors_category">Cores gradientes</string>
+    <string name="qs_tile_gradient_title">Gradiente de blocos QS</string>
+    <string name="qs_tile_gradient_summary">Habilitar fundos gradientes para blocos QS</string>
+    <string name="qs_brightness_slider_gradient_title">Gradiente do brilho QS</string>
+    <string name="qs_brightness_slider_gradient_summary">Habilitar fundos gradientes para blocos QS</string>
+    <string name="volume_slider_gradient_title">Gradiente do controle de volume</string>
+    <string name="volume_slider_gradient_summary">Ativar fundos gradientes para controle deslizante de volume</string>
+    <string name="custom_gradient_color_mode_title">Modo de cor gradiente</string>
+    <string name="custom_gradient_color_mode_auto">Modo automático</string>
+    <string name="custom_gradient_color_mode_custom">Modo personalizado</string>
+    <string name="custom_gradient_start_color_title">Cor inicial gradiente</string>
+    <string name="custom_gradient_end_color_title">Cor final do gradiente</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Chip de ação barra de status</string>
+    <string name="ongoing_progress_settings_summary">Personalizar chip de ação para mostrar o indicador de progresso</string>
+    <string name="ongoing_action_chip_title">Chip de ação em andamento</string>
+    <string name="ongoing_action_chip_summary">Mostrar indicador de progresso para ações em andamento, como downloads</string>
+    <string name="ongoing_media_progress_title">Progresso da mídia</string>
+    <string name="ongoing_media_progress_summary">Exibir progresso de reprodução de mídia</string>
+    <string name="ongoing_progress_footer_text">\"O chip de ação da barra de status fornece atualizações em tempo real tanto para a reprodução de mídia quanto para downloads/uploads ativos.
+
+Progresso da mídia:
+• Exibe o progresso da reprodução de música e vídeo durante a reprodução.
+• Um toque abre os controles de reprodução.
+• Dois toques alternam entre reproduzir e pausar.
+• Deslizar para a esquerda pula para a faixa anterior.
+• Deslizar para a direita pula para a próxima faixa.
+• Um toque longo abre o aplicativo de mídia.
+
+Progresso de download/upload:
+• Mostra o progresso de downloads e uploads em andamento.
+• Oculta-se automaticamente quando nenhuma transferência ativa é detectada.
+• Um toque abre o aplicativo responsável pelo download.
+
+A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à vista.\"    </string>
+    <string name="ongoing_compact_mode_title">Indicador de progresso compacto</string>
+    <string name="ongoing_compact_mode_summary">Usar indicador de progresso circular em vez de barra</string>
 </resources>
