@@ -1112,6 +1112,7 @@
         <item>@string/solid_gradient_light</item>
         <item>@string/solid_gradient_shape</item>
         <item>@string/solid_gradient_void_light</item>
+        <item>@string/clock_chip_custom_gradient</item>
     </string-array>
 
     <string-array name="statusbar_clock_chip_drawables" translatable="false">
@@ -1128,6 +1129,7 @@
         <item>sb_date_bg10</item>
         <item>sb_date_bg11</item>
         <item>sb_date_bg12</item>
+        <item>custom_gradient</item>
     </string-array>
 
     <!-- Blink flashlight for incoming calls -->
