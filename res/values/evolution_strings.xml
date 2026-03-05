@@ -300,20 +300,6 @@
     <string name="status_bar_clock_seconds_summary">Display seconds next to clock in status bar</string>
     <string name="status_bar_clock_auto_hide_title">Auto hide</string>
     <string name="status_bar_clock_auto_hide_summary">Hide clock if launcher is visible</string>
-    <string name="status_bar_clock_chip_title">Clock background chip</string>
-    <string name="status_bar_clock_chip_summary">Select custom background chip behind clock</string>
-    <string name="solid_accent">Solid color accent</string>
-    <string name="outline">Outline</string>
-    <string name="solid_accent_gradient">Solid color accent gradient</string>
-    <string name="solid_gradient">Solid Gradient side</string>
-    <string name="solid_gradient_corner">Solid accent gradient sharp</string>
-    <string name="solid_gradient_void">Gradient Void</string>
-    <string name="solid_gradient_neumorph">Neumorph gradient</string>
-    <string name="solid_gradient_stroke">Sharp gradient stroke</string>
-    <string name="solid_accent_transperent">Accent transperent</string>
-    <string name="solid_gradient_light">Gradient light</string>
-    <string name="solid_gradient_shape">Sharp gradient corner</string>
-    <string name="solid_gradient_void_light">Gradient Void light</string>
     <string name="status_bar_am_pm_title">AM/PM style</string>
     <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -334,6 +320,35 @@
     <string name="status_bar_clock_date_position">Date position</string>
     <string name="status_bar_clock_date_right">Right of time</string>
     <string name="status_bar_clock_date_left">Left of time</string>
+
+    <!-- Statusbar Clock background chip -->
+    <string name="statusbar_clock_chip_title">Clock background chip</string>
+    <string name="statusbar_clock_chip_summary">Select custom background chip behind clock</string>
+    <string name="solid_accent">Solid color accent</string>
+    <string name="outline">Outline</string>
+    <string name="solid_accent_gradient">Solid color accent gradient</string>
+    <string name="solid_gradient">Solid Gradient side</string>
+    <string name="solid_gradient_corner">Solid accent gradient sharp</string>
+    <string name="solid_gradient_void">Gradient Void</string>
+    <string name="solid_gradient_neumorph">Neumorph gradient</string>
+    <string name="solid_gradient_stroke">Sharp gradient stroke</string>
+    <string name="solid_accent_transperent">Accent transperent</string>
+    <string name="solid_gradient_light">Gradient light</string>
+    <string name="solid_gradient_shape">Sharp gradient corner</string>
+    <string name="solid_gradient_void_light">Gradient Void light</string>
+    <string name="clock_chip_custom_gradient">Custom gradient</string>
+
+    <!-- Start color picker -->
+    <string name="clock_chip_gradient_start_color_title">Gradient start color</string>
+    <string name="clock_chip_gradient_start_color_summary">Color at the start of the gradient</string>
+
+    <!-- End color picker -->
+    <string name="clock_chip_gradient_end_color_title">Gradient end color</string>
+    <string name="clock_chip_gradient_end_color_summary">Color at the end of the gradient</string>
+
+    <!-- Angle seekbar -->
+    <string name="clock_chip_gradient_angle_title">Gradient angle</string>
+    <string name="clock_chip_gradient_angle_summary">Direction of the gradient (0° = left→right, 90° = top→bottom)</string>
 
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Location</string>
