@@ -40,6 +40,7 @@ public class ClockChipSettings extends SettingsPreferenceFragment
     private static final String KEY_GRADIENT_START_COLOR  = "statusbar_clock_chip_gradient_start_color";
     private static final String KEY_GRADIENT_END_COLOR = "statusbar_clock_chip_gradient_end_color";
     private static final String KEY_GRADIENT_ANGLE = "statusbar_clock_chip_gradient_angle";
+    private static final String KEY_GRADIENT_MASK_TEXT = "statusbar_clock_chip_gradient_mask_text";
 
     private static final int CHIP_STYLE_CUSTOM_GRADIENT = 13;
 
@@ -50,6 +51,7 @@ public class ClockChipSettings extends SettingsPreferenceFragment
     private SystemSettingColorPickerPreference mGradientStartColor;
     private SystemSettingColorPickerPreference mGradientEndColor;
     private SystemSettingSeekBarPreference mGradientAngle;
+    private Preference mGradientMaskText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,9 @@ public class ClockChipSettings extends SettingsPreferenceFragment
         mGradientAngle =
                 (SystemSettingSeekBarPreference) findPreference(KEY_GRADIENT_ANGLE);
         mGradientAngle.setOnPreferenceChangeListener(this);
+
+        mGradientMaskText = findPreference(KEY_GRADIENT_MASK_TEXT);
+        mGradientMaskText.setOnPreferenceChangeListener(this);
 
         int currentStyle = Settings.System.getIntForUser(
                 resolver,
@@ -128,6 +133,14 @@ public class ClockChipSettings extends SettingsPreferenceFragment
                     angle,
                     UserHandle.USER_CURRENT);
             return true;
+        } else if (KEY_GRADIENT_MASK_TEXT.equals(key)) {
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putIntForUser(
+                    resolver,
+                    "statusbar_clock_chip_gradient_mask_text",
+                    value,
+                    UserHandle.USER_CURRENT);
+            return true;
         }
 
         return false;
@@ -138,6 +151,7 @@ public class ClockChipSettings extends SettingsPreferenceFragment
         if (mGradientStartColor != null) mGradientStartColor.setVisible(isGradient);
         if (mGradientEndColor != null) mGradientEndColor.setVisible(isGradient);
         if (mGradientAngle != null) mGradientAngle.setVisible(isGradient);
+        if (mGradientMaskText != null) mGradientMaskText.setVisible(isGradient);
     }
 
     private static String colorToHexSummary(int color) {

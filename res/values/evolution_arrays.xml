@@ -1208,4 +1208,14 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="clock_chip_gradient_mask_text_entries">
+        <item>@string/clock_chip_gradient_mask_text_default</item>
+        <item>@string/clock_chip_gradient_mask_text_mask</item>
+    </string-array>
+
+    <string-array name="clock_chip_gradient_mask_text_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>
