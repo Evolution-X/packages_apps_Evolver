@@ -627,7 +627,7 @@
     <string name="powermenu_style5">Warstwy</string>
     <!-- QS Header Clock Styles -->
     <string name="qs_header_clock_style_title">Styl zegara w nagłówku szybkich ustawień</string>
-    <string name="qs_header_style1">Kompaktowy</string>
+    <string name="qs_header_style1">Znacznik</string>
     <string name="qs_header_style2">Oxygen</string>
     <string name="qs_header_style3">Analogowy</string>
     <string name="qs_header_style4">Prosty</string>
@@ -967,4 +967,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     </string>
     <string name="ongoing_compact_mode_title">Kompaktowy wskaźnik postępu</string>
     <string name="ongoing_compact_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
+    <string name="ongoing_chip_color_mode_title">Kolor tła znacznika multimedialnego</string>
+    <string name="ongoing_chip_color_mode_accent">Kolor akcentu systemowego</string>
+    <string name="ongoing_chip_color_mode_icon">Kolor ikony aplikacji</string>
+    <string name="ongoing_chip_color_mode_album_art">Kolor okładki albumu</string>
 </resources>
