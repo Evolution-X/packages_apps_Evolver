@@ -62,7 +62,7 @@
 
     <PreferenceCategory
         android:key="founders"
-        android:title="@string/about_founders_title" />
+        android:title="@string/about_founders_title">
 
         <!-- Founder 1 -->
         <Preference
@@ -90,5 +90,43 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://t.me/RealAkito" />
         </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="team_members"
+        android:title="@string/about_team_members_title">
+
+        <Preference
+            android:title="@string/about_member_1_title"
+            android:summary="@string/about_member_1_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/TechPanelGM" />
+        </Preference>
+
+        <Preference
+            android:title="@string/about_member_2_title"
+            android:summary="@string/about_member_2_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://linktr.ee/aidanlw" />
+        </Preference>
+
+        <Preference
+            android:title="@string/about_member_3_title"
+            android:summary="@string/about_member_3_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Onelots" />
+        </Preference>
+
+        <Preference
+            android:title="@string/about_member_4_title"
+            android:summary="@string/about_member_4_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://paypal.me/manidreddy1" />
+        </Preference>
+    </PreferenceCategory>
 
 </PreferenceScreen>
