@@ -769,6 +769,36 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Hullámzó animáció</string>
     <string name="media_squiggle_animation_summary">Média lejátszásakor a keresősáv hullámzó animációjának megjelenítése</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Az értesítési sáv műveletjelzője</string>
+    <string name="ongoing_progress_settings_summary">A folyamatjelző megjelenítési formájának testreszabása</string>
+    <string name="ongoing_action_chip_title">Épp zajló művelet kijelzője</string>
+    <string name="ongoing_action_chip_summary">Folyamatban lévő műveletek, pl. letöltések kijelzőjének megjelenítése az állapotsoron</string>
+    <string name="ongoing_media_progress_title">Média-előrehaladás</string>
+    <string name="ongoing_media_progress_summary">A médialejátszási folyamat megjelenítése</string>
+    <string name="ongoing_progress_footer_text">\"Az állapotsori folyamatjelző valós idejű információkat nyújt mind a médialejátszásról, mind az aktív letöltésekről/feltöltésekről.
+
+Médiafolyamat:
+• Megjeleníti a zenék és a videók lejátszásának folyamatát lejátszás közben.
+• Egyetlen koppintással megnyithatja a lejátszás-vezérlőket.
+• Dupla koppintással válthat a lejátszás/szüneteltetés között.
+• Balra húzással az előző számra ugorhat.
+• Jobbra húzással a következő számra ugorhat.
+• Hosszan megnyomva megnyílik a médiaalkalmazás.
+
+Letöltés/feltöltés folyamata:
+• Megjeleníti a folyamatban lévő letöltések és feltöltések állapotát.
+• Automatikusan elrejtődik, ha nincs aktivitás.
+• Egyetlen koppintással megnyithatja a letöltő alkalmazást.
+
+A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok között, így mindig a legfontosabb információk jelennek meg betekintésre.\"
+    </string>
+    <string name="ongoing_compact_mode_title">Kompakt folyamatjelző</string>
+    <string name="ongoing_compact_mode_summary">Kör alakú folyamatjelző használata a sáv helyett</string>
+    <string name="ongoing_chip_color_mode_title">A médiához tartozó háttér színe</string>
+    <string name="ongoing_chip_color_mode_accent">A rendszer kiemelőszíne</string>
+    <string name="ongoing_chip_color_mode_icon">Az alkalmazásikon színe</string>
+    <string name="ongoing_chip_color_mode_album_art">A lemezborító színe</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Akkumulátorsáv</string>
     <string name="battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
@@ -943,34 +973,4 @@
     <string name="custom_gradient_color_mode_custom">Egyéni mód</string>
     <string name="custom_gradient_start_color_title">A színátmenet kezdeti színe</string>
     <string name="custom_gradient_end_color_title">A színátmenet befejező színe</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Az értesítési sáv műveletjelzője</string>
-    <string name="ongoing_progress_settings_summary">A folyamatjelző megjelenítési formájának testreszabása</string>
-    <string name="ongoing_action_chip_title">Épp zajló művelet kijelzője</string>
-    <string name="ongoing_action_chip_summary">Folyamatban lévő műveletek, pl. letöltések kijelzőjének megjelenítése az állapotsoron</string>
-    <string name="ongoing_media_progress_title">Média-előrehaladás</string>
-    <string name="ongoing_media_progress_summary">A médialejátszási folyamat megjelenítése</string>
-    <string name="ongoing_progress_footer_text">\"Az állapotsori folyamatjelző valós idejű információkat nyújt mind a médialejátszásról, mind az aktív letöltésekről/feltöltésekről.
-
-Médiafolyamat:
-• Megjeleníti a zenék és a videók lejátszásának folyamatát lejátszás közben.
-• Egyetlen koppintással megnyithatja a lejátszás-vezérlőket.
-• Dupla koppintással válthat a lejátszás/szüneteltetés között.
-• Balra húzással az előző számra ugorhat.
-• Jobbra húzással a következő számra ugorhat.
-• Hosszan megnyomva megnyílik a médiaalkalmazás.
-
-Letöltés/feltöltés folyamata:
-• Megjeleníti a folyamatban lévő letöltések és feltöltések állapotát.
-• Automatikusan elrejtődik, ha nincs aktivitás.
-• Egyetlen koppintással megnyithatja a letöltő alkalmazást.
-
-A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok között, így mindig a legfontosabb információk jelennek meg betekintésre.\"
-    </string>
-    <string name="ongoing_compact_mode_title">Kompakt folyamatjelző</string>
-    <string name="ongoing_compact_mode_summary">Kör alakú folyamatjelző használata a sáv helyett</string>
-    <string name="ongoing_chip_color_mode_title">A médiához tartozó háttér színe</string>
-    <string name="ongoing_chip_color_mode_accent">A rendszer kiemelőszíne</string>
-    <string name="ongoing_chip_color_mode_icon">Az alkalmazásikon színe</string>
-    <string name="ongoing_chip_color_mode_album_art">A lemezborító színe</string>
 </resources>
