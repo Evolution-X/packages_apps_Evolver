@@ -768,6 +768,36 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Animacja falowania</string>
     <string name="media_squiggle_animation_summary">Pokaż animację falowania paska wyszukiwania w panelu multimediów podczas odtwarzania multimediów</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Znacznik akcji na pasku stanu</string>
+    <string name="ongoing_progress_settings_summary">Dostosuj znacznik akcji, aby wyświetlał wskaźnik postępu</string>
+    <string name="ongoing_action_chip_title">Znacznik trwającej akcji</string>
+    <string name="ongoing_action_chip_summary">Pokaż wskaźnik postępu na pasku stanu dla trwających akcji, takich jak pobieranie</string>
+    <string name="ongoing_media_progress_title">Postęp multimediów</string>
+    <string name="ongoing_media_progress_summary">Wyświetlaj postęp odtwarzania multimediów</string>
+    <string name="ongoing_progress_footer_text">\"Pasek akcji na pasku stanu zapewnia aktualizacje w czasie rzeczywistym dla odtwarzania multimediów oraz aktywnego pobierania/wysyłania.
+
+Postęp multimediów:
+• Wyświetla postęp odtwarzania dla muzyki i wideo, gdy multimedia są odtwarzane.
+• Pojedyncze dotknięcie otwiera sterowanie odtwarzaniem.
+• Podwójne dotknięcie przełącza odtwarzanie/pauzę.
+• Przesunięcie w lewo przełącza na poprzedni utwór.
+• Przesunięcie w prawo przełącza na następny utwór.
+• Długie przytrzymanie otwiera aplikację multimediów.
+
+Postęp pobierania/wysyłania:
+• Pokazuje postęp dla trwającego pobierania i wysyłania.
+• Automatycznie ukrywa się, przy braku aktywnych transferów.
+• Pojedyncze dotknięcie otwiera aplikację odpowiedzialną za pobieranie.
+
+Pasek postępu dynamicznie przełącza się między stanem multimediów i pobierania, zapewniając, że zawsze masz najbardziej istotne informacje na pierwszy rzut oka.\"
+    </string>
+    <string name="ongoing_compact_mode_title">Kompaktowy wskaźnik postępu</string>
+    <string name="ongoing_compact_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
+    <string name="ongoing_chip_color_mode_title">Kolor tła znacznika multimedialnego</string>
+    <string name="ongoing_chip_color_mode_accent">Kolor akcentu systemowego</string>
+    <string name="ongoing_chip_color_mode_icon">Kolor ikony aplikacji</string>
+    <string name="ongoing_chip_color_mode_album_art">Kolor okładki albumu</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Pasek baterii</string>
     <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii nad paskiem stanu</string>
@@ -942,34 +972,4 @@
     <string name="custom_gradient_color_mode_custom">Tryb niestandardowy</string>
     <string name="custom_gradient_start_color_title">Kolor początkowy gradientu</string>
     <string name="custom_gradient_end_color_title">Kolor końca gradientu</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Znacznik akcji na pasku stanu</string>
-    <string name="ongoing_progress_settings_summary">Dostosuj znacznik akcji, aby wyświetlał wskaźnik postępu</string>
-    <string name="ongoing_action_chip_title">Znacznik trwającej akcji</string>
-    <string name="ongoing_action_chip_summary">Pokaż wskaźnik postępu na pasku stanu dla trwających akcji, takich jak pobieranie</string>
-    <string name="ongoing_media_progress_title">Postęp multimediów</string>
-    <string name="ongoing_media_progress_summary">Wyświetlaj postęp odtwarzania multimediów</string>
-    <string name="ongoing_progress_footer_text">\"Pasek akcji na pasku stanu zapewnia aktualizacje w czasie rzeczywistym dla odtwarzania multimediów oraz aktywnego pobierania/wysyłania.
-
-Postęp multimediów:
-• Wyświetla postęp odtwarzania dla muzyki i wideo, gdy multimedia są odtwarzane.
-• Pojedyncze dotknięcie otwiera sterowanie odtwarzaniem.
-• Podwójne dotknięcie przełącza odtwarzanie/pauzę.
-• Przesunięcie w lewo przełącza na poprzedni utwór.
-• Przesunięcie w prawo przełącza na następny utwór.
-• Długie przytrzymanie otwiera aplikację multimediów.
-
-Postęp pobierania/wysyłania:
-• Pokazuje postęp dla trwającego pobierania i wysyłania.
-• Automatycznie ukrywa się, przy braku aktywnych transferów.
-• Pojedyncze dotknięcie otwiera aplikację odpowiedzialną za pobieranie.
-
-Pasek postępu dynamicznie przełącza się między stanem multimediów i pobierania, zapewniając, że zawsze masz najbardziej istotne informacje na pierwszy rzut oka.\"
-    </string>
-    <string name="ongoing_compact_mode_title">Kompaktowy wskaźnik postępu</string>
-    <string name="ongoing_compact_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
-    <string name="ongoing_chip_color_mode_title">Kolor tła znacznika multimedialnego</string>
-    <string name="ongoing_chip_color_mode_accent">Kolor akcentu systemowego</string>
-    <string name="ongoing_chip_color_mode_icon">Kolor ikony aplikacji</string>
-    <string name="ongoing_chip_color_mode_album_art">Kolor okładki albumu</string>
 </resources>
