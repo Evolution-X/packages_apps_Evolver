@@ -80,9 +80,15 @@
         android:defaultValue="1160" />
 
     <PreferenceCategory
-        android:key="cutout_progress_cat_charging"
-        android:title="@string/cutout_progress_cat_charging"
+        android:key="cutout_progress_cat_battery"
+        android:title="@string/cutout_progress_cat_battery"
         android:dependency="cutout_progress_enabled">
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="cutout_progress_battery_indicator_enabled"
+            android:title="@string/cutout_progress_battery_indicator_title"
+            android:summary="@string/cutout_progress_battery_indicator_summary"
+            android:defaultValue="false" />
 
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="cutout_progress_charging_ring_enabled"

@@ -1564,7 +1564,9 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="cutout_progress_ring_color_mode_custom">Custom</string>
 
     <!-- Charging Ring -->
-    <string name="cutout_progress_cat_charging">Charging ring</string>
+    <string name="cutout_progress_cat_battery">Battery ring</string>
+    <string name="cutout_progress_battery_indicator_title">Show battery indicator</string>
+    <string name="cutout_progress_battery_indicator_summary">Display battery level as a symmetric ring around the cutout when charging or fully charged</string>
     <string name="cutout_progress_charging_ring_title">Show charging ring</string>
     <string name="cutout_progress_charging_ring_summary">Display battery level as a symmetric ring around the cutout while charging</string>
     <string name="cutout_progress_charging_pulse_title">Charging pulse animation</string>
