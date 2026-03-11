@@ -598,10 +598,6 @@
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
-    <string name="gameprops_title">Enable Game Props spoofing</string>
-    <string name="gameprops_summary">Spoof your device as different model for specific games to unlock higher FPS</string>
-    <string name="gameprops_load_json_title">Select Game Props JSON File</string>
-    <string name="gameprops_load_json_summary">Pick Game Props JSON file to be used for spoofing games</string>
 
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Successfully downloaded pif.json. Spoofing as %1$s for Play Integrity.</string>
@@ -1072,4 +1068,23 @@
     <string name="custom_gradient_color_mode_custom">Custom mode</string>
     <string name="custom_gradient_start_color_title">Gradient start color</string>
     <string name="custom_gradient_end_color_title">Gradient end color</string>
+    
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">App Spoofing</string>
+    <string name="user_selectable_app_spoofing_summary">Choose which apps to spoof device properties for</string>
+    <string name="user_select_spoofing_profile_title">Select spoofing profile</string>
+    <string name="app_spoofing_category_title">App Spoofing</string>
+    <string name="app_spoofing_header_title">App Spoofing</string>
+    <string name="app_spoofing_configured_count">%1$d apps configured</string>
+    <string name="app_spoofing_disabled">Disabled</string>
+    <string name="app_spoofing_add_apps">Add apps</string>
+    <string name="app_spoofing_spoofed_model">Spoofed model</string>
+    <string name="app_spoofing_clear_all">Clear all</string>
+    <string name="app_spoofing_configured_apps">CONFIGURED APPS</string>
+    <string name="app_spoofing_no_apps_configured">No apps configured</string>
+    <string name="app_spoofing_spoof_model">Spoof model</string>
+    <string name="app_spoofing_select_spoof_model">Select spoof model</string>
+    <string name="app_spoofing_change_app">Change app</string>
+    <string name="show_system_apps">Show system apps</string>
+    <string name="hide_system_apps">Hide system apps</string>
 </resources>
