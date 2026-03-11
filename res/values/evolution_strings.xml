@@ -1087,4 +1087,15 @@
     <string name="app_spoofing_change_app">Change app</string>
     <string name="show_system_apps">Show system apps</string>
     <string name="hide_system_apps">Hide system apps</string>
+
+    <!-- Custom App Spoofing Profiles -->
+    <string name="add_new_spoof_profile">Add new</string>
+    <string name="add_custom_spoof_profile_title">Add Custom Spoof Profile</string>
+    <string name="custom_spoof_profile_name">Profile name</string>
+    <string name="custom_spoof_profile_brand">BRAND</string>
+    <string name="custom_spoof_profile_manufacturer">MANUFACTURER</string>
+    <string name="custom_spoof_profile_device">DEVICE</string>
+    <string name="custom_spoof_profile_model">MODEL</string>
+    <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Optional)</string>
+    <string name="custom_spoof_profile_product">PRODUCT (Optional)</string>
 </resources>

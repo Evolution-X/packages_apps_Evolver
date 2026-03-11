@@ -80,6 +80,8 @@ import com.android.settings.R
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.json.JSONArray
+import org.json.JSONObject
 import java.util.Locale
 
 class UserSelectedAppSpoofSettings : Fragment() {
@@ -110,6 +112,7 @@ class UserSelectedAppSpoofSettings : Fragment() {
 private const val SPOOFED_APPS_SETTING = Settings.Secure.PER_APPS_DEVICE_SPOOF
 private const val SPOOFED_APPS_CACHE_SETTING = Settings.Secure.PER_APPS_DEVICE_SPOOF_CACHE
 private const val SPOOFED_APPS_ENABLED_SETTING = Settings.Secure.PER_APPS_DEVICE_SPOOF_ENABLED
+private const val CUSTOM_SPOOF_PROFILES_SETTING = Settings.Secure.CUSTOM_SPOOF_PROFILES
 
 private data class AppItem(
     val packageName: String,
@@ -118,12 +121,23 @@ private data class AppItem(
     val isSystem: Boolean
 )
 
+private data class CustomSpoofProfile(
+    val id: String,
+    val name: String,
+    val brand: String,
+    val manufacturer: String,
+    val device: String,
+    val model: String,
+    val fingerprint: String,
+    val product: String
+)
+
 @Composable
 private fun AppSpoofingContent(context: Context) {
     val pm = context.packageManager
     val activityManager = context.getSystemService(ActivityManager::class.java)
-    val profileValues = context.resources.getStringArray(R.array.neoteric_spoof_profile_values)
-    val profileLabels = context.resources.getStringArray(R.array.neoteric_spoof_profile_labels)
+    val profileValues = context.resources.getStringArray(R.array.perapp_spoof_profile_values)
+    val profileLabels = context.resources.getStringArray(R.array.perapp_spoof_profile_labels)
     val profileLabelMap = remember(profileValues.contentToString(), profileLabels.contentToString()) {
         profileValues.indices.associate { idx ->
             profileValues[idx] to profileLabels.getOrElse(idx) { profileValues[idx] }
@@ -136,13 +150,17 @@ private fun AppSpoofingContent(context: Context) {
 
     var showAddDialog by remember { mutableStateOf(false) }
     var showModelDialog by remember { mutableStateOf(false) }
+    var showAddCustomProfileDialog by remember { mutableStateOf(false) }
+    var customProfileToEdit by remember { mutableStateOf<CustomSpoofProfile?>(null) }
     var editTarget by remember { mutableStateOf<AppItem?>(null) }
+    var customProfiles by remember { mutableStateOf(listOf<CustomSpoofProfile>()) }
 
     fun loadState() {
         spoofEnabled = readEnabled(context)
         configuredMap = linkedMapOf<String, String>().apply {
             putAll(readConfigured(context, spoofEnabled))
         }
+        customProfiles = readCustomProfiles(context)
     }
 
     fun persistConfigured() {
@@ -261,13 +279,91 @@ private fun AppSpoofingContent(context: Context) {
                             Text(label)
                         }
                     }
+
+                    customProfiles.forEach { profile ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    val target = editTarget ?: return@clickable
+                                    configuredMap = LinkedHashMap(configuredMap).apply {
+                                        put(target.packageName, profile.id)
+                                    }
+                                    persistConfigured()
+                                    if (spoofEnabled) stopPackage(target.packageName)
+                                    showModelDialog = false
+                                }
+                                .padding(8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(Icons.Default.Apps, contentDescription = null)
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = profile.name,
+                                modifier = Modifier.weight(1f)
+                            )
+                            IconButton(onClick = {
+                                customProfileToEdit = profile
+                                showAddCustomProfileDialog = true
+                                showModelDialog = false
+                            }) {
+                                Icon(Icons.Default.Edit, contentDescription = null, modifier = Modifier.size(20.dp))
+                            }
+                            IconButton(onClick = {
+                                val newList = customProfiles.filter { it.id != profile.id }
+                                writeCustomProfiles(context, newList)
+                                customProfiles = newList
+                                val newConfigured = configuredMap.filterValues { it != profile.id }
+                                if (newConfigured.size != configuredMap.size) {
+                                    configuredMap = LinkedHashMap(newConfigured)
+                                    persistConfigured()
+                                }
+                            }) {
+                                Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(20.dp))
+                            }
+                        }
+                    }
                 }
             },
             confirmButton = {
-                TextButton(onClick = { showModelDialog = false }) {
-                    Text(stringResource(R.string.cancel))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    TextButton(onClick = { 
+                        showModelDialog = false 
+                        showAddCustomProfileDialog = true
+                    }) {
+                        Text(stringResource(R.string.add_new_spoof_profile))
+                    }
+                    TextButton(onClick = { showModelDialog = false }) {
+                        Text(stringResource(R.string.cancel))
+                    }
                 }
             }
+        )
+    }
+
+    if (showAddCustomProfileDialog) {
+                        val passedId = customProfileToEdit?.id ?: ("CUSTOM_" + System.currentTimeMillis())
+        AddCustomProfileDialog(
+            context = context,
+            initialProfile = customProfileToEdit,
+            onDismiss = { showAddCustomProfileDialog = false },
+            onSave = { newProfile ->
+                val updatedProfiles = if (customProfileToEdit != null) {
+                                    customProfiles.map { if (it.id == newProfile.id) newProfile else it }
+                                } else {
+                                    customProfiles + newProfile
+                                }
+                writeCustomProfiles(context, updatedProfiles)
+                customProfiles = updatedProfiles
+                showAddCustomProfileDialog = false
+                customProfileToEdit = null
+                showModelDialog = true
+            },
+            id = passedId
         )
     }
 
@@ -392,10 +488,18 @@ private fun AppSpoofingContent(context: Context) {
                     configuredMap.forEach { (pkg, profile) ->
                         val app = allApps.find { it.packageName == pkg }
                         if (app != null) {
+                            val isCustom = pkg.startsWith("CUSTOM_") || customProfiles.any { it.id == profile }
+                            val customProfile = customProfiles.find { it.id == profile }
+                            val displayLabel = if (customProfile != null) {
+                                customProfile.name
+                            } else {
+                                profileLabelMap[profile] ?: profile
+                            }
+
                             AppConfigCard(
                                 app = app,
                                 profile = profile,
-                                profileLabel = profileLabelMap[profile] ?: profile,
+                                profileLabel = displayLabel,
                                 onRemove = {
                                     configuredMap = LinkedHashMap(configuredMap).apply { remove(pkg) }
                                     persistConfigured()
@@ -567,6 +671,8 @@ private fun AddAppDialog(
     var selectedApp by remember { mutableStateOf<AppItem?>(null) }
     var selectedProfile by remember { mutableStateOf<String?>(null) }
     var showProfileSelector by remember { mutableStateOf(false) }
+    var showAddCustomProfileDialog by remember { mutableStateOf(false) }
+    var customProfileToEdit by remember { mutableStateOf<CustomSpoofProfile?>(null) }
 
     val addableProfiles = profileValues.filter { it != "None" }
     val profileLabelMap = profileValues.indices.associate { idx ->
@@ -579,6 +685,9 @@ private fun AddAppDialog(
         if (searchQuery.isBlank()) return@filter true
         app.label.contains(searchQuery, true) || app.packageName.contains(searchQuery, true)
     }
+
+    val currentCtx = androidx.compose.ui.platform.LocalContext.current
+    var customProfilesList by remember { mutableStateOf(readCustomProfiles(currentCtx)) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -680,7 +789,9 @@ private fun AddAppDialog(
                             .verticalScroll(rememberScrollState())
                     ) {
                         addableProfiles.forEach { profile ->
-                            val label = profileLabelMap[profile] ?: profile
+                            val isCustom = customProfilesList.any { it.id == profile }
+                            val customProfile = customProfilesList.find { it.id == profile }
+                            val label = if (customProfile != null) customProfile.name else profileLabelMap[profile] ?: profile
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -704,26 +815,104 @@ private fun AddAppDialog(
                                 }
                             }
                         }
+                        customProfilesList.forEach { profile ->
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable { selectedProfile = profile.id }
+                                    .padding(10.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                if (selectedProfile == profile.id) {
+                                    Icon(Icons.Default.Check, contentDescription = null)
+                                } else {
+                                    Spacer(modifier = Modifier.width(24.dp))
+                                }
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Text(profile.name)
+                                    Text(
+                                        profile.id,
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                                IconButton(onClick = {
+                                    customProfileToEdit = profile
+                                    showAddCustomProfileDialog = true
+                                }) {
+                                    Icon(Icons.Default.Edit, contentDescription = null, modifier = Modifier.size(20.dp))
+                                }
+                                IconButton(onClick = {
+                                    val newList = customProfilesList.filter { it.id != profile.id }
+                                    writeCustomProfiles(currentCtx, newList)
+                                    customProfilesList = newList
+                                }) {
+                                    Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(20.dp))
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
         confirmButton = {
-            TextButton(
-                onClick = {
-                    val app = selectedApp ?: return@TextButton
-                    val profile = selectedProfile ?: return@TextButton
-                    onAppAdded(app, profile)
-                },
-                enabled = selectedApp != null && selectedProfile != null
-            ) {
-                Text(stringResource(R.string.add))
+            if (showProfileSelector) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    TextButton(onClick = { 
+                        customProfileToEdit = null
+                        showAddCustomProfileDialog = true 
+                    }) {
+                        Text(stringResource(R.string.add_new_spoof_profile))
+                    }
+                    TextButton(onClick = { showProfileSelector = false }) {
+                        Text(stringResource(R.string.cancel))
+                    }
+                }
+            } else {
+                TextButton(
+                    onClick = {
+                        val app = selectedApp ?: return@TextButton
+                        val profile = selectedProfile ?: return@TextButton
+                        onAppAdded(app, profile)
+                    },
+                    enabled = selectedApp != null && selectedProfile != null
+                ) {
+                    Text(stringResource(R.string.add))
+                }
             }
         },
         dismissButton = {
-            TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
+            if (!showProfileSelector) {
+                TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
+            }
         }
     )
+
+    if (showAddCustomProfileDialog) {
+        val passedId = customProfileToEdit?.id ?: ("CUSTOM_" + System.currentTimeMillis())
+        AddCustomProfileDialog(
+            context = currentCtx,
+            initialProfile = customProfileToEdit,
+            onDismiss = { showAddCustomProfileDialog = false },
+            onSave = { newProfile ->
+                val updatedProfiles = if (customProfileToEdit != null) {
+                    customProfilesList.map { if (it.id == newProfile.id) newProfile else it }
+                } else {
+                    customProfilesList + newProfile
+                }
+                writeCustomProfiles(currentCtx, updatedProfiles)
+                customProfilesList = updatedProfiles
+                showAddCustomProfileDialog = false
+                customProfileToEdit = null
+            },
+            id = passedId
+        )
+    }
 }
 
 private fun readMapSetting(context: Context, key: String): Map<String, String> {
@@ -771,4 +960,154 @@ private fun writeConfigured(context: Context, values: Map<String, String>, enabl
     } else {
         writeMapSetting(context, SPOOFED_APPS_SETTING, emptyMap())
     }
+}
+
+private fun readCustomProfiles(context: Context): List<CustomSpoofProfile> {
+    val jsonStr = Settings.Secure.getString(context.contentResolver, CUSTOM_SPOOF_PROFILES_SETTING)
+    if (jsonStr.isNullOrBlank()) return emptyList()
+    return try {
+        val jsonArray = JSONArray(jsonStr)
+        val profiles = mutableListOf<CustomSpoofProfile>()
+        for (i in 0 until jsonArray.length()) {
+            val obj = jsonArray.getJSONObject(i)
+            profiles.add(
+                CustomSpoofProfile(
+                    id = obj.getString("id"),
+                    name = obj.getString("name"),
+                    brand = obj.getString("brand"),
+                    manufacturer = obj.getString("manufacturer"),
+                    device = obj.getString("device"),
+                    model = obj.getString("model"),
+                    fingerprint = obj.optString("fingerprint", ""),
+                    product = obj.optString("product", "")
+                )
+            )
+        }
+        profiles
+    } catch (e: Exception) {
+        emptyList()
+    }
+}
+
+private fun writeCustomProfiles(context: Context, profiles: List<CustomSpoofProfile>) {
+    val jsonArray = JSONArray()
+    profiles.forEach { profile ->
+        val obj = JSONObject().apply {
+            put("id", profile.id)
+            put("name", profile.name)
+            put("brand", profile.brand)
+            put("manufacturer", profile.manufacturer)
+            put("device", profile.device)
+            put("model", profile.model)
+            put("fingerprint", profile.fingerprint)
+            put("product", profile.product)
+        }
+        jsonArray.put(obj)
+    }
+    Settings.Secure.putString(context.contentResolver, CUSTOM_SPOOF_PROFILES_SETTING, jsonArray.toString())
+}
+
+@Composable
+private fun AddCustomProfileDialog(
+    context: Context,
+    initialProfile: CustomSpoofProfile? = null,
+    onDismiss: () -> Unit,
+    onSave: (CustomSpoofProfile) -> Unit,
+    id: String
+) {
+    var name by remember(initialProfile) { mutableStateOf(initialProfile?.name ?: "") }
+    var brand by remember(initialProfile) { mutableStateOf(initialProfile?.brand ?: "") }
+    var manufacturer by remember(initialProfile) { mutableStateOf(initialProfile?.manufacturer ?: "") }
+    var device by remember(initialProfile) { mutableStateOf(initialProfile?.device ?: "") }
+    var model by remember(initialProfile) { mutableStateOf(initialProfile?.model ?: "") }
+    var fingerprint by remember(initialProfile) { mutableStateOf(initialProfile?.fingerprint ?: "") }
+    var product by remember(initialProfile) { mutableStateOf(initialProfile?.product ?: "") }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.add_custom_spoof_profile_title)) },
+        text = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                OutlinedTextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = { Text(stringResource(R.string.custom_spoof_profile_name)) },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = brand,
+                    onValueChange = { brand = it },
+                    label = { Text(stringResource(R.string.custom_spoof_profile_brand)) },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = manufacturer,
+                    onValueChange = { manufacturer = it },
+                    label = { Text(stringResource(R.string.custom_spoof_profile_manufacturer)) },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = device,
+                    onValueChange = { device = it },
+                    label = { Text(stringResource(R.string.custom_spoof_profile_device)) },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = model,
+                    onValueChange = { model = it },
+                    label = { Text(stringResource(R.string.custom_spoof_profile_model)) },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = fingerprint,
+                    onValueChange = { fingerprint = it },
+                    label = { Text(stringResource(R.string.custom_spoof_profile_fingerprint)) },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = product,
+                    onValueChange = { product = it },
+                    label = { Text(stringResource(R.string.custom_spoof_profile_product)) },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onSave(
+                        CustomSpoofProfile(
+                            id = id,
+                            name = name,
+                            brand = brand,
+                            manufacturer = manufacturer,
+                            device = device,
+                            model = model,
+                            fingerprint = fingerprint,
+                            product = product
+                        )
+                    )
+                },
+                enabled = name.isNotBlank() && brand.isNotBlank() && manufacturer.isNotBlank() &&
+                          device.isNotBlank() && model.isNotBlank()
+            ) {
+                Text(stringResource(R.string.save))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
+        }
+    )
 }
