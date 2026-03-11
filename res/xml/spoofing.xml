@@ -74,17 +74,12 @@
             android:summary="@string/spoofing_photos_summary"
             android:defaultValue="true" />
 
-        <!-- Games FPS -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.gameprops.enabled"
-            android:title="@string/gameprops_title"
-            android:summary="@string/gameprops_summary"
-            android:defaultValue="false" />
-            
+        <!-- App Spoofing -->
         <Preference
-            android:key="game_props_json_file_preference"
-            android:title="@string/gameprops_load_json_title"
-            android:summary="@string/gameprops_load_json_summary" />
+            android:key="user_selectable_app_spoofing"
+            android:title="@string/user_selectable_app_spoofing_title"
+            android:summary="@string/user_selectable_app_spoofing_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.UserSelectedAppSpoofSettings" />
 
         <!-- Snapchat -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
