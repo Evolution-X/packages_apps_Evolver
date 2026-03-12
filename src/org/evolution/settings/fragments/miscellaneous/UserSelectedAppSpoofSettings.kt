@@ -11,10 +11,20 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.provider.Settings
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,6 +33,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -40,7 +51,12 @@ import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.rounded.Check
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -48,6 +64,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -62,27 +79,34 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import com.android.settings.R
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.Locale
+import kotlin.math.roundToInt
 
 class UserSelectedAppSpoofSettings : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,6 +156,24 @@ private data class CustomSpoofProfile(
     val product: String
 )
 
+private fun brandColorForProfile(profileKey: String, brand: String): Color {
+    val b = brand.lowercase()
+    return when {
+        b.contains("google") || profileKey.startsWith("PXL") -> Color(0xFF4285F4)
+        b.contains("samsung") || profileKey.startsWith("GZF") || profileKey.startsWith("S25") -> Color(0xFF1428A0)
+        b.contains("asus") || profileKey.startsWith("ROG") -> Color(0xFFD00024)
+        b.contains("xiaomi") || profileKey.startsWith("MI") || profileKey.startsWith("F5") -> Color(0xFFFF6900)
+        b.contains("oneplus") || profileKey.startsWith("OP") -> Color(0xFFEB0029)
+        b.contains("nubia") || profileKey.startsWith("RM") -> Color(0xFF00C4B3)
+        b.contains("realme") || profileKey.startsWith("RMX") || profileKey.startsWith("RMP") -> Color(0xFFFFD700)
+        b.contains("lenovo") || profileKey.startsWith("LY") -> Color(0xFFE2231A)
+        b.contains("honor") || profileKey.startsWith("HMV") -> Color(0xFF0066B3)
+        b.contains("black shark") || profileKey.startsWith("BS") -> Color(0xFF00FF99)
+        else -> Color(0xFF9E9E9E)
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun AppSpoofingContent(context: Context) {
     val pm = context.packageManager
@@ -144,6 +186,9 @@ private fun AppSpoofingContent(context: Context) {
         }
     }
 
+    val haptic = LocalHapticFeedback.current
+    val scope = rememberCoroutineScope()
+
     var allApps by remember { mutableStateOf(listOf<AppItem>()) }
     var configuredMap by remember { mutableStateOf(linkedMapOf<String, String>()) }
     var spoofEnabled by remember { mutableStateOf(true) }
@@ -151,6 +196,7 @@ private fun AppSpoofingContent(context: Context) {
     var showAddDialog by remember { mutableStateOf(false) }
     var showModelDialog by remember { mutableStateOf(false) }
     var showAddCustomProfileDialog by remember { mutableStateOf(false) }
+    var showClearAllConfirm by remember { mutableStateOf(false) }
     var customProfileToEdit by remember { mutableStateOf<CustomSpoofProfile?>(null) }
     var editTarget by remember { mutableStateOf<AppItem?>(null) }
     var customProfiles by remember { mutableStateOf(listOf<CustomSpoofProfile>()) }
@@ -170,12 +216,7 @@ private fun AppSpoofingContent(context: Context) {
     fun stopPackage(pkg: String) {
         try {
             activityManager?.forceStopPackage(pkg)
-        } catch (_: Exception) {
-        }
-    }
-
-    fun stopAllConfiguredPackages() {
-        configuredMap.keys.forEach { stopPackage(it) }
+        } catch (_: Exception) {}
     }
 
     fun allKnownConfiguredPackages(): Set<String> {
@@ -233,6 +274,7 @@ private fun AppSpoofingContent(context: Context) {
             configuredPackages = configuredMap.keys,
             profileValues = profileValues,
             profileLabels = profileLabels,
+            customProfiles = customProfiles,
             onDismiss = { showAddDialog = false },
             onAppAdded = { app, profile ->
                 configuredMap = LinkedHashMap(configuredMap).apply {
@@ -241,6 +283,10 @@ private fun AppSpoofingContent(context: Context) {
                 persistConfigured()
                 if (spoofEnabled) stopPackage(app.packageName)
                 showAddDialog = false
+            },
+            onWriteCustomProfiles = { updated ->
+                writeCustomProfiles(context, updated)
+                customProfiles = updated
             }
         )
     }
@@ -279,7 +325,6 @@ private fun AppSpoofingContent(context: Context) {
                             Text(label)
                         }
                     }
-
                     customProfiles.forEach { profile ->
                         Row(
                             modifier = Modifier
@@ -298,10 +343,7 @@ private fun AppSpoofingContent(context: Context) {
                         ) {
                             Icon(Icons.Default.Apps, contentDescription = null)
                             Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                text = profile.name,
-                                modifier = Modifier.weight(1f)
-                            )
+                            Text(text = profile.name, modifier = Modifier.weight(1f))
                             IconButton(onClick = {
                                 customProfileToEdit = profile
                                 showAddCustomProfileDialog = true
@@ -331,8 +373,8 @@ private fun AppSpoofingContent(context: Context) {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    TextButton(onClick = { 
-                        showModelDialog = false 
+                    TextButton(onClick = {
+                        showModelDialog = false
                         showAddCustomProfileDialog = true
                     }) {
                         Text(stringResource(R.string.add_new_spoof_profile))
@@ -346,17 +388,17 @@ private fun AppSpoofingContent(context: Context) {
     }
 
     if (showAddCustomProfileDialog) {
-                        val passedId = customProfileToEdit?.id ?: ("CUSTOM_" + System.currentTimeMillis())
+        val passedId = customProfileToEdit?.id ?: ("CUSTOM_" + System.currentTimeMillis())
         AddCustomProfileDialog(
             context = context,
             initialProfile = customProfileToEdit,
             onDismiss = { showAddCustomProfileDialog = false },
             onSave = { newProfile ->
                 val updatedProfiles = if (customProfileToEdit != null) {
-                                    customProfiles.map { if (it.id == newProfile.id) newProfile else it }
-                                } else {
-                                    customProfiles + newProfile
-                                }
+                    customProfiles.map { if (it.id == newProfile.id) newProfile else it }
+                } else {
+                    customProfiles + newProfile
+                }
                 writeCustomProfiles(context, updatedProfiles)
                 customProfiles = updatedProfiles
                 showAddCustomProfileDialog = false
@@ -364,6 +406,39 @@ private fun AppSpoofingContent(context: Context) {
                 showModelDialog = true
             },
             id = passedId
+        )
+    }
+
+    if (showClearAllConfirm) {
+        AlertDialog(
+            onDismissRequest = { showClearAllConfirm = false },
+            icon = {
+                Icon(
+                    Icons.Default.Warning,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.error
+                )
+            },
+            title = { Text(stringResource(R.string.app_spoofing_clear_all)) },
+            text = { Text(stringResource(R.string.app_spoofing_clear_all_confirm)) },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        clearAllConfigured()
+                        showClearAllConfirm = false
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error
+                    )
+                ) {
+                    Text(stringResource(R.string.app_spoofing_clear_all))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showClearAllConfirm = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
         )
     }
 
@@ -381,7 +456,7 @@ private fun AppSpoofingContent(context: Context) {
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(24.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                    containerColor = MaterialTheme.colorScheme.surfaceBright
                 )
             ) {
                 Row(
@@ -415,10 +490,7 @@ private fun AppSpoofingContent(context: Context) {
                             )
                             Text(
                                 text = if (spoofEnabled) {
-                                    stringResource(
-                                        R.string.app_spoofing_configured_count,
-                                        configuredMap.size
-                                    )
+                                    stringResource(R.string.app_spoofing_configured_count, configuredMap.size)
                                 } else {
                                     stringResource(R.string.app_spoofing_disabled)
                                 },
@@ -429,148 +501,241 @@ private fun AppSpoofingContent(context: Context) {
                     }
                     Switch(
                         checked = spoofEnabled,
-                        onCheckedChange = { setMasterEnabled(it) }
+                        onCheckedChange = { newValue ->
+                            scope.launch {
+                                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                            }
+                            setMasterEnabled(newValue)
+                        },
+                        thumbContent = {
+                            Crossfade(
+                                targetState = spoofEnabled,
+                                animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
+                                label = "switch_icon"
+                            ) { isChecked ->
+                                if (isChecked) {
+                                    Icon(
+                                        imageVector = Icons.Rounded.Check,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                } else {
+                                    Icon(
+                                        imageVector = Icons.Rounded.Close,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                }
+                            }
+                        }
                     )
                 }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            if (spoofEnabled) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Button(
-                        onClick = { showAddDialog = true },
-                        modifier = Modifier.weight(1f),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary
-                        )
+            AnimatedVisibility(
+                visible = spoofEnabled,
+                enter = fadeIn(animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec()) +
+                        expandVertically(
+                            animationSpec = MaterialTheme.motionScheme.defaultSpatialSpec(),
+                            expandFrom = Alignment.Top
+                        ),
+                exit = fadeOut(animationSpec = MaterialTheme.motionScheme.fastEffectsSpec()) +
+                       shrinkVertically(
+                           animationSpec = MaterialTheme.motionScheme.fastSpatialSpec(),
+                           shrinkTowards = Alignment.Top
+                       )
+            ) {
+                Column {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(18.dp))
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(stringResource(R.string.app_spoofing_add_apps))
-                    }
-
-                    OutlinedButton(
-                        onClick = { showModelDialog = true },
-                        modifier = Modifier.weight(1f)
-                    ) {
-                        Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(stringResource(R.string.app_spoofing_spoofed_model))
-                    }
-
-                    OutlinedButton(
-                        onClick = {
-                            clearAllConfigured()
-                        },
-                        modifier = Modifier.weight(1f)
-                    ) {
-                        Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(18.dp))
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(stringResource(R.string.app_spoofing_clear_all))
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                if (configuredMap.isNotEmpty()) {
-                    Text(
-                        text = stringResource(R.string.app_spoofing_configured_apps),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(start = 4.dp, bottom = 8.dp)
-                    )
-
-                    configuredMap.forEach { (pkg, profile) ->
-                        val app = allApps.find { it.packageName == pkg }
-                        if (app != null) {
-                            val isCustom = pkg.startsWith("CUSTOM_") || customProfiles.any { it.id == profile }
-                            val customProfile = customProfiles.find { it.id == profile }
-                            val displayLabel = if (customProfile != null) {
-                                customProfile.name
-                            } else {
-                                profileLabelMap[profile] ?: profile
-                            }
-
-                            AppConfigCard(
-                                app = app,
-                                profile = profile,
-                                profileLabel = displayLabel,
-                                onRemove = {
-                                    configuredMap = LinkedHashMap(configuredMap).apply { remove(pkg) }
-                                    persistConfigured()
-                                    stopPackage(pkg)
-                                },
-                                onEdit = {
-                                    editTarget = app
-                                    showModelDialog = true
-                                }
+                        Button(
+                            onClick = { showAddDialog = true },
+                            modifier = Modifier.weight(1f),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.primary
                             )
-                            Spacer(modifier = Modifier.height(8.dp))
+                        ) {
+                            Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(18.dp))
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(stringResource(R.string.app_spoofing_add_apps), style = MaterialTheme.typography.labelSmall)
+                        }
+
+                        OutlinedButton(
+                            onClick = { showModelDialog = true },
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(stringResource(R.string.app_spoofing_spoofed_model), style = MaterialTheme.typography.labelSmall)
+                        }
+
+                        OutlinedButton(
+                            onClick = { showClearAllConfirm = true },
+                            modifier = Modifier.weight(1f),
+                            colors = ButtonDefaults.outlinedButtonColors(
+                                contentColor = MaterialTheme.colorScheme.error
+                            )
+                        ) {
+                            Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(18.dp))
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(stringResource(R.string.app_spoofing_clear_all), style = MaterialTheme.typography.labelSmall)
                         }
                     }
-                } else {
-                    Card(
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    if (configuredMap.isNotEmpty()) {
+                        Text(
+                            text = stringResource(R.string.app_spoofing_configured_apps),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(start = 4.dp, bottom = 8.dp)
                         )
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(24.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
+
+                        Column {
+                            configuredMap.entries.toList().forEach { (pkg, profile) ->
+                                val app = allApps.find { it.packageName == pkg }
+                                if (app != null) {
+                                    val customProfile = customProfiles.find { it.id == profile }
+                                    val displayLabel = customProfile?.name ?: profileLabelMap[profile] ?: profile
+                                    val tagColor = brandColorForProfile(profile, customProfile?.brand ?: "")
+
+                                    AnimatedVisibility(
+                                        visible = true,
+                                        enter = fadeIn(MaterialTheme.motionScheme.defaultEffectsSpec()) +
+                                                expandVertically(MaterialTheme.motionScheme.defaultSpatialSpec()),
+                                        exit = fadeOut(MaterialTheme.motionScheme.fastEffectsSpec()) +
+                                               shrinkVertically(MaterialTheme.motionScheme.fastSpatialSpec())
+                                    ) {
+                                        Column {
+                                            AppConfigCard(
+                                                app = app,
+                                                profile = profile,
+                                                profileLabel = displayLabel,
+                                                tagColor = tagColor,
+                                                onRemove = {
+                                                    configuredMap = LinkedHashMap(configuredMap).apply { remove(pkg) }
+                                                    persistConfigured()
+                                                    stopPackage(pkg)
+                                                },
+                                                onEdit = {
+                                                    editTarget = app
+                                                    showModelDialog = true
+                                                },
+                                                onLongPress = {
+                                                    editTarget = app
+                                                    showModelDialog = true
+                                                }
+                                            )
+                                            Spacer(modifier = Modifier.height(8.dp))
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(16.dp),
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
+                            )
                         ) {
-                            Icon(
-                                Icons.Default.Apps,
-                                contentDescription = null,
-                                modifier = Modifier.size(48.dp),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-                            )
-                            Spacer(modifier = Modifier.height(12.dp))
-                            Text(
-                                text = stringResource(R.string.app_spoofing_no_apps_configured),
-                                style = MaterialTheme.typography.titleMedium
-                            )
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(24.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Icon(
+                                    Icons.Default.Apps,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(48.dp),
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                                )
+                                Spacer(modifier = Modifier.height(12.dp))
+                                Text(
+                                    text = stringResource(R.string.app_spoofing_no_apps_configured),
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                            }
                         }
                     }
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(100.dp))
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun AppConfigCard(
     app: AppItem,
     profile: String,
     profileLabel: String,
+    tagColor: Color,
     onRemove: () -> Unit,
-    onEdit: () -> Unit
+    onEdit: () -> Unit,
+    onLongPress: () -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
     val iconBitmap = remember(app.packageName) { app.icon.toBitmap(96, 96).asImageBitmap() }
+    var showRemoveConfirm by remember { mutableStateOf(false) }
+
+    if (showRemoveConfirm) {
+        AlertDialog(
+            onDismissRequest = { showRemoveConfirm = false },
+            icon = {
+                Icon(
+                    Icons.Default.Warning,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.error
+                )
+            },
+            title = { Text(stringResource(R.string.app_spoofing_remove_title)) },
+            text = { Text(stringResource(R.string.app_spoofing_remove_confirm, app.label)) },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showRemoveConfirm = false
+                        onRemove()
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error
+                    )
+                ) {
+                    Text(stringResource(R.string.remove))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showRemoveConfirm = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .animateContentSize(),
+            .animateContentSize(animationSpec = MaterialTheme.motionScheme.defaultSpatialSpec())
+            .combinedClickable(
+                onClick = { expanded = !expanded },
+                onLongClick = onLongPress
+            ),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { expanded = !expanded },
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
@@ -597,6 +762,22 @@ private fun AppConfigCard(
                         overflow = TextOverflow.Ellipsis
                     )
                 }
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(tagColor.copy(alpha = 0.15f))
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        text = profileLabel,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = tagColor,
+                        fontWeight = FontWeight.SemiBold,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp))
                 Icon(
                     if (expanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
                     contentDescription = null,
@@ -623,7 +804,7 @@ private fun AppConfigCard(
                             Text(
                                 profileLabel,
                                 style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.primary
+                                color = tagColor
                             )
                         }
                         Text(
@@ -633,6 +814,12 @@ private fun AppConfigCard(
                         )
                     }
                 }
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.app_spoofing_longpress_hint),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
+                )
             }
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -640,7 +827,13 @@ private fun AppConfigCard(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                OutlinedButton(onClick = onRemove, modifier = Modifier.weight(1f)) {
+                OutlinedButton(
+                    onClick = { showRemoveConfirm = true },
+                    modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error
+                    )
+                ) {
                     Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(18.dp))
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(stringResource(R.string.remove))
@@ -662,8 +855,10 @@ private fun AddAppDialog(
     configuredPackages: Set<String>,
     profileValues: Array<String>,
     profileLabels: Array<String>,
+    customProfiles: List<CustomSpoofProfile>,
     onDismiss: () -> Unit,
-    onAppAdded: (AppItem, String) -> Unit
+    onAppAdded: (AppItem, String) -> Unit,
+    onWriteCustomProfiles: (List<CustomSpoofProfile>) -> Unit
 ) {
     var searchQuery by remember { mutableStateOf("") }
     var showSystemApps by remember { mutableStateOf(false) }
@@ -687,7 +882,7 @@ private fun AddAppDialog(
     }
 
     val currentCtx = androidx.compose.ui.platform.LocalContext.current
-    var customProfilesList by remember { mutableStateOf(readCustomProfiles(currentCtx)) }
+    var customProfilesList by remember { mutableStateOf(customProfiles) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -697,27 +892,30 @@ private fun AddAppDialog(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(stringResource(R.string.app_spoofing_add_apps))
-                Box {
-                    IconButton(onClick = { showMenu = true }) {
-                        Icon(Icons.Default.MoreVert, contentDescription = null)
+                if (showProfileSelector) {
+                    TextButton(onClick = { showProfileSelector = false }) {
+                        Text(stringResource(R.string.app_spoofing_change_app))
                     }
-                    DropdownMenu(expanded = showMenu, onDismissRequest = { showMenu = false }) {
-                        DropdownMenuItem(
-                            text = {
-                                Text(
-                                    if (showSystemApps) {
-                                        stringResource(R.string.hide_system_apps)
-                                    } else {
-                                        stringResource(R.string.show_system_apps)
-                                    }
-                                )
-                            },
-                            onClick = {
-                                showSystemApps = !showSystemApps
-                                showMenu = false
-                            }
-                        )
+                } else {
+                    Text(stringResource(R.string.app_spoofing_add_apps))
+                    Box {
+                        IconButton(onClick = { showMenu = true }) {
+                            Icon(Icons.Default.MoreVert, contentDescription = null)
+                        }
+                        DropdownMenu(expanded = showMenu, onDismissRequest = { showMenu = false }) {
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        if (showSystemApps) stringResource(R.string.hide_system_apps)
+                                        else stringResource(R.string.show_system_apps)
+                                    )
+                                },
+                                onClick = {
+                                    showSystemApps = !showSystemApps
+                                    showMenu = false
+                                }
+                            )
+                        }
                     }
                 }
             }
@@ -737,41 +935,103 @@ private fun AddAppDialog(
                         singleLine = true,
                         label = { Text(stringResource(R.string.search_apps)) }
                     )
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f)
-                            .verticalScroll(rememberScrollState())
-                    ) {
-                        filteredApps.forEach { app ->
-                            val icon = remember(app.packageName) { app.icon.toBitmap(96, 96).asImageBitmap() }
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clickable {
-                                        selectedApp = app
-                                        showProfileSelector = true
-                                    }
-                                    .padding(10.dp),
-                                verticalAlignment = Alignment.CenterVertically
+
+                    if (filteredApps.isEmpty()) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .weight(1f),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
-                                Image(
-                                    bitmap = icon,
+                                Icon(
+                                    Icons.Default.Apps,
                                     contentDescription = null,
-                                    modifier = Modifier
-                                        .size(30.dp)
-                                        .clip(RoundedCornerShape(8.dp))
+                                    modifier = Modifier.size(56.dp),
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
                                 )
-                                Spacer(modifier = Modifier.width(10.dp))
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Text(app.label, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                                    Text(
-                                        app.packageName,
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                                    )
+                                Text(
+                                    text = if (searchQuery.isBlank())
+                                        stringResource(R.string.app_spoofing_no_apps_available)
+                                    else
+                                        stringResource(R.string.app_spoofing_no_apps_found, searchQuery),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
+                                )
+                                if (searchQuery.isNotBlank()) {
+                                    TextButton(onClick = { searchQuery = "" }) {
+                                        Text(stringResource(R.string.app_spoofing_clear_search))
+                                    }
                                 }
                             }
+                        }
+                    } else {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .weight(1f)
+                                .verticalScroll(rememberScrollState())
+                        ) {
+                            filteredApps.forEach { app ->
+                                val icon = remember(app.packageName) { app.icon.toBitmap(96, 96).asImageBitmap() }
+                                val isSelected = selectedApp?.packageName == app.packageName
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .clickable { selectedApp = app }
+                                        .background(
+                                            if (isSelected)
+                                                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.4f)
+                                            else Color.Transparent,
+                                            RoundedCornerShape(8.dp)
+                                        )
+                                        .padding(10.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Image(
+                                        bitmap = icon,
+                                        contentDescription = null,
+                                        modifier = Modifier
+                                            .size(30.dp)
+                                            .clip(RoundedCornerShape(8.dp))
+                                    )
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text(app.label, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                        Text(
+                                            app.packageName,
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                    }
+                                    if (isSelected) {
+                                        Icon(
+                                            Icons.Default.Check,
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.primary,
+                                            modifier = Modifier.size(20.dp)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (selectedApp != null) {
+                        OutlinedButton(
+                            onClick = { showProfileSelector = true },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                if (selectedProfile != null)
+                                    stringResource(R.string.app_spoofing_spoof_model) + ": " +
+                                        (profileLabelMap[selectedProfile] ?: selectedProfile ?: "")
+                                else
+                                    stringResource(R.string.app_spoofing_select_spoof_model)
+                            )
                         }
                     }
                 } else {
@@ -779,9 +1039,6 @@ private fun AddAppDialog(
                         stringResource(R.string.app_spoofing_select_spoof_model),
                         style = MaterialTheme.typography.labelMedium
                     )
-                    TextButton(onClick = { showProfileSelector = false }) {
-                        Text(stringResource(R.string.app_spoofing_change_app))
-                    }
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -789,13 +1046,16 @@ private fun AddAppDialog(
                             .verticalScroll(rememberScrollState())
                     ) {
                         addableProfiles.forEach { profile ->
-                            val isCustom = customProfilesList.any { it.id == profile }
                             val customProfile = customProfilesList.find { it.id == profile }
-                            val label = if (customProfile != null) customProfile.name else profileLabelMap[profile] ?: profile
+                            val label = customProfile?.name ?: profileLabelMap[profile] ?: profile
+                            val tagColor = brandColorForProfile(profile, customProfile?.brand ?: "")
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .clickable { selectedProfile = profile }
+                                    .clickable {
+                                        selectedProfile = profile
+                                        showProfileSelector = false
+                                    }
                                     .padding(10.dp),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
@@ -805,7 +1065,7 @@ private fun AddAppDialog(
                                     Spacer(modifier = Modifier.width(24.dp))
                                 }
                                 Spacer(modifier = Modifier.width(8.dp))
-                                Column {
+                                Column(modifier = Modifier.weight(1f)) {
                                     Text(label)
                                     Text(
                                         profile,
@@ -813,13 +1073,22 @@ private fun AddAppDialog(
                                         color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                 }
+                                Box(
+                                    modifier = Modifier
+                                        .size(10.dp)
+                                        .clip(CircleShape)
+                                        .background(tagColor)
+                                )
                             }
                         }
                         customProfilesList.forEach { profile ->
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .clickable { selectedProfile = profile.id }
+                                    .clickable {
+                                        selectedProfile = profile.id
+                                        showProfileSelector = false
+                                    }
                                     .padding(10.dp),
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
@@ -845,7 +1114,7 @@ private fun AddAppDialog(
                                 }
                                 IconButton(onClick = {
                                     val newList = customProfilesList.filter { it.id != profile.id }
-                                    writeCustomProfiles(currentCtx, newList)
+                                    onWriteCustomProfiles(newList)
                                     customProfilesList = newList
                                 }) {
                                     Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(20.dp))
@@ -863,9 +1132,9 @@ private fun AddAppDialog(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    TextButton(onClick = { 
+                    TextButton(onClick = {
                         customProfileToEdit = null
-                        showAddCustomProfileDialog = true 
+                        showAddCustomProfileDialog = true
                     }) {
                         Text(stringResource(R.string.add_new_spoof_profile))
                     }
@@ -874,23 +1143,28 @@ private fun AddAppDialog(
                     }
                 }
             } else {
-                TextButton(
-                    onClick = {
-                        val app = selectedApp ?: return@TextButton
-                        val profile = selectedProfile ?: return@TextButton
-                        onAppAdded(app, profile)
-                    },
-                    enabled = selectedApp != null && selectedProfile != null
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End
                 ) {
-                    Text(stringResource(R.string.add))
+                    TextButton(onClick = onDismiss) {
+                        Text(stringResource(R.string.cancel))
+                    }
+                    Spacer(modifier = Modifier.width(8.dp))
+                    TextButton(
+                        onClick = {
+                            val app = selectedApp ?: return@TextButton
+                            val profile = selectedProfile ?: "None"
+                            onAppAdded(app, profile)
+                        },
+                        enabled = selectedApp != null
+                    ) {
+                        Text(stringResource(R.string.add))
+                    }
                 }
             }
         },
-        dismissButton = {
-            if (!showProfileSelector) {
-                TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
-            }
-        }
+        dismissButton = null
     )
 
     if (showAddCustomProfileDialog) {
@@ -905,7 +1179,7 @@ private fun AddAppDialog(
                 } else {
                     customProfilesList + newProfile
                 }
-                writeCustomProfiles(currentCtx, updatedProfiles)
+                onWriteCustomProfiles(updatedProfiles)
                 customProfilesList = updatedProfiles
                 showAddCustomProfileDialog = false
                 customProfileToEdit = null
@@ -1033,78 +1307,40 @@ private fun AddCustomProfileDialog(
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                OutlinedTextField(
-                    value = name,
-                    onValueChange = { name = it },
+                OutlinedTextField(value = name, onValueChange = { name = it },
                     label = { Text(stringResource(R.string.custom_spoof_profile_name)) },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = brand,
-                    onValueChange = { brand = it },
+                    singleLine = true, modifier = Modifier.fillMaxWidth())
+                OutlinedTextField(value = brand, onValueChange = { brand = it },
                     label = { Text(stringResource(R.string.custom_spoof_profile_brand)) },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = manufacturer,
-                    onValueChange = { manufacturer = it },
+                    singleLine = true, modifier = Modifier.fillMaxWidth())
+                OutlinedTextField(value = manufacturer, onValueChange = { manufacturer = it },
                     label = { Text(stringResource(R.string.custom_spoof_profile_manufacturer)) },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = device,
-                    onValueChange = { device = it },
+                    singleLine = true, modifier = Modifier.fillMaxWidth())
+                OutlinedTextField(value = device, onValueChange = { device = it },
                     label = { Text(stringResource(R.string.custom_spoof_profile_device)) },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = model,
-                    onValueChange = { model = it },
+                    singleLine = true, modifier = Modifier.fillMaxWidth())
+                OutlinedTextField(value = model, onValueChange = { model = it },
                     label = { Text(stringResource(R.string.custom_spoof_profile_model)) },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = fingerprint,
-                    onValueChange = { fingerprint = it },
+                    singleLine = true, modifier = Modifier.fillMaxWidth())
+                OutlinedTextField(value = fingerprint, onValueChange = { fingerprint = it },
                     label = { Text(stringResource(R.string.custom_spoof_profile_fingerprint)) },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = product,
-                    onValueChange = { product = it },
+                    singleLine = true, modifier = Modifier.fillMaxWidth())
+                OutlinedTextField(value = product, onValueChange = { product = it },
                     label = { Text(stringResource(R.string.custom_spoof_profile_product)) },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
+                    singleLine = true, modifier = Modifier.fillMaxWidth())
             }
         },
         confirmButton = {
             TextButton(
                 onClick = {
-                    onSave(
-                        CustomSpoofProfile(
-                            id = id,
-                            name = name,
-                            brand = brand,
-                            manufacturer = manufacturer,
-                            device = device,
-                            model = model,
-                            fingerprint = fingerprint,
-                            product = product
-                        )
-                    )
+                    onSave(CustomSpoofProfile(
+                        id = id, name = name, brand = brand, manufacturer = manufacturer,
+                        device = device, model = model, fingerprint = fingerprint, product = product
+                    ))
                 },
                 enabled = name.isNotBlank() && brand.isNotBlank() && manufacturer.isNotBlank() &&
                           device.isNotBlank() && model.isNotBlank()
-            ) {
-                Text(stringResource(R.string.save))
-            }
+            ) { Text(stringResource(R.string.save)) }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
