@@ -1073,14 +1073,14 @@
     <string name="user_selectable_app_spoofing_title">App Spoofing</string>
     <string name="user_selectable_app_spoofing_summary">Choose which apps to spoof device properties for</string>
     <string name="user_select_spoofing_profile_title">Select spoofing profile</string>
-    <string name="app_spoofing_category_title">App Spoofing</string>
-    <string name="app_spoofing_header_title">App Spoofing</string>
-    <string name="app_spoofing_configured_count">%1$d apps configured</string>
+    <string name="app_spoofing_category_title">Per-App Spoofing</string>
+    <string name="app_spoofing_header_title">Enable Spoofing</string>
+    <string name="app_spoofing_configured_count">%1$d apps Spoofed</string>
     <string name="app_spoofing_disabled">Disabled</string>
     <string name="app_spoofing_add_apps">Add apps</string>
-    <string name="app_spoofing_spoofed_model">Spoofed model</string>
+    <string name="app_spoofing_spoofed_model">Select model</string>
     <string name="app_spoofing_clear_all">Clear all</string>
-    <string name="app_spoofing_configured_apps">CONFIGURED APPS</string>
+    <string name="app_spoofing_configured_apps">Configured app list</string>
     <string name="app_spoofing_no_apps_configured">No apps configured</string>
     <string name="app_spoofing_spoof_model">Spoof model</string>
     <string name="app_spoofing_select_spoof_model">Select spoof model</string>
@@ -1098,4 +1098,11 @@
     <string name="custom_spoof_profile_model">MODEL</string>
     <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Optional)</string>
     <string name="custom_spoof_profile_product">PRODUCT (Optional)</string>
+    <string name="app_spoofing_clear_all_confirm">This will remove all configured app spoofing entries.</string>
+    <string name="app_spoofing_no_apps_available">No apps available</string>
+    <string name="app_spoofing_no_apps_found">No apps found for "%s"</string>
+    <string name="app_spoofing_clear_search">Clear search</string>
+    <string name="app_spoofing_longpress_hint">Long press to quickly reassign profile</string>
+    <string name="app_spoofing_remove_title">Remove app?</string>
+    <string name="app_spoofing_remove_confirm">Remove %1$s from the spoofing list?</string>
 </resources>
