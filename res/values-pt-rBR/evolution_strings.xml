@@ -580,6 +580,7 @@
     <string name="about_discord_summary">Visite o chat da nossa comunidade</string>
     <string name="about_github_summary">Confira o nosso GitHub</string>
     <string name="about_founders_title">Fundadores</string>
+    <string name="about_team_members_title">Membros da equipe</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Seletor de cores</string>
     <string name="press_color_to_apply">Selecione a cor abaixo para aplicar</string>
@@ -767,6 +768,35 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Animação de rabisco</string>
     <string name="media_squiggle_animation_summary">Mostrar animação de rabisco na barra de busca ao reproduzir mídia</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Chip de ação barra de status</string>
+    <string name="ongoing_progress_settings_summary">Personalizar chip de ação para mostrar o indicador de progresso</string>
+    <string name="ongoing_action_chip_title">Chip de ação em andamento</string>
+    <string name="ongoing_action_chip_summary">Mostrar indicador de progresso para ações em andamento, como downloads</string>
+    <string name="ongoing_media_progress_title">Progresso da mídia</string>
+    <string name="ongoing_media_progress_summary">Exibir progresso de reprodução de mídia</string>
+    <string name="ongoing_progress_footer_text">\"O chip de ação da barra de status fornece atualizações em tempo real tanto para a reprodução de mídia quanto para downloads/uploads ativos.
+
+Progresso da mídia:
+• Exibe o progresso da reprodução de música e vídeo durante a reprodução.
+• Um toque abre os controles de reprodução.
+• Dois toques alternam entre reproduzir e pausar.
+• Deslizar para a esquerda pula para a faixa anterior.
+• Deslizar para a direita pula para a próxima faixa.
+• Um toque longo abre o aplicativo de mídia.
+
+Progresso de download/upload:
+• Mostra o progresso de downloads e uploads em andamento.
+• Oculta-se automaticamente quando nenhuma transferência ativa é detectada.
+• Um toque abre o aplicativo responsável pelo download.
+
+A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à vista.\"    </string>
+    <string name="ongoing_compact_mode_title">Indicador de progresso compacto</string>
+    <string name="ongoing_compact_mode_summary">Usar indicador de progresso circular em vez de barra</string>
+    <string name="ongoing_chip_color_mode_title">Cor de fundo do chip</string>
+    <string name="ongoing_chip_color_mode_accent">Cor de destaque do sistema</string>
+    <string name="ongoing_chip_color_mode_icon">Cor do ícone do aplicativo</string>
+    <string name="ongoing_chip_color_mode_album_art">Cor da arte do álbum</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Barra de bateria</string>
     <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
@@ -941,29 +971,4 @@
     <string name="custom_gradient_color_mode_custom">Modo personalizado</string>
     <string name="custom_gradient_start_color_title">Cor inicial gradiente</string>
     <string name="custom_gradient_end_color_title">Cor final do gradiente</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip de ação barra de status</string>
-    <string name="ongoing_progress_settings_summary">Personalizar chip de ação para mostrar o indicador de progresso</string>
-    <string name="ongoing_action_chip_title">Chip de ação em andamento</string>
-    <string name="ongoing_action_chip_summary">Mostrar indicador de progresso para ações em andamento, como downloads</string>
-    <string name="ongoing_media_progress_title">Progresso da mídia</string>
-    <string name="ongoing_media_progress_summary">Exibir progresso de reprodução de mídia</string>
-    <string name="ongoing_progress_footer_text">\"O chip de ação da barra de status fornece atualizações em tempo real tanto para a reprodução de mídia quanto para downloads/uploads ativos.
-
-Progresso da mídia:
-• Exibe o progresso da reprodução de música e vídeo durante a reprodução.
-• Um toque abre os controles de reprodução.
-• Dois toques alternam entre reproduzir e pausar.
-• Deslizar para a esquerda pula para a faixa anterior.
-• Deslizar para a direita pula para a próxima faixa.
-• Um toque longo abre o aplicativo de mídia.
-
-Progresso de download/upload:
-• Mostra o progresso de downloads e uploads em andamento.
-• Oculta-se automaticamente quando nenhuma transferência ativa é detectada.
-• Um toque abre o aplicativo responsável pelo download.
-
-A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à vista.\"    </string>
-    <string name="ongoing_compact_mode_title">Indicador de progresso compacto</string>
-    <string name="ongoing_compact_mode_summary">Usar indicador de progresso circular em vez de barra</string>
 </resources>
