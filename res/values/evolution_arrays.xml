@@ -1446,4 +1446,18 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+     <string-array name="cutout_progress_music_color_mode_entries" translatable="false">
+        <item>@string/cutout_progress_music_color_mode_album_icon</item>
+        <item>@string/cutout_progress_music_color_mode_accent</item>
+        <item>@string/cutout_progress_music_color_mode_album_art</item>
+        <item>@string/cutout_progress_music_color_mode_custom</item>
+    </string-array>
+ 
+    <string-array name="cutout_progress_music_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
