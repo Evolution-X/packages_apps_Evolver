@@ -106,6 +106,61 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="cutout_progress_cat_music"
+        android:title="@string/cutout_progress_cat_music"
+        android:dependency="cutout_progress_enabled">
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="cutout_progress_music_enabled"
+            android:title="@string/cutout_progress_music_title"
+            android:summary="@string/cutout_progress_music_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SecureSettingListPreference
+            android:key="cutout_progress_music_color_mode"
+            android:title="@string/cutout_progress_music_color_mode_title"
+            android:summary="%s"
+            android:entries="@array/cutout_progress_music_color_mode_entries"
+            android:entryValues="@array/cutout_progress_music_color_mode_values"
+            android:defaultValue="0"
+            android:dependency="cutout_progress_music_enabled" />
+
+        <Preference
+            android:key="cutout_progress_music_custom_color"
+            android:title="@string/cutout_progress_music_custom_color_title"
+            android:summary="#9C27B0"
+            android:persistent="false"
+            android:dependency="cutout_progress_music_enabled" />
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="cutout_progress_music_opacity"
+            android:title="@string/cutout_progress_music_opacity_title"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:defaultValue="85"
+            android:dependency="cutout_progress_music_enabled" />
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="cutout_progress_music_stroke_dp10"
+            android:title="@string/cutout_progress_music_stroke_title"
+            android:max="80"
+            settings:min="5"
+            settings:interval="5"
+            settings:units=" (×0.1 dp)"
+            android:defaultValue="20"
+            android:dependency="cutout_progress_music_enabled" />
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="cutout_progress_music_clockwise"
+            android:title="@string/cutout_progress_music_clockwise_title"
+            android:defaultValue="true"
+            android:dependency="cutout_progress_music_enabled" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="cutout_progress_cat_behaviour"
         android:title="@string/cutout_progress_cat_behaviour"
         android:dependency="cutout_progress_enabled">

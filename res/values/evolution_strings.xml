@@ -1274,4 +1274,20 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="cutout_progress_charging_ring_summary">Display battery level as a symmetric ring around the cutout while charging</string>
     <string name="cutout_progress_charging_pulse_title">Charging pulse animation</string>
     <string name="cutout_progress_charging_pulse_summary">Animate a repeating pulse from center outward while charging</string>
+
+    <!-- Music Ring -->
+    <string name="cutout_progress_cat_music">Music Ring</string>
+    <string name="cutout_progress_music_title">Enable Music Ring</string>
+    <string name="cutout_progress_music_summary">Show a visualizer ring tracking current media playback</string>
+    <string name="cutout_progress_music_color_mode_title">Color Mode</string>
+    <string name="cutout_progress_music_color_mode_album_icon">Album icon color</string>
+    <string name="cutout_progress_music_color_mode_accent">System accent</string>
+    <string name="cutout_progress_music_color_mode_album_art">Album Art</string>
+    <string name="cutout_progress_music_color_mode_custom">Custom Color</string>
+    <string name="cutout_progress_music_custom_color_title">Custom Color</string>
+    <string name="cutout_progress_music_opacity_title">Ring Opacity</string>
+    <string name="cutout_progress_music_stroke_title">Stroke Width</string>
+    <string name="cutout_progress_music_clockwise_title">Clockwise Direction</string>
+    <string name="cutout_progress_music_aod_title">Show on AOD</string>
+    <string name="cutout_progress_music_aod_summary">Keep music ring visible on the Ambient Display</string>
 </resources>
