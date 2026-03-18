@@ -70,6 +70,8 @@
     <string name="themes_launcher_background_blur_summary">Увімкнути ефект розмиття для фону сторінки з останніми елементами</string>
     <string name="themes_launcher_more_themed_icons_title">Більше тематичних іконок</string>
     <string name="themes_launcher_more_themed_icons_summary">Розширює підтримку динамічної теми значків встановлених програм</string>
+    <string name="themes_launcher_force_new_search_bar">Оновлено панель пошуку</string>
+    <string name="themes_launcher_force_new_search_bar_summary">Увімкнути новий стиль панелі пошуку Google</string>
     <string name="theme_customization_font_title">Стиль шрифту</string>
     <string name="theme_customization_font_summary">Задати шрифт системи</string>
     <string name="theme_customization_icon_pack_title">Набір іконок</string>
@@ -120,6 +122,7 @@
     <string name="monet_engine_color_source_preset">Попередньо встановлене</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Інтерфейс</string>
+    <string name="lock_screen_charging_category">Заряджається</string>
     <string name="lock_screen_charging_stats_title">Статистика заряджання</string>
     <string name="lock_screen_charging_stats_summary">Показувати максимальний струм зарядки та напругу з температурою батареї під час заряджання</string>
     <string name="lock_screen_charging_time_title">Час до повної зарядки</string>
@@ -177,6 +180,7 @@
     <string name="status_bar_icons_category">Іконки</string>
     <string name="status_bar_tuner_title">Налаштування панелі статусу</string>
     <string name="status_bar_tuner_summary">Виберіть, які значки в рядку стану можуть бути показані</string>
+    <string name="status_bar_battery_category_title">Налаштування значка батареї</string>
     <string name="status_bar_battery_style_title">Стиль іконки батареї</string>
     <string name="status_bar_battery_style_icon_portrait">Вертикальний значок (типово)</string>
     <string name="status_bar_battery_style_icon_rlandscape">Горизонтальна іконка (праворуч)</string>
@@ -222,6 +226,7 @@
     <string name="status_bar_logo_position_left">Ліва сторона</string>
     <string name="status_bar_logo_position_right">Права сторона</string>
     <string name="status_bar_logo_style_title">Стиль логотипу</string>
+    <string name="status_bar_logo_style_summary">Виберіть користувацький логотип для відображення</string>
     <string name="status_bar_logo_style_evolution">Логотип Evolution X</string>
     <string name="status_bar_logo_style_android">Андроїд</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
@@ -283,7 +288,7 @@
     <string name="status_bar_clock_seconds_summary">Відображати секунди поруч із годинником у рядку стану</string>
     <string name="status_bar_clock_auto_hide_title">Автоматично приховувати годинник</string>
     <string name="status_bar_clock_auto_hide_summary">Приховати годинник, якщо панель запуску видима</string>
-    <string name="status_bar_clock_chip_title">Розмиття фону</string>
+    <string name="status_bar_clock_chip_title">Колір фонової підкладки годинника</string>
     <string name="status_bar_clock_chip_summary">Показувати виділений фон за годинником</string>
     <string name="solid_accent">Акцент суцільних кольорів</string>
     <string name="outline">Контур</string>
@@ -435,6 +440,11 @@
     <string name="quick_settings_tile_shape_rounded_square">Заокруглений квадрат</string>
     <string name="quick_settings_tile_shape_square">Квадрат</string>
     <string name="quick_settings_tile_haptic_summary">Включити тактильний відгук на плитки швидких налаштувань</string>
+    <!-- QS footer icons -->
+    <string name="quick_settings_footer_category">Нижній колонтитул</string>
+    <string name="quick_settings_footer_edit_icon_title">Піктограма редагування плиток</string>
+    <string name="quick_settings_footer_show_power_menu_title">Меню живлення</string>
+    <string name="quick_settings_footer_settings_icon_title">Ярлик налаштувань</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Спливаючі сповіщення</string>
     <string name="notifications_heads_up_summary">Дозволити спливаючі сповіщення</string>
@@ -502,6 +512,8 @@
     <string name="miscellaneous_developer_options_category">Опції для розробника</string>
     <string name="miscellaneous_app_downgrade_title">Дозволити пониження версії додатка</string>
     <string name="miscellaneous_app_downgrade_summary">Дозволити пониження системних додатків, що може призвести до збою і втрати даних</string>
+    <string name="miscellaneous_pairip_activity_block_title">Перевірка ліцензії на PairIP</string>
+    <string name="miscellaneous_pairip_activity_block_summary">Запобігти запуску додатків в Play Store з екрана \"Отримати цю програму з Play\", коли вона не встановлена в Play Store</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Ігнорувати запити на затемнення шпалер</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Блокує всі додатки встановлювати затемнення шпалер\nПримусово змінює значення 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ігнорувати прапори безпеки вікон</string>
@@ -570,6 +582,7 @@
     <string name="about_discord_summary">Спілкуватися з нами у Discord</string>
     <string name="about_github_summary">Переглянути наш код на GitHub</string>
     <string name="about_founders_title">Засновники</string>
+    <string name="about_team_members_title">Учасники команди</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Палітра кольорів</string>
     <string name="press_color_to_apply">Натисніть на колір нижче, щоб застосувати</string>
@@ -603,6 +616,7 @@
     <string name="systemui_restart_message">Щоб зміни набули чинності, потрібен перезапуск інтерфейсу системи. Перезапустити інтерфейс системи зараз?</string>
     <string name="systemui_restart_yes">Так</string>
     <string name="systemui_restart_not_now">Не зараз</string>
+    <string name="systemui_restart_process">Перезапуск системного інтерфейсу для застосування змін...</string>
     <!-- Split Shade -->
     <string name="qs_split_shade_enabled_title">Кращі ландшафтні QS</string>
     <string name="qs_split_shade_enabled_summary">Увімкнути нові експериментальні роздільні тіні швидкими налаштуваннями,\nрозбиває ландшафтні сповіщення навушників</string>
@@ -757,26 +771,27 @@
     <string name="media_squiggle_animation_summary">Показувати анімацію перемотки екрану при відтворенні медіа</string>
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Поточний прогрес чіпу</string>
-    <string name="ongoing_progress_settings_summary">Налаштування схованки в рядку стану</string>
+    <string name="ongoing_progress_settings_summary">Налаштування схеми дії індикатора прогресу</string>
     <string name="ongoing_action_chip_title">Увімкнути поточні дії чіпа</string>
     <string name="ongoing_action_chip_summary">Показувати прогрес для поточних сповіщень в рядку стану</string>
-    <string name="ongoing_action_chip_opacity_title">Непрозорість індикатора прогресу</string>
-    <string name="ongoing_action_chip_opacity_summary">Регулювання непрозорості індикатора прогресу</string>
-    <string name="compact_progress_mode_title">Режим компактного прогресу</string>
-    <string name="compact_progress_mode_summary">Використовувати індикатор циклічного прогресу замість панелі</string>
-    <string name="show_media_progress_title">Показувати прогрес у медіа</string>
-    <string name="show_media_progress_summary">Показувати прогрес відтворення медіа в рядку стану</string>
-    <string name="progress_footer_text">Панель прогресу в рядку стану надає оновлення в режимі реального часу як для відтворення медіафайлів, так і для активних завантажень/вивантажень. 
-- 🎵 Хід відтворення медіафайлів:
+    <string name="ongoing_media_progress_title">Прогрес у медіа</string>
+    <string name="ongoing_media_progress_summary">Відображення прогресу відтворення медіа</string>
+    <string name="ongoing_progress_footer_text">\"Чіп дій у рядку стану надає оновлення в режимі реального часу як для відтворення медіафайлів, так і для активних завантажень/вивантажень. Хід відтворення медіафайлів:
  • Відображає хід відтворення музики та відео під час відтворення медіафайлів.
- • Одне натискання відкриває елементи керування відтворенням (Попередній, Наступний трек). 
-• Подвійне натискання перемикає відтворення/паузу.
- • Проведення ліворуч перемикає до попереднього треку. 
-• Проведення праворуч перемикає до наступного треку. 
-• Тривале натискання відкриває медіа-додаток. 
-- 📥 Хід завантаження/вивантаження: • Відображає хід поточних завантажень та вивантажень. 
+• Одне натискання відкриває елементи керування відтворенням. 
+• Подвійне натискання перемикає відтворення/паузу. 
+• Проведення ліворуч перемикає до попереднього треку. 
+• Проведення пальцем праворуч перемикає до наступного треку. 
+• Тривале натискання відкриває медіа-додаток. Хід завантаження/вивантаження: 
+• Відображає хід поточних завантажень та вивантажень. 
 • Автоматично приховується, коли не виявлено активних передач. 
-• Одне натискання відкриває додаток, відповідальний за завантаження. Індикатор прогресу динамічно перемикається між станами медіафайлів та завантаження, гарантуючи, що ви завжди маєте найактуальнішу інформацію з першого погляду    </string>
+• Одне натискання відкриває додаток, відповідальний за завантаження. Індикатор виконання динамічно перемикається між станами медіафайлів та завантаження, гарантуючи, що ви завжди маєте найрелевантнішу інформацію з першого погляду.\"    </string>
+    <string name="ongoing_compact_mode_title">Режим компактного прогресу</string>
+    <string name="ongoing_compact_mode_summary">Використовувати індикатор циклічного прогресу замість панелі</string>
+    <string name="ongoing_chip_color_mode_title">Фоновий колір медіа-чіпа</string>
+    <string name="ongoing_chip_color_mode_accent">Колір акценту системи</string>
+    <string name="ongoing_chip_color_mode_icon">Колір значка додатка</string>
+    <string name="ongoing_chip_color_mode_album_art">Колір обкладинки</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Індикатор батареї</string>
     <string name="battery_bar_summary">Відображення і налаштування панелі батареї над рядком стану</string>
@@ -871,11 +886,6 @@
     <string name="nowplaying_info_summary">Зараз грає грає в даний час назву музики і виконавця на екрані блокування і в режимі Відображення. Автоматично з\'являється, коли музика грає і зникає, коли зупиняється. Позиція може бути скоригована будь-де з верхньої частини екрану.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Зарядна форма спуску</string>
-    <!-- Adaptive Playback -->
-    <string name="adaptive_playback_title">Адаптивне відтворення</string>
-    <string name="adaptive_playback_summary">Призупиняти медіа, коли гучність вимкнено та відновлювати його шляхом збільшення гучності без затримки</string>
-    <string name="adaptive_playback_intro_text">Автоматично призупиняє медіа програвач, коли гучність вимкнена, та продовжить програвання коли гучність відновлена протягом встановленого часу</string>
-    <string name="adaptive_playback_timeout_title">Тайм-аут відтворення</string>
     <!-- Statusbar Padding -->
     <string name="statusbar_extra_padding_category">Додатковий відступ</string>
     <string name="statusbar_extra_padding_start_title">Початок відступу</string>
@@ -897,4 +907,63 @@
     <string name="flashlight_on_call_ignore_dnd_title">Ігнорувати DND</string>
     <string name="flashlight_on_call_ignore_dnd_summary">Чи блимати, коли активовано режим \"Не турбувати\"</string>
     <string name="flashlight_on_call_rate_title">Частота блимання</string>
+    <!-- Three fingers swipe action -->
+    <string name="three_fingers_swipe_title">Проведіть трьома пальцями</string>
+    <string name="hardware_keys_action_nothing">Жодної дії</string>
+    <string name="hardware_keys_action_menu">Відкрити/закрити меню</string>
+    <string name="hardware_keys_action_app_switch">Перемикач останніх додатків</string>
+    <string name="hardware_keys_action_search">Помічник пошуку</string>
+    <string name="hardware_keys_action_voice_search">Голосовий пошук</string>
+    <string name="hardware_keys_action_in_app_search">Пошук в додатку</string>
+    <string name="hardware_keys_action_launch_camera">Запустити камеру</string>
+    <string name="hardware_keys_action_sleep">Вимкнути екран</string>
+    <string name="hardware_keys_action_last_app">Остання програма</string>
+    <string name="hardware_keys_action_split_screen">Розділення екрана</string>
+    <string name="hardware_keys_action_close_app">Завершити додаток</string>
+    <string name="hardware_keys_action_play_pause_music">Відтворити/призупинити відтворення музики</string>
+    <string name="hardware_keys_action_torch">Ліхтарик</string>
+    <string name="hardware_keys_action_screenshot">Зробити знімок екрану</string>
+    <string name="hardware_keys_action_volume_panel">Перемикач панелі гучності</string>
+    <string name="hardware_keys_action_clear_all_notifications">Очистити всі сповіщення</string>
+    <string name="hardware_keys_action_notifications_panel">Перемикач панелі сповіщень</string>
+    <string name="hardware_keys_action_expand_qs_panel">Розгорнути панель швидких налаштувань</string>
+    <string name="hardware_keys_action_ringer_modes">Змінити режим дзвінка</string>
+    <!-- Shake Gestures -->
+    <string name="shake_gestures_enabled_title">Жести струшування</string>
+    <string name="shake_gestures_enabled_summary">Струсіть ваш пристрій, щоб виконати дії</string>
+    <string name="shake_gestures_action_title">Дії жестів струшування</string>
+    <string name="shake_gestures_intensity_title">Інтенсивність жестів струшування</string>
+    <string name="shake_gestures_intensity_summary">Відрегулюйте чутливість жестів струшування</string>
+    <!-- Charging Animation Settings -->
+    <string name="charging_animation_title">Анімація заряджання</string>
+    <string name="charging_animation_summary">Показувати візуальні ефекти коли пристрій заряджається на екрані блокування або на AOD</string>
+    <string name="charging_animation_style_category_title">Стиль анімації</string>
+    <string name="charging_animation_style_title">Тип ефекту</string>
+    <string name="charging_ripple_opacity_title">Прозорість пульсації</string>
+    <string name="charging_ripple_opacity_summary">Налаштування видимості хвиль пульсації</string>
+    <string name="charging_glow_intensity_title">Інтенсивність світіння</string>
+    <string name="charging_glow_intensity_summary">Регулювання яскравості світіння і частинок</string>
+    <string name="charging_arc_count_title">Кількість хвиль</string>
+    <string name="charging_arc_count_summary">Налаштуйте скільки хвиль з’являється</string>
+    <string name="charging_appearance_category_title">Зовнішній вигляд</string>
+    <string name="charging_color_mode_title">Колір підсвічування контуру</string>
+    <string name="charging_display_category_title">Параметри відображення</string>
+    <string name="charging_show_on_lockscreen_summary">Відображати анімацію при екрані блокування</string>
+    <string name="charging_show_on_aod_summary">Анімація відображення в режимі навколишнього середовища</string>
+    <!-- Gradient styles -->
+    <string name="gradient_settings_title">Налаштування градієнтів</string>
+    <string name="gradient_settings_summary">Застосувати градієнт кольорів до різних системних елементів</string>
+    <string name="gradient_elements_category">Системні елементи</string>
+    <string name="gradient_colors_category">Кльори градієнта</string>
+    <string name="qs_tile_gradient_title">Градієнт плиток швидких налаштувань</string>
+    <string name="qs_tile_gradient_summary">Увімкнути градієнти для плиток швидких налаштувань</string>
+    <string name="qs_brightness_slider_gradient_title">Градієнт повзунка яскравості QS</string>
+    <string name="qs_brightness_slider_gradient_summary">Увімкнути градієнт тла для повзунка яскравості QS</string>
+    <string name="volume_slider_gradient_title">Градієнт повзунка гучності</string>
+    <string name="volume_slider_gradient_summary">Увімкнути градієнт тла для повзунка гучності</string>
+    <string name="custom_gradient_color_mode_title">Градієнтний колірний режим</string>
+    <string name="custom_gradient_color_mode_auto">Автоматичний режим</string>
+    <string name="custom_gradient_color_mode_custom">Користувацький режим</string>
+    <string name="custom_gradient_start_color_title">Градієнт початкового кольору</string>
+    <string name="custom_gradient_end_color_title">Градієнт кінцевого кольору</string>
 </resources>
