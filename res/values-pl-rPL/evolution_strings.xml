@@ -512,6 +512,8 @@
     <string name="miscellaneous_developer_options_category">Opcje programisty</string>
     <string name="miscellaneous_app_downgrade_title">Zezwól na obniżenie wersji aplikacji</string>
     <string name="miscellaneous_app_downgrade_summary">Zezwolenie na obniżenie wersji aplikacji systemowych, może skutkować awariami i utratą danych</string>
+    <string name="miscellaneous_pairip_activity_block_title">Zablokuj weryfikację licencji PairIP</string>
+    <string name="miscellaneous_pairip_activity_block_summary">Zapobiegaj uruchamianiu ekranu „Pobierz tę aplikację ze Sklepu Google Play”, gdy aplikacja nie jest zainstalowana z Sklepu Google Play</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignoruj żądania przyciemnienia tapety</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Blokuje wszystkim aplikacjom możliwość ustawienia przyciemnienia tapety\nWymusza przyciemnienie na 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj flagi bezpieczeństwa okna</string>
