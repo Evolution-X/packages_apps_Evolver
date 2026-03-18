@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2025 Evolution X
+     Copyright (C) 2019-2026 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -288,20 +288,6 @@
     <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
     <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli launcher jest widoczny</string>
-    <string name="status_bar_clock_chip_title">Tło zegara</string>
-    <string name="status_bar_clock_chip_summary">Wyświetl akcentowane tło za zegarem</string>
-    <string name="solid_accent">Stały kolor akcentu</string>
-    <string name="outline">Obrys</string>
-    <string name="solid_accent_gradient">Jednolity kolor akcentu gradientowego</string>
-    <string name="solid_gradient">Jednolity gradient boczny</string>
-    <string name="solid_gradient_corner">Wyraźny, ostry akcent gradientu</string>
-    <string name="solid_gradient_void">Gradientowa pustka</string>
-    <string name="solid_gradient_neumorph">Neumorficzny gradient</string>
-    <string name="solid_gradient_stroke">Ostry gradientowy kontur</string>
-    <string name="solid_accent_transperent">Przezroczysty akcent</string>
-    <string name="solid_gradient_light">Lekki gradient</string>
-    <string name="solid_gradient_shape">Ostry gradientowy narożnik</string>
-    <string name="solid_gradient_void_light">Lekka gradientowa pustka</string>
     <string name="status_bar_am_pm_title">Format 12-godzinny (AM/PM)</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
     <string name="status_bar_am_pm_normal">Normalny</string>
@@ -322,6 +308,35 @@
     <string name="status_bar_clock_date_position">Położenie daty</string>
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
     <string name="status_bar_clock_date_left">Po lewej stronie zegara</string>
+    <!-- Statusbar Clock background chip -->
+    <string name="statusbar_clock_chip_title">Tło zegara</string>
+    <string name="statusbar_clock_chip_summary">Wybierz własne, akcentowane tło za zegarem</string>
+    <string name="solid_accent">Stały kolor akcentu</string>
+    <string name="outline">Obrys</string>
+    <string name="solid_accent_gradient">Jednolity kolor akcentu gradientowego</string>
+    <string name="solid_gradient">Jednolity gradient boczny</string>
+    <string name="solid_gradient_corner">Wyraźny, ostry akcent gradientu</string>
+    <string name="solid_gradient_void">Gradientowa pustka</string>
+    <string name="solid_gradient_neumorph">Neumorficzny gradient</string>
+    <string name="solid_gradient_stroke">Ostry gradientowy kontur</string>
+    <string name="solid_accent_transperent">Przezroczysty akcent</string>
+    <string name="solid_gradient_light">Lekki gradient</string>
+    <string name="solid_gradient_shape">Ostry gradientowy narożnik</string>
+    <string name="solid_gradient_void_light">Lekka gradientowa pustka</string>
+    <string name="clock_chip_custom_gradient">Niestandardowy gradient</string>
+    <!-- Start color picker -->
+    <string name="clock_chip_gradient_start_color_title">Kolor początkowy gradientu</string>
+    <string name="clock_chip_gradient_start_color_summary">Kolor na początku gradientu</string>
+    <!-- End color picker -->
+    <string name="clock_chip_gradient_end_color_title">Kolor końca gradientu</string>
+    <string name="clock_chip_gradient_end_color_summary">Kolor na końcu gradientu</string>
+    <!-- Angle seekbar -->
+    <string name="clock_chip_gradient_angle_title">Kąt gradientu</string>
+    <string name="clock_chip_gradient_angle_summary">Kierunek gradientu (0° = lewo→prawo, 90° = góra→dół)</string>
+    <!-- Mask text -->
+    <string name="clock_chip_gradient_mask_text_title">Styl tekstu zegara</string>
+    <string name="clock_chip_gradient_mask_text_default">Domyślny</string>
+    <string name="clock_chip_gradient_mask_text_mask">Przezroczysty (maska)</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Lokalizacja</string>
     <string name="network_traffic_location_disable">Wyłączony</string>
@@ -454,9 +469,6 @@
     <string name="notifications_sounds_vibration_category">Dźwięki i wibracje</string>
     <string name="notifications_alert_display_on_title">Komunikat przy włączonym ekranie</string>
     <string name="notifications_alert_display_on_summary">Odtwarzaj dźwięk i wibracje dla powiadomień, gdy ekran jest włączony</string>
-    <!-- Notifications/Alert Slider Notifications (OnePlus devices) -->
-    <string name="alert_slider_notifications_title">Powiadomienia suwaka komunikatów</string>
-    <string name="alert_slider_notifications_summary">Wyświetlaj powiadomienie podczas zmiany pozycji suwaka komunikatów</string>
     <!-- Notifications/Compact Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Kompaktowe wyskakujące powiadomienia</string>
     <string name="compact_heads_up_notifications_enabled_summary">Wyświetla powiadomienia w kompaktowym rozmiarze</string>
@@ -539,27 +551,23 @@
     <string name="spoofing_summary">Pomiń ograniczenia aplikacji poprzez fałszowanie komponentów</string>
     <string name="spoofing_system_wide_category">W całym systemie</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
-    <string name="spoofing_pixel_props_summary">Podszywaj wybraną grupę aplikacji Google pod najnowsze urządzenie Pixel</string>
+    <string name="spoofing_pixel_props_summary">Sfałszuj wybraną grupę aplikacji Google pod najnowsze urządzenie Pixel</string>
     <string name="gms_spoof_title">Poprawka integralności Google Play</string>
     <string name="gms_spoof_summary">Sfałszuj właściwości urządzenia, aby przejść weryfikację Google Play</string>
     <string name="vending_spoof_title">Fałszowanie urządzenia</string>
     <string name="vending_spoof_summary">Zastosuj fałszowanie urządzenia w Sklepie Google Play</string>
     <string name="spoofing_app_specific_category">Specyficzne dla aplikacji</string>
     <string name="spoofing_photos_title">Zdjęcia Google</string>
-    <string name="spoofing_photos_summary">Podszyj się pod Pixel XL w aplikacji Zdjęcia Google</string>
+    <string name="spoofing_photos_summary">Sfałszuj aplikację Zdjęcia Google, udając Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
-    <string name="spoofing_snap_summary">Podszyj się pod Pixel XL w aplikacji Snapchat, aby naprawić możliwe problemy z czatem</string>
-    <string name="gameprops_title">Włącz fałszowanie właściwości gier</string>
-    <string name="gameprops_summary">Podszyj swoje urządzenie pod inny model w określonych grach w celu odblokowania wyższej liczby klatek na sekundę</string>
-    <string name="gameprops_load_json_title">Wybierz plik JSON właściwości gry</string>
-    <string name="gameprops_load_json_summary">Wybierz plik JSON właściwości gry, który będzie używany do fałszowania gier</string>
+    <string name="spoofing_snap_summary">Sfałszuj Snapchat udając Pixel XL, aby naprawić możliwe problemy z czatem</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">Pomyślnie pobrano plik pif.json. Podszywanie się pod %1$s w celu zachowania integralności Google Play.</string>
+    <string name="toast_spoofing_success">Pomyślnie pobrano plik pif.json. Fałszowanie jako %1$s w celu zachowania integralności Google Play.</string>
     <string name="toast_spoofing_failure">Nie udało się sfałszować właściwości.</string>
     <string name="update_pif_json_title">Zaktualizuj poprawkę integralności Google Play</string>
     <string name="update_pif_json_summary">Aktualizacja poprawki integralności Google Play wymaga połączenia z internetem.</string>
     <string name="update_pif_auto_random_title">Zaktualizuj poprawkę integralności Google Play (losowo)</string>
-    <string name="update_pif_auto_random_summary">Ustaw losowe urządzenie podszywające się z listy Google (wymaga połączenia z internetem)</string>
+    <string name="update_pif_auto_random_summary">Ustaw fałszowanie jako losowe urządzenie z listy Google (wymaga połączenia z internetem)</string>
     <string name="show_pif_properties_title">Właściwości poprawki integralności Google Play</string>
     <string name="show_pif_properties_summary">Pokaż właściwości ustawionej poprawki integralności Google Play</string>
     <string name="error_loading_properties">Błąd ładowania właściwości poprawki integralności Google Play</string>
@@ -974,4 +982,39 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="custom_gradient_color_mode_custom">Tryb niestandardowy</string>
     <string name="custom_gradient_start_color_title">Kolor początkowy gradientu</string>
     <string name="custom_gradient_end_color_title">Kolor końca gradientu</string>
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Fałszowanie aplikacji</string>
+    <string name="user_selectable_app_spoofing_summary">Wybierz aplikacje, dla których chcesz sfałszować właściwości urządzenia</string>
+    <string name="user_select_spoofing_profile_title">Wybierz profil fałszowania</string>
+    <string name="app_spoofing_category_title">Fałszowanie aplikacji</string>
+    <string name="app_spoofing_header_title">Włącz fałszowanie</string>
+    <string name="app_spoofing_configured_count">%1$d aplikacji sfałszowanych</string>
+    <string name="app_spoofing_disabled">Wyłączony</string>
+    <string name="app_spoofing_add_apps">Dodaj aplikacje</string>
+    <string name="app_spoofing_spoofed_model">Wybierz model</string>
+    <string name="app_spoofing_clear_all">Wyczyść wszystko</string>
+    <string name="app_spoofing_configured_apps">Skonfigurowana lista aplikacji</string>
+    <string name="app_spoofing_no_apps_configured">Brak skonfigurowanych aplikacji</string>
+    <string name="app_spoofing_spoof_model">Fałszowanie modelu</string>
+    <string name="app_spoofing_select_spoof_model">Wybierz fałszowany model</string>
+    <string name="app_spoofing_change_app">Wybierz aplikację</string>
+    <string name="show_system_apps">Pokaż aplikacje systemowe</string>
+    <string name="hide_system_apps">Ukryj aplikacje systemowe</string>
+    <!-- Custom App Spoofing Profiles -->
+    <string name="add_new_spoof_profile">Dodaj nową</string>
+    <string name="add_custom_spoof_profile_title">Dodaj niestandardowy profil fałszowania</string>
+    <string name="custom_spoof_profile_name">Nazwa profilu</string>
+    <string name="custom_spoof_profile_brand">Marka</string>
+    <string name="custom_spoof_profile_manufacturer">Producent</string>
+    <string name="custom_spoof_profile_device">Urządzenie</string>
+    <string name="custom_spoof_profile_model">Model</string>
+    <string name="custom_spoof_profile_fingerprint">Odcisk palca (opcjonalnie)</string>
+    <string name="custom_spoof_profile_product">Produkt (opcjonalnie)</string>
+    <string name="app_spoofing_clear_all_confirm">Spowoduje to usunięcie wszystkich skonfigurowanych wpisów dotyczących fałszowania aplikacji.</string>
+    <string name="app_spoofing_no_apps_available">Brak dostępnych aplikacji</string>
+    <string name="app_spoofing_no_apps_found">Nie znaleziono aplikacji dla \"%s\"</string>
+    <string name="app_spoofing_clear_search">Wyczyść wyszukiwanie</string>
+    <string name="app_spoofing_longpress_hint">Naciśnij i przytrzymaj, aby szybko zmienić przypisanie profilu</string>
+    <string name="app_spoofing_remove_title">Usunąć aplikację?</string>
+    <string name="app_spoofing_remove_confirm">Usunąć %1$s z listy fałszowania?</string>
 </resources>
