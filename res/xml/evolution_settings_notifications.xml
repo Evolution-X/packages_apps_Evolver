@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2025 Evolution X
+     Copyright (C) 2019-2026 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -82,13 +82,6 @@
             android:max="10"
             settings:min="0"
             settings:units="" />-->
-
-        <!-- Alert Slider Notifications (OnePlus devices) -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="alert_slider_notifications"
-            android:title="@string/alert_slider_notifications_title"
-            android:summary="@string/alert_slider_notifications_summary"
-            android:defaultValue="true" />
 
         <!-- Kill app button -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference

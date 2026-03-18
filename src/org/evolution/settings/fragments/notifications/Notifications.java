@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019-2025 Evolution X
+ * Copyright (C) 2019-2026 Evolution X
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -43,11 +43,7 @@ public class Notifications extends SettingsPreferenceFragment implements
     private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
     private static final String FLASHLIGHT_DND_PREF = "flashlight_on_call_ignore_dnd";
     private static final String FLASHLIGHT_RATE_PREF = "flashlight_on_call_rate";
-    private static final String KEY_ALERT_SLIDER_PREF = "alert_slider_notifications";
-    private static final String KEY_INTERFACE_CATEGORY = "notifications_interface_category";
 
-    private PreferenceCategory mInterfaceCategory;
-    private Preference mAlertSlider;
     private ListPreference mFlashOnCall;
     private SwitchPreferenceCompat mFlashOnCallIgnoreDND;
     private CustomSeekBarPreference mFlashOnCallRate;
@@ -61,14 +57,6 @@ public class Notifications extends SettingsPreferenceFragment implements
         final ContentResolver resolver = mContext.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = mContext.getResources();
-
-        mAlertSlider = (SystemSettingSwitchPreference) findPreference(KEY_ALERT_SLIDER_PREF);
-        mInterfaceCategory = (PreferenceCategory) findPreference(KEY_INTERFACE_CATEGORY);
-        boolean mAlertSliderAvailable = res.getBoolean(
-                com.android.internal.R.bool.config_hasAlertSlider);
-        if (!mAlertSliderAvailable) {
-            mInterfaceCategory.removePreference(mAlertSlider);
-        }
 
         if (!Utils.deviceHasFlashlight(mContext)) {
             final PreferenceCategory flashlightCategory =
@@ -117,11 +105,6 @@ public class Notifications extends SettingsPreferenceFragment implements
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
                     final Resources res = context.getResources();
-
-                    boolean mAlertSliderAvailable = res.getBoolean(
-                            com.android.internal.R.bool.config_hasAlertSlider);
-                    if (!mAlertSliderAvailable)
-                        keys.add(KEY_ALERT_SLIDER_PREF);
 
                     if (!Utils.deviceHasFlashlight(context)) {
                         keys.add(FLASHLIGHT_CALL_PREF);
