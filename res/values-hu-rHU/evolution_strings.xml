@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2025 Evolution X
+     Copyright (C) 2019-2026 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -288,20 +288,6 @@
     <string name="status_bar_clock_seconds_summary">Ez egy állapotsori másodpercmutató</string>
     <string name="status_bar_clock_auto_hide_title">Automatikus elrejtés</string>
     <string name="status_bar_clock_auto_hide_summary">Rejtse el az órát, ha a launcher látható</string>
-    <string name="status_bar_clock_chip_title">Óraszámlap háttérrel</string>
-    <string name="status_bar_clock_chip_summary">Válasszon egyéni hátteret az óra mögé</string>
-    <string name="solid_accent">Egyszínű kiemelés</string>
-    <string name="outline">Körvonal</string>
-    <string name="solid_accent_gradient">Egyszínű átmenetes kiemelés</string>
-    <string name="solid_gradient">Egyszínű átmenetes oldal</string>
-    <string name="solid_gradient_corner">Átmenetes éles kiemelés</string>
-    <string name="solid_gradient_void">Void átmenet</string>
-    <string name="solid_gradient_neumorph">Neumorph átmenet</string>
-    <string name="solid_gradient_stroke">Éles simított átmenet</string>
-    <string name="solid_accent_transperent">A kiemelés áttetszősége</string>
-    <string name="solid_gradient_light">Az átmenet fénye</string>
-    <string name="solid_gradient_shape">Éles sarkított átmenet</string>
-    <string name="solid_gradient_void_light">A Void átmenet fénye</string>
     <string name="status_bar_am_pm_title">A DE/DU megjelenítés stílusa</string>
     <string name="status_bar_am_pm_info">A 24-órás formátum engedélyezett</string>
     <string name="status_bar_am_pm_normal">Normál</string>
@@ -322,6 +308,35 @@
     <string name="status_bar_clock_date_position">Dátumelhelyezés</string>
     <string name="status_bar_clock_date_right">Az órától jobbra</string>
     <string name="status_bar_clock_date_left">Az órától balra</string>
+    <!-- Statusbar Clock background chip -->
+    <string name="statusbar_clock_chip_title">Óraszámlap háttérrel</string>
+    <string name="statusbar_clock_chip_summary">Válasszon egyéni hátteret az óra mögé</string>
+    <string name="solid_accent">Egyszínű kiemelés</string>
+    <string name="outline">Körvonal</string>
+    <string name="solid_accent_gradient">Egyszínű átmenetes kiemelés</string>
+    <string name="solid_gradient">Egyszínű átmenetes oldal</string>
+    <string name="solid_gradient_corner">Átmenetes éles kiemelés</string>
+    <string name="solid_gradient_void">Void átmenet</string>
+    <string name="solid_gradient_neumorph">Neumorph átmenet</string>
+    <string name="solid_gradient_stroke">Éles simított átmenet</string>
+    <string name="solid_accent_transperent">A kiemelés áttetszősége</string>
+    <string name="solid_gradient_light">Az átmenet fénye</string>
+    <string name="solid_gradient_shape">Éles sarkított átmenet</string>
+    <string name="solid_gradient_void_light">A Void átmenet fénye</string>
+    <string name="clock_chip_custom_gradient">Egyéni színátmenet</string>
+    <!-- Start color picker -->
+    <string name="clock_chip_gradient_start_color_title">A színátmenet kezdeti színe</string>
+    <string name="clock_chip_gradient_start_color_summary">Milyen szín legyen a színátmenet elején</string>
+    <!-- End color picker -->
+    <string name="clock_chip_gradient_end_color_title">A színátmenet befejező színe</string>
+    <string name="clock_chip_gradient_end_color_summary">Milyen szín legyen a színátmenet végén</string>
+    <!-- Angle seekbar -->
+    <string name="clock_chip_gradient_angle_title">A színátmenet dőlésszöge</string>
+    <string name="clock_chip_gradient_angle_summary">A lejtő iránya (0° = balra→jobbra, 90° = felülről→alul)</string>
+    <!-- Mask text -->
+    <string name="clock_chip_gradient_mask_text_title">Az Óra betűstílusa</string>
+    <string name="clock_chip_gradient_mask_text_default">Alapértelmezett</string>
+    <string name="clock_chip_gradient_mask_text_mask">Áttetsző (Maszk)</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Helymeghatározás</string>
     <string name="network_traffic_location_disable">Kikapcsolva</string>
@@ -454,9 +469,6 @@
     <string name="notifications_sounds_vibration_category">Hangok és rezgés</string>
     <string name="notifications_alert_display_on_title">Figyelmeztetés bekapcsolt képernyőn</string>
     <string name="notifications_alert_display_on_summary">Értesítésjelzés hanggal és rezgéssel, ha a képernyő be van kapcsolva</string>
-    <!-- Notifications/Alert Slider Notifications (OnePlus devices) -->
-    <string name="alert_slider_notifications_title">Az értesítőcsúszka jelzései</string>
-    <string name="alert_slider_notifications_summary">Jelezni fogja, ha az értesítőcsúszka helyzete megváltozott</string>
     <!-- Notifications/Compact Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Kompakt méretű felugrók</string>
     <string name="compact_heads_up_notifications_enabled_summary">Az értesítések kompakt méretben jelennek meg</string>
@@ -549,10 +561,6 @@
     <string name="spoofing_photos_summary">Pixel XL-re álcázás a Google Fényképek alkalmazáshoz</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">A Snapchat-ben Pixel XL-nek álcázza az Ön készülékét a lehetséges csevegési problémák elkerüléséért</string>
-    <string name="gameprops_title">A Prop-ok hamisítása játékokhoz</string>
-    <string name="gameprops_summary">Más modellnek álcázza az Ön készülékét, hogy játék közben elérhetők legyenek magasabb FPS-értékek</string>
-    <string name="gameprops_load_json_title">Válasszon JSON-fájlokat a játékhoz</string>
-    <string name="gameprops_load_json_summary">Válassza ki a játékok átveréséhez használni kívánt játék JSON-fájlt</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">A pif.json letöltése sikeres. Az Áruházi Integritáshoz álcázás a következőre: %1$s</string>
     <string name="toast_spoofing_failure">Nem sikerült álcázni a tulajdonságokat.</string>
@@ -975,4 +983,39 @@ A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok k�
     <string name="custom_gradient_color_mode_custom">Egyéni mód</string>
     <string name="custom_gradient_start_color_title">A színátmenet kezdeti színe</string>
     <string name="custom_gradient_end_color_title">A színátmenet befejező színe</string>
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Alkalmazás-hamisítás</string>
+    <string name="user_selectable_app_spoofing_summary">Válassza ki mely alkalmazásokhoz kell hamis készülékinfó</string>
+    <string name="user_select_spoofing_profile_title">Válasszon hamis profilt</string>
+    <string name="app_spoofing_category_title">Hamisítás alkalmazásonként</string>
+    <string name="app_spoofing_header_title">Hamisítás engedélyezése</string>
+    <string name="app_spoofing_configured_count">%1$d hamis alkalmazás</string>
+    <string name="app_spoofing_disabled">Kikapcsolva</string>
+    <string name="app_spoofing_add_apps">Alkalmazás hozzáadása</string>
+    <string name="app_spoofing_spoofed_model">Modellválasztás</string>
+    <string name="app_spoofing_clear_all">Az összes törlése</string>
+    <string name="app_spoofing_configured_apps">Konfigurált alkalmazások listája</string>
+    <string name="app_spoofing_no_apps_configured">Nincs konfigurált alkalmazás</string>
+    <string name="app_spoofing_spoof_model">Hamis modell</string>
+    <string name="app_spoofing_select_spoof_model">Hamis modellválasztó</string>
+    <string name="app_spoofing_change_app">Alkalmazásváltás</string>
+    <string name="show_system_apps">Rendszeralkalmazások megjelenítése</string>
+    <string name="hide_system_apps">Rendszeralkalmazások elrejtése</string>
+    <!-- Custom App Spoofing Profiles -->
+    <string name="add_new_spoof_profile">Új hozzáadása</string>
+    <string name="add_custom_spoof_profile_title">Egyéni hamis profil hozzáadása</string>
+    <string name="custom_spoof_profile_name">Profilnév</string>
+    <string name="custom_spoof_profile_brand">MÁRKA</string>
+    <string name="custom_spoof_profile_manufacturer">GYÁRTÓ</string>
+    <string name="custom_spoof_profile_device">KÉSZÜLÉK</string>
+    <string name="custom_spoof_profile_model">MODELL</string>
+    <string name="custom_spoof_profile_fingerprint">UJJLENYOMAT (Választható)</string>
+    <string name="custom_spoof_profile_product">TERMÉK (Választható)</string>
+    <string name="app_spoofing_clear_all_confirm">Ez eltávolítja az összes konfigurált alkalmazáshamisítási bejegyzést.</string>
+    <string name="app_spoofing_no_apps_available">Nincs elérhető alkalmazás</string>
+    <string name="app_spoofing_no_apps_found">Nincs alkalmazás a következőhöz: \"%s\"</string>
+    <string name="app_spoofing_clear_search">A keresés törlése</string>
+    <string name="app_spoofing_longpress_hint">Hosszan nyomva gyorsan átrendezhető a profil</string>
+    <string name="app_spoofing_remove_title">Eltávolítja az alkalmazást?</string>
+    <string name="app_spoofing_remove_confirm">%1$s kerüljön ki a hamisítási listából?</string>
 </resources>
