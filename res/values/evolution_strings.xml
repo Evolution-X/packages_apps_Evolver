@@ -538,6 +538,8 @@
     <string name="miscellaneous_developer_options_category">Developer options</string>
     <string name="miscellaneous_app_downgrade_title">Allow application downgrade</string>
     <string name="miscellaneous_app_downgrade_summary">Allow downgrading system applications, which may result in crashes and data loss</string>
+    <string name="miscellaneous_pairip_activity_block_title">Block PairIP license verification</string>
+    <string name="miscellaneous_pairip_activity_block_summary">Prevent Play Store apps from launching the \"Get this app from Play\" screen when not installed by the Play Store</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignore wallpaper dimming requests</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Blocks all apps from setting the wallpaper dim\nForces dim to 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignore window secure flags</string>

@@ -109,6 +109,13 @@
             android:summary="@string/no_storage_restrict_summary"
             android:defaultValue="false" />
 
+        <!-- Block PairIP license activity -->
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pairip.activity.block"
+            android:title="@string/miscellaneous_pairip_activity_block_title"
+            android:summary="@string/miscellaneous_pairip_activity_block_summary"
+            android:defaultValue="false" />   
+
         <!-- Block wallpaper dimming -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="block_wallpaper_dimming"
