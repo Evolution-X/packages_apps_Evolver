@@ -512,6 +512,8 @@
     <string name="miscellaneous_developer_options_category">Fejlesztői lehetőségek</string>
     <string name="miscellaneous_app_downgrade_title">Downgrade lehetősége</string>
     <string name="miscellaneous_app_downgrade_summary">Engedélyezze a rendszeralkalmazások downgrade-jét, ami összeomláshoz és adatvesztéshez vezethet</string>
+    <string name="miscellaneous_pairip_activity_block_title">A \'PairIP-licensz\' ellenőrzés blokkolása</string>
+    <string name="miscellaneous_pairip_activity_block_summary">Megakadályozza hogy a \"Szerezze be ezt a Play Áruházból\" képernyő lefusson azoknál az alkalmazásoknál, amik NEM a Play Áruházból lettek telepítve</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">A Háttérkép-sötétítési kérelmek elutasítása</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Megakadályozza, hogy bármely alkalmazás átállítsa a háttérkép értékeit\nNullán tartja az értéket</string>
     <string name="miscellaneous_ignore_window_secure_title">A képernyő biztonsági figyemeztetéseinek figyelmen kívül hagyása</string>
