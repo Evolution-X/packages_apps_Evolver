@@ -53,6 +53,13 @@
             android:title="@string/hide_screen_capture_status_title"
             android:summary="@string/hide_screen_capture_status_summary"
             android:defaultValue="false" />
+
+        <!-- Disable flash sms -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="disable_flash_sms"
+            android:title="@string/disable_flash_sms_title"
+            android:summary="@string/disable_flash_sms_summary"
+            android:defaultValue="false"/>
     </PreferenceCategory>
 
     <PreferenceCategory
