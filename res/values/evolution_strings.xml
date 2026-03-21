@@ -1186,4 +1186,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="idle_manager_no_activity_hint">Actions will appear here after the device screen turns off and apps are idle.</string>
     <string name="idle_manager_refresh_dashboard">Refresh dashboard</string>
     <string name="idle_manager_apply">Apply</string>
+
+    <!-- Flash SMS -->
+    <string name="disable_flash_sms_title">Disable Flash SMS</string>
+    <string name="disable_flash_sms_summary">Converts full-screen flash messages into standard text SMS.</string>
 </resources>
