@@ -1072,4 +1072,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="idle_manager_no_activity_hint">Działania pojawią się tutaj po wyłączeniu ekranu urządzenia i bezczynności aplikacji.</string>
     <string name="idle_manager_refresh_dashboard">Odśwież panel</string>
     <string name="idle_manager_apply">Zastosuj</string>
+    <!-- Flash SMS -->
+    <string name="disable_flash_sms_title">Wyłącz błyskawiczne SMS-y</string>
+    <string name="disable_flash_sms_summary">Konwertuje pełnoekranowe wiadomości błyskawiczne na standardowe SMS-y tekstowe.</string>
 </resources>
