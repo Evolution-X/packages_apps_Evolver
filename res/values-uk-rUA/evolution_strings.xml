@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2025 Evolution X
+     Copyright (C) 2019-2026 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -288,20 +288,6 @@
     <string name="status_bar_clock_seconds_summary">Відображати секунди поруч із годинником у рядку стану</string>
     <string name="status_bar_clock_auto_hide_title">Автоматично приховувати годинник</string>
     <string name="status_bar_clock_auto_hide_summary">Приховати годинник, якщо панель запуску видима</string>
-    <string name="status_bar_clock_chip_title">Колір фонової підкладки годинника</string>
-    <string name="status_bar_clock_chip_summary">Показувати виділений фон за годинником</string>
-    <string name="solid_accent">Акцент суцільних кольорів</string>
-    <string name="outline">Контур</string>
-    <string name="solid_accent_gradient">Градієнт суцільних кольорів</string>
-    <string name="solid_gradient">Суцільна сторона градієнта</string>
-    <string name="solid_gradient_corner">Суцільний акцент градієнт різкий</string>
-    <string name="solid_gradient_void">Градієнт пустоти</string>
-    <string name="solid_gradient_neumorph">Градієнт нейморфа</string>
-    <string name="solid_gradient_stroke">Різке градієнтне обведення</string>
-    <string name="solid_accent_transperent">Прозорий акцент</string>
-    <string name="solid_gradient_light">Градієнтне світло</string>
-    <string name="solid_gradient_shape">Гострий кут градієнта</string>
-    <string name="solid_gradient_void_light">Градієнтне світло порожнечі</string>
     <string name="status_bar_am_pm_title">До обіду / після обіду</string>
     <string name="status_bar_am_pm_info">24-годинний формат часу</string>
     <string name="status_bar_am_pm_normal">Звичайний</string>
@@ -322,6 +308,35 @@
     <string name="status_bar_clock_date_position">Розташування дати</string>
     <string name="status_bar_clock_date_right">Праворуч від годинника</string>
     <string name="status_bar_clock_date_left">Ліворуч від годинника</string>
+    <!-- Statusbar Clock background chip -->
+    <string name="statusbar_clock_chip_title">Колір фонової підкладки годинника</string>
+    <string name="statusbar_clock_chip_summary">Показувати виділений фон за годинником</string>
+    <string name="solid_accent">Акцент суцільних кольорів</string>
+    <string name="outline">Контур</string>
+    <string name="solid_accent_gradient">Градієнт суцільних кольорів</string>
+    <string name="solid_gradient">Суцільна сторона градієнта</string>
+    <string name="solid_gradient_corner">Суцільний акцент градієнт різкий</string>
+    <string name="solid_gradient_void">Градієнт пустоти</string>
+    <string name="solid_gradient_neumorph">Градієнт нейморфа</string>
+    <string name="solid_gradient_stroke">Різке градієнтне обведення</string>
+    <string name="solid_accent_transperent">Прозорий акцент</string>
+    <string name="solid_gradient_light">Градієнтне світло</string>
+    <string name="solid_gradient_shape">Гострий кут градієнта</string>
+    <string name="solid_gradient_void_light">Градієнтне світло порожнечі</string>
+    <string name="clock_chip_custom_gradient">Власний градієнт</string>
+    <!-- Start color picker -->
+    <string name="clock_chip_gradient_start_color_title">Градієнт початкового кольору</string>
+    <string name="clock_chip_gradient_start_color_summary">Колір на початку градієнту</string>
+    <!-- End color picker -->
+    <string name="clock_chip_gradient_end_color_title">Градієнт кінцевого кольору</string>
+    <string name="clock_chip_gradient_end_color_summary">Колір у кінці градієнту</string>
+    <!-- Angle seekbar -->
+    <string name="clock_chip_gradient_angle_title">Градієнтний кут</string>
+    <string name="clock_chip_gradient_angle_summary">Напрямок градієнта (0° = ліворуч→правильно, 90° = зверху→внизу)</string>
+    <!-- Mask text -->
+    <string name="clock_chip_gradient_mask_text_title">Стиль тексту годинника</string>
+    <string name="clock_chip_gradient_mask_text_default">За замовчуванням</string>
+    <string name="clock_chip_gradient_mask_text_mask">Прозорість (Маска)</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Місцезнаходження</string>
     <string name="network_traffic_location_disable">Вимкнено</string>
@@ -454,9 +469,6 @@
     <string name="notifications_sounds_vibration_category">Звуки &amp; Вібрація</string>
     <string name="notifications_alert_display_on_title">Сповіщення увімкнено</string>
     <string name="notifications_alert_display_on_summary">Відтворювання звуку та вібрації для сповіщень при увімкненому екрані</string>
-    <!-- Notifications/Alert Slider Notifications (OnePlus devices) -->
-    <string name="alert_slider_notifications_title">Повзунок сповіщень</string>
-    <string name="alert_slider_notifications_summary">Відображення сповіщення при зміні позиції повзунка сповіщень</string>
     <!-- Notifications/Compact Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Компактні сповіщення</string>
     <string name="compact_heads_up_notifications_enabled_summary">Показувати сповіщення в компактному розмірі</string>
@@ -549,10 +561,6 @@
     <string name="spoofing_photos_summary">Імітувати пристрій як Pixel XL для додатку Google Photos щоб розблокувати необмежену кількість пам\'яті зображень</string>
     <string name="spoofing_snap_title">Підробка Snapchat</string>
     <string name="spoofing_snap_summary">Імітувати Pixel XL для Snapchat для вирішення можливих проблем чату</string>
-    <string name="gameprops_title">Розблокування вищого FPS в іграх</string>
-    <string name="gameprops_summary">Імітувати ваш пристрій як іншу модель для розблокування вищих FPS для деяких ігор</string>
-    <string name="gameprops_load_json_title">Виберіть JSON файл Game Props</string>
-    <string name="gameprops_load_json_summary">Виберіть файл Game Props JSON для використання гри</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Успішно завантажено pif.json. Імітувати як %1$s для проходження Play Integrity.</string>
     <string name="toast_spoofing_failure">Помилка створення імітаційних властивостей.</string>
@@ -966,4 +974,94 @@
     <string name="custom_gradient_color_mode_custom">Користувацький режим</string>
     <string name="custom_gradient_start_color_title">Градієнт початкового кольору</string>
     <string name="custom_gradient_end_color_title">Градієнт кінцевого кольору</string>
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Підміна підпису додатка</string>
+    <string name="user_selectable_app_spoofing_summary">Виберіть, які програми слід використовувати у властивостях пристрою</string>
+    <string name="user_select_spoofing_profile_title">Виберіть профіль Spoofing</string>
+    <string name="app_spoofing_category_title">Підміна підпису додатка</string>
+    <string name="app_spoofing_header_title">Увімкнути Spoofing</string>
+    <string name="app_spoofing_configured_count">%1$d застосунків зіпсовано</string>
+    <string name="app_spoofing_disabled">Вимкнено</string>
+    <string name="app_spoofing_add_apps">Додати програми</string>
+    <string name="app_spoofing_spoofed_model">Виберіть модель</string>
+    <string name="app_spoofing_clear_all">Очистити все</string>
+    <string name="app_spoofing_configured_apps">Налаштований список додатків</string>
+    <string name="app_spoofing_no_apps_configured">Немає налаштованих додатків</string>
+    <string name="app_spoofing_spoof_model">Підміна моделі</string>
+    <string name="app_spoofing_select_spoof_model">Обрати підмінну модель</string>
+    <string name="app_spoofing_change_app">Змінити програму</string>
+    <string name="show_system_apps">Системні додатки</string>
+    <string name="hide_system_apps">Сховати системні додатки</string>
+    <!-- Custom App Spoofing Profiles -->
+    <string name="add_new_spoof_profile">Додати новий</string>
+    <string name="add_custom_spoof_profile_title">Додати свій Spoof Профіль</string>
+    <string name="custom_spoof_profile_name">Назва профілю</string>
+    <string name="custom_spoof_profile_brand">БРЕНД</string>
+    <string name="custom_spoof_profile_manufacturer">ВИРОБНИКИ</string>
+    <string name="custom_spoof_profile_device">Пристрій</string>
+    <string name="custom_spoof_profile_model">МОДЕЛЬ</string>
+    <string name="custom_spoof_profile_fingerprint">ВІДБИТОК ПАЛЬЦЯ (необов\'язково)</string>
+    <string name="custom_spoof_profile_product">ПРОДУКТ (необов\'язково)</string>
+    <string name="app_spoofing_clear_all_confirm">Буде видалено всі налаштовані додатки Spoofing.</string>
+    <string name="app_spoofing_no_apps_available">Немає доступних додатків</string>
+    <string name="app_spoofing_no_apps_found">Не знайдено додатків для \"%s\"</string>
+    <string name="app_spoofing_clear_search">Очистити пошук</string>
+    <string name="app_spoofing_longpress_hint">Тривале натискання швидко перепризначить профіль</string>
+    <string name="app_spoofing_remove_title">Видалити додаток?</string>
+    <string name="app_spoofing_remove_confirm">Видалити %1$s зі списку підмінних?</string>
+    <!-- Idle Manager -->
+    <string name="idle_manager_title">Менеджер Бездіяльності</string>
+    <string name="idle_manager_summary">Керування фоновими процесами та оптимізацією тривалості роботи акумулятора</string>
+    <string name="idle_manager_app_count">Відстежуються %1$d програми</string>
+    <string name="idle_manager_disabled">Вимкнено - натисніть, щоб увімкнути</string>
+    <string name="idle_manager_tab_apps">Додатки</string>
+    <string name="idle_manager_tab_dashboard">Панель інcтрументів</string>
+    <string name="idle_manager_add_apps">Додати програми</string>
+    <string name="idle_manager_clear_all">Очистити все</string>
+    <string name="idle_manager_clear_all_confirm">Видалити всі налаштовані програми? Їхні резервні сховища буде відновлено.</string>
+    <string name="idle_manager_configured_apps">Настроєні додатки</string>
+    <string name="idle_manager_no_apps_configured">Немає налаштованих додатків</string>
+    <string name="idle_manager_no_apps_hint">Натисніть \"Додати додатки\", щоб почати управління фоновими процесами.</string>
+    <string name="idle_manager_no_apps_available">Немає доступних додатків</string>
+    <string name="idle_manager_no_apps_found">Немає програм, що відповідають запиту \"%1$s\"</string>
+    <string name="idle_manager_back_to_apps">← Назад</string>
+    <string name="idle_manager_select_policy">Встановити політику</string>
+    <string name="idle_manager_select_policy_count">Далі: Встановити політику для %1$d програм(ів)</string>
+    <string name="idle_manager_edit_policy">Редагування: %1$s</string>
+    <string name="idle_manager_idle_timeout">Тайм-аут простою</string>
+    <string name="idle_manager_policy_balanced">Збалансований</string>
+    <string name="idle_manager_policy_aggressive">Агресивний</string>
+    <string name="idle_manager_policy_custom">Персоналізація</string>
+    <string name="idle_manager_policy_balanced_desc">Програми не працюють протягом 60 хвилин.</string>
+    <string name="idle_manager_policy_aggressive_desc">Додатки без роботи на 15 хвилин будуть активовані. Рекомендується для збереження батареї.</string>
+    <string name="idle_manager_policy_custom_desc">Встановіть свій час бездіяльності.</string>
+    <string name="idle_manager_timeout_minutes">Timeout: %1$d min</string>
+    <string name="idle_manager_apply_custom">Застосувати</string>
+    <string name="idle_manager_timeout_label">Час очікування</string>
+    <string name="idle_manager_policy_label">Правила</string>
+    <string name="idle_manager_enforcement_action">Дії примусового захисту</string>
+    <string name="idle_action_rare_bucket">Рідкісне відро</string>
+    <string name="idle_action_restricted">Обмежений</string>
+    <string name="idle_action_kill_bg">Вбити BG</string>
+    <string name="idle_action_full_kill">Повністю вбити</string>
+    <string name="idle_manager_policy_custom_desc_dynamic">Будуть вжиті заходи щодо програм, які не працюють протягом %1$d хвилин.</string>
+    <string name="idle_action_rare_bucket_desc">Переміщує програму в режим очікування RARE. Всі блокує фонові завдання і сигнали будильника. Додаток автоматично відновлює роботу після відкриття.</string>
+    <string name="idle_action_restricted_desc">Спершу переміщує додаток до RESTRICTED. Найбільш агресивного відра дозволяє проводити багато фонових операцій.</string>
+    <string name="idle_action_kill_bg_desc">Ваші програми, що кешовані в фоновому режимі. Додаток може перезапустити всі системні файли.</string>
+    <string name="idle_action_full_kill_desc">RESTRICTED + м\'яке. Максимальна спроба для економії батареї.</string>
+    <string name="idle_manager_kill_count_label">Всі дії</string>
+    <string name="idle_manager_last_killed_label">Останні дії</string>
+    <string name="idle_manager_last_killed">Останній: %1$s</string>
+    <string name="idle_manager_longpress_hint">Довге натискання для швидкого редагування</string>
+    <string name="idle_manager_critical_system_warning">Критичний пакет системи. Обмеження може викликати нестабільність.</string>
+    <string name="idle_manager_remove_title">Видалити додаток?</string>
+    <string name="idle_manager_remove_confirm">%1$s буде видалено. Протистояння буде відновлено.</string>
+    <string name="idle_manager_apps_acted_on">Застосунки ввімкнено</string>
+    <string name="idle_manager_total_actions">Всі дії</string>
+    <string name="idle_manager_action_breakdown">Експлікація дій</string>
+    <string name="idle_manager_recent_activity">Нещодавня активність</string>
+    <string name="idle_manager_no_activity">Поки що ніякої активності</string>
+    <string name="idle_manager_no_activity_hint">Дії будуть з\'являтися тут після того, як екран вимкнеться та вимкнеться додатки в режимі очікування.</string>
+    <string name="idle_manager_refresh_dashboard">Оновити інформаційну панель</string>
+    <string name="idle_manager_apply">Застосувати</string>
 </resources>
