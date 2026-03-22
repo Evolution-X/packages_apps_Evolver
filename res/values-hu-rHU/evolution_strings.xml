@@ -1073,4 +1073,7 @@ A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok k�
     <string name="idle_manager_no_activity_hint">A műveletek itt jelennek meg, miután a készülék képernyője kikapcsol, és az alkalmazások tétlenek.</string>
     <string name="idle_manager_refresh_dashboard">Irányítópult-frissítés</string>
     <string name="idle_manager_apply">Alkalmazás</string>
+    <!-- Flash SMS -->
+    <string name="disable_flash_sms_title">Teljes képernyős SMS tiltása</string>
+    <string name="disable_flash_sms_summary">Teljes képernyős szolgáltatói (reklám) üzeneteket konvertálja szabványos szöveges SMS-ekké.</string>
 </resources>
