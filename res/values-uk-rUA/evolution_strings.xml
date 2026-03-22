@@ -1064,4 +1064,7 @@
     <string name="idle_manager_no_activity_hint">Дії будуть з\'являтися тут після того, як екран вимкнеться та вимкнеться додатки в режимі очікування.</string>
     <string name="idle_manager_refresh_dashboard">Оновити інформаційну панель</string>
     <string name="idle_manager_apply">Застосувати</string>
+    <!-- Flash SMS -->
+    <string name="disable_flash_sms_title">Вимкнути Flash SMS</string>
+    <string name="disable_flash_sms_summary">Перетворює повноекранний спалах повідомлень у стандартне текстове SMS.</string>
 </resources>
