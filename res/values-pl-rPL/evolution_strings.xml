@@ -595,7 +595,7 @@
     <string name="dialog_color_picker">Wybór kolorów</string>
     <string name="press_color_to_apply">Naciśnij na kolor poniżej, aby zastosować</string>
     <string name="set">Ustaw</string>
-    <string name="accent_color">Kolor akcentu (domyślny)</string>
+    <string name="accent_color">Kolor akcentu</string>
     <string name="notification_color">Kolor powiadomień</string>
     <string name="wallpaper_color">Kolor tapety</string>
     <string name="rainbow_color">Kolor tęczy</string>
@@ -1075,4 +1075,14 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <!-- Flash SMS -->
     <string name="disable_flash_sms_title">Wyłącz błyskawiczne SMS-y</string>
     <string name="disable_flash_sms_summary">Konwertuje pełnoekranowe wiadomości błyskawiczne na standardowe SMS-y tekstowe.</string>
+    <!-- Custom clock style -->
+    <string name="lockscreen_custom_clock_style_title">Niestandardowy styl zegara</string>
+    <string name="lockscreen_custom_clock_style_summary">Konfiguruj style zegara na ekranie blokady</string>
+    <string name="lockscreen_custom_clock_style_highlight_text">Przesuń w lewo lub w prawo, aby wyświetlić podgląd stylów zegara</string>
+    <string name="lockscreen_custom_clock_style_info">Niestandardowy styl zegara zastępuje style zegara AOSP niestandardowymi zegarami. Inteligentna przestrzeń zostanie wyłączona. Możesz, zamiast tego włączyć i używać niestandardowej pogody.</string>
+    <string name="lockscreen_custom_clock_opacity_title">Niestandardowa przezroczystość zegara</string>
+    <string name="lockscreen_custom_clock_opacity_summary">Dostosuj przezroczystość niestandardowego stylu zegara</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Niestandardowa wysokość zegara</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Dostosuj wysokość niestandardowego stylu zegara</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Niestandardowy tryb kolorów zegara</string>
 </resources>
