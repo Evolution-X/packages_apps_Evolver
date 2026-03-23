@@ -595,7 +595,7 @@
     <string name="dialog_color_picker">Színválasztó</string>
     <string name="press_color_to_apply">Érintse meg a színt az alkalmazáshoz</string>
     <string name="set">Beállít</string>
-    <string name="accent_color">Kiemelőszín (alapértelmezett)</string>
+    <string name="accent_color">Kiemelőszín</string>
     <string name="notification_color">Értesítési szín</string>
     <string name="wallpaper_color">Háttérkép-színek</string>
     <string name="rainbow_color">Szivárványszín</string>
@@ -1076,4 +1076,14 @@ A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok k�
     <!-- Flash SMS -->
     <string name="disable_flash_sms_title">Teljes képernyős SMS tiltása</string>
     <string name="disable_flash_sms_summary">Teljes képernyős szolgáltatói (reklám) üzeneteket konvertálja szabványos szöveges SMS-ekké.</string>
+    <!-- Custom clock style -->
+    <string name="lockscreen_custom_clock_style_title">Egyéni órastílus</string>
+    <string name="lockscreen_custom_clock_style_summary">Itt állíthatja be a záróképernyő órastílusát</string>
+    <string name="lockscreen_custom_clock_style_highlight_text">Csúsztassa balra vagy jobbra az órastílus-előnézetek megtekintéséhez</string>
+    <string name="lockscreen_custom_clock_style_info">Az egyéni órastílus az AOSP órastílusokat egyéni órákra cseréli. A Smartspace letiltásra kerül. Helyette engedélyezheti és használhatja az egyéni időjárás-előrejelzést.</string>
+    <string name="lockscreen_custom_clock_opacity_title">Egyéni óra-áttetszőség</string>
+    <string name="lockscreen_custom_clock_opacity_summary">Az egyéni órastílus átlátszóságának beállítása</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Egyéni óramagasság</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Az egyéni óramagasság beállítása</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Az egyéni óra színmódja</string>
 </resources>
