@@ -1275,4 +1275,17 @@
         <item>Samsung Galaxy S25 Ultra</item>
         <item>None</item>
     </string-array>
+
+    <!-- Custom clock style -->
+    <string-array name="lockscreen_custom_clock_color_mode_entries" translatable="false">
+        <item>@string/default_value</item>
+        <item>@string/accent_color</item>
+        <item>@string/custom_color</item>
+    </string-array>
+
+    <string-array name="lockscreen_custom_clock_color_mode_values" translatable="false">
+        <item>default</item>
+        <item>accent</item>
+        <item>custom</item>
+    </string-array>
 </resources>

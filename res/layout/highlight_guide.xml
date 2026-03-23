@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ls_clock_face_highlight_text"
+            android:text="@string/lockscreen_custom_clock_style_highlight_text"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:gravity="center"

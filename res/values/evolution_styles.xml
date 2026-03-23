@@ -17,7 +17,7 @@
 <resources>
     <style name="op_control_text_style_base">
         <item name="android:breakStrategy">simple</item>
-        <item name="android:textColorSecondary">@color/op_text_color_secondary</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="op_control_text_style_body1" parent="@style/op_control_text_style_base">
