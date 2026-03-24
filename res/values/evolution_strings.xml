@@ -1186,6 +1186,9 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="idle_manager_no_activity_hint">Actions will appear here after the device screen turns off and apps are idle.</string>
     <string name="idle_manager_refresh_dashboard">Refresh dashboard</string>
     <string name="idle_manager_apply">Apply</string>
+    <string name="idle_manager_clear_stats_title">Clear stats</string>
+    <string name="idle_manager_clear_stats_confirm">This will permanently delete all enforcement history. The idle manager will continue running normally.</string>
+    <string name="idle_manager_clear_stats_button">Clear</string>
 
     <!-- Flash SMS -->
     <string name="disable_flash_sms_title">Disable Flash SMS</string>
