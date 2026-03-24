@@ -263,12 +263,13 @@ private fun readEnforcementRecords(
         ctx.contentResolver, Settings.Secure.IDLE_MANAGER_KILL_STATS
     ) ?: return emptyList()
     if (json.isBlank()) return emptyList()
+    val appMap = apps.associateBy { it.packageName }
     val records = mutableListOf<EnforcementRecord>()
     try {
         val root = JSONObject(json)
         root.keys().forEach { pkg ->
             val entry = root.optJSONObject(pkg) ?: return@forEach
-            val app = apps.find { it.packageName == pkg }
+            val app = appMap[pkg]
             records.add(
                 EnforcementRecord(
                     packageName = pkg,
@@ -420,6 +421,19 @@ private fun IdleManagerRoot(ctx: Context) {
 
     fun clearAll() = persist(linkedMapOf())
 
+    fun clearStats() {
+        scope.launch(Dispatchers.IO) {
+            Settings.Secure.putString(
+                ctx.contentResolver,
+                Settings.Secure.IDLE_MANAGER_KILL_STATS,
+                ""
+            )
+            withContext(Dispatchers.Main) {
+                records = emptyList()
+            }
+        }
+    }
+
     LaunchedEffect(Unit) {
         allApps = withContext(Dispatchers.IO) {
             pm.getInstalledPackages(PackageManager.MATCH_ANY_USER)
@@ -569,7 +583,7 @@ private fun IdleManagerRoot(ctx: Context) {
                     ) { tab ->
                         LaunchedEffect(tab) {
                             if (tab == 1) {
-                                records = readEnforcementRecords(ctx, allApps)
+                                refreshRecords()
                             }
                         }
                         when (tab) {
@@ -592,7 +606,10 @@ private fun IdleManagerRoot(ctx: Context) {
                             1 -> DashboardTab(
                                 records = records,
                                 onRefresh = { 
-                                    records = readEnforcementRecords(ctx, allApps) 
+                                    refreshRecords()
+                                },
+                                onClearStats = {
+                                    clearStats()
                                 }
                             )
                         }
@@ -748,13 +765,50 @@ private fun AppsTab(
 @Composable
 private fun DashboardTab(
     records: List<EnforcementRecord>,
-    onRefresh: () -> Unit
+    onRefresh: () -> Unit,
+    onClearStats: () -> Unit
 ) {
+    var showClearStatsConfirm by remember {
+        mutableStateOf(false)
+    }
+
     LaunchedEffect(Unit) {
         while (true) {
             kotlinx.coroutines.delay(10_000L)
             onRefresh()
         }
+    }
+
+    if (showClearStatsConfirm) {
+        AlertDialog(
+            onDismissRequest = { showClearStatsConfirm = false },
+            icon = {
+                Icon(Icons.Default.Warning, null, tint = MaterialTheme.colorScheme.error)
+            },
+            title = {
+                Text(stringResource(R.string.idle_manager_clear_stats_title))
+            },
+            text = {
+                Text(stringResource(R.string.idle_manager_clear_stats_confirm))
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        onClearStats()
+                        showClearStatsConfirm = false
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error)
+                ) {
+                    Text(stringResource(R.string.idle_manager_clear_stats_title))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showClearStatsConfirm = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
     }
 
     Column(
@@ -809,13 +863,42 @@ private fun DashboardTab(
             }
         }
 
-        Text(
-            stringResource(R.string.idle_manager_recent_activity),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(start = 4.dp, bottom = 8.dp)
-        )
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                stringResource(R.string.idle_manager_recent_activity),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(start = 4.dp)
+            )
+            if (records.isNotEmpty()) {
+                OutlinedButton(
+                    onClick = { showClearStatsConfirm = true },
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error
+                    ),
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                        horizontal = 12.dp, vertical = 6.dp
+                    )
+                ) {
+                    Icon(
+                        Icons.Default.Delete, null,
+                        modifier = Modifier.size(14.dp)
+                    )
+                    Spacer(Modifier.width(4.dp))
+                    Text(
+                        stringResource(R.string.idle_manager_clear_stats_button),
+                        style = MaterialTheme.typography.labelSmall
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(8.dp))
 
         if (records.isEmpty()) {
             EmptyDashboardState()
