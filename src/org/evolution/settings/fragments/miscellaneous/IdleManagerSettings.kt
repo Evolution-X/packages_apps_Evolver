@@ -375,15 +375,34 @@ private fun IdleManagerRoot(ctx: Context) {
         return out
     }
 
+    fun refreshRecords() {
+        scope.launch {
+            val result = withContext(Dispatchers.IO) {
+                readEnforcementRecords(ctx, allApps)
+            }
+            records = result
+        }
+    }
+
     fun loadAll() {
-        globalEnabled = readEnabled(ctx)
-        configuredApps = mergeWithAppInfo(readAppConfigs(ctx), allApps)
-        records = readEnforcementRecords(ctx, allApps)
+        scope.launch {
+            val enabled = withContext(Dispatchers.IO) {
+                readEnabled(ctx)
+            }
+            val raw = withContext(Dispatchers.IO) {
+                readAppConfigs(ctx)
+            }
+            globalEnabled = enabled
+            configuredApps = mergeWithAppInfo(raw, allApps)
+            refreshRecords()
+        }
     }
 
     fun persist(updated: LinkedHashMap<String, IdleAppConfig>) {
         configuredApps = updated
-        writeAppConfigs(ctx, updated)
+        scope.launch(Dispatchers.IO) {
+            writeAppConfigs(ctx, updated)
+        }
     }
 
     fun upsert(pkg: String, policy: IdlePolicy, mins: Int, action: IdleAction, app: IdleAppItem) {
@@ -501,7 +520,9 @@ private fun IdleManagerRoot(ctx: Context) {
                         haptic.performHapticFeedback(HapticFeedbackType.LongPress) 
                     }
                     globalEnabled = v
-                    writeEnabled(ctx, v)
+                    scope.launch(Dispatchers.IO) {
+                        writeEnabled(ctx, v)
+                    }
                 },
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
             )
@@ -528,7 +549,7 @@ private fun IdleManagerRoot(ctx: Context) {
                             selected = selectedTab == 1,
                             onClick = {
                                 selectedTab = 1
-                                records = readEnforcementRecords(ctx, allApps)
+                                refreshRecords()
                             },
                             text = { 
                                 Text(stringResource(R.string.idle_manager_tab_dashboard)) 
@@ -731,7 +752,7 @@ private fun DashboardTab(
 ) {
     LaunchedEffect(Unit) {
         while (true) {
-            kotlinx.coroutines.delay(5_000)
+            kotlinx.coroutines.delay(10_000L)
             onRefresh()
         }
     }
