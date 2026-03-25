@@ -234,6 +234,29 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="cutout_progress_cat_glow"
+        android:title="@string/cutout_progress_cat_glow"
+        android:dependency="cutout_progress_enabled">
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="cutout_progress_glow_enabled"
+            android:title="@string/cutout_progress_glow_enabled_title"
+            android:summary="@string/cutout_progress_glow_enabled_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="cutout_progress_glow_radius_dp10"
+            android:title="@string/cutout_progress_glow_radius_title"
+            android:max="150"
+            settings:min="10"
+            settings:interval="5"
+            settings:units=" (×0.1 dp)"
+            android:defaultValue="40"
+            android:dependency="cutout_progress_glow_enabled" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="cutout_progress_cat_finish"
         android:title="@string/cutout_progress_cat_finish"
         android:dependency="cutout_progress_enabled">
