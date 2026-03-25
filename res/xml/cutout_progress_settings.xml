@@ -31,7 +31,8 @@
         android:summary="%s"
         android:entries="@array/cutout_progress_ring_color_mode_entries"
         android:entryValues="@array/cutout_progress_ring_color_mode_values"
-        android:defaultValue="0" />
+        android:defaultValue="0"
+        android:dependency="cutout_progress_enabled" />
 
     <Preference
         android:key="cutout_progress_ring_color"
@@ -44,13 +45,15 @@
         android:key="cutout_progress_error_color"
         android:title="@string/cutout_progress_error_color_title"
         android:summary="#F44336"
-        android:persistent="false" />
+        android:persistent="false"
+        android:dependency="cutout_progress_enabled" />
 
     <Preference
         android:key="cutout_progress_finish_flash_color"
         android:title="@string/cutout_progress_finish_flash_color_title"
         android:summary="#FFFFFF"
-        android:persistent="false" />
+        android:persistent="false"
+        android:dependency="cutout_progress_enabled" />
 
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference
         android:key="cutout_progress_opacity"
@@ -59,7 +62,8 @@
         settings:min="0"
         settings:interval="1"
         settings:units="%"
-        android:defaultValue="90" />
+        android:defaultValue="90"
+        android:dependency="cutout_progress_enabled" />
 
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference
         android:key="cutout_progress_stroke_width_dp10"
@@ -68,7 +72,8 @@
         settings:min="5"
         settings:interval="5"
         settings:units=" (×0.1 dp)"
-        android:defaultValue="20" />
+        android:defaultValue="20"
+        android:dependency="cutout_progress_enabled" />
 
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference
         android:key="cutout_progress_ring_gap_x1000"
@@ -77,7 +82,8 @@
         settings:min="1000"
         settings:interval="10"
         settings:units=" (×0.001)"
-        android:defaultValue="1160" />
+        android:defaultValue="1160"
+        android:dependency="cutout_progress_enabled" />
 
     <PreferenceCategory
         android:key="cutout_progress_cat_battery"
