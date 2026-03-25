@@ -1265,6 +1265,10 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="cutout_progress_ring_color_mode_accent">Accent</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Rainbow</string>
     <string name="cutout_progress_ring_color_mode_custom">Custom</string>
+    <string name="cutout_progress_cat_glow">Glow Effect</string>
+    <string name="cutout_progress_glow_enabled_title">Glow effect</string>
+    <string name="cutout_progress_glow_enabled_summary">Halo around the progress ring</string>
+    <string name="cutout_progress_glow_radius_title">Glow radius</string>
 
     <!-- Charging Ring -->
     <string name="cutout_progress_cat_battery">Battery ring</string>
