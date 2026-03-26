@@ -1174,4 +1174,30 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="cutout_progress_music_clockwise_title">Zgodnie z ruchem wskazówek zegara</string>
     <string name="cutout_progress_music_aod_title">Pokaż na Ekran zawsze włączony </string>
     <string name="cutout_progress_music_aod_summary">Utrzymuj pierścień muzyczny widoczny na Ekranie otoczenia</string>
+    <!-- QS Panel style -->
+    <string name="qs_panel_style_title">Styl panelu szybkich ustawień</string>
+    <string name="qs_panel_style_card">Styl karty</string>
+    <string name="qs_panel_style_classic">Styl klasyczny</string>
+    <string name="shape_circle">Okrąg</string>
+    <string name="shape_square">Kwadrat</string>
+    <string name="shape_four_sided_cookie">Ciasteczko 4-stronne</string>
+    <string name="shape_seven_sided_cookie">Ciasteczko 7-stronne</string>
+    <string name="shape_arch">Łuk</string>
+    <string name="shape_ios_rounded_square">Zaokrąglony kształt iOS</string>
+    <string name="shape_meow">Miau</string>
+    <string name="shape_flower">Kwiat</string>
+    <string name="shape_heart">Serce</string>
+    <string name="shape_hexagon">Sześciokąt</string>
+    <string name="shape_leaf">Liść</string>
+    <string name="shape_cloudy">Zachmurzenie</string>
+    <string name="shape_cylindrical">Cylindryczny</string>
+    <string name="shape_stretched">Rozciągnięcie</string>
+    <string name="shape_pebble">Kamyk</string>
+    <string name="shape_rice_balls">Piłki ryżowe</string>
+    <string name="shape_rounded_rect">Zaokrąglony prostokąt</string>
+    <string name="shape_squircle">Wiewiórka</string>
+    <string name="shape_tapered_rect">Stożkowy prostokąt</string>
+    <string name="shape_teardrop">Łza</string>
+    <string name="shape_vessel">Naczynie</string>
+    <string name="shape_rounded_hexagon">Zaokrąglony sześciokąt</string>
 </resources>
