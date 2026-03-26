@@ -1175,4 +1175,30 @@ A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok k�
     <string name="cutout_progress_music_clockwise_title">Óramutató járásával megegyező irány</string>
     <string name="cutout_progress_music_aod_title">Megjelenítés \'Mindig bekapcsolva\' (AOD) esetén is</string>
     <string name="cutout_progress_music_aod_summary">A Zene-gyűrű látható marad a Környezeti kijelzőn is</string>
+    <!-- QS Panel style -->
+    <string name="qs_panel_style_title">A Gyorsbeállítások panel stílusa</string>
+    <string name="qs_panel_style_card">Kártyastílus</string>
+    <string name="qs_panel_style_classic">Klasszikus stílus</string>
+    <string name="shape_circle">Kör</string>
+    <string name="shape_square">Négyzet</string>
+    <string name="shape_four_sided_cookie">4 oldalú süti</string>
+    <string name="shape_seven_sided_cookie">7 oldalú süti</string>
+    <string name="shape_arch">Íves</string>
+    <string name="shape_ios_rounded_square">iOS féle lekerekítés</string>
+    <string name="shape_meow">Miau</string>
+    <string name="shape_flower">Virág</string>
+    <string name="shape_heart">Szív</string>
+    <string name="shape_hexagon">Hatszög</string>
+    <string name="shape_leaf">Falevél</string>
+    <string name="shape_cloudy">Felhős</string>
+    <string name="shape_cylindrical">Hengeres</string>
+    <string name="shape_stretched">Nyújtott</string>
+    <string name="shape_pebble">Kavics</string>
+    <string name="shape_rice_balls">Rizsgolyók</string>
+    <string name="shape_rounded_rect">Lekerekített téglalap</string>
+    <string name="shape_squircle">Négyzetes kör</string>
+    <string name="shape_tapered_rect">Trapéz-szerű</string>
+    <string name="shape_teardrop">Könnycsepp</string>
+    <string name="shape_vessel">Váza</string>
+    <string name="shape_rounded_hexagon">Kerekített hatszög</string>
 </resources>
