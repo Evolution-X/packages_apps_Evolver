@@ -138,19 +138,30 @@
         android:title="@string/quick_settings_layout_category_title">
 
         <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_panel_style"
+            android:title="@string/qs_panel_style_title"
+            android:entries="@array/qs_panel_style_entries"
+            android:entryValues="@array/qs_panel_style_values"
+            android:defaultValue="0" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_tile_shape"
             android:title="@string/quick_settings_tile_shape_title"
             android:entries="@array/quick_settings_tile_shape_entries"
             android:entryValues="@array/quick_settings_tile_shape_values"
             android:defaultValue="0" />
 
-        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <org.evolution.settings.preferences.QSTileIconShapePreference
+            android:key="qs_tile_icon_shape"
+            android:title="@string/quick_settings_tile_shape_title" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_tile_label_hide"
             android:title="@string/quick_settings_tile_label_hide_title"
             android:summary="@string/quick_settings_tile_label_hide_summary"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_tile_label_size"
             android:title="@string/quick_settings_tile_label_size_title"
             android:max="15"

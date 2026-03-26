@@ -58,6 +58,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private static final String KEY_TILE_ANIM_DURATION = "qs_tile_animation_duration";
 //    private static final String KEY_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
     private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
+    private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
+    private static final String KEY_QS_TILE_SHAPE = "qs_tile_shape";
+    private static final String KEY_QS_TILE_ICON_SHAPE = "qs_tile_icon_shape";
+    private static final String KEY_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
 
 //    private static final int BATTERY_STYLE_PORTRAIT = 0;
 //    private static final int BATTERY_STYLE_TEXT = 4;
@@ -70,6 +74,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mBrightnessSliderHaptic;
     private SwitchPreferenceCompat mShowAutoBrightness;
     private SwitchPreferenceCompat mQsTileHaptic;
+    private ListPreference mQsPanelStyle;
+    private Preference mQsTileShape;
+    private Preference mQsTileIconShape;
+    private SwitchPreferenceCompat mQsTileLabelHide;
 //    private SystemSettingListPreference mBatteryStyle;
 //    private SystemSettingListPreference mBatteryPercent;
 //    private SystemSettingListPreference mTileAnimationInterpolator;
@@ -140,6 +148,30 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //        int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
 //                Settings.System.QS_TILE_ANIMATION_STYLE, 0, UserHandle.USER_CURRENT);
 //        updateTileAnimStyle(tileAnimationStyle);
+
+        mQsPanelStyle = findPreference(KEY_QS_PANEL_STYLE);
+        mQsPanelStyle.setOnPreferenceChangeListener(this);
+        mQsTileShape = findPreference(KEY_QS_TILE_SHAPE);
+        mQsTileIconShape = findPreference(KEY_QS_TILE_ICON_SHAPE);
+        mQsTileLabelHide = findPreference(KEY_QS_TILE_LABEL_HIDE);
+
+        int panelStyle = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
+        updatePanelStylePrefs(panelStyle);
+    }
+
+    private void updatePanelStylePrefs(int panelStyle) {
+        boolean isClassic = panelStyle == 1;
+
+        if (mQsTileShape != null) {
+            mQsTileShape.setVisible(!isClassic);
+        }
+        if (mQsTileIconShape != null) {
+            mQsTileIconShape.setVisible(isClassic);
+        }
+        if (mQsTileLabelHide != null) {
+            mQsTileLabelHide.setVisible(isClassic);
+        }
     }
 
     @Override
@@ -153,6 +185,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 mBrightnessSliderHaptic.setEnabled(value > 0);
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
+            return true;
+        } else if (preference == mQsPanelStyle) {
+            int value = Integer.parseInt((String) newValue);
+            updatePanelStylePrefs(value);
             return true;
         } else if (preference == mCompactMediaPlayer
             || preference == mBrightnessSliderHaptic) {
