@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2025 Evolution X
+     Copyright (C) 2019-2026 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -288,20 +288,6 @@
     <string name="status_bar_clock_seconds_summary">Mostrar segundos ao lado do relógio na barra de status</string>
     <string name="status_bar_clock_auto_hide_title">Ocultar automaticamente</string>
     <string name="status_bar_clock_auto_hide_summary">Ocultar relógio quando na tela inicial</string>
-    <string name="status_bar_clock_chip_title">Chip de fundo do relógio</string>
-    <string name="status_bar_clock_chip_summary">Exibir chip acentuado atrás do relógio</string>
-    <string name="solid_accent">Destaque de cor sólida</string>
-    <string name="outline">Contornado</string>
-    <string name="solid_accent_gradient">Gradiente de cor sólida com destaque</string>
-    <string name="solid_gradient">Lateral com gradiente sólido</string>
-    <string name="solid_gradient_corner">Gradiente de destaque sólido nítido</string>
-    <string name="solid_gradient_void">Vazio gradiente</string>
-    <string name="solid_gradient_neumorph">Gradiente Neumorph</string>
-    <string name="solid_gradient_stroke">Traço de gradiente acentuado</string>
-    <string name="solid_accent_transperent">Transparente acentuado</string>
-    <string name="solid_gradient_light">Luz gradiente</string>
-    <string name="solid_gradient_shape">Canto com gradiente acentuado</string>
-    <string name="solid_gradient_void_light">Luz do Vazio Gradiente</string>
     <string name="status_bar_am_pm_title">AM/PM</string>
     <string name="status_bar_am_pm_info">O relógio estilo 24 horas está ativado</string>
     <string name="status_bar_am_pm_normal">Normal</string>
@@ -322,6 +308,35 @@
     <string name="status_bar_clock_date_position">Posição da data</string>
     <string name="status_bar_clock_date_right">À direita do relógio</string>
     <string name="status_bar_clock_date_left">À esquerda do relógio</string>
+    <!-- Statusbar Clock background chip -->
+    <string name="statusbar_clock_chip_title">Chip de fundo do relógio</string>
+    <string name="statusbar_clock_chip_summary">Selecione um chip de fundo personalizado para trás do relógio</string>
+    <string name="solid_accent">Destaque de cor sólida</string>
+    <string name="outline">Contornado</string>
+    <string name="solid_accent_gradient">Gradiente de cor sólida com destaque</string>
+    <string name="solid_gradient">Lateral com gradiente sólido</string>
+    <string name="solid_gradient_corner">Gradiente de destaque sólido nítido</string>
+    <string name="solid_gradient_void">Vazio gradiente</string>
+    <string name="solid_gradient_neumorph">Gradiente Neumorph</string>
+    <string name="solid_gradient_stroke">Traço de gradiente acentuado</string>
+    <string name="solid_accent_transperent">Transparente acentuado</string>
+    <string name="solid_gradient_light">Luz gradiente</string>
+    <string name="solid_gradient_shape">Canto com gradiente acentuado</string>
+    <string name="solid_gradient_void_light">Luz do Vazio Gradiente</string>
+    <string name="clock_chip_custom_gradient">Gradiente Customizado</string>
+    <!-- Start color picker -->
+    <string name="clock_chip_gradient_start_color_title">Cor inicial gradiente</string>
+    <string name="clock_chip_gradient_start_color_summary">Cor no início do gradiente</string>
+    <!-- End color picker -->
+    <string name="clock_chip_gradient_end_color_title">Cor final do gradiente</string>
+    <string name="clock_chip_gradient_end_color_summary">Cor no final do gradiente</string>
+    <!-- Angle seekbar -->
+    <string name="clock_chip_gradient_angle_title">Ângulo de gradiente</string>
+    <string name="clock_chip_gradient_angle_summary">Direção do gradiente (0° = esquerda→direita, 90° = topo da parte inferior)</string>
+    <!-- Mask text -->
+    <string name="clock_chip_gradient_mask_text_title">Estilo de fonte do relógio</string>
+    <string name="clock_chip_gradient_mask_text_default">Padrão</string>
+    <string name="clock_chip_gradient_mask_text_mask">Transparente (Máscara)</string>
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Local</string>
     <string name="network_traffic_location_disable">Desativado</string>
@@ -454,9 +469,6 @@
     <string name="notifications_sounds_vibration_category">Sons &amp; vibração</string>
     <string name="notifications_alert_display_on_title">Alerta enquanto a tela estiver ligada</string>
     <string name="notifications_alert_display_on_summary">Reproduza som e vibração para notificações enquanto a tela estiver ligada</string>
-    <!-- Notifications/Alert Slider Notifications (OnePlus devices) -->
-    <string name="alert_slider_notifications_title">Notificações do controle de alerta</string>
-    <string name="alert_slider_notifications_summary">Exibe uma notificação ao mudar a posição do controle deslizante de alerta</string>
     <!-- Notifications/Compact Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Notificação flutuante compacta</string>
     <string name="compact_heads_up_notifications_enabled_summary">Exibir notificações em tamanho compacto</string>
@@ -512,6 +524,8 @@
     <string name="miscellaneous_developer_options_category">Opções do desenvolvedor</string>
     <string name="miscellaneous_app_downgrade_title">Permitir retornar para versões anteriores do aplicativo</string>
     <string name="miscellaneous_app_downgrade_summary">Permitir downgrade de aplicativos do sistema, que podem resultar em falhas e perda de dados</string>
+    <string name="miscellaneous_pairip_activity_block_title">Bloquear verificação de licença PairIP</string>
+    <string name="miscellaneous_pairip_activity_block_summary">Impedir que aplicativos na Play Store iniciem a tela \"Obtenha este aplicativo da Play\" quando não estiver instalado pela Play Store</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignorar pedidos de escurecimento do papel de parede</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Impede que todos os aplicativos definam o escurecimento do papel de parede\nForça o escurecimento para 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignorar restrições de captura de tela</string>
@@ -547,10 +561,6 @@
     <string name="spoofing_photos_summary">Falsear o aplicativo Google Fotos como Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Falsear o aplicativo Snapchat como Pixel XL para corrigir possíveis problemas no chat</string>
-    <string name="gameprops_title">Desbloquear máximo de FPS nos jogos</string>
-    <string name="gameprops_summary">Mostrando seu dispositivo como um modelo diferente para desbloquear mais FPS nos jogos</string>
-    <string name="gameprops_load_json_title">Selecionar Arquivo JSON para Props de Jogo</string>
-    <string name="gameprops_load_json_summary">Selecione o arquivo JSON de propriedades do jogo a ser usado para falsificar jogos</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Pif.json baixado com sucesso. Mostrando como %1$s para Play Integrity.</string>
     <string name="toast_spoofing_failure">Falha ao mascarar as propriedades.</string>
@@ -580,11 +590,12 @@
     <string name="about_discord_summary">Visite o chat da nossa comunidade</string>
     <string name="about_github_summary">Confira o nosso GitHub</string>
     <string name="about_founders_title">Fundadores</string>
+    <string name="about_team_members_title">Membros da equipe</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Seletor de cores</string>
     <string name="press_color_to_apply">Selecione a cor abaixo para aplicar</string>
     <string name="set">Definir</string>
-    <string name="accent_color">Cor de destaque (Padrão)</string>
+    <string name="accent_color">Cor de destaque</string>
     <string name="notification_color">Cor da notificação</string>
     <string name="wallpaper_color">Cores do papel de parede</string>
     <string name="rainbow_color">Cor do arco-íris</string>
@@ -767,6 +778,37 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Animação de rabisco</string>
     <string name="media_squiggle_animation_summary">Mostrar animação de rabisco na barra de busca ao reproduzir mídia</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Chip de ação barra de status</string>
+    <string name="ongoing_progress_settings_summary">Personalizar chip de ação para mostrar o indicador de progresso</string>
+    <string name="ongoing_action_chip_title">Chip de ação em andamento</string>
+    <string name="ongoing_action_chip_summary">Mostrar indicador de progresso para ações em andamento, como downloads</string>
+    <string name="ongoing_media_progress_title">Progresso da mídia</string>
+    <string name="ongoing_media_progress_summary">Exibir progresso de reprodução de mídia</string>
+    <string name="ongoing_progress_footer_text">\"O chip de ação da barra de status fornece atualizações em tempo real tanto para a reprodução de mídia quanto para downloads/uploads ativos.
+
+Progresso da mídia:
+• Exibe o progresso da reprodução de música e vídeo durante a reprodução.
+• Um toque abre os controles de reprodução.
+• Dois toques alternam entre reproduzir e pausar.
+• Deslizar para a esquerda pula para a faixa anterior.
+• Deslizar para a direita pula para a próxima faixa.
+• Um toque longo abre o aplicativo de mídia.
+
+Progresso de download/upload:
+• Mostra o progresso de downloads e uploads em andamento.
+• Oculta-se automaticamente quando nenhuma transferência ativa é detectada.
+• Um toque abre o aplicativo responsável pelo download.
+
+A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à vista.\"    </string>
+    <string name="ongoing_compact_mode_title">Indicador de progresso compacto</string>
+    <string name="ongoing_compact_mode_summary">Usar indicador de progresso circular em vez de barra</string>
+    <string name="ongoing_chip_color_mode_title">Cor de fundo do chip</string>
+    <string name="ongoing_chip_color_mode_accent">Cor de destaque do sistema</string>
+    <string name="ongoing_chip_color_mode_icon">Cor do ícone do aplicativo</string>
+    <string name="ongoing_chip_color_mode_album_art">Cor da arte do álbum</string>
+    <string name="ongoing_chip_bg_alpha_title">Opacidade do plano de fundo</string>
+    <string name="ongoing_chip_bg_alpha_summary">Ajustar a opacidade do chip de ação em andamento</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Barra de bateria</string>
     <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
@@ -941,29 +983,222 @@
     <string name="custom_gradient_color_mode_custom">Modo personalizado</string>
     <string name="custom_gradient_start_color_title">Cor inicial gradiente</string>
     <string name="custom_gradient_end_color_title">Cor final do gradiente</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip de ação barra de status</string>
-    <string name="ongoing_progress_settings_summary">Personalizar chip de ação para mostrar o indicador de progresso</string>
-    <string name="ongoing_action_chip_title">Chip de ação em andamento</string>
-    <string name="ongoing_action_chip_summary">Mostrar indicador de progresso para ações em andamento, como downloads</string>
-    <string name="ongoing_media_progress_title">Progresso da mídia</string>
-    <string name="ongoing_media_progress_summary">Exibir progresso de reprodução de mídia</string>
-    <string name="ongoing_progress_footer_text">\"O chip de ação da barra de status fornece atualizações em tempo real tanto para a reprodução de mídia quanto para downloads/uploads ativos.
-
-Progresso da mídia:
-• Exibe o progresso da reprodução de música e vídeo durante a reprodução.
-• Um toque abre os controles de reprodução.
-• Dois toques alternam entre reproduzir e pausar.
-• Deslizar para a esquerda pula para a faixa anterior.
-• Deslizar para a direita pula para a próxima faixa.
-• Um toque longo abre o aplicativo de mídia.
-
-Progresso de download/upload:
-• Mostra o progresso de downloads e uploads em andamento.
-• Oculta-se automaticamente quando nenhuma transferência ativa é detectada.
-• Um toque abre o aplicativo responsável pelo download.
-
-A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à vista.\"    </string>
-    <string name="ongoing_compact_mode_title">Indicador de progresso compacto</string>
-    <string name="ongoing_compact_mode_summary">Usar indicador de progresso circular em vez de barra</string>
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Falsificação de aplicativos</string>
+    <string name="user_selectable_app_spoofing_summary">Escolha quais aplicativos para falsificar propriedades do dispositivo</string>
+    <string name="user_select_spoofing_profile_title">Selecionar perfil de spoofing</string>
+    <string name="app_spoofing_category_title">Falsificação por aplicativo</string>
+    <string name="app_spoofing_header_title">Ativar Falsificação</string>
+    <string name="app_spoofing_configured_count">Apps %1$d falsificados</string>
+    <string name="app_spoofing_disabled">Desativado</string>
+    <string name="app_spoofing_add_apps">Adicionar aplicativos</string>
+    <string name="app_spoofing_spoofed_model">Selecione o modelo</string>
+    <string name="app_spoofing_clear_all">Limpar tudo</string>
+    <string name="app_spoofing_configured_apps">Lista de aplicativos configurados</string>
+    <string name="app_spoofing_no_apps_configured">Nenhum app configurado</string>
+    <string name="app_spoofing_spoof_model">Falsificar modelo</string>
+    <string name="app_spoofing_select_spoof_model">Selecione o modelo de falsificação</string>
+    <string name="app_spoofing_change_app">Alterar aplicativo</string>
+    <string name="show_system_apps">Mostrar aplicativos do sistema</string>
+    <string name="hide_system_apps">Ocultar apps do sistema</string>
+    <!-- Custom App Spoofing Profiles -->
+    <string name="add_new_spoof_profile">Adicionar novo</string>
+    <string name="add_custom_spoof_profile_title">Adicionar perfil falso personalizado</string>
+    <string name="custom_spoof_profile_name">Nome do Perfil</string>
+    <string name="custom_spoof_profile_brand">MARCA</string>
+    <string name="custom_spoof_profile_manufacturer">MANUFADOR</string>
+    <string name="custom_spoof_profile_device">DISPOSITIVO</string>
+    <string name="custom_spoof_profile_model">MODELO</string>
+    <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Opcional)</string>
+    <string name="custom_spoof_profile_product">PRODUTO (Opcional)</string>
+    <string name="app_spoofing_clear_all_confirm">Isto removerá todas as entradas de spoofing configuradas.</string>
+    <string name="app_spoofing_no_apps_available">Nenhum app disponível</string>
+    <string name="app_spoofing_no_apps_found">Nenhum aplicativo encontrado para \"%s\"</string>
+    <string name="app_spoofing_clear_search">Limpar pesquisa</string>
+    <string name="app_spoofing_longpress_hint">Toque longo para reatribuir rapidamente o perfil</string>
+    <string name="app_spoofing_remove_title">Remover app?</string>
+    <string name="app_spoofing_remove_confirm">Remover %1$s da lista de falsificações?</string>
+    <!-- Idle Manager -->
+    <string name="idle_manager_title">Gerenciador de ociosidade</string>
+    <string name="idle_manager_summary">Gerenciar processos em segundo plano e otimizar a duração da bateria</string>
+    <string name="idle_manager_app_count">Apps %1$d monitorados</string>
+    <string name="idle_manager_disabled">Desativado — toque para ativar</string>
+    <string name="idle_manager_tab_apps">Aplicativos</string>
+    <string name="idle_manager_tab_dashboard">Painel</string>
+    <string name="idle_manager_add_apps">Adicionar aplicativos</string>
+    <string name="idle_manager_clear_all">Limpar tudo</string>
+    <string name="idle_manager_clear_all_confirm">Remover todos os aplicativos configurados? Os buckets de espera serão restaurados.</string>
+    <string name="idle_manager_configured_apps">Configurar apps</string>
+    <string name="idle_manager_no_apps_configured">Nenhum app configurado</string>
+    <string name="idle_manager_no_apps_hint">Toque em \"Adicionar aplicativos\" para começar a gerenciar processos em segundo plano.</string>
+    <string name="idle_manager_no_apps_available">Nenhum app disponível</string>
+    <string name="idle_manager_no_apps_found">Nenhum aplicativo correspondente \"%1$s\"</string>
+    <string name="idle_manager_back_to_apps">← Voltar</string>
+    <string name="idle_manager_select_policy">Configura política</string>
+    <string name="idle_manager_select_policy_count">Próximo: Definir política para o(s) aplicativo(s) %1$d</string>
+    <string name="idle_manager_edit_policy">Editar: %1$s</string>
+    <string name="idle_manager_idle_timeout">Tempo limite de ociosidade</string>
+    <string name="idle_manager_policy_balanced">Balanceado</string>
+    <string name="idle_manager_policy_aggressive">Aggressivo</string>
+    <string name="idle_manager_policy_custom">Personalizado</string>
+    <string name="idle_manager_policy_balanced_desc">Apps inativos por 60 minutos serão executados.</string>
+    <string name="idle_manager_policy_aggressive_desc">Apps inativos por 15 minutos serão executados. Recomendado para economia de bateria.</string>
+    <string name="idle_manager_policy_custom_desc">Defina o seu próprio tempo ocioso.</string>
+    <string name="idle_manager_timeout_minutes">Tempo limite: %1$d min</string>
+    <string name="idle_manager_apply_custom">Aplicar</string>
+    <string name="idle_manager_timeout_label">Tempo de espera</string>
+    <string name="idle_manager_policy_label">Política</string>
+    <string name="idle_manager_enforcement_action">Ação de execução</string>
+    <string name="idle_action_rare_bucket">Bucket Raro</string>
+    <string name="idle_action_restricted">Restrito</string>
+    <string name="idle_action_kill_bg">Kill BG</string>
+    <string name="idle_action_full_kill">Abate Completo</string>
+    <string name="idle_manager_policy_custom_desc_dynamic">Apps inativos por minutos %1$d serão executados.</string>
+    <string name="idle_action_rare_bucket_desc">Move aplicativos para o modo de espera RAR. Bloqueia trabalhos em segundo plano e alarmes. Apps restauram automaticamente quando abertos.</string>
+    <string name="idle_action_restricted_desc">Move o aplicativo para o modo de espera RESTRITO. É o modo mais agressivo. Pouquíssimas operações em segundo plano são permitidas.</string>
+    <string name="idle_action_kill_bg_desc">Processos de fundo em cache de eliminações. O aplicativo pode ser reiniciado por conta própria.</string>
+    <string name="idle_action_full_kill_desc">Bucket RESTRITO + eliminação suave. Aplicação máxima. Ideal para economia de bateria.</string>
+    <string name="idle_manager_kill_count_label">Total de tarefas</string>
+    <string name="idle_manager_last_killed_label">Última ação</string>
+    <string name="idle_manager_last_killed">Último: %1$s</string>
+    <string name="idle_manager_longpress_hint">Pressione e segure para editar rapidamente</string>
+    <string name="idle_manager_critical_system_warning">Pacote do sistema crítico. Restringir isso pode causar instabilidade.</string>
+    <string name="idle_manager_remove_title">Remover app?</string>
+    <string name="idle_manager_remove_confirm">%1$s será removido. Seu balde em espera será restaurado.</string>
+    <string name="idle_manager_apps_acted_on">Apps interligados em</string>
+    <string name="idle_manager_total_actions">Total de tarefas</string>
+    <string name="idle_manager_action_breakdown">Análise da ação</string>
+    <string name="idle_manager_recent_activity">Atividade recente</string>
+    <string name="idle_manager_no_activity">Nenhuma atividade ainda</string>
+    <string name="idle_manager_no_activity_hint">As ações aparecerão aqui depois que a tela do dispositivo desligar e os apps estiverem inativos.</string>
+    <string name="idle_manager_refresh_dashboard">Atualize o painel</string>
+    <string name="idle_manager_apply">Aplicar</string>
+    <string name="idle_manager_clear_stats_title">Limpar estatísticas</string>
+    <string name="idle_manager_clear_stats_confirm">Isto excluirá permanentemente todo o histórico de implementação. O gerenciador inativo continuará sendo executado normalmente.</string>
+    <string name="idle_manager_clear_stats_button">Transparente</string>
+    <!-- Flash SMS -->
+    <string name="disable_flash_sms_title">Desativar Flash SMS</string>
+    <string name="disable_flash_sms_summary">Converte mensagens flash de tela cheia em SMS de texto padrão.</string>
+    <!-- Custom clock style -->
+    <string name="lockscreen_custom_clock_style_title">Estilo de relógio personalizado</string>
+    <string name="lockscreen_custom_clock_style_summary">Configurar estilos do relógio da tela de bloqueio</string>
+    <string name="lockscreen_custom_clock_style_highlight_text">Deslize para a esquerda ou direita para visualizar os estilos de relógio</string>
+    <string name="lockscreen_custom_clock_style_info">O estilo de relógio personalizado substitui os estilos do relógio AOSP com relógios personalizados. O Smartspace será desativado. Você pode ativar e usar clima personalizado em vez disso.</string>
+    <string name="lockscreen_custom_clock_opacity_title">Opacidade do relógio personalizado</string>
+    <string name="lockscreen_custom_clock_opacity_summary">Ajustar a transparência do estilo de relógio personalizado</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Altura do relógio personalizado</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Ajustar a altura do estilo de relógio personalizado</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Modo de cor de relógio personalizado</string>
+    <!-- Cutout Progress -->
+    <string name="cutout_progress_title">Anel de Progresso de Recorte</string>
+    <string name="cutout_progress_summary">Mostrar toque de progresso em torno de buraco do punch</string>
+    <string name="cutout_progress_enabled_title">Ativar anel de progresso de corte</string>
+    <string name="cutout_progress_enabled_summary">Mostrar um anel de progresso em torno do corte da câmera durante os downloads</string>
+    <string name="cutout_progress_cat_appearance">Aparência</string>
+    <string name="cutout_progress_cat_behaviour">Comportamento</string>
+    <string name="cutout_progress_cat_bg_ring">Anel de fundo</string>
+    <string name="cutout_progress_cat_finish">Finalizar animação</string>
+    <string name="cutout_progress_cat_geometry">Geometria do anel</string>
+    <string name="cutout_progress_cat_labels">Rótulos</string>
+    <string name="cutout_progress_cat_badge">Contador de Download</string>
+    <string name="cutout_progress_ring_color_title">Anel de cor personalizada</string>
+    <string name="cutout_progress_error_color_title">Cor de erro</string>
+    <string name="cutout_progress_finish_flash_color_title">Finalizar cor do flash</string>
+    <string name="cutout_progress_bg_ring_color_title">Cor do anel de fundo</string>
+    <string name="cutout_progress_opacity_title">Opacidade do Anel</string>
+    <string name="cutout_progress_stroke_width_title">Largura do traço</string>
+    <string name="cutout_progress_ring_gap_title">Lacuna de anel (corte na eliminação)</string>
+    <string name="cutout_progress_clockwise_title">Direção no sentido horário</string>
+    <string name="cutout_progress_clockwise_summary">Preencha o toque no sentido horário; desative para anti-horário</string>
+    <string name="cutout_progress_min_vis_title">Tempo mínimo de exibição</string>
+    <string name="cutout_progress_min_vis_summary">Manter o toque visível por um tempo mínimo para que downloads rápidos não pisquem</string>
+    <string name="cutout_progress_min_vis_ms_title">Duração mínima</string>
+    <string name="cutout_progress_easing_title">Progresso facilitado</string>
+    <string name="cutout_progress_bg_ring_enabled_title">Mostrar anel de fundo</string>
+    <string name="cutout_progress_bg_ring_enabled_summary">Desenhe um anel fraco atrás do arco de progresso</string>
+    <string name="cutout_progress_bg_ring_opacity_title">Opacidade do anel de fundo</string>
+    <string name="cutout_progress_finish_style_title">Finalizar estilo de animação</string>
+    <string name="cutout_progress_finish_hold_title">Duração de espera</string>
+    <string name="cutout_progress_finish_exit_title">Duração de Saída</string>
+    <string name="cutout_progress_finish_flash_title">Usar a cor do flash ao terminar</string>
+    <string name="cutout_progress_finish_flash_summary">Piscar um pouco o anel com a cor do flash final quando completo</string>
+    <string name="cutout_progress_pulse_title">Pulso de conclusão</string>
+    <string name="cutout_progress_pulse_summary">Brilho rápido antes do fim da animação</string>
+    <string name="cutout_progress_path_mode_title">Modo Cápsula / Pílula</string>
+    <string name="cutout_progress_path_mode_summary">Use um renderizador de caminhos em forma de pílula (para recortes alongados)</string>
+    <string name="cutout_progress_scale_x_title">Escala horizontal</string>
+    <string name="cutout_progress_scale_y_title">Escala vertical</string>
+    <string name="cutout_progress_offset_x_title">Offset horizontal</string>
+    <string name="cutout_progress_offset_y_title">Offset vertical</string>
+    <string name="cutout_progress_percent_enabled_title">Mostrar porcentagens</string>
+    <string name="cutout_progress_percent_enabled_summary">Exibir o progresso do download atual como um rótulo de porcentagem</string>
+    <string name="cutout_progress_percent_size_title">Tamanho do texto percentual</string>
+    <string name="cutout_progress_percent_bold_title">Porcentagem em negrito</string>
+    <string name="cutout_progress_percent_position_title">Posição de porcentagem</string>
+    <string name="cutout_progress_filename_enabled_title">Mostrar nome do arquivo</string>
+    <string name="cutout_progress_filename_enabled_summary">Exibir o nome do arquivo a ser baixado</string>
+    <string name="cutout_progress_filename_size_title">Tamanho do texto do nome do arquivo</string>
+    <string name="cutout_progress_filename_bold_title">Nome do arquivo em negrito</string>
+    <string name="cutout_progress_filename_position_title">Posição do arquivo</string>
+    <string name="cutout_progress_filename_max_chars_title">Tamanho máximo do nome</string>
+    <string name="cutout_progress_filename_truncate_title">Truncamento de nome de arquivo</string>
+    <string name="cutout_progress_badge_title">Mostrar contagem de download</string>
+    <string name="cutout_progress_badge_summary">Mostrar um selo de pílula com o número de downloads ativos</string>
+    <string name="cutout_progress_badge_size_title">Tamanho do texto do emblema</string>
+    <string name="cutout_progress_badge_offset_x_title">Deslocamento horizontal do emblema</string>
+    <string name="cutout_progress_badge_offset_y_title">Deslocamento vertical do emblema</string>
+    <string name="cutout_progress_ring_color_mode_title">Cor do Anel</string>
+    <string name="cutout_progress_color_picker_title">Escolha a cor</string>
+    <string name="cutout_progress_ring_color_mode_accent">Cor de destaque</string>
+    <string name="cutout_progress_ring_color_mode_rainbow">Arco-íris</string>
+    <string name="cutout_progress_ring_color_mode_custom">Personalizado</string>
+    <!-- Charging Ring -->
+    <string name="cutout_progress_cat_battery">Anel da bateria</string>
+    <string name="cutout_progress_battery_indicator_title">Mostrar indicador de bateria</string>
+    <string name="cutout_progress_battery_indicator_summary">Exibir o nível da bateria como um anel simétrico ao redor do corte quando estiver carregando ou totalmente carregado</string>
+    <string name="cutout_progress_charging_ring_title">Mostrar toque de carregamento</string>
+    <string name="cutout_progress_charging_ring_summary">Exibir o nível da bateria como um anel simétrico em torno do corte durante o carregamento</string>
+    <string name="cutout_progress_charging_pulse_title">Animação de pulso de carregamento</string>
+    <string name="cutout_progress_charging_pulse_summary">Animar um pulso recorrente do centro ao carregar</string>
+    <!-- Music Ring -->
+    <string name="cutout_progress_cat_music">Anel de música</string>
+    <string name="cutout_progress_music_title">Ativar Anel de Música</string>
+    <string name="cutout_progress_music_summary">Mostrar a reprodução de um anel do visualizador</string>
+    <string name="cutout_progress_music_color_mode_title">Modo de Cor</string>
+    <string name="cutout_progress_music_color_mode_album_icon">Cor do ícone do álbum</string>
+    <string name="cutout_progress_music_color_mode_accent">Realce do sistema</string>
+    <string name="cutout_progress_music_color_mode_album_art">Capa do álbum</string>
+    <string name="cutout_progress_music_color_mode_custom">Cor customizada</string>
+    <string name="cutout_progress_music_custom_color_title">Cor customizada</string>
+    <string name="cutout_progress_music_opacity_title">Opacidade do Anel</string>
+    <string name="cutout_progress_music_stroke_title">Espessura do traço</string>
+    <string name="cutout_progress_music_clockwise_title">Direção no sentido horário</string>
+    <string name="cutout_progress_music_aod_title">Mostrar na tela ambiente</string>
+    <string name="cutout_progress_music_aod_summary">Manter o toque de música visível na Tela Ambiente</string>
+    <!-- QS Panel style -->
+    <string name="qs_panel_style_title">Estilo do painel de configurações rápidas</string>
+    <string name="qs_panel_style_card">Estilo do cartão</string>
+    <string name="qs_panel_style_classic">Estilo Clássico</string>
+    <string name="shape_circle">Círculo</string>
+    <string name="shape_square">Quadrado</string>
+    <string name="shape_four_sided_cookie">cookie de 4-lados</string>
+    <string name="shape_seven_sided_cookie">cookie de 7 lados</string>
+    <string name="shape_arch">Arco</string>
+    <string name="shape_ios_rounded_square">formato arredondado do iOS</string>
+    <string name="shape_meow">Miau</string>
+    <string name="shape_flower">Flor</string>
+    <string name="shape_heart">Coração</string>
+    <string name="shape_hexagon">Hexágono</string>
+    <string name="shape_leaf">Folha</string>
+    <string name="shape_cloudy">Nublado</string>
+    <string name="shape_cylindrical">Cilíndrico</string>
+    <string name="shape_stretched">Esticado</string>
+    <string name="shape_pebble">Seixo</string>
+    <string name="shape_rice_balls">Bolinhos de arroz</string>
+    <string name="shape_rounded_rect">Retângulo arredondado</string>
+    <string name="shape_squircle">Quadrado</string>
+    <string name="shape_tapered_rect">Retângulo cônico</string>
+    <string name="shape_teardrop">Lágrima</string>
+    <string name="shape_vessel">Navio</string>
+    <string name="shape_rounded_hexagon">Hexágono arredondado</string>
 </resources>
