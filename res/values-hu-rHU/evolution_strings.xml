@@ -809,6 +809,8 @@ A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok k�
     <string name="ongoing_chip_color_mode_accent">A rendszer kiemelőszíne</string>
     <string name="ongoing_chip_color_mode_icon">Az alkalmazásikon színe</string>
     <string name="ongoing_chip_color_mode_album_art">A lemezborító színe</string>
+    <string name="ongoing_chip_bg_alpha_title">Háttérátlátszóság</string>
+    <string name="ongoing_chip_bg_alpha_summary">Beállíthatja az épp futó művelet hátterének átlátszóságát</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Akkumulátorsáv</string>
     <string name="battery_bar_summary">Akkumulátorsáv megjelenítése és testreszabása az állapotsor felett</string>
