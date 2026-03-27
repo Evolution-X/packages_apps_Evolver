@@ -808,6 +808,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ongoing_chip_color_mode_accent">Kolor akcentu systemowego</string>
     <string name="ongoing_chip_color_mode_icon">Kolor ikony aplikacji</string>
     <string name="ongoing_chip_color_mode_album_art">Kolor okładki albumu</string>
+    <string name="ongoing_chip_bg_alpha_title">Przezroczystość tła znacznika</string>
+    <string name="ongoing_chip_bg_alpha_summary">Dostosuj przezroczystość trwającego znacznika akcji</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Pasek baterii</string>
     <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii nad paskiem stanu</string>
@@ -1151,6 +1153,10 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="cutout_progress_ring_color_mode_accent">Akcent</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Tęcza</string>
     <string name="cutout_progress_ring_color_mode_custom">Własny</string>
+    <string name="cutout_progress_cat_glow">Efekt blasku</string>
+    <string name="cutout_progress_glow_enabled_title">Efekt blasku</string>
+    <string name="cutout_progress_glow_enabled_summary">Aureola wokół pierścienia postępu</string>
+    <string name="cutout_progress_glow_radius_title">Promień świecenia</string>
     <!-- Charging Ring -->
     <string name="cutout_progress_cat_battery">Pierścień baterii</string>
     <string name="cutout_progress_battery_indicator_title">Pokaż wskaźnik baterii</string>
@@ -1200,4 +1206,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="shape_teardrop">Łza</string>
     <string name="shape_vessel">Naczynie</string>
     <string name="shape_rounded_hexagon">Zaokrąglony sześciokąt</string>
+    <!-- Smartspace -->
+    <string name="lockscreen_smartspace_title">Inteligentna przestrzeń</string>
+    <string name="lockscreen_smartspace_summary">Pokaż inteligentną przestrzeń Google, jeśli jest dostępna</string>
 </resources>
