@@ -1152,6 +1152,10 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="cutout_progress_ring_color_mode_accent">Cor de destaque</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Arco-íris</string>
     <string name="cutout_progress_ring_color_mode_custom">Personalizado</string>
+    <string name="cutout_progress_cat_glow">Efeito de brilho</string>
+    <string name="cutout_progress_glow_enabled_title">Efeito de brilho</string>
+    <string name="cutout_progress_glow_enabled_summary">Halo em torno do anel de progresso</string>
+    <string name="cutout_progress_glow_radius_title">Alcance do Brilhante</string>
     <!-- Charging Ring -->
     <string name="cutout_progress_cat_battery">Anel da bateria</string>
     <string name="cutout_progress_battery_indicator_title">Mostrar indicador de bateria</string>
@@ -1201,4 +1205,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="shape_teardrop">Lágrima</string>
     <string name="shape_vessel">Navio</string>
     <string name="shape_rounded_hexagon">Hexágono arredondado</string>
+    <!-- Smartspace -->
+    <string name="lockscreen_smartspace_title">Smartspace</string>
+    <string name="lockscreen_smartspace_summary">Mostrar Google Smartspace quando disponível</string>
 </resources>
