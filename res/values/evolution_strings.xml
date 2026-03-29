@@ -974,6 +974,8 @@
     <string name="nowplaying_compact_style_title">Compact style</string>
     <string name="nowplaying_compact_style_summary">Show as on a single line using the track text size</string>
     <string name="nowplaying_info_summary">Now Playing displays the currently playing music title and artist on your lockscreen and Always-On Display. It automatically appears when music is playing and disappears when stopped. The position can be adjusted to appear anywhere from the top to bottom of the screen.</string>
+    <string name="nowplaying_expand_dialog">Expand dialog</string>
+    <string name="nowplaying_expand_dialog_summary">Expand Now Playing dialog</string>
 
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Charging ripple shape</string>

@@ -52,6 +52,13 @@
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="nowplaying_tap_to_expand"
+        android:title="@string/nowplaying_expand_dialog"
+        android:summary="@string/nowplaying_expand_dialog_summary"
+        android:dependency="nowplaying_enabled"
+        android:defaultValue="true" />
+
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
         android:key="nowplaying_use_accent_color"
         android:title="@string/nowplaying_use_accent_color_title"
         android:summary="@string/nowplaying_use_accent_color_summary"
