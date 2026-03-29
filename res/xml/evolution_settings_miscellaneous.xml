@@ -95,6 +95,13 @@
             android:summary="@string/floating_rotation_button_summary"
             android:defaultValue="true" />
 
+        <!-- Notification bubble apps -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="notification_bubble_apps"
+            android:title="@string/notification_bubble_apps_title"
+            android:summary="@string/notification_bubble_apps_summary"
+            android:defaultValue="false" />
+
         <!-- Smart Pixels -->
         <Preference
             android:key="smart_pixels"
