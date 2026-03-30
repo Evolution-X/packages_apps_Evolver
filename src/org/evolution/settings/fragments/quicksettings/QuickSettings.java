@@ -32,6 +32,8 @@ import java.util.List;
 import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
 
+import org.evolution.settings.preferences.SecureSettingListPreference;
+import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
@@ -62,6 +64,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_TILE_SHAPE = "qs_tile_shape";
     private static final String KEY_QS_TILE_ICON_SHAPE = "qs_tile_icon_shape";
     private static final String KEY_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
+    private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
 
 //    private static final int BATTERY_STYLE_PORTRAIT = 0;
 //    private static final int BATTERY_STYLE_TEXT = 4;
@@ -78,6 +81,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private Preference mQsTileShape;
     private Preference mQsTileIconShape;
     private SwitchPreferenceCompat mQsTileLabelHide;
+    private SecureSettingSwitchPreference mQsShowMediaPlayer;
 //    private SystemSettingListPreference mBatteryStyle;
 //    private SystemSettingListPreference mBatteryPercent;
 //    private SystemSettingListPreference mTileAnimationInterpolator;
@@ -110,6 +114,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
         mCompactMediaPlayer = findPreference(KEY_COMPACT_MEDIA_PLAYER_ENABLED);
         mCompactMediaPlayer.setOnPreferenceChangeListener(this);
+
+        mQsShowMediaPlayer = (SecureSettingSwitchPreference) findPreference(KEY_QS_SHOW_MEDIA_PLAYER);
+        if (mQsShowMediaPlayer != null) {
+            mQsShowMediaPlayer.setOnPreferenceChangeListener(this);
+        }
 
         mShowBrightnessSlider = findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
         mShowBrightnessSlider.setOnPreferenceChangeListener(this);
@@ -193,6 +202,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         } else if (preference == mCompactMediaPlayer
             || preference == mBrightnessSliderHaptic) {
             SystemUtils.showSystemUiRestartDialog(context);
+            return true;
+        } else if (preference == mQsShowMediaPlayer) {
+            SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
 //        } else if (preference == mBatteryStyle) {
 //            int value = Integer.parseInt((String) newValue);
