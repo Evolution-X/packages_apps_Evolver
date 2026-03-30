@@ -692,13 +692,13 @@
     <string name="depth_wallpaper_offset_y_title">Pionowe przesunięcie tapety z efektem głębi</string>
     <string name="dw_footer_text">Funkcja tapety z efektem głębi, inspirowana segmentacją obiektów na ekranie blokady w systemie iOS, umożliwia nałożenie obiektu na zegar na ekranie blokady, aby pokazać efekt głębi tapety.\n\nAby skonfigurować funkcję tapety głębi:\n1. Ustaw tapetę z obiektem lub tłem, nad którym ma się on znajdować.\n2. Wybierz obraz obiektu do śledzenia. Zostanie on nałożony na zegar na ekranie blokady.\n3. Dostosuj przesunięcia i krycie według własnych potrzeb    </string>
     <!-- Lock screen media art -->
-    <string name="ls_media_art_title">Okładka albumu</string>
-    <string name="ls_media_art_summary">Wyświetlaj okładki albumów, gdy są dostępne</string>
+    <string name="ls_media_art_title">Okładka multimediów</string>
+    <string name="ls_media_art_summary">Wyświetl okładkę multimediów, gdy jest dostępna</string>
     <!-- Lock screen media art on Ambient Display -->
     <string name="ambient_media_art_title">Okładka multimediów na ekranie otoczenia</string>
     <string name="ambient_media_art_summary">Wyświetlaj okładkę multimediów na ekranie otoczenia, gdy jest dostępna</string>
     <!-- Lock screen album art filter -->
-    <string name="ls_media_art_filter_title">Filtr okładki albumu</string>
+    <string name="ls_media_art_filter_title">Filtr okładki multimediów</string>
     <string name="ls_media_art_filter_none">Żaden</string>
     <string name="ls_media_art_filter_blur">Rozmycie</string>
     <string name="ls_media_art_filter_grayscale">Odcienie szarości</string>
@@ -1209,4 +1209,10 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <!-- Smartspace -->
     <string name="lockscreen_smartspace_title">Inteligentna przestrzeń</string>
     <string name="lockscreen_smartspace_summary">Pokaż inteligentną przestrzeń Google, jeśli jest dostępna</string>
+    <!-- Notification bubbles -->
+    <string name="notification_bubble_apps_title">Powiadomienie w dymku</string>
+    <string name="notification_bubble_apps_summary">Uruchamiaj aplikacje w dymku po kliknięciu powiadomień</string>
+    <!-- QS media player -->
+    <string name="qs_show_media_player_title">Odtwarzacz multimedialny w szybkich ustawieniach</string>
+    <string name="qs_show_media_player_summary">Wyświetl elementy sterujące multimediami w szybkich ustawieniach</string>
 </resources>
