@@ -1210,4 +1210,8 @@
     <!-- Notification bubbles -->
     <string name="notification_bubble_apps_title">Bubble Notifications</string>
     <string name="notification_bubble_apps_summary">Launch apps in a bubble when clicking their notifications</string>
+
+    <!-- QS media player -->
+    <string name="qs_show_media_player_title">QS Media player</string>
+    <string name="qs_show_media_player_summary">Display media controls in Quick Settings</string>
 </resources>
