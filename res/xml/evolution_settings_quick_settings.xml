@@ -32,6 +32,12 @@
             android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings" />
 
         <!-- QS Media Player  -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="qs_show_media_player"
+            android:title="@string/qs_show_media_player_title"
+            android:summary="@string/qs_show_media_player_summary"
+            android:defaultValue="true" />
+
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_compact_media_player_mode"
             android:title="@string/qs_compact_media_player_mode_title"
