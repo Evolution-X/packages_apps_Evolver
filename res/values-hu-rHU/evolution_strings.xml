@@ -1154,6 +1154,10 @@ A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok k�
     <string name="cutout_progress_ring_color_mode_accent">Kiemelés</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Szivárvány</string>
     <string name="cutout_progress_ring_color_mode_custom">Egyéni</string>
+    <string name="cutout_progress_cat_glow">Ragyogás-effekt</string>
+    <string name="cutout_progress_glow_enabled_title">Ragyogás-effekt</string>
+    <string name="cutout_progress_glow_enabled_summary">Glória a folyamatjelző-gyűrű körül</string>
+    <string name="cutout_progress_glow_radius_title">A ragyogás sugara</string>
     <!-- Charging Ring -->
     <string name="cutout_progress_cat_battery">Akkumulátor-gyűrű</string>
     <string name="cutout_progress_battery_indicator_title">Látható akkukijelzés</string>
@@ -1203,4 +1207,13 @@ A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok k�
     <string name="shape_teardrop">Könnycsepp</string>
     <string name="shape_vessel">Váza</string>
     <string name="shape_rounded_hexagon">Kerekített hatszög</string>
+    <!-- Smartspace -->
+    <string name="lockscreen_smartspace_title">Smartspace</string>
+    <string name="lockscreen_smartspace_summary">Ha elérhető, akkor megjeleníti a Google Smartspace-t</string>
+    <!-- Notification bubbles -->
+    <string name="notification_bubble_apps_title">Buborék értesítések</string>
+    <string name="notification_bubble_apps_summary">Az értesítési buborékra kattintva elindul az alkalmazás</string>
+    <!-- QS media player -->
+    <string name="qs_show_media_player_title">Médialejátszó a QS-en</string>
+    <string name="qs_show_media_player_summary">Médiavezérlési lehetőség a Gyorsbeállításokban</string>
 </resources>
