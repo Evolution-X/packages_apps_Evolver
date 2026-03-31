@@ -28,12 +28,12 @@
             android:dependency="heads_up_notifications_enabled" />
 
         <!-- Less boring heads up -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="less_boring_heads_up"
             android:title="@string/notifications_less_boring_heads_up_title"
             android:summary="@string/notifications_less_boring_heads_up_summary"
             android:defaultValue="false"
-            android:dependency="heads_up_notifications_enabled" />
+            android:dependency="heads_up_notifications_enabled" />-->
     </PreferenceCategory>
 
     <PreferenceCategory
