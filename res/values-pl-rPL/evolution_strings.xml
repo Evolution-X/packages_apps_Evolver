@@ -11,7 +11,7 @@
     <string name="themes_title">Motywy</string>
     <string name="themes_summary">Silnik Monet, czcionki, ikony, animacje</string>
     <string name="lock_screen_title">Ekran blokady</string>
-    <string name="lock_screen_summary">Interfejs, teraz odtwarzane, odcisk palca</string>
+    <string name="lock_screen_summary">Interfejs, Co jest grane, odcisk palca</string>
     <string name="status_bar_title">Pasek stanu</string>
     <string name="status_bar_summary">Gesty, ikony, logo, wypełnienie</string>
     <string name="quick_settings_title">Szybkie ustawienia</string>
@@ -83,7 +83,7 @@
     <string name="theme_customization_wifi_icon_title">Styl ikony Wi-Fi</string>
     <string name="theme_customization_wifi_icon_summary">Ustaw niestandardowy wygląd ikony Wi-Fi</string>
     <string name="theme_customization_navbar_title">Styl paska nawigacji</string>
-    <string name="theme_customization_navbar_summary">Ustaw własny styl paska nawigacji</string>
+    <string name="theme_customization_navbar_summary">Ustaw niestandardowy styl paska nawigacji</string>
     <string name="theme_customization_lock_clock_title">Styl czcionki zegara</string>
     <string name="theme_customization_lock_clock_summary">Ustaw styl czcionki zegara na ekranie blokady</string>
     <string name="theme_customization_brightness_slider_title">Styl suwaka jasności</string>
@@ -97,7 +97,7 @@
     <string name="monet_engine_custom_color_summary">Wybierz niestandardowy kolor akcentu</string>
     <string name="monet_engine_custom_bgcolor_title">Kolor tła</string>
     <string name="monet_engine_custom_bgcolor_summary">Wybierz niestandardowy kolor tła</string>
-    <string name="monet_engine_color_override_title">Własny kolor</string>
+    <string name="monet_engine_color_override_title">Niestandardowy kolor</string>
     <string name="monet_engine_luminance_factor_title">Jasność</string>
     <string name="monet_engine_luminance_factor_summary">Wyższe wartości dają jaśniejsze kolory</string>
     <string name="monet_engine_chroma_factor_title">Współczynnik nasycenia</string>
@@ -309,8 +309,8 @@
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
     <string name="status_bar_clock_date_left">Po lewej stronie zegara</string>
     <!-- Statusbar Clock background chip -->
-    <string name="statusbar_clock_chip_title">Tło zegara</string>
-    <string name="statusbar_clock_chip_summary">Wybierz własne, akcentowane tło za zegarem</string>
+    <string name="statusbar_clock_chip_title">Wskaźnik tła zegara</string>
+    <string name="statusbar_clock_chip_summary">Wybierz niestandardowy wskaźnik tła za zegarem</string>
     <string name="solid_accent">Stały kolor akcentu</string>
     <string name="outline">Obrys</string>
     <string name="solid_accent_gradient">Jednolity kolor akcentu gradientowego</string>
@@ -499,7 +499,7 @@
     <string name="power_menu_actions_summary">Wybierz, które opcje mają być wyświetlane</string>
     <string name="power_menu_advanced_title">Zaawansowane opcje restartu</string>
     <string name="power_menu_lock_screen_category">Ekran blokady</string>
-    <string name="power_menu_lock_screen_secure_title">Pokaż na ekranie blokady</string>
+    <string name="power_menu_lock_screen_secure_title">Pokaż na zabezpieczonym ekranie blokady</string>
     <string name="power_menu_lock_screen_secure_summary">Pokaż menu zasilania, gdy urządzenie jest zablokowane</string>
     <!-- Power menu/Power menu actions -->
     <string name="power_menu_actions_screenshot_title">Zrzut ekranu</string>
@@ -518,7 +518,7 @@
     <string name="advanced_reboot_title">Zaawansowany restart</string>
     <string name="advanced_reboot_summary">Po odblokowaniu uwzględnij w menu zasilania opcje ponownego uruchomienia w trybie odzyskiwania lub bootloadera</string>
     <string name="advanced_reboot_secured_title">Zabezpieczony ekran blokady</string>
-    <string name="advanced_reboot_secured_summary">Wyświetlaj zaawansowane opcje ponownego uruchamiania na zabezpieczonym ekranie blokady</string>
+    <string name="advanced_reboot_secured_summary">Wyświetlaj zaawansowane opcje restartu na zabezpieczonym ekranie blokady</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Fałszowanie</string>
     <string name="miscellaneous_developer_options_category">Opcje programisty</string>
@@ -575,8 +575,8 @@
     <string name="pif_spoofing_summary">Wybierz plik pif.json, który ma posłużyć do sfałszowania integralności Google Play</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Zastąp zestaw kluczy poświadczeń</string>
-    <string name="keybox_data_summary">Wczytaj własny plik keybox.xml, aby nadpisać zestaw kluczy poświadczeń urządzenia</string>
-    <string name="keybox_data_loaded_summary">Załadowano własny plik keybox.xml. Usuń, aby wyczyścić.</string>
+    <string name="keybox_data_summary">Wczytaj niestandardowy plik keybox.xml, aby nadpisać zestaw kluczy poświadczeń urządzenia</string>
+    <string name="keybox_data_loaded_summary">Załadowano niestandardowy plik keybox.xml. Usuń, aby wyczyścić.</string>
     <string name="keybox_delete_content_description">Wyczyść dane zestawu kluczy</string>
     <string name="keybox_toast_invalid_file_selected">Nie jest to plik XML. Wybierz prawidłowy plik XML.</string>
     <string name="keybox_toast_missing_data">Nieprawidłowy plik keybox.xml. Brakuje wymaganych pól</string>
@@ -599,7 +599,7 @@
     <string name="notification_color">Kolor powiadomień</string>
     <string name="wallpaper_color">Kolor tapety</string>
     <string name="rainbow_color">Kolor tęczy</string>
-    <string name="custom_color">Własny kolor</string>
+    <string name="custom_color">Niestandardowy kolor</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Wartość: <xliff:g id="v">%s</xliff:g>
   </string>
@@ -743,10 +743,10 @@
     <string name="aod_display_category_title">Ekran zawsze włączony</string>
     <string name="aod_pulse_category_title">Puls/drzemka</string>
     <!-- AOD custom image -->
-    <string name="lockscreen_custom_image_enabled_title">Obraz dla Ekran zawsze włączony</string>
-    <string name="lockscreen_custom_image_title">Wybierz obraz dla Ekran zawsze włączony</string>
-    <string name="lockscreen_custom_image_summary">Ustaw niestandardowy obraz dla Ekran zawsze włączony</string>
-    <string name="lockscreen_custom_image_pick_summary">Wybierz obraz dla Ekran zawsze włączony z galerii</string>
+    <string name="lockscreen_custom_image_enabled_title">Obraz Ekran zawsze włączony</string>
+    <string name="lockscreen_custom_image_title">Wybierz obraz Ekran zawsze włączony</string>
+    <string name="lockscreen_custom_image_summary">Ustaw niestandardowy obraz Ekran zawsze włączony</string>
+    <string name="lockscreen_custom_image_pick_summary">Wybierz obraz Ekran zawsze włączony z galerii</string>
     <string name="custom_aod_image_not_supported">Styl zegara nie jest obsługiwany</string>
     <!-- QS Widgets -->
     <string name="qs_widgets_enabled_title">Widżety szybkich ustawień</string>
@@ -761,7 +761,7 @@
     <string name="apply_change_button_title">Zastosuj</string>
     <!-- Peek Display -->
     <string name="peek_display_notifications_title">Podgląd ekranu</string>
-    <string name="peek_display_notifications_summary">Włącz minimalny styl powiadomień na ekranie blokady</string>
+    <string name="peek_display_notifications_summary">Włącz minimalistyczny styl powiadomień na ekranie blokady</string>
     <string name="peek_display_location_title">Lokalizacja podglądu ekranu</string>
     <string name="peek_display_bottom_margin_title">Górny margines dolnego podglądu ekranu</string>
     <!-- Peek Display Styles -->
@@ -778,38 +778,6 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Animacja falowania</string>
     <string name="media_squiggle_animation_summary">Pokaż animację falowania paska wyszukiwania w panelu multimediów podczas odtwarzania multimediów</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Znacznik akcji na pasku stanu</string>
-    <string name="ongoing_progress_settings_summary">Dostosuj znacznik akcji, aby wyświetlał wskaźnik postępu</string>
-    <string name="ongoing_action_chip_title">Znacznik trwającej akcji</string>
-    <string name="ongoing_action_chip_summary">Pokaż wskaźnik postępu na pasku stanu dla trwających akcji, takich jak pobieranie</string>
-    <string name="ongoing_media_progress_title">Postęp multimediów</string>
-    <string name="ongoing_media_progress_summary">Wyświetlaj postęp odtwarzania multimediów</string>
-    <string name="ongoing_progress_footer_text">\"Pasek akcji na pasku stanu zapewnia aktualizacje w czasie rzeczywistym dla odtwarzania multimediów oraz aktywnego pobierania/wysyłania.
-
-Postęp multimediów:
-• Wyświetla postęp odtwarzania dla muzyki i wideo, gdy multimedia są odtwarzane.
-• Pojedyncze dotknięcie otwiera sterowanie odtwarzaniem.
-• Podwójne dotknięcie przełącza odtwarzanie/pauzę.
-• Przesunięcie w lewo przełącza na poprzedni utwór.
-• Przesunięcie w prawo przełącza na następny utwór.
-• Długie przytrzymanie otwiera aplikację multimediów.
-
-Postęp pobierania/wysyłania:
-• Pokazuje postęp dla trwającego pobierania i wysyłania.
-• Automatycznie ukrywa się, przy braku aktywnych transferów.
-• Pojedyncze dotknięcie otwiera aplikację odpowiedzialną za pobieranie.
-
-Pasek postępu dynamicznie przełącza się między stanem multimediów i pobierania, zapewniając, że zawsze masz najbardziej istotne informacje na pierwszy rzut oka.\"
-    </string>
-    <string name="ongoing_compact_mode_title">Kompaktowy wskaźnik postępu</string>
-    <string name="ongoing_compact_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
-    <string name="ongoing_chip_color_mode_title">Kolor tła znacznika multimedialnego</string>
-    <string name="ongoing_chip_color_mode_accent">Kolor akcentu systemowego</string>
-    <string name="ongoing_chip_color_mode_icon">Kolor ikony aplikacji</string>
-    <string name="ongoing_chip_color_mode_album_art">Kolor okładki albumu</string>
-    <string name="ongoing_chip_bg_alpha_title">Przezroczystość tła znacznika</string>
-    <string name="ongoing_chip_bg_alpha_summary">Dostosuj przezroczystość trwającego znacznika akcji</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Pasek baterii</string>
     <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii nad paskiem stanu</string>
@@ -822,7 +790,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="battery_bar_style_regular">Regularny</string>
     <string name="battery_bar_style_center_mirrored">Wyśrodkowanie lustrzane</string>
     <string name="battery_bar_style_reversed">Odwrócenie</string>
-    <string name="battery_bar_use_charging_color">Własny kolor podczas ładowania</string>
+    <string name="battery_bar_use_charging_color">Niestandardowy kolor ładowania</string>
     <string name="battery_bar_blend_color_title">Mieszanie kolorów</string>
     <string name="battery_bar_blend_color_summary">Mieszaj kolory pełnej/pustej baterii odpowiadające jej procentowi</string>
     <string name="battery_bar_blend_color_reverse_title">Odwróć kierunek kolorów</string>
@@ -879,8 +847,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
     <string name="toast_invalid_font_file">Nieprawidłowy plik czcionki</string>
     <!-- Now Playing -->
-    <string name="nowplaying_title">Teraz odtwarzane</string>
-    <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i w trybie Ekran zawsze włączony</string>
+    <string name="nowplaying_title">Co jest grane</string>
+    <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i na Ekran zawsze włączony</string>
     <string name="nowplaying_appearance_title">Wygląd</string>
     <string name="nowplaying_use_accent_color_title">Użyj koloru akcentu</string>
     <string name="nowplaying_use_accent_color_summary">Użyj systemowego koloru akcentu zamiast białego</string>
@@ -901,7 +869,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="nowplaying_show_on_aod_summary">Wyświetlaj informacje o muzyce na ekranie otoczenia</string>
     <string name="nowplaying_compact_style_title">Styl kompaktowy</string>
     <string name="nowplaying_compact_style_summary">Pokaż jako pojedynczą linię używając rozmiaru tekstu utworu</string>
-    <string name="nowplaying_info_summary">Funkcja Teraz odtwarzane wyświetla tytuł i wykonawcę aktualnie odtwarzanego utworu na ekranie blokady i w trybie Ekran zawsze włączony. Wyświetla się automatycznie podczas odtwarzania muzyki i znika po jej zatrzymaniu. Pozycję wyświetlania można dostosować, aby wyświetlać ją w dowolnym miejscu, od góry do dołu ekranu.</string>
+    <string name="nowplaying_info_summary">Funkcja Co jest grane wyświetla tytuł i wykonawcę aktualnie odtwarzanego utworu na ekranie blokady i w trybie Ekran zawsze włączony. Wyświetla się automatycznie podczas odtwarzania muzyki i znika po jej zatrzymaniu. Pozycję wyświetlania można dostosować, aby wyświetlać ją w dowolnym miejscu, od góry do dołu ekranu.</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Kształt fali ładowania</string>
     <!-- Statusbar Padding -->
@@ -1090,96 +1058,6 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="lockscreen_custom_clock_frame_margin_top_title">Niestandardowa wysokość zegara</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Dostosuj wysokość niestandardowego stylu zegara</string>
     <string name="lockscreen_custom_clock_color_mode_title">Niestandardowy tryb kolorów zegara</string>
-    <!-- Cutout Progress -->
-    <string name="cutout_progress_title">Pierścień postępu wokół wycięcia</string>
-    <string name="cutout_progress_summary">Pokaż pierścień postępu wokół wycięcia w ekranie</string>
-    <string name="cutout_progress_enabled_title">Włącz pierścień postępu wokół wycięcia</string>
-    <string name="cutout_progress_enabled_summary">Pokaż pierścień postępu wokół wycięcia aparatu podczas pobierania</string>
-    <string name="cutout_progress_cat_appearance">Wygląd</string>
-    <string name="cutout_progress_cat_behaviour">Zachowanie</string>
-    <string name="cutout_progress_cat_bg_ring">Tło pierścienia</string>
-    <string name="cutout_progress_cat_finish">Animacja końcowa</string>
-    <string name="cutout_progress_cat_geometry">Geometria pierścienia</string>
-    <string name="cutout_progress_cat_labels">Etykiety</string>
-    <string name="cutout_progress_cat_badge">Znacznik liczby pobrań</string>
-    <string name="cutout_progress_ring_color_title">Niestandardowy kolor pierścienia</string>
-    <string name="cutout_progress_error_color_title">Kolor błędu</string>
-    <string name="cutout_progress_finish_flash_color_title">Kolor końca wgrywania</string>
-    <string name="cutout_progress_bg_ring_color_title">Kolor tła pierścienia</string>
-    <string name="cutout_progress_opacity_title">Przezroczystość pierścienia</string>
-    <string name="cutout_progress_stroke_width_title">Grubość obrysu</string>
-    <string name="cutout_progress_ring_gap_title">Przerwa pierścienia (odległość od wycięcia)</string>
-    <string name="cutout_progress_clockwise_title">Zgodnie z ruchem wskazówek zegara</string>
-    <string name="cutout_progress_clockwise_summary">Wypełniaj pierścień zgodnie z ruchem wskazówek zegara; wyłącz, aby wypełniać przeciwnie</string>
-    <string name="cutout_progress_min_vis_title">Minimalny czas wyświetlania</string>
-    <string name="cutout_progress_min_vis_summary">Utrzymuj pierścień widoczny przez minimalny czas, aby krótkie pobrania nie powodowały migania</string>
-    <string name="cutout_progress_min_vis_ms_title">Minimalny czas trwania</string>
-    <string name="cutout_progress_easing_title">Łagodzenie postępu</string>
-    <string name="cutout_progress_bg_ring_enabled_title">Pokaż tło pierścienia</string>
-    <string name="cutout_progress_bg_ring_enabled_summary">Narysuj subtelny pełny pierścień za łukiem postępu</string>
-    <string name="cutout_progress_bg_ring_opacity_title">Przezroczystość tła pierścienia</string>
-    <string name="cutout_progress_finish_style_title">Styl animacji końcowej</string>
-    <string name="cutout_progress_finish_hold_title">Czas przytrzymania</string>
-    <string name="cutout_progress_finish_exit_title">Czas wyjścia</string>
-    <string name="cutout_progress_finish_flash_title">Użyj koloru błysku po zakończeniu</string>
-    <string name="cutout_progress_finish_flash_summary">Krótko podświetl pierścień kolorem zakończenia po ukończeniu</string>
-    <string name="cutout_progress_pulse_title">Impuls po zakończeniu</string>
-    <string name="cutout_progress_pulse_summary">Krótki jasny impuls przed animacją końcową</string>
-    <string name="cutout_progress_path_mode_title">Tryb kapsułki / pigułki</string>
-    <string name="cutout_progress_path_mode_summary">Użyj renderera ścieżki w kształcie pigułki (dla wydłużonych wycięć)</string>
-    <string name="cutout_progress_scale_x_title">Skala pozioma</string>
-    <string name="cutout_progress_scale_y_title">Skala pionowa</string>
-    <string name="cutout_progress_offset_x_title">Przesunięcie poziome</string>
-    <string name="cutout_progress_offset_y_title">Przesunięcie pionowe</string>
-    <string name="cutout_progress_percent_enabled_title">Pokaż procent</string>
-    <string name="cutout_progress_percent_enabled_summary">Wyświetl bieżący postęp pobierania jako etykietę procentową</string>
-    <string name="cutout_progress_percent_size_title">Rozmiar tekstu procentowego</string>
-    <string name="cutout_progress_percent_bold_title">Pogrubienie procentu</string>
-    <string name="cutout_progress_percent_position_title">Położenie procentu</string>
-    <string name="cutout_progress_filename_enabled_title">Pokaż nazwę pliku</string>
-    <string name="cutout_progress_filename_enabled_summary">Wyświetl nazwę pobieranego pliku</string>
-    <string name="cutout_progress_filename_size_title">Rozmiar tekstu nazwy pliku</string>
-    <string name="cutout_progress_filename_bold_title">Pogrubiona nazwa pliku</string>
-    <string name="cutout_progress_filename_position_title">Pozycja nazwy pliku</string>
-    <string name="cutout_progress_filename_max_chars_title">Maksymalna długość nazwy pliku</string>
-    <string name="cutout_progress_filename_truncate_title">Ucinanie nazwy pliku</string>
-    <string name="cutout_progress_badge_title">Pokaż znacznik liczby pobrań</string>
-    <string name="cutout_progress_badge_summary">Pokaż znacznik w kształcie pigułki z liczbą aktywnych pobrań</string>
-    <string name="cutout_progress_badge_size_title">Rozmiar tekstu znacznika</string>
-    <string name="cutout_progress_badge_offset_x_title">Poziome przesunięcie znacznika</string>
-    <string name="cutout_progress_badge_offset_y_title">Pionowe przesunięcie znacznika</string>
-    <string name="cutout_progress_ring_color_mode_title">Kolor pierścienia</string>
-    <string name="cutout_progress_color_picker_title">Wybierz kolor</string>
-    <string name="cutout_progress_ring_color_mode_accent">Akcent</string>
-    <string name="cutout_progress_ring_color_mode_rainbow">Tęcza</string>
-    <string name="cutout_progress_ring_color_mode_custom">Własny</string>
-    <string name="cutout_progress_cat_glow">Efekt blasku</string>
-    <string name="cutout_progress_glow_enabled_title">Efekt blasku</string>
-    <string name="cutout_progress_glow_enabled_summary">Aureola wokół pierścienia postępu</string>
-    <string name="cutout_progress_glow_radius_title">Promień świecenia</string>
-    <!-- Charging Ring -->
-    <string name="cutout_progress_cat_battery">Pierścień baterii</string>
-    <string name="cutout_progress_battery_indicator_title">Pokaż wskaźnik baterii</string>
-    <string name="cutout_progress_battery_indicator_summary">Wyświetl poziom baterii jako symetryczny pierścień wokół wycięcia podczas ładowania lub po pełnym naładowaniu</string>
-    <string name="cutout_progress_charging_ring_title">Pokaż pierścień ładowania</string>
-    <string name="cutout_progress_charging_ring_summary">Wyświetl poziom baterii jako symetryczny pierścień wokół wycięcia podczas ładowania</string>
-    <string name="cutout_progress_charging_pulse_title">Animacja impulsu ładowania</string>
-    <string name="cutout_progress_charging_pulse_summary">Animuj powtarzający się impuls od środka na zewnątrz podczas ładowania</string>
-    <!-- Music Ring -->
-    <string name="cutout_progress_cat_music">Pierścień muzyczny</string>
-    <string name="cutout_progress_music_title">Włącz pierścień muzyczny</string>
-    <string name="cutout_progress_music_summary">Pokaż pierścień wizualizatora śledzący aktualne odtwarzanie multimediów</string>
-    <string name="cutout_progress_music_color_mode_title">Tryb koloru</string>
-    <string name="cutout_progress_music_color_mode_album_icon">Kolor ikony albumu</string>
-    <string name="cutout_progress_music_color_mode_accent">Akcent systemu</string>
-    <string name="cutout_progress_music_color_mode_album_art">Okładka albumu</string>
-    <string name="cutout_progress_music_color_mode_custom">Niestandardowy kolor</string>
-    <string name="cutout_progress_music_custom_color_title">Niestandardowy kolor</string>
-    <string name="cutout_progress_music_opacity_title">Przezroczystość pierścienia</string>
-    <string name="cutout_progress_music_stroke_title">Grubość obrysu</string>
-    <string name="cutout_progress_music_clockwise_title">Zgodnie z ruchem wskazówek zegara</string>
-    <string name="cutout_progress_music_aod_title">Pokaż na Ekran zawsze włączony </string>
-    <string name="cutout_progress_music_aod_summary">Utrzymuj pierścień muzyczny widoczny na Ekranie otoczenia</string>
     <!-- QS Panel style -->
     <string name="qs_panel_style_title">Styl panelu szybkich ustawień</string>
     <string name="qs_panel_style_card">Styl karty</string>
@@ -1215,4 +1093,71 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <!-- QS media player -->
     <string name="qs_show_media_player_title">Odtwarzacz multimedialny w szybkich ustawieniach</string>
     <string name="qs_show_media_player_summary">Wyświetl elementy sterujące multimediami w szybkich ustawieniach</string>
+    <!-- Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Automatyczna naprawa wykrywania VBMeta</string>
+    <string name="vbmeta_attestation_summary">Wykonaj weryfikację klucza, aby wygenerować hash zweryfikowanego rozruchu podczas uruchamiania. Wymagane ponowne uruchomienie systemu.</string>
+    <!-- Dynamic Bar -->
+    <string name="dynamic_bar">Pasek dynamiczny</string>
+    <string name="dynamic_bar_summary">Inteligentny wskaźnik na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, multimedia, minutniki i inne</string>
+    <string name="dynamic_bar_enable">Włącz pasek dynamiczny</string>
+    <string name="dynamic_bar_enable_summary">Pokaż dynamiczny wskaźnik na pasku stanu dla aktywnych zdarzeń</string>
+    <string name="dynamic_bar_keyguard_enable">Wskaźnik na ekranie blokady</string>
+    <string name="dynamic_bar_keyguard_enable_summary">Pokaż wskaźnik paska dynamicznego na ekranie blokady z elementami sterowania i szybkimi akcjami</string>
+    <string name="dynamic_bar_events">Zdarzenia</string>
+    <string name="dynamic_bar_events_summary">Wybierz, które zdarzenia pojawiają się na pasku dynamicznym</string>
+    <string name="dynamic_bar_event_recording">Nagrywanie ekranu</string>
+    <string name="dynamic_bar_event_recording_summary">Aktywny wskaźnik nagrywania ekranu</string>
+    <string name="dynamic_bar_event_privacy">Wskaźniki prywatności</string>
+    <string name="dynamic_bar_event_privacy_summary">Alerty dostępu do kamery i mikrofonu</string>
+    <string name="dynamic_bar_event_audio_recording">Nagrywanie dźwięku</string>
+    <string name="dynamic_bar_event_audio_recording_summary">Rejestrator głosu i przechwytywanie dźwięku</string>
+    <string name="dynamic_bar_event_media">Odtwarzanie multimediów</string>
+    <string name="dynamic_bar_event_media_summary">Aktualnie odtwarzana muzyka i sterowanie dźwiękiem</string>
+    <string name="dynamic_bar_event_notification">Powiadomienia</string>
+    <string name="dynamic_bar_event_notification_summary">Alerty powiadomień przychodzących</string>
+    <string name="dynamic_bar_compact_notifications">Kompaktowe powiadomienia</string>
+    <string name="dynamic_bar_compact_notifications_summary">Pokaż powiadomienia jako mały wskaźnik, dotknij, aby rozwinąć</string>
+    <string name="dynamic_bar_event_timer">Minutnik</string>
+    <string name="dynamic_bar_event_timer_summary">Minutnik odliczania z aplikacji Zegar</string>
+    <string name="dynamic_bar_event_stopwatch">Stoper</string>
+    <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji Zegar</string>
+    <string name="dynamic_bar_event_alarm">Budzik</string>
+    <string name="dynamic_bar_event_alarm_summary">Dzwoniące i nadchodzące alarmy</string>
+    <string name="dynamic_bar_event_charging">Ładowanie</string>
+    <string name="dynamic_bar_event_charging_summary">Poziom baterii podczas podłączania</string>
+    <string name="dynamic_bar_event_bluetooth">Bluetooth</string>
+    <string name="dynamic_bar_event_bluetooth_summary">Stan połączenia urządzenia</string>
+    <string name="dynamic_bar_event_hotspot">Punkt dostępu</string>
+    <string name="dynamic_bar_event_hotspot_summary">Wskaźnik aktywnego mobilnego punktu dostępu</string>
+    <string name="dynamic_bar_event_ringer">Tryb dzwonka</string>
+    <string name="dynamic_bar_event_ringer_summary">Zmiana trybu cichego, wibracji i dzwonka</string>
+    <string name="dynamic_bar_event_vpn">VPN</string>
+    <string name="dynamic_bar_event_vpn_summary">Wskaźnik aktywnego połączenia VPN</string>
+    <string name="dynamic_bar_event_clipboard">Schowek</string>
+    <string name="dynamic_bar_event_clipboard_summary">Skopiowany tekst i podgląd obrazu</string>
+    <string name="dynamic_bar_event_torch">Latarka</string>
+    <string name="dynamic_bar_event_torch_summary">Przełącznik latarki i jasność</string>
+    <string name="dynamic_bar_event_casting">Przesyłanie</string>
+    <string name="dynamic_bar_event_casting_summary">Status przesyłania ekranu i multimediów</string>
+    <string name="dynamic_bar_event_ongoing">Bieżące działania</string>
+    <string name="dynamic_bar_event_ongoing_summary">Nawigacja, dostawy i inne działania na żywo</string>
+    <string name="dynamic_bar_event_sports">Sporty</string>
+    <string name="dynamic_bar_event_sports_summary">Wyniki na żywo i aktualizacje gry</string>
+    <string name="dynamic_bar_event_app_switch">Przełącznik ostatnich aplikacji</string>
+    <string name="dynamic_bar_event_app_switch_summary">Pokaż wskaźnik podczas przełączania się między ostatnimi aplikacjami</string>
+    <string name="dynamic_bar_event_biometric">Odblokowywanie biometryczne</string>
+    <string name="dynamic_bar_event_biometric_summary">Pokaż wskaźnik przy odblokowywaniu odciskiem palca lub twarzą</string>
+    <string name="dynamic_bar_guide_title">Jak używać</string>
+    <string name="dynamic_bar_guide_chip">Wydarzenia pojawiają się na pasku stanu i pokazują aktywne zdarzenia, takie jak nagrywanie, odtwarzanie multimediów i minutniki</string>
+    <string name="dynamic_bar_guide_swipe">Gdy aktywnych jest wiele zdarzeń, przesuń palcem w lewo lub w prawo na wskaźniku, aby je przeglądać</string>
+    <string name="dynamic_bar_guide_expand">Dotknij wskaźnik, aby rozwinąć go w szczegółową kartę z elementami sterowania i dodatkowymi informacjami</string>
+    <string name="dynamic_bar_guide_dismiss">Przesuń rozwiniętą kartę, aby ją zamknąć. Zdarzenie będzie kontynuowane w tle</string>
+    <string name="dynamic_bar_guide_keyguard">Wskaźnik paska dynamicznego pojawia się również u dołu ekranu blokady z elementami sterowania odtwarzaniem i szybkimi akcjami</string>
+    <string name="dynamic_bar_guide_chip_title">Wygląd znacznika</string>
+    <string name="dynamic_bar_guide_swipe_title">Przesuwaj między wskaźnikami</string>
+    <string name="dynamic_bar_guide_expand_title">Dotknij, aby rozwinąć</string>
+    <string name="dynamic_bar_guide_dismiss_title">Przesuń, aby odrzucić</string>
+    <string name="dynamic_bar_guide_keyguard_title">Wskaźnik na ekranie blokady</string>
+    <string name="dynamic_bar_footer_title">O pasku dynamicznym</string>
+    <string name="dynamic_bar_footer_body">Pasek dynamiczny przekształca pasek stanu w interaktywny hub. Wskaźniki statusu pojawiają się i animują w zależności od zdarzeń systemowych, dostarczając informacje w skrócie bez przerywania pracy.\n\nKażdy typ zdarzenia ma własny kolor akcentu oraz rozwiniętą kartę ze szybkimi akcjami.</string>
 </resources>
