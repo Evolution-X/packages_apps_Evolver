@@ -47,6 +47,12 @@
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
 
+        <Preference
+            android:key="dynamic_bar"
+            android:title="@string/dynamic_bar"
+            android:summary="@string/dynamic_bar_enable_summary"
+            android:fragment="org.evolution.settings.fragments.statusbar.DynamicBar" />
+
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_clock"
             android:title="@string/status_bar_clock_position_title"
