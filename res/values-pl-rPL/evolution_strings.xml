@@ -1215,4 +1215,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <!-- QS media player -->
     <string name="qs_show_media_player_title">Odtwarzacz multimedialny w szybkich ustawieniach</string>
     <string name="qs_show_media_player_summary">Wyświetl elementy sterujące multimediami w szybkich ustawieniach</string>
+    <!-- Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Automatyczna naprawa wykrywania VBMeta</string>
+    <string name="vbmeta_attestation_summary">Wykonaj weryfikację klucza, aby wygenerować hash zweryfikowanego rozruchu podczas uruchamiania. Wymagane ponowne uruchomienie systemu.</string>
 </resources>
