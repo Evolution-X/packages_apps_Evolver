@@ -68,13 +68,6 @@
             android:title="@string/status_bar_clock_chip_title"
             android:summary="@string/status_bar_clock_chip_summary" />
 
-        <!-- Ongoing action chip -->
-        <Preference
-            android:key="ongoing_progress_settings"
-            android:title="@string/ongoing_progress_settings_title"
-            android:summary="@string/ongoing_progress_settings_summary"
-            android:fragment="org.evolution.settings.fragments.statusbar.OngoingProgressBar" />
-
         <!-- Statusbar lyric -->
         <!--<Preference
             android:key="status_bar_lyric_settings"
