@@ -1145,6 +1145,10 @@
     <string name="cutout_progress_ring_color_mode_accent">Відтінок</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Веселка</string>
     <string name="cutout_progress_ring_color_mode_custom">Персоналізація</string>
+    <string name="cutout_progress_cat_glow">Ефект світіння</string>
+    <string name="cutout_progress_glow_enabled_title">Ефект світіння</string>
+    <string name="cutout_progress_glow_enabled_summary">Halo навколо кільця прогресу</string>
+    <string name="cutout_progress_glow_radius_title">Радіус світіння</string>
     <!-- Charging Ring -->
     <string name="cutout_progress_cat_battery">Кільце для батареї</string>
     <string name="cutout_progress_battery_indicator_title">Показати індикатор батареї</string>
@@ -1194,4 +1198,13 @@
     <string name="shape_teardrop">Сльоза</string>
     <string name="shape_vessel">Глечик</string>
     <string name="shape_rounded_hexagon">Закруглений шестикутник</string>
+    <!-- Smartspace -->
+    <string name="lockscreen_smartspace_title">Розумне місце (Smartspace)</string>
+    <string name="lockscreen_smartspace_summary">Показувати Google Smartspace за наявності</string>
+    <!-- Notification bubbles -->
+    <string name="notification_bubble_apps_title">Бульбашки сповіщень</string>
+    <string name="notification_bubble_apps_summary">Запускати додатки в бульбашці при натисканні на їх сповіщення</string>
+    <!-- QS media player -->
+    <string name="qs_show_media_player_title">Музичний плеєр швидких налаштувань</string>
+    <string name="qs_show_media_player_summary">Показувати елементи керування у швидких налаштуваннях</string>
 </resources>
