@@ -1216,4 +1216,7 @@ A folyamatjelző-sáv dinamikusan vált a média és a letöltési állapotok k�
     <!-- QS media player -->
     <string name="qs_show_media_player_title">Médialejátszó a QS-en</string>
     <string name="qs_show_media_player_summary">Médiavezérlési lehetőség a Gyorsbeállításokban</string>
+    <!-- Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">A VBMeta-észlelés automatikus javítása</string>
+    <string name="vbmeta_attestation_summary">Kulcshitelesítés végrehajtása ellenőrzött rendszerindítási hash létrehozásához rendszerindításkor. A rendszer újraindítását igényli.</string>
 </resources>
