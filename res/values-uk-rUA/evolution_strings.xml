@@ -591,6 +591,7 @@
     <string name="about_github_summary">Переглянути наш код на GitHub</string>
     <string name="about_founders_title">Засновники</string>
     <string name="about_team_members_title">Учасники команди</string>
+    <string name="about_remembering_title">Згадуючи</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Палітра кольорів</string>
     <string name="press_color_to_apply">Натисніть на колір нижче, щоб застосувати</string>
@@ -777,31 +778,6 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Анамація хвилястих ліній</string>
     <string name="media_squiggle_animation_summary">Показувати анімацію перемотки екрану при відтворенні медіа</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Поточний прогрес чіпу</string>
-    <string name="ongoing_progress_settings_summary">Налаштування схеми дії індикатора прогресу</string>
-    <string name="ongoing_action_chip_title">Увімкнути поточні дії чіпа</string>
-    <string name="ongoing_action_chip_summary">Показувати прогрес для поточних сповіщень в рядку стану</string>
-    <string name="ongoing_media_progress_title">Прогрес у медіа</string>
-    <string name="ongoing_media_progress_summary">Відображення прогресу відтворення медіа</string>
-    <string name="ongoing_progress_footer_text">\"Чіп дій у рядку стану надає оновлення в режимі реального часу як для відтворення медіафайлів, так і для активних завантажень/вивантажень. Хід відтворення медіафайлів:
- • Відображає хід відтворення музики та відео під час відтворення медіафайлів.
-• Одне натискання відкриває елементи керування відтворенням. 
-• Подвійне натискання перемикає відтворення/паузу. 
-• Проведення ліворуч перемикає до попереднього треку. 
-• Проведення пальцем праворуч перемикає до наступного треку. 
-• Тривале натискання відкриває медіа-додаток. Хід завантаження/вивантаження: 
-• Відображає хід поточних завантажень та вивантажень. 
-• Автоматично приховується, коли не виявлено активних передач. 
-• Одне натискання відкриває додаток, відповідальний за завантаження. Індикатор виконання динамічно перемикається між станами медіафайлів та завантаження, гарантуючи, що ви завжди маєте найрелевантнішу інформацію з першого погляду.\"    </string>
-    <string name="ongoing_compact_mode_title">Режим компактного прогресу</string>
-    <string name="ongoing_compact_mode_summary">Використовувати індикатор циклічного прогресу замість панелі</string>
-    <string name="ongoing_chip_color_mode_title">Фоновий колір медіа-чіпа</string>
-    <string name="ongoing_chip_color_mode_accent">Колір акценту системи</string>
-    <string name="ongoing_chip_color_mode_icon">Колір значка додатка</string>
-    <string name="ongoing_chip_color_mode_album_art">Колір обкладинки</string>
-    <string name="ongoing_chip_bg_alpha_title">Непрозорість фону чіпа</string>
-    <string name="ongoing_chip_bg_alpha_summary">Налаштуйте непрозорість чіпа поточної дії</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Індикатор батареї</string>
     <string name="battery_bar_summary">Відображення і налаштування панелі батареї над рядком стану</string>
@@ -1082,96 +1058,6 @@
     <string name="lockscreen_custom_clock_frame_margin_top_title">Користувацька висота годинника</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Регулювати висоту стилю годинника</string>
     <string name="lockscreen_custom_clock_color_mode_title">Користувацький режим кольору годинника</string>
-    <!-- Cutout Progress -->
-    <string name="cutout_progress_title">Вирізане кільце прогресу</string>
-    <string name="cutout_progress_summary">Показувати кільце у процесі навколо дірки</string>
-    <string name="cutout_progress_enabled_title">Увімкнути кільце прогресу</string>
-    <string name="cutout_progress_enabled_summary">Показувати кільце прогресу навколо вирізу камери під час завантаження</string>
-    <string name="cutout_progress_cat_appearance">Зовнішній вигляд</string>
-    <string name="cutout_progress_cat_behaviour">Поведінка</string>
-    <string name="cutout_progress_cat_bg_ring">Фонове кільце</string>
-    <string name="cutout_progress_cat_finish">Закінчити анімацію</string>
-    <string name="cutout_progress_cat_geometry">Кільцева геометрія</string>
-    <string name="cutout_progress_cat_labels">Мітки</string>
-    <string name="cutout_progress_cat_badge">Завантажити значок кількості</string>
-    <string name="cutout_progress_ring_color_title">Вибір власного кольору</string>
-    <string name="cutout_progress_error_color_title">Колір помилки</string>
-    <string name="cutout_progress_finish_flash_color_title">Вибір кольору для ліхтарика</string>
-    <string name="cutout_progress_bg_ring_color_title">Колір фону кільця</string>
-    <string name="cutout_progress_opacity_title">Непрозорість кільця</string>
-    <string name="cutout_progress_stroke_width_title">Ширина штриха</string>
-    <string name="cutout_progress_ring_gap_title">Зазор кільця (виріз)</string>
-    <string name="cutout_progress_clockwise_title">За годинниковою стрілкою</string>
-    <string name="cutout_progress_clockwise_summary">Заповніть кільце за годинниковою стрілкою; відключіть за проти годинникової стрілки</string>
-    <string name="cutout_progress_min_vis_title">Мінімальний час відображення</string>
-    <string name="cutout_progress_min_vis_summary">Тримайте кільце видимим протягом мінімального часу, щоб короткі завантаження не спалахували</string>
-    <string name="cutout_progress_min_vis_ms_title">Мінімальна тривалість</string>
-    <string name="cutout_progress_easing_title">Зниження прогресу</string>
-    <string name="cutout_progress_bg_ring_enabled_title">Показати фонове кільце</string>
-    <string name="cutout_progress_bg_ring_enabled_summary">Намалюйте слабке повне кільце позаду дуги прогресу</string>
-    <string name="cutout_progress_bg_ring_opacity_title">Непрозорість фонового кільця</string>
-    <string name="cutout_progress_finish_style_title">Закінчити стиль анімації</string>
-    <string name="cutout_progress_finish_hold_title">Тривалість затримки</string>
-    <string name="cutout_progress_finish_exit_title">Тривалість виходу</string>
-    <string name="cutout_progress_finish_flash_title">Використовувати колір ліхтарика після завершення</string>
-    <string name="cutout_progress_finish_flash_summary">Коротко блимніть кільцем кольором фінішного спалаху після завершення</string>
-    <string name="cutout_progress_pulse_title">Імпульс на завершенні</string>
-    <string name="cutout_progress_pulse_summary">Короткий імпульс яскравості перед завершенням анімації</string>
-    <string name="cutout_progress_path_mode_title">Режим капсули/пігулки</string>
-    <string name="cutout_progress_path_mode_summary">Використовуйте рендерер контурів у формі таблетки (для видовжених вирізів)</string>
-    <string name="cutout_progress_scale_x_title">Горизонтальна шкала</string>
-    <string name="cutout_progress_scale_y_title">Вертикальна шкала</string>
-    <string name="cutout_progress_offset_x_title">Горизонтальне зміщення</string>
-    <string name="cutout_progress_offset_y_title">Вертикальне зміщення</string>
-    <string name="cutout_progress_percent_enabled_title">Показувати відсоток</string>
-    <string name="cutout_progress_percent_enabled_summary">Відображати поточний прогрес завантаження у відсотковому відношенні</string>
-    <string name="cutout_progress_percent_size_title">Розмір тексту у відсотках</string>
-    <string name="cutout_progress_percent_bold_title">Відсотки жирним шрифтом</string>
-    <string name="cutout_progress_percent_position_title">Розміщення відсотків</string>
-    <string name="cutout_progress_filename_enabled_title">Показати ім\'я файлу</string>
-    <string name="cutout_progress_filename_enabled_summary">Відображає ім\'я файлу, що завантажується</string>
-    <string name="cutout_progress_filename_size_title">Розмір тексту імені файлу</string>
-    <string name="cutout_progress_filename_bold_title">Назва файлу, виділена жирним шрифтом</string>
-    <string name="cutout_progress_filename_position_title">Позиція імені файлу</string>
-    <string name="cutout_progress_filename_max_chars_title">Максимальна довжина імені файлу</string>
-    <string name="cutout_progress_filename_truncate_title">Обрізання назви файлу</string>
-    <string name="cutout_progress_badge_title">Показувати значок лічильника завантажень</string>
-    <string name="cutout_progress_badge_summary">Показати значок таблетки з кількістю активних завантажень</string>
-    <string name="cutout_progress_badge_size_title">Розмір тексту значка</string>
-    <string name="cutout_progress_badge_offset_x_title">Горизонтальне зміщення значка</string>
-    <string name="cutout_progress_badge_offset_y_title">Вертикальне зміщення значка</string>
-    <string name="cutout_progress_ring_color_mode_title">Колір кільця</string>
-    <string name="cutout_progress_color_picker_title">Обрати колір</string>
-    <string name="cutout_progress_ring_color_mode_accent">Відтінок</string>
-    <string name="cutout_progress_ring_color_mode_rainbow">Веселка</string>
-    <string name="cutout_progress_ring_color_mode_custom">Персоналізація</string>
-    <string name="cutout_progress_cat_glow">Ефект світіння</string>
-    <string name="cutout_progress_glow_enabled_title">Ефект світіння</string>
-    <string name="cutout_progress_glow_enabled_summary">Halo навколо кільця прогресу</string>
-    <string name="cutout_progress_glow_radius_title">Радіус світіння</string>
-    <!-- Charging Ring -->
-    <string name="cutout_progress_cat_battery">Кільце для батареї</string>
-    <string name="cutout_progress_battery_indicator_title">Показати індикатор батареї</string>
-    <string name="cutout_progress_battery_indicator_summary">Відображення рівня заряду батареї у вигляді симетричного кільця навколо вирізу під час заряджання або повного заряду</string>
-    <string name="cutout_progress_charging_ring_title">Показати кільце заряджання</string>
-    <string name="cutout_progress_charging_ring_summary">Відображення рівня заряду батареї у вигляді симетричного кільця навколо вирізу під час заряджання</string>
-    <string name="cutout_progress_charging_pulse_title">Анімація пульсації заряджання</string>
-    <string name="cutout_progress_charging_pulse_summary">Анімувати повторюваний імпульс від центру назовні, під час зарядки</string>
-    <!-- Music Ring -->
-    <string name="cutout_progress_cat_music">Музичний дзвін</string>
-    <string name="cutout_progress_music_title">Увімкнути музичне кільце</string>
-    <string name="cutout_progress_music_summary">Показати візуалізатор відтворення поточного медіа-вмісту</string>
-    <string name="cutout_progress_music_color_mode_title">Колірний режим</string>
-    <string name="cutout_progress_music_color_mode_album_icon">Колір значка альбому</string>
-    <string name="cutout_progress_music_color_mode_accent">Системний акцент</string>
-    <string name="cutout_progress_music_color_mode_album_art">Обкладинка альбому</string>
-    <string name="cutout_progress_music_color_mode_custom">Колір, який встановлюється користувачем</string>
-    <string name="cutout_progress_music_custom_color_title">Користувацький колір</string>
-    <string name="cutout_progress_music_opacity_title">Непрозорість кільця</string>
-    <string name="cutout_progress_music_stroke_title">Ширина обведення</string>
-    <string name="cutout_progress_music_clockwise_title">Напрямок за годинниковою стрілкою</string>
-    <string name="cutout_progress_music_aod_title">Показати на AOD</string>
-    <string name="cutout_progress_music_aod_summary">Продовжувати відображати музичне кільце на Ambient Display</string>
     <!-- QS Panel style -->
     <string name="qs_panel_style_title">Стиль панелі швидких налаштувань</string>
     <string name="qs_panel_style_card">Стиль картки</string>
@@ -1207,4 +1093,70 @@
     <!-- QS media player -->
     <string name="qs_show_media_player_title">Музичний плеєр швидких налаштувань</string>
     <string name="qs_show_media_player_summary">Показувати елементи керування у швидких налаштуваннях</string>
+    <!-- Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Автовиправлення розпізнавання VBMeta</string>
+    <string name="vbmeta_attestation_summary">Виконайте хеш ключа при завантаженні щоб генерувати перевірений хеш. Для запуску необхідно перезапустити систему.</string>
+    <!-- Dynamic Bar -->
+    <string name="dynamic_bar">Динамічна панель</string>
+    <string name="dynamic_bar_summary">Розумний чіп в рядку стану для активних подій, таких як запис, медіа, таймери, тощо</string>
+    <string name="dynamic_bar_enable">Увімкнути динамічну панель</string>
+    <string name="dynamic_bar_enable_summary">Відображати динамічний чіп у рядку стану для подій</string>
+    <string name="dynamic_bar_keyguard_enable">Показати на екрані блокування</string>
+    <string name="dynamic_bar_keyguard_enable_summary">Показувати Динамічну панель навігації на екрані блокування з елементами управління та швидкі дії</string>
+    <string name="dynamic_bar_events">Події</string>
+    <string name="dynamic_bar_event_recording">Запис екрану</string>
+    <string name="dynamic_bar_event_recording_summary">Індикатор активного запису</string>
+    <string name="dynamic_bar_event_privacy">Індикатори конфіденційності</string>
+    <string name="dynamic_bar_event_privacy_summary">Сповіщення про доступ до камери та мікрофону</string>
+    <string name="dynamic_bar_event_audio_recording">Запис звуку</string>
+    <string name="dynamic_bar_event_audio_recording_summary">Голосовий записувач та запис звуку</string>
+    <string name="dynamic_bar_event_media">Відтворення медіа</string>
+    <string name="dynamic_bar_event_media_summary">Відтворення музики та аудіо елементів керування</string>
+    <string name="dynamic_bar_event_notification">Сповіщення</string>
+    <string name="dynamic_bar_event_notification_summary">Сповіщення про вхідні сповіщення</string>
+    <string name="dynamic_bar_compact_notifications">Компактні сповіщення</string>
+    <string name="dynamic_bar_compact_notifications_summary">Спочатку показувати сповіщення у вигляді невеликого чіпа, натисніть, щоб розгорнути</string>
+    <string name="dynamic_bar_event_timer">Таймер</string>
+    <string name="dynamic_bar_event_timer_summary">Таймер зворотного відліку від годинника</string>
+    <string name="dynamic_bar_event_stopwatch">Секундомір</string>
+    <string name="dynamic_bar_event_stopwatch_summary">Запуск секундоміра з програми Годинник</string>
+    <string name="dynamic_bar_event_alarm">Будильник</string>
+    <string name="dynamic_bar_event_alarm_summary">Виклики та майбутні будильники</string>
+    <string name="dynamic_bar_event_charging">Заряджається</string>
+    <string name="dynamic_bar_event_charging_summary">Рівень заряду акумулятора при підключенні</string>
+    <string name="dynamic_bar_event_bluetooth">Bluetooth</string>
+    <string name="dynamic_bar_event_bluetooth_summary">Стан підключення пристрою</string>
+    <string name="dynamic_bar_event_hotspot">Точка доступу</string>
+    <string name="dynamic_bar_event_hotspot_summary">Індикатор мобільної точки доступу</string>
+    <string name="dynamic_bar_event_ringer">Режим дзвінка</string>
+    <string name="dynamic_bar_event_ringer_summary">Беззвучний, режим вібрації, зміна режиму дзвінка</string>
+    <string name="dynamic_bar_event_vpn">Мережа VPN</string>
+    <string name="dynamic_bar_event_vpn_summary">Активний індикатор підключення до VPN</string>
+    <string name="dynamic_bar_event_clipboard">Буфер обміну</string>
+    <string name="dynamic_bar_event_clipboard_summary">Текст та попередній перегляд зображення скопійовано</string>
+    <string name="dynamic_bar_event_torch">Ліхтарик</string>
+    <string name="dynamic_bar_event_torch_summary">Перемикач ліхтарика й яскравості</string>
+    <string name="dynamic_bar_event_casting">Трансляція</string>
+    <string name="dynamic_bar_event_casting_summary">Статус трансляції екрану та медіафайлів</string>
+    <string name="dynamic_bar_event_ongoing">Поточні дії</string>
+    <string name="dynamic_bar_event_ongoing_summary">Навігація, доставка та інші події в реальному часі</string>
+    <string name="dynamic_bar_event_sports">Спорт</string>
+    <string name="dynamic_bar_event_sports_summary">Результати гри в реальному часі та оновлення</string>
+    <string name="dynamic_bar_event_app_switch">Нещодавнє перемикання програм</string>
+    <string name="dynamic_bar_event_app_switch_summary">Показувати чіп під час перемикання між нещодавно запущеними програмами</string>
+    <string name="dynamic_bar_event_biometric">Біометричне розблокування</string>
+    <string name="dynamic_bar_event_biometric_summary">Показувати чіп на відбитку пальця або розблокуванні обличчям</string>
+    <string name="dynamic_bar_guide_title">Як використовувати динамічний бар</string>
+    <string name="dynamic_bar_guide_chip">Події з’являються в рядку стану, що показує активні події, такі як запис, відтворення медіа та таймери</string>
+    <string name="dynamic_bar_guide_swipe">Коли кілька подій активні, проведіть ліворуч або праворуч для проходження через них</string>
+    <string name="dynamic_bar_guide_expand">Натисніть на чіп, щоб розгорнути його в детальну картку з управлінням та додатковою інформацією</string>
+    <string name="dynamic_bar_guide_dismiss">Проведіть по розширеній картці вперед, щоб відхилити її. Захід триває в фоновому режимі</string>
+    <string name="dynamic_bar_guide_keyguard">Динамічна панель з елементами керування відтворенням та швидкими діями також відображається внизу екрана блокування</string>
+    <string name="dynamic_bar_guide_chip_title">Зовнішній вигляд чіпа</string>
+    <string name="dynamic_bar_guide_swipe_title">Проведіть пальцем між фішками</string>
+    <string name="dynamic_bar_guide_expand_title">Натисніть, щоб розгорнути</string>
+    <string name="dynamic_bar_guide_dismiss_title">Проведіть пальцем, щоб закрити</string>
+    <string name="dynamic_bar_guide_keyguard_title">Чіп блокування екрана</string>
+    <string name="dynamic_bar_footer_title">Про динамічну панель</string>
+    <string name="dynamic_bar_footer_body">Динамічний бар перетворює ваш рядок стану в інтерактивний центр. Подальші статус-чіпи з\'являються і анімуються на основі системних подій, даючи вам інформацію без переривання робочого процесу.\n\nкожен тип події має свій власний колір акценту на карті з швидкими діями.</string>
 </resources>
