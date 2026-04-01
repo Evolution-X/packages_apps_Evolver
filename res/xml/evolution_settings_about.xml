@@ -129,4 +129,17 @@
         </Preference>
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="remembering"
+        android:title="@string/about_remembering_title">
+
+        <Preference
+            android:title="@string/about_member_5_title"
+            android:summary="@string/about_member_5_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.linkedin.com/posts/apelete_evolutionx-activity-7429791532091797504-ND3i" />
+        </Preference>
+    </PreferenceCategory>
+
 </PreferenceScreen>
