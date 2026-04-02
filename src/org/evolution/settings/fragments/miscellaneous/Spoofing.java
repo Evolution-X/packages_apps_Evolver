@@ -30,6 +30,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.provider.Settings;
+import android.util.ArraySet;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -50,6 +51,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -83,11 +85,17 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SYS_GOOGLE_SPOOF = "persist.sys.pp";
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pp.photos";
     private static final String SYS_SNAPCHAT_SPOOF = "persist.sys.pp.snapchat";
+    private static final String SYS_TENSOR_SPOOF = "persist.sys.pp.tensor";
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
     private static final String GOOGLE_PHOTOS_PACKAGE = "com.google.android.apps.photos";
     private static final String SNAPCHAT_PACKAGE = "com.snapchat.android";
     private static final String VENDING_PACKAGE = "com.android.vending";
+
+    private static final ArraySet<String> MAINLINE_TENSOR = new ArraySet<>();
+    private static final ArraySet<String> TENSOR = new ArraySet<>();
+    private static final boolean IS_MAINLINE_TENSOR;
+    private static final boolean IS_TENSOR;
 
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
     private KeyboxDataPreference mKeyboxDataPreference;
@@ -100,8 +108,27 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private SystemPropertySwitchPreference mGoogleSpoof;
     private SystemPropertySwitchPreference mPhotosSpoof;
     private SystemPropertySwitchPreference mSnapchatSpoof;
+    private SystemPropertySwitchPreference mTensorSpoof;
 
     private Handler mHandler;
+
+    static {
+
+        Collections.addAll(MAINLINE_TENSOR,
+                "stallion","blazer","frankel","mustang","comet","komodo","caiman","tokay",
+                "akita","husky","shiba"
+        );
+
+        Collections.addAll(TENSOR,
+                "stallion","blazer","frankel","mustang","tegu","comet","komodo","caiman","tokay",
+                "akita","husky","shiba","felix","tangorpro","lynx","cheetah","panther",
+                "bluejay","oriole","raven"
+        );
+
+        final String device = SystemProperties.get("ro.evolution.device");
+        IS_MAINLINE_TENSOR = MAINLINE_TENSOR.contains(device);
+        IS_TENSOR = TENSOR.contains(device);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,18 +148,21 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGoogleSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GOOGLE_SPOOF);
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
         mSnapchatSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAPCHAT_SPOOF);
+        mTensorSpoof = (SystemPropertySwitchPreference) findPreference(SYS_TENSOR_SPOOF);
         mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
         mRandomPropertiesButton = findPreference(KEY_RANDOM_PROPERTIES_BUTTON);
 
-        String model = SystemProperties.get("ro.product.model");
-        boolean isTensorDevice = model.matches("Pixel (6|7|8|9|10)[a-zA-Z ]*");
         boolean isPixelGmsEnabled = SystemProperties.getBoolean(SYS_GMS_SPOOF, true);
 
         if (DeviceUtils.isCurrentlySupportedPixel()) {
             mGoogleSpoof.setDefaultValue(false);
-            if (isMainlineTensorModel(model)) {
+            if (IS_MAINLINE_TENSOR) {
                 mSystemWideCategory.removePreference(mGoogleSpoof);
             }
+        }
+
+        if (IS_TENSOR) {
+            mSystemWideCategory.removePreference(mTensorSpoof);
         }
 
         mGmsSpoof.setOnPreferenceChangeListener(this);
@@ -140,6 +170,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mGoogleSpoof.setOnPreferenceChangeListener(this);
         mPhotosSpoof.setOnPreferenceChangeListener(this);
         mSnapchatSpoof.setOnPreferenceChangeListener(this);
+        mTensorSpoof.setOnPreferenceChangeListener(this);
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -177,10 +208,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
                 return true;
             });
         }
-    }
-
-    private boolean isMainlineTensorModel(String model) {
-        return model.matches("Pixel (8|9|10)[a-zA-Z ]*");
     }
 
     private void openFileSelector(int requestCode) {
@@ -278,6 +305,30 @@ public class Spoofing extends SettingsPreferenceFragment implements
             killPackage(pkg);
         }
         killVending();
+    }
+
+    /**
+     * Kill all Google packages (com.google.*) so they can pick up new properties
+     */
+    private void killGooglePackages() {
+        try {
+            PackageManager pm = getContext().getPackageManager();
+            List<ApplicationInfo> apps = pm.getInstalledApplications(0);
+
+            for (ApplicationInfo app : apps) {
+                String pkg = app.packageName;
+
+                if (pkg.startsWith("com.google")) {
+                    killPackage(pkg);
+                }
+            }
+
+            // Keep explicit Play Store kill (extra safety)
+            killVending();
+
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to kill Google packages", e);
+        }
     }
 
     private void updatePropertiesFromUrl(String urlString) {
@@ -391,6 +442,16 @@ public class Spoofing extends SettingsPreferenceFragment implements
         }
         if (preference == mGoogleSpoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
+            return true;
+        }
+        if (preference == mTensorSpoof) {
+            boolean enabled = (Boolean) newValue;
+            SystemProperties.set(SYS_TENSOR_SPOOF, enabled ? "true" : "false");
+            // Restart all Google apps to pick up new feature flags
+            killGooglePackages();
+            Toast.makeText(getContext(),
+                    enabled ? "Tensor features enabled" : "Tensor features disabled",
+                    Toast.LENGTH_SHORT).show();
             return true;
         }
         return false;
