@@ -552,6 +552,8 @@
     <string name="spoofing_system_wide_category">Загальносистемний</string>
     <string name="spoofing_pixel_props_title">Пропозиції Pixel</string>
     <string name="spoofing_pixel_props_summary">Імітувати пристрій як Pixel 8 Pro для всіх додатків Google</string>
+    <string name="tensor_spoof_title">Імітація особливостей tensor</string>
+    <string name="tensor_spoof_summary">Увімкнути функції Pixel Tensor-exclusive функцій на непідтримуваних пристроях. Може призвести до неочікуваної поведінки або збільшення споживання заряду акумулятора.</string>
     <string name="gms_spoof_title">Відтворити виправлення цілісності</string>
     <string name="gms_spoof_summary">Імітувати дані вашого пристрою, щоб перейти до списку дозволів Google Play</string>
     <string name="vending_spoof_title">Спотворення</string>
@@ -870,6 +872,8 @@
     <string name="nowplaying_compact_style_title">Компактний стиль</string>
     <string name="nowplaying_compact_style_summary">Показувати як в одному рядку за допомогою розміру пісні</string>
     <string name="nowplaying_info_summary">Зараз грає грає в даний час назву музики і виконавця на екрані блокування і в режимі Відображення. Автоматично з\'являється, коли музика грає і зникає, коли зупиняється. Позиція може бути скоригована будь-де з верхньої частини екрану.</string>
+    <string name="nowplaying_expand_dialog">Розгорнути діалог</string>
+    <string name="nowplaying_expand_dialog_summary">Розгорнути діалогове вікно гри</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Зарядна форма спуску</string>
     <!-- Statusbar Padding -->
@@ -1159,4 +1163,7 @@
     <string name="dynamic_bar_guide_keyguard_title">Чіп блокування екрана</string>
     <string name="dynamic_bar_footer_title">Про динамічну панель</string>
     <string name="dynamic_bar_footer_body">Динамічний бар перетворює ваш рядок стану в інтерактивний центр. Подальші статус-чіпи з\'являються і анімуються на основі системних подій, даючи вам інформацію без переривання робочого процесу.\n\nкожен тип події має свій власний колір акценту на карті з швидкими діями.</string>
+    <!-- Media art QS background -->
+    <string name="media_waveform_seekbar_title">Панель пошуку медіаформи хвилі</string>
+    <string name="media_waveform_seekbar_summary">Увімкнути анімований ефект хвилі для прогресу відтворення медіа</string>
 </resources>
