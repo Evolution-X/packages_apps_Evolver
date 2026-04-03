@@ -88,6 +88,17 @@
         android:key="themes_icons_category"
         android:title="@string/themes_icons_category">
 
+        <!-- Themes -->
+        <Preference
+        android:key="custom_system_theme"
+            android:title="@string/custom_system_theme_title"
+            android:summary="@string/custom_system_theme_summary">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.axion.axthemestore"
+                android:targetClass="com.android.axion.axthemestore.MainActivity" />
+        </Preference>
+
         <!-- Icon shape -->
         <Preference
             android:key="android.theme.customization.adaptive_icon_shape"

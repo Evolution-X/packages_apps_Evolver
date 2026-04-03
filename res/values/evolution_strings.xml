@@ -1291,4 +1291,8 @@
     <!-- Media art QS background -->
     <string name="media_waveform_seekbar_title">Waveform media seekbar</string>
     <string name="media_waveform_seekbar_summary">Enable animated waveform effect for media playback progress</string>
+
+    <!-- Themes -->
+    <string name="custom_system_theme_title">Themes</string>
+    <string name="custom_system_theme_summary">Customize system appearance with themes and icon packs</string>
 </resources>
