@@ -60,6 +60,21 @@
             android:summary="@string/notification_row_transparency_lockscreen_summary"
             android:defaultValue="true" />
 
+        <!-- Notification app icon -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="notification_use_app_icons"
+            android:title="@string/notification_use_app_icons_title"
+            android:summary="@string/notification_use_app_icons_summary"
+            android:defaultValue="true" />
+
+        <!-- Notification themed app icon -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="notification_use_themed_app_icons"
+            android:title="@string/notification_use_themed_app_icons_title"
+            android:summary="@string/notification_use_themed_app_icons_summary"
+            android:defaultValue="false"
+            android:dependency="notification_use_app_icons" />
+
         <!-- Small landscape notifications -->
         <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="small_landscape_notification"
