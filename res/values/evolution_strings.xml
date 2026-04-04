@@ -1307,4 +1307,10 @@
     <!-- Themes -->
     <string name="custom_system_theme_title">Themes</string>
     <string name="custom_system_theme_summary">Customize system appearance with themes and icon packs</string>
+
+    <!-- Notification app icon -->
+    <string name="notification_use_app_icons_title">Use app icons in notifications</string>
+    <string name="notification_use_app_icons_summary">Show app launcher icon instead of small notification icon</string>
+    <string name="notification_use_themed_app_icons_title">Use themed app icons</string>
+    <string name="notification_use_themed_app_icons_summary">Apply system color theme to notification app icons (experimental)</string>
 </resources>
