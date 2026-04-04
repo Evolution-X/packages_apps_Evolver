@@ -1106,8 +1106,14 @@
     <string name="dynamic_bar_summary">Inteligentny wskaźnik na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, multimedia, minutniki i inne</string>
     <string name="dynamic_bar_enable">Włącz pasek dynamiczny</string>
     <string name="dynamic_bar_enable_summary">Pokaż dynamiczny wskaźnik na pasku stanu dla aktywnych zdarzeń</string>
-    <string name="dynamic_bar_keyguard_enable">Pokaż na ekranie blokady</string>
-    <string name="dynamic_bar_keyguard_enable_summary">Pokaż wskaźnik paska dynamicznego na ekranie blokady z elementami sterowania i szybkimi akcjami</string>
+    <string name="dynamic_bar_keyguard_enable">Pasek dynamiczny na ekranie blokady</string>
+    <string name="dynamic_bar_keyguard_enable_summary">Zastąp komunikat ekranu blokady wskaźnikiem paska dynamicznego na ekranie blokady z elementami sterowania i szybkimi akcjami</string>
+    <string name="dynamic_bar_keyguard_battery_chip">Informacje o baterii na ekranie blokady</string>
+    <string name="dynamic_bar_keyguard_battery_chip_disabled">Nigdy nie pokazuj</string>
+    <string name="dynamic_bar_keyguard_battery_chip_charging">Tylko podczas ładowania</string>
+    <string name="dynamic_bar_keyguard_battery_chip_always">Zawsze pokazuj</string>
+    <string name="dynamic_bar_keyguard_compact_chip">Kompaktowy wskaźnik na ekranie blokady</string>
+    <string name="dynamic_bar_keyguard_compact_chip_summary">Zawsze używaj kompaktowego stylu wskaźnika na ekranie blokady. Po wyłączeniu tryb kompaktowy jest używany tylko wtedy, gdy brakuje miejsca.</string>
     <string name="dynamic_bar_events">Zdarzenia</string>
     <string name="dynamic_bar_event_recording">Nagrywanie ekranu</string>
     <string name="dynamic_bar_event_recording_summary">Aktywny wskaźnik nagrywania ekranu</string>
@@ -1127,7 +1133,7 @@
     <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji Zegar</string>
     <string name="dynamic_bar_event_alarm">Budzik</string>
     <string name="dynamic_bar_event_alarm_summary">Dzwoniące i nadchodzące alarmy</string>
-    <string name="dynamic_bar_event_charging">Ładowanie</string>
+    <string name="dynamic_bar_event_charging">Rozpoczęto ładowanie</string>
     <string name="dynamic_bar_event_charging_summary">Poziom baterii podczas podłączania</string>
     <string name="dynamic_bar_event_bluetooth">Bluetooth</string>
     <string name="dynamic_bar_event_bluetooth_summary">Stan połączenia urządzenia</string>
