@@ -1320,4 +1320,8 @@
     <string name="notification_use_app_icons_summary">Show app launcher icon instead of small notification icon</string>
     <string name="notification_use_themed_app_icons_title">Use themed app icons</string>
     <string name="notification_use_themed_app_icons_summary">Apply system color theme to notification app icons (experimental)</string>
+
+    <!-- Notification background alternate color -->
+    <string name="notification_bg_alternate_color_title">Notification background alternate color</string>
+    <string name="notification_bg_alternate_color_summary">Use alternate background color for notifications</string>
 </resources>
