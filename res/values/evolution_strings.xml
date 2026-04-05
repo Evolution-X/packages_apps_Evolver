@@ -654,6 +654,8 @@
     <string name="pif_options_category">PIF Options</string>
     <string name="pif_spoof_photos_title">Spoof Google Photos</string>
     <string name="pif_spoof_photos_summary">Appear as Pixel XL for unlimited original quality backup</string>
+    <string name="pif_spoof_tensor_title">Force Tensor features</string>
+    <string name="pif_spoof_tensor_summary">Enable Pixel Tensor-exclusive features (may cause issues)</string>
     <string name="keybox_category_title">Keybox (TrickyStore)</string>
     <string name="trickystore_screen_title">TrickyStore</string>
     <string name="keybox_import_title">Import Keybox</string>

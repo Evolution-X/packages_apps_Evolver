@@ -39,6 +39,11 @@
             android:summary="@string/pif_spoof_photos_summary"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pp.tensor"
+            android:title="@string/pif_spoof_tensor_title"
+            android:summary="@string/pif_spoof_tensor_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
