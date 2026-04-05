@@ -68,6 +68,7 @@ public class PifFragment extends InstrumentedFragment {
     private Button mImportButton;
     private Button mShowPropsButton;
     private Switch mSpoofPhotosSwitch;
+    private Switch mSpoofTensorSwitch;
     private LinearLayout mConfigContainer;
     private String mImportTargetFileName;
 
@@ -103,6 +104,7 @@ public class PifFragment extends InstrumentedFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         mActiveConfig = view.findViewById(R.id.tv_pif_active_config);
         mModel = view.findViewById(R.id.tv_pif_model);
         mFingerprint = view.findViewById(R.id.tv_pif_fingerprint);
@@ -112,17 +114,24 @@ public class PifFragment extends InstrumentedFragment {
         mImportButton = view.findViewById(R.id.btn_pif_import);
         mShowPropsButton = view.findViewById(R.id.btn_pif_show_props);
         mSpoofPhotosSwitch = view.findViewById(R.id.switch_pif_spoof_photos);
+        mSpoofTensorSwitch = view.findViewById(R.id.switch_pif_spoof_tensor);
         mConfigContainer = view.findViewById(R.id.container_pif_configs);
 
         mFetchBeta.setOnClickListener(v -> fetchBetaPif());
         mFetchEvolution.setOnClickListener(v -> fetchEvolutionPif());
+
         mImportButton.setOnClickListener(v -> {
             mImportTargetFileName = null;
             openPifFilePicker();
         });
+
         mShowPropsButton.setOnClickListener(v -> showCurrentProps());
+
         mSpoofPhotosSwitch.setOnCheckedChangeListener((buttonView, isChecked) ->
                 mPifManager.setSpoofPhotos(isChecked));
+
+        mSpoofTensorSwitch.setOnCheckedChangeListener((buttonView, isChecked) ->
+                mPifManager.setSpoofTensor(isChecked));
     }
 
     @Override
@@ -138,17 +147,25 @@ public class PifFragment extends InstrumentedFragment {
         mActiveConfig.setText(activeConfig.isEmpty()
                 ? getString(R.string.pif_no_config_loaded)
                 : getString(R.string.pif_active_config, activeConfig));
-        mModel.setText(formatKeyValue(R.string.pif_model_label,
+
+        mModel.setText(getString(R.string.pif_model_label,
                 props.getOrDefault("MODEL", getString(R.string.pif_no_props))));
-        mFingerprint.setText(formatKeyValue(R.string.pif_fingerprint_label,
+
+        mFingerprint.setText(getString(R.string.pif_fingerprint_label,
                 props.getOrDefault("FINGERPRINT", getString(R.string.pif_not_available))));
-        mSecurityPatch.setText(formatKeyValue(R.string.pif_security_patch_label,
+
+        mSecurityPatch.setText(getString(R.string.pif_security_patch_label,
                 props.getOrDefault("SECURITY_PATCH", getString(R.string.pif_not_available))));
 
         mSpoofPhotosSwitch.setOnCheckedChangeListener(null);
         mSpoofPhotosSwitch.setChecked(mPifManager.isSpoofPhotosEnabled());
         mSpoofPhotosSwitch.setOnCheckedChangeListener((buttonView, isChecked) ->
                 mPifManager.setSpoofPhotos(isChecked));
+
+        mSpoofTensorSwitch.setOnCheckedChangeListener(null);
+        mSpoofTensorSwitch.setChecked(mPifManager.isSpoofTensorEnabled());
+        mSpoofTensorSwitch.setOnCheckedChangeListener((buttonView, isChecked) ->
+                mPifManager.setSpoofTensor(isChecked));
 
         bindConfigCards();
     }
@@ -295,10 +312,6 @@ public class PifFragment extends InstrumentedFragment {
         return lastSegment != null ? lastSegment : "config";
     }
 
-    private String formatKeyValue(int labelResId, @NonNull String value) {
-        return getString(labelResId, value);
-    }
-
     private void bindConfigCards() {
         if (mConfigContainer == null) {
             return;
@@ -307,8 +320,10 @@ public class PifFragment extends InstrumentedFragment {
         mConfigContainer.removeAllViews();
         LayoutInflater inflater = LayoutInflater.from(requireContext());
         List<PifManager.ConfigState> states = mPifManager.getConfigStates();
+
         for (PifManager.ConfigState state : states) {
             View card = inflater.inflate(R.layout.item_pif_config, mConfigContainer, false);
+
             TextView fileName = card.findViewById(R.id.tv_pif_file_name);
             TextView status = card.findViewById(R.id.tv_pif_file_status);
             TextView summary = card.findViewById(R.id.tv_pif_file_summary);
@@ -321,6 +336,7 @@ public class PifFragment extends InstrumentedFragment {
                     : state.exists
                             ? getString(R.string.pif_file_status_available)
                             : getString(R.string.pif_file_status_empty));
+
             summary.setText(buildConfigSummary(state));
             delete.setEnabled(state.exists);
 
@@ -328,6 +344,7 @@ public class PifFragment extends InstrumentedFragment {
                 mImportTargetFileName = state.fileName;
                 openPifFilePicker();
             });
+
             delete.setOnClickListener(v -> {
                 mPifManager.deleteConfig(state.fileName);
                 refreshUi();
@@ -347,12 +364,14 @@ public class PifFragment extends InstrumentedFragment {
 
         String model = state.data.get("MODEL");
         String patch = state.data.get("SECURITY_PATCH");
+
         if (model != null && patch != null && !patch.isEmpty()) {
             return getString(R.string.spoof_dashboard_pif_detail, model, patch);
         }
         if (model != null && !model.isEmpty()) {
             return model;
         }
+
         return getString(R.string.pif_file_present_summary);
     }
 

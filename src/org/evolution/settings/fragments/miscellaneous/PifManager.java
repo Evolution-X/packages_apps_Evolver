@@ -18,6 +18,7 @@ package org.evolution.settings.fragments.miscellaneous;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.os.SystemProperties;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -41,6 +42,7 @@ public class PifManager {
     private static final String VENDING_PKG = "com.android.vending";
     private static final String PHOTOS_PKG = "com.google.android.apps.photos";
     private static final String KEY_SPOOF_PHOTOS = "spoofPhotos";
+    private static final String KEY_SPOOF_TENSOR = "persist.sys.pp.tensor";
 
     private static final List<String> CONFIG_FILES = Arrays.asList(
             "custom.pif.prop",
@@ -181,6 +183,15 @@ public class PifManager {
         }
         updateConfigKey(editable, KEY_SPOOF_PHOTOS, String.valueOf(enabled));
         killPackage(PHOTOS_PKG);
+    }
+
+    public boolean isSpoofTensorEnabled() {
+        return SystemProperties.getBoolean(KEY_SPOOF_TENSOR, false);
+    }
+
+    public void setSpoofTensor(boolean enabled) {
+        SystemProperties.set(KEY_SPOOF_TENSOR, enabled ? "true" : "false");
+        killGooglePackages();
     }
 
     public static boolean looksLikeJson(String fileName, String content) {
@@ -396,6 +407,28 @@ public class PifManager {
             }
         } catch (Exception e) {
             Log.w(TAG, "Failed to stop package: " + packageName, e);
+        }
+    }
+
+    private void killGooglePackages() {
+        try {
+            ActivityManager am = (ActivityManager)
+                    mContext.getSystemService(Context.ACTIVITY_SERVICE);
+            if (am == null) return;
+
+            List<android.content.pm.ApplicationInfo> apps =
+                    mContext.getPackageManager().getInstalledApplications(0);
+
+            for (android.content.pm.ApplicationInfo app : apps) {
+                String pkg = app.packageName;
+                if (pkg.startsWith("com.google") || pkg.equals(VENDING_PKG)) {
+                    try {
+                        am.forceStopPackage(pkg);
+                    } catch (Exception ignored) {}
+                }
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to kill Google packages", e);
         }
     }
 
