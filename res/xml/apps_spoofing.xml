@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2026 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/app_spoof_screen_title">
+
+    <!-- Pixel props -->
+    <org.evolution.settings.preferences.SystemPropertySwitchPreference
+        android:key="persist.sys.pp"
+        android:title="@string/spoofing_pixel_props_title"
+        android:summary="@string/spoofing_pixel_props_summary"
+        android:defaultValue="true" />
+
+    <!-- Tensor features -->
+    <org.evolution.settings.preferences.SystemPropertySwitchPreference
+        android:key="persist.sys.pp.tensor"
+        android:title="@string/pif_spoof_tensor_title"
+        android:summary="@string/pif_spoof_tensor_summary"
+        android:defaultValue="false" />
+
+    <!-- App Spoofing -->
+    <Preference
+        android:key="user_selectable_app_spoofing"
+        android:title="@string/user_selectable_app_spoofing_title"
+        android:summary="@string/user_selectable_app_spoofing_summary"
+        android:fragment="org.evolution.settings.fragments.miscellaneous.UserSelectedAppSpoofSettings" />
+
+    <!-- Google Photos -->
+    <org.evolution.settings.preferences.SystemPropertySwitchPreference
+        android:key="persist.sys.pp.photos"
+        android:title="@string/pif_spoof_photos_title"
+        android:summary="@string/pif_spoof_photos_summary"
+        android:defaultValue="true" />
+
+</PreferenceScreen>

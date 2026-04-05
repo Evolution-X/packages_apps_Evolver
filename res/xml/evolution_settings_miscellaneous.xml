@@ -28,9 +28,16 @@
         <!-- Component spoofing -->
         <Preference
             android:key="spoofing"
-            android:title="@string/spoofing_title"
-            android:summary="@string/spoofing_summary"
+            android:title="@string/spoof_screen_title"
+            android:summary="@string/spoof_screen_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.Spoofing" />
+
+        <!-- Apps spoofing -->
+        <Preference
+            android:key="apps_spoofing"
+            android:title="@string/app_spoof_screen_title"
+            android:summary="@string/app_spoof_manage_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.AppsSpoofing" />
 
         <!-- Hide applist -->
         <Preference
