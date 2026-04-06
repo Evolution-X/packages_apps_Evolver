@@ -564,17 +564,11 @@
     <string name="spoofing_system_wide_category">W całym systemie</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
     <string name="spoofing_pixel_props_summary">Sfałszuj wybraną grupę aplikacji Google pod najnowsze urządzenie Pixel</string>
-    <string name="tensor_spoof_title">Wymuś funkcje Tensor</string>
-    <string name="tensor_spoof_summary">Włącz funkcje dostępne wyłącznie dla Pixel Tensor na urządzeniach nieobsługiwanych. Może to prowadzić do nieoczekiwanego działania lub zwiększonego zużycia baterii.</string>
     <string name="gms_spoof_title">Poprawka integralności Google Play</string>
     <string name="gms_spoof_summary">Sfałszuj właściwości urządzenia, aby przejść weryfikację Google Play</string>
     <string name="vending_spoof_title">Fałszowanie urządzenia</string>
     <string name="vending_spoof_summary">Zastosuj fałszowanie urządzenia w Sklepie Google Play</string>
     <string name="spoofing_app_specific_category">Specyficzne dla aplikacji</string>
-    <string name="spoofing_photos_title">Zdjęcia Google</string>
-    <string name="spoofing_photos_summary">Sfałszuj aplikację Zdjęcia Google, udając Pixel XL</string>
-    <string name="spoofing_snap_title">Snapchat</string>
-    <string name="spoofing_snap_summary">Sfałszuj Snapchat udając Pixel XL, aby naprawić możliwe problemy z czatem</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Pomyślnie pobrano plik pif.json. Fałszowanie jako %1$s w celu zachowania integralności Google Play.</string>
     <string name="toast_spoofing_failure">Nie udało się sfałszować właściwości.</string>
@@ -649,8 +643,6 @@
     <string name="target_mode_auto">Automatyczny</string>
     <string name="target_mode_leaf_hack">Modyfikacja systemu</string>
     <string name="target_mode_cert_gen">Generator certyfikatów</string>
-    <string name="show_system_apps">Pokaż aplikacje systemowe</string>
-    <string name="hide_system_apps">Ukryj aplikacje systemowe</string>
     <string name="app_spoof_screen_title">Fałszowanie aplikacji</string>
     <string name="app_spoof_category_title">Fałszowanie aplikacji</string>
     <string name="app_spoof_manage_title">Zarządzaj fałszowaniem aplikacji</string>
@@ -1106,6 +1098,41 @@
     <string name="custom_gradient_color_mode_custom">Tryb niestandardowy</string>
     <string name="custom_gradient_start_color_title">Kolor początkowy gradientu</string>
     <string name="custom_gradient_end_color_title">Kolor końca gradientu</string>
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Fałszowanie aplikacji</string>
+    <string name="user_selectable_app_spoofing_summary">Wybierz aplikacje, dla których chcesz sfałszować właściwości urządzenia</string>
+    <string name="user_select_spoofing_profile_title">Wybierz profil fałszowania</string>
+    <string name="app_spoofing_category_title">Fałszowanie aplikacji</string>
+    <string name="app_spoofing_header_title">Włącz fałszowanie</string>
+    <string name="app_spoofing_configured_count">%1$d aplikacji sfałszowanych</string>
+    <string name="app_spoofing_disabled">Wyłączony</string>
+    <string name="app_spoofing_add_apps">Dodaj aplikacje</string>
+    <string name="app_spoofing_spoofed_model">Wybierz model</string>
+    <string name="app_spoofing_clear_all">Wyczyść wszystko</string>
+    <string name="app_spoofing_configured_apps">Lista skonfigurowanych aplikacji</string>
+    <string name="app_spoofing_no_apps_configured">Brak skonfigurowanych aplikacji</string>
+    <string name="app_spoofing_spoof_model">Fałszowanie modelu</string>
+    <string name="app_spoofing_select_spoof_model">Wybierz fałszowany model</string>
+    <string name="app_spoofing_change_app">Wybierz aplikację</string>
+    <string name="show_system_apps">Pokaż aplikacje systemowe</string>
+    <string name="hide_system_apps">Ukryj aplikacje systemowe</string>
+    <!-- Custom App Spoofing Profiles -->
+    <string name="add_new_spoof_profile">Dodaj nową</string>
+    <string name="add_custom_spoof_profile_title">Dodaj niestandardowy profil fałszowania</string>
+    <string name="custom_spoof_profile_name">Nazwa profilu</string>
+    <string name="custom_spoof_profile_brand">Marka</string>
+    <string name="custom_spoof_profile_manufacturer">Producent</string>
+    <string name="custom_spoof_profile_device">Urządzenie</string>
+    <string name="custom_spoof_profile_model">Model</string>
+    <string name="custom_spoof_profile_fingerprint">Odcisk palca (opcjonalnie)</string>
+    <string name="custom_spoof_profile_product">Produkt (opcjonalnie)</string>
+    <string name="app_spoofing_clear_all_confirm">Spowoduje to usunięcie wszystkich skonfigurowanych wpisów dotyczących fałszowania aplikacji.</string>
+    <string name="app_spoofing_no_apps_available">Brak dostępnych aplikacji</string>
+    <string name="app_spoofing_no_apps_found">Nie znaleziono aplikacji dla \"%s\"</string>
+    <string name="app_spoofing_clear_search">Wyczyść wyszukiwanie</string>
+    <string name="app_spoofing_longpress_hint">Naciśnij i przytrzymaj, aby szybko zmienić przypisanie profilu</string>
+    <string name="app_spoofing_remove_title">Usunąć aplikację?</string>
+    <string name="app_spoofing_remove_confirm">Usunąć %1$s z listy fałszowania?</string>
     <!-- Idle Manager -->
     <string name="idle_manager_title">Menedżer bezczynności</string>
     <string name="idle_manager_summary">Zarządzaj procesami w tle i optymalizuj żywotność baterii</string>
