@@ -121,8 +121,10 @@ public class PifFragment extends InstrumentedFragment {
             openPifFilePicker();
         });
         mShowPropsButton.setOnClickListener(v -> showCurrentProps());
-        mSpoofPhotosSwitch.setOnCheckedChangeListener((buttonView, isChecked) ->
-                mPifManager.setSpoofPhotos(isChecked));
+        mSpoofPhotosSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            mPifManager.setSpoofPhotos(isChecked);
+            refreshUi();
+        });
     }
 
     @Override
@@ -147,8 +149,10 @@ public class PifFragment extends InstrumentedFragment {
 
         mSpoofPhotosSwitch.setOnCheckedChangeListener(null);
         mSpoofPhotosSwitch.setChecked(mPifManager.isSpoofPhotosEnabled());
-        mSpoofPhotosSwitch.setOnCheckedChangeListener((buttonView, isChecked) ->
-                mPifManager.setSpoofPhotos(isChecked));
+        mSpoofPhotosSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            mPifManager.setSpoofPhotos(isChecked);
+            refreshUi();
+        });
 
         bindConfigCards();
     }

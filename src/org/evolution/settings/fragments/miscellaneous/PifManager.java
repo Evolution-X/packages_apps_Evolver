@@ -40,7 +40,7 @@ public class PifManager {
     private static final String PIF_DIR = "/data/adb/playintegrityfix";
     private static final String VENDING_PKG = "com.android.vending";
     private static final String PHOTOS_PKG = "com.google.android.apps.photos";
-    private static final String KEY_SPOOF_PHOTOS = "spoofPhotos";
+    private static final String PHOTOS_FLAG_FILE = "photos.enabled";
 
     private static final List<String> CONFIG_FILES = Arrays.asList(
             "custom.pif.prop",
@@ -170,17 +170,42 @@ public class PifManager {
     }
 
     public boolean isSpoofPhotosEnabled() {
-        String value = getCurrentProperties().get(KEY_SPOOF_PHOTOS);
-        return "true".equalsIgnoreCase(value) || "1".equals(value);
+        return Boolean.TRUE.equals(readPhotosFlag());
     }
 
     public void setSpoofPhotos(boolean enabled) {
-        File editable = ensureEditableConfig();
-        if (editable == null) {
+        writePhotosFlag(enabled);
+        killPackage(PHOTOS_PKG);
+    }
+
+    private Boolean readPhotosFlag() {
+        File flagFile = new File(PIF_DIR, PHOTOS_FLAG_FILE);
+        if (!flagFile.exists() || !flagFile.canRead()) {
+            return null;
+        }
+
+        try {
+            String value = readFileToString(flagFile).trim();
+            if (value.isEmpty()) {
+                return Boolean.TRUE;
+            }
+            return "1".equals(value) || "true".equalsIgnoreCase(value);
+        } catch (Exception e) {
+            Log.w(TAG, "Failed to read photos flag", e);
+            return null;
+        }
+    }
+
+    private void writePhotosFlag(boolean enabled) {
+        ensureDir();
+        File flagFile = new File(PIF_DIR, PHOTOS_FLAG_FILE);
+        try (FileWriter writer = new FileWriter(flagFile)) {
+            writer.write(enabled ? "1\n" : "0\n");
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to write photos flag", e);
             return;
         }
-        updateConfigKey(editable, KEY_SPOOF_PHOTOS, String.valueOf(enabled));
-        killPackage(PHOTOS_PKG);
+        flagFile.setReadable(true, false);
     }
 
     public static boolean looksLikeJson(String fileName, String content) {
@@ -272,7 +297,7 @@ public class PifManager {
     private File ensureEditableConfig() {
         ensureDir();
         File active = findActiveFile();
-        if (active != null && active.getName().startsWith("custom.")) {
+        if (active != null && "custom.pif.json".equals(active.getName())) {
             return active;
         }
 
