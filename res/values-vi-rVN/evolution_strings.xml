@@ -564,17 +564,11 @@
     <string name="spoofing_system_wide_category">Toàn hệ thống</string>
     <string name="spoofing_pixel_props_title">Thuộc tính Pixel</string>
     <string name="spoofing_pixel_props_summary">Giả mạo nhóm ứng dụng Google thành thiết bị Pixel mới nhất</string>
-    <string name="tensor_spoof_title">Force Tensor features</string>
-    <string name="tensor_spoof_summary">Enable Pixel Tensor-exclusive features on unsupported devices. May lead to unexpected behavior or increased battery usage.</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Giả mạo thiết bị để vượt kiểm tra Play Integrity của Google</string>
     <string name="vending_spoof_title">Máy bán hàng giả mạo</string>
     <string name="vending_spoof_summary">Áp dụng tính năng giả mạo thiết bị cho Google Play Store</string>
     <string name="spoofing_app_specific_category">Theo ứng dụng</string>
-    <string name="spoofing_photos_title">Google Photos</string>
-    <string name="spoofing_photos_summary">Giả mạo Google Photos thành Pixel XL</string>
-    <string name="spoofing_snap_title">Snapchat</string>
-    <string name="spoofing_snap_summary">Giả mạo Snapchat thành Pixel XL để sửa lỗi chat</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Tải xuống pif.json thành công. Đang giả mạo %1$s cho Play Integrity.</string>
     <string name="toast_spoofing_failure">Không thể giả mạo thuộc tính.</string>
@@ -649,8 +643,6 @@
     <string name="target_mode_auto">Tự động</string>
     <string name="target_mode_leaf_hack">Leaf Hack</string>
     <string name="target_mode_cert_gen">Chứng chỉ Gen</string>
-    <string name="show_system_apps">Hiện ứng dụng hệ thống</string>
-    <string name="hide_system_apps">Ẩn các ứng dụng hệ thống</string>
     <string name="app_spoof_screen_title">Giả mạo ứng dụng</string>
     <string name="app_spoof_category_title">Giả mạo ứng dụng</string>
     <string name="app_spoof_manage_title">Quản lý giả mạo ứng dụng</string>
@@ -1107,6 +1099,41 @@
     <string name="custom_gradient_color_mode_custom">Chế độ tùy chỉnh</string>
     <string name="custom_gradient_start_color_title">Màu bắt đầu gradient</string>
     <string name="custom_gradient_end_color_title">Màu kết thúc gradient</string>
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Giả mạo ứng dụng</string>
+    <string name="user_selectable_app_spoofing_summary">Chọn ứng dụng nào để giả mạo thuộc tính thiết bị</string>
+    <string name="user_select_spoofing_profile_title">Chọn hồ sơ giả mạo</string>
+    <string name="app_spoofing_category_title">Giả mạo từng ứng dụng</string>
+    <string name="app_spoofing_header_title">Cho phép giả mạo</string>
+    <string name="app_spoofing_configured_count">%1$d ứng dụng đã giả mạo</string>
+    <string name="app_spoofing_disabled">Tắt</string>
+    <string name="app_spoofing_add_apps">Thêm ứng dụng</string>
+    <string name="app_spoofing_spoofed_model">Lựa chọn model</string>
+    <string name="app_spoofing_clear_all">Xoá tất cả</string>
+    <string name="app_spoofing_configured_apps">Danh sách ứng dụng đã cấu hình</string>
+    <string name="app_spoofing_no_apps_configured">Không có ứng dụng nào được cấu hình</string>
+    <string name="app_spoofing_spoof_model">Giả mạo model</string>
+    <string name="app_spoofing_select_spoof_model">Lựa chọn model giả mạo</string>
+    <string name="app_spoofing_change_app">Thay đổi ứng dụng</string>
+    <string name="show_system_apps">Hiện ứng dụng hệ thống</string>
+    <string name="hide_system_apps">Ẩn các ứng dụng hệ thống</string>
+    <!-- Custom App Spoofing Profiles -->
+    <string name="add_new_spoof_profile">Thêm mới</string>
+    <string name="add_custom_spoof_profile_title">Thêm hồ sơ giả mạo tùy chỉnh</string>
+    <string name="custom_spoof_profile_name">Tên hồ sơ</string>
+    <string name="custom_spoof_profile_brand">THƯƠNG HIỆU</string>
+    <string name="custom_spoof_profile_manufacturer">NHÀ SẢN XUẤT</string>
+    <string name="custom_spoof_profile_device">THIẾT BỊ</string>
+    <string name="custom_spoof_profile_model">MODEL</string>
+    <string name="custom_spoof_profile_fingerprint">DẤU VÂN TAY (Tùy chọn)</string>
+    <string name="custom_spoof_profile_product">SẢN PHẨM (Tùy chọn)</string>
+    <string name="app_spoofing_clear_all_confirm">Điều này sẽ xóa tất cả các mục nhập giả mạo ứng dụng đã được cấu hình.</string>
+    <string name="app_spoofing_no_apps_available">Không có ứng dụng nào khả dụng</string>
+    <string name="app_spoofing_no_apps_found">Không tìm thấy ứng dụng nào cho \"%s\"</string>
+    <string name="app_spoofing_clear_search">Xóa tìm kiếm</string>
+    <string name="app_spoofing_longpress_hint">Nhấn giữ để nhanh chóng gán lại hồ sơ</string>
+    <string name="app_spoofing_remove_title">Xóa ứng dụng?</string>
+    <string name="app_spoofing_remove_confirm">Xóa %1$s từ danh sách giả mạo?</string>
     <!-- Idle Manager -->
     <string name="idle_manager_title">Idle Manager</string>
     <string name="idle_manager_summary">Quản lý tiến trình nền và tối ưu thời lượng pin</string>
