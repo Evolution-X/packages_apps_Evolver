@@ -564,17 +564,11 @@
     <string name="spoofing_system_wide_category">Загальносистемний</string>
     <string name="spoofing_pixel_props_title">Пропозиції Pixel</string>
     <string name="spoofing_pixel_props_summary">Імітувати пристрій як Pixel 8 Pro для всіх додатків Google</string>
-    <string name="tensor_spoof_title">Імітація особливостей tensor</string>
-    <string name="tensor_spoof_summary">Увімкнути функції Pixel Tensor-exclusive функцій на непідтримуваних пристроях. Може призвести до неочікуваної поведінки або збільшення споживання заряду акумулятора.</string>
     <string name="gms_spoof_title">Відтворити виправлення цілісності</string>
     <string name="gms_spoof_summary">Імітувати дані вашого пристрою, щоб перейти до списку дозволів Google Play</string>
     <string name="vending_spoof_title">Спотворення</string>
     <string name="vending_spoof_summary">Застосувати примірник пристрою до Google Play</string>
     <string name="spoofing_app_specific_category">Спеціально для програми</string>
-    <string name="spoofing_photos_title">Підробка Google Фото</string>
-    <string name="spoofing_photos_summary">Імітувати пристрій як Pixel XL для додатку Google Photos щоб розблокувати необмежену кількість пам\'яті зображень</string>
-    <string name="spoofing_snap_title">Підробка Snapchat</string>
-    <string name="spoofing_snap_summary">Імітувати Pixel XL для Snapchat для вирішення можливих проблем чату</string>
     <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
     <string name="toast_spoofing_success">Успішно завантажено pif.json. Імітувати як %1$s для проходження Play Integrity.</string>
     <string name="toast_spoofing_failure">Помилка створення імітаційних властивостей.</string>
@@ -649,8 +643,6 @@
     <string name="target_mode_auto">Автоматично</string>
     <string name="target_mode_leaf_hack">Leaf Hack</string>
     <string name="target_mode_cert_gen">Cert Gen</string>
-    <string name="show_system_apps">Системні додатки</string>
-    <string name="hide_system_apps">Сховати системні додатки</string>
     <string name="app_spoof_screen_title">Підміна підпису додатка</string>
     <string name="app_spoof_category_title">Підміна підпису додатка</string>
     <string name="app_spoof_manage_title">Керування Spoofing додатків</string>
@@ -1105,6 +1097,41 @@
     <string name="custom_gradient_color_mode_custom">Користувацький режим</string>
     <string name="custom_gradient_start_color_title">Градієнт початкового кольору</string>
     <string name="custom_gradient_end_color_title">Градієнт кінцевого кольору</string>
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Підміна підпису додатка</string>
+    <string name="user_selectable_app_spoofing_summary">Виберіть, які програми слід використовувати у властивостях пристрою</string>
+    <string name="user_select_spoofing_profile_title">Виберіть профіль Spoofing</string>
+    <string name="app_spoofing_category_title">Підміна підпису додатка</string>
+    <string name="app_spoofing_header_title">Увімкнути Spoofing</string>
+    <string name="app_spoofing_configured_count">%1$d застосунків Spoofed</string>
+    <string name="app_spoofing_disabled">Вимкнено</string>
+    <string name="app_spoofing_add_apps">Додати програми</string>
+    <string name="app_spoofing_spoofed_model">Виберіть модель</string>
+    <string name="app_spoofing_clear_all">Очистити все</string>
+    <string name="app_spoofing_configured_apps">Налаштований список додатків</string>
+    <string name="app_spoofing_no_apps_configured">Немає налаштованих додатків</string>
+    <string name="app_spoofing_spoof_model">Підміна моделі</string>
+    <string name="app_spoofing_select_spoof_model">Обрати підмінну модель</string>
+    <string name="app_spoofing_change_app">Змінити програму</string>
+    <string name="show_system_apps">Системні додатки</string>
+    <string name="hide_system_apps">Сховати системні додатки</string>
+    <!-- Custom App Spoofing Profiles -->
+    <string name="add_new_spoof_profile">Додати новий</string>
+    <string name="add_custom_spoof_profile_title">Додати свій Spoof Профіль</string>
+    <string name="custom_spoof_profile_name">Назва профілю</string>
+    <string name="custom_spoof_profile_brand">БРЕНД</string>
+    <string name="custom_spoof_profile_manufacturer">ВИРОБНИКИ</string>
+    <string name="custom_spoof_profile_device">Пристрій</string>
+    <string name="custom_spoof_profile_model">МОДЕЛЬ</string>
+    <string name="custom_spoof_profile_fingerprint">ВІДБИТОК ПАЛЬЦЯ (необов\'язково)</string>
+    <string name="custom_spoof_profile_product">ПРОДУКТ (необов\'язково)</string>
+    <string name="app_spoofing_clear_all_confirm">Буде видалено всі налаштовані додатки Spoofing.</string>
+    <string name="app_spoofing_no_apps_available">Немає доступних додатків</string>
+    <string name="app_spoofing_no_apps_found">Не знайдено додатків для \"%s\"</string>
+    <string name="app_spoofing_clear_search">Очистити пошук</string>
+    <string name="app_spoofing_longpress_hint">Тривале натискання швидко перепризначить профіль</string>
+    <string name="app_spoofing_remove_title">Видалити додаток?</string>
+    <string name="app_spoofing_remove_confirm">Видалити %1$s зі списку підмінних?</string>
     <!-- Idle Manager -->
     <string name="idle_manager_title">Менеджер Бездіяльності</string>
     <string name="idle_manager_summary">Керування фоновими процесами та оптимізацією тривалості роботи акумулятора</string>
