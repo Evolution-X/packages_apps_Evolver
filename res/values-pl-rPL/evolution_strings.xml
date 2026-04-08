@@ -1189,4 +1189,12 @@
     <!-- Themes -->
     <string name="custom_system_theme_title">Motywy</string>
     <string name="custom_system_theme_summary">Dostosuj wygląd systemu z motywami i paczkami ikon</string>
+    <!-- Notification app icon -->
+    <string name="notification_use_app_icons_title">Użyj ikon aplikacji w powiadomieniach</string>
+    <string name="notification_use_app_icons_summary">Pokaż ikonę uruchamiania aplikacji zamiast małej ikony powiadomień</string>
+    <string name="notification_use_themed_app_icons_title">Użyj tematycznych ikon aplikacji</string>
+    <string name="notification_use_themed_app_icons_summary">Zastosuj motyw kolorów systemowych do ikon aplikacji powiadomień (eksperymentalne)</string>
+    <!-- Notification background alternate color -->
+    <string name="notification_bg_alternate_color_title">Alternatywny kolor tła powiadomień</string>
+    <string name="notification_bg_alternate_color_summary">Użyj alternatywnego koloru tła dla powiadomień</string>
 </resources>
