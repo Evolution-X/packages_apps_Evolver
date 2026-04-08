@@ -124,7 +124,7 @@
     <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_category">Carregando</string>
     <string name="lock_screen_charging_stats_title">Estatísticas de carregamento</string>
-    <string name="lock_screen_charging_stats_summary">Exibe a corrente de carga, tensão e temperatura da bateria na tela de bloqueio durante o carregamento</string>
+    <string name="lock_screen_charging_stats_summary">Exibir estatísticas de corrente, voltagem, wattagem e temperatura ao carregar</string>
     <string name="lock_screen_charging_time_title">Tempo de carregamento</string>
     <string name="lock_screen_charging_time_summary">Exibir o tempo restante para o carregamento terminar</string>
     <string name="lock_screen_fingerprint_category">Impressão digital</string>
@@ -552,27 +552,36 @@
     <string name="spoofing_system_wide_category">No sistema inteiro</string>
     <string name="spoofing_pixel_props_title">Propriedades do Pixel</string>
     <string name="spoofing_pixel_props_summary">Mascara o dispositivo como Pixel 8 Pro para todos os aplicativos do Google</string>
+    <string name="tensor_spoof_title">Forçar recursos Tensor</string>
+    <string name="tensor_spoof_summary">Ativar recursos exclusivos do Pixel Tensor em dispositivos não suportados. Pode causar comportamento inesperado ou maior consumo de bateria</string>
+    <string name="tensor_enabled">Recursos Tensor ativados</string>
+    <string name="tensor_disabled">Recursos Tensor desativados</string>
     <string name="gms_spoof_title">Play Integrity fix</string>
     <string name="gms_spoof_summary">Mascarar seu aparelho para burlar a Certificação do Google Play</string>
     <string name="vending_spoof_title">Falsificar google</string>
     <string name="vending_spoof_summary">Aplicar falsificação de dispositivo ao Google Play Store</string>
     <string name="spoofing_app_specific_category">Específico do Aplicativo</string>
-    <string name="spoofing_photos_title">Fotos</string>
-    <string name="spoofing_photos_summary">Falsear o aplicativo Google Fotos como Pixel XL</string>
+    <string name="spoofing_photos_title">Google Fotos</string>
+    <string name="spoofing_photos_summary">Simular o Google Fotos como um Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
-    <string name="spoofing_snap_summary">Falsear o aplicativo Snapchat como Pixel XL para corrigir possíveis problemas no chat</string>
-    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="spoofing_snap_summary">Simular o Snapchat como um Pixel XL para corrigir possíveis problemas no chat</string>
+    <!-- Miscellaneous/Spoofing/Play Integrity fix -->
     <string name="toast_spoofing_success">Pif.json baixado com sucesso. Mostrando como %1$s para Play Integrity.</string>
-    <string name="toast_spoofing_failure">Falha ao mascarar as propriedades.</string>
+    <string name="toast_spoofing_failure">Falha ao atualizar propriedades de spoofing</string>
     <string name="update_pif_json_title">Atualizar correção do Play Integrity</string>
-    <string name="update_pif_json_summary">Atualizar dispositivo de falsificação de PIF (Requer conexão com a internet.)</string>
+    <string name="update_pif_json_summary">Atualizar dispositivo de spoofing PIF (requer conexão com a internet)</string>
     <string name="update_pif_auto_random_title">Atualizar correção do Play Integrity (aleatório)</string>
-    <string name="update_pif_auto_random_summary">Obtenha um dispositivo de falsificação aleatório da lista do Google. (Requer conexão com a internet.)</string>
+    <string name="update_pif_auto_random_summary">Obter um dispositivo de spoofing aleatório da lista do Google (requer conexão com a internet)</string>
     <string name="show_pif_properties_title">Propriedades de reparação do Play Integrity</string>
     <string name="show_pif_properties_summary">Mostrar todas as propriedades PIF definidas atualmente</string>
     <string name="error_loading_properties">Erro ao carregar propriedades PIF</string>
     <string name="pif_spoofing_title">Selecionar arquivo JSON PIF</string>
     <string name="pif_spoofing_summary">Escolha o arquivo JSON PIF para ser usado para mascarar o Play Integrity</string>
+    <string name="toast_pif_json_loaded">JSON PIF carregado e pacotes atualizados</string>
+    <string name="toast_pif_json_error">Falha ao carregar arquivo JSON PIF</string>
+    <string name="toast_pif_fetch_error">Erro ao buscar propriedades PIF</string>
+    <string name="pif_random_dialog_title">Aguarde</string>
+    <string name="pif_random_dialog_message">Buscando propriedades PIF…</string>
     <!-- Miscellaneous/Spoofing/Keybox Data -->
     <string name="keybox_data_title">Substituição de atestado de caixa de chaves</string>
     <string name="keybox_data_summary">Carregue um XML de caixa de chaves personalizado para substituir a atestação de chave do dispositivo</string>
@@ -591,6 +600,7 @@
     <string name="about_github_summary">Confira o nosso GitHub</string>
     <string name="about_founders_title">Fundadores</string>
     <string name="about_team_members_title">Membros da equipe</string>
+    <string name="about_remembering_title">Memorizando</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Seletor de cores</string>
     <string name="press_color_to_apply">Selecione a cor abaixo para aplicar</string>
@@ -778,37 +788,6 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Animação de rabisco</string>
     <string name="media_squiggle_animation_summary">Mostrar animação de rabisco na barra de busca ao reproduzir mídia</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip de ação barra de status</string>
-    <string name="ongoing_progress_settings_summary">Personalizar chip de ação para mostrar o indicador de progresso</string>
-    <string name="ongoing_action_chip_title">Chip de ação em andamento</string>
-    <string name="ongoing_action_chip_summary">Mostrar indicador de progresso para ações em andamento, como downloads</string>
-    <string name="ongoing_media_progress_title">Progresso da mídia</string>
-    <string name="ongoing_media_progress_summary">Exibir progresso de reprodução de mídia</string>
-    <string name="ongoing_progress_footer_text">\"O chip de ação da barra de status fornece atualizações em tempo real tanto para a reprodução de mídia quanto para downloads/uploads ativos.
-
-Progresso da mídia:
-• Exibe o progresso da reprodução de música e vídeo durante a reprodução.
-• Um toque abre os controles de reprodução.
-• Dois toques alternam entre reproduzir e pausar.
-• Deslizar para a esquerda pula para a faixa anterior.
-• Deslizar para a direita pula para a próxima faixa.
-• Um toque longo abre o aplicativo de mídia.
-
-Progresso de download/upload:
-• Mostra o progresso de downloads e uploads em andamento.
-• Oculta-se automaticamente quando nenhuma transferência ativa é detectada.
-• Um toque abre o aplicativo responsável pelo download.
-
-A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes à vista.\"    </string>
-    <string name="ongoing_compact_mode_title">Indicador de progresso compacto</string>
-    <string name="ongoing_compact_mode_summary">Usar indicador de progresso circular em vez de barra</string>
-    <string name="ongoing_chip_color_mode_title">Cor de fundo do chip</string>
-    <string name="ongoing_chip_color_mode_accent">Cor de destaque do sistema</string>
-    <string name="ongoing_chip_color_mode_icon">Cor do ícone do aplicativo</string>
-    <string name="ongoing_chip_color_mode_album_art">Cor da arte do álbum</string>
-    <string name="ongoing_chip_bg_alpha_title">Opacidade do plano de fundo</string>
-    <string name="ongoing_chip_bg_alpha_summary">Ajustar a opacidade do chip de ação em andamento</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Barra de bateria</string>
     <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
@@ -901,6 +880,8 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="nowplaying_compact_style_title">Estilo compacto</string>
     <string name="nowplaying_compact_style_summary">Mostrar como em uma única linha usando o tamanho do texto da faixa</string>
     <string name="nowplaying_info_summary">Reproduzindo agora mostra o título e o artista atualmente reproduzindo na sua tela de bloqueio e exibição sempre ativa. Ele aparece automaticamente quando a música está tocando e desaparece quando parado. A posição pode ser ajustada para aparecer em qualquer lugar da parte superior para a parte inferior da tela.</string>
+    <string name="nowplaying_expand_dialog">Expandir diálogo</string>
+    <string name="nowplaying_expand_dialog_summary">Expandir diálogo Tocando agora</string>
     <!-- Ripple Shape -->
     <string name="ripple_shape_title">Forma de carregamento ondulação</string>
     <!-- Statusbar Padding -->
@@ -984,40 +965,40 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="custom_gradient_start_color_title">Cor inicial gradiente</string>
     <string name="custom_gradient_end_color_title">Cor final do gradiente</string>
     <!-- App Spoofing -->
-    <string name="user_selectable_app_spoofing_title">Falsificação de aplicativos</string>
-    <string name="user_selectable_app_spoofing_summary">Escolha quais aplicativos para falsificar propriedades do dispositivo</string>
+    <string name="user_selectable_app_spoofing_title">Spoofing de apps</string>
+    <string name="user_selectable_app_spoofing_summary">Escolha para quais apps simular as propriedades do dispositivo</string>
     <string name="user_select_spoofing_profile_title">Selecionar perfil de spoofing</string>
-    <string name="app_spoofing_category_title">Falsificação por aplicativo</string>
-    <string name="app_spoofing_header_title">Ativar Falsificação</string>
-    <string name="app_spoofing_configured_count">Apps %1$d falsificados</string>
+    <string name="app_spoofing_category_title">Spoofing por app</string>
+    <string name="app_spoofing_header_title">Ativar spoofing</string>
+    <string name="app_spoofing_configured_count">%1$d apps com spoofing</string>
     <string name="app_spoofing_disabled">Desativado</string>
-    <string name="app_spoofing_add_apps">Adicionar aplicativos</string>
-    <string name="app_spoofing_spoofed_model">Selecione o modelo</string>
+    <string name="app_spoofing_add_apps">Adicionar apps</string>
+    <string name="app_spoofing_spoofed_model">Selecionar modelo</string>
     <string name="app_spoofing_clear_all">Limpar tudo</string>
-    <string name="app_spoofing_configured_apps">Lista de aplicativos configurados</string>
+    <string name="app_spoofing_configured_apps">Lista de apps configurados</string>
     <string name="app_spoofing_no_apps_configured">Nenhum app configurado</string>
-    <string name="app_spoofing_spoof_model">Falsificar modelo</string>
-    <string name="app_spoofing_select_spoof_model">Selecione o modelo de falsificação</string>
-    <string name="app_spoofing_change_app">Alterar aplicativo</string>
+    <string name="app_spoofing_spoof_model">Modelo de spoofing</string>
+    <string name="app_spoofing_select_spoof_model">Selecionar modelo de spoofing</string>
+    <string name="app_spoofing_change_app">Alterar app</string>
     <string name="show_system_apps">Mostrar aplicativos do sistema</string>
     <string name="hide_system_apps">Ocultar apps do sistema</string>
     <!-- Custom App Spoofing Profiles -->
     <string name="add_new_spoof_profile">Adicionar novo</string>
-    <string name="add_custom_spoof_profile_title">Adicionar perfil falso personalizado</string>
-    <string name="custom_spoof_profile_name">Nome do Perfil</string>
+    <string name="add_custom_spoof_profile_title">Adicionar perfil de spoofing personalizado</string>
+    <string name="custom_spoof_profile_name">Nome do perfil</string>
     <string name="custom_spoof_profile_brand">MARCA</string>
-    <string name="custom_spoof_profile_manufacturer">MANUFADOR</string>
+    <string name="custom_spoof_profile_manufacturer">FABRICANTE</string>
     <string name="custom_spoof_profile_device">DISPOSITIVO</string>
     <string name="custom_spoof_profile_model">MODELO</string>
     <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Opcional)</string>
     <string name="custom_spoof_profile_product">PRODUTO (Opcional)</string>
-    <string name="app_spoofing_clear_all_confirm">Isto removerá todas as entradas de spoofing configuradas.</string>
+    <string name="app_spoofing_clear_all_confirm">Isso removerá todas as entradas de spoofing de apps configuradas.</string>
     <string name="app_spoofing_no_apps_available">Nenhum app disponível</string>
-    <string name="app_spoofing_no_apps_found">Nenhum aplicativo encontrado para \"%s\"</string>
+    <string name="app_spoofing_no_apps_found">Nenhum app encontrado para \"%s\"</string>
     <string name="app_spoofing_clear_search">Limpar pesquisa</string>
-    <string name="app_spoofing_longpress_hint">Toque longo para reatribuir rapidamente o perfil</string>
+    <string name="app_spoofing_longpress_hint">Pressione e segure para reatribuir o perfil rapidamente</string>
     <string name="app_spoofing_remove_title">Remover app?</string>
-    <string name="app_spoofing_remove_confirm">Remover %1$s da lista de falsificações?</string>
+    <string name="app_spoofing_remove_confirm">Remover %1$s da lista de spoofing?</string>
     <!-- Idle Manager -->
     <string name="idle_manager_title">Gerenciador de ociosidade</string>
     <string name="idle_manager_summary">Gerenciar processos em segundo plano e otimizar a duração da bateria</string>
@@ -1089,96 +1070,6 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="lockscreen_custom_clock_frame_margin_top_title">Altura do relógio personalizado</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Ajustar a altura do estilo de relógio personalizado</string>
     <string name="lockscreen_custom_clock_color_mode_title">Modo de cor de relógio personalizado</string>
-    <!-- Cutout Progress -->
-    <string name="cutout_progress_title">Anel de Progresso de Recorte</string>
-    <string name="cutout_progress_summary">Mostrar toque de progresso em torno de buraco do punch</string>
-    <string name="cutout_progress_enabled_title">Ativar anel de progresso de corte</string>
-    <string name="cutout_progress_enabled_summary">Mostrar um anel de progresso em torno do corte da câmera durante os downloads</string>
-    <string name="cutout_progress_cat_appearance">Aparência</string>
-    <string name="cutout_progress_cat_behaviour">Comportamento</string>
-    <string name="cutout_progress_cat_bg_ring">Anel de fundo</string>
-    <string name="cutout_progress_cat_finish">Finalizar animação</string>
-    <string name="cutout_progress_cat_geometry">Geometria do anel</string>
-    <string name="cutout_progress_cat_labels">Rótulos</string>
-    <string name="cutout_progress_cat_badge">Contador de Download</string>
-    <string name="cutout_progress_ring_color_title">Anel de cor personalizada</string>
-    <string name="cutout_progress_error_color_title">Cor de erro</string>
-    <string name="cutout_progress_finish_flash_color_title">Finalizar cor do flash</string>
-    <string name="cutout_progress_bg_ring_color_title">Cor do anel de fundo</string>
-    <string name="cutout_progress_opacity_title">Opacidade do Anel</string>
-    <string name="cutout_progress_stroke_width_title">Largura do traço</string>
-    <string name="cutout_progress_ring_gap_title">Lacuna de anel (corte na eliminação)</string>
-    <string name="cutout_progress_clockwise_title">Direção no sentido horário</string>
-    <string name="cutout_progress_clockwise_summary">Preencha o toque no sentido horário; desative para anti-horário</string>
-    <string name="cutout_progress_min_vis_title">Tempo mínimo de exibição</string>
-    <string name="cutout_progress_min_vis_summary">Manter o toque visível por um tempo mínimo para que downloads rápidos não pisquem</string>
-    <string name="cutout_progress_min_vis_ms_title">Duração mínima</string>
-    <string name="cutout_progress_easing_title">Progresso facilitado</string>
-    <string name="cutout_progress_bg_ring_enabled_title">Mostrar anel de fundo</string>
-    <string name="cutout_progress_bg_ring_enabled_summary">Desenhe um anel fraco atrás do arco de progresso</string>
-    <string name="cutout_progress_bg_ring_opacity_title">Opacidade do anel de fundo</string>
-    <string name="cutout_progress_finish_style_title">Finalizar estilo de animação</string>
-    <string name="cutout_progress_finish_hold_title">Duração de espera</string>
-    <string name="cutout_progress_finish_exit_title">Duração de Saída</string>
-    <string name="cutout_progress_finish_flash_title">Usar a cor do flash ao terminar</string>
-    <string name="cutout_progress_finish_flash_summary">Piscar um pouco o anel com a cor do flash final quando completo</string>
-    <string name="cutout_progress_pulse_title">Pulso de conclusão</string>
-    <string name="cutout_progress_pulse_summary">Brilho rápido antes do fim da animação</string>
-    <string name="cutout_progress_path_mode_title">Modo Cápsula / Pílula</string>
-    <string name="cutout_progress_path_mode_summary">Use um renderizador de caminhos em forma de pílula (para recortes alongados)</string>
-    <string name="cutout_progress_scale_x_title">Escala horizontal</string>
-    <string name="cutout_progress_scale_y_title">Escala vertical</string>
-    <string name="cutout_progress_offset_x_title">Offset horizontal</string>
-    <string name="cutout_progress_offset_y_title">Offset vertical</string>
-    <string name="cutout_progress_percent_enabled_title">Mostrar porcentagens</string>
-    <string name="cutout_progress_percent_enabled_summary">Exibir o progresso do download atual como um rótulo de porcentagem</string>
-    <string name="cutout_progress_percent_size_title">Tamanho do texto percentual</string>
-    <string name="cutout_progress_percent_bold_title">Porcentagem em negrito</string>
-    <string name="cutout_progress_percent_position_title">Posição de porcentagem</string>
-    <string name="cutout_progress_filename_enabled_title">Mostrar nome do arquivo</string>
-    <string name="cutout_progress_filename_enabled_summary">Exibir o nome do arquivo a ser baixado</string>
-    <string name="cutout_progress_filename_size_title">Tamanho do texto do nome do arquivo</string>
-    <string name="cutout_progress_filename_bold_title">Nome do arquivo em negrito</string>
-    <string name="cutout_progress_filename_position_title">Posição do arquivo</string>
-    <string name="cutout_progress_filename_max_chars_title">Tamanho máximo do nome</string>
-    <string name="cutout_progress_filename_truncate_title">Truncamento de nome de arquivo</string>
-    <string name="cutout_progress_badge_title">Mostrar contagem de download</string>
-    <string name="cutout_progress_badge_summary">Mostrar um selo de pílula com o número de downloads ativos</string>
-    <string name="cutout_progress_badge_size_title">Tamanho do texto do emblema</string>
-    <string name="cutout_progress_badge_offset_x_title">Deslocamento horizontal do emblema</string>
-    <string name="cutout_progress_badge_offset_y_title">Deslocamento vertical do emblema</string>
-    <string name="cutout_progress_ring_color_mode_title">Cor do Anel</string>
-    <string name="cutout_progress_color_picker_title">Escolha a cor</string>
-    <string name="cutout_progress_ring_color_mode_accent">Cor de destaque</string>
-    <string name="cutout_progress_ring_color_mode_rainbow">Arco-íris</string>
-    <string name="cutout_progress_ring_color_mode_custom">Personalizado</string>
-    <string name="cutout_progress_cat_glow">Efeito de brilho</string>
-    <string name="cutout_progress_glow_enabled_title">Efeito de brilho</string>
-    <string name="cutout_progress_glow_enabled_summary">Halo em torno do anel de progresso</string>
-    <string name="cutout_progress_glow_radius_title">Alcance do Brilhante</string>
-    <!-- Charging Ring -->
-    <string name="cutout_progress_cat_battery">Anel da bateria</string>
-    <string name="cutout_progress_battery_indicator_title">Mostrar indicador de bateria</string>
-    <string name="cutout_progress_battery_indicator_summary">Exibir o nível da bateria como um anel simétrico ao redor do corte quando estiver carregando ou totalmente carregado</string>
-    <string name="cutout_progress_charging_ring_title">Mostrar toque de carregamento</string>
-    <string name="cutout_progress_charging_ring_summary">Exibir o nível da bateria como um anel simétrico em torno do corte durante o carregamento</string>
-    <string name="cutout_progress_charging_pulse_title">Animação de pulso de carregamento</string>
-    <string name="cutout_progress_charging_pulse_summary">Animar um pulso recorrente do centro ao carregar</string>
-    <!-- Music Ring -->
-    <string name="cutout_progress_cat_music">Anel de música</string>
-    <string name="cutout_progress_music_title">Ativar Anel de Música</string>
-    <string name="cutout_progress_music_summary">Mostrar a reprodução de um anel do visualizador</string>
-    <string name="cutout_progress_music_color_mode_title">Modo de Cor</string>
-    <string name="cutout_progress_music_color_mode_album_icon">Cor do ícone do álbum</string>
-    <string name="cutout_progress_music_color_mode_accent">Realce do sistema</string>
-    <string name="cutout_progress_music_color_mode_album_art">Capa do álbum</string>
-    <string name="cutout_progress_music_color_mode_custom">Cor customizada</string>
-    <string name="cutout_progress_music_custom_color_title">Cor customizada</string>
-    <string name="cutout_progress_music_opacity_title">Opacidade do Anel</string>
-    <string name="cutout_progress_music_stroke_title">Espessura do traço</string>
-    <string name="cutout_progress_music_clockwise_title">Direção no sentido horário</string>
-    <string name="cutout_progress_music_aod_title">Mostrar na tela ambiente</string>
-    <string name="cutout_progress_music_aod_summary">Manter o toque de música visível na Tela Ambiente</string>
     <!-- QS Panel style -->
     <string name="qs_panel_style_title">Estilo do painel de configurações rápidas</string>
     <string name="qs_panel_style_card">Estilo do cartão</string>
@@ -1205,7 +1096,105 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="shape_teardrop">Lágrima</string>
     <string name="shape_vessel">Navio</string>
     <string name="shape_rounded_hexagon">Hexágono arredondado</string>
+    <string name="shape_just_icons">Apenas ícones</string>
+    <string name="shape_pokesign">Pokésign</string>
+    <string name="shape_ninja">Ninja</string>
+    <string name="shape_outline_style">Estilo de contorno</string>
+    <string name="shape_dotted_circle">Círculo (Pontilhado)</string>
+    <string name="shape_squaremedo">Squaremedo</string>
     <!-- Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Mostrar Google Smartspace quando disponível</string>
+    <!-- Notification bubbles -->
+    <string name="notification_bubble_apps_title">Notificações em bolha</string>
+    <string name="notification_bubble_apps_summary">Abrir apps em uma bolha ao tocar nas notificações</string>
+    <!-- QS media player -->
+    <string name="qs_show_media_player_title">Player de mídia QS</string>
+    <string name="qs_show_media_player_summary">Exibir controles de mídia nas Configurações Rápidas</string>
+    <!-- Vbmeta hash attestation -->
+    <string name="vbmeta_attestation_title">Autofix da detecção VBMeta</string>
+    <string name="vbmeta_attestation_summary">Realizar atestação de chave para gerar hash de inicialização verificada ao ligar. Requer reinicialização do sistema.</string>
+    <!-- Dynamic Bar -->
+    <string name="dynamic_bar">Dynamic Bar</string>
+    <string name="dynamic_bar_summary">Chip inteligente na barra de status para eventos ativos como gravação, mídia, temporizadores e mais</string>
+    <string name="dynamic_bar_enable">Ativar Dynamic Bar</string>
+    <string name="dynamic_bar_enable_summary">Exibir um chip dinâmico na barra de status para eventos ao vivo</string>
+    <string name="dynamic_bar_keyguard_enable">Dynamic Bar na tela de bloqueio</string>
+    <string name="dynamic_bar_keyguard_enable_summary">Substituir a indicação do keyguard pelo chip da Dynamic Bar na tela de bloqueio com controles e ações rápidas</string>
+    <string name="dynamic_bar_keyguard_battery_chip">Informações de bateria na tela de bloqueio</string>
+    <string name="dynamic_bar_keyguard_battery_chip_disabled">Nunca mostrar</string>
+    <string name="dynamic_bar_keyguard_battery_chip_charging">Somente ao carregar</string>
+    <string name="dynamic_bar_keyguard_battery_chip_always">Sempre exibir</string>
+    <string name="dynamic_bar_keyguard_compact_chip">Chip compacto na tela de bloqueio</string>
+    <string name="dynamic_bar_keyguard_compact_chip_summary">Sempre usar o estilo de chip compacto na tela de bloqueio. Quando desativado, o modo compacto é usado apenas quando o espaço é limitado.</string>
+    <string name="dynamic_bar_events">Eventos</string>
+    <string name="dynamic_bar_event_recording">Gravação de tela</string>
+    <string name="dynamic_bar_event_recording_summary">Indicador de gravação de tela ativa</string>
+    <string name="dynamic_bar_event_privacy">Indicadores de privacidade</string>
+    <string name="dynamic_bar_event_privacy_summary">Alertas de acesso à câmera e ao microfone</string>
+    <string name="dynamic_bar_event_audio_recording">Gravação de áudio</string>
+    <string name="dynamic_bar_event_audio_recording_summary">Gravador de voz e captura de áudio</string>
+    <string name="dynamic_bar_event_media">Reprodução de mídia</string>
+    <string name="dynamic_bar_event_media_summary">Música tocando e controles de áudio</string>
+    <string name="dynamic_bar_event_notification">Notificações</string>
+    <string name="dynamic_bar_event_notification_summary">Alertas de notificações recebidas</string>
+    <string name="dynamic_bar_compact_notifications">Notificações compactas</string>
+    <string name="dynamic_bar_compact_notifications_summary">Exibir notificações como um chip pequeno primeiro; toque para expandir</string>
+    <string name="dynamic_bar_event_timer">Temporizador</string>
+    <string name="dynamic_bar_event_timer_summary">Contagem regressiva do app de relógio</string>
+    <string name="dynamic_bar_event_stopwatch">Cronômetro</string>
+    <string name="dynamic_bar_event_stopwatch_summary">Cronômetro em execução do app de relógio</string>
+    <string name="dynamic_bar_event_alarm">Alarme</string>
+    <string name="dynamic_bar_event_alarm_summary">Alarmes tocando e próximos</string>
+    <string name="dynamic_bar_event_charging">Carregamento iniciado</string>
+    <string name="dynamic_bar_event_charging_summary">Nível de bateria ao conectar</string>
+    <string name="dynamic_bar_event_bluetooth">Bluetooth</string>
+    <string name="dynamic_bar_event_bluetooth_summary">Status de conexão do dispositivo</string>
+    <string name="dynamic_bar_event_hotspot">Hotspot</string>
+    <string name="dynamic_bar_event_hotspot_summary">Indicador de hotspot móvel ativo</string>
+    <string name="dynamic_bar_event_ringer">Modo de toque</string>
+    <string name="dynamic_bar_event_ringer_summary">Alterações de modo silencioso, vibração e toque</string>
+    <string name="dynamic_bar_event_vpn">VPN</string>
+    <string name="dynamic_bar_event_vpn_summary">Indicador de conexão VPN ativa</string>
+    <string name="dynamic_bar_event_clipboard">Área de transferência</string>
+    <string name="dynamic_bar_event_clipboard_summary">Prévia de texto e imagem copiados</string>
+    <string name="dynamic_bar_event_torch">Lanterna</string>
+    <string name="dynamic_bar_event_torch_summary">Alternar lanterna e brilho</string>
+    <string name="dynamic_bar_event_casting">Transmissão</string>
+    <string name="dynamic_bar_event_casting_summary">Status de transmissão de tela e mídia</string>
+    <string name="dynamic_bar_event_ongoing">Atividades em andamento</string>
+    <string name="dynamic_bar_event_ongoing_summary">Navegação, entregas e outras atividades ao vivo</string>
+    <string name="dynamic_bar_event_sports">Esportes</string>
+    <string name="dynamic_bar_event_sports_summary">Placares ao vivo e atualizações de jogos</string>
+    <string name="dynamic_bar_event_app_switch">Alternância de app recente</string>
+    <string name="dynamic_bar_event_app_switch_summary">Exibir chip ao alternar entre apps recentes</string>
+    <string name="dynamic_bar_event_biometric">Desbloqueio biométrico</string>
+    <string name="dynamic_bar_event_biometric_summary">Exibir chip ao desbloquear por digital ou reconhecimento facial</string>
+    <string name="dynamic_bar_guide_title">Como usar a Dynamic Bar</string>
+    <string name="dynamic_bar_guide_chip">Os eventos aparecem na barra de status mostrando atividades ativas como gravação, reprodução de mídia e temporizadores</string>
+    <string name="dynamic_bar_guide_swipe">Quando vários eventos estão ativos, deslize para a esquerda ou direita no chip para alternar entre eles</string>
+    <string name="dynamic_bar_guide_expand">Toque em um chip para expandi-lo em um cartão detalhado com controles e informações adicionais</string>
+    <string name="dynamic_bar_guide_dismiss">Deslize o cartão expandido para descartá-lo. O evento continua em segundo plano</string>
+    <string name="dynamic_bar_guide_keyguard">O chip da Dynamic Bar também aparece na parte inferior da tela de bloqueio com controles de reprodução e ações rápidas</string>
+    <string name="dynamic_bar_guide_chip_title">Aparência do chip</string>
+    <string name="dynamic_bar_guide_swipe_title">Deslizar entre chips</string>
+    <string name="dynamic_bar_guide_expand_title">Toque para expandir</string>
+    <string name="dynamic_bar_guide_dismiss_title">Deslize para descartar</string>
+    <string name="dynamic_bar_guide_keyguard_title">Chip da tela de bloqueio</string>
+    <string name="dynamic_bar_footer_title">Sobre a Dynamic Bar</string>
+    <string name="dynamic_bar_footer_body">A Dynamic Bar transforma sua barra de status em um hub interativo. Os chips de status aparecem e animam com base em eventos do sistema, fornecendo informações rápidas sem interromper seu fluxo de trabalho.\n\nCada tipo de evento tem sua própria cor de destaque e cartão expandido com ações rápidas.</string>
+    <!-- Media art QS background -->
+    <string name="media_waveform_seekbar_title">Barra de progresso de mídia em forma de onda</string>
+    <string name="media_waveform_seekbar_summary">Ativar efeito de forma de onda animada para o progresso de reprodução de mídia</string>
+    <!-- Themes -->
+    <string name="custom_system_theme_title">Temas</string>
+    <string name="custom_system_theme_summary">Personalizar a aparência do sistema com temas e pacotes de ícones</string>
+    <!-- Notification app icon -->
+    <string name="notification_use_app_icons_title">Usar ícones de apps nas notificações</string>
+    <string name="notification_use_app_icons_summary">Mostrar ícone do app launcher em vez de uma pequena notificação</string>
+    <string name="notification_use_themed_app_icons_title">Usar ícones de aplicativos temáticos</string>
+    <string name="notification_use_themed_app_icons_summary">Aplicar tema de cor do sistema aos ícones do aplicativo de notificação (experimental)</string>
+    <!-- Notification background alternate color -->
+    <string name="notification_bg_alternate_color_title">Cor alternativa do fundo de notificação</string>
+    <string name="notification_bg_alternate_color_summary">Usar cor de fundo alternativa para notificações</string>
 </resources>
