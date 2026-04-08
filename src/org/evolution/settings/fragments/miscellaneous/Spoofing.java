@@ -11,22 +11,14 @@ import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemProperties;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.provider.Settings;
@@ -37,7 +29,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -52,21 +43,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.evolution.settings.preferences.KeyboxDataPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.SpoofingUtils;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -92,12 +76,28 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SNAPCHAT_PACKAGE = "com.snapchat.android";
     private static final String VENDING_PACKAGE = "com.android.vending";
 
-    private static final ArraySet<String> MAINLINE_TENSOR = new ArraySet<>();
-    private static final ArraySet<String> TENSOR = new ArraySet<>();
+    private static final ArraySet<String> MAINLINE_TENSOR = new ArraySet<>(Arrays.asList(
+            "stallion", "blazer", "frankel", "mustang", "comet", "komodo", "caiman", "tokay",
+            "akita", "husky", "shiba"
+    ));
+
+    private static final ArraySet<String> TENSOR = new ArraySet<>(Arrays.asList(
+            "stallion", "blazer", "frankel", "mustang", "tegu", "comet", "komodo", "caiman",
+            "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah",
+            "panther", "bluejay", "oriole", "raven"
+    ));
+
     private static final boolean IS_MAINLINE_TENSOR;
     private static final boolean IS_TENSOR;
 
+    static {
+        final String device = SystemProperties.get("ro.evolution.device");
+        IS_MAINLINE_TENSOR = MAINLINE_TENSOR.contains(device);
+        IS_TENSOR = TENSOR.contains(device);
+    }
+
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
+    private ActivityResultLauncher<Intent> mJsonFilePickerLauncher;
     private KeyboxDataPreference mKeyboxDataPreference;
     private Preference mPifJsonFilePreference;
     private Preference mUpdateJsonButton;
@@ -112,34 +112,14 @@ public class Spoofing extends SettingsPreferenceFragment implements
 
     private Handler mHandler;
 
-    static {
-
-        Collections.addAll(MAINLINE_TENSOR,
-                "stallion","blazer","frankel","mustang","comet","komodo","caiman","tokay",
-                "akita","husky","shiba"
-        );
-
-        Collections.addAll(TENSOR,
-                "stallion","blazer","frankel","mustang","tegu","comet","komodo","caiman","tokay",
-                "akita","husky","shiba","felix","tangorpro","lynx","cheetah","panther",
-                "bluejay","oriole","raven"
-        );
-
-        final String device = SystemProperties.get("ro.evolution.device");
-        IS_MAINLINE_TENSOR = MAINLINE_TENSOR.contains(device);
-        IS_TENSOR = TENSOR.contains(device);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mHandler = new Handler();
+        mHandler = new Handler(Looper.getMainLooper());
         addPreferencesFromResource(R.xml.spoofing);
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources resources = context.getResources();
 
         mSystemWideCategory = (PreferenceCategory) findPreference(KEY_SYSTEM_WIDE_CATEGORY);
         mPhotosSpoof = (SwitchPreferenceCompat) findPreference(PI_PHOTOS_SPOOF);
@@ -202,8 +182,22 @@ public class Spoofing extends SettingsPreferenceFragment implements
             }
         );
 
+        mJsonFilePickerLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    Uri uri = result.getData().getData();
+                    if (uri != null) {
+                        loadPifJson(uri);
+                    }
+                }
+            }
+        );
+
         mPifJsonFilePreference.setOnPreferenceClickListener(preference -> {
-            openFileSelector(10001);
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("application/json");
+            mJsonFilePickerLauncher.launch(intent);
             return true;
         });
 
@@ -217,7 +211,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
             return true;
         });
 
-
         Preference showPropertiesPref = findPreference("show_pif_properties");
         if (showPropertiesPref != null) {
             showPropertiesPref.setOnPreferenceClickListener(preference -> {
@@ -227,31 +220,12 @@ public class Spoofing extends SettingsPreferenceFragment implements
         }
     }
 
-    private void openFileSelector(int requestCode) {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("application/json");
-        startActivityForResult(intent, requestCode);
-    }
-
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mKeyboxDataPreference = findPreference(KEYBOX_DATA_KEY);
         if (mKeyboxDataPreference != null) {
             mKeyboxDataPreference.setFilePickerLauncher(mKeyboxFilePickerLauncher);
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK && data != null) {
-            Uri uri = data.getData();
-            if (uri != null) {
-                if (requestCode == 10001) {
-                    loadPifJson(uri);
-                }
-            }
         }
     }
 
@@ -291,16 +265,14 @@ public class Spoofing extends SettingsPreferenceFragment implements
             .show();
     }
 
-
     private void killPackage(String pkg) {
         try {
-            ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-            am.getClass()
-                .getMethod("forceStopPackage", String.class)
-                .invoke(am, pkg);
-                Log.i(TAG, pkg + " process killed");  
+            ActivityManager am = (ActivityManager)
+                    getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            am.forceStopPackage(pkg);
+            Log.i(TAG, pkg + " process killed");
         } catch (Exception e) {
-            Log.e(TAG, "Failed to kill package", e);
+            Log.e(TAG, "Failed to kill package: " + pkg, e);
         }
     }
 
@@ -325,24 +297,20 @@ public class Spoofing extends SettingsPreferenceFragment implements
     }
 
     /**
-     * Kill all Google packages (com.google.*) so they can pick up new properties
+     * Kill all Google packages (com.google.*) so they can pick up new properties.
+     * Skips system-critical packages to avoid instability.
      */
     private void killGooglePackages() {
         try {
-            PackageManager pm = getContext().getPackageManager();
-            List<ApplicationInfo> apps = pm.getInstalledApplications(0);
-
+            List<ApplicationInfo> apps =
+                    getContext().getPackageManager().getInstalledApplications(0);
             for (ApplicationInfo app : apps) {
                 String pkg = app.packageName;
-
                 if (pkg.startsWith("com.google")) {
                     killPackage(pkg);
                 }
             }
-
-            // Keep explicit Play Store kill (extra safety)
             killVending();
-
         } catch (Exception e) {
             Log.e(TAG, "Failed to kill Google packages", e);
         }
@@ -369,15 +337,14 @@ public class Spoofing extends SettingsPreferenceFragment implements
                         Toast.makeText(getContext(), toastMessage, Toast.LENGTH_LONG).show();
                         killGMSPackages();
                     });
-
                 } finally {
                     urlConnection.disconnect();
                 }
             } catch (Exception e) {
                 Log.e(TAG, "Error downloading JSON or setting properties", e);
-                mHandler.post(() -> {
-                    Toast.makeText(getContext(), R.string.toast_spoofing_failure, Toast.LENGTH_LONG).show();
-                });
+                mHandler.post(() ->
+                    Toast.makeText(getContext(), R.string.toast_spoofing_failure, Toast.LENGTH_LONG).show()
+                );
             }
         }).start();
     }
@@ -396,26 +363,27 @@ public class Spoofing extends SettingsPreferenceFragment implements
                     SystemProperties.set("persist.sys.pihooks_" + key, value);
                 }
                 killGMSPackages();
-                Toast.makeText(getContext(), "PIF JSON loaded and packages refreshed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.toast_pif_json_loaded, Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
             Log.e(TAG, "Error reading PIF JSON or setting properties", e);
-            Toast.makeText(getContext(), "Error loading PIF JSON", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.toast_pif_json_error, Toast.LENGTH_SHORT).show();
         }
     }
 
     private void getRandomFingerprint() {
-       final AlertDialog dialog = new AlertDialog.Builder(requireContext())
-            .setTitle("Please wait")
-            .setMessage("Fetching PIF properties...")
-            .setCancelable(false) 
-            .setView(new ProgressBar(requireContext())) 
+        final AlertDialog dialog = new AlertDialog.Builder(requireContext())
+            .setTitle(R.string.pif_random_dialog_title)
+            .setMessage(R.string.pif_random_dialog_message)
+            .setCancelable(false)
+            .setView(new ProgressBar(requireContext()))
             .create();
-            dialog.show();
+        dialog.show();
 
-        new Thread (() -> {
+        new Thread(() -> {
             try {
-                Map<String, String> newValues = SpoofingUtils.getRandomFingerprint(SystemProperties.get("persist.sys.pihooks_DEVICE"));
+                Map<String, String> newValues = SpoofingUtils.getRandomFingerprint(
+                        SystemProperties.get("persist.sys.pihooks_DEVICE"));
                 String spoofedModel = newValues.get("MODEL");
                 for (Map.Entry<String, String> entry : newValues.entrySet()) {
                     String key = entry.getKey();
@@ -424,15 +392,17 @@ public class Spoofing extends SettingsPreferenceFragment implements
                     SystemProperties.set("persist.sys.pihooks_" + key, value);
                 }
                 mHandler.post(() -> {
-                        String toastMessage = getString(R.string.toast_spoofing_success, spoofedModel);
-                        Toast.makeText(getContext(), toastMessage, Toast.LENGTH_LONG).show();
-                        killGMSPackages();
+                    String toastMessage = getString(R.string.toast_spoofing_success, spoofedModel);
+                    Toast.makeText(getContext(), toastMessage, Toast.LENGTH_LONG).show();
+                    killGMSPackages();
                 });
-            } catch (Exception e)  {
+            } catch (Exception e) {
                 Log.e(TAG, "Error fetching PIF properties!", e);
-                Toast.makeText(getContext(), "Error fetching PIF properties!", Toast.LENGTH_SHORT).show();
+                mHandler.post(() ->
+                    Toast.makeText(getContext(), R.string.toast_pif_fetch_error, Toast.LENGTH_SHORT).show()
+                );
             } finally {
-                new Handler(Looper.getMainLooper()).post(dialog::dismiss);
+                mHandler.post(dialog::dismiss);
             }
         }).start();
     }
@@ -487,8 +457,8 @@ public class Spoofing extends SettingsPreferenceFragment implements
                     Settings.Secure.PI_TENSOR_SPOOF,
                     enabled ? 1 : 0);
             killGooglePackages();
-            Toast.makeText(getContext(),
-                    enabled ? "Tensor features enabled" : "Tensor features disabled",
+            Toast.makeText(context,
+                    enabled ? getString(R.string.tensor_enabled) : getString(R.string.tensor_disabled),
                     Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -501,14 +471,5 @@ public class Spoofing extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.spoofing) {
-
-            @Override
-            public List<String> getNonIndexableKeys(Context context) {
-                List<String> keys = super.getNonIndexableKeys(context);
-                final Resources resources = context.getResources();
-
-                return keys;
-            }
-        };
+        new BaseSearchIndexProvider(R.xml.spoofing);
 }
