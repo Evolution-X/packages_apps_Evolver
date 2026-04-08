@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2025 Evolution X
+     Copyright (C) 2019-2026 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <PreferenceScreen
@@ -24,54 +24,54 @@
             android:key="keybox_data_setting"
             android:title="@string/keybox_data_title" />
 
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.vending"
-            android:title="@string/vending_spoof_title"
-            android:summary="@string/vending_spoof_summary"
-            android:dependency="persist.sys.pp.gms"
-            android:defaultValue="true" />
-
         <!-- GMS spoof -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.gms"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_enable_spoof"
             android:title="@string/gms_spoof_title"
             android:summary="@string/gms_spoof_summary"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_vending_spoof"
+            android:title="@string/vending_spoof_title"
+            android:summary="@string/vending_spoof_summary"
+            android:dependency="pi_enable_spoof"
             android:defaultValue="true" />
 
         <Preference
             android:key="show_pif_properties"
             android:title="@string/show_pif_properties_title"
             android:summary="@string/show_pif_properties_summary"
-            android:dependency="persist.sys.pp.gms" />
+            android:dependency="pi_enable_spoof" />
 
         <Preference
             android:key="update_pif_auto_random"
             android:title="@string/update_pif_auto_random_title"
             android:summary="@string/update_pif_auto_random_summary"
-            android:dependency="persist.sys.pp.gms" />
+            android:dependency="pi_enable_spoof" />
 
         <Preference
             android:key="update_pif_json"
             android:title="@string/update_pif_json_title"
             android:summary="@string/update_pif_json_summary"
-            android:dependency="persist.sys.pp.gms" />
+            android:dependency="pi_enable_spoof" />
 
         <Preference
             android:key="pif_json_file_preference"
             android:title="@string/pif_spoofing_title"
             android:summary="@string/pif_spoofing_summary"
-            android:dependency="persist.sys.pp.gms" />
+            android:dependency="pi_enable_spoof" />
 
         <!-- Pixel props -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_pp_spoof"
             android:title="@string/spoofing_pixel_props_title"
             android:summary="@string/spoofing_pixel_props_summary"
             android:defaultValue="true" />
 
         <!-- Tensor features -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.tensor"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_tensor_spoof"
             android:title="@string/tensor_spoof_title"
             android:summary="@string/tensor_spoof_summary"
             android:defaultValue="false" />
@@ -89,15 +89,15 @@
             android:fragment="org.evolution.settings.fragments.miscellaneous.UserSelectedAppSpoofSettings" />
 
         <!-- Google Photos -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.photos"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_photos_spoof"
             android:title="@string/spoofing_photos_title"
             android:summary="@string/spoofing_photos_summary"
             android:defaultValue="true" />
 
         <!-- Snapchat -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.snapchat"
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="pi_snapchat_spoof"
             android:title="@string/spoofing_snap_title"
             android:summary="@string/spoofing_snap_summary"
             android:defaultValue="false" />
