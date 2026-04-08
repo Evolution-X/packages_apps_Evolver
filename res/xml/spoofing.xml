@@ -35,7 +35,6 @@
             android:key="pi_vending_spoof"
             android:title="@string/vending_spoof_title"
             android:summary="@string/vending_spoof_summary"
-            android:dependency="pi_enable_spoof"
             android:defaultValue="true" />
 
         <Preference
