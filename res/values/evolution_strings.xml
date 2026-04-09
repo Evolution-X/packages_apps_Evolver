@@ -1631,4 +1631,15 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="gs_config_saved">Configuration saved</string>
     <string name="gs_loading_apps">Loading apps\u2026</string>
     <string name="gs_failed">Failed: %s</string>
+
+    <!-- Depth Wallpaper -->
+    <string name="depthwall_file_header_select_title">Select Depth wallpaper subject</string>
+    <string name="depthwall_file_header_select_summary">Select depth wallpaper subject image from storage.</string>
+    <string name="depthwall_wallpaper_enabled_title">Depth wallpaper</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Apply depth effect\nto wallpaper</string>
+    <string name="depthwall_wallpaper_enabled_summary">Enable iOS-inspired depth wallpaper. Requires a subject image.</string>
+    <string name="depthwall_wallpaper_opacity_title">Depth wallpaper opacity</string>
+    <string name="depthwall_footer_text">
+        The depth wallpaper feature, inspired by iOS\'s Wallpaper Subject Segmentation, enables overlaying of a subject above the lockscreen clock to show a wallpaper depth effect.\n\nTo setup Depth Wallpaper Feature:\n1. Set a wallpaper with the subject or a background you want the subject to be above of.\n2. Select a subject image to track, this image will be overlaid above the lockscreen clock.\n3. Modify the offsets and opacity according to your needs.
+    </string>
 </resources>
