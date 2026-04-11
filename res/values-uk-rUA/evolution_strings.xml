@@ -820,15 +820,28 @@
     <!-- Wallpaper Styles -->
     <string name="wallpaper_settings_title">Стиль шпалер</string>
     <string name="wallpaper_settings_summary">Налаштування стилів та параметрів шпалер</string>
+    <!-- Wallpaper Settings Titles -->
     <string name="wallpaper_blur_title">Розмиття шпалер</string>
-    <string name="wallpaper_blur_summary">Увімкнути або вимкнути ефект розмиття шпалер</string>
     <string name="wallpaper_blur_filter">Стиль розмиття шпалер</string>
+    <string name="wallpaper_effects_title">Візуальні ефекти шпалер</string>
+    <string name="wallpaper_effect_type_title">Тип ефекту шпалер</string>
+    <string name="wallpaper_effect_target_title">Застосувати ефект до</string>
     <string name="wallpaper_dim_title">Затемнення шпалер</string>
     <string name="wallpaper_dim_level_title">Рівень затемнення шпалер</string>
-    <string name="wallpaper_dim_level_summary">Налаштування рівня затемнення шпалери</string>
     <string name="glass_blur">Скляне розмиття</string>
     <string name="frosted_blur">Розмиття заморожених</string>
+    <string name="wallpaper_dim_level_summary">Налаштування рівня затемнення шпалери</string>
     <string name="wallpaper_styles_footer">Щоб стилі шпалер працювали ефективно, користувачі повинні встановлювати шпалери для екрана блокування та робочого столу в різний час. Можна використовувати одну й ту ж шпалеру, але не слід застосовувати її до обох екранів одночасно. Це необов\'язково, якщо використовується опція \"ОБИДВІ\" для розмиття та затемнення шпалер    </string>
+    <string name="wallpaper_performance_warning">⚠ Примітка щодо продуктивності: Ці візуальні ефекти є ресурсомісткими та можуть впливати на продуктивність на пристроях низького класу. Для оптимальної роботи використовуйте на пристроях середнього або флагманського класу.\nЕфекти можуть спричиняти затримки,.</string>
+    <!-- Effect Titles -->
+    <string name="wallpaper_saturation_title">Рівень Насиченості</string>
+    <string name="wallpaper_saturation_summary">Підвищення або зниження інтенсивності кольору</string>
+    <string name="wallpaper_pixelation_size_title">Розмір пікселя</string>
+    <string name="wallpaper_pixelation_size_summary">Великі значення = більше в пікселях</string>
+    <string name="wallpaper_vignette_intensity_title">Інтенсивність віньєтки</string>
+    <string name="wallpaper_vignette_intensity_summary">Темрява країв</string>
+    <string name="wallpaper_posterize_levels_title">Постеризація рівнів</string>
+    <string name="wallpaper_posterize_levels_summary">Зменшення глибини кольору</string>
     <!-- Compact QS Media Player-->
     <string name="qs_compact_media_player_mode_title">Компактний програвач швидких налаштувань</string>
     <string name="qs_compact_media_player_mode_summary">Увімкнути компактний режим для програвача Швидких налаштувань</string>
@@ -1453,4 +1466,94 @@
     <string name="cutout_progress_music_clockwise_title">Напрямок за годинниковою стрілкою</string>
     <string name="cutout_progress_music_aod_title">Показати на AOD</string>
     <string name="cutout_progress_music_aod_summary">Продовжувати відображати музичне кільце на Ambient Display</string>
+    <!-- Wallpaper Glymps -->
+    <string name="lock_glymps_title">Шпалери Glymps</string>
+    <string name="lock_glymps_enable_title">Увімкнути шпалери Glymps</string>
+    <string name="lock_glymps_enable_summary">Змінювати шпалери під час кожного підсвічування</string>
+    <string name="lock_glymps_wallpaper_target_title">Фонові малюнки застосовуються до</string>
+    <string name="lock_glymps_source_category">Джерело шпалер</string>
+    <string name="lock_glymps_source_title">Джерело шпалер</string>
+    <string name="lock_glymps_source_summary">Виберіть, звідки отримати шпалери</string>
+    <string name="lock_glymps_custom_urls_title">Керування користувацькими URL-адресами</string>
+    <string name="lock_glymps_custom_urls_summary">Додавання або видалення URL-адрес власних шпалер</string>
+    <string name="lock_glymps_folder_title">Локальна папка</string>
+    <string name="lock_glymps_folder_summary">Переглянути розташування папки та кількість шпалер (максимум 10 шпалер)</string>
+    <string name="lock_glymps_download_category">Налаштування завантаження</string>
+    <string name="lock_glymps_wifi_only_title">Тільки по Wi-Fi</string>
+    <string name="lock_glymps_wifi_only_summary">Завантажувати шпалери лише за допомогою WiFi</string>
+    <string name="lock_glymps_cache_size_title">Розмір кешу</string>
+    <string name="lock_glymps_cache_size_summary">Кількість шпалер для попереднього завантаження</string>
+    <string name="lock_glymps_advanced_category">Додатково</string>
+    <string name="lock_glymps_clear_cache_title">Очистити кеш</string>
+    <string name="lock_glymps_clear_cache_summary">Вилучити всі кешовані шпалери</string>
+    <string name="lock_glymps_behavior_category">Поведінка</string>
+    <string name="lock_glymps_change_on_title">Змінити шпалери на</string>
+    <string name="lock_glymps_change_on_summary">Коли змінювати шпалери екрана</string>
+    <string name="lock_glymps_timer_interval_title">Інтервал таймера</string>
+    <string name="lock_glymps_timer_interval_summary">Як часто автоматично змінювати шпалери</string>
+    <!-- Footer -->
+    <string name="lock_glymps_footer_title">Важлива інформація</string>
+    <string name="lock_glymps_footer_text">📁 Локальна папка: /sdcard/Glymps\n\n⚠️ На низькоякісних пристроях може спостерігатися незначне затримування\n\n🎨 Порада: Використовуйте функцію «Налаштування акценту» в налаштуваннях Monet для стабільних кольорів</string>
+    <!-- Preview strings -->
+    <string name="lock_glymps_preview_category">Поточні шпалери</string>
+    <string name="lock_glymps_preview_title">Попередній перегляд шпалер</string>
+    <string name="lock_glymps_preview_summary">Поточні шпалери блокування та домашній екран</string>
+    <string name="lock_glymps_lock_screen">Екран блокування</string>
+    <string name="lock_glymps_home_screen">Домашній екран</string>
+    <string name="lock_glymps_apply_now">Застосувати нові шпалери</string>
+    <string name="lock_glymps_applying">Застосування...</string>
+    <string name="lock_glymps_lock_preview_desc">Перегляд шпалер екрану блокування</string>
+    <string name="lock_glymps_home_preview_desc">Попередній перегляд шпалер головного екрана</string>
+    <string name="video_wallpaper_title">Відеошпалери</string>
+    <!-- Category -->
+    <string name="video_wallpaper_category">Налаштування шпалер</string>
+    <string name="video_wallpaper_category_title">Відеошпалери</string>
+    <string name="video_wallpaper_category_summary">Встановити анімовані шпалери (MP4, GIF, WebP)</string>
+    <!-- Preferences -->
+    <string name="video_wallpaper_current_title">Поточні шпалери</string>
+    <string name="video_wallpaper_current_summary">Відеошпалери не вибрано</string>
+    <string name="video_wallpaper_pick_title">Виберіть відео/GIF</string>
+    <string name="video_wallpaper_pick_summary">Вибрати відео чи анімоване зображення</string>
+    <string name="video_wallpaper_enable_title">Увімкнути відеошпалери</string>
+    <string name="video_wallpaper_enable_summary">Застосувати обране відео як живі шпалери</string>
+    <string name="video_wallpaper_clear_title">Очистити відеошпалери</string>
+    <string name="video_wallpaper_clear_summary">Видалити поточні відеошпалери</string>
+    <string name="video_wallpaper_playback">Налаштування відтворення</string>
+    <string name="video_wallpaper_speed">Швидкість відтворення</string>
+    <string name="video_wallpaper_pause_lock">Пауза на екрані блокування</string>
+    <string name="video_wallpaper_pause_lock_summary">Зберегти заряд акумулятора, коли екран заблоковано</string>
+    <!-- Info section -->
+    <string name="video_wallpaper_info_category_title">Інформація</string>
+    <string name="video_wallpaper_info_title">Підтримувані формати</string>
+    <string name="video_wallpaper_info_summary">MP4 відео, GIF та веб-анімації\nМаксимальний розмір файлу 50МБ</string>
+    <string name="video_wallpaper_tips_title">Поради</string>
+    <string name="video_wallpaper_tips_summary">• Відео автоматично вимикаються звуком\n• Відео з нижчою роздільною здатністю споживають менше заряду батареї\n• Для кращої продуктивності рекомендуються коротші цикли\n• Якщо шпалери відео не завантажуються, виберіть живі шпалери з Wallp</string>
+    <string name="video_wallpaper_description">Анімовані відеофайли та шпалери</string>
+    <string name="lunaris_os">ПРИВИД</string>
+    <!-- Video Wallpaper Strings -->
+    <string name="video_wallpaper_cleared">Відео шпалери очищено</string>
+    <string name="video_wallpaper_clear_failed">Не вдалося очистити відеошпалери</string>
+    <string name="video_wallpaper_current_summary_dynamic">%1$s %2$s</string>
+    <string name="video_wallpaper_current_none">Відеошпалери не вибрано</string>
+    <string name="video_wallpaper_select_first">Спочатку виберіть шпалери для відео</string>
+    <string name="video_wallpaper_select_wallpaper">Виберіть відеошпалери</string>
+    <string name="video_wallpaper_save_failed">Не вдалося зберегти вибране відео або зображення</string>
+    <string name="video_wallpaper_apply_prompt">Застосувати вибрані відеошпалери вручну з попереднього перегляду</string>
+    <string name="video_wallpaper_enable_failed">Не вдалося увімкнути шпалери для відео</string>
+    <string name="video_wallpaper_picker_error">Не вдалося відкрити засіб вибору. Спробуйте ще раз.</string>
+    <string name="video_wallpaper_processing">Обробка вибраного файлу...</string>
+    <string name="video_wallpaper_saved">Шпалери відео успішно збережені</string>
+    <!-- Single Tone QS -->
+    <string name="qs_single_tone_title">Однотональний QS</string>
+    <string name="qs_single_tone_summary">Приховати сповіщення про єдиний зовнішній вигляд швидких налаштувань</string>
+    <!-- Ambient display -->
+    <string name="ambient_display_category_title">Активний дисплей</string>
+    <string name="ambient_bottom_title">Нижня частина AOD</string>
+    <string name="ambient_battery_disable_title">Вимкнено</string>
+    <string name="ambient_battery_percent_title">Рівень заряду акумулятора</string>
+    <string name="ambient_battery_both_title">Акумулятор (рівень заряду та температура)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Рівень заряду батареї, температура (батарея та процесор)</string>
+    <string name="ambient_user_name_title">Ім\'я користувача</string>
+    <string name="display_icon_title">Іконки</string>
+    <string name="display_icon_summary">Відображення значків разом з рівнем &amp; температура</string>
 </resources>
