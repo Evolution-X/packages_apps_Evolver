@@ -821,15 +821,28 @@
     <!-- Wallpaper Styles -->
     <string name="wallpaper_settings_title">Style tapety</string>
     <string name="wallpaper_settings_summary">Konfiguracja stylów i ustawień tapety</string>
-    <string name="wallpaper_blur_title">Rozmycie tapety</string>
-    <string name="wallpaper_blur_summary">Włącz lub wyłącz efekt rozmycia tapety</string>
-    <string name="wallpaper_blur_filter">Styl rozmycia tapety</string>
-    <string name="wallpaper_dim_title">Przyciemnienie tapety</string>
+    <!-- Wallpaper Settings Titles -->
+    <string name="wallpaper_blur_title">Efekt rozmycia tapety</string>
+    <string name="wallpaper_blur_filter">Typ rozmycia tapety</string>
+    <string name="wallpaper_effects_title">Efekty wizualne tapety</string>
+    <string name="wallpaper_effect_type_title">Typ efektu tapety</string>
+    <string name="wallpaper_effect_target_title">Zastosuj efekt do</string>
+    <string name="wallpaper_dim_title">Efekt przyciemnienia tapety</string>
     <string name="wallpaper_dim_level_title">Poziom przyciemnienia tapety</string>
-    <string name="wallpaper_dim_level_summary">Konfiguracja poziomu przyciemnienia tapety</string>
     <string name="glass_blur">Szklane rozmycie</string>
     <string name="frosted_blur">Matowe rozmycie</string>
-    <string name="wallpaper_styles_footer">Aby style tapet działały efektywnie, użytkownicy muszą ustawić tapety dla ekranu blokady i ekranu głównego w różnych momentach.\n Można użyć tej samej tapety, ale nie należy jej stosować jednocześnie na ekranie blokady i ekranie głównym.\n Jest to opcjonalne w przypadku korzystania z obu opcji dla stylów rozmycia i przyciemnienia tapety    </string>
+    <string name="wallpaper_dim_level_summary">Konfiguracja poziomu przyciemnienia tapety</string>
+    <string name="wallpaper_styles_footer">Aby style tapet działały skutecznie, użytkownicy muszą ustawić tapety dla ekranu blokady i ekranu głównego w różnych momentach.\nMożna używać tej samej tapety, ale nie należy jej stosować jednocześnie na ekranie blokady i ekranie głównym.\nJest to opcjonalne, jeśli wybrano obie opcje w celu rozmycia i przyciemnienia tapet.</string>
+    <string name="wallpaper_performance_warning">⚠ Uwaga dotycząca wydajności: Te efekty wizualne wymagają dużej ilości zasobów i mogą wpływać na wydajność na urządzeniach o niższej wydajności. Aby uzyskać optymalne wrażenia, należy korzystać z nich na urządzeniach ze średniej półki lub flagowych.\nEfekty mogą powodować opóźnienia, rozładowywanie baterii lub zacinanie się na starszych telefonach.</string>
+    <!-- Effect Titles -->
+    <string name="wallpaper_saturation_title">Poziom nasycenia</string>
+    <string name="wallpaper_saturation_summary">Zwiększ lub zmniejsz intensywność kolorów</string>
+    <string name="wallpaper_pixelation_size_title">Rozmiar pikselizacji</string>
+    <string name="wallpaper_pixelation_size_summary">Większe wartości = więcej pikseli</string>
+    <string name="wallpaper_vignette_intensity_title">Intensywność winiety</string>
+    <string name="wallpaper_vignette_intensity_summary">Ciemność krawędzi</string>
+    <string name="wallpaper_posterize_levels_title">Poziomy posteryzacji</string>
+    <string name="wallpaper_posterize_levels_summary">Zmniejszenie głębi kolorów</string>
     <!-- Compact QS Media Player-->
     <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimedialny w szybkich ustawieniach</string>
     <string name="qs_compact_media_player_mode_summary">Włącz tryb kompaktowy dla odtwarzacza multimedialnego w szybkich ustawieniach</string>
@@ -1461,4 +1474,94 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="cutout_progress_music_clockwise_title">Zgodnie z ruchem wskazówek zegara</string>
     <string name="cutout_progress_music_aod_title">Pokaż na Ekran zawsze włączony</string>
     <string name="cutout_progress_music_aod_summary">Utrzymuj pierścień muzyczny widoczny na Ekranie otoczenia</string>
+    <!-- Wallpaper Glymps -->
+    <string name="lock_glymps_title">Tapety z glifami</string>
+    <string name="lock_glymps_enable_title">Włącz tapety z glifami</string>
+    <string name="lock_glymps_enable_summary">Zmiana tapety za każdym razem, gdy ekran się włącza</string>
+    <string name="lock_glymps_wallpaper_target_title">Zastosuj tapetę do</string>
+    <string name="lock_glymps_source_category">Źródło tapet</string>
+    <string name="lock_glymps_source_title">Źródło tapet</string>
+    <string name="lock_glymps_source_summary">Wybierz, skąd pobrać tapety</string>
+    <string name="lock_glymps_custom_urls_title">Zarządzaj niestandardowymi adresami URL</string>
+    <string name="lock_glymps_custom_urls_summary">Dodaj lub usuń niestandardowe adresy URL tapet</string>
+    <string name="lock_glymps_folder_title">Folder lokalny</string>
+    <string name="lock_glymps_folder_summary">Wyświetl lokalizację folderu i liczbę tapet (maksymalnie 10 tapet)</string>
+    <string name="lock_glymps_download_category">Ustawienia pobierania</string>
+    <string name="lock_glymps_wifi_only_title">Tylko Wi-Fi</string>
+    <string name="lock_glymps_wifi_only_summary">Pobieraj tapety tylko po połączeniu z siecią Wi-Fi</string>
+    <string name="lock_glymps_cache_size_title">Rozmiar pamięci podręcznej</string>
+    <string name="lock_glymps_cache_size_summary">Liczba tapet do wstępnego pobrania</string>
+    <string name="lock_glymps_advanced_category">Zaawansowane</string>
+    <string name="lock_glymps_clear_cache_title">Wyczyść pamięć podręczną</string>
+    <string name="lock_glymps_clear_cache_summary">Usuń wszystkie pamięci podręczne tapet</string>
+    <string name="lock_glymps_behavior_category">Zachowanie</string>
+    <string name="lock_glymps_change_on_title">Zmiana tapety włączona</string>
+    <string name="lock_glymps_change_on_summary">Kiedy zmienić tapetę ekranu</string>
+    <string name="lock_glymps_timer_interval_title">Odstęp czasowy</string>
+    <string name="lock_glymps_timer_interval_summary">Jak często automatycznie zmieniać tapetę</string>
+    <!-- Footer -->
+    <string name="lock_glymps_footer_title">Ważna informacja</string>
+    <string name="lock_glymps_footer_text">📁 Folder lokalny: /sdcard/Glymps\n\n⚠️ Urządzenia o niższej wydajności mogą doświadczać niewielkich opóźnień\n\n🎨 Wskazówka: Użyj opcji Niestandardowy akcent w ustawieniach Monet, aby uzyskać stabilne kolory</string>
+    <!-- Preview strings -->
+    <string name="lock_glymps_preview_category">Bieżące tapety</string>
+    <string name="lock_glymps_preview_title">Podgląd tapety</string>
+    <string name="lock_glymps_preview_summary">Aktualne tapety ekranu blokady i ekranu głównego</string>
+    <string name="lock_glymps_lock_screen">Ekran blokady</string>
+    <string name="lock_glymps_home_screen">Ekran główny</string>
+    <string name="lock_glymps_apply_now">Zastosuj nową tapetę</string>
+    <string name="lock_glymps_applying">Stosowanie...</string>
+    <string name="lock_glymps_lock_preview_desc">Podgląd tapety ekranu blokady</string>
+    <string name="lock_glymps_home_preview_desc">Podgląd tapety ekranu głównego</string>
+    <string name="video_wallpaper_title">Tapeta wideo</string>
+    <!-- Category -->
+    <string name="video_wallpaper_category">Dostosowanie tapety</string>
+    <string name="video_wallpaper_category_title">Tapeta wideo</string>
+    <string name="video_wallpaper_category_summary">Ustaw animowane tapety (MP4, GIF, WebP)</string>
+    <!-- Preferences -->
+    <string name="video_wallpaper_current_title">Bieżąca tapeta</string>
+    <string name="video_wallpaper_current_summary">Nie wybrano tapety wideo</string>
+    <string name="video_wallpaper_pick_title">Wybierz wideo/GIF</string>
+    <string name="video_wallpaper_pick_summary">Wybierz wideo lub animowany obraz</string>
+    <string name="video_wallpaper_enable_title">Włącz tapetę wideo</string>
+    <string name="video_wallpaper_enable_summary">Zastosuj wybrane wideo jako żywą tapetę</string>
+    <string name="video_wallpaper_clear_title">Wyczyść tapetę wideo</string>
+    <string name="video_wallpaper_clear_summary">Usuń bieżącą tapetę wideo</string>
+    <string name="video_wallpaper_playback">Ustawienia odtwarzania</string>
+    <string name="video_wallpaper_speed">Szybkość odtwarzania</string>
+    <string name="video_wallpaper_pause_lock">Wstrzymaj na ekranie blokady</string>
+    <string name="video_wallpaper_pause_lock_summary">Oszczędzaj baterię, gdy ekran jest zablokowany</string>
+    <!-- Info section -->
+    <string name="video_wallpaper_info_category_title">Informacja</string>
+    <string name="video_wallpaper_info_title">Obsługiwane formaty</string>
+    <string name="video_wallpaper_info_summary">Wideo MP4, animacje GIF i WebP\nMaksymalny rozmiar pliku: 50 MB</string>
+    <string name="video_wallpaper_tips_title">Wskazówki</string>
+    <string name="video_wallpaper_tips_summary">• Wideo jest automatycznie wyciszane\n• Wideo o niższej rozdzielczości zużywa mniej baterii\n• Krótsze pętle są zalecane dla lepszej wydajności\n• Jeśli tapeta wideo się nie załaduje, wybierz tapetę animowaną z sekcji Tapeta i styl po wybraniu tapety wideo\n• Po ponownym uruchomieniu urządzenia należy ponownie zastosować tapetę animowaną</string>
+    <string name="video_wallpaper_description">Animowane wideo i tapeta GIF</string>
+    <string name="lunaris_os">Duch</string>
+    <!-- Video Wallpaper Strings -->
+    <string name="video_wallpaper_cleared">Tapeta wideo wyczyszczona</string>
+    <string name="video_wallpaper_clear_failed">Nie udało się wyczyścić tapety wideo</string>
+    <string name="video_wallpaper_current_summary_dynamic">%1$s • %2$s</string>
+    <string name="video_wallpaper_current_none">Nie wybrano tapety wideo</string>
+    <string name="video_wallpaper_select_first">Proszę najpierw wybrać tapetę wideo</string>
+    <string name="video_wallpaper_select_wallpaper">Wybierz tapetę wideo</string>
+    <string name="video_wallpaper_save_failed">Nie udało się zapisać wybranego wideo lub obrazu</string>
+    <string name="video_wallpaper_apply_prompt">Zastosuj wybraną tapetę wideo ręcznie z ekranu podglądu</string>
+    <string name="video_wallpaper_enable_failed">Nie udało się włączyć tapety wideo</string>
+    <string name="video_wallpaper_picker_error">Nie można otworzyć selektora. Proszę spróbować ponownie.</string>
+    <string name="video_wallpaper_processing">Przetwarzanie wybranego pliku...</string>
+    <string name="video_wallpaper_saved">Tapeta wideo zapisana pomyślnie</string>
+    <!-- Single Tone QS -->
+    <string name="qs_single_tone_title">Pojedynczy ton szybkich ustawień</string>
+    <string name="qs_single_tone_summary">Ukryj ekran powiadomień, aby uzyskać ujednolicony wygląd szybkich ustawień</string>
+    <!-- Ambient display -->
+    <string name="ambient_display_category_title">Ekran otoczenia</string>
+    <string name="ambient_bottom_title">Na dole Ekran zawsze włączony</string>
+    <string name="ambient_battery_disable_title">Wyłączony</string>
+    <string name="ambient_battery_percent_title">Poziom baterii</string>
+    <string name="ambient_battery_both_title">Bateria (poziom i temperatura)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Poziom baterii, temperatura (bateria i procesor)</string>
+    <string name="ambient_user_name_title">Nazwa użytkownika</string>
+    <string name="display_icon_title">Ikony</string>
+    <string name="display_icon_summary">Wyświetlaj ikony wraz z poziomem i temperaturą</string>
 </resources>
