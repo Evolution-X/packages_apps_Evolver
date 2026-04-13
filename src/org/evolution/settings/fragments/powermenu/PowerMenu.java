@@ -7,7 +7,6 @@ package org.evolution.settings.fragments.powermenu;
 
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.preference.Preference;
@@ -20,8 +19,6 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
-import java.util.List;
 
 @SearchIndexable
 public class PowerMenu extends SettingsPreferenceFragment implements
@@ -37,7 +34,6 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources resources = context.getResources();
     }
 
     @Override
@@ -53,13 +49,5 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.evolution_settings_power_menu) {
-
-            @Override
-            public List<String> getNonIndexableKeys(Context context) {
-                List<String> keys = super.getNonIndexableKeys(context);
-                final Resources resources = context.getResources();
-                return keys;
-            }
-        };
+        new BaseSearchIndexProvider(R.xml.evolution_settings_power_menu);
 }

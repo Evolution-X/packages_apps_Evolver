@@ -81,7 +81,7 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
         getActivity().setTitle(R.string.themes_navigation_bar_icons_title);
 
-        mThemeUtils = new ThemeUtils(getActivity());
+        mThemeUtils = ThemeUtils.getInstance(getActivity());
 
         mLauncherPackage = Utils.isPackageInstalled(getContext(), "com.google.android.apps.nexuslauncher", false)
                 ? "com.google.android.apps.nexuslauncher"

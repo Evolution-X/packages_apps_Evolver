@@ -53,18 +53,11 @@
             android:title="@string/hide_screen_capture_status_title"
             android:summary="@string/hide_screen_capture_status_summary"
             android:defaultValue="false" />
-
-        <!-- Disable flash sms -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="disable_flash_sms"
-            android:title="@string/disable_flash_sms_title"
-            android:summary="@string/disable_flash_sms_summary"
-            android:defaultValue="false"/>
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="miscellaneous_developer_options_category"
-        android:title="@string/miscellaneous_developer_options_category">
+        android:key="miscellaneous_gestures_category"
+        android:title="@string/gestures_category_title">
 
         <!-- Three fingers swipe action -->
         <ListPreference
@@ -80,6 +73,11 @@
             android:title="@string/shake_gestures_enabled_title"
             android:summary="@string/shake_gestures_enabled_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.ShakeGestures" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="miscellaneous_general_category"
+        android:title="@string/general_category_title">
 
         <!-- Sensor block per package -->
         <Preference
@@ -102,12 +100,25 @@
             android:summary="@string/notification_bubble_apps_summary"
             android:defaultValue="false" />
 
+        <!-- Disable flash sms -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="disable_flash_sms"
+            android:title="@string/disable_flash_sms_title"
+            android:summary="@string/disable_flash_sms_summary"
+            android:defaultValue="false"/>
+
         <!-- Smart Pixels -->
         <Preference
             android:key="smart_pixels"
             android:title="@string/smart_pixels_title" 
             android:summary="@string/smart_pixels_summary" 
             android:fragment="org.evolution.settings.fragments.miscellaneous.SmartPixels" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="miscellaneous_developer_options_category"
+        android:title="@string/miscellaneous_developer_options_category">
 
         <!-- USB configuration -->
         <Preference
@@ -128,7 +139,7 @@
             android:key="persist.sys.pairip.activity.block"
             android:title="@string/miscellaneous_pairip_activity_block_title"
             android:summary="@string/miscellaneous_pairip_activity_block_summary"
-            android:defaultValue="false" />   
+            android:defaultValue="false" />
 
         <!-- Block wallpaper dimming -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference

@@ -34,7 +34,7 @@ import java.util.List;
 
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
-import org.evolution.settings.utils.SystemUtilsNew;
+import org.evolution.settings.utils.SystemUtils;
 import org.evolution.settings.utils.TelephonyUtils;
 // import org.evolution.settings.utils.ImageUtils;
 
@@ -121,11 +121,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (preference == mSmartspace) {
             mSmartspace.setChecked((Boolean)newValue);
             updateWeatherSettings();
-            SystemUtilsNew.showSystemUiRestartDialog(getContext());
+            SystemUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mWeather) {
             mWeather.setChecked((Boolean)newValue);
-            SystemUtilsNew.showSystemUiRestartDialog(getContext());
+            SystemUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;

@@ -30,25 +30,26 @@ import androidx.preference.SwitchPreferenceCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
-import org.lineageos.internal.util.PowerMenuConstants;
+import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+import com.android.settingslib.applications.ServiceListing;
+import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.internal.logging.nano.MetricsProto;
-import com.android.internal.widget.LockPatternUtils;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settingslib.applications.ServiceListing;
-
-import com.android.settings.R;
-
-import org.evolution.settings.utils.TelephonyUtils;
-
 import lineageos.app.LineageGlobalActions;
 import lineageos.providers.LineageSettings;
 
+import org.evolution.settings.utils.TelephonyUtils;
+import org.lineageos.internal.util.PowerMenuConstants;
+
 import static org.lineageos.internal.util.PowerMenuConstants.*;
 
+@SearchIndexable
 public class PowerMenuActions extends SettingsPreferenceFragment {
     final static String TAG = "PowerMenuActions";
 
@@ -224,4 +225,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.EVOLVER;
     }
+
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider(R.xml.power_menu_actions);
 }

@@ -29,8 +29,6 @@ import com.android.settingslib.search.SearchIndexable;
 import org.evolution.settings.preferences.CustomSeekBarPreference;
 import org.evolution.settings.utils.SystemUtils;
 
-import java.util.List;
-
 @SearchIndexable
 public class Wallpaper extends SettingsPreferenceFragment 
             implements Preference.OnPreferenceChangeListener {
@@ -146,18 +144,12 @@ public class Wallpaper extends SettingsPreferenceFragment
     
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+        return MetricsProto.MetricsEvent.EVOLVER;
     }
     
     /**
      * For search
      */
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.wallpaper_settings) {
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-            };
+            new BaseSearchIndexProvider(R.xml.wallpaper_settings);
 }

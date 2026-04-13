@@ -23,10 +23,13 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
+import com.android.settings.search.BaseSearchIndexProvider
+import com.android.settingslib.search.SearchIndexable
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import org.evolution.settings.utils.toArgb
 import org.evolution.settings.utils.toHexString
 
+@SearchIndexable
 class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
     Preference.OnPreferenceChangeListener {
 
@@ -60,6 +63,10 @@ class CutoutProgressSettingsFragment : SettingsPreferenceFragment(),
         private const val DEFAULT_FLASH_COLOR = 0xFFFFFFFF.toInt()
         private const val DEFAULT_BG_COLOR = 0xFF808080.toInt()
         private const val DEFAULT_MUSIC_COLOR = 0xFF9C27B0.toInt()
+
+    @JvmField
+    val SEARCH_INDEX_DATA_PROVIDER =
+        BaseSearchIndexProvider(R.xml.cutout_progress_settings)
     }
 
     private lateinit var ringColorModePref: ListPreference

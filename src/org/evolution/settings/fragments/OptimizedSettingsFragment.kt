@@ -23,7 +23,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.preference.Preference
 import com.android.settings.SettingsPreferenceFragment
-import com.android.internal.util.android.ThemeUtils
+import com.android.internal.util.evolution.ThemeUtils
 import java.lang.ref.WeakReference
 import java.util.concurrent.ConcurrentHashMap
 

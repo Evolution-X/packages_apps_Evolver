@@ -39,7 +39,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.widget.LayoutPreference;
 
-import org.evolution.settings.utils.SystemUtilsNew;
+import org.evolution.settings.utils.SystemUtils;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -114,7 +114,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         getActivity().setTitle(getString(R.string.lockscreen_custom_clock_style_title));
-        mThemeUtils = new ThemeUtils(getActivity());
+        mThemeUtils = ThemeUtils.getInstance(getActivity());
 
         addPreferencesFromResource(R.xml.lockscreen_clock_preview_settings);
     }
@@ -156,7 +156,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
                 Settings.Secure.putIntForUser(
                         ctx.getContentResolver(), Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_STYLE, mClockPosition, UserHandle.USER_CURRENT);
                 updateClockOverlays(mClockPosition);
-                SystemUtilsNew.restartSystemUI(ctx);
+                SystemUtils.restartSystemUI(ctx);
             }
         });
 

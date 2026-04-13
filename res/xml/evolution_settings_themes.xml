@@ -21,32 +21,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="video_wallpaper_category"
-        android:title="@string/video_wallpaper_category">
-
-        <Preference
-            android:key="lock_glymps_settings"
-            android:title="@string/lock_glymps_title"
-            android:summary="@string/lock_glymps_enable_summary"
-            android:fragment="org.evolution.settings.fragments.themes.LockGlympsSettings" />
-
-        <Preference
-            android:key="video_wallpaper"
-            android:title="@string/video_wallpaper_category_title"
-            android:summary="@string/video_wallpaper_category_summary"
-            android:fragment="org.evolution.settings.fragments.themes.VideoWallpaperFragment" />
-
-        <Preference
-            android:key="wallpaper_settings"
-            android:title="@string/wallpaper_settings_title"
-            android:summary="@string/wallpaper_settings_summary"
-            android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="themes_general_category"
-        android:title="@string/themes_general_category">
+        android:title="@string/general_category_title">
 
         <!-- Monet engine -->
         <Preference
@@ -61,44 +37,6 @@
             android:title="@string/gradient_settings_title"
             android:summary="@string/gradient_settings_summary"
             android:fragment="org.evolution.settings.fragments.themes.GradientSettings" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="themes_audio_category"
-        android:title="@string/themes_audio_category">
-
-        <!-- Lock sound -->
-        <org.evolution.settings.preferences.GlobalSettingListPreference
-            android:key="lock_sound"
-            android:title="@string/themes_lock_sound_title"
-            android:entries="@array/themes_lock_unlock_sounds_entries"
-            android:entryValues="@array/themes_lock_sounds_values"
-            android:defaultValue="/product/media/audio/ui/Lock.ogg" />
-
-        <!-- Unlock sound -->
-        <org.evolution.settings.preferences.GlobalSettingListPreference
-            android:key="unlock_sound"
-            android:title="@string/themes_unlock_sound_title"
-            android:entries="@array/themes_lock_unlock_sounds_entries"
-            android:entryValues="@array/themes_unlock_sounds_values"
-            android:defaultValue="/product/media/audio/ui/Unlock.ogg" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="themes_launcher_category"
-        android:title="@string/themes_launcher_category">
-
-        <org.evolution.settings.preferences.OverlaySwitchPreference
-            android:key="com.google.android.apps.nexuslauncher.icons.overlay"
-            android:title="@string/themes_launcher_more_themed_icons_title"
-            android:summary="@string/themes_launcher_more_themed_icons_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.velvet.force_onesearch"
-            android:title="@string/themes_launcher_force_new_search_bar"
-            android:summary="@string/themes_launcher_force_new_search_bar_summary"
-            android:defaultValue="true" />            
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -163,5 +101,67 @@
             android:title="@string/themes_udfps_animation_title"
             android:summary="@string/themes_udfps_animation_summary"
             android:fragment="org.evolution.settings.fragments.themes.UdfpsAnimation" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="themes_launcher_category"
+        android:title="@string/themes_launcher_category">
+
+        <org.evolution.settings.preferences.OverlaySwitchPreference
+            android:key="com.google.android.apps.nexuslauncher.icons.overlay"
+            android:title="@string/themes_launcher_more_themed_icons_title"
+            android:summary="@string/themes_launcher_more_themed_icons_summary"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.velvet.force_onesearch"
+            android:title="@string/themes_launcher_force_new_search_bar"
+            android:summary="@string/themes_launcher_force_new_search_bar_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="video_wallpaper_category"
+        android:title="@string/video_wallpaper_category">
+
+        <Preference
+            android:key="lock_glymps_settings"
+            android:title="@string/lock_glymps_title"
+            android:summary="@string/lock_glymps_enable_summary"
+            android:fragment="org.evolution.settings.fragments.themes.LockGlympsSettings" />
+
+        <Preference
+            android:key="video_wallpaper"
+            android:title="@string/video_wallpaper_category_title"
+            android:summary="@string/video_wallpaper_category_summary"
+            android:fragment="org.evolution.settings.fragments.themes.VideoWallpaperFragment" />
+
+        <Preference
+            android:key="wallpaper_settings"
+            android:title="@string/wallpaper_settings_title"
+            android:summary="@string/wallpaper_settings_summary"
+            android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="themes_audio_category"
+        android:title="@string/themes_audio_category">
+
+        <!-- Lock sound -->
+        <org.evolution.settings.preferences.GlobalSettingListPreference
+            android:key="lock_sound"
+            android:title="@string/themes_lock_sound_title"
+            android:entries="@array/themes_lock_unlock_sounds_entries"
+            android:entryValues="@array/themes_lock_sounds_values"
+            android:defaultValue="/product/media/audio/ui/Lock.ogg" />
+
+        <!-- Unlock sound -->
+        <org.evolution.settings.preferences.GlobalSettingListPreference
+            android:key="unlock_sound"
+            android:title="@string/themes_unlock_sound_title"
+            android:entries="@array/themes_lock_unlock_sounds_entries"
+            android:entryValues="@array/themes_unlock_sounds_values"
+            android:defaultValue="/product/media/audio/ui/Unlock.ogg" />
     </PreferenceCategory>
 </PreferenceScreen>

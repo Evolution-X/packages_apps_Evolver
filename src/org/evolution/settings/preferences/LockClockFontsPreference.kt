@@ -27,7 +27,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
-import org.evolution.settings.utils.SystemUtilsNew
+import org.evolution.settings.utils.SystemUtils
 import java.util.concurrent.Executors
 import kotlin.math.min
 
@@ -40,7 +40,7 @@ class LockClockFontsPreference @JvmOverloads constructor(
     private var dialog: AlertDialog? = null
     private var recyclerView: RecyclerView? = null
 
-    private val themeUtils = ThemeUtils(context)
+    private val themeUtils = ThemeUtils.getInstance(context)
     private val pkgs: List<String> = themeUtils.getOverlayPackagesForCategory(CATEGORY, "android")
 
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
@@ -200,7 +200,7 @@ class LockClockFontsPreference @JvmOverloads constructor(
                 showSystemUiRestartDialogWithAction(ctx,
                     onConfirm = {
                         applyOverlayInBackground(old, pending) {
-                            SystemUtilsNew.restartSystemUI(ctx)
+                            SystemUtils.restartSystemUI(ctx)
                         }
                     },
                     onLater = {

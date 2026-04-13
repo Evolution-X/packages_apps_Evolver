@@ -42,7 +42,6 @@ import com.android.settingslib.search.SearchIndexable;
 import org.evolution.settings.utils.MediaUtils;
 
 import java.io.File;
-import java.util.List;
 
 import com.android.internal.util.evolution.VibrationUtils;
 
@@ -321,11 +320,5 @@ public class VideoWallpaperFragment extends SettingsPreferenceFragment
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.video_wallpaper_settings) {
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-            };
+            new BaseSearchIndexProvider(R.xml.video_wallpaper_settings);
 }
