@@ -169,7 +169,7 @@
     <string name="theme_customization_lock_clock_face_summary">Modificar aparência do relógio na tela de bloqueio</string>
     <!-- Status bar -->
     <string name="status_bar_gestures_category">Gestos</string>
-    <string name="status_bar_brightness_control_title">Controle de brilho ao deslizar</string>
+    <string name="status_bar_brightness_control_title">Controle de brilho</string>
     <string name="status_bar_brightness_control_summary">Ajustar brilho deslizando pela barra de status</string>
     <string name="status_bar_quick_pull_down_title">Puxar rápido para baixo</string>
     <string name="status_bar_quick_pull_down_summary">%1$s da barra de status puxa para baixo as configurações rápidas</string>
@@ -280,12 +280,12 @@
     <string name="disguise_props_for_music_app_title">Disfarçar o dispositivo para aplicativos de música</string>
     <string name="disguise_props_for_music_app_summary">Disfarce o dispositivo em alguns aplicativos de música para suportar o recurso de \"letras na barra de status\". Após alterar, é necessário reiniciar o aplicativo para que a alteração tenha efeito.</string>
     <!-- Status bar/Clock & date-->
-    <string name="status_bar_clock_position_title">Posição do relógio</string>
+    <string name="status_bar_clock_position_title">Estilo de relógio</string>
     <string name="status_bar_clock_position_right">Direita</string>
     <string name="status_bar_clock_position_left">Esquerda</string>
     <string name="status_bar_clock_position_center">Centro</string>
-    <string name="status_bar_clock_seconds_title">Mostrar segundos</string>
-    <string name="status_bar_clock_seconds_summary">Mostrar segundos ao lado do relógio na barra de status</string>
+    <string name="status_bar_clock_seconds_title">Segundos do relógio</string>
+    <string name="status_bar_clock_seconds_summary">Exibir segundos ao lado do relógio na barra de status</string>
     <string name="status_bar_clock_auto_hide_title">Ocultar automaticamente</string>
     <string name="status_bar_clock_auto_hide_summary">Ocultar relógio quando na tela inicial</string>
     <string name="status_bar_am_pm_title">Estilo AM/PM</string>
@@ -418,7 +418,7 @@
     <string name="quick_settings_tile_animation_interpolator_decelerate">Desacelerar</string>
     <string name="quick_settings_tile_animation_interpolator_accelerateDecelerate">Acelerar desacelerar</string>
     <string name="quick_settings_tile_animation_interpolator_bounce">Pular</string>
-    <string name="quick_settings_tile_animation_interpolator_overshoot">Se jogar</string>
+    <string name="quick_settings_tile_animation_interpolator_overshoot">Ultrapassar</string>
     <string name="quick_settings_tile_animation_interpolator_anticipate">Antecipar</string>
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Antecipar e ultrapassar</string>
     <string name="quick_settings_data_usage_title">Uso de dados</string>
@@ -492,7 +492,7 @@
     <string name="edge_light_animation_effect_comet">Cometa</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Menos irritante</string>
-    <string name="notifications_less_boring_heads_up_summary">Mostrar notificações flutuantes apenas para alarmes, ligações e aplicativo de mensagem</string>
+    <string name="notifications_less_boring_heads_up_summary">Exibir notificações pop-up apenas para aplicativos de alarme, discador e mensagens</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interface</string>
     <string name="power_menu_actions_title">Ações do menu liga/desliga</string>
@@ -503,7 +503,7 @@
     <string name="power_menu_lock_screen_secure_summary">Mostrar o menu liga/desliga enquanto o dispositivo estiver bloqueado</string>
     <!-- Power menu/Power menu actions -->
     <string name="power_menu_actions_screenshot_title">Captura de tela</string>
-    <string name="power_menu_actions_onthego_title">Modo On-The-Go</string>
+    <string name="power_menu_actions_onthego_title">Modo OTG</string>
     <string name="power_menu_actions_airplane_title">Modo avião</string>
     <string name="power_menu_actions_torch_title">Lanterna</string>
     <string name="power_menu_actions_settings_title">Configurações</string>
@@ -578,7 +578,7 @@
     <string name="set">Definir</string>
     <string name="accent_color">Cor de destaque</string>
     <string name="notification_color">Cor da notificação</string>
-    <string name="wallpaper_color">Cores do papel de parede</string>
+    <string name="wallpaper_color">Cor do papel de parede</string>
     <string name="rainbow_color">Cor do arco-íris</string>
     <string name="custom_color">Cor personalizada</string>
     <!-- Custom seekbar -->
@@ -807,17 +807,17 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="battery_bar_title">Barra de bateria</string>
     <string name="battery_bar_summary">Exibir e personalizar a barra de bateria acima da barra de status</string>
     <string name="battery_bar_color">Cor</string>
-    <string name="battery_bar_charging_color">Cor durante carregamento</string>
+    <string name="battery_bar_charging_color">Cor de carregamento</string>
     <string name="battery_bar_battery_low_color">Cor de bateria fraca</string>
     <string name="battery_bar_style_title">Alinhamento</string>
     <string name="battery_bar_thickness_title">Espessura</string>
-    <string name="battery_bar_animate_title">Animação ao carregar</string>
+    <string name="battery_bar_animate_title">Animação de carregamento</string>
     <string name="battery_bar_style_regular">Normal</string>
     <string name="battery_bar_style_center_mirrored">Centro-espelhado</string>
-    <string name="battery_bar_style_reversed">Revertido</string>
-    <string name="battery_bar_use_charging_color">Cor personalizada durante o carregamento</string>
-    <string name="battery_bar_blend_color_title">Mistura de cores</string>
-    <string name="battery_bar_blend_color_summary">Misturar cores correspondente a porcentagem da bateria</string>
+    <string name="battery_bar_style_reversed">Invertido</string>
+    <string name="battery_bar_use_charging_color">Cor de carregamento personalizada</string>
+    <string name="battery_bar_blend_color_title">Misture cores</string>
+    <string name="battery_bar_blend_color_summary">Misture cores cheias/vazias correspondentes à porcentagem da bateria</string>
     <string name="battery_bar_blend_color_reverse_title">Inverter a direção de cor</string>
     <string name="battery_bar_blend_color_reverse_summary_off">Cheio &#8594; vazio: vermelho &#8592; verde &#8592; azul &#8592; vermelho</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Cheio &#8594; vazio: vermelho &#8594; verde &#8594; azul &#8594; vermelho</string>
@@ -925,10 +925,10 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="hardware_keys_action_nothing">Nenhuma ação</string>
     <string name="hardware_keys_action_menu">Abrir/fechar menu</string>
     <string name="hardware_keys_action_app_switch">Alternador de aplicativos recentes</string>
-    <string name="hardware_keys_action_search">Assistente de busca</string>
+    <string name="hardware_keys_action_search">Assistente de pesquisa</string>
     <string name="hardware_keys_action_voice_search">Pesquisa por voz</string>
-    <string name="hardware_keys_action_in_app_search">Busca dentro do aplicativo</string>
-    <string name="hardware_keys_action_launch_camera">Iniciar a câmera</string>
+    <string name="hardware_keys_action_in_app_search">Pesquisa no aplicativo</string>
+    <string name="hardware_keys_action_launch_camera">Iniciar câmera</string>
     <string name="hardware_keys_action_sleep">Desligar a tela</string>
     <string name="hardware_keys_action_last_app">Último app</string>
     <string name="hardware_keys_action_split_screen">Dividir a tela</string>
