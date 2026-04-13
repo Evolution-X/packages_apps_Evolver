@@ -27,8 +27,6 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import java.util.List;
-
 @SearchIndexable
 public class LayoutSettings extends SettingsPreferenceFragment {
 

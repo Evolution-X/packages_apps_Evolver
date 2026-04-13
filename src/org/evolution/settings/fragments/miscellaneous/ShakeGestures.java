@@ -34,8 +34,6 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import java.util.List;
-
 @SearchIndexable
 public class ShakeGestures extends SettingsPreferenceFragment {
     @Override
@@ -46,18 +44,12 @@ public class ShakeGestures extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.VIEW_UNKNOWN;
+        return MetricsProto.MetricsEvent.EVOLVER;
     }
 
     /**
      * For search
      */
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.shake_settings_gestures) {
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-            };
+            new BaseSearchIndexProvider(R.xml.shake_settings_gestures);
 }

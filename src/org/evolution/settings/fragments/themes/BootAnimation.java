@@ -215,11 +215,5 @@ public class BootAnimation extends SettingsPreferenceFragment implements OnPrefe
                     result.add(sir);
                     return result;
                 }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
             };
 }

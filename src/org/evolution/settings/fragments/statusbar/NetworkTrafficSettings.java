@@ -17,7 +17,6 @@
 package org.evolution.settings.fragments.statusbar;
 
 import android.content.ContentResolver;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
 
@@ -26,8 +25,6 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
-import java.util.List;
 
 import lineageos.providers.LineageSettings;
 
@@ -49,12 +46,5 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment {
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.network_traffic_settings) {
-
-            @Override
-            public List<String> getNonIndexableKeys(Context context) {
-                List<String> keys = super.getNonIndexableKeys(context);
-                return keys;
-            }
-        };
+        new BaseSearchIndexProvider(R.xml.network_traffic_settings);
 }

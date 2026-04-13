@@ -28,7 +28,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.internal.util.evolution.ThemeUtils.FONT_KEY
 import com.android.settings.R
-import org.evolution.settings.utils.SystemUtilsNew
+import org.evolution.settings.utils.SystemUtils
 import java.util.concurrent.Executors
 import kotlin.math.min
 
@@ -41,7 +41,7 @@ class FontsPickerPreference @JvmOverloads constructor(
     private var dialog: AlertDialog? = null
     private var recyclerView: RecyclerView? = null
 
-    private val themeUtils = ThemeUtils(context)
+    private val themeUtils = ThemeUtils.getInstance(context)
     private val pkgs: List<String> = themeUtils.getOverlayPackagesForCategory(CATEGORY, "android")
 
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
@@ -195,7 +195,7 @@ class FontsPickerPreference @JvmOverloads constructor(
                     onConfirm = {
                         applyOverlayInBackground(old, pending) {
                             updateSummary()
-                            SystemUtilsNew.restartSystemUI(ctx)
+                            SystemUtils.restartSystemUI(ctx)
                         }
                     },
                     onLater = {

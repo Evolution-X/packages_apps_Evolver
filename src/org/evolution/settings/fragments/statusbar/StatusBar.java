@@ -75,7 +75,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         Context mContext = getActivity().getApplicationContext();
         final ContentResolver resolver = context.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources resources = context.getResources();
 
         mStatusBarClock =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);

@@ -16,16 +16,16 @@
  */
 package org.evolution.settings.fragments.statusbar;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.UserHandle;
-import android.provider.Settings;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
 
+@SearchIndexable
 public class BatteryBar extends SettingsPreferenceFragment {
 
     @Override
@@ -38,4 +38,7 @@ public class BatteryBar extends SettingsPreferenceFragment {
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.EVOLVER;
     }
+
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider(R.xml.battery_bar);
 }

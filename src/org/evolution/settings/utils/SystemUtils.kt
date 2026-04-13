@@ -1,5 +1,9 @@
 /*
+ * SPDX-FileCopyrightText: 2025 Evolution X
  * Copyright (C) 2025 crDroid Android Project
+ * Copyright (C) 2023-2024 the risingOS Android Project
+ *
+ * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +22,7 @@ package org.evolution.settings.utils
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.widget.Toast
 
 import androidx.appcompat.app.AlertDialog
@@ -25,7 +30,7 @@ import androidx.appcompat.app.AlertDialog
 import com.android.settings.R
 import com.android.internal.util.evolution.Utils
 
-object SystemUtilsNew {
+object SystemUtils {
 
     @JvmStatic
     fun showSystemUiRestartDialog(context: Context) {
@@ -51,4 +56,11 @@ object SystemUtilsNew {
             Utils.restartSystemUI()
         }, 2000) // 2-second delay
     }
-} 
+
+    @JvmStatic
+    fun reloadSystemUI(context: Context) {
+        val resolver = context.contentResolver
+        val currentValue = Settings.System.getInt(resolver, "system_ui_reload", 0)
+        Settings.System.putInt(resolver, "system_ui_reload", if (currentValue == 0) 1 else 0)
+    }
+}
