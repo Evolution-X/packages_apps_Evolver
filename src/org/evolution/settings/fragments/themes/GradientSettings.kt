@@ -15,6 +15,7 @@ import androidx.preference.Preference.OnPreferenceChangeListener
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
+import com.android.settings.search.BaseSearchIndexProvider
 import org.evolution.settings.preferences.SystemSettingListPreference
 
 class GradientSettings : SettingsPreferenceFragment() {
@@ -98,5 +99,8 @@ class GradientSettings : SettingsPreferenceFragment() {
                 UserHandle.USER_CURRENT
             )
         }
+
+        @JvmField
+        val SEARCH_INDEX_DATA_PROVIDER = BaseSearchIndexProvider(R.xml.gradient_settings)
     }
 }

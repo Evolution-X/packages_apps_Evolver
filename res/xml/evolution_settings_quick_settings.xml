@@ -38,6 +38,12 @@
             android:summary="@string/qs_single_tone_summary"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="notification_bg_alternate_color"
+            android:title="@string/notification_bg_alternate_color_title"
+            android:summary="@string/notification_bg_alternate_color_summary"
+            android:defaultValue="false" />
+
         <!-- QS Media Player  -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_show_media_player"
@@ -63,12 +69,6 @@
             android:key="qs_compact_media_player_mode"
             android:title="@string/qs_compact_media_player_mode_title"
             android:summary="@string/qs_compact_media_player_mode_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="notification_bg_alternate_color"
-            android:title="@string/notification_bg_alternate_color_title"
-            android:summary="@string/notification_bg_alternate_color_summary"
             android:defaultValue="false" />
 
         <!--<org.evolution.settings.preferences.SystemSettingListPreference

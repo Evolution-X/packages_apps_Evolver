@@ -68,7 +68,7 @@ public class Themes extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.evolution_settings_themes);
-        mThemeUtils = new ThemeUtils(getContext());
+        mThemeUtils = ThemeUtils.getInstance(getContext());
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();

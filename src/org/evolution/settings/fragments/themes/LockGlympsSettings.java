@@ -23,26 +23,27 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 
-import com.android.internal.logging.nano.MetricsProto;
-
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
+import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.evolution.VibrationUtils;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+
 import lineageos.preference.SystemSettingMainSwitchPreference;
+
+import java.io.File;
 
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.preferences.WallpaperPreviewPreference;
 import org.evolution.settings.utils.SystemUtils;
 
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-
-import java.io.File;
-
-import com.android.internal.util.evolution.VibrationUtils;
-
+@SearchIndexable
 public class LockGlympsSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
@@ -420,4 +421,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         }
         return super.onPreferenceTreeClick(preference);
     }
+
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider(R.xml.lock_glymps_settings);
 }

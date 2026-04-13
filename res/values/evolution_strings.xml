@@ -28,9 +28,10 @@
     <string name="miscellaneous_summary">Spoofing, developer options</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">About our ROM</string>
+    <string name="general_category_title">General</string>
+    <string name="gestures_category_title">Gestures</string>
 
     <!-- Themes -->
-    <string name="themes_general_category">General</string>
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet settings</string>
     <string name="themes_monet_summary">Customize Android\'s built-in theme engine</string>
@@ -168,7 +169,7 @@
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Swipe left or right to preview clock styles</string>
 
-    <!-- Lock screen Clock Revamp --> 
+    <!-- Lock screen Clock Revamp -->
     <string name="ls_clock_custom_font_not_supported">Selected clock does not support custom fonts</string>
 
     <!-- Custom Clock Style -->
@@ -179,7 +180,6 @@
     <string name="theme_customization_lock_clock_face_summary">Modify lock screen clock appearance</string>
 
     <!-- Status bar -->
-    <string name="status_bar_gestures_category">Gestures</string>
     <string name="status_bar_brightness_control_title">Brightness control</string>
     <string name="status_bar_brightness_control_summary">Adjust brightness by swiping across the status bar</string>
     <string name="status_bar_quick_pull_down_title">Quick pull down</string>
@@ -221,8 +221,8 @@
     <string name="status_bar_battery_percent_hidden">Hidden</string>
     <string name="status_bar_battery_percent_text_inside">Inside the icon</string>
     <string name="status_bar_battery_percent_text_next">Next to the icon</string>
-    <string name="status_bar_battery_percent_text_next_right">Next to the icon (right)</string> 
-    <string name="status_bar_battery_percent_text_next_left">Next to the icon (left)</string> 
+    <string name="status_bar_battery_percent_text_next_right">Next to the icon (right)</string>
+    <string name="status_bar_battery_percent_text_next_left">Next to the icon (left)</string>
     <string name="status_bar_battery_text_charging_title">Battery percentage when charging</string>
     <string name="status_bar_battery_text_charging_summary">Always display battery percentage when charging</string>
     <string name="status_bar_clock_and_date_title">Clock &amp; date</string>
@@ -592,6 +592,9 @@
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
+    <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
+    <string name="spoofing_tensor_enabled">Tensor features enabled</string>
+    <string name="spoofing_tensor_disabled">Tensor features disabled</string>
 
     <!-- About -->
     <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>
@@ -835,7 +838,7 @@
     <string name="apply_button_text">Apply</string>
     <string name="font_picker_select_font">Select font</string>
 
-    <!-- Apply Button --> 
+    <!-- Apply Button -->
     <string name="apply_change_button_title">Apply</string>
 
     <!-- Peek Display -->
@@ -1430,7 +1433,7 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="lock_glymps_title">Wallpaper Glymps</string>
     <string name="lock_glymps_enable_title">Enable Wallpaper Glymps</string>
     <string name="lock_glymps_enable_summary">Change wallpaper every time screen lights up</string>
-    <string name="lock_glymps_wallpaper_target_title">Wallpaper apply to</string>    
+    <string name="lock_glymps_wallpaper_target_title">Wallpaper apply to</string>
     <string name="lock_glymps_source_category">Wallpaper Source</string>
     <string name="lock_glymps_source_title">Wallpaper source</string>
     <string name="lock_glymps_source_summary">Choose where to get wallpapers from</string>
@@ -1534,7 +1537,7 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ambient_display_category_title">Ambient display</string>
     <string name="ambient_bottom_title">AOD bottom</string>
     <string name="ambient_battery_disable_title">Disabled</string>
-    <string name="ambient_battery_percent_title">Battery level</string> 
+    <string name="ambient_battery_percent_title">Battery level</string>
     <string name="ambient_battery_both_title">Battery (Level &amp; temperature)</string>
     <string name="ambient_battery_cpu_battery_temperature_title">Battery level, temperature (Battery &amp; CPU)</string>
     <string name="ambient_user_name_title">User name</string>
