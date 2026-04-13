@@ -237,7 +237,7 @@
     <string name="status_bar_logo_style_batman_tdk">Batman Mroczny Rycerz </string>
     <string name="status_bar_logo_style_beats">Beats Electronics</string>
     <string name="status_bar_logo_style_biohazard">Zagrożenie biologiczne</string>
-    <string name="status_bar_logo_style_blackberry">Jeżyna</string>
+    <string name="status_bar_logo_style_blackberry">BlackBerry</string>
     <string name="status_bar_logo_style_cannabis">Marihuana</string>
     <string name="status_bar_logo_style_emoticon_cool">Emotka spoko</string>
     <string name="status_bar_logo_style_emoticon_devil">Emotka diabeł</string>
@@ -492,7 +492,7 @@
     <string name="edge_light_animation_effect_comet">Kometa</string>
     <!-- Notifications/Less boring heads up -->
     <string name="notifications_less_boring_heads_up_title">Mniej wyskakujących powiadomień</string>
-    <string name="notifications_less_boring_heads_up_summary">Pokaż wyskakujące powiadomienia tylko dla telefonu, wiadomości i alarmu</string>
+    <string name="notifications_less_boring_heads_up_summary">Pokaż wyskakujące powiadomienia tylko dla aplikacji alarmu, wybierania numeru i wiadomości</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interfejs</string>
     <string name="power_menu_actions_title">Opcje menu zasilania</string>
@@ -1331,7 +1331,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="dynamic_bar_event_timer_summary">Minutnik odliczania z aplikacji Zegar</string>
     <string name="dynamic_bar_event_stopwatch">Stoper</string>
     <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji Zegar</string>
-    <string name="dynamic_bar_event_alarm">Budzik</string>
+    <string name="dynamic_bar_event_alarm">Alarm</string>
     <string name="dynamic_bar_event_alarm_summary">Dzwoniące i nadchodzące alarmy</string>
     <string name="dynamic_bar_event_charging">Rozpoczęto ładowanie</string>
     <string name="dynamic_bar_event_charging_summary">Poziom baterii podczas podłączania</string>
@@ -1482,8 +1482,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="lock_glymps_source_category">Źródło tapet</string>
     <string name="lock_glymps_source_title">Źródło tapet</string>
     <string name="lock_glymps_source_summary">Wybierz, skąd pobrać tapety</string>
-    <string name="lock_glymps_custom_urls_title">Zarządzaj niestandardowymi adresami URL</string>
-    <string name="lock_glymps_custom_urls_summary">Dodaj lub usuń niestandardowe adresy URL tapet</string>
+    <string name="lock_glymps_custom_urls_title">Zarządzaj niestandardowymi linkami</string>
+    <string name="lock_glymps_custom_urls_summary">Dodaj lub usuń niestandardowe linki tapet</string>
     <string name="lock_glymps_folder_title">Folder lokalny</string>
     <string name="lock_glymps_folder_summary">Wyświetl lokalizację folderu i liczbę tapet (maksymalnie 10 tapet)</string>
     <string name="lock_glymps_download_category">Ustawienia pobierania</string>
