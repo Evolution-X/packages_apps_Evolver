@@ -587,38 +587,11 @@
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
     <string name="tensor_spoof_title">Force Tensor features</string>
     <string name="tensor_spoof_summary">Enable Pixel Tensor-exclusive features on unsupported devices. May lead to unexpected behavior or increased battery usage.</string>
-    <string name="gms_spoof_title">Play Integrity fix</string>
-    <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
-    <string name="vending_spoof_title">Spoof vending</string>
-    <string name="vending_spoof_summary">Apply device spoofing to Google Play Store</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
-
-    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">Successfully downloaded pif.json. Spoofing as %1$s for Play Integrity.</string>
-    <string name="toast_spoofing_failure">Failed to spoof properties.</string>
-    <string name="update_pif_json_title">Update Play Integrity fix</string>
-    <string name="update_pif_json_summary">Update PIF spoofing device (Requires internet connection.)</string>
-    <string name="update_pif_auto_random_title">Update Play Integrity fix (Random)</string>
-    <string name="update_pif_auto_random_summary">Get random spoofing device from Google list. (Requires internet connection.)</string>
-    <string name="show_pif_properties_title">Play Integrity fix properties</string>
-    <string name="show_pif_properties_summary">Show all currently set PIF properties</string>
-    <string name="error_loading_properties">Error loading PIF properties</string>
-    <string name="pif_spoofing_title">Select PIF JSON file</string>
-    <string name="pif_spoofing_summary">Choose the PIF JSON file to be used to spoof Play Integrity</string>
-
-    <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Keybox attestation override</string>
-    <string name="keybox_data_summary">Load a custom keybox XML to override device key attestation</string>
-    <string name="keybox_data_loaded_summary">Custom keybox XML loaded. Delete to clear.</string>
-    <string name="keybox_delete_content_description">Clear keybox data</string>
-    <string name="keybox_toast_invalid_file_selected">Not an XML file. Choose a valid keybox XML.</string>
-    <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
-    <string name="keybox_toast_file_loaded">Keybox loaded</string>
-    <string name="keybox_toast_file_cleared">Keybox cleared</string>
 
     <!-- About -->
     <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>
@@ -1271,11 +1244,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- QS media player -->
     <string name="qs_show_media_player_title">QS Media player</string>
     <string name="qs_show_media_player_summary">Display media controls in Quick Settings</string>
-
-    <!-- Vbmeta hash attestation -->
-    <string name="vbmeta_attestation_title">Autofix VBMeta detection</string>
-    <string name="vbmeta_attestation_summary">Perform key attestation to generate verified boot hash on boot. Requires system restart.</string>
-
 
     <!-- Dynamic Bar -->
     <string name="dynamic_bar">Dynamic Bar</string>

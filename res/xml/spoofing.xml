@@ -12,56 +12,6 @@
         android:key="spoofing_system_wide_category"
         android:title="@string/spoofing_system_wide_category">
 
-        <!-- Vbmeta hash attestation -->
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.vbmeta.update"
-            android:title="@string/vbmeta_attestation_title"
-            android:summary="@string/vbmeta_attestation_summary"
-            android:defaultValue="true" />
-
-        <!-- Keybox Data -->
-        <org.evolution.settings.preferences.KeyboxDataPreference
-            android:key="keybox_data_setting"
-            android:title="@string/keybox_data_title" />
-
-        <!-- GMS spoof -->
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="pi_enable_spoof"
-            android:title="@string/gms_spoof_title"
-            android:summary="@string/gms_spoof_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="pi_vending_spoof"
-            android:title="@string/vending_spoof_title"
-            android:summary="@string/vending_spoof_summary"
-            android:dependency="pi_enable_spoof"
-            android:defaultValue="true" />
-
-        <Preference
-            android:key="show_pif_properties"
-            android:title="@string/show_pif_properties_title"
-            android:summary="@string/show_pif_properties_summary"
-            android:dependency="pi_enable_spoof" />
-
-        <Preference
-            android:key="update_pif_auto_random"
-            android:title="@string/update_pif_auto_random_title"
-            android:summary="@string/update_pif_auto_random_summary"
-            android:dependency="pi_enable_spoof" />
-
-        <Preference
-            android:key="update_pif_json"
-            android:title="@string/update_pif_json_title"
-            android:summary="@string/update_pif_json_summary"
-            android:dependency="pi_enable_spoof" />
-
-        <Preference
-            android:key="pif_json_file_preference"
-            android:title="@string/pif_spoofing_title"
-            android:summary="@string/pif_spoofing_summary"
-            android:dependency="pi_enable_spoof" />
-
         <!-- Pixel props -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="pi_pp_spoof"
