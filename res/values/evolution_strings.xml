@@ -1642,4 +1642,20 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="depthwall_footer_text">
         The depth wallpaper feature, inspired by iOS\'s Wallpaper Subject Segmentation, enables overlaying of a subject above the lockscreen clock to show a wallpaper depth effect.\n\nTo setup Depth Wallpaper Feature:\n1. Set a wallpaper with the subject or a background you want the subject to be above of.\n2. Select a subject image to track, this image will be overlaid above the lockscreen clock.\n3. Modify the offsets and opacity according to your needs.
     </string>
+
+    <!-- Essential Notifications -->
+    <string name="essential_notifications">Essential notifications</string>
+    <string name="essential_notifications_summary">Choose apps always shown in notifications</string>
+    <string name="selected_apps_description">Selected apps will always appear in the notification shade</string>
+    <string name="no_apps_selected">No apps selected</string>
+    <string name="essential_apps_count">%d apps selected</string>
+    <string name="add_apps">Add apps</string>
+    <string name="essential_configured_apps">Configured apps</string>
+    <string name="essential_no_apps_configured">No apps configured</string>
+    <string name="essential_no_apps_available">No apps available</string>
+    <string name="essential_no_apps_found">No results for \"%s\"</string>
+    <string name="essential_remove_title">Remove app</string>
+    <string name="essential_remove_confirm">Remove %s from essential notifications?</string>
+    <string name="remove">Remove</string>
+    <string name="add">Add</string>
 </resources>
