@@ -10,6 +10,18 @@
     android:title="@string/notifications_title">
 
     <PreferenceCategory
+        android:key="notifications_general_category"
+        android:title="@string/general_category_title">
+
+        <Preference
+            android:key="essential_notifications"
+            android:title="@string/essential_notifications"
+            android:summary="@string/essential_notifications_summary"
+            android:fragment="org.evolution.settings.fragments.notifications.EssentialNotificationsSettings" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="heads_up"
         android:title="@string/notifications_heads_up_title">
 
