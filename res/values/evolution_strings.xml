@@ -592,6 +592,9 @@
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
+    <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
+    <string name="spoofing_tensor_enabled">Tensor features enabled</string>
+    <string name="spoofing_tensor_disabled">Tensor features disabled</string>
 
     <!-- About -->
     <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>

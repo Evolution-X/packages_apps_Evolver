@@ -5,15 +5,14 @@
 
 package org.evolution.settings.fragments.miscellaneous;
 
-import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemProperties;
 import android.util.Log;
 import android.widget.Toast;
@@ -22,10 +21,10 @@ import android.util.ArraySet;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.evolution.PixelPropsUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
@@ -52,9 +51,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SNAPCHAT_PACKAGE = "com.snapchat.android";
     private static final String VENDING_PACKAGE = "com.android.vending";
 
-    private static final ArraySet<String> MAINLINE_TENSOR = new ArraySet<>();
     private static final ArraySet<String> TENSOR = new ArraySet<>();
-    private static final boolean IS_MAINLINE_TENSOR;
     private static final boolean IS_TENSOR;
 
     private PreferenceCategory mSystemWideCategory;
@@ -63,12 +60,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mSnapchatSpoof;
     private SwitchPreferenceCompat mTensorSpoof;
 
-    static {
-        Collections.addAll(MAINLINE_TENSOR,
-                "stallion","blazer","frankel","mustang","comet","komodo","caiman","tokay",
-                "akita","husky","shiba"
-        );
+    private Handler mHandler;
+    private Runnable mPendingKill;
 
+    static {
         Collections.addAll(TENSOR,
                 "stallion","blazer","frankel","mustang","tegu","comet","komodo","caiman","tokay",
                 "akita","husky","shiba","felix","tangorpro","lynx","cheetah","panther",
@@ -76,7 +71,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
         );
 
         final String device = SystemProperties.get("ro.evolution.device");
-        IS_MAINLINE_TENSOR = MAINLINE_TENSOR.contains(device);
         IS_TENSOR = TENSOR.contains(device);
     }
 
@@ -87,6 +81,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
+        mHandler = new Handler(Looper.getMainLooper());
 
         mSystemWideCategory = (PreferenceCategory) findPreference(KEY_SYSTEM_WIDE_CATEGORY);
         mPhotosSpoof = (SwitchPreferenceCompat) findPreference(PI_PHOTOS_SPOOF);
@@ -102,7 +97,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
                 Settings.Secure.PI_TENSOR_SPOOF, 0) == 1;
 
         // Google spoof: hide entirely on mainline Tensor devices
-        if (DeviceUtils.isCurrentlySupportedPixel() && IS_MAINLINE_TENSOR) {
+        if (DeviceUtils.isCurrentlySupportedPixel() && PixelPropsUtils.isMainlinePixelDevice()) {
             mSystemWideCategory.removePreference(mGoogleSpoof);
         } else {
             mGoogleSpoof.setOnPreferenceChangeListener(this);
@@ -118,23 +113,56 @@ public class Spoofing extends SettingsPreferenceFragment implements
             }
         }
 
+        if (mSnapchatSpoof != null) {
+            try {
+                getContext().getPackageManager().getPackageInfo(SNAPCHAT_PACKAGE, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                mSystemWideCategory.removePreference(mSnapchatSpoof);
+                mSnapchatSpoof = null;
+            }
+        }
+
         mPhotosSpoof.setChecked(isPhotosEnabled);
         mPhotosSpoof.setOnPreferenceChangeListener(this);
 
-        mSnapchatSpoof.setChecked(isSnapchatEnabled);
-        mSnapchatSpoof.setOnPreferenceChangeListener(this);
+        if (mSnapchatSpoof != null) {
+            mSnapchatSpoof.setChecked(isSnapchatEnabled);
+            mSnapchatSpoof.setOnPreferenceChangeListener(this);
+        }
     }
 
-    private void killPackage(String pkg) {
+    private void scheduleKill(String pkg) {
+        if (mPendingKill != null) {
+            mHandler.removeCallbacks(mPendingKill);
+        }
+        Toast.makeText(getContext(), R.string.spoofing_applying_changes, Toast.LENGTH_SHORT).show();
+        mPendingKill = () -> {
+            if (pkg != null) {
+                killIfRunning(pkg);
+            } else {
+                killGooglePackages();
+            }
+        };
+        mHandler.postDelayed(mPendingKill, 500);
+    }
+
+    private void killIfRunning(String pkg) {
         try {
             ActivityManager am = (ActivityManager)
                     getContext().getSystemService(Context.ACTIVITY_SERVICE);
-            am.getClass()
-                    .getMethod("forceStopPackage", String.class)
-                    .invoke(am, pkg);
-            Log.i(TAG, pkg + " process killed");
+            if (am == null) return;
+            for (ActivityManager.RunningAppProcessInfo proc : am.getRunningAppProcesses()) {
+                if (proc.pkgList == null) continue;
+                for (String p : proc.pkgList) {
+                    if (pkg.equals(p)) {
+                        am.forceStopPackage(pkg);
+                        Log.d(TAG, "Killed: " + pkg);
+                        return;
+                    }
+                }
+            }
         } catch (Exception e) {
-            Log.e(TAG, "Failed to kill package: " + pkg, e);
+            Log.e(TAG, "Kill failed: " + pkg, e);
         }
     }
 
@@ -147,10 +175,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
             PackageManager pm = getContext().getPackageManager();
             for (ApplicationInfo app : pm.getInstalledApplications(0)) {
                 if (app.packageName.startsWith("com.google")) {
-                    killPackage(app.packageName);
+                    killIfRunning(app.packageName);
                 }
             }
-            killPackage(VENDING_PACKAGE);
+            killIfRunning(VENDING_PACKAGE);
         } catch (Exception e) {
             Log.e(TAG, "Failed to kill Google packages", e);
         }
@@ -162,29 +190,48 @@ public class Spoofing extends SettingsPreferenceFragment implements
         boolean enabled = (Boolean) newValue;
 
         if (preference == mSnapchatSpoof) {
+            int current = Settings.Secure.getInt(resolver, Settings.Secure.PI_SNAPCHAT_SPOOF, 0);
+            if ((enabled ? 1 : 0) == current) return true;
             Settings.Secure.putInt(resolver, Settings.Secure.PI_SNAPCHAT_SPOOF, enabled ? 1 : 0);
-            killPackage(SNAPCHAT_PACKAGE);
+            scheduleKill(SNAPCHAT_PACKAGE);
             return true;
         }
+
         if (preference == mPhotosSpoof) {
+            int current = Settings.Secure.getInt(resolver, Settings.Secure.PI_PHOTOS_SPOOF, 1);
+            if ((enabled ? 1 : 0) == current) return true;
             Settings.Secure.putInt(resolver, Settings.Secure.PI_PHOTOS_SPOOF, enabled ? 1 : 0);
-            killPackage(PHOTOS_PACKAGE);
+            scheduleKill(PHOTOS_PACKAGE);
             return true;
         }
+
         if (preference == mGoogleSpoof) {
+            int current = Settings.Secure.getInt(resolver, Settings.Secure.PI_PP_SPOOF, 1);
+            if ((enabled ? 1 : 0) == current) return true;
             Settings.Secure.putInt(resolver, Settings.Secure.PI_PP_SPOOF, enabled ? 1 : 0);
-            killGooglePackages();
+            scheduleKill(null);
             return true;
         }
+
         if (preference == mTensorSpoof) {
+            int current = Settings.Secure.getInt(resolver, Settings.Secure.PI_TENSOR_SPOOF, 0);
+            if ((enabled ? 1 : 0) == current) return true;
             Settings.Secure.putInt(resolver, Settings.Secure.PI_TENSOR_SPOOF, enabled ? 1 : 0);
-            killGooglePackages();
+            scheduleKill(null);
             Toast.makeText(getContext(),
-                    enabled ? "Tensor features enabled" : "Tensor features disabled",
+                    enabled ? R.string.spoofing_tensor_enabled : R.string.spoofing_tensor_disabled,
                     Toast.LENGTH_SHORT).show();
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHandler != null && mPendingKill != null) {
+            mHandler.removeCallbacks(mPendingKill);
+        }
     }
 
     @Override
