@@ -21,7 +21,7 @@ import android.content.res.Resources
 import android.content.om.OverlayInfo
 import android.graphics.Typeface
 
-import com.android.internal.util.android.ThemeUtils
+import com.android.internal.util.evolution.ThemeUtils
 
 class FontManager(context: Context, private val isLockscreen: Boolean) {
 
