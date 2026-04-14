@@ -782,7 +782,7 @@
     <string name="ongoing_progress_footer_text">\"Pasek akcji na pasku stanu zapewnia aktualizacje w czasie rzeczywistym dla odtwarzania multimediów oraz aktywnego pobierania/wysyłania.
 
 Postęp multimediów:
-• Wyświetla postęp odtwarzania dla muzyki i wideo, gdy multimedia są odtwarzane.
+• Wyświetla postęp odtwarzania dla muzyki i filmów, gdy multimedia są odtwarzane.
 • Pojedyncze dotknięcie otwiera sterowanie odtwarzaniem.
 • Podwójne dotknięcie przełącza odtwarzanie/pauzę.
 • Przesunięcie w lewo przełącza na poprzedni utwór.
@@ -1347,9 +1347,9 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="video_wallpaper_current_title">Bieżąca tapeta</string>
     <string name="video_wallpaper_current_summary">Nie wybrano tapety wideo</string>
     <string name="video_wallpaper_pick_title">Wybierz wideo/GIF</string>
-    <string name="video_wallpaper_pick_summary">Wybierz wideo lub animowany obraz</string>
+    <string name="video_wallpaper_pick_summary">Wybierz film lub animowany obraz</string>
     <string name="video_wallpaper_enable_title">Włącz tapetę wideo</string>
-    <string name="video_wallpaper_enable_summary">Zastosuj wybrane wideo jako żywą tapetę</string>
+    <string name="video_wallpaper_enable_summary">Zastosuj wybrany film jako tapetę na żywo</string>
     <string name="video_wallpaper_clear_title">Wyczyść tapetę wideo</string>
     <string name="video_wallpaper_clear_summary">Usuń bieżącą tapetę wideo</string>
     <string name="video_wallpaper_playback">Ustawienia odtwarzania</string>
@@ -1359,10 +1359,10 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <!-- Info section -->
     <string name="video_wallpaper_info_category_title">Informacja</string>
     <string name="video_wallpaper_info_title">Obsługiwane formaty</string>
-    <string name="video_wallpaper_info_summary">Wideo MP4, animacje GIF i WebP\nMaksymalny rozmiar pliku: 50 MB</string>
+    <string name="video_wallpaper_info_summary">Film MP4, animacje GIF i WebP\nMaksymalny rozmiar pliku: 50 MB</string>
     <string name="video_wallpaper_tips_title">Wskazówki</string>
-    <string name="video_wallpaper_tips_summary">• Wideo jest automatycznie wyciszane\n• Wideo o niższej rozdzielczości zużywa mniej baterii\n• Krótsze pętle są zalecane dla lepszej wydajności\n• Jeśli tapeta wideo się nie załaduje, wybierz tapetę animowaną z sekcji Tapeta i styl po wybraniu tapety wideo\n• Po ponownym uruchomieniu urządzenia należy ponownie zastosować tapetę animowaną</string>
-    <string name="video_wallpaper_description">Animowane wideo i tapeta GIF</string>
+    <string name="video_wallpaper_tips_summary">• Filmy są automatycznie wyciszane\n• Filmy o niższej rozdzielczości zużywają mniej baterii\n• Krótsze pętle są zalecane dla lepszej wydajności\n• Jeśli tapeta wideo się nie załaduje, wybierz tapetę animowaną z sekcji Tapeta i styl po wybraniu tapety wideo\n• Po ponownym uruchomieniu urządzenia należy ponownie zastosować tapetę animowaną</string>
+    <string name="video_wallpaper_description">Film animowany i tapeta GIF</string>
     <string name="lunaris_os">Duch</string>
     <!-- Video Wallpaper Strings -->
     <string name="video_wallpaper_cleared">Tapeta wideo wyczyszczona</string>
@@ -1371,7 +1371,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="video_wallpaper_current_none">Nie wybrano tapety wideo</string>
     <string name="video_wallpaper_select_first">Proszę najpierw wybrać tapetę wideo</string>
     <string name="video_wallpaper_select_wallpaper">Wybierz tapetę wideo</string>
-    <string name="video_wallpaper_save_failed">Nie udało się zapisać wybranego wideo lub obrazu</string>
+    <string name="video_wallpaper_save_failed">Nie udało się zapisać wybranego filmu lub obrazu</string>
     <string name="video_wallpaper_apply_prompt">Zastosuj wybraną tapetę wideo ręcznie z ekranu podglądu</string>
     <string name="video_wallpaper_enable_failed">Nie udało się włączyć tapety wideo</string>
     <string name="video_wallpaper_picker_error">Nie można otworzyć selektora. Proszę spróbować ponownie.</string>
