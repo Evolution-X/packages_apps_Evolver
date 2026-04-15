@@ -36,13 +36,13 @@
     <string name="themes_unlock_sound_title">Som de desbloqueio</string>
     <string name="themes_fonts_category">Fontes</string>
     <string name="themes_system_font_title">Fonte do sistema</string>
-    <string name="themes_system_font_summary">Definir o estilo da fonte do sistema</string>
+    <string name="themes_system_font_summary">Definir estilo de fonte do sistema</string>
     <string name="themes_lock_screen_clock_font_title">Fonte do relógio da tela de bloqueio</string>
     <string name="themes_lock_screen_clock_font_summary">Definir estilo da fonte do relógio da tela de bloqueio</string>
     <string name="themes_icons_category">Ícones</string>
     <string name="themes_system_icons_title">Ícones do sistema</string>
     <string name="themes_system_icons_summary">Definir o estilo dos ícones do sistema</string>
-    <string name="themes_icon_shape_title">Estilo dos ícones</string>
+    <string name="themes_icon_shape_title">Formato do ícone</string>
     <string name="themes_icon_shape_summary">Definir o estilo dos ícones do sistema</string>
     <string name="themes_signal_icon_title">Ícone de sinal</string>
     <string name="themes_signal_icon_summary">Definir o estilo do ícone de rede móvel</string>
@@ -73,17 +73,17 @@
     <string name="themes_launcher_force_new_search_bar">Barra de pesquisa renovada</string>
     <string name="themes_launcher_force_new_search_bar_summary">Ativar o novo estilo da barra de pesquisa do Google</string>
     <string name="theme_customization_font_title">Estilo da fonte</string>
-    <string name="theme_customization_font_summary">Definir o estilo da fonte do sistema</string>
+    <string name="theme_customization_font_summary">Definir estilo de fonte do sistema</string>
     <string name="theme_customization_icon_pack_title">Pacote de ícones</string>
-    <string name="theme_customization_icon_pack_summary">Definir pacote de ícones personalizado</string>
-    <string name="theme_customization_icon_shape_title">Estilo dos ícones</string>
-    <string name="theme_customization_icon_shape_summary">Definir o estilo dos ícones do sistema</string>
+    <string name="theme_customization_icon_pack_summary">Definir estilo de pacote de ícones personalizado</string>
+    <string name="theme_customization_icon_shape_title">Formato do ícone</string>
+    <string name="theme_customization_icon_shape_summary">Definir estilo de forma de ícone do sistema</string>
     <string name="theme_customization_signal_icon_title">Estilo do ícone de rede</string>
-    <string name="theme_customization_signal_icon_summary">Definir ícone de rede móvel personalizado</string>
+    <string name="theme_customization_signal_icon_summary">Definir estilo de ícone de rede personalizado</string>
     <string name="theme_customization_wifi_icon_title">Estilo do ícone Wi-Fi</string>
     <string name="theme_customization_wifi_icon_summary">Definir ícone de wi-fi personalizado</string>
     <string name="theme_customization_navbar_title">Estilo da barra de navegação</string>
-    <string name="theme_customization_navbar_summary">Definir estilo personalizado para a barra de navegação</string>
+    <string name="theme_customization_navbar_summary">Definir estilo personalizado da barra de navegação</string>
     <string name="theme_customization_lock_clock_title">Estilo de fonte do relógio</string>
     <string name="theme_customization_lock_clock_summary">Definir estilo da fonte do relógio na tela de bloqueio</string>
     <string name="theme_customization_brightness_slider_title">Estilo da barra de brilho</string>
@@ -275,9 +275,9 @@
     <string name="status_bar_carrier_lock_screen_title">Nome da transportadora</string>
     <string name="status_bar_carrier_lock_screen_summary">Exibir o nome da operadora na barra de status da tela de bloqueio</string>
     <string name="status_bar_lyric_title">Letras na barra de status</string>
-    <string name="status_bar_lyric_summary">Mostrar letras na barra de status (precisa ser suportado pelo aplicativo)</string>
+    <string name="status_bar_lyric_summary">Mostrar letra na barra de status (precisa de suporte do aplicativo)</string>
     <string name="status_bar_lyric_options_title">Opções</string>
-    <string name="disguise_props_for_music_app_title">Disfarçar o dispositivo para aplicativos de música</string>
+    <string name="disguise_props_for_music_app_title">Dispositivo disfarçado para aplicativos de música</string>
     <string name="disguise_props_for_music_app_summary">Disfarce o dispositivo em alguns aplicativos de música para suportar o recurso de \"letras na barra de status\". Após alterar, é necessário reiniciar o aplicativo para que a alteração tenha efeito.</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Estilo de relógio</string>
@@ -686,8 +686,8 @@
     <string name="depth_wallpaper_offset_y_title">Deslocamento vertical do papel de parede com profundidade</string>
     <string name="dw_footer_text">O recurso de papel de parede de profundidade, inspirado na segmentação de temas de papel de parede do iOS, permite sobrepor um tema acima do relógio da tela de bloqueio para exibir um efeito de profundidade de papel de parede. \n\nPara configurar o recurso de papel de parede de profundidade:\n1. Defina um papel de parede com o tema ou um plano de fundo sobre o qual você deseja que o tema fique.\n2. Selecione uma imagem de tema para rastrear; esta imagem será sobreposta acima do relógio da tela de bloqueio.\n3. Modifique os deslocamentos e a opacidade de acordo com suas necessidades    </string>
     <!-- Lock screen media art -->
-    <string name="ls_media_art_title">Arte de mídia</string>
-    <string name="ls_media_art_summary">Mostrar capa do álbum quando disponível</string>
+    <string name="ls_media_art_title">Arte de capa da mídia</string>
+    <string name="ls_media_art_summary">Exibir capa de mídia quando disponível</string>
     <!-- Lock screen media art on Ambient Display -->
     <string name="ambient_media_art_title">Capa de mídia ambiente</string>
     <string name="ambient_media_art_summary">Exibir capa do álbum no visor ambiente quando disponível</string>
@@ -906,7 +906,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="statusbar_extra_padding_end_title">Preenchimento final</string>
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Bloquear sensores por pacote</string>
-    <string name="sensor_block_summary">Bloquear o acesso de alguns apps a certos sensores para poupar bateria</string>
+    <string name="sensor_block_summary">Bloqueie o acesso a determinados sensores de alguns aplicativos para economizar bateria</string>
     <string name="sensor_block_app_picker_title">Bloquear sensores para estes aplicativos</string>
     <string name="add_sensor_block_package_title">Adicionar aplicativos ao \"bloqueio de sensores\"</string>
     <string name="add_sensor_block_package_summary">Sensores significativos de movimento, acelerômetro e aceleração linear serão bloqueados para esses aplicativos</string>
@@ -914,7 +914,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="flashlight_on_call_title">Piscar lanterna ao receber ligações</string>
     <string name="flashlight_on_call_disabled">Desativado</string>
     <string name="flashlight_on_call_ringer">Ao tocar</string>
-    <string name="flashlight_on_call_no_ringer">Quando o toque estiver silenciado</string>
+    <string name="flashlight_on_call_no_ringer">Quando o toque está silencioso</string>
     <string name="flashlight_on_call_silent">Quando totalmente silencioso (sem toque ou vibração)</string>
     <string name="flashlight_on_call_always">Sempre</string>
     <string name="flashlight_on_call_ignore_dnd_title">Ignorar Não Perturbe</string>
@@ -1454,7 +1454,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="gs_enable_summary">propriedades do dispositivo mascarar para jogos configurados</string>
     <string name="gs_add_app">Adicionar jogo</string>
     <string name="gs_add_app_summary">Selecione um aplicativo e perfil de dispositivo para mascarar</string>
-    <string name="gs_reload">Atualizar</string>
+    <string name="gs_reload">Recarregar</string>
     <string name="gs_reload_summary">Recarregar configuração do disco</string>
     <string name="gs_configured_apps">Jogos configurados</string>
     <string name="gs_no_apps">Nenhum jogo configurado</string>
