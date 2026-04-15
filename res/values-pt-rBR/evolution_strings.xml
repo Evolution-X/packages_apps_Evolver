@@ -15,7 +15,7 @@
     <string name="status_bar_title">Barra de status</string>
     <string name="status_bar_summary">Gestos, ícones, logotipo, preenchimento</string>
     <string name="quick_settings_title">Configurações rápidas</string>
-    <string name="quick_settings_summary">Interface, deslizante de brilho, layout</string>
+    <string name="quick_settings_summary">Interface, controle deslizante de brilho, layout</string>
     <string name="notifications_title">Notificações</string>
     <string name="notifications_summary">Notificações flutuantes, luz de borda, sons</string>
     <string name="power_menu_title">Menu de energia</string>
@@ -38,7 +38,7 @@
     <string name="themes_system_font_title">Fonte do sistema</string>
     <string name="themes_system_font_summary">Definir estilo de fonte do sistema</string>
     <string name="themes_lock_screen_clock_font_title">Fonte do relógio da tela de bloqueio</string>
-    <string name="themes_lock_screen_clock_font_summary">Definir estilo da fonte do relógio da tela de bloqueio</string>
+    <string name="themes_lock_screen_clock_font_summary">Definir estilo da fonte do relógio na tela de bloqueio</string>
     <string name="themes_icons_category">Ícones</string>
     <string name="themes_system_icons_title">Ícones do sistema</string>
     <string name="themes_system_icons_summary">Definir o estilo dos ícones do sistema</string>
@@ -459,7 +459,7 @@
     <string name="quick_settings_footer_category">Rodapé</string>
     <string name="quick_settings_footer_edit_icon_title">Ícone editar (lápis)</string>
     <string name="quick_settings_footer_show_power_menu_title">Atalho do menu de energia</string>
-    <string name="quick_settings_footer_settings_icon_title">Atalho para as configurações</string>
+    <string name="quick_settings_footer_settings_icon_title">Atalho de configurações</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Notificações flutuantes</string>
     <string name="notifications_heads_up_summary">Permitir notificações pop-up</string>
@@ -483,7 +483,7 @@
     <string name="edge_light_style_title">Estilo de renderização</string>
     <string name="edge_light_style_default">Padrão (esquerda/direita)</string>
     <string name="edge_light_style_frame">Quadro (todos os lados)</string>
-    <string name="edge_light_animation_effect_title">Estilo da animação</string>
+    <string name="edge_light_animation_effect_title">Efeito de animação</string>
     <string name="edge_light_animation_effect_none">Padrão</string>
     <string name="edge_light_animation_effect_breathing">Respirando</string>
     <string name="edge_light_animation_effect_wave">Onda</string>
@@ -495,7 +495,7 @@
     <string name="notifications_less_boring_heads_up_summary">Exibir notificações pop-up apenas para aplicativos de alarme, discador e mensagens</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interface</string>
-    <string name="power_menu_actions_title">Ações do menu liga/desliga</string>
+    <string name="power_menu_actions_title">Opções do menu de energia</string>
     <string name="power_menu_actions_summary">Escolha quais ações são exibidas</string>
     <string name="power_menu_advanced_title">Menu de reinicialização avançada</string>
     <string name="power_menu_lock_screen_category">Tela de bloqueio</string>
@@ -623,7 +623,7 @@
     <string name="qs_header_style3">Analógico</string>
     <string name="qs_header_style4">Simples</string>
     <!-- Notification Styles -->
-    <string name="notif_style_title">Estilo de notificação</string>
+    <string name="notif_style_title">Estilo da notificação</string>
     <string name="notif_style1">Cyberpunk</string>
     <string name="notif_style2">Duas linhas</string>
     <string name="notif_style3">Fluído (transparente)</string>
