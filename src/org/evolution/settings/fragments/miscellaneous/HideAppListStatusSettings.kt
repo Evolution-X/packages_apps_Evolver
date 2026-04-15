@@ -97,7 +97,8 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
 
     /** @return an initial list of packages that should appear as selected. */
     private fun getInitialCheckedList(): List<String> {
-        val flattenedString = Settings.Secure.getString(requireContext().contentResolver, getKey())
+        val ctx = context ?: return emptyList()
+        val flattenedString = Settings.Secure.getString(ctx.contentResolver, getKey())
         return flattenedString?.takeIf { it.isNotBlank() }?.split(",")?.toList() ?: emptyList()
     }
 
@@ -141,6 +142,7 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     searchText = newText
+                    if (!isAdded) return true
                     refreshList()
                     return true
                 }
@@ -197,12 +199,13 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
      * @param list a [List<String>] of selected items.
      */
     private fun onListUpdate(packageName: String, isChecked: Boolean) {
+        val ctx = context ?: return
         if (packageName.isBlank()) return
         for (info in userInfos) {
             if (isChecked) {
-                hideAppListUtils.addApp(requireContext(), packageName, info.id)
+                hideAppListUtils.addApp(ctx, packageName, info.id)
             } else {
-                hideAppListUtils.removeApp(requireContext(), packageName, info.id)
+                hideAppListUtils.removeApp(ctx, packageName, info.id)
             }
         }
         try {
