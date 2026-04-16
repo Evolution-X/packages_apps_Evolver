@@ -9,7 +9,7 @@
     <string name="evolver_dashboard_summary">Evolua seu dispositivo, do seu jeito</string>
     <!-- Categories -->
     <string name="themes_title">Temas</string>
-    <string name="themes_summary">Tema, fontes, ícones</string>
+    <string name="themes_summary">Tema, fontes, ícones, animações</string>
     <string name="lock_screen_title">Tela de bloqueio</string>
     <string name="lock_screen_summary">Interface, Tocando Agora, Impressão digital</string>
     <string name="status_bar_title">Barra de status</string>
@@ -23,7 +23,7 @@
     <string name="buttons_title">Botões</string>
     <string name="buttons_summary">Botão liga/desliga, botões de volume</string>
     <string name="miscellaneous_title">Diversos</string>
-    <string name="miscellaneous_summary">Opções de desenvolvedor, mascaramento</string>
+    <string name="miscellaneous_summary">Mascaramento, opções de desenvolvedor</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Sobre Evolution X</string>
     <string name="general_category_title">Geral</string>
@@ -31,7 +31,7 @@
     <!-- Themes -->
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Configurações do tema Monet</string>
-    <string name="themes_monet_summary">Personalize o mecanismo de tema integrados do Android</string>
+    <string name="themes_monet_summary">Personalize o mecanismo de tema integrado do Android</string>
     <string name="themes_audio_category">Áudio</string>
     <string name="themes_lock_sound_title">Som de bloqueio</string>
     <string name="themes_unlock_sound_title">Som de desbloqueio</string>
@@ -44,22 +44,22 @@
     <string name="themes_system_icons_title">Ícones do sistema</string>
     <string name="themes_system_icons_summary">Definir o estilo dos ícones do sistema</string>
     <string name="themes_icon_shape_title">Formato do ícone</string>
-    <string name="themes_icon_shape_summary">Definir o estilo dos ícones do sistema</string>
+    <string name="themes_icon_shape_summary">Definir formato do ícone do sistema</string>
     <string name="themes_signal_icon_title">Ícone de sinal</string>
-    <string name="themes_signal_icon_summary">Definir o estilo do ícone de rede móvel</string>
+    <string name="themes_signal_icon_summary">Definir estilo do ícone de sinal</string>
     <string name="themes_wifi_icon_title">Estilo do ícone Wi-Fi</string>
     <string name="themes_wifi_icon_summary">Definir o estilo do ícone de wi-fi</string>
     <string name="themes_navigation_bar_icons_title">Ícones da barra de navegação</string>
-    <string name="themes_navigation_bar_icons_summary">Definir estilo personalizado para a barra de navegação</string>
+    <string name="themes_navigation_bar_icons_summary">Definir o estilo do ícone da barra de navegação</string>
     <string name="themes_udfps_icon_title">Ícone de impressão digital</string>
-    <string name="themes_udfps_icon_summary">Definir ícone de impressão digital</string>
+    <string name="themes_udfps_icon_summary">Definir estilo do ícone da impressão digital</string>
     <string name="themes_brightness_category">Controle de brilho</string>
-    <string name="themes_brightness_slider_title">Estilo da barra de brilho</string>
-    <string name="themes_brightness_slider_summary">Definir o estilo da barra de brilho</string>
+    <string name="themes_brightness_slider_title">Estilo do controle deslizante de brilho</string>
+    <string name="themes_brightness_slider_summary">Definir estilo do controle deslizante de brilho</string>
     <string name="themes_animations_category">Animações</string>
     <string name="themes_boot_animation_title">Animação de inicialização</string>
     <string name="themes_boot_animation_summary">Definir estilo de animação de inicialização</string>
-    <string name="themes_charging_animation_title">Animação ao carregar</string>
+    <string name="themes_charging_animation_title">Animação de ondulação ao carregar</string>
     <string name="themes_charging_animation_summary">Exibir uma animação quando o dispositivo for conectado</string>
     <string name="themes_screen_off_animation_title">Animação ao desligar a tela</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
@@ -70,7 +70,7 @@
     <string name="themes_launcher_background_blur_title">Desfoque de fundo</string>
     <string name="themes_launcher_background_blur_summary">Ativar o efeito de desfoque para a página de fundo dos itens recentes</string>
     <string name="themes_launcher_more_themed_icons_title">Mais ícones temáticos</string>
-    <string name="themes_launcher_more_themed_icons_summary">Estender suporte a ícones temáticos para aplicativos instalados</string>
+    <string name="themes_launcher_more_themed_icons_summary">Estende o suporte para ícones temáticos de cores dinâmicas para aplicativos instalados</string>
     <string name="themes_launcher_force_new_search_bar">Barra de pesquisa renovada</string>
     <string name="themes_launcher_force_new_search_bar_summary">Ativar o novo estilo da barra de pesquisa do Google</string>
     <string name="theme_customization_font_title">Estilo da fonte</string>
@@ -86,27 +86,27 @@
     <string name="theme_customization_navbar_title">Estilo da barra de navegação</string>
     <string name="theme_customization_navbar_summary">Definir estilo personalizado da barra de navegação</string>
     <string name="theme_customization_lock_clock_title">Estilo de fonte do relógio</string>
-    <string name="theme_customization_lock_clock_summary">Definir estilo da fonte do relógio na tela de bloqueio</string>
-    <string name="theme_customization_brightness_slider_title">Estilo da barra de brilho</string>
-    <string name="theme_customization_brightness_slider_summary">Definir estilo de barra de brilho personalizada</string>
+    <string name="theme_customization_lock_clock_summary">Definir estilo de fonte do relógio da tela de bloqueio</string>
+    <string name="theme_customization_brightness_slider_title">Estilo do controle deslizante de brilho</string>
+    <string name="theme_customization_brightness_slider_summary">Definir estilo de controle deslizante de brilho personalizado</string>
     <!-- Themes/Boot animation preview -->
-    <string name="boot_animation_preview_desc">Prévia da animação de inicialização selecionada</string>
-    <string name="boot_animation_preview_summary">Exibe a animação de inicialização atualmente selecionada</string>
-    <string name="boot_animation_preview_title">Prévia da animação de inicialização</string>
+    <string name="boot_animation_preview_desc">Pré-visualização da animação de inicialização selecionada</string>
+    <string name="boot_animation_preview_summary">Exibe uma prévia da animação de inicialização atualmente selecionada</string>
+    <string name="boot_animation_preview_title">Visualização da animação de inicialização</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Cor de destaque</string>
-    <string name="monet_engine_custom_color_summary">Escolher cor de destaque personalizada</string>
+    <string name="monet_engine_custom_color_summary">Escolha uma cor personalizada para destaque</string>
     <string name="monet_engine_custom_bgcolor_title">Cor de fundo</string>
-    <string name="monet_engine_custom_bgcolor_summary">Escolher cor de fundo personalizada</string>
+    <string name="monet_engine_custom_bgcolor_summary">Escolha uma cor personalizada para o fundo</string>
     <string name="monet_engine_color_override_title">Cor personalizada</string>
     <string name="monet_engine_luminance_factor_title">Luminância</string>
     <string name="monet_engine_luminance_factor_summary">Valores mais altos produzem cores mais brilhantes</string>
-    <string name="monet_engine_chroma_factor_title">Fator cromático</string>
+    <string name="monet_engine_chroma_factor_title">Fator croma</string>
     <string name="monet_engine_chroma_factor_summary">Valores mais altos produzem cores mais fortes</string>
     <string name="monet_engine_whole_palette_title">Paleta inteira</string>
-    <string name="monet_engine_whole_palette_summary">Faça com que a seleção de Luminância e Croma afete também as cores secundárias</string>
+    <string name="monet_engine_whole_palette_summary">Faça com que a seleção de Luminância e Croma também afete as cores secundárias</string>
     <string name="monet_engine_tint_background_title">Tonalidade de fundo</string>
-    <string name="monet_engine_tint_background_summary">Faça com que a seleção de luminância e fator cromático também afete as cores de fundo</string>
+    <string name="monet_engine_tint_background_summary">Faça com que a seleção de luminância e croma também afete as cores de fundo</string>
     <string name="monet_engine_style_title">Estilo do tema</string>
     <string name="monet_engine_style_tonal_spot">Cores destacadas (padrão)</string>
     <string name="monet_engine_style_vibrant">Vibrante</string>
@@ -125,12 +125,12 @@
     <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_category">Carregando</string>
     <string name="lock_screen_charging_stats_title">Estatísticas de carregamento</string>
-    <string name="lock_screen_charging_stats_summary">Exibir estatísticas de corrente, voltagem, wattagem e temperatura ao carregar</string>
+    <string name="lock_screen_charging_stats_summary">Exibir estatísticas de corrente, tensão, potência e temperatura durante o carregamento</string>
     <string name="lock_screen_charging_time_title">Tempo de carregamento</string>
     <string name="lock_screen_charging_time_summary">Exibir o tempo restante para o carregamento terminar</string>
     <string name="lock_screen_fingerprint_category">Impressão digital</string>
-    <string name="lock_screen_fingerprint_ripple_title">Animação de ondulação</string>
-    <string name="lock_screen_fingerprint_ripple_summary">Mostrar animação de ondulação quando desbloqueado com impressão digital</string>
+    <string name="lock_screen_fingerprint_ripple_title">Animação ondulada</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Mostrar animação ondulada quando desbloqueado com impressão digital</string>
     <string name="lock_screen_fingerprint_success_vibration_title">Vibração de sucesso de autenticação</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Vibrar quando a autenticação de impressão digital for bem-sucedida</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Vibração de erro de autenticação</string>
@@ -138,23 +138,23 @@
     <string name="lock_screen_miscellaneous_category">Diversos</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Visualizador de pulso</string>
-    <string name="pulse_settings_summary">Mostrar visualizador na tela de bloqueio quando uma música estiver sendo reproduzida</string>
+    <string name="pulse_settings_summary">Mostrar um visualizador de barra na tela de bloqueio enquanto a música está tocando</string>
     <string name="ambient_pulse_enabled_title">Pulse na tela ambiente</string>
     <string name="ambient_pulse_enabled_summary">Mostrar visualizador na tela ambiente</string>
-    <string name="pulse_rounded_bars_title">Cantos arredondados</string>
+    <string name="pulse_rounded_bars_title">Barras arredondadas</string>
     <string name="pulse_rounded_bars_summary">Exibir barras do visualizador com cantos arredondados</string>
-    <string name="pulse_color">Visualizador de cor</string>
+    <string name="pulse_color">Cor do visualizador</string>
     <string name="pulse_color_lavalamp">Lâmpada de lava</string>
     <string name="pulse_color_album">Arte do álbum</string>
     <string name="pulse_color_accent">Cor de destaque</string>
     <string name="pulse_bar_count_title">Número de barras</string>
-    <string name="pulse_bar_count_summary">Definir quantas barras são mostradas no visualizador</string>
+    <string name="pulse_bar_count_summary">Defina quantas barras são mostradas no visualizador</string>
     <string name="pulse_bar_count_units">barras</string>
     <string name="pulse_renderer">Estilo do visualizador</string>
     <string name="pulse_renderer_solid">Linhas sólidas</string>
     <string name="pulse_renderer_fading">Blocos desbotados</string>
     <string name="pulse_renderer_neon_glow">Brilho de néon</string>
-    <string name="pulse_renderer_retro_vu_meter">Medidor Retro VU</string>
+    <string name="pulse_renderer_retro_vu_meter">Medidor VU retrô</string>
     <string name="pulse_renderer_minimal_wave">Onda mínima</string>
     <string name="pulse_renderer_sparkle">Brilho</string>
     <string name="pulse_renderer_matrix">Matriz</string>
@@ -170,8 +170,8 @@
     <string name="theme_customization_lock_clock_face_summary">Modificar aparência do relógio na tela de bloqueio</string>
     <!-- Status bar -->
     <string name="status_bar_brightness_control_title">Controle de brilho</string>
-    <string name="status_bar_brightness_control_summary">Ajustar brilho deslizando pela barra de status</string>
-    <string name="status_bar_quick_pull_down_title">Puxar rápido para baixo</string>
+    <string name="status_bar_brightness_control_summary">Ajuste o brilho deslizando pela barra de status</string>
+    <string name="status_bar_quick_pull_down_title">Puxar rapidamente para baixo</string>
     <string name="status_bar_quick_pull_down_summary">%1$s da barra de status puxa para baixo as configurações rápidas</string>
     <string name="status_bar_quick_pull_down_off">Desativado</string>
     <string name="status_bar_quick_pull_down_right">Lado direito</string>
@@ -262,17 +262,17 @@
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Amogus</string>
     <string name="status_bar_network_traffic_settings_title">Monitor de tráfego de rede</string>
-    <string name="status_bar_network_traffic_settings_summary">Opções de visualização do monitor de tráfego de rede</string>
+    <string name="status_bar_network_traffic_settings_summary">Exibir e personalizar os níveis atuais de tráfego de rede</string>
     <string name="status_bar_notif_count_title">Contador de notificações</string>
     <string name="status_bar_notif_count_summary">Exibir o número de notificações não lidas em cada ícone de aplicativo</string>
     <string name="status_bar_privacy_indicators_category">Indicadores de privacidade</string>
     <string name="status_bar_mic_camera_privacy_indicator_title">Microfone &amp; câmera</string>
-    <string name="status_bar_mic_camera_privacy_indicator_summary">Mostrar um indicador quando um aplicativo acessar o microfone ou câmera</string>
-    <string name="status_bar_location_privacy_indicator_title">Local</string>
-    <string name="status_bar_location_privacy_indicator_summary">Exibir um indicador quando um aplicativo acessar a sua localização</string>
+    <string name="status_bar_mic_camera_privacy_indicator_summary">Exibir um indicador quando um aplicativo acessar o microfone ou a câmera</string>
+    <string name="status_bar_location_privacy_indicator_title">Localização</string>
+    <string name="status_bar_location_privacy_indicator_summary">Exibir um indicador quando um aplicativo acessar sua localização</string>
     <string name="status_bar_projection_privacy_indicator_title">Projeção de tela</string>
     <string name="status_bar_projection_privacy_indicator_summary">Exibir um indicador quando a tela estiver sendo projetada</string>
-    <string name="status_bar_carrier_lock_screen_title">Nome da transportadora</string>
+    <string name="status_bar_carrier_lock_screen_title">Nome da operadora</string>
     <string name="status_bar_carrier_lock_screen_summary">Exibir o nome da operadora na barra de status da tela de bloqueio</string>
     <string name="status_bar_lyric_title">Letras na barra de status</string>
     <string name="status_bar_lyric_summary">Mostrar letra na barra de status (precisa de suporte do aplicativo)</string>
@@ -312,22 +312,22 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="status_bar_clock_date_left">À esquerda do relógio</string>
     <!-- Statusbar Clock background chip -->
     <string name="statusbar_clock_chip_title">Chip de fundo do relógio</string>
-    <string name="statusbar_clock_chip_summary">Selecione um chip de fundo personalizado para trás do relógio</string>
+    <string name="statusbar_clock_chip_summary">Selecione o chip de fundo personalizado atrás do relógio</string>
     <string name="solid_accent">Destaque de cor sólida</string>
     <string name="outline">Contorno</string>
-    <string name="solid_accent_gradient">Gradiente de cor sólida com destaque</string>
+    <string name="solid_accent_gradient">Gradiente de destaque de cor sólida</string>
     <string name="solid_gradient">Lateral com gradiente sólido</string>
-    <string name="solid_gradient_corner">Gradiente de destaque sólido nítido</string>
+    <string name="solid_gradient_corner">Gradiente de acento sólido nítido</string>
     <string name="solid_gradient_void">Vazio gradiente</string>
-    <string name="solid_gradient_neumorph">Gradiente Neumorph</string>
+    <string name="solid_gradient_neumorph">Gradiente neumorfo</string>
     <string name="solid_gradient_stroke">Traço de gradiente acentuado</string>
     <string name="solid_accent_transperent">Transparente acentuado</string>
     <string name="solid_gradient_light">Luz gradiente</string>
     <string name="solid_gradient_shape">Canto com gradiente acentuado</string>
-    <string name="solid_gradient_void_light">Luz do Vazio Gradiente</string>
-    <string name="clock_chip_custom_gradient">Gradiente Customizado</string>
+    <string name="solid_gradient_void_light">Luz gradiente vazia</string>
+    <string name="clock_chip_custom_gradient">Gradiente personalizado</string>
     <!-- Start color picker -->
-    <string name="clock_chip_gradient_start_color_title">Cor inicial gradiente</string>
+    <string name="clock_chip_gradient_start_color_title">Cor inicial do gradiente</string>
     <string name="clock_chip_gradient_start_color_summary">Cor no início do gradiente</string>
     <!-- End color picker -->
     <string name="clock_chip_gradient_end_color_title">Cor final do gradiente</string>
@@ -343,7 +343,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="network_traffic_location_title">Local</string>
     <string name="network_traffic_location_disable">Desativado</string>
     <string name="network_traffic_location_statusbar">Barra de status</string>
-    <string name="network_traffic_location_quick_statusbar">Cabeçalho do painel</string>
+    <string name="network_traffic_location_quick_statusbar">Barra de status rápida</string>
     <string name="network_traffic_mode_title">Modo de exibição</string>
     <string name="network_traffic_mode_up">Apenas upload</string>
     <string name="network_traffic_mode_down">Apenas download</string>
@@ -447,16 +447,16 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_header_file_select_summary">Selecionar imagem personalizada</string>
     <string name="quick_settings_header_needs_gallery">Você deve instalar um aplicativo de galeria!</string>
     <string name="quick_settings_header_offset_title">Deslocamento da imagem do cabeçalho</string>
-    <string name="quick_settings_header_offset_summary">Ajustar o tamanho do cabeçalho da imagem</string>
+    <string name="quick_settings_header_offset_summary">Ajuste o tamanho do cabeçalho da imagem</string>
     <string name="quick_settings_transparency_title">Transparência do fundo</string>
     <string name="quick_settings_transparency_summary">Defina o nível de transparência para o fundo do painel de configurações rápidas</string>
-    <string name="quick_settings_tile_shape_title">Formato dos ícones de configurações rápidas</string>
+    <string name="quick_settings_tile_shape_title">Formato dos blocos de configurações rápidas</string>
     <string name="quick_settings_tile_shape_dynamic">Dinâmico</string>
     <string name="quick_settings_tile_shape_circle">Círculo</string>
     <string name="quick_settings_tile_shape_rounded_square_smooth">Quadrado arredondado (suave)</string>
     <string name="quick_settings_tile_shape_rounded_square">Cantos arredondados</string>
     <string name="quick_settings_tile_shape_square">Quadrado</string>
-    <string name="quick_settings_tile_haptic_summary">Vibrar ao tocar nos ícones de configurações rápidas</string>
+    <string name="quick_settings_tile_haptic_summary">Fornece feedback tátil ao tocar em blocos de configurações rápidas</string>
     <!-- QS footer icons -->
     <string name="quick_settings_footer_category">Rodapé</string>
     <string name="quick_settings_footer_edit_icon_title">Ícone editar (lápis)</string>
@@ -498,7 +498,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interface</string>
     <string name="power_menu_actions_title">Opções do menu de energia</string>
-    <string name="power_menu_actions_summary">Escolha quais ações são exibidas</string>
+    <string name="power_menu_actions_summary">Escolha quais ações serão exibidas</string>
     <string name="power_menu_advanced_title">Menu de reinicialização avançada</string>
     <string name="power_menu_lock_screen_category">Tela de bloqueio</string>
     <string name="power_menu_lock_screen_secure_title">Mostrar na tela de bloqueio segura</string>
@@ -518,25 +518,25 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="power_menu_actions_devicecontrols_title">Controle do dispositivo</string>
     <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Reinicialização avançada</string>
-    <string name="advanced_reboot_summary">Quando desbloqueado, incluir opções de reinicialização avançada no menu de energia</string>
+    <string name="advanced_reboot_summary">Quando desbloqueado, inclui opções no menu de energia para reiniciar em recovery ou bootloader</string>
     <string name="advanced_reboot_secured_title">Tela de bloqueio segura</string>
-    <string name="advanced_reboot_secured_summary">Mostrar opções avançadas de reinicialização na tela de bloqueio protegida</string>
+    <string name="advanced_reboot_secured_summary">Exibir opções avançadas de reinicialização na tela de bloqueio segura</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Mascarar dispositivo</string>
     <string name="miscellaneous_developer_options_category">Opções do desenvolvedor</string>
-    <string name="miscellaneous_app_downgrade_title">Permitir retornar para versões anteriores do aplicativo</string>
-    <string name="miscellaneous_app_downgrade_summary">Permitir downgrade de aplicativos do sistema, que podem resultar em falhas e perda de dados</string>
+    <string name="miscellaneous_app_downgrade_title">Permitir downgrade do aplicativo</string>
+    <string name="miscellaneous_app_downgrade_summary">Permitir o downgrade de aplicativos do sistema, o que pode resultar em travamentos e perda de dados</string>
     <string name="miscellaneous_pairip_activity_block_title">Bloquear verificação de licença PairIP</string>
-    <string name="miscellaneous_pairip_activity_block_summary">Impedir que aplicativos na Play Store iniciem a tela \"Obtenha este aplicativo da Play\" quando não estiver instalado pela Play Store</string>
-    <string name="miscellaneous_block_wallpaper_dimming_title">Ignorar pedidos de escurecimento do papel de parede</string>
-    <string name="miscellaneous_block_wallpaper_dimming_summary">Impede que todos os aplicativos definam o escurecimento do papel de parede\nForça o escurecimento para 0</string>
+    <string name="miscellaneous_pairip_activity_block_summary">Impedir que aplicativos da Play Store iniciem a tela \"Obter este aplicativo no Play\" quando não instalados pela Play Store</string>
+    <string name="miscellaneous_block_wallpaper_dimming_title">Ignorar solicitações de escurecimento do papel de parede</string>
+    <string name="miscellaneous_block_wallpaper_dimming_summary">Impede que todos os aplicativos definam o papel de parede esmaecido\nForça o escurecimento para 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignorar restrições de captura de tela</string>
-    <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas e gravações de tela para todos os aplicativos, correndo potencialmente o risco de vazamentos de privacidade</string>
+    <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas de tela e gravações de tela para todos os aplicativos, potencialmente arriscando vazamentos de privacidade</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela sem limite</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remova o limite de tamanho de arquivo 15GiB\nPode resultar em um arquivo de saída maior que o necessário</string>
     <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Ocultar lista de apps</string>
-    <string name="hide_applist_summary">Impedir que aplicativos verifiquem apps selecionados de uma lista de aplicativos</string>
+    <string name="hide_applist_title">Ocultar lista de aplicativos</string>
+    <string name="hide_applist_summary">Impedir que aplicativos verifiquem aplicativos selecionados da lista de aplicativos</string>
     <string name="menu_show_overlay">Mostrar sobreposições</string>
     <string name="menu_hide_overlay">Ocultar as sobreposições</string>
     <!-- Miscellaneous/Smart Pixels -->
