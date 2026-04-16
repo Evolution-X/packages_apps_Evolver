@@ -278,7 +278,9 @@
     <string name="status_bar_lyric_summary">Mostrar letra na barra de status (precisa de suporte do aplicativo)</string>
     <string name="status_bar_lyric_options_title">Opções</string>
     <string name="disguise_props_for_music_app_title">Dispositivo disfarçado para aplicativos de música</string>
-    <string name="disguise_props_for_music_app_summary">Disfarce o dispositivo em alguns aplicativos de música para suportar o recurso de \"letras na barra de status\". Após alterar, é necessário reiniciar o aplicativo para que a alteração tenha efeito.</string>
+    <string name="disguise_props_for_music_app_summary">Disfarce o dispositivo em alguns aplicativos de música para suportar o recurso de \"letras na barra de status\". Após alterar, é necessário reiniciar o aplicativo para que a alteração tenha efeito.
+
+Dispositivo de disfarce em alguns aplicativos de música para suporte à barra de status da letra. Depois de alterar essa alternância, você deve reiniciar os aplicativos para que a alteração tenha efeito.</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Estilo de relógio</string>
     <string name="status_bar_clock_position_right">Direita</string>
@@ -312,7 +314,7 @@
     <string name="statusbar_clock_chip_title">Chip de fundo do relógio</string>
     <string name="statusbar_clock_chip_summary">Selecione um chip de fundo personalizado para trás do relógio</string>
     <string name="solid_accent">Destaque de cor sólida</string>
-    <string name="outline">Contornado</string>
+    <string name="outline">Contorno</string>
     <string name="solid_accent_gradient">Gradiente de cor sólida com destaque</string>
     <string name="solid_gradient">Lateral com gradiente sólido</string>
     <string name="solid_gradient_corner">Gradiente de destaque sólido nítido</string>
@@ -367,9 +369,9 @@
     <string name="quick_settings_tile_ui_style_a11_square">Blocos quadrados</string>
     <string name="quick_settings_tile_ui_style_a11_mix">Blocos redondos e quadrados</string>
     <string name="quick_settings_panel_style_title">Estilo do painel de configurações rápidas</string>
-    <string name="quick_settings_panel_style_outline">Contornado</string>
+    <string name="quick_settings_panel_style_outline">Contorno</string>
     <string name="quick_settings_panel_style_two_tone">Dois tons de destaque</string>
-    <string name="quick_settings_panel_style_color_pop">Colorido</string>
+    <string name="quick_settings_panel_style_color_pop">Cor pop</string>
     <string name="quick_settings_panel_style_shaded">Sombreado</string>
     <string name="quick_settings_panel_style_cyberpunk">Cyberpunk</string>
     <string name="quick_settings_panel_style_neumorph">Neomorfo</string>
@@ -894,7 +896,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="nowplaying_show_on_aod_summary">Exibir informações de música na tela ambiente</string>
     <string name="nowplaying_compact_style_title">Estilo compacto</string>
     <string name="nowplaying_compact_style_summary">Mostrar como em uma única linha usando o tamanho do texto da faixa</string>
-    <string name="nowplaying_info_summary">Reproduzindo agora mostra o título e o artista atualmente reproduzindo na sua tela de bloqueio e exibição sempre ativa. Ele aparece automaticamente quando a música está tocando e desaparece quando parado. A posição pode ser ajustada para aparecer em qualquer lugar da parte superior para a parte inferior da tela.</string>
+    <string name="nowplaying_info_summary">Now Playing exibe o título da música e o artista atualmente em reprodução na tela de bloqueio e exibição sempre ativa. Ele aparece automaticamente quando a música está tocando e desaparece quando parado. A posição pode ser ajustada para aparecer em qualquer lugar, de cima para baixo na tela.</string>
     <string name="nowplaying_expand_dialog">Expandir diálogo</string>
     <string name="nowplaying_expand_dialog_summary">Expandir diálogo Tocando agora</string>
     <!-- Ripple Shape -->
