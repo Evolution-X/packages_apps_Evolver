@@ -321,7 +321,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="solid_gradient_void">Vazio gradiente</string>
     <string name="solid_gradient_neumorph">Gradiente neumorfo</string>
     <string name="solid_gradient_stroke">Traço de gradiente acentuado</string>
-    <string name="solid_accent_transperent">Transparente acentuado</string>
+    <string name="solid_accent_transperent"></string>
     <string name="solid_gradient_light">Luz gradiente</string>
     <string name="solid_gradient_shape">Canto com gradiente acentuado</string>
     <string name="solid_gradient_void_light">Luz gradiente vazia</string>
@@ -404,7 +404,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_brightness_slider_position_top">Topo</string>
     <string name="quick_settings_brightness_slider_position_bottom">Inferior</string>
     <string name="quick_settings_auto_brightness_icon_title">Ícone de brilho automático</string>
-    <string name="quick_settings_auto_brightness_icon_summary">Mostrar botão de brilho automático</string>
+    <string name="quick_settings_auto_brightness_icon_summary">Mostrar ícone de alternância para brilho adaptável próximo ao controle deslizante</string>
     <string name="quick_settings_brightness_slider_haptic_title">Resposta tátil</string>
     <string name="quick_settings_brightness_slider_haptic_summary">Reproduzir resposta tátil ao alterar o brilho usando o controle deslizante</string>
     <string name="quick_settings_animations_category">Animações</string>
@@ -662,9 +662,8 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="glass_blur">Desfoque de vidro</string>
     <string name="frosted_blur">Desfoque congelado</string>
     <string name="wallpaper_dim_level_summary">Configurar nível de escurecimento do papel de parede</string>
-    <string name="wallpaper_styles_footer">Para que os estilos de papel de parede funcionem de forma eficaz, os usuários devem definir os papéis de parede para a tela de bloqueio e a tela inicial em momentos diferentes.\nO mesmo papel de parede pode ser usado, mas não deve ser aplicado à tela de bloqueio e à tela inicial ao mesmo tempo.\nIsso é opcional ao usar AMBAS AS OPÇÕES para estilos de desfoque e escurecimento de papel de parede.
-    </string>
-    <string name="wallpaper_performance_warning">⚠ Aviso de desempenho: esses efeitos visuais consomem muitos recursos e podem afetar o desempenho em dispositivos de entrada. Para melhor experiência, use em dispositivos intermediários ou flagship.\nOs efeitos podem causar lentidão, consumo de bateria ou travamentos em celulares mais antigos.</string>
+    <string name="wallpaper_styles_footer">Para que os estilos de papel de parede funcionem de maneira eficaz, os usuários devem definir os papéis de parede da tela de bloqueio e da tela inicial em momentos diferentes.\nO mesmo papel de parede pode ser usado, mas não deve ser aplicado à tela de bloqueio e à tela inicial ao mesmo tempo.\nIsso é opcional ao usar AMBAS OPÇÕES para estilos de papel de parede desfocados e escuros.</string>
+    <string name="wallpaper_performance_warning">⚠ Aviso de desempenho: esses efeitos visuais consomem muitos recursos e podem afetar o desempenho em dispositivos de baixo custo. Para uma experiência ideal, use em dispositivos intermediários ou principais.\nOs efeitos podem causar atrasos, consumo de bateria ou interrupções em smartphones mais antigos.</string>
     <!-- Effect Titles -->
     <string name="wallpaper_saturation_title">Nível de saturação</string>
     <string name="wallpaper_saturation_summary">Aumentar ou reduzir a intensidade das cores</string>
