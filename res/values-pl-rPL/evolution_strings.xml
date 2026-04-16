@@ -26,8 +26,9 @@
     <string name="miscellaneous_summary">Fałszowanie, opcje programisty</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">O Evolution X</string>
+    <string name="general_category_title">Ogólne</string>
+    <string name="gestures_category_title">Gesty</string>
     <!-- Themes -->
-    <string name="themes_general_category">Ogólne</string>
     <string name="themes_monet_category">Silnik Monet</string>
     <string name="themes_monet_title">Ustawienia silnika Monet</string>
     <string name="themes_monet_summary">Dostosuj wbudowany silnik motywów Androida</string>
@@ -168,7 +169,6 @@
     <string name="theme_customization_lock_clock_face_title">Tarcza zegara</string>
     <string name="theme_customization_lock_clock_face_summary">Zmodyfikuj wygląd zegara na ekranie blokady</string>
     <!-- Status bar -->
-    <string name="status_bar_gestures_category">Gesty</string>
     <string name="status_bar_brightness_control_title">Kontrola jasności</string>
     <string name="status_bar_brightness_control_summary">Dostosuj jasność, przeciągając palcem po pasku stanu</string>
     <string name="status_bar_quick_pull_down_title">Szybkie rozwijanie</string>
@@ -260,7 +260,7 @@
     <string name="status_bar_logo_style_tux">Tux</string>
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
-    <string name="status_bar_logo_style_amogus">Amogus</string>
+    <string name="status_bar_logo_style_amogus">Among Us</string>
     <string name="status_bar_network_traffic_settings_title">Monitor ruchu sieciowego</string>
     <string name="status_bar_network_traffic_settings_summary">Wyświetl i dostosuj wskaźnik ruchu sieci</string>
     <string name="status_bar_notif_count_title">Licznik powiadomień</string>
@@ -1474,4 +1474,27 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="gs_config_saved">Konfiguracja zapisana</string>
     <string name="gs_loading_apps">Ładowanie aplikacji\u2026</string>
     <string name="gs_failed">Niepowodzenie: %s</string>
+    <!-- Depth Wallpaper -->
+    <string name="depthwall_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
+    <string name="depthwall_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
+    <string name="depthwall_wallpaper_enabled_title">Tapeta z efektem głębi</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Zastosuj efekt głębi \n do tapety</string>
+    <string name="depthwall_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu.</string>
+    <string name="depthwall_wallpaper_opacity_title">Nieprzezroczystość tapety z efektem głębi</string>
+    <string name="depthwall_footer_text">Funkcja tapety z efektem głębi, inspirowana segmentacją obiektów na ekranie blokady w systemie iOS, umożliwia nałożenie obiektu na zegar na ekranie blokady, aby pokazać efekt głębi tapety.\n\nAby skonfigurować funkcję tapety głębi:\n1. Ustaw tapetę z obiektem lub tłem, nad którym ma się on znajdować.\n2. Wybierz obraz obiektu do śledzenia. Zostanie on nałożony na zegar na ekranie blokady.\n3. Dostosuj przesunięcia i krycie według własnych potrzeb.    </string>
+    <!-- Essential Notifications -->
+    <string name="essential_notifications">Ważne powiadomienia</string>
+    <string name="essential_notifications_summary">Wybierz aplikacje zawsze wyświetlane w powiadomieniach</string>
+    <string name="selected_apps_description">Wybrane aplikacje będą zawsze wyświetlane w powiadomieniach</string>
+    <string name="no_apps_selected">Brak wybranych aplikacji</string>
+    <string name="essential_apps_count">Wybrano %d aplikacji</string>
+    <string name="add_apps">Dodaj aplikacje</string>
+    <string name="essential_configured_apps">Skonfigurowane aplikacje</string>
+    <string name="essential_no_apps_configured">Brak skonfigurowanych aplikacji</string>
+    <string name="essential_no_apps_available">Brak dostępnych aplikacji</string>
+    <string name="essential_no_apps_found">Brak wyników dla „%s”</string>
+    <string name="essential_remove_title">Usunąć aplikację</string>
+    <string name="essential_remove_confirm">Usunąć %s z ważnych powiadomień?</string>
+    <string name="remove">Usuń</string>
+    <string name="add">Dodaj</string>
 </resources>
