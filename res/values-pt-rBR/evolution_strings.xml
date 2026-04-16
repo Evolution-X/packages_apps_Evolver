@@ -181,7 +181,7 @@
     <string name="status_bar_tuner_title">Sintonizador da barra de status</string>
     <string name="status_bar_tuner_summary">Escolha quais ícones do sistema podem ser mostrados</string>
     <string name="status_bar_battery_category_title">Personalizações da bateria</string>
-    <string name="status_bar_battery_style_title">Estilo do ícone da bateria</string>
+    <string name="status_bar_battery_style_title">Estilo da bateria</string>
     <string name="status_bar_battery_style_icon_portrait">Ícone retrato</string>
     <string name="status_bar_battery_style_icon_rlandscape">Ícone paisagem (direita)</string>
     <string name="status_bar_battery_style_icon_landscape">Ícone paisagem (esquerda)</string>
@@ -199,10 +199,10 @@
     <string name="status_bar_battery_style_icon_landscape_origami">Origami (Paisagem)</string>
     <string name="status_bar_battery_style_icon_landscape_oneui7">Paisagem OneUI 7</string>
     <string name="status_bar_battery_style_circle">Círculo</string>
-    <string name="status_bar_battery_style_dotted_circle">Círculo (Pontilhado)</string>
-    <string name="status_bar_battery_style_filled_circle">Círculo (Preenchido)</string>
-    <string name="status_bar_battery_style_big_circle">Círculo (Grande)</string>
-    <string name="status_bar_battery_style_big_dotted_circle">Círculo (Grande pontilhado)</string>
+    <string name="status_bar_battery_style_dotted_circle">Círculo pontilhado</string>
+    <string name="status_bar_battery_style_filled_circle">Círculo preenchido</string>
+    <string name="status_bar_battery_style_big_circle">Grande círculo</string>
+    <string name="status_bar_battery_style_big_dotted_circle">Grande círculo pontilhado</string>
     <string name="status_bar_battery_style_text">Texto</string>
     <string name="status_bar_battery_style_hidden">Oculto</string>
     <string name="status_bar_battery_style_follow_status_bar">Seguir estilo da barra de status</string>
@@ -540,12 +540,12 @@
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Pixels inteligentes é um recurso para economizar energia. Dependendo da quantidade de pixels a serem desativados, você notará a diferença na duração da bateria</string>
     <string name="smart_pixels_title">Pixels Inteligentes</string>
-    <string name="smart_pixels_summary">Economiza bateria desligando alguns pixels da tela</string>
+    <string name="smart_pixels_summary">Economize bateria desligando pixels extras</string>
     <string name="smart_pixels_on_power_save_title">Ativar automaticamente na economia de bateria</string>
-    <string name="smart_pixels_on_power_save_summary">Ativar os Pixels Inteligentes quando a economia de bateria estiver ativa</string>
-    <string name="smart_pixels_percent">Porcentagem de pixels a desativar</string>
+    <string name="smart_pixels_on_power_save_summary">Ativar os Pixels Inteligentes quando a economia de bateria estiver ativada</string>
+    <string name="smart_pixels_percent">Porcentagem de pixels a serem desativados</string>
     <string name="smart_pixels_shift_title">Proteção contra Burn-in</string>
-    <string name="smart_pixels_shift_summary">Previne contra o efeito Burn-in em dispositivos com tela OLED</string>
+    <string name="smart_pixels_shift_summary">Evita o burn-in em dispositivos OLED, alterando os pixels de vez em quando</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Mascaramento de componente</string>
     <string name="spoofing_summary">Ignorar restrições de aplicativos por mascaramento de componentes</string>
@@ -1115,7 +1115,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="shape_pokesign">Pokésign</string>
     <string name="shape_ninja">Ninja</string>
     <string name="shape_outline_style">Estilo de contorno</string>
-    <string name="shape_dotted_circle">Círculo (Pontilhado)</string>
+    <string name="shape_dotted_circle">Círculo pontilhado</string>
     <string name="shape_squaremedo">Squaremedo</string>
     <!-- Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
