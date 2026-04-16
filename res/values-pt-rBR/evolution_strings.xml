@@ -26,8 +26,9 @@
     <string name="miscellaneous_summary">Opções de desenvolvedor, mascaramento</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Sobre Evolution X</string>
+    <string name="general_category_title">Geral</string>
+    <string name="gestures_category_title">Gestos</string>
     <!-- Themes -->
-    <string name="themes_general_category">Geral</string>
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Configurações do tema Monet</string>
     <string name="themes_monet_summary">Personalize o mecanismo de tema integrados do Android</string>
@@ -99,9 +100,9 @@
     <string name="monet_engine_custom_bgcolor_summary">Escolher cor de fundo personalizada</string>
     <string name="monet_engine_color_override_title">Cor personalizada</string>
     <string name="monet_engine_luminance_factor_title">Luminância</string>
-    <string name="monet_engine_luminance_factor_summary">Valores maiores produzem cores mais brilhantes</string>
+    <string name="monet_engine_luminance_factor_summary">Valores mais altos produzem cores mais brilhantes</string>
     <string name="monet_engine_chroma_factor_title">Fator cromático</string>
-    <string name="monet_engine_chroma_factor_summary">Valores maiores produzem cores mais fortes</string>
+    <string name="monet_engine_chroma_factor_summary">Valores mais altos produzem cores mais fortes</string>
     <string name="monet_engine_whole_palette_title">Paleta inteira</string>
     <string name="monet_engine_whole_palette_summary">Faça com que a seleção de Luminância e Croma afete também as cores secundárias</string>
     <string name="monet_engine_tint_background_title">Tonalidade de fundo</string>
@@ -113,12 +114,12 @@
     <string name="monet_engine_style_spritz">Spritz</string>
     <string name="monet_engine_style_rainbow">Arco-íris</string>
     <string name="monet_engine_style_fruit_salad">Salada de frutas</string>
-    <string name="monet_engine_style_content">Material</string>
+    <string name="monet_engine_style_content">Contente</string>
     <string name="monet_engine_style_monochromatic">Monocromático</string>
     <string name="monet_engine_color_source_title">Fonte de cor</string>
     <string name="monet_engine_color_source_both">Ambos (padrão)</string>
-    <string name="monet_engine_color_source_home">Papel de parede</string>
-    <string name="monet_engine_color_source_lock">Tela de bloqueio</string>
+    <string name="monet_engine_color_source_home">Papel de parede tela inicial</string>
+    <string name="monet_engine_color_source_lock">Papel de parede tela de bloqueio</string>
     <string name="monet_engine_color_source_preset">Predefinido</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
@@ -168,7 +169,6 @@
     <string name="theme_customization_lock_clock_face_title">Mostrador de relógio</string>
     <string name="theme_customization_lock_clock_face_summary">Modificar aparência do relógio na tela de bloqueio</string>
     <!-- Status bar -->
-    <string name="status_bar_gestures_category">Gestos</string>
     <string name="status_bar_brightness_control_title">Controle de brilho</string>
     <string name="status_bar_brightness_control_summary">Ajustar brilho deslizando pela barra de status</string>
     <string name="status_bar_quick_pull_down_title">Puxar rápido para baixo</string>
@@ -217,7 +217,7 @@
     <string name="status_bar_clock_and_date_title">Relógio &amp; data</string>
     <string name="status_bar_clock_and_date_summary">Personalize relógio &amp; data</string>
     <string name="status_bar_bluetooth_battery_title">Porcentagem da bateria Bluetooth</string>
-    <string name="status_bar_bluetooth_battery_summary">Mostrar a porcentagem da bateria do dispositivo bluetooth conectado, se disponível</string>
+    <string name="status_bar_bluetooth_battery_summary">Exibir o status da bateria do dispositivo Bluetooth conectado, se disponível</string>
     <string name="status_bar_colored_icons_title">Ícones coloridos</string>
     <string name="status_bar_colored_icons_summary">Usar ícones do launcher para notificações de aplicativos</string>
     <string name="status_bar_logo_title">Logo</string>
@@ -1071,7 +1071,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="idle_manager_apply">Aplicar</string>
     <string name="idle_manager_clear_stats_title">Limpar estatísticas</string>
     <string name="idle_manager_clear_stats_confirm">Isto excluirá permanentemente todo o histórico de implementação. O gerenciador inativo continuará sendo executado normalmente.</string>
-    <string name="idle_manager_clear_stats_button">Transparente</string>
+    <string name="idle_manager_clear_stats_button">Claro</string>
     <!-- Flash SMS -->
     <string name="disable_flash_sms_title">Desativar Flash SMS</string>
     <string name="disable_flash_sms_summary">Converte mensagens flash de tela cheia em SMS de texto padrão.</string>
@@ -1473,4 +1473,27 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="gs_config_saved">Configuração salva</string>
     <string name="gs_loading_apps">Carregando apps\u2026</string>
     <string name="gs_failed">Falha: %s</string>
+    <!-- Depth Wallpaper -->
+    <string name="depthwall_file_header_select_title">Selecione o assunto do papel de parede de profundidade</string>
+    <string name="depthwall_file_header_select_summary">Selecione a imagem do assunto do papel de parede de profundidade do armazenamento.</string>
+    <string name="depthwall_wallpaper_enabled_title">Papel de parede de profundidade</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Aplicar efeito de profundidade\no papel de parede</string>
+    <string name="depthwall_wallpaper_enabled_summary">Ative o papel de parede de profundidade inspirado no iOS. Requer uma imagem de assunto.</string>
+    <string name="depthwall_wallpaper_opacity_title">Opacidade do papel de parede de profundidade</string>
+    <string name="depthwall_footer_text">O recurso de papel de parede de profundidade, inspirado na segmentação de assunto de papel de parede do iOS, permite a sobreposição de um assunto acima do relógio da tela de bloqueio para mostrar um efeito de profundidade de papel de parede.\n\nPara configurar o recurso de papel de parede de profundidade:\n1. Defina um papel de parede com o assunto ou um plano de fundo que você deseja que o assunto fique acima.\n2. Selecione uma imagem de assunto para rastrear. Essa imagem será sobreposta acima do relógio da tela de bloqueio.\n3. Modifique os deslocamentos e a opacidade de acordo com suas necessidades.</string>
+    <!-- Essential Notifications -->
+    <string name="essential_notifications">Notificações essenciais</string>
+    <string name="essential_notifications_summary">Escolha aplicativos sempre mostrados nas notificações</string>
+    <string name="selected_apps_description">Os aplicativos selecionados sempre aparecerão no painel de notificações</string>
+    <string name="no_apps_selected">Nenhum aplicativo selecionado</string>
+    <string name="essential_apps_count">%d aplicativos selecionados</string>
+    <string name="add_apps">Adicionar aplicativos</string>
+    <string name="essential_configured_apps">Aplicativos configurados</string>
+    <string name="essential_no_apps_configured">Nenhum aplicativo configurado</string>
+    <string name="essential_no_apps_available">Nenhum aplicativo disponível</string>
+    <string name="essential_no_apps_found">Nenhum resultado para \"%s\"</string>
+    <string name="essential_remove_title">Remover aplicativo</string>
+    <string name="essential_remove_confirm">Remover %s das notificações essenciais?</string>
+    <string name="remove">Remover</string>
+    <string name="add">Adicionar</string>
 </resources>
