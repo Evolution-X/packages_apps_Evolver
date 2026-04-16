@@ -24,10 +24,11 @@
     <string name="buttons_summary">Кнопка живлення, кнопки гучності</string>
     <string name="miscellaneous_title">Різне</string>
     <string name="miscellaneous_summary">Спуфінг, налаштування для розробника</string>
-    <string name="about_title">Логотип Evolution X</string>
+    <string name="about_title">Еволюція X</string>
     <string name="about_summary">Про прошивку</string>
+    <string name="general_category_title">Загальні</string>
+    <string name="gestures_category_title">Жести</string>
     <!-- Themes -->
-    <string name="themes_general_category">Загальні</string>
     <string name="themes_monet_category">Функція \"Monet\"</string>
     <string name="themes_monet_title">Налаштування \"Monet\"</string>
     <string name="themes_monet_summary">Налаштувати вбудований рушій тем Android</string>
@@ -168,7 +169,6 @@
     <string name="theme_customization_lock_clock_face_title">Циферблат</string>
     <string name="theme_customization_lock_clock_face_summary">Змінити вигляд годинника в екрані блокування</string>
     <!-- Status bar -->
-    <string name="status_bar_gestures_category">Жести</string>
     <string name="status_bar_brightness_control_title">Керування яскравістю</string>
     <string name="status_bar_brightness_control_summary">Регулювати яскравість екрану рухом пальця по рядку стану</string>
     <string name="status_bar_quick_pull_down_title">Швидке розгортання швидких налаштувань</string>
@@ -227,7 +227,7 @@
     <string name="status_bar_logo_position_right">Права сторона</string>
     <string name="status_bar_logo_style_title">Стиль логотипу</string>
     <string name="status_bar_logo_style_summary">Виберіть користувацький логотип для відображення</string>
-    <string name="status_bar_logo_style_evolution">Логотип Evolution X</string>
+    <string name="status_bar_logo_style_evolution">Еволюція X</string>
     <string name="status_bar_logo_style_android">Андроїд</string>
     <string name="status_bar_logo_style_adidas">Adidas</string>
     <string name="status_bar_logo_style_alien">Інопланетянин</string>
@@ -1466,4 +1466,27 @@
     <string name="gs_config_saved">Налаштування збережено</string>
     <string name="gs_loading_apps">Завантаження додатків\u2026</string>
     <string name="gs_failed">Не вдалося: %s</string>
+    <!-- Depth Wallpaper -->
+    <string name="depthwall_file_header_select_title">Вибрати шпалери з ефектом глибини</string>
+    <string name="depthwall_file_header_select_summary">Вибрати зображення для шпалер з ефектом глибини зі сховища.</string>
+    <string name="depthwall_wallpaper_enabled_title">Шпалери з ефектом глибини</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Застосувати глибинний ефект\nна шпалери</string>
+    <string name="depthwall_wallpaper_enabled_summary">Увімкнути шпалери з ефектом глибини як в iOS. Потребує зображення-основу.</string>
+    <string name="depthwall_wallpaper_opacity_title">Прозорість шпалер з ефектом глибини</string>
+    <string name="depthwall_footer_text">Функція глибинних шпалер, натхненна сегментацією фонових зображень iOS, дозволяє накладати об\'єкт поверх годинника на екрані блокування, створюючи ефект глибини. Для налаштування: 1. Встановіть шпалеру з об\'єктом або фоном, над яким потрібно розмістити об\'єкт. 2. Виберіть зображення об\'єкта для відстеження, яке буде накладено на годинник. 3. Відрегулюйте зміщення та прозорість відповідно до ваших потреб    </string>
+    <!-- Essential Notifications -->
+    <string name="essential_notifications">Істотні сповіщення</string>
+    <string name="essential_notifications_summary">Вибрати програми, які завжди показуються в сповіщеннях</string>
+    <string name="selected_apps_description">Вибрані додатки завжди відображатимуться в тіні сповіщень</string>
+    <string name="no_apps_selected">Додатки не вибрано</string>
+    <string name="essential_apps_count">%d додатки обрано</string>
+    <string name="add_apps">Додати програми</string>
+    <string name="essential_configured_apps">Настроєні додатки</string>
+    <string name="essential_no_apps_configured">Немає налаштованих додатків</string>
+    <string name="essential_no_apps_available">Немає доступних додатків</string>
+    <string name="essential_no_apps_found">Нічого не знайдено для \"%s\"</string>
+    <string name="essential_remove_title">Видалити додаток</string>
+    <string name="essential_remove_confirm">Видалити %s з важливих сповіщень?</string>
+    <string name="remove">Видалити</string>
+    <string name="add">Додати</string>
 </resources>
