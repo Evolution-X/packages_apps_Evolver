@@ -349,7 +349,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="network_traffic_mode_down">Apenas download</string>
     <string name="network_traffic_mode_all">Upload e download</string>
     <string name="network_traffic_autohide">Ocultar automaticamente</string>
-    <string name="network_traffic_autohide_summary">Ocultar o monitor de tráfego quando não houver atividade</string>
+    <string name="network_traffic_autohide_summary">Ocultar o monitor de tráfego quando inativo</string>
     <string name="network_traffic_autohide_threshold">Limite de inatividade</string>
     <string name="network_traffic_refresh_interval_title">Intervalo de atualização</string>
     <string name="network_traffic_refresh_interval_summary">Duração do intervalo entre as medições</string>
@@ -367,7 +367,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_tile_ui_style_title">Estilo das configurações rápidas</string>
     <string name="quick_settings_tile_ui_style_a11_circle">Blocos redondos</string>
     <string name="quick_settings_tile_ui_style_a11_square">Blocos quadrados</string>
-    <string name="quick_settings_tile_ui_style_a11_mix">Blocos redondos e quadrados</string>
+    <string name="quick_settings_tile_ui_style_a11_mix">Círculo &amp; Blocos quadrados</string>
     <string name="quick_settings_panel_style_title">Estilo do painel de configurações rápidas</string>
     <string name="quick_settings_panel_style_outline">Contorno</string>
     <string name="quick_settings_panel_style_two_tone">Dois tons de destaque</string>
@@ -377,10 +377,10 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_panel_style_neumorph">Neomorfo</string>
     <string name="quick_settings_panel_style_reflected">Refletido</string>
     <string name="quick_settings_panel_style_surround">Envolvente</string>
-    <string name="quick_settings_panel_style_thin">Borrado</string>
+    <string name="quick_settings_panel_style_thin">Linha Fina</string>
     <string name="quick_settings_layout_category_title">Layout dos blocos</string>
     <string name="quick_settings_tile_label_hide_title">Ocultar rótulo</string>
-    <string name="quick_settings_tile_label_size_title">Tamanho do rótulo</string>
+    <string name="quick_settings_tile_label_size_title">Tamanho do texto do rótulo</string>
     <string name="quick_settings_tile_label_hide_summary">Mostrar apenas o ícone no bloco</string>
     <string name="quick_settings_tile_layout_title">Layout vertical</string>
     <string name="quick_settings_tile_layout_summary">Mostrar o texto embaixo dos ícones dos blocos</string>
@@ -391,15 +391,15 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_columns_landscape_title">Colunas (paisagem)</string>
     <string name="quick_settings_rows_portrait_title">Linhas (retrato)</string>
     <string name="quick_settings_rows_landscape_title">Linhas (paisagem)</string>
-    <string name="quick_settings_qqs_rows_portrait_title">Linhas (retrato)</string>
-    <string name="quick_settings_qqs_rows_landscape_title">Linhas (paisagem)</string>
+    <string name="quick_settings_qqs_rows_portrait_title">Linhas QS rápidas (retrato)</string>
+    <string name="quick_settings_qqs_rows_landscape_title">Linhas QS rápidas (paisagem)</string>
     <string name="quick_settings_brightness_slider_category">Controle de brilho</string>
     <string name="quick_settings_show_brightness_slider_title">Controle de brilho</string>
     <string name="quick_settings_show_brightness_slider_never">Nunca mostrar</string>
     <string name="quick_settings_show_brightness_slider_expanded">Mostrar apenas quando expandido</string>
     <string name="quick_settings_show_brightness_slider_always">Mostrar sempre</string>
     <string name="quick_settings_show_brightness_percentage_title">Porcentagem de brilho</string>
-    <string name="quick_settings_show_brightness_percentage_summary">Mostrar o texto percentual de brilho junto do controle deslizante</string>
+    <string name="quick_settings_show_brightness_percentage_summary">Mostrar texto de porcentagem de brilho junto com o controle deslizante</string>
     <string name="quick_settings_brightness_slider_position_title">Posição do controle deslizante de brilho</string>
     <string name="quick_settings_brightness_slider_position_top">Topo</string>
     <string name="quick_settings_brightness_slider_position_bottom">Inferior</string>
@@ -413,8 +413,8 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_tile_animation_interpolator_title">Interpolador de animação dos blocos</string>
     <string name="quick_settings_tile_animation_style_off">Sem animação</string>
     <string name="quick_settings_tile_animation_style_rotate">Rotacionar</string>
-    <string name="qs_tile_animation_style_flipx">Inverter X</string>
-    <string name="qs_tile_animation_style_flipy">Inverter Y</string>
+    <string name="qs_tile_animation_style_flipx">Virar X</string>
+    <string name="qs_tile_animation_style_flipy">Virar Y</string>
     <string name="quick_settings_tile_animation_interpolator_linear">Linear</string>
     <string name="quick_settings_tile_animation_interpolator_accelerate">Acelerar</string>
     <string name="quick_settings_tile_animation_interpolator_decelerate">Desacelerar</string>
@@ -424,27 +424,27 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_tile_animation_interpolator_anticipate">Antecipar</string>
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Antecipar e ultrapassar</string>
     <string name="quick_settings_data_usage_title">Uso de dados</string>
-    <string name="quick_settings_data_usage_summary">Mostrar resumo de uso de dados no rodapé das configurações rápidas</string>
+    <string name="quick_settings_data_usage_summary">Exibir resumo de uso de dados no rodapé de configurações rápidas</string>
     <string name="quick_settings_lock_screen_category">Tela de bloqueio</string>
     <string name="quick_settings_secure_lock_screen_title">Configurações Rápidas na tela de bloqueio</string>
-    <string name="quick_settings_secure_lock_screen_summary">Permitir que o gesto de deslizar para baixo na tela de bloqueio exiba as Configurações Rápidas</string>
-    <string name="quick_settings_require_unlock_title">Blocos QS seguros na tela de bloqueio</string>
-    <string name="quick_settings_require_unlock_summary">As seguintes configurações rápidas exigem que o dispositivo seja desbloqueado antes que você possa interagir com eles:\nModo avião, Economia de bateria, Bluetooth, Dados Móveis, Economia de Dados, Hotspot, Internet, NFC, Giro automático, e Wi-fi</string>
-    <string name="quick_settings_header_image_title">Imagem do cabeçalho</string>
-    <string name="quick_settings_header_image_summary">Selecionar imagem do cabeçalho</string>
+    <string name="quick_settings_secure_lock_screen_summary">Permitir deslizar para baixo na tela de bloqueio para visualizar as configurações rápidas</string>
+    <string name="quick_settings_require_unlock_title">Blocos seguros das configurações rápidas exigem desbloqueio</string>
+    <string name="quick_settings_require_unlock_summary">As seguintes configurações rápidas exigem que o dispositivo seja desbloqueado antes que você possa interagir com ele:\nAvião, Economia de bateria, Bluetooth, Celular, Economia de dados, Hotspot, Internet, NFC, Bloqueio de rotação e Wi-Fi</string>
+    <string name="quick_settings_header_image_title">Imagem do cabeçalho das configurações rápidas</string>
+    <string name="quick_settings_header_image_summary">Selecione a imagem do cabeçalho de plano de fundo das configurações rápidas</string>
     <string name="quick_settings_header_daylight_pack_title">Coleção de imagens do cabeçalho</string>
     <string name="quick_settings_header_shadow_title">Sombra da imagem do cabeçalho</string>
     <string name="quick_settings_header_shadow_summary">Para melhor visibilidade nas imagens claras</string>
     <string name="quick_settings_header_static_provider_title">Imagem estática</string>
     <string name="quick_settings_header_daylight_provider_title">Coleção de imagens</string>
-    <string name="quick_settings_header_file_provider_title">Imagem personalizada</string>
+    <string name="quick_settings_header_file_provider_title">Imagem personalizada/GIF animado</string>
     <string name="quick_settings_header_provider_title">Provedor de cabeçalho</string>
     <string name="quick_settings_header_browse_title">Procurar cabeçalhos instalados</string>
-    <string name="quick_settings_header_browse_summary">Navegue por todas as coleções de cabeçalho disponíveis</string>
+    <string name="quick_settings_header_browse_summary">Procure todas as coleções de cabeçalho disponíveis</string>
     <string name="quick_settings_header_pick_title">Selecione a imagem do cabeçalho</string>
     <string name="quick_settings_header_pick_summary">Selecione uma imagem para usar no modo estático</string>
     <string name="quick_settings_header_file_select_title">Selecionar imagem</string>
-    <string name="quick_settings_header_file_select_summary">Selecionar imagem personalizada</string>
+    <string name="quick_settings_header_file_select_summary">Selecionar imagem personalizada/GIF animado</string>
     <string name="quick_settings_header_needs_gallery">Você deve instalar um aplicativo de galeria!</string>
     <string name="quick_settings_header_offset_title">Deslocamento da imagem do cabeçalho</string>
     <string name="quick_settings_header_offset_summary">Ajuste o tamanho do cabeçalho da imagem</string>
@@ -540,7 +540,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="menu_show_overlay">Mostrar sobreposições</string>
     <string name="menu_hide_overlay">Ocultar as sobreposições</string>
     <!-- Miscellaneous/Smart Pixels -->
-    <string name="smart_pixels_warning_text">Pixels inteligentes é um recurso para economizar energia. Dependendo da quantidade de pixels a serem desativados, você notará a diferença na duração da bateria</string>
+    <string name="smart_pixels_warning_text">Pixels Inteligentes é um recurso de economia de energia. Dependendo de quantos pixels você decidir desligar, você poderá ver uma melhoria na vida útil da bateria. Observe que, em alguns casos, isso pode resultar em áreas que não respondem na tela sensível ao toque</string>
     <string name="smart_pixels_title">Pixels Inteligentes</string>
     <string name="smart_pixels_summary">Economize bateria desligando pixels extras</string>
     <string name="smart_pixels_on_power_save_title">Ativar automaticamente na economia de bateria</string>
@@ -550,27 +550,27 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="smart_pixels_shift_summary">Evita o burn-in em dispositivos OLED, alterando os pixels de vez em quando</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Mascaramento de componente</string>
-    <string name="spoofing_summary">Ignorar restrições de aplicativos por mascaramento de componentes</string>
-    <string name="spoofing_system_wide_category">No sistema inteiro</string>
+    <string name="spoofing_summary">Ignorar restrições de aplicativos por componentes de mascaramento</string>
+    <string name="spoofing_system_wide_category">Em todo o sistema</string>
     <string name="spoofing_pixel_props_title">Propriedades do Pixel</string>
-    <string name="spoofing_pixel_props_summary">Mascara o dispositivo como Pixel 8 Pro para todos os aplicativos do Google</string>
-    <string name="tensor_spoof_title">Recursos do tensor de força</string>
+    <string name="spoofing_pixel_props_summary">Mscarar um grupo seleto de aplicativos do Google para o dispositivo Pixel mais recente</string>
+    <string name="tensor_spoof_title">Forçar recursos do Tensor</string>
     <string name="tensor_spoof_summary">Ative recursos exclusivos do Pixel Tensor em dispositivos não suportados. Pode levar a um comportamento inesperado ou ao aumento do uso da bateria.</string>
     <string name="spoofing_app_specific_category">Específico do Aplicativo</string>
     <string name="spoofing_photos_title">Google Fotos</string>
-    <string name="spoofing_photos_summary">mascarar o aplicativo Google Fotos como um Pixel XL</string>
+    <string name="spoofing_photos_summary">Mascarar o aplicativo Google Fotos como um Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
-    <string name="spoofing_snap_summary">mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
+    <string name="spoofing_snap_summary">Mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
     <string name="spoofing_applying_changes">Aplicando alterações de falsificação\u2026</string>
     <string name="spoofing_tensor_enabled">Recursos do tensor ativados</string>
     <string name="spoofing_tensor_disabled">Recursos do tensor desativados</string>
     <!-- About -->
-    <string name="about_info">Evolução X visa fornecer aos usuários uma sensação de Pixel à primeira vista, com recursos adicionais à sua disposição</string>
+    <string name="about_info">Evolution X é uma ROM Android personalizada que visa replicar a experiência do Google Pixel, com personalização adicional. Baseado no Projeto LineageOS.</string>
     <string name="about_website_title">Site</string>
-    <string name="about_website_summary">Sinta-se à vontade para visitar nosso site</string>
-    <string name="about_x_summary">Pegue nossas últimas notícias sobre X</string>
-    <string name="about_discord_summary">Visite o chat da nossa comunidade</string>
-    <string name="about_github_summary">Confira o nosso GitHub</string>
+    <string name="about_website_summary">Visite nosso site para atualizações</string>
+    <string name="about_x_summary">Veja nossas últimas notícias sobre X</string>
+    <string name="about_discord_summary">Converse conosco no Discord</string>
+    <string name="about_github_summary">Navegue pelo nosso código no GitHub</string>
     <string name="about_founders_title">Fundadores</string>
     <string name="about_team_members_title">Membros da equipe</string>
     <string name="about_remembering_title">Memorizando</string>
@@ -604,13 +604,13 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="unit_seconds">segundos</string>
     <!-- SystemUI restart dialog -->
     <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
-    <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
+    <string name="systemui_restart_message">Para que as alterações tenham efeito, é necessária uma reinicialização da interface do sistema. Reiniciar a interface do sistema agora?</string>
     <string name="systemui_restart_yes">Sim</string>
     <string name="systemui_restart_not_now">Agora não</string>
     <string name="systemui_restart_process">Reiniciando a Interface do Sistema para aplicar as alterações...</string>
     <!-- Split Shade -->
-    <string name="qs_split_shade_enabled_title">Melhor paisagem QS</string>
-    <string name="qs_split_shade_enabled_summary">Ativar nova sombra experimental de configurações rápidas,\nquebra notificações headsup paisagem</string>
+    <string name="qs_split_shade_enabled_title">Melhores configurações de paisagem rápidas</string>
+    <string name="qs_split_shade_enabled_summary">Ative novas configurações rápidas experimentais de sombra dividida e\nintervale as notificações de alerta de paisagem</string>
     <!-- Power Menu Styles -->
     <string name="powermenu_style_title">Estilo do menu de energia</string>
     <string name="powermenu_style1">Cyberpunk</string>
@@ -633,40 +633,40 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="notif_style5">Camadas</string>
     <!-- Progress Bar Styles -->
     <string name="progress_bar_style_title">Estilo da barra de progresso</string>
-    <string name="progress_bar_style1">Polegar quadrado</string>
+    <string name="progress_bar_style1">Miniatura quadrado</string>
     <string name="progress_bar_style2">Miniatura mínima</string>
-    <string name="progress_bar_style3">Polegar de contorno</string>
+    <string name="progress_bar_style3">Miniatura de contorno</string>
     <string name="progress_bar_style4">Shishu</string>
     <!-- Volume Styles -->
-    <string name="revamped_aosp_style">Estilo de interface do Revamped AOSP</string>
-    <string name="rui_style">Estilo de interface do Realme</string>
+    <string name="revamped_aosp_style">Estilo de UI AOSP renovado</string>
+    <string name="rui_style">Estilo de IU do Realme</string>
     <string name="aosp_style">Estilo padrão do AOSP</string>
-    <string name="double_layer_style">Estilo camada dupla</string>
+    <string name="double_layer_style">Estilo de camada dupla</string>
     <string name="gradient_style">Estilo gradiente</string>
-    <string name="neumorph_style">Estilo Neumórfico</string>
-    <string name="neumorph_outline_style">Estilo Neumorfo Contorno</string>
+    <string name="neumorph_style">Estilo Neumorfo</string>
+    <string name="neumorph_outline_style">Estilo de contorno neumorfo</string>
     <string name="outline_style">Estilo de contorno</string>
     <string name="shaded_layer_style">Estilo de camada sombreada</string>
-    <string name="volume_style_title">Estilo do painel de volume</string>
+    <string name="volume_style_title">Estilo de painel de volume</string>
     <!-- Wallpaper Styles -->
     <string name="wallpaper_settings_title">Estilos de papel de parede</string>
-    <string name="wallpaper_settings_summary">Configurar estilos e configurações do plano de fundo</string>
+    <string name="wallpaper_settings_summary">Configurar estilos e configurações de papel de parede</string>
     <!-- Wallpaper Settings Titles -->
-    <string name="wallpaper_blur_title">Desfoque do plano de fundo</string>
-    <string name="wallpaper_blur_filter">Estilo de desfoque de papel de parede</string>
+    <string name="wallpaper_blur_title">Efeito de desfoque de papel de parede</string>
+    <string name="wallpaper_blur_filter">Tipo de desfoque de papel de parede</string>
     <string name="wallpaper_effects_title">Efeitos visuais de papel de parede</string>
     <string name="wallpaper_effect_type_title">Tipo de efeito do papel de parede</string>
-    <string name="wallpaper_effect_target_title">Aplicar efeito em</string>
-    <string name="wallpaper_dim_title">Papel de parede escuro</string>
+    <string name="wallpaper_effect_target_title">Aplicar efeito a</string>
+    <string name="wallpaper_dim_title">Papel de parede com efeito escuro</string>
     <string name="wallpaper_dim_level_title">Nível de escurecimento do papel de parede</string>
     <string name="glass_blur">Desfoque de vidro</string>
     <string name="frosted_blur">Desfoque congelado</string>
-    <string name="wallpaper_dim_level_summary">Configurar nível de escurecimento do papel de parede</string>
+    <string name="wallpaper_dim_level_summary">Configurar o nível de escurecimento do papel de parede</string>
     <string name="wallpaper_styles_footer">Para que os estilos de papel de parede funcionem de maneira eficaz, os usuários devem definir os papéis de parede da tela de bloqueio e da tela inicial em momentos diferentes.\nO mesmo papel de parede pode ser usado, mas não deve ser aplicado à tela de bloqueio e à tela inicial ao mesmo tempo.\nIsso é opcional ao usar AMBAS OPÇÕES para estilos de papel de parede desfocados e escuros.</string>
     <string name="wallpaper_performance_warning">⚠ Aviso de desempenho: esses efeitos visuais consomem muitos recursos e podem afetar o desempenho em dispositivos de baixo custo. Para uma experiência ideal, use em dispositivos intermediários ou principais.\nOs efeitos podem causar atrasos, consumo de bateria ou interrupções em smartphones mais antigos.</string>
     <!-- Effect Titles -->
     <string name="wallpaper_saturation_title">Nível de saturação</string>
-    <string name="wallpaper_saturation_summary">Aumentar ou reduzir a intensidade das cores</string>
+    <string name="wallpaper_saturation_summary">Aumente ou reduza a intensidade da cor</string>
     <string name="wallpaper_pixelation_size_title">Tamanho da pixelização</string>
     <string name="wallpaper_pixelation_size_summary">Valores maiores = mais pixelado</string>
     <string name="wallpaper_vignette_intensity_title">Intensidade do vinhete</string>
@@ -685,7 +685,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="dw_wallpaper_opacity_title">Opacidade do papel de parede com profundidade</string>
     <string name="depth_wallpaper_offset_x_title">Deslocamento horizontal do papel de parede com profundidade</string>
     <string name="depth_wallpaper_offset_y_title">Deslocamento vertical do papel de parede com profundidade</string>
-    <string name="dw_footer_text">O recurso de papel de parede de profundidade, inspirado na segmentação de temas de papel de parede do iOS, permite sobrepor um tema acima do relógio da tela de bloqueio para exibir um efeito de profundidade de papel de parede. \n\nPara configurar o recurso de papel de parede de profundidade:\n1. Defina um papel de parede com o tema ou um plano de fundo sobre o qual você deseja que o tema fique.\n2. Selecione uma imagem de tema para rastrear; esta imagem será sobreposta acima do relógio da tela de bloqueio.\n3. Modifique os deslocamentos e a opacidade de acordo com suas necessidades    </string>
+    <string name="dw_footer_text">O recurso de papel de parede de profundidade, inspirado na segmentação de assunto de papel de parede do iOS, permite a sobreposição de um assunto acima do relógio da tela de bloqueio para mostrar um efeito de profundidade de papel de parede.\n\nPara configurar o recurso de papel de parede de profundidade:\n1. Defina um papel de parede com o assunto ou um plano de fundo que você deseja que o assunto fique acima.\n2. Selecione uma imagem de assunto para rastrear. Essa imagem será sobreposta acima do relógio da tela de bloqueio.\n3. Modifique os deslocamentos e a opacidade de acordo com suas necessidades    </string>
     <!-- Lock screen media art -->
     <string name="ls_media_art_title">Arte de capa da mídia</string>
     <string name="ls_media_art_summary">Exibir capa de mídia quando disponível</string>
@@ -736,43 +736,43 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="lockscreen_weather_humidity_info_summary">Exibir a umidade atual em porcentagem</string>
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Sempre em exibição</string>
-    <string name="aod_pulse_category_title">Pulse/Doze</string>
+    <string name="aod_pulse_category_title">Pulso/Doze</string>
     <!-- AOD custom image -->
     <string name="lockscreen_custom_image_enabled_title">Imagem AOD</string>
-    <string name="lockscreen_custom_image_title">Selecionar imagem AOD</string>
+    <string name="lockscreen_custom_image_title">Selecione imagem AOD</string>
     <string name="lockscreen_custom_image_summary">Definir imagem AOD personalizada</string>
-    <string name="lockscreen_custom_image_pick_summary">Selecionar imagem AOD da galeria</string>
-    <string name="custom_aod_image_not_supported">Estilo do relógio não suportado</string>
+    <string name="lockscreen_custom_image_pick_summary">Selecione imagem AOD da galeria</string>
+    <string name="custom_aod_image_not_supported">Estilo de relógio não suportado</string>
     <!-- QS Widgets -->
-    <string name="qs_widgets_enabled_title">Widgets QS</string>
-    <string name="qs_widgets_enabled_summary">Mostrar widgets para acesso rápido. \nLimite as linhas QS a 2 para evitar interromper a rolagem do painel QS do AOSP</string>
+    <string name="qs_widgets_enabled_title">Widgets de configurações rápidas</string>
+    <string name="qs_widgets_enabled_summary">Mostre widgets para acesso rápido. \nLimite as linhas de configurações rápidas a 2 para evitar quebra de rolagem do painel de configurações rápidas do AOSP</string>
     <!-- Font styles -->
-    <string name="font_styles_title">Estilo da fonte</string>
-    <string name="font_styles_summary">Alterar estilo da fonte do sistema</string>
+    <string name="font_styles_title">Estilos de fonte</string>
+    <string name="font_styles_summary">Alterar o estilo da fonte do sistema</string>
     <string name="font_preview_text">A rápida raposa\nsalta sobre o cão\npreguiçoso\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
     <string name="apply_button_text">Aplicar</string>
-    <string name="font_picker_select_font">Selecionar Fonte</string>
+    <string name="font_picker_select_font">Selecione a Fonte</string>
     <!-- Apply Button -->
     <string name="apply_change_button_title">Aplicar</string>
     <!-- Peek Display -->
     <string name="peek_display_notifications_title">Exibição de espiada</string>
-    <string name="peek_display_notifications_summary">Ativar estilo mínimo de notificação da tela de bloqueio</string>
-    <string name="peek_display_location_title">Localização da exibição de espiada</string>
-    <string name="peek_display_bottom_margin_title">Mostrar ponteiro (inferior) margem superior</string>
+    <string name="peek_display_notifications_summary">Ative o estilo mínimo de notificação da tela de bloqueio</string>
+    <string name="peek_display_location_title">Espiar o local de exibição</string>
+    <string name="peek_display_bottom_margin_title">Espiar a margem superior da exibição (inferior)</string>
     <!-- Peek Display Styles -->
     <string name="peek_display_minimalist">Minimalista</string>
-    <string name="peek_display_style_title">Estilo de exibição rápida</string>
+    <string name="peek_display_style_title">Estilo de exibição de espiada</string>
     <!-- Now Bar -->
     <string name="keyguard_now_bar_enabled_title">Barra de agora</string>
-    <string name="keyguard_now_bar_enabled_summary">Ativar agora na barra de widgets da tela de bloqueio</string>
+    <string name="keyguard_now_bar_enabled_summary">Ative agora os widgets da tela de bloqueio da barra</string>
     <string name="keyguard_now_bar_height_title">Agora altura da barra</string>
-    <string name="keyguard_now_bar_height_summary">Ajustar a altura da barra agora</string>
+    <string name="keyguard_now_bar_height_summary">Ajuste a altura da barra agora</string>
     <!-- Max visible notification icons -->
-    <string name="max_visible_notification_icons_title">Ícone de notificação</string>
+    <string name="max_visible_notification_icons_title">Ícones de notificação</string>
     <string name="max_visible_notification_icons_summary">Máximo de ícones de notificação visíveis na barra de status</string>
     <!-- Squiggle animation for media notification -->
-    <string name="media_squiggle_animation_title">Animação de rabisco</string>
-    <string name="media_squiggle_animation_summary">Mostrar animação de rabisco na barra de busca ao reproduzir mídia</string>
+    <string name="media_squiggle_animation_title">Animação ondulada</string>
+    <string name="media_squiggle_animation_summary">Mostrar animação ondulada da barra de busca no painel de mídia ao reproduzir mídia</string>
     <!-- Ongoing action chip -->
     <string name="ongoing_progress_settings_title">Chip de ação da barra de status</string>
     <string name="ongoing_progress_settings_summary">Personalize o chip de ação para mostrar o indicador de progresso</string>
@@ -795,7 +795,7 @@ Progresso de download/upload:
 • Oculta-se automaticamente quando nenhuma transferência ativa é detectada.
 • Um único toque abre o aplicativo responsável pelo download.
 
-A barra de progresso alterna dinamicamente entre os estados de mídia e de download, garantindo que você sempre tenha as informações mais relevantes rapidamente.\"</string>
+A barra de progresso alterna dinamicamente entre os estados de mídia e download, garantindo que você sempre tenha as informações mais relevantes    </string>
     <string name="ongoing_compact_mode_title">Indicador de progresso compacto</string>
     <string name="ongoing_compact_mode_summary">Use um indicador circular compacto para ações em andamento</string>
     <string name="ongoing_chip_color_mode_title">Cor de fundo do chip de mídia</string>
@@ -822,20 +822,20 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e de downl
     <string name="battery_bar_blend_color_reverse_title">Inverter a direção de cor</string>
     <string name="battery_bar_blend_color_reverse_summary_off">Cheio &#8594; vazio: vermelho &#8592; verde &#8592; azul &#8592; vermelho</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Cheio &#8594; vazio: vermelho &#8594; verde &#8594; azul &#8594; vermelho</string>
-    <string name="battery_bar_use_gradient_color">Usar cor gradiente</string>
-    <string name="battery_bar_gradient_color_summary">Usar cor gradiente como uma escala para o nível da bateria</string>
-    <string name="battery_bar_high_color">Cor de nível alto</string>
-    <string name="battery_bar_low_color">Cor de nível baixo</string>
-    <string name="battery_bar_animate_color">Animação de carregamento colorida</string>
+    <string name="battery_bar_use_gradient_color">Use cor gradiente</string>
+    <string name="battery_bar_gradient_color_summary">Use a cor gradiente como escala para o nível da bateria</string>
+    <string name="battery_bar_high_color">Cor de nível alto\"</string>
+    <string name="battery_bar_low_color">Cor de nível baixo\"</string>
+    <string name="battery_bar_animate_color">Carregando cor de animação</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Forma do controle deslizante de brilho</string>
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Notificações de paisagem pequenas</string>
-    <string name="small_landscape_notification_summary">Mostrar notificações menores na largura do painel de notificação no modo paisagem, assim como o AOSP pretendido</string>
+    <string name="small_landscape_notification_summary">Mostra notificações com largura menor no painel de notificações no modo paisagem, exatamente como o AOSP pretendia</string>
     <!-- Notification row transparency -->
-    <string name="notification_row_transparency_title">Transparência da linha de notificação</string>
-    <string name="notification_row_transparency_summary">Mostrar notificações de configurações rápidas translúcidas</string>
-    <string name="notification_row_transparency_lockscreen_title">Notificações translúcidas da tela de bloqueio</string>
+    <string name="notification_row_transparency_title">Notificações translúcidas</string>
+    <string name="notification_row_transparency_summary">Defina fundo translúcido para notificações nas configurações rápidas</string>
+    <string name="notification_row_transparency_lockscreen_title">Notificações da tela de bloqueio translúcidas</string>
     <string name="notification_row_transparency_lockscreen_summary">Definir fundo translúcido para notificações na tela de bloqueio</string>
     <!-- Dynamic charging animation -->
     <string name="wireless_charging_dynamic_color_title">Cor de carregamento dinâmica</string>
