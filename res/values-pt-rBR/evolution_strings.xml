@@ -836,13 +836,13 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="notification_row_transparency_title">Notificações translúcidas</string>
     <string name="notification_row_transparency_summary">Defina fundo translúcido para notificações nas configurações rápidas</string>
     <string name="notification_row_transparency_lockscreen_title">Notificações da tela de bloqueio translúcidas</string>
-    <string name="notification_row_transparency_lockscreen_summary">Definir fundo translúcido para notificações na tela de bloqueio</string>
+    <string name="notification_row_transparency_lockscreen_summary">Defina um fundo translúcido para notificações na tela de bloqueio</string>
     <!-- Dynamic charging animation -->
-    <string name="wireless_charging_dynamic_color_title">Cor de carregamento dinâmica</string>
-    <string name="wireless_charging_dynamic_color_summary">Usar o nível de bateria para determinar a cor da animação do ondulação</string>
+    <string name="wireless_charging_dynamic_color_title">Cor de carregamento dinâmico</string>
+    <string name="wireless_charging_dynamic_color_summary">Use o nível da bateria para determinar a cor da animação de ondulação de carregamento</string>
     <!-- Ambient Wallpaper -->
     <string name="doze_always_on_wallpaper_title">Papel de parede ambiente</string>
-    <string name="doze_always_on_wallpaper_summary">Mostrar papel de parede da tela de bloqueio na Tela Ambiente</string>
+    <string name="doze_always_on_wallpaper_summary">Mostrar papel de parede da tela de bloqueio na tela ambiente</string>
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Botão de rotação flutuante</string>
     <string name="floating_rotation_button_summary">Mostrar um botão de rotação flutuante quando o dispositivo for rotacionado</string>
@@ -854,7 +854,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="applied">Aplicado</string>
     <string name="reboot_device">Reiniciar dispositivo</string>
     <string name="reboot_required_title">Reinicialização necessária</string>
-    <string name="reboot_required_message">É necessário reiniciar o dispositivo para que as alterações de fonte entrem em vigor</string>
+    <string name="reboot_required_message">É necessária uma reinicialização para aplicar as alterações de fonte.\nDeseja reiniciar agora?</string>
     <string name="reboot_now">Reiniciar agora</string>
     <string name="later">Mais tarde</string>
     <string name="reset_default_title">Redefinir para o padrão</string>
@@ -865,7 +865,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="add_custom_font">Adicionar fonte personalizada</string>
     <string name="change_custom_font">Alterar fonte personalizada</string>
     <string name="reset_custom_font_content_desc">Redefinir fonte personalizada</string>
-    <string name="reboot_required_custom_font_title">Reinicialização necessária para fontes personalizadas</string>
+    <string name="reboot_required_custom_font_title">Reinicialização necessária para alterações de fontes personalizadas</string>
     <string name="reboot_required_custom_font_desc">Reinicie para aplicar as alterações de fonte personalizadas</string>
     <string name="font_preview_quote">O medo é inimigo da inovação.</string>
     <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
@@ -874,20 +874,20 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="toast_invalid_font_file">Arquivo de fonte inválido</string>
     <!-- Now Playing -->
     <string name="nowplaying_title">Tocando agora</string>
-    <string name="nowplaying_summary">Mostrar informações de música atualmente reproduzindo na tela de bloqueio e AOD</string>
+    <string name="nowplaying_summary">Mostrar informações da música atualmente reproduzida na tela de bloqueio e AOD</string>
     <string name="nowplaying_appearance_title">Aparência</string>
     <string name="nowplaying_use_accent_color_title">Usar cor de destaque</string>
-    <string name="nowplaying_use_accent_color_summary">Usar cor de acento do sistema em vez do branco</string>
+    <string name="nowplaying_use_accent_color_summary">Usar a cor de destaque do sistema em vez de branco</string>
     <string name="nowplaying_vertical_position_title">Posição vertical</string>
-    <string name="nowplaying_vertical_position_summary">Ajustar posição de cima para baixo da tela</string>
+    <string name="nowplaying_vertical_position_summary">Ajuste a posição de cima para baixo da tela</string>
     <string name="nowplaying_track_text_size_title">Tamanho do título da faixa</string>
     <string name="nowplaying_track_text_size_summary">Tamanho do texto do título da faixa</string>
     <string name="nowplaying_artist_text_size_title">Tamanho do nome do artista</string>
     <string name="nowplaying_artist_text_size_summary">Tamanho do texto do nome do artista/álbum</string>
-    <string name="nowplaying_display_title">Opções de visualização</string>
+    <string name="nowplaying_display_title">Opções de exibição</string>
     <string name="nowplaying_show_on_lockscreen_title">Mostrar na tela de bloqueio</string>
     <string name="nowplaying_show_on_lockscreen_summary">Exibir informações de música quando o dispositivo estiver bloqueado</string>
-    <string name="nowplaying_icon_style_title">Estilos de ícone</string>
+    <string name="nowplaying_icon_style_title">Estilos do ícone</string>
     <string name="nowplaying_icon_style_summary">Escolha qual ícone exibir</string>
     <string name="nowplaying_icon_size_title">Tamanho do ícone</string>
     <string name="nowplaying_icon_size_summary">Ajustar o tamanho do ícone</string>
@@ -895,7 +895,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="nowplaying_show_on_aod_summary">Exibir informações de música na tela ambiente</string>
     <string name="nowplaying_compact_style_title">Estilo compacto</string>
     <string name="nowplaying_compact_style_summary"> Mostrar como em uma única linha usando o tamanho do texto da trilha</string>
-    <string name="nowplaying_info_summary">Now Playing exibe o título da música e o artista atualmente em reprodução na tela de bloqueio e exibição sempre ativa. Ele aparece automaticamente quando a música está tocando e desaparece quando parado. A posição pode ser ajustada para aparecer em qualquer lugar, de cima para baixo na tela.</string>
+    <string name="nowplaying_info_summary">Tocando agora exibe o título da música e o artista atualmente em reprodução na tela de bloqueio e exibição sempre ativa. Ele aparece automaticamente quando a música está tocando e desaparece quando parado. A posição pode ser ajustada para aparecer em qualquer lugar, de cima para baixo na tela.</string>
     <string name="nowplaying_expand_dialog">Expandir caixa de diálogo</string>
     <string name="nowplaying_expand_dialog_summary">Expanda a caixa de diálogo Tocando agora</string>
     <!-- Ripple Shape -->
@@ -989,18 +989,18 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="app_spoofing_configured_count">%1$d aplicativos mascarados</string>
     <string name="app_spoofing_disabled">Desativado</string>
     <string name="app_spoofing_add_apps">Adicionar aplicativos</string>
-    <string name="app_spoofing_spoofed_model">Selecionar modelo</string>
+    <string name="app_spoofing_spoofed_model">Selecione o modelo</string>
     <string name="app_spoofing_clear_all">Limpar tudo</string>
-    <string name="app_spoofing_configured_apps">Lista de apps configurados</string>
-    <string name="app_spoofing_no_apps_configured">Nenhum app configurado</string>
-    <string name="app_spoofing_spoof_model">Modelo de spoofing</string>
-    <string name="app_spoofing_select_spoof_model">Selecionar modelo de spoofing</string>
-    <string name="app_spoofing_change_app">Alterar app</string>
+    <string name="app_spoofing_configured_apps">Lista de aplicativos configurados</string>
+    <string name="app_spoofing_no_apps_configured">Nenhum aplicativo configurado</string>
+    <string name="app_spoofing_spoof_model">Modelo mascarado</string>
+    <string name="app_spoofing_select_spoof_model">Selecionar modelo mascarado</string>
+    <string name="app_spoofing_change_app">Alterar aplicativo</string>
     <string name="show_system_apps">Mostrar aplicativos do sistema</string>
-    <string name="hide_system_apps">Ocultar apps do sistema</string>
+    <string name="hide_system_apps">Ocultar aplicativos do sistema</string>
     <!-- Custom App Spoofing Profiles -->
     <string name="add_new_spoof_profile">Adicionar novo</string>
-    <string name="add_custom_spoof_profile_title">Adicionar perfil de spoofing personalizado</string>
+    <string name="add_custom_spoof_profile_title">Adicionar perfil de mascaramento personalizado</string>
     <string name="custom_spoof_profile_name">Nome do perfil</string>
     <string name="custom_spoof_profile_brand">MARCA</string>
     <string name="custom_spoof_profile_manufacturer">FABRICANTE</string>
@@ -1008,8 +1008,8 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="custom_spoof_profile_model">MODELO</string>
     <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Opcional)</string>
     <string name="custom_spoof_profile_product">PRODUTO (Opcional)</string>
-    <string name="app_spoofing_clear_all_confirm">Isso removerá todas as entradas de spoofing de apps configuradas.</string>
-    <string name="app_spoofing_no_apps_available">Nenhum app disponível</string>
+    <string name="app_spoofing_clear_all_confirm">Isso removerá todas as entradas configuradas do mascaramento do aplicativo.</string>
+    <string name="app_spoofing_no_apps_available">Nenhum aplicativo disponível</string>
     <string name="app_spoofing_no_apps_found">Nenhum app encontrado para \"%s\"</string>
     <string name="app_spoofing_clear_search">Limpar pesquisa</string>
     <string name="app_spoofing_longpress_hint">Pressione e segure para reatribuir o perfil rapidamente</string>
