@@ -668,30 +668,30 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="wallpaper_saturation_title">Nível de saturação</string>
     <string name="wallpaper_saturation_summary">Aumente ou reduza a intensidade da cor</string>
     <string name="wallpaper_pixelation_size_title">Tamanho da pixelização</string>
-    <string name="wallpaper_pixelation_size_summary">Valores maiores = mais pixelado</string>
-    <string name="wallpaper_vignette_intensity_title">Intensidade do vinhete</string>
+    <string name="wallpaper_pixelation_size_summary">Valores maiores = mais pixelizados</string>
+    <string name="wallpaper_vignette_intensity_title">Intensidade da Vinheta</string>
     <string name="wallpaper_vignette_intensity_summary">Escurecimento das bordas</string>
     <string name="wallpaper_posterize_levels_title">Níveis de posterização</string>
     <string name="wallpaper_posterize_levels_summary">Redução da profundidade de cor</string>
     <!-- Compact QS Media Player-->
     <string name="qs_compact_media_player_mode_title">Reprodutor de Mídia compacto</string>
-    <string name="qs_compact_media_player_mode_summary">Habilitar reprodutor de mídia compacto no Centro de Controle</string>
+    <string name="qs_compact_media_player_mode_summary">Ative o modo compacto para o reprodutor de mídia nas configurações rápidas</string>
     <!-- Depth Wallpaper -->
-    <string name="dw_file_header_select_title">Select Depth wallpaper subject</string>
+    <string name="dw_file_header_select_title">Selecione o tema do papel de parede de profundidade</string>
     <string name="dw_file_header_select_summary">Selecione a imagem do tema do papel de parede de profundidade do armazenamento.</string>
     <string name="dw_wallpaper_enabled_title">Papel de parede de profundidade</string>
     <string name="dw_wallpaper_enabled_summary_tile">Aplicar efeito de profundidade\nao papel de parede</string>
-    <string name="dw_wallpaper_enabled_summary">Ativar papel de parede de profundidade inspirado no iOS. Requer uma imagem do objeto.</string>
-    <string name="dw_wallpaper_opacity_title">Opacidade do papel de parede com profundidade</string>
-    <string name="depth_wallpaper_offset_x_title">Deslocamento horizontal do papel de parede com profundidade</string>
-    <string name="depth_wallpaper_offset_y_title">Deslocamento vertical do papel de parede com profundidade</string>
+    <string name="dw_wallpaper_enabled_summary">Ative o papel de parede de profundidade inspirado no iOS. Requer uma imagem de principal.</string>
+    <string name="dw_wallpaper_opacity_title">Opacidade do papel de parede de profundidade</string>
+    <string name="depth_wallpaper_offset_x_title">Deslocamento horizontal do papel de parede de profundidade</string>
+    <string name="depth_wallpaper_offset_y_title">Deslocamento vertical do papel de parede de profundidade</string>
     <string name="dw_footer_text">O recurso de papel de parede de profundidade, inspirado na segmentação de assunto de papel de parede do iOS, permite a sobreposição de um assunto acima do relógio da tela de bloqueio para mostrar um efeito de profundidade de papel de parede.\n\nPara configurar o recurso de papel de parede de profundidade:\n1. Defina um papel de parede com o assunto ou um plano de fundo que você deseja que o assunto fique acima.\n2. Selecione uma imagem de assunto para rastrear. Essa imagem será sobreposta acima do relógio da tela de bloqueio.\n3. Modifique os deslocamentos e a opacidade de acordo com suas necessidades    </string>
     <!-- Lock screen media art -->
     <string name="ls_media_art_title">Arte de capa da mídia</string>
     <string name="ls_media_art_summary">Exibir capa de mídia quando disponível</string>
     <!-- Lock screen media art on Ambient Display -->
-    <string name="ambient_media_art_title">Capa de mídia ambiente</string>
-    <string name="ambient_media_art_summary">Exibir capa do álbum no visor ambiente quando disponível</string>
+    <string name="ambient_media_art_title">Arte da capa de mídia ambiente</string>
+    <string name="ambient_media_art_summary">Exibir capa de mídia na tela ambiente, quando disponível</string>
     <!-- Lock screen album art filter -->
     <string name="ls_media_art_filter_title">Filtro de arte de capa de mídi</string>
     <string name="ls_media_art_filter_none">Nenhum</string>
@@ -702,8 +702,8 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="ls_media_art_filter_invert">Invertido</string>
     <string name="ls_media_art_filter_grayblur">Tons de cinza e desfoque</string>
     <!-- Lock screen media art fade level -->
-    <string name="ls_media_art_fade_level_title">Nível de desbotamento da arte da capa da mídia</string>
-    <string name="ls_media_art_fade_level_summary">Definir nível de desbotamento da arte da capa da mídia</string>
+    <string name="ls_media_art_fade_level_title">Definir o nível de esmaecimento da arte da capa da mídia</string>
+    <string name="ls_media_art_fade_level_summary">Nível de desfoque da arte de mídia</string>
     <!-- Lock screen media art blur level -->
     <string name="ls_media_art_blur_level_title">Nível de desfoque da capa do álbum</string>
     <string name="ls_media_art_blur_level_summary">Intensidade de desfoque quando filtro de desfoque é aplicado</string>
