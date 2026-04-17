@@ -15,6 +15,10 @@
  */
 package org.evolution.settings.fragments.themes;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -52,40 +56,97 @@ public class VideoWallpaperService extends WallpaperService {
         private float currentPlaybackSpeed = 1.0f;
         private boolean pauseOnLock = true;
 
+        private Runnable checkFileRunnable;
+        private SurfaceHolder activeHolder;
+        private BroadcastReceiver userUnlockedReceiver;
+        private int retryCount = 0;
+
+        private void initPrefs(SurfaceHolder holder) {
+            try {
+                if (prefs == null) {
+                    prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+                }
+                loadSettings();
+                if (prefsListener == null) {
+                    prefsListener = (sharedPreferences, key) -> {
+                        Log.d(TAG, "Preference changed: " + key);
+
+                        if ("current_wallpaper_path".equals(key)) {
+                            String newPath = sharedPreferences.getString(key, null);
+                            if (newPath != null && !newPath.equals(currentVideoPath)) {
+                                Log.d(TAG, "New video detected, reloading...");
+                                currentVideoPath = newPath;
+                                retryCount = 0;
+                                if (handler != null) {
+                                    handler.post(() -> {
+                                        releaseMediaPlayer();
+                                        if (activeHolder != null) {
+                                            createMediaPlayer(activeHolder);
+                                        } else {
+                                            createMediaPlayer(holder);
+                                        }
+                                    });
+                                }
+                            }
+                        } else {
+                            loadSettings();
+                            if (mediaPlayer != null && isPrepared) {
+                                applyPlaybackSpeed();
+                            }
+                        }
+                    };
+                    if (prefs != null) {
+                        prefs.registerOnSharedPreferenceChangeListener(prefsListener);
+                    }
+                }
+            } catch (Exception e) {
+                Log.w(TAG, "CE storage locked, preferences not available. Waiting for unlock.");
+                prefs = null;
+            }
+        }
+
         @Override
         public void onCreate(SurfaceHolder surfaceHolder) {
             super.onCreate(surfaceHolder);
-            
+
             handler = new Handler(Looper.getMainLooper());
-            prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-            
-            loadSettings();
-            
-            prefsListener = (sharedPreferences, key) -> {
-                Log.d(TAG, "Preference changed: " + key);
-                
-                if ("current_wallpaper_path".equals(key)) {
-                    String newPath = sharedPreferences.getString(key, null);
-                    if (newPath != null && !newPath.equals(currentVideoPath)) {
-                        Log.d(TAG, "New video detected, reloading...");
-                        currentVideoPath = newPath;
-                        if (handler != null) {
-                            handler.post(() -> {
-                                releaseMediaPlayer();
-                                createMediaPlayer(getSurfaceHolder());
-                            });
-                        }
+            initPrefs(surfaceHolder);
+
+            IntentFilter filter = new IntentFilter(Intent.ACTION_USER_UNLOCKED);
+            userUnlockedReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    Log.d(TAG, "User unlocked, checking wallpaper initialization");
+                    if (prefs == null) {
+                        initPrefs(surfaceHolder);
                     }
-                } else {
-                    loadSettings();
-                    if (mediaPlayer != null && isPrepared) {
-                        applyPlaybackSpeed();
+                    retryCount = 0;
+                    if (handler != null) {
+                        handler.post(() -> {
+                            if (activeHolder != null) {
+                                createMediaPlayer(activeHolder);
+                            } else {
+                                createMediaPlayer(surfaceHolder);
+                            }
+                        });
                     }
                 }
             };
-            prefs.registerOnSharedPreferenceChangeListener(prefsListener);
-            
+            try {
+                registerReceiver(userUnlockedReceiver, filter);
+            } catch (Exception e) {
+                Log.e(TAG, "Error registering unlock receiver", e);
+            }
+
             setTouchEventsEnabled(false);
+
+            checkFileRunnable = () -> {
+                if (activeHolder != null) {
+                    if (mediaPlayer == null) {
+                        createMediaPlayer(activeHolder);
+                    }
+                }
+            };
         }
 
         @Override
@@ -108,23 +169,36 @@ public class VideoWallpaperService extends WallpaperService {
         @Override
         public void onSurfaceCreated(SurfaceHolder holder) {
             super.onSurfaceCreated(holder);
+            activeHolder = holder;
+            retryCount = 0;
             createMediaPlayer(holder);
         }
 
         @Override
         public void onSurfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             super.onSurfaceChanged(holder, format, width, height);
+            activeHolder = holder;
         }
 
         @Override
         public void onSurfaceDestroyed(SurfaceHolder holder) {
             super.onSurfaceDestroyed(holder);
+            activeHolder = null;
             releaseMediaPlayer();
         }
 
         @Override
         public void onDestroy() {
             super.onDestroy();
+
+            if (userUnlockedReceiver != null) {
+                try {
+                    unregisterReceiver(userUnlockedReceiver);
+                } catch (Exception e) {
+                    // ignored
+                }
+                userUnlockedReceiver = null;
+            }
             
             if (prefsListener != null && prefs != null) {
                 prefs.unregisterOnSharedPreferenceChangeListener(prefsListener);
@@ -162,24 +236,26 @@ public class VideoWallpaperService extends WallpaperService {
         private void createMediaPlayer(SurfaceHolder holder) {
             try {
                 File wallpaperFile = MediaUtils.getCurrentWallpaperFile(VideoWallpaperService.this);
-                
-                if (wallpaperFile == null) {
-                    Log.e(TAG, "Wallpaper file is null");
-                    drawErrorMessage(holder, "No wallpaper configured");
+
+                if (wallpaperFile == null || !wallpaperFile.exists() || !wallpaperFile.canRead()) {
+                    String path = wallpaperFile != null ? wallpaperFile.getAbsolutePath() : "unknown";
+                    Log.w(TAG, "Wallpaper file unavailable (" + path + "). Retrying...");
+
+                    if (retryCount < 30) {
+                        retryCount++;
+                        if (checkFileRunnable != null && handler != null) {
+                            handler.postDelayed(checkFileRunnable, 2000);
+                        }
+                    } else {
+                        drawErrorMessage(holder, wallpaperFile == null ? "No wallpaper configured" : "Wallpaper file not found");
+                    }
                     return;
                 }
-                
-                if (!wallpaperFile.exists()) {
-                    Log.e(TAG, "Wallpaper file does not exist: " + wallpaperFile.getAbsolutePath());
-                    drawErrorMessage(holder, "Wallpaper file not found");
-                    return;
+
+                if (checkFileRunnable != null && handler != null) {
+                    handler.removeCallbacks(checkFileRunnable);
                 }
-                
-                if (!wallpaperFile.canRead()) {
-                    Log.e(TAG, "Cannot read wallpaper file");
-                    drawErrorMessage(holder, "Cannot read wallpaper");
-                    return;
-                }
+                retryCount = 0;
 
                 Log.d(TAG, "Loading wallpaper: " + wallpaperFile.getAbsolutePath());
                 currentVideoPath = wallpaperFile.getAbsolutePath();
@@ -193,9 +269,9 @@ public class VideoWallpaperService extends WallpaperService {
                 mediaPlayer.setOnPreparedListener(mp -> {
                     isPrepared = true;
                     Log.d(TAG, "MediaPlayer prepared");
-                    
+
                     applyPlaybackSpeed();
-                    
+
                     if (isVisible) {
                         mp.start();
                         Log.d(TAG, "MediaPlayer started");
