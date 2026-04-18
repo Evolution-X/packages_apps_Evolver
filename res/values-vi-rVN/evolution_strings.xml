@@ -26,8 +26,9 @@
     <string name="miscellaneous_summary">Giả mạo, tùy chọn nhà phát triển</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Về ROM của chúng tôi</string>
+    <string name="general_category_title">Chung</string>
+    <string name="gestures_category_title">Cử chỉ</string>
     <!-- Themes -->
-    <string name="themes_general_category">Chung</string>
     <string name="themes_monet_category">Màu Monet</string>
     <string name="themes_monet_title">Cài đặt Monet</string>
     <string name="themes_monet_summary">Tùy chỉnh công cụ chủ đề tích hợp của Android</string>
@@ -168,7 +169,6 @@
     <string name="theme_customization_lock_clock_face_title">Mặt đồng hồ</string>
     <string name="theme_customization_lock_clock_face_summary">Thay đổi giao diện đồng hồ màn hình khóa</string>
     <!-- Status bar -->
-    <string name="status_bar_gestures_category">Cử chỉ</string>
     <string name="status_bar_brightness_control_title">Điều chỉnh độ sáng</string>
     <string name="status_bar_brightness_control_summary">Điều chỉnh độ sáng bằng cách vuốt trên thanh trạng thái</string>
     <string name="status_bar_quick_pull_down_title">Kéo nhanh xuống</string>
@@ -549,182 +549,19 @@
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Giả mạo thành phần</string>
     <string name="spoofing_summary">Vượt hạn chế ứng dụng bằng cách giả mạo</string>
-    <string name="spoof_screen_title">Giả lập</string>
-    <string name="spoof_screen_summary">Quản lý Play Integrity Fix, TrickyStore và giả mạo trong trò chơi</string>
-    <string name="spoof_dashboard_pif_summary">Quản lý cấu hình Play Integrity Fix đang hoạt động.</string>
-    <string name="spoof_dashboard_trickystore_summary">Quản lý keybox TrickyStore và các ứng dụng mục tiêu.</string>
-    <string name="spoof_dashboard_app_spoof_summary">Quản lý hồ sơ thiết bị giả mạo cho các trò chơi đã chọn.</string>
-    <string name="spoof_dashboard_pif_empty_detail">Nhập cấu hình hoặc tải cấu hình mới.</string>
-    <string name="spoof_dashboard_pif_detail">%1$s\nBản vá bảo mật: %2$s</string>
-    <string name="spoof_dashboard_target_empty_detail">Chưa có mục tiêu TrickyStore nào được chọn.</string>
-    <string name="spoof_dashboard_keybox_present_detail">Đã cài đặt keybox tùy chỉnh.</string>
-    <string name="spoof_dashboard_target_present_detail">Xem lại các ứng dụng mục tiêu hoặc nhập danh sách mục tiêu.</string>
-    <string name="spoof_dashboard_app_spoof_enabled">Tính năng giả mạo từng ứng dụng đã được bật</string>
-    <string name="spoof_dashboard_app_spoof_disabled">Tính năng giả mạo từng ứng dụng đã được tắt</string>
     <string name="spoofing_system_wide_category">Toàn hệ thống</string>
     <string name="spoofing_pixel_props_title">Thuộc tính Pixel</string>
     <string name="spoofing_pixel_props_summary">Giả mạo nhóm ứng dụng Google thành thiết bị Pixel mới nhất</string>
-    <string name="gms_spoof_title">Play Integrity fix</string>
-    <string name="gms_spoof_summary">Giả mạo thiết bị để vượt kiểm tra Play Integrity của Google</string>
-    <string name="vending_spoof_title">Máy bán hàng giả mạo</string>
-    <string name="vending_spoof_summary">Áp dụng tính năng giả mạo thiết bị cho Google Play Store</string>
+    <string name="tensor_spoof_title">Buộc các tính năng Tensor</string>
+    <string name="tensor_spoof_summary">Bật các tính năng độc quyền của Pixel Tensor trên các thiết bị không được hỗ trợ. Có thể dẫn đến hành vi không mong muốn hoặc tăng mức sử dụng pin.</string>
     <string name="spoofing_app_specific_category">Theo ứng dụng</string>
-    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
-    <string name="toast_spoofing_success">Tải xuống pif.json thành công. Đang giả mạo %1$s cho Play Integrity.</string>
-    <string name="toast_spoofing_failure">Không thể giả mạo thuộc tính.</string>
-    <string name="update_pif_json_title">Cập nhật Play Integrity fix</string>
-    <string name="update_pif_json_summary">Cập nhật thiết bị giả mạo PIF (Yêu cầu kết nối internet.)</string>
-    <string name="update_pif_auto_random_title">Cập nhật bản vá lỗi Play Integrity (Ngẫu nhiên)</string>
-    <string name="update_pif_auto_random_summary">Chọn ngẫu nhiên thiết bị giả mạo từ danh sách của Google. (Yêu cầu kết nối internet.)</string>
-    <string name="show_pif_properties_title">Thuộc tính Play Integrity fix</string>
-    <string name="show_pif_properties_summary">Hiển thị tất cả thuộc tính PIF hiện tại</string>
-    <string name="error_loading_properties">Lỗi khi tải thuộc tính PIF</string>
-    <string name="pif_spoofing_title">Chọn file PIF JSON</string>
-    <string name="pif_spoofing_summary">Chọn file PIF JSON dùng để giả mạo Play Integrity</string>
-    <string name="pif_category_title">Play Integrity Fix</string>
-    <string name="pif_screen_intro">Xem cấu hình hiện tại, tải cấu hình mới hoặc nhập tệp pif.json hoặc pif.prop của riêng bạn.</string>
-    <string name="pif_fetch_beta_title">Tải xuống Pixel Beta</string>
-    <string name="pif_fetch_evolution_title">Tải xuống từ Evolution X</string>
-    <string name="pif_no_config_loaded">Chưa có cấu hình nào được tải</string>
-    <string name="pif_active_config">Đang hoạt động: %1$s</string>
-    <string name="pif_import_title">Nhập tệp cấu hình</string>
-    <string name="pif_import_summary">Tải tệp pif.json hoặc pif.prop tùy chỉnh</string>
-    <string name="pif_import_success_named">Đã nhập %1$s</string>
-    <string name="pif_import_error">Nhập lỗi: %1$s</string>
-    <string name="pif_show_props_title">Các thuộc tính hiện tại</string>
-    <string name="pif_no_props">Không có thuộc tính nào được tải</string>
-    <string name="pif_current_props_title">Thuộc tính PIF hoạt động</string>
-    <string name="pif_model_label">Mẫu: %1$s</string>
-    <string name="pif_fingerprint_label">Dấu vân tay: %1$s</string>
-    <string name="pif_security_patch_label">Bản vá bảo mật: %1$s</string>
-    <string name="pif_not_available">Không có sẵn</string>
-    <string name="pif_fetching">Đang tải hồ sơ Pixel beta...</string>
-    <string name="pif_fetching_evolution">Đang tải hồ sơ Evolution X...</string>
-    <string name="pif_fetch_success">Đã cập nhật lên %1$s</string>
-    <string name="pif_fetch_success_named">Đã cập nhật %2$s với %1$s</string>
-    <string name="pif_fetch_failed">Tải về thất bại: %1$s</string>
-    <string name="pif_files_title">Tệp cấu hình</string>
-    <string name="pif_replace_title">Thay thế</string>
-    <string name="pif_deleted_named">Đã xóa %1$s</string>
-    <string name="pif_file_status_active">Đang hoạt động</string>
-    <string name="pif_file_status_available">Có sẵn</string>
-    <string name="pif_file_status_empty">Chưa được cấu hình</string>
-    <string name="pif_file_empty_summary">Hãy nhập một tệp để sử dụng vị trí này.</string>
-    <string name="pif_file_present_summary">Tệp cấu hình đã được cài đặt.</string>
-    <string name="pif_options_category">Tùy chọn PIF</string>
-    <string name="pif_spoof_photos_title">Giả mạo Google Photos</string>
-    <string name="pif_spoof_photos_summary">Hiển thị dưới dạng Pixel XL để sao lưu chất lượng gốc không giới hạn</string>
-    <string name="pif_spoof_tensor_title">Đặc điểm của Force Tensor</string>
-    <string name="pif_spoof_tensor_summary">Kích hoạt các tính năng độc quyền của Pixel Tensor (có thể gây ra sự cố)</string>
-    <string name="keybox_category_title">Keybox (TrickyStore)</string>
-    <string name="trickystore_screen_title">TrickyStore</string>
-    <string name="keybox_import_title">Nhập Keybox</string>
-    <string name="keybox_installed">Đã cài đặt keybox</string>
-    <string name="keybox_not_found">Không tìm thấy keybox</string>
-    <string name="keybox_import_success">Đã nhập keybox</string>
-    <string name="keybox_import_failed">Nhập thất bại: %1$s</string>
-    <string name="keybox_delete_pref_title">Xóa Keybox</string>
-    <string name="keybox_delete_summary">Xóa tệp keybox.xml hiện tại</string>
-    <string name="keybox_delete_title">Xóa keybox?</string>
-    <string name="keybox_delete_message">Tệp keybox.xml hiện tại sẽ bị xóa khỏi TrickyStore.</string>
-    <string name="keybox_deleted">Đã xóa keybox</string>
-    <string name="target_category_title">Ứng dụng mục tiêu (TrickyStore)</string>
-    <string name="target_screen_title">Ứng dụng mục tiêu</string>
-    <string name="target_apps_intro">Hãy chọn những ứng dụng nào sử dụng TrickyStore và thiết lập chế độ cho từng ứng dụng.</string>
-    <string name="target_manage_title">Quản lý ứng dụng mục tiêu</string>
-    <string name="target_no_apps">Không có ứng dụng nào được cấu hình</string>
-    <string name="target_apps_count">%1$d ứng dụng đã được cấu hình</string>
-    <string name="target_selected_count">%1$d đã được chọn</string>
-    <string name="target_import_title">Nhập target.txt</string>
-    <string name="target_import_summary">Nhập danh sách mục tiêu từ tệp</string>
-    <string name="target_import_success">Danh sách mục tiêu đã được nhập</string>
-    <string name="target_import_failed">Nhập thất bại: %1$s</string>
-    <string name="target_search_hint">Tìm kiếm ứng dụng</string>
-    <string name="target_mode_auto">Tự động</string>
-    <string name="target_mode_leaf_hack">Leaf Hack</string>
-    <string name="target_mode_cert_gen">Chứng chỉ Gen</string>
-    <string name="app_spoof_screen_title">Giả mạo ứng dụng</string>
-    <string name="app_spoof_category_title">Giả mạo ứng dụng</string>
-    <string name="app_spoof_manage_title">Quản lý giả mạo ứng dụng</string>
-    <string name="app_spoof_manage_summary">Giả mạo thuộc tính thiết bị cho từng ứng dụng</string>
-    <string name="app_spoof_enabled_title">Bật tính năng giả mạo ứng dụng</string>
-    <string name="app_spoof_enabled_summary">Ghi đè các thuộc tính thiết bị cho các ứng dụng đã cấu hình</string>
-    <string name="app_spoof_screen_intro">Thêm ứng dụng, gán cấu hình thiết bị, sau đó quay lại đây bất cứ lúc nào để cập nhật hoặc xóa ứng dụng.</string>
-    <string name="app_spoof_add_app">Thêm ứng dụng</string>
-    <string name="app_spoof_add_app_summary">Chọn một ứng dụng và gán cấu hình thiết bị</string>
-    <string name="app_spoof_configured_apps">Ứng dụng đã cấu hình</string>
-    <string name="app_spoof_configured_apps_count">%1$d ứng dụng đã cấu hình</string>
-    <string name="app_spoof_no_apps">Không có ứng dụng nào được cấu hình</string>
-    <string name="app_spoof_select_app">Chọn một ứng dụng</string>
-    <string name="app_spoof_select_profile">Chọn cấu hình thiết bị</string>
-    <string name="app_spoof_app_added">%1$s đã được thêm</string>
-    <string name="app_spoof_app_updated">%1$s đã được cập nhật</string>
-    <string name="app_spoof_change_profile">Thay đổi hồ sơ</string>
-    <string name="app_spoof_remove">Xóa ứng dụng</string>
-    <string name="app_spoof_removed">Ứng dụng đã bị xóa</string>
-    <string name="app_spoof_no_profiles">Hiện chưa có hồ sơ nào. Hãy thêm một hồ sơ trước.</string>
-    <string name="app_spoof_custom_profile">Tùy chỉnh</string>
-    <string name="app_spoof_manage_profiles_title">Quản lý hồ sơ</string>
-    <string name="app_spoof_manage_profiles_summary">Thêm, chỉnh sửa hoặc xóa hồ sơ thiết bị</string>
-    <string name="app_spoof_profile_add">Thêm hồ sơ</string>
-    <string name="app_spoof_profile_edit">Chỉnh sửa hồ sơ</string>
-    <string name="app_spoof_profile_delete">Xóa hồ sơ</string>
-    <string name="app_spoof_profile_name_hint">Tên hồ sơ</string>
-    <string name="app_spoof_profile_name_empty">Tên hồ sơ không được để trống</string>
-    <string name="app_spoof_profile_delete_confirm_title">Xóa hồ sơ</string>
-    <string name="app_spoof_profile_delete_confirm_msg">Xóa hồ sơ &quot;%1$s&quot;?</string>
-    <string name="app_spoof_profile_deleted">Hồ sơ đã bị xóa</string>
-    <string name="app_spoof_profile_saved">Hồ sơ &quot;%1$s&quot; đã được lưu</string>
-    <string name="app_spoof_profile_updated">Hồ sơ &quot;%1$s&quot; đã được cập nhật</string>
-    <string name="app_spoof_profile_summary">Hồ sơ: %1$s</string>
-    <string name="app_spoof_add_prop">+ Thêm thuộc tính</string>
-    <string name="action_delete">Xoá</string>
-    <string name="game_spoofing_title">Giả mạo trò chơi</string>
-    <string name="game_spoofing_summary">Giả mạo thuộc tính thiết bị cho các trò chơi đã chọn</string>
-    <string name="game_spoofing_intro">Thêm trò chơi, chọn một thiết lập sẵn và chỉnh sửa thuộc tính khi cần.</string>
-    <string name="game_spoofing_enabled">Giả mạo trò chơi đã được bật</string>
-    <string name="game_spoofing_disabled">Giả mạo trò chơi đã được tắt</string>
-    <string name="game_spoofing_configured_count">%1$d trò chơi đã cấu hình</string>
-    <string name="game_spoof_add_game">Thêm trò chơi</string>
-    <string name="game_spoof_no_games">Chưa có trò chơi nào được cấu hình</string>
-    <string name="game_spoof_select_game">Chọn một trò chơi</string>
-    <string name="game_spoof_select_preset">Chọn cài đặt sẵn</string>
-    <string name="game_spoof_no_presets">Không có cài đặt sẵn nào</string>
-    <string name="game_spoof_game_added">%1$s đã được thêm</string>
-    <string name="game_spoof_game_updated">%1$s đã được cập nhật</string>
-    <string name="game_spoof_game_removed">Đã xóa trò chơi</string>
-    <string name="game_spoof_change_preset">Thay đổi cài đặt sẵn</string>
-    <string name="game_spoof_remove_game">Xóa trò chơi</string>
-    <string name="game_spoof_manage_presets">Quản lý cài đặt sẵn</string>
-    <string name="game_spoof_preset_add">Thêm cài đặt sẵn</string>
-    <string name="game_spoof_preset_edit">Chỉnh sửa cài đặt sẵn</string>
-    <string name="game_spoof_preset_delete">Xóa cài đặt sẵn</string>
-    <string name="game_spoof_preset_name">Tên cài đặt sẵn</string>
-    <string name="game_spoof_preset_name_empty">Tên cài đặt sẵn không được để trống</string>
-    <string name="game_spoof_preset_saved">Đã lưu cài đặt sẵn</string>
-    <string name="game_spoof_preset_saved_named">Cài đặt sẵn &quot;%1$s&quot; đã được lưu</string>
-    <string name="game_spoof_preset_updated_named">Cài đặt sẵn &quot;%1$s&quot; đã được cập nhật</string>
-    <string name="game_spoof_preset_deleted">Đã xóa cài đặt sẵn</string>
-    <string name="game_spoof_preset_delete_confirm">Xóa cài đặt sẵn &quot;%1$s&quot;?</string>
-    <string name="game_spoof_builtin_preset">Không thể xóa các thiết lập sẵn có</string>
-    <string name="game_spoof_preset_summary">Cài đặt sẵn: %1$s</string>
-    <string name="game_spoof_custom">Tùy chỉnh</string>
-    <string name="game_spoof_add_property">+ Thêm thuộc tính</string>
-    <string name="game_spoof_edit_properties">Chỉnh sửa thuộc tính</string>
-    <string name="game_spoof_edit_title">Chỉnh sửa %1$s</string>
-    <string name="game_spoof_save_as_preset">Lưu dưới dạng cài đặt sẵn</string>
-    <string name="game_spoof_config_saved">Cấu hình đã được lưu</string>
-    <string name="game_spoof_property_key_hint">Tên thuộc tính</string>
-    <string name="game_spoof_property_value_hint">Giá trị</string>
-    <!-- Miscellaneous/Spoofing/Keybox Data -->
-    <string name="keybox_data_title">Ghi đè xác thực Keybox</string>
-    <string name="keybox_data_summary">Tải tệp XML Keybox tùy chỉnh để ghi đè xác thực khóa thiết bị</string>
-    <string name="keybox_data_loaded_summary">Đã tải XML Keybox tùy chỉnh. Xóa để bỏ.</string>
-    <string name="keybox_delete_content_description">Xóa dữ liệu Keybox</string>
-    <string name="keybox_toast_invalid_file_selected">Không phải một tệp XML. Hãy chọn một tệp XML Keybox hợp lệ.</string>
-    <string name="keybox_toast_missing_data">XML Keybox không hợp lệ: thiếu trường bắt buộc</string>
-    <string name="keybox_toast_file_loaded">Đã tải Keybox</string>
-    <string name="keybox_toast_file_cleared">Đã xóa Keybox</string>
+    <string name="spoofing_photos_title">Google Photos</string>
+    <string name="spoofing_photos_summary">Giả mạo ứng dụng Google Photos như một Pixel XL</string>
+    <string name="spoofing_snap_title">Snapchat</string>
+    <string name="spoofing_snap_summary">Giả mạo Snapchat như một Pixel XL để sửa vấn đề chat</string>
+    <string name="spoofing_applying_changes">Áp dụng các thay đổi giả mạo\u2026</string>
+    <string name="spoofing_tensor_enabled">Các tính năng Tensor đã bật</string>
+    <string name="spoofing_tensor_disabled">Các tính năng Tensor đã tắt</string>
     <!-- About -->
     <string name="about_info">Evolution X là một bản ROM Android tùy chỉnh nhằm mục đích tái tạo trải nghiệm Google Pixel, với tùy chỉnh được thêm vào. Dựa trên Dự án LineageOS.</string>
     <string name="about_website_title">Trang web</string>
@@ -812,16 +649,29 @@
     <!-- Wallpaper Styles -->
     <string name="wallpaper_settings_title">Kiểu hình nền</string>
     <string name="wallpaper_settings_summary">Tùy chỉnh kiểu và cài đặt hình nền</string>
+    <!-- Wallpaper Settings Titles -->
     <string name="wallpaper_blur_title">Làm mờ hình nền</string>
-    <string name="wallpaper_blur_summary">Bật hoặc tắt hiệu ứng làm mờ hình nền</string>
     <string name="wallpaper_blur_filter">Kiểu làm mờ</string>
+    <string name="wallpaper_effects_title">Hiệu ứng Hình ảnh Hình nền</string>
+    <string name="wallpaper_effect_type_title">Loại Hiệu ứng Hình nền</string>
+    <string name="wallpaper_effect_target_title">Áp dụng hiệu ứng vào</string>
     <string name="wallpaper_dim_title">Làm tối hình nền</string>
     <string name="wallpaper_dim_level_title">Mức độ làm tối</string>
-    <string name="wallpaper_dim_level_summary">Tùy chỉnh mức độ làm tối hình nền</string>
     <string name="glass_blur">Làm mờ kính</string>
     <string name="frosted_blur">Làm mờ sương</string>
+    <string name="wallpaper_dim_level_summary">Tùy chỉnh mức độ làm tối hình nền</string>
     <string name="wallpaper_styles_footer">        Để kiểu hình nền hoạt động hiệu quả, người dùng cần đặt hình nền riêng cho màn hình khóa và màn hình chính.\nCó thể dùng chung hình nền, nhưng không nên áp dụng đồng thời cho cả hai.\nTùy chọn khi dùng chế độ làm mờ và làm tối hình nền cho CẢ HAI.
     </string>
+    <string name="wallpaper_performance_warning">⚠ Lưu ý về Hiệu năng: Các hiệu ứng hình ảnh này tiêu tốn nhiều tài nguyên và có thể ảnh hưởng đến hiệu năng trên các thiết bị cấu hình thấp. Để có trải nghiệm tối ưu, hãy sử dụng trên các thiết bị tầm trung hoặc cao cấp.\nCác hiệu ứng có thể gây lag, hao pin hoặc gián đoạn trên các điện thoại cũ hơn.</string>
+    <!-- Effect Titles -->
+    <string name="wallpaper_saturation_title">Cấp độ Bão hòa</string>
+    <string name="wallpaper_saturation_summary">Tăng hoặc giảm cường độ màu</string>
+    <string name="wallpaper_pixelation_size_title">Kích thước Vỡ pixel</string>
+    <string name="wallpaper_pixelation_size_summary">Giá trị lớn hơn = thêm vỡ pixel</string>
+    <string name="wallpaper_vignette_intensity_title">Cường độ Viền ảnh</string>
+    <string name="wallpaper_vignette_intensity_summary">Độ tối của các cạnh</string>
+    <string name="wallpaper_posterize_levels_title">Các cấp độ Poster hoá</string>
+    <string name="wallpaper_posterize_levels_summary">Giảm độ sâu màu</string>
     <!-- Compact QS Media Player-->
     <string name="qs_compact_media_player_mode_title">Trình phát nhạc thu gọn</string>
     <string name="qs_compact_media_player_mode_summary">Bật chế độ thu gọn cho trình phát nhạc</string>
@@ -923,6 +773,38 @@
     <!-- Squiggle animation for media notification -->
     <string name="media_squiggle_animation_title">Hiệu ứng uốn lượn</string>
     <string name="media_squiggle_animation_summary">Hiện hiệu ứng uốn lượn của thanh tiến trình trong bảng đa phương tiện khi phát</string>
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Chip hành động thanh trạng thái</string>
+    <string name="ongoing_progress_settings_summary">Tùy chỉnh chip hành động để hiện chỉ báo tiến độ</string>
+    <string name="ongoing_action_chip_title">Chip hành động đang diễn ra</string>
+    <string name="ongoing_action_chip_summary">Hiển thị chỉ báo tiến độ cho các hành động đang diễn ra như tải xuống</string>
+    <string name="ongoing_media_progress_title">Tiến trình phương tiện</string>
+    <string name="ongoing_media_progress_summary">Hiển thị tiến trình phát lại phương tiện</string>
+    <string name="ongoing_progress_footer_text">\"Chip hành động trên thanh trạng thái cung cấp thông tin cập nhật theo thời gian thực cho cả phát lại phương tiện và các hoạt động tải xuống/tải lên.
+
+Tiến trình phương tiện:
+• Hiển thị tiến trình phát lại nhạc và video khi phương tiện đang phát.
+• Chạm một lần để mở điều khiển phát lại.
+• Chạm hai lần để phát/tạm dừng.
+• Vuốt sang trái để bỏ qua đến bài hát trước.
+• Vuốt sang phải để bỏ qua đến bài hát tiếp theo.
+• Nhấn giữ để mở ứng dụng phương tiện.
+
+Tiến trình Tải xuống/Tải lên:
+• Hiển thị tiến trình cho các hoạt động tải xuống và tải lên đang diễn ra.
+• Tự động ẩn khi không có hoạt động truyền tải nào được phát hiện.
+• Chạm một lần để mở ứng dụng chịu trách nhiệm tải xuống.
+
+Thanh tiến trình tự động chuyển đổi giữa trạng thái phương tiện và tải xuống, đảm bảo bạn luôn có thông tin liên quan nhất trong một cái nhìn thoáng qua.\"
+    </string>
+    <string name="ongoing_compact_mode_title">Chỉ báo tiến trình thu gọn</string>
+    <string name="ongoing_compact_mode_summary">Sử dụng một chỉ báo tròn nhỏ gọn cho các hành động đang diễn ra</string>
+    <string name="ongoing_chip_color_mode_title">Màu nền chip phương tiện</string>
+    <string name="ongoing_chip_color_mode_accent">Màu nhấn hệ thống</string>
+    <string name="ongoing_chip_color_mode_icon">Màu biểu tượng ứng dụng</string>
+    <string name="ongoing_chip_color_mode_album_art">Màu bìa album</string>
+    <string name="ongoing_chip_bg_alpha_title">Độ mờ nền chip</string>
+    <string name="ongoing_chip_bg_alpha_summary">Điều chỉnh độ mờ của chip hành động đang diễn ra</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Thanh pin</string>
     <string name="battery_bar_summary">Hiển thị và tuỳ chỉnh thanh pin phía trên thanh trạng thái</string>
@@ -1246,9 +1128,6 @@
     <!-- QS media player -->
     <string name="qs_show_media_player_title">Trình phát đa phương tiện trên QS</string>
     <string name="qs_show_media_player_summary">Hiển thị điều khiển đa phương tiện trong Cài đặt nhanh (Quick Settings)</string>
-    <!-- Vbmeta hash attestation -->
-    <string name="vbmeta_attestation_title">Tự động sửa phát hiện VBMeta</string>
-    <string name="vbmeta_attestation_summary">Thực hiện chứng nhận khóa để tạo mã băm khởi động đã được xác minh khi khởi động. Yêu cầu khởi động lại hệ thống.</string>
     <!-- Dynamic Bar -->
     <string name="dynamic_bar">Dynamic Bar</string>
     <string name="dynamic_bar_summary">Chip thanh trạng thái thông minh cho các sự kiện đang hoạt động như ghi âm, đa phương tiện, hẹn giờ, v.v.</string>
@@ -1269,6 +1148,8 @@
     <string name="dynamic_bar_event_privacy_summary">Cảnh báo truy cập camera và micrô</string>
     <string name="dynamic_bar_event_audio_recording">Ghi âm</string>
     <string name="dynamic_bar_event_audio_recording_summary">Ghi âm giọng nói và thu âm thanh</string>
+    <string name="dynamic_bar_event_call">Ongoing call</string>
+    <string name="dynamic_bar_event_call_summary">Incoming and active calls</string>
     <string name="dynamic_bar_event_media">Phát lại đa phương tiện</string>
     <string name="dynamic_bar_event_media_summary">Nhạc đang phát và điều khiển âm thanh</string>
     <string name="dynamic_bar_event_notification">Thông báo</string>
@@ -1324,4 +1205,303 @@
     <!-- Themes -->
     <string name="custom_system_theme_title">Giao diện</string>
     <string name="custom_system_theme_summary">Tuỳ chỉnh giao diện hệ thống với chủ đề và bộ biểu tượng</string>
+    <!-- Notification app icon -->
+    <string name="notification_use_app_icons_title">Sử dụng biểu tượng ứng dụng trong thông báo</string>
+    <string name="notification_use_app_icons_summary">Hiện biểu tượng trình khởi chạy ứng dụng thay vì biểu tượng thông báo nhỏ</string>
+    <string name="notification_use_themed_app_icons_title">Sử dụng biểu tượng ứng dụng theo chủ đề</string>
+    <string name="notification_use_themed_app_icons_summary">Áp dụng chủ đề màu hệ thống cho biểu tượng ứng dụng thông báo (thử nghiệm)</string>
+    <!-- Notification background alternate color -->
+    <string name="notification_bg_alternate_color_title">Màu nền thay thế của thông báo</string>
+    <string name="notification_bg_alternate_color_summary">Sử dụng màu nền thay thế cho thông báo</string>
+    <!-- Cutout Progress -->
+    <string name="cutout_progress_title">Vòng Tiến độ Cắt rời</string>
+    <string name="cutout_progress_summary">Hiện vòng tiến độ xung quanh lỗ bấm</string>
+    <string name="cutout_progress_enabled_title">Bật vòng tiến độ cắt rời</string>
+    <string name="cutout_progress_enabled_summary">Hiện một vòng tiến độ xung quanh phần cắt camera trong khi tải xuống</string>
+    <string name="cutout_progress_cat_appearance">Giao diện</string>
+    <string name="cutout_progress_cat_behaviour">Hành vi</string>
+    <string name="cutout_progress_cat_bg_ring">Vòng nền</string>
+    <string name="cutout_progress_cat_finish">Hoạt ảnh kết thúc</string>
+    <string name="cutout_progress_cat_geometry">Hình học vòng tròn</string>
+    <string name="cutout_progress_cat_labels">Nhãn</string>
+    <string name="cutout_progress_cat_badge">Huy hiệu đếm lượt tải</string>
+    <string name="cutout_progress_ring_color_title">Màu tùy chỉnh của vòng</string>
+    <string name="cutout_progress_error_color_title">Màu lỗi</string>
+    <string name="cutout_progress_finish_flash_color_title">Màu nháy khi hoàn thành</string>
+    <string name="cutout_progress_bg_ring_color_title">Màu vòng nền</string>
+    <string name="cutout_progress_opacity_title">Độ mờ của vòng</string>
+    <string name="cutout_progress_stroke_width_title">Độ rộng nét vẽ</string>
+    <string name="cutout_progress_ring_gap_title">Khe hở vòng (khoảng trống cutout)</string>
+    <string name="cutout_progress_clockwise_title">Hướng theo chiều kim đồng hồ</string>
+    <string name="cutout_progress_clockwise_summary">Lấp đầy vòng theo chiều kim đồng hồ; tắt để ngược chiều kim đồng hồ</string>
+    <string name="cutout_progress_min_vis_title">Thời gian hiển thị tối thiểu</string>
+    <string name="cutout_progress_min_vis_summary">Giữ vòng hiển thị trong khoảng thời gian tối thiểu để các lượt tải ngắn không bị nháy</string>
+    <string name="cutout_progress_min_vis_ms_title">Thời lượng tối thiểu</string>
+    <string name="cutout_progress_easing_title">Hiệu ứng giảm tốc tiến trình</string>
+    <string name="cutout_progress_bg_ring_enabled_title">Hiển thị vòng nền</string>
+    <string name="cutout_progress_bg_ring_enabled_summary">Vẽ một vòng mờ hoàn chỉnh phía sau cung tiến trình</string>
+    <string name="cutout_progress_bg_ring_opacity_title">Độ mờ vòng nền</string>
+    <string name="cutout_progress_finish_style_title">Kiểu hoạt ảnh khi hoàn thành</string>
+    <string name="cutout_progress_finish_hold_title">Thời lượng giữ</string>
+    <string name="cutout_progress_finish_exit_title">Thời lượng thoát</string>
+    <string name="cutout_progress_finish_flash_title">Sử dụng màu nháy khi hoàn thành</string>
+    <string name="cutout_progress_finish_flash_summary">Nháy vòng nhanh với màu nháy khi hoàn thành khi kết thúc</string>
+    <string name="cutout_progress_pulse_title">Xung khi hoàn thành</string>
+    <string name="cutout_progress_pulse_summary">Xung độ sáng ngắn trước hoạt ảnh hoàn thành</string>
+    <string name="cutout_progress_path_mode_title">Chế độ viên nang / hình thuốc</string>
+    <string name="cutout_progress_path_mode_summary">Sử dụng trình kết xuất đường dẫn hình viên thuốc (dành cho cutout dài)</string>
+    <string name="cutout_progress_scale_x_title">Tỷ lệ ngang</string>
+    <string name="cutout_progress_scale_y_title">Tỷ lệ dọc</string>
+    <string name="cutout_progress_offset_x_title">Dịch chuyển ngang</string>
+    <string name="cutout_progress_offset_y_title">Dịch chuyển dọc</string>
+    <string name="cutout_progress_percent_enabled_title">Hiển thị phần trăm</string>
+    <string name="cutout_progress_percent_enabled_summary">Hiển thị tiến trình tải xuống hiện tại dưới dạng nhãn phần trăm</string>
+    <string name="cutout_progress_percent_size_title">Cỡ chữ phần trăm</string>
+    <string name="cutout_progress_percent_bold_title">Chữ phần trăm đậm</string>
+    <string name="cutout_progress_percent_position_title">Vị trí phần trăm</string>
+    <string name="cutout_progress_filename_enabled_title">Hiển thị tên tệp</string>
+    <string name="cutout_progress_filename_enabled_summary">Hiển thị tên của tệp đang được tải xuống</string>
+    <string name="cutout_progress_filename_size_title">Cỡ chữ tên tệp</string>
+    <string name="cutout_progress_filename_bold_title">Chữ tên tệp đậm</string>
+    <string name="cutout_progress_filename_position_title">Vị trí tên tệp</string>
+    <string name="cutout_progress_filename_max_chars_title">Độ dài tên tệp tối đa</string>
+    <string name="cutout_progress_filename_truncate_title">Cắt ngắn tên tệp</string>
+    <string name="cutout_progress_badge_title">Hiển thị huy hiệu đếm lượt tải</string>
+    <string name="cutout_progress_badge_summary">Hiển thị huy hiệu dạng viên thuốc với số lượng lượt tải đang hoạt động</string>
+    <string name="cutout_progress_badge_size_title">Cỡ chữ huy hiệu</string>
+    <string name="cutout_progress_badge_offset_x_title">Dịch chuyển ngang của huy hiệu</string>
+    <string name="cutout_progress_badge_offset_y_title">Dịch chuyển dọc của huy hiệu</string>
+    <string name="cutout_progress_ring_color_mode_title">Màu vòng</string>
+    <string name="cutout_progress_color_picker_title">Chọn màu sắc</string>
+    <string name="cutout_progress_ring_color_mode_accent">Màu nhấn</string>
+    <string name="cutout_progress_ring_color_mode_rainbow">Cầu vồng</string>
+    <string name="cutout_progress_ring_color_mode_custom">Tùy chỉnh</string>
+    <string name="cutout_progress_cat_glow">Hiệu ứng Phát sáng</string>
+    <string name="cutout_progress_glow_enabled_title">Hiệu ứng phát sáng</string>
+    <string name="cutout_progress_glow_enabled_summary">Vầng hào quang xung quanh vòng tiến độ</string>
+    <string name="cutout_progress_glow_radius_title">Bán kính phát sáng</string>
+    <!-- Charging Ring -->
+    <string name="cutout_progress_cat_battery">Vòng pin</string>
+    <string name="cutout_progress_battery_indicator_title">Hiển thị chỉ báo pin</string>
+    <string name="cutout_progress_battery_indicator_summary">Hiển thị mức pin dưới dạng vòng đối xứng quanh cutout khi đang sạc hoặc đã sạc đầy</string>
+    <string name="cutout_progress_charging_ring_title">Hiển thị vòng sạc</string>
+    <string name="cutout_progress_charging_ring_summary">Hiển thị mức pin dưới dạng vòng đối xứng quanh cutout khi đang sạc</string>
+    <string name="cutout_progress_charging_pulse_title">Hoạt ảnh xung khi sạc</string>
+    <string name="cutout_progress_charging_pulse_summary">Phát hoạt ảnh xung lặp lại từ tâm ra ngoài khi đang sạc</string>
+    <!-- Music Ring -->
+    <string name="cutout_progress_cat_music">Vòng nhạc</string>
+    <string name="cutout_progress_music_title">Bật Vòng nhạc</string>
+    <string name="cutout_progress_music_summary">Hiển thị vòng biểu đồ theo dõi phát lại phương tiện hiện tại</string>
+    <string name="cutout_progress_music_color_mode_title">Chế độ màu</string>
+    <string name="cutout_progress_music_color_mode_album_icon">Màu biểu tượng album</string>
+    <string name="cutout_progress_music_color_mode_accent">Màu nhấn hệ thống</string>
+    <string name="cutout_progress_music_color_mode_album_art">Ảnh bìa album</string>
+    <string name="cutout_progress_music_color_mode_custom">Màu tùy chỉnh</string>
+    <string name="cutout_progress_music_custom_color_title">Màu tùy chỉnh</string>
+    <string name="cutout_progress_music_opacity_title">Độ mờ vòng</string>
+    <string name="cutout_progress_music_stroke_title">Độ rộng nét vẽ</string>
+    <string name="cutout_progress_music_clockwise_title">Hướng theo chiều kim đồng hồ</string>
+    <string name="cutout_progress_music_aod_title">Hiển thị trên AOD</string>
+    <string name="cutout_progress_music_aod_summary">Giữ vòng nhạc hiển thị trên màn hình trạng thái chờ (Ambient Display)</string>
+    <!-- Wallpaper Glymps -->
+    <string name="lock_glymps_title">Hình nền Glymps</string>
+    <string name="lock_glymps_enable_title">Bật Hình nền Glymps</string>
+    <string name="lock_glymps_enable_summary">Thay đổi hình nền mỗi khi màn hình sáng lên</string>
+    <string name="lock_glymps_wallpaper_target_title">Áp dụng hình nền cho</string>
+    <string name="lock_glymps_source_category">Nguồn hình nền</string>
+    <string name="lock_glymps_source_title">Nguồn hình nền</string>
+    <string name="lock_glymps_source_summary">Chọn nơi lấy hình nền từ</string>
+    <string name="lock_glymps_custom_urls_title">Quản lý URL tùy chỉnh</string>
+    <string name="lock_glymps_custom_urls_summary">Thêm hoặc xóa URL hình nền tùy chỉnh</string>
+    <string name="lock_glymps_folder_title">Thư mục cục bộ</string>
+    <string name="lock_glymps_folder_summary">Xem vị trí thư mục và số lượng hình nền (Tối đa 10 hình nền)</string>
+    <string name="lock_glymps_download_category">Cài đặt tải xuống</string>
+    <string name="lock_glymps_wifi_only_title">Chỉ qua WiFi</string>
+    <string name="lock_glymps_wifi_only_summary">Chỉ tải hình nền khi kết nối với WiFi</string>
+    <string name="lock_glymps_cache_size_title">Kích thước bộ nhớ đệm</string>
+    <string name="lock_glymps_cache_size_summary">Số lượng hình nền tải trước</string>
+    <string name="lock_glymps_advanced_category">Nâng cao</string>
+    <string name="lock_glymps_clear_cache_title">Xóa bộ nhớ đệm</string>
+    <string name="lock_glymps_clear_cache_summary">Xóa tất cả hình nền đã lưu trong bộ nhớ đệm</string>
+    <string name="lock_glymps_behavior_category">Hành vi</string>
+    <string name="lock_glymps_change_on_title">Thay đổi hình nền khi</string>
+    <string name="lock_glymps_change_on_summary">Khi nào thay đổi hình nền màn hình</string>
+    <string name="lock_glymps_timer_interval_title">Khoảng thời gian hẹn giờ</string>
+    <string name="lock_glymps_timer_interval_summary">Tần suất tự động thay đổi hình nền</string>
+    <!-- Footer -->
+    <string name="lock_glymps_footer_title">Thông tin quan trọng</string>
+    <string name="lock_glymps_footer_text">📁 Thư mục cục bộ: /sdcard/Glymps\n\n⚠️ Thiết bị cấu hình thấp có thể bị giật nhẹ\n\n🎨 Mẹo: Sử dụng Màu nhấn tùy chỉnh trong cài đặt Monet để có màu ổn định</string>
+    <!-- Preview strings -->
+    <string name="lock_glymps_preview_category">Hình nền hiện tại</string>
+    <string name="lock_glymps_preview_title">Xem trước hình nền</string>
+    <string name="lock_glymps_preview_summary">Hình nền màn hình khóa và màn hình chính hiện tại</string>
+    <string name="lock_glymps_lock_screen">Màn hình khóa</string>
+    <string name="lock_glymps_home_screen">Màn hình chính</string>
+    <string name="lock_glymps_apply_now">Áp dụng hình nền mới</string>
+    <string name="lock_glymps_applying">Đang áp dụng...</string>
+    <string name="lock_glymps_lock_preview_desc">Xem trước hình nền màn hình khóa</string>
+    <string name="lock_glymps_home_preview_desc">Xem trước hình nền màn hình chính</string>
+    <string name="video_wallpaper_title">Hình nền video</string>
+    <!-- Category -->
+    <string name="video_wallpaper_category">Tùy chỉnh hình nền</string>
+    <string name="video_wallpaper_category_title">Hình nền video</string>
+    <string name="video_wallpaper_category_summary">Đặt hình nền động (MP4, GIF, WebP)</string>
+    <!-- Preferences -->
+    <string name="video_wallpaper_current_title">Hình nền hiện tại</string>
+    <string name="video_wallpaper_current_summary">Chưa chọn hình nền video</string>
+    <string name="video_wallpaper_pick_title">Chọn video/GIF</string>
+    <string name="video_wallpaper_pick_summary">Chọn video hoặc ảnh động</string>
+    <string name="video_wallpaper_enable_title">Bật hình nền video</string>
+    <string name="video_wallpaper_enable_summary">Áp dụng video đã chọn làm hình nền trực tiếp (live wallpaper)</string>
+    <string name="video_wallpaper_clear_title">Xóa hình nền video</string>
+    <string name="video_wallpaper_clear_summary">Xóa hình nền video hiện tại</string>
+    <string name="video_wallpaper_playback">Cài đặt phát lại</string>
+    <string name="video_wallpaper_speed">Tốc độ phát lại</string>
+    <string name="video_wallpaper_pause_lock">Tạm dừng trên màn hình khóa</string>
+    <string name="video_wallpaper_pause_lock_summary">Tiết kiệm pin khi màn hình bị khóa</string>
+    <!-- Info section -->
+    <string name="video_wallpaper_info_category_title">Thông tin</string>
+    <string name="video_wallpaper_info_title">Định dạng hỗ trợ</string>
+    <string name="video_wallpaper_info_summary">Video MP4, ảnh động GIF và WebP\nKích thước tệp tối đa: 50MB</string>
+    <string name="video_wallpaper_tips_title">Mẹo</string>
+    <string name="video_wallpaper_tips_summary">• Video tự động bị tắt tiếng\n• Video độ phân giải thấp hơn sử dụng ít pin hơn\n• Nên dùng vòng lặp ngắn để hiệu suất tốt hơn\n• Nếu hình nền video không tải, hãy chọn hình nền trực tiếp (live wallpaper) từ Màn hình chính và kiểu sau khi chọn hình nền video\n• Bạn phải áp dụng lại hình nền trực tiếp sau khi khởi động lại thiết bị</string>
+    <string name="video_wallpaper_description">Hình nền video và GIF động</string>
+    <string name="lunaris_os">GHOST</string>
+    <!-- Video Wallpaper Strings -->
+    <string name="video_wallpaper_cleared">Đã xóa hình nền video</string>
+    <string name="video_wallpaper_clear_failed">Xóa hình nền video thất bại</string>
+    <string name="video_wallpaper_current_summary_dynamic">%1$s • %2$s</string>
+    <string name="video_wallpaper_current_none">Chưa chọn hình nền video</string>
+    <string name="video_wallpaper_select_first">Vui lòng chọn hình nền video trước</string>
+    <string name="video_wallpaper_select_wallpaper">Chọn hình nền video</string>
+    <string name="video_wallpaper_save_failed">Lưu video hoặc ảnh đã chọn thất bại</string>
+    <string name="video_wallpaper_apply_prompt">Áp dụng thủ công hình nền video đã chọn từ màn hình xem trước</string>
+    <string name="video_wallpaper_enable_failed">Bật hình nền video thất bại</string>
+    <string name="video_wallpaper_picker_error">Không thể mở trình chọn. Vui lòng thử lại.</string>
+    <string name="video_wallpaper_processing">Đang xử lý tệp đã chọn...</string>
+    <string name="video_wallpaper_saved">Đã lưu hình nền video thành công</string>
+    <!-- Single Tone QS -->
+    <string name="qs_single_tone_title">Single Tone QS</string>
+    <string name="qs_single_tone_summary">Ẩn lớp phủ thông báo để có giao diện Cài đặt nhanh (Quick Settings) thống nhất</string>
+    <!-- Ambient display -->
+    <string name="ambient_display_category_title">Màn hình trạng thái chờ (Ambient display)</string>
+    <string name="ambient_bottom_title">Phần dưới AOD</string>
+    <string name="ambient_battery_disable_title">Tắt</string>
+    <string name="ambient_battery_percent_title">Mức pin</string>
+    <string name="ambient_battery_both_title">Pin (Mức &amp; nhiệt độ)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Mức pin, nhiệt độ (Pin &amp; CPU)</string>
+    <string name="ambient_user_name_title">Tên người dùng</string>
+    <string name="display_icon_title">Biểu tượng</string>
+    <string name="display_icon_summary">Hiển thị biểu tượng cùng với mức độ &amp; nhiệt độ</string>
+    <!-- Misc preference entries -->
+    <string name="play_integrity_fix_title">Play Integrity Fix</string>
+    <string name="play_integrity_fix_summary">Quản lý cấu hình PIF và dấu vân tay thiết bị để đạt basic integrity</string>
+    <string name="tricky_store_title">TrickyStore</string>
+    <string name="tricky_store_summary">Quản lý keybox và ứng dụng mục tiêu cho chứng thực để đạt strong integrity</string>
+    <string name="game_spoofing_title">Game spoofing</string>
+    <string name="game_spoofing_summary">Giả mạo thuộc tính thiết bị cho các trò chơi cụ thể</string>
+    <!-- Play Integrity Fix -->
+    <string name="pif_status">Trạng thái</string>
+    <string name="pif_active_config">Cấu hình đang hoạt động</string>
+    <string name="pif_no_config">Chưa tải cấu hình</string>
+    <string name="pif_config_loaded">Đã tải cấu hình</string>
+    <string name="pif_fetch_pixel_beta">Lấy dấu vân tay Pixel Beta</string>
+    <string name="pif_fetch_pixel_beta_summary">Tải dấu vân tay Pixel Beta mới nhất từ Google</string>
+    <string name="pif_fetching">Đang lấy từ Google\u2026</string>
+    <string name="pif_fetched_model">Đã lấy dấu vân tay cho %s</string>
+    <string name="pif_import_config">Nhập cấu hình</string>
+    <string name="pif_import_config_summary">Nhập cấu hình PIF từ tệp</string>
+    <string name="pif_imported_as">Đã nhập thành %s</string>
+    <string name="pif_delete_config">Xóa cấu hình đang hoạt động</string>
+    <string name="pif_delete_config_summary">Xóa tệp cấu hình đang hoạt động hiện tại</string>
+    <string name="pif_delete_title">Xóa %s?</string>
+    <string name="pif_delete_message">Tệp cấu hình này sẽ bị xóa vĩnh viễn.</string>
+    <string name="pif_delete">Xoá</string>
+    <string name="pif_deleted">Đã xóa %s</string>
+    <string name="pif_config_details">Chi tiết cấu hình</string>
+    <string name="pif_failed">Thất bại: %s</string>
+    <string name="pif_select_device">Chọn thiết bị</string>
+    <string name="pif_generating">Đang tạo cấu hình\u2026</string>
+    <string name="pif_footer_title">Đạt basic integrity</string>
+    <string name="pif_footer_body">1. Nhấn \"Lấy dấu vân tay Pixel Beta\" và chọn thiết bị từ danh sách có sẵn.\n2. Nếu không tìm thấy thiết bị nào, hãy nhập cấu hình PIF đang hoạt động từ nguồn đáng tin cậy. Không cung cấp tệp cấu hình; bạn phải tự tìm.\n3. Kiểm tra lại trạng thái Play Integrity của bạn.\n\nLuôn xóa cấu hình đang hoạt động trước khi tải cấu hình mới. Tải cấu hình PIF đã hết hạn sẽ khiến strong integrity qua TrickyStore thất bại, ngay cả với keybox hợp lệ.</string>
+    <!-- TrickyStore -->
+    <string name="ts_keybox_management">Quản lý keybox</string>
+    <string name="ts_import_keybox">Nhập keybox</string>
+    <string name="ts_no_keybox">Chưa cài keybox</string>
+    <string name="ts_keybox_installed">Đã cài keybox</string>
+    <string name="ts_keybox_imported">Đã nhập keybox thành công</string>
+    <string name="ts_delete_keybox">Xóa keybox</string>
+    <string name="ts_delete_keybox_summary">Xóa tệp keybox</string>
+    <string name="ts_delete_keybox_title">Xóa keybox?</string>
+    <string name="ts_delete_keybox_message">Tệp keybox sẽ bị xóa vĩnh viễn.</string>
+    <string name="ts_delete">Xoá</string>
+    <string name="ts_keybox_deleted">Đã xóa keybox</string>
+    <string name="ts_target_configuration">Cấu hình mục tiêu</string>
+    <string name="ts_manage_target_apps">Quản lý ứng dụng mục tiêu</string>
+    <string name="ts_no_targets">Chưa cấu hình ứng dụng mục tiêu</string>
+    <string name="ts_target_apps_count">%d ứng dụng đã cấu hình</string>
+    <string name="ts_import_target_list">Nhập danh sách mục tiêu</string>
+    <string name="ts_import_target_list_summary">Nhập target.txt từ tệp</string>
+    <string name="ts_target_list_imported">Đã nhập danh sách mục tiêu</string>
+    <string name="ts_loading_apps">Đang tải ứng dụng\u2026</string>
+    <string name="ts_save">Lưu</string>
+    <string name="ts_targets_saved">Đã lưu danh sách mục tiêu</string>
+    <string name="ts_failed">Thất bại: %s</string>
+    <string name="ts_target_mode">Chế độ mục tiêu</string>
+    <string name="ts_target_mode_auto">Tự động</string>
+    <string name="ts_target_mode_leaf">Leaf hack</string>
+    <string name="ts_target_mode_cert">Tạo chứng chỉ</string>
+    <string name="ts_footer_title">Đạt strong integrity</string>
+    <string name="ts_footer_body">1. Lấy keybox XML hợp lệ từ nguồn đáng tin cậy. Không cung cấp keybox; bạn phải tự tìm.\n2. Nhấn \"Nhập keybox\" và tải tệp.\n3. Mở \"Quản lý ứng dụng mục tiêu\" và chọn Google Play Services và Google Play Store.\n4. Đặt chế độ mục tiêu thành \"Leaf\" nếu thiết bị của bạn có TEE hoạt động, nếu không thì để là Tự động.\n5. Kiểm tra lại trạng thái Play Integrity của bạn.\n\nLuôn xóa keybox hiện có trước khi nhập keybox mới. Nếu Google thu hồi keybox, keybox đó vẫn có thể cho phép đạt device integrity mặc dù strong integrity sẽ thất bại.</string>
+    <!-- Game Spoofing -->
+    <string name="gs_enable">Bật game spoofing</string>
+    <string name="gs_enable_summary">Giả mạo thuộc tính thiết bị cho các trò chơi đã cấu hình</string>
+    <string name="gs_add_app">Thêm trò chơi</string>
+    <string name="gs_add_app_summary">Chọn ứng dụng và hồ sơ thiết bị để giả mạo</string>
+    <string name="gs_reload">Tải lại</string>
+    <string name="gs_reload_summary">Tải lại cấu hình từ đĩa</string>
+    <string name="gs_configured_apps">Trò chơi đã cấu hình</string>
+    <string name="gs_no_apps">Chưa cấu hình trò chơi nào</string>
+    <string name="gs_no_apps_summary">Nhấn \"Thêm trò chơi\" để bắt đầu</string>
+    <string name="gs_select_app">Chọn ứng dụng</string>
+    <string name="gs_select_profile">Chọn hồ sơ thiết bị</string>
+    <string name="gs_edit_props">Chỉnh sửa thuộc tính</string>
+    <string name="gs_change_profile">Thay đổi hồ sơ thiết bị</string>
+    <string name="gs_remove">Xóa</string>
+    <string name="gs_remove_title">Xóa trò chơi?</string>
+    <string name="gs_remove_message">Xóa %s khỏi game spoofing?</string>
+    <string name="gs_edit_app">Chỉnh sửa %s</string>
+    <string name="gs_key">Khóa</string>
+    <string name="gs_value">Giá trị</string>
+    <string name="gs_save">Lưu</string>
+    <string name="gs_config_saved">Đã lưu cấu hình</string>
+    <string name="gs_loading_apps">Đang tải ứng dụng\u2026</string>
+    <string name="gs_failed">Thất bại: %s</string>
+    <!-- Depth Wallpaper -->
+    <string name="depthwall_file_header_select_title">Chọn đối tượng cho hình nền Depth</string>
+    <string name="depthwall_file_header_select_summary">Chọn ảnh đối tượng cho hình nền depth từ bộ nhớ.</string>
+    <string name="depthwall_wallpaper_enabled_title">Hình nền Depth</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Áp dụng hiệu ứng depth\ncho hình nền</string>
+    <string name="depthwall_wallpaper_enabled_summary">Bật hiệu ứng depth lấy cảm hứng từ iOS. Yêu cầu ảnh đối tượng.</string>
+    <string name="depthwall_wallpaper_opacity_title">Độ mờ hình nền Depth</string>
+    <string name="depthwall_footer_text">        Tính năng hình nền Depth, lấy cảm hứng từ tính năng Phân đoạn đối tượng hình nền của iOS, cho phép lớp phủ đối tượng lên trên đồng hồ màn hình khóa để tạo hiệu ứng depth cho hình nền.\n\nĐể thiết lập tính năng Hình nền Depth:\n1. Đặt hình nền có đối tượng hoặc hình nền mà bạn muốn đối tượng nằm bên trên.\n2. Chọn ảnh đối tượng để theo dõi, ảnh này sẽ được lớp phủ lên trên đồng hồ màn hình khóa.\n3. Điều chỉnh độ dịch chuyển và độ mờ theo nhu cầu của bạn.
+    </string>
+    <!-- Essential Notifications -->
+    <string name="essential_notifications">Thông báo thiết yếu</string>
+    <string name="essential_notifications_summary">Chọn ứng dụng luôn hiển thị trong thông báo</string>
+    <string name="selected_apps_description">Các ứng dụng được chọn sẽ luôn xuất hiện trong vùng thông báo</string>
+    <string name="no_apps_selected">Chưa chọn ứng dụng nào</string>
+    <string name="essential_apps_count">%d ứng dụng đã chọn</string>
+    <string name="add_apps">Thêm ứng dụng</string>
+    <string name="essential_configured_apps">Ứng dụng đã cấu hình</string>
+    <string name="essential_no_apps_configured">Chưa cấu hình ứng dụng nào</string>
+    <string name="essential_no_apps_available">Không có ứng dụng nào khả dụng</string>
+    <string name="essential_no_apps_found">Không có kết quả cho \"%s\"</string>
+    <string name="essential_remove_title">Xóa ứng dụng</string>
+    <string name="essential_remove_confirm">Xóa %s khỏi thông báo thiết yếu?</string>
+    <string name="remove">Xóa</string>
+    <string name="add">Thêm</string>
+    <!-- Emoji style -->
+    <string name="emoji_style_title">Phong cách biểu tượng cảm xúc</string>
+    <string name="emoji_style_summary">Chọn gói biểu tượng cảm xúc của hệ thống mà không cần thay đổi phông chữ</string>
 </resources>
