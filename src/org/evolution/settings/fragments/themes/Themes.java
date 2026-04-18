@@ -20,6 +20,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.evolution.SystemRestartUtils;
 import com.android.internal.util.evolution.ThemeUtils;
 import com.android.internal.util.evolution.Utils;
 import com.android.settings.R;
@@ -30,8 +31,8 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 
 import org.evolution.settings.preferences.GlobalSettingListPreference;
+import org.evolution.settings.preferences.SystemPropertyListPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
-import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.SystemUtils;
 
@@ -53,10 +54,12 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
     private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
+    private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
 
     private GlobalSettingListPreference mLockSound;
     private GlobalSettingListPreference mUnlockSound;
     private PreferenceCategory mLauncherCategory;
+    private SystemPropertyListPreference mEmojiStyle;
     private SystemPropertySwitchPreference mSearchBar;
     private PreferenceCategory mIconsCategory;
     private Preference mUdfpsIcon;
@@ -85,6 +88,7 @@ public class Themes extends SettingsPreferenceFragment implements
         mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
+        mEmojiStyle = findPreference(KEY_EMOJI_STYLE);
 
         FingerprintManager fingerprintManager = (FingerprintManager)
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
@@ -114,6 +118,10 @@ public class Themes extends SettingsPreferenceFragment implements
                 return false;
             });
         }
+
+        if (mEmojiStyle != null) {
+            mEmojiStyle.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
@@ -133,6 +141,10 @@ public class Themes extends SettingsPreferenceFragment implements
                 }
                 return false;
             }
+        }
+        if (KEY_EMOJI_STYLE.equals(preference.getKey())) {
+            SystemRestartUtils.showSystemRestartDialog(getActivity());
+            return true;
         }
         return false;
     }
