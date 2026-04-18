@@ -1620,4 +1620,16 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <string-array name="emoji_style_entries">
+        <item>@string/emoji_style_stock</item>
+        <item>@string/emoji_style_ios</item>
+        <item>@string/emoji_style_samsung</item>
+    </string-array>
+
+    <string-array name="emoji_style_values">
+        <item>android</item>
+        <item>ios</item>
+        <item>samsung</item>
+    </string-array>
 </resources>
