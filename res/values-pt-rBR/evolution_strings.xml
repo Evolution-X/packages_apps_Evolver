@@ -532,7 +532,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="miscellaneous_block_wallpaper_dimming_summary">Impede que todos os aplicativos definam o papel de parede esmaecido\nForça o escurecimento para 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignorar restrições de captura de tela</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas de tela e gravações de tela para todos os aplicativos, potencialmente arriscando vazamentos de privacidade</string>
-    <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela sem limite</string>
+    <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela ilimitada</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remova o limite de tamanho de arquivo 15GiB\nPode resultar em um arquivo de saída maior que o necessário</string>
     <!-- Miscellaneous/Hide applist -->
     <string name="hide_applist_title">Ocultar lista de aplicativos</string>
@@ -1298,8 +1298,8 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="cutout_progress_music_opacity_title">Opacidade do anel</string>
     <string name="cutout_progress_music_stroke_title">Largura do traço</string>
     <string name="cutout_progress_music_clockwise_title">Sentido horário</string>
-    <string name="cutout_progress_music_aod_title">Mostrar no AOD</string>
-    <string name="cutout_progress_music_aod_summary">Mantenha o toque musical visível no Ambient Display</string>
+    <string name="cutout_progress_music_aod_title">Mostrar na tela sempre ativo</string>
+    <string name="cutout_progress_music_aod_summary">Mantenha o toque musical visível no tela ambiente</string>
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">Papel de parede Glymps</string>
     <string name="lock_glymps_enable_title">Ativar papel de parede Glymps</string>
@@ -1366,37 +1366,37 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="lunaris_os">FANTASMA</string>
     <!-- Video Wallpaper Strings -->
     <string name="video_wallpaper_cleared">Papel de parede em vídeo removido</string>
-    <string name="video_wallpaper_clear_failed">Falha ao remover o papel de parede em vídeo</string>
+    <string name="video_wallpaper_clear_failed">Falha ao limpar o papel de parede do vídeo</string>
     <string name="video_wallpaper_current_summary_dynamic">%1$s | %2$s</string>
-    <string name="video_wallpaper_current_none">Nenhum vídeo selecionado</string>
-    <string name="video_wallpaper_select_first">Selecione primeiro um vídeo de papel de parede</string>
-    <string name="video_wallpaper_select_wallpaper">Selecionar papel de parede em vídeo</string>
+    <string name="video_wallpaper_current_none">Nenhum papel de parede de vídeo selecionado</string>
+    <string name="video_wallpaper_select_first">Selecione um papel de parede de vídeo primeiro</string>
+    <string name="video_wallpaper_select_wallpaper">Selecione o papel de parede do vídeo</string>
     <string name="video_wallpaper_save_failed">Falha ao salvar o vídeo ou imagem selecionado</string>
-    <string name="video_wallpaper_apply_prompt">Aplique o papel de parede em vídeo selecionado manualmente pela tela de prévia</string>
+    <string name="video_wallpaper_apply_prompt">Aplique o papel de parede de vídeo selecionado manualmente na tela de visualização</string>
     <string name="video_wallpaper_enable_failed">Falha ao ativar o papel de parede em vídeo</string>
-    <string name="video_wallpaper_picker_error">Não foi possível abrir o seletor. Tente novamente.</string>
+    <string name="video_wallpaper_picker_error">Não foi possível abrir o seletor. Por favor, tente novamente.</string>
     <string name="video_wallpaper_processing">Processando arquivo selecionado...</string>
-    <string name="video_wallpaper_saved">Papel de parede em vídeo salvo com sucesso</string>
+    <string name="video_wallpaper_saved">Papel de parede de vídeo salvo com sucesso</string>
     <!-- Single Tone QS -->
-    <string name="qs_single_tone_title">QS em tom único</string>
-    <string name="qs_single_tone_summary">Ocultar o sombreamento de notificações para aparência unificada nas Configurações rápidas</string>
+    <string name="qs_single_tone_title">Configurações rápidas em tom único</string>
+    <string name="qs_single_tone_summary">Ocultar tela de notificação para aparência unificada de configurações rápidas</string>
     <!-- Ambient display -->
     <string name="ambient_display_category_title">Tela ambiente</string>
     <string name="ambient_bottom_title">Parte inferior do AOD</string>
     <string name="ambient_battery_disable_title">Desativado</string>
     <string name="ambient_battery_percent_title">Nível da bateria</string>
     <string name="ambient_battery_both_title">Bateria (Nível &amp; temperatura)</string>
-    <string name="ambient_battery_cpu_battery_temperature_title">Nível e temperatura da bateria (bateria e CPU)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Nível da bateria, temperatura (bateria &amp; CPU)</string>
     <string name="ambient_user_name_title">Nome do usuário</string>
     <string name="display_icon_title">Ícones</string>
-    <string name="display_icon_summary">Exibir ícones junto com nível e temperatura</string>
+    <string name="display_icon_summary">Exibir ícones junto com nível&amp; temperatura</string>
     <!-- Misc preference entries -->
-    <string name="play_integrity_fix_title">Correção de integridade do jogo</string>
+    <string name="play_integrity_fix_title">Correção de Integridade do Google Play</string>
     <string name="play_integrity_fix_summary">Gerencie a configuração do PIF e as impressões digitais do dispositivo para obter integridade básica</string>
-    <string name="tricky_store_title">Loja complicada</string>
-    <string name="tricky_store_summary">Gerencie keybox e aplicativos de destino para atestação de forte integridade</string>
-    <string name="game_spoofing_title">Jogo de mascaramento</string>
-    <string name="game_spoofing_summary">propriedades do dispositivo mascarar para jogos específicos</string>
+    <string name="tricky_store_title">TrickyStore</string>
+    <string name="tricky_store_summary">Gerencie keybox e aplicativos alvo para atestação de forte integridade</string>
+    <string name="game_spoofing_title">Mascaramento de jogo</string>
+    <string name="game_spoofing_summary">Mascarar propriedades do dispositivo para jogos específicos</string>
     <!-- Play Integrity Fix -->
     <string name="pif_status">Status</string>
     <string name="pif_active_config">Configuração ativa</string>
