@@ -20,6 +20,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.evolution.SystemRestartUtils;
 import com.android.internal.util.evolution.ThemeUtils;
 import com.android.internal.util.evolution.Utils;
 import com.android.settings.R;
@@ -31,7 +32,6 @@ import java.util.List;
 
 import org.evolution.settings.preferences.GlobalSettingListPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
-import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.SystemUtils;
 
@@ -53,6 +53,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
     private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
+    private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
 
     private GlobalSettingListPreference mLockSound;
     private GlobalSettingListPreference mUnlockSound;
@@ -133,6 +134,10 @@ public class Themes extends SettingsPreferenceFragment implements
                 }
                 return false;
             }
+        }
+        if (KEY_EMOJI_STYLE.equals(preference.getKey())) {
+            SystemRestartUtils.showSystemRestartDialog(getContext());
+            return true;
         }
         return false;
     }
