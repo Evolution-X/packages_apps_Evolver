@@ -1521,4 +1521,8 @@
     <string name="charging_show_on_lockscreen_summary">Show animation when the lock screen is visible</string>
     <string name="charging_show_on_aod_summary">Show animation in ambient display mode</string>
     <string name="ripple_shape_title">Charging ripple shape</string>
+
+    <!-- Emoji style -->
+    <string name="emoji_style_title">Emoji style</string>
+    <string name="emoji_style_summary">Choose the system emoji pack without changing text fonts</string>
 </resources>

@@ -20,6 +20,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.evolution.SystemRestartUtils;
 import com.android.internal.util.evolution.ThemeUtils;
 import com.android.internal.util.evolution.Utils;
 import com.android.settings.R;
@@ -53,11 +54,15 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
     private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
+    private static final String KEY_EMOJI_STYLE = "emoji_style";
+    private static final String PROP_EMOJI_STYLE = "persist.sys.ax_emoji_style";
+    private static final String DEFAULT_EMOJI_STYLE = "android";
 
     private GlobalSettingListPreference mLockSound;
     private GlobalSettingListPreference mUnlockSound;
     private PreferenceCategory mLauncherCategory;
     private SystemPropertySwitchPreference mSearchBar;
+    private SystemSettingListPreference mEmojiStylePref;
     private PreferenceCategory mIconsCategory;
     private Preference mUdfpsIcon;
     private PreferenceCategory mAnimationsCategory;
@@ -114,6 +119,12 @@ public class Themes extends SettingsPreferenceFragment implements
                 return false;
             });
         }
+
+        mEmojiStylePref = findPreference(KEY_EMOJI_STYLE);
+        if (mEmojiStylePref != null) {
+            mEmojiStylePref.setValue(SystemProperties.get(PROP_EMOJI_STYLE, DEFAULT_EMOJI_STYLE));
+            mEmojiStylePref.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
@@ -133,6 +144,11 @@ public class Themes extends SettingsPreferenceFragment implements
                 }
                 return false;
             }
+        }
+        if (preference == mEmojiStylePref) {
+            SystemProperties.set(PROP_EMOJI_STYLE, (String) newValue);
+            SystemRestartUtils.showSystemRestartDialog(getContext());
+            return true;
         }
         return false;
     }

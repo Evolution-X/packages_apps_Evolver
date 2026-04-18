@@ -17,6 +17,15 @@
             android:key="system_font"
             android:title="@string/font_styles_title"
             android:summary="@string/font_styles_summary" />
+
+        <!-- Emoji style -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="emoji_style"
+            android:title="@string/emoji_style_title"
+            android:summary="%s"
+            android:entries="@array/emoji_style_entries"
+            android:entryValues="@array/emoji_style_values"
+            android:defaultValue="android" />
     </PreferenceCategory>
 
     <PreferenceCategory
