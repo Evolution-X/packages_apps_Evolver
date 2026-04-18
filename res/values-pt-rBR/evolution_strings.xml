@@ -164,7 +164,7 @@
     <string name="ls_clock_custom_font_not_supported">O relógio selecionado não suporta fontes personalizadas</string>
     <!-- Custom Clock Style -->
     <string name="lockscreen_clock_category_title">Relógio</string>
-    <string name="lockscreen_clock_category_summary">Configurar estilos do relógio da tela de bloqueio</string>
+    <string name="lockscreen_clock_category_summary">Configurar estilos de relógio da tela de bloqueio</string>
     <string name="custom_clock_style">Estilo de relógio personalizado</string>
     <string name="theme_customization_lock_clock_face_title">Mostrador de relógio</string>
     <string name="theme_customization_lock_clock_face_summary">Modificar aparência do relógio na tela de bloqueio</string>
@@ -291,7 +291,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="status_bar_clock_auto_hide_title">Ocultar automaticamente</string>
     <string name="status_bar_clock_auto_hide_summary">Ocultar relógio quando na tela inicial</string>
     <string name="status_bar_am_pm_title">Estilo AM/PM</string>
-    <string name="status_bar_am_pm_info">Relógio 24-horas ativado</string>
+    <string name="status_bar_am_pm_info">Relógio 24 horas ativado</string>
     <string name="status_bar_am_pm_normal">Normal</string>
     <string name="status_bar_am_pm_small">Pequeno</string>
     <string name="status_bar_am_pm_hidden">Oculto</string>
@@ -340,7 +340,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="clock_chip_gradient_mask_text_default">Padrão</string>
     <string name="clock_chip_gradient_mask_text_mask">Transparente (Máscara)</string>
     <!-- Status bar/Network traffic -->
-    <string name="network_traffic_location_title">Local</string>
+    <string name="network_traffic_location_title">Localização</string>
     <string name="network_traffic_location_disable">Desativado</string>
     <string name="network_traffic_location_statusbar">Barra de status</string>
     <string name="network_traffic_location_quick_statusbar">Barra de status rápida</string>
@@ -353,7 +353,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="network_traffic_autohide_threshold">Limite de inatividade</string>
     <string name="network_traffic_refresh_interval_title">Intervalo de atualização</string>
     <string name="network_traffic_refresh_interval_summary">Duração do intervalo entre as medições</string>
-    <string name="network_traffic_units_title">Unidades do tráfego de rede</string>
+    <string name="network_traffic_units_title">Unidades de medida do tráfego</string>
     <string name="network_traffic_units_bits">Bits por segundo (b/s)</string>
     <string name="network_traffic_units_kilobits">Kilobits por segundo (kb/s)</string>
     <string name="network_traffic_units_megabits">Megabits por segundo (Mb/s)</string>
@@ -405,7 +405,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_brightness_slider_position_bottom">Inferior</string>
     <string name="quick_settings_auto_brightness_icon_title">Ícone de brilho automático</string>
     <string name="quick_settings_auto_brightness_icon_summary">Mostrar ícone de alternância para brilho adaptável próximo ao controle deslizante</string>
-    <string name="quick_settings_brightness_slider_haptic_title">Resposta tátil</string>
+    <string name="quick_settings_brightness_slider_haptic_title">Feedback tátil</string>
     <string name="quick_settings_brightness_slider_haptic_summary">Reproduzir resposta tátil ao alterar o brilho usando o controle deslizante</string>
     <string name="quick_settings_animations_category">Animações</string>
     <string name="quick_settings_tile_animation_style_title">Estilo da animação dos blocos</string>
@@ -603,7 +603,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="unit_milliseconds">milissegundos</string>
     <string name="unit_seconds">segundos</string>
     <!-- SystemUI restart dialog -->
-    <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
+    <string name="systemui_restart_title">Reinicialização do SystemUI necessária</string>
     <string name="systemui_restart_message">Para que as alterações tenham efeito, é necessária uma reinicialização da interface do sistema. Reiniciar a interface do sistema agora?</string>
     <string name="systemui_restart_yes">Sim</string>
     <string name="systemui_restart_not_now">Agora não</string>
@@ -680,8 +680,8 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="dw_file_header_select_title">Selecione o tema do papel de parede de profundidade</string>
     <string name="dw_file_header_select_summary">Selecione a imagem do tema do papel de parede de profundidade do armazenamento.</string>
     <string name="dw_wallpaper_enabled_title">Papel de parede de profundidade</string>
-    <string name="dw_wallpaper_enabled_summary_tile">Aplicar efeito de profundidade\nao papel de parede</string>
-    <string name="dw_wallpaper_enabled_summary">Ative o papel de parede de profundidade inspirado no iOS. Requer uma imagem de principal.</string>
+    <string name="dw_wallpaper_enabled_summary_tile">Aplicar efeito de profundidade\nno papel de parede</string>
+    <string name="dw_wallpaper_enabled_summary">Ativar papel de parede com profundidade inspirado no iOS. Requer uma imagem principal.</string>
     <string name="dw_wallpaper_opacity_title">Opacidade do papel de parede de profundidade</string>
     <string name="depth_wallpaper_offset_x_title">Deslocamento horizontal do papel de parede de profundidade</string>
     <string name="depth_wallpaper_offset_y_title">Deslocamento vertical do papel de parede de profundidade</string>
@@ -929,14 +929,14 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="hardware_keys_action_search">Assistente de pesquisa</string>
     <string name="hardware_keys_action_voice_search">Pesquisa por voz</string>
     <string name="hardware_keys_action_in_app_search">Pesquisa no aplicativo</string>
-    <string name="hardware_keys_action_launch_camera">Iniciar câmera</string>
+    <string name="hardware_keys_action_launch_camera">Abrir câmera</string>
     <string name="hardware_keys_action_sleep">Desligar a tela</string>
     <string name="hardware_keys_action_last_app">Último aplicativo</string>
     <string name="hardware_keys_action_split_screen">Dividir a tela</string>
     <string name="hardware_keys_action_close_app">Encerrar aplicativo</string>
     <string name="hardware_keys_action_play_pause_music">Reproduzir/pausar a reprodução de música</string>
     <string name="hardware_keys_action_torch">Ligar/desligar lanterna</string>
-    <string name="hardware_keys_action_screenshot">Fazer uma captura de tela</string>
+    <string name="hardware_keys_action_screenshot">Tirar uma captura de tela</string>
     <string name="hardware_keys_action_volume_panel">Alternar painel de volume</string>
     <string name="hardware_keys_action_clear_all_notifications">Limpar todas as notificações</string>
     <string name="hardware_keys_action_notifications_panel">Alternar painel de notificações</string>
@@ -978,7 +978,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="custom_gradient_color_mode_title">Modo de cor gradiente</string>
     <string name="custom_gradient_color_mode_auto">Modo automático</string>
     <string name="custom_gradient_color_mode_custom">Modo personalizado</string>
-    <string name="custom_gradient_start_color_title">Cor inicial gradiente</string>
+    <string name="custom_gradient_start_color_title">Cor inicial do gradiente</string>
     <string name="custom_gradient_end_color_title">Cor final do gradiente</string>
     <!-- App Spoofing -->
     <string name="user_selectable_app_spoofing_title">Mascaramento por aplicativo</string>
@@ -1137,7 +1137,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="dynamic_bar_keyguard_battery_chip">Informações de bateria na tela de bloqueio</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Nunca mostrar</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Somente ao carregar</string>
-    <string name="dynamic_bar_keyguard_battery_chip_always">Sempre exibir</string>
+    <string name="dynamic_bar_keyguard_battery_chip_always">Mostrar sempre</string>
     <string name="dynamic_bar_keyguard_compact_chip">Chip compacto na tela de bloqueio</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Sempre use o estilo de chip compacto na tela de bloqueio. Quando desativado, o modo compacto é usado somente quando o espaço é limitado.</string>
     <string name="dynamic_bar_events">Eventos</string>
@@ -1163,7 +1163,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="dynamic_bar_event_charging_summary">Nível de bateria ao conectar</string>
     <string name="dynamic_bar_event_bluetooth">Bluetooth</string>
     <string name="dynamic_bar_event_bluetooth_summary">Status de conexão do dispositivo</string>
-    <string name="dynamic_bar_event_hotspot">Ponto de acesso Wi-Fi</string>
+    <string name="dynamic_bar_event_hotspot">Ponto de acesso</string>
     <string name="dynamic_bar_event_hotspot_summary">Indicador de ponto de acesso móvel ativo</string>
     <string name="dynamic_bar_event_ringer">Modo de toque</string>
     <string name="dynamic_bar_event_ringer_summary">Alterações de modo silencioso, vibração e toque</string>
