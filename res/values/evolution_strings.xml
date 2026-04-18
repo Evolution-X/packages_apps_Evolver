@@ -1660,4 +1660,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="essential_remove_confirm">Remove %s from essential notifications?</string>
     <string name="remove">Remove</string>
     <string name="add">Add</string>
+
+    <!-- Emoji style -->
+    <string name="emoji_style_title">Emoji style</string>
+    <string name="emoji_style_summary">Choose the system emoji pack without changing text fonts</string>
 </resources>

@@ -1630,4 +1630,16 @@
         <item>leaf</item>
         <item>cert</item>
     </string-array>
+
+    <string-array name="emoji_style_entries">
+        <item>Stock</item>
+        <item>iOS</item>
+        <item>Samsung</item>
+    </string-array>
+
+    <string-array name="emoji_style_values">
+        <item>android</item>
+        <item>ios</item>
+        <item>samsung</item>
+    </string-array>
 </resources>
