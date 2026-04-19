@@ -1147,6 +1147,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="dynamic_bar_event_privacy_summary">Alerty dostępu do kamery i mikrofonu</string>
     <string name="dynamic_bar_event_audio_recording">Nagrywanie dźwięku</string>
     <string name="dynamic_bar_event_audio_recording_summary">Rejestrator głosu i przechwytywanie dźwięku</string>
+    <string name="dynamic_bar_event_call">Trwające połączenie</string>
+    <string name="dynamic_bar_event_call_summary">Połączenia przychodzące i aktywne</string>
     <string name="dynamic_bar_event_media">Odtwarzanie multimediów</string>
     <string name="dynamic_bar_event_media_summary">Aktualnie odtwarzana muzyka i sterowanie dźwiękiem</string>
     <string name="dynamic_bar_event_notification">Powiadomienia</string>
@@ -1497,4 +1499,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="essential_remove_confirm">Usunąć %s z ważnych powiadomień?</string>
     <string name="remove">Usuń</string>
     <string name="add">Dodaj</string>
+    <!-- Emoji style -->
+    <string name="emoji_style_title">Styl emoji</string>
+    <string name="emoji_style_summary">Wybierz pakiet emoji systemowych bez zmiany czcionek tekstowych</string>
 </resources>
