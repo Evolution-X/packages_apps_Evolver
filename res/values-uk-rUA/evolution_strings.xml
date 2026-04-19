@@ -1139,6 +1139,8 @@
     <string name="dynamic_bar_event_privacy_summary">Сповіщення про доступ до камери та мікрофону</string>
     <string name="dynamic_bar_event_audio_recording">Запис звуку</string>
     <string name="dynamic_bar_event_audio_recording_summary">Голосовий записувач та запис звуку</string>
+    <string name="dynamic_bar_event_call">Поточний виклик</string>
+    <string name="dynamic_bar_event_call_summary">Вхідні та активні виклики</string>
     <string name="dynamic_bar_event_media">Відтворення медіа</string>
     <string name="dynamic_bar_event_media_summary">Відтворення музики та аудіо елементів керування</string>
     <string name="dynamic_bar_event_notification">Сповіщення</string>
@@ -1489,4 +1491,7 @@
     <string name="essential_remove_confirm">Видалити %s з важливих сповіщень?</string>
     <string name="remove">Видалити</string>
     <string name="add">Додати</string>
+    <!-- Emoji style -->
+    <string name="emoji_style_title">Стиль емодзі</string>
+    <string name="emoji_style_summary">Вибрати системний смайлик без зміни шрифтів тексту</string>
 </resources>
