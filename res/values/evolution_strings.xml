@@ -646,7 +646,7 @@
     <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
 
-    <!-- General -->
+    <!-- General strings -->
     <string name="enable">Enable</string>
     <string name="disable">Disable</string>
     <string name="boot_animation_applied">Boot animation applied</string>
@@ -656,6 +656,11 @@
     <string name="reset">Reset</string>
     <string name="delete_message">Remove selected item?</string>
     <string name="choose_app">Choose app</string>
+
+    <!-- Changelog -->
+    <string name="changelog_title">Current changelog</string>
+    <string name="changelog_summary">View changes in the ROM source</string>
+    <string name="changelog_error">Unable to load changelog</string>
 
     <!-- Units -->
     <string name="unit_hz">hz</string>
