@@ -60,6 +60,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.spoofing);
 
+        if (PixelPropsUtils.isCustomForkBuild()) {
+            if (getPreferenceScreen() != null) {
+                getPreferenceScreen().removeAll();
+            }
+            return;
+        }
+
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         mHandler = new Handler(Looper.getMainLooper());
