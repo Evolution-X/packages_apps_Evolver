@@ -85,7 +85,8 @@
             android:key="boot_animation"
             android:title="@string/themes_boot_animation_title"
             android:summary="@string/themes_boot_animation_summary"
-            android:fragment="org.evolution.settings.fragments.themes.BootAnimation" />
+            android:fragment="org.evolution.settings.fragments.themes.BootAnimation"
+            settings:controller="org.evolution.settings.fragments.themes.BootAnimationController" />
 
         <!-- Screen Off animation -->
         <org.evolution.settings.preferences.SystemSettingListPreference
