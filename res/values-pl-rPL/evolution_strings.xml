@@ -587,7 +587,7 @@
     <string name="custom_seekbar_default_value">domyślnie</string>
     <string name="custom_seekbar_default_value_to_set">Domyślna wartość: <xliff:g id="v">%s</xliff:g>\nPrzytrzymaj dłużej, by ustawić</string>
     <string name="custom_seekbar_default_value_is_set">Wartość domyślna jest ustawiona</string>
-    <!-- General -->
+    <!-- General strings -->
     <string name="enable">Włącz</string>
     <string name="disable">Wyłącz</string>
     <string name="boot_animation_applied">Animacja startowa została zastosowana</string>
@@ -597,6 +597,10 @@
     <string name="reset">Resetuj</string>
     <string name="delete_message">Usunąć zaznaczony element?</string>
     <string name="choose_app">Wybierz aplikację</string>
+    <!-- Changelog -->
+    <string name="changelog_title">Bieżąca lista zmian</string>
+    <string name="changelog_summary">Wyświetl zmiany w źródle ROM</string>
+    <string name="changelog_error">Nie można załadować dziennika zmian</string>
     <!-- Units -->
     <string name="unit_hz">hz</string>
     <string name="unit_milliseconds">milisekundy</string>
@@ -1423,6 +1427,9 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="pif_generating">Generowanie konfiguracji\u2026</string>
     <string name="pif_footer_title">Przejście podstawowej integralności</string>
     <string name="pif_footer_body">1. Dotknij „Pobierz odcisk palca Pixel beta” i wybierz urządzenie z dostępnej listy.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostępne; musisz je znaleźć samodzielnie.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed załadowaniem nowej. Załadowanie wygasłej konfiguracji poprawki integralności Google Play spowoduje błąd silnej integralności w TrickyStore, nawet z prawidłowym kluczem.</string>
+    <string name="pif_select_channel">Wybierz kanał</string>
+    <string name="pif_channel_latest_release">Najnowsze wydanie</string>
+    <string name="pif_channel_canary_release">Wydanie canary</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Zarządzanie zestawem kluczy</string>
     <string name="ts_import_keybox">Importuj zestaw kluczy</string>
@@ -1443,6 +1450,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_import_target_list_summary">Importuj target.txt z pliku</string>
     <string name="ts_target_list_imported">Zaimportowano listę docelową</string>
     <string name="ts_loading_apps">Ładowanie aplikacji\u2026</string>
+    <string name="ts_auto_select">Wybierz automatycznie</string>
     <string name="ts_save">Zapisz</string>
     <string name="ts_targets_saved">Lista docelowa zapisana</string>
     <string name="ts_failed">Niepowodzenie: %s</string>
@@ -1499,7 +1507,4 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="essential_remove_confirm">Usunąć %s z ważnych powiadomień?</string>
     <string name="remove">Usuń</string>
     <string name="add">Dodaj</string>
-    <!-- Emoji style -->
-    <string name="emoji_style_title">Styl emoji</string>
-    <string name="emoji_style_summary">Wybierz pakiet emoji systemowych bez zmiany czcionek tekstowych</string>
 </resources>
