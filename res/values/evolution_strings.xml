@@ -625,6 +625,18 @@
     <string name="about_member_4_summary" translatable="false">Maintainer relations / Maintainer</string>
     <string name="about_member_5_title" translatable="false">Apelete Seketeli</string>
     <string name="about_member_5_summary" translatable="false">Maintainer (2025-2026)</string>
+    <string name="about_current_maintainers_title">Current maintainers</string>
+    <string name="about_current_maintainers_loading_title">Loading...</string>
+    <string name="about_current_maintainers_loading_summary">Fetching current maintainers from OTA</string>
+    <string name="about_current_maintainers_empty_title">No active maintainers found</string>
+    <string name="about_current_maintainers_empty_summary">Could not find currently maintained entries from OTA builds.</string>
+    <string name="about_current_maintainers_last_updated">Last updated %1$s</string>
+    <string name="about_current_maintainers_last_updated_unknown">Last updated: unknown</string>
+    <string name="about_current_maintainers_tap_to_view">Tap to view active maintainers</string>
+    <string name="about_current_maintainers_sheet_subtitle">%1$d active maintainers</string>
+    <string name="about_current_maintainers_search_hint">Search maintainers or devices…</string>
+    <string name="about_current_maintainers_no_results">No maintainers match your search</string>
+    <string name="maintainer_link_forum">Forum</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
