@@ -20,11 +20,16 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 @SearchIndexable
 public class About extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "About";
+
+    private GithubAvatarLoader mAvatarLoader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,32 @@ public class About extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        // Load GitHub avatars for team members and founders
+        mAvatarLoader = new GithubAvatarLoader();
+
+        Map<String, String> avatarMap = new LinkedHashMap<>();
+
+        // Founders
+        avatarMap.put("about_founder_1",          "joeyhuab");
+        avatarMap.put("about_founder_2",          "AnierinBliss");
+        avatarMap.put("about_founder_3",          "RealAkito");
+
+        // Team members
+        avatarMap.put("about_member_1",           "TechPanelGM");
+        avatarMap.put("about_member_2",           "AidanWarner97");
+        avatarMap.put("about_member_3",           "Onelots");
+        avatarMap.put("about_member_4",           "manidweep");
+
+        // Remembering
+        avatarMap.put("about_member_5",           "apelete");
+
+        for (Map.Entry<String, String> entry : avatarMap.entrySet()) {
+            Preference pref = findPreference(entry.getKey());
+            if (pref != null) {
+                mAvatarLoader.load(context, pref, entry.getValue());
+            }
+        }
     }
 
     @Override
