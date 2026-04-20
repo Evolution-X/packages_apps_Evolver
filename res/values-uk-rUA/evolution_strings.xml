@@ -572,6 +572,13 @@
     <string name="about_founders_title">Засновники</string>
     <string name="about_team_members_title">Учасники команди</string>
     <string name="about_remembering_title">Згадуючи</string>
+    <string name="about_current_maintainers_title">Поточні супроводжуючі</string>
+    <string name="about_current_maintainers_loading_title">Завантаження...</string>
+    <string name="about_current_maintainers_loading_summary">Отримання поточних розробників з OTA</string>
+    <string name="about_current_maintainers_empty_title">Активних супроводжуючих не знайдено</string>
+    <string name="about_current_maintainers_empty_summary">Не вдалося знайти записи, що наразі підтримуються, з OTA-збірок.</string>
+    <string name="about_current_maintainers_last_updated">Останнє оновлення %1$s</string>
+    <string name="about_current_maintainers_last_updated_unknown">Останнє оновлення: невідомо</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Палітра кольорів</string>
     <string name="press_color_to_apply">Натисніть на колір нижче, щоб застосувати</string>
