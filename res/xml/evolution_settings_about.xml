@@ -77,6 +77,7 @@
 
         <!-- Founder 1 -->
         <Preference
+            android:key="about_founder_1"
             android:title="@string/about_founder_1_title"
             android:summary="@string/about_founder_1_summary">
             <intent
@@ -86,6 +87,7 @@
 
         <!-- Founder 2 -->
         <Preference
+            android:key="about_founder_2"
             android:title="@string/about_founder_2_title"
             android:summary="@string/about_founder_2_summary">
             <intent
@@ -95,6 +97,7 @@
 
         <!-- Founder 3 -->
         <Preference
+            android:key="about_founder_3"
             android:title="@string/about_founder_3_title"
             android:summary="@string/about_founder_3_summary">
             <intent
@@ -108,6 +111,7 @@
         android:title="@string/about_team_members_title">
 
         <Preference
+            android:key="about_member_1"
             android:title="@string/about_member_1_title"
             android:summary="@string/about_member_1_summary">
             <intent
@@ -116,6 +120,7 @@
         </Preference>
 
         <Preference
+            android:key="about_member_2"
             android:title="@string/about_member_2_title"
             android:summary="@string/about_member_2_summary">
             <intent
@@ -124,6 +129,7 @@
         </Preference>
 
         <Preference
+            android:key="about_member_3"
             android:title="@string/about_member_3_title"
             android:summary="@string/about_member_3_summary">
             <intent
@@ -132,6 +138,7 @@
         </Preference>
 
         <Preference
+            android:key="about_member_4"
             android:title="@string/about_member_4_title"
             android:summary="@string/about_member_4_summary">
             <intent
@@ -145,6 +152,7 @@
         android:title="@string/about_remembering_title">
 
         <Preference
+            android:key="about_member_5"
             android:title="@string/about_member_5_title"
             android:summary="@string/about_member_5_summary">
             <intent
@@ -152,5 +160,9 @@
                 android:data="https://www.linkedin.com/posts/apelete_evolutionx-activity-7429791532091797504-ND3i" />
         </Preference>
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="current_maintainers"
+        android:title="@string/about_current_maintainers_title" />
 
 </PreferenceScreen>
