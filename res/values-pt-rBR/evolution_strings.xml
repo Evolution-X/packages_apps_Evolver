@@ -505,7 +505,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="power_menu_lock_screen_secure_summary">Mostrar o menu liga/desliga enquanto o dispositivo estiver bloqueado</string>
     <!-- Power menu/Power menu actions -->
     <string name="power_menu_actions_screenshot_title">Captura de tela</string>
-    <string name="power_menu_actions_onthego_title">Modo OTG</string>
+    <string name="power_menu_actions_onthego_title">Modo On-The-Go</string>
     <string name="power_menu_actions_airplane_title">Modo avião</string>
     <string name="power_menu_actions_torch_title">Lanterna</string>
     <string name="power_menu_actions_settings_title">Configurações</string>
@@ -588,7 +588,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="custom_seekbar_default_value">por padrão</string>
     <string name="custom_seekbar_default_value_to_set">Valor padrão: <xliff:g id="v">%s</xliff:g>\nToque longo para definir</string>
     <string name="custom_seekbar_default_value_is_set">Valor padrão definido</string>
-    <!-- General -->
+    <!-- General strings -->
     <string name="enable">Ativar</string>
     <string name="disable">Desativar</string>
     <string name="boot_animation_applied">Animação de inicialização aplicada</string>
@@ -598,6 +598,10 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="reset">Redefinir</string>
     <string name="delete_message">Remover o item selecionado?</string>
     <string name="choose_app">Escolher aplicativo</string>
+    <!-- Changelog -->
+    <string name="changelog_title">Registro das últimas alterações</string>
+    <string name="changelog_summary">Ver alterações na fonte da ROM</string>
+    <string name="changelog_error">Não foi possível carregar o changelog</string>
     <!-- Units -->
     <string name="unit_hz">hz</string>
     <string name="unit_milliseconds">milissegundos</string>
@@ -1423,6 +1427,9 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="pif_generating">Gerando configuração\u2026</string>
     <string name="pif_footer_title">Passando integridade básica</string>
     <string name="pif_footer_body">1. Toque em \"Obter impressão digital do Pixel Beta\" e selecione um dispositivo na lista disponível.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF funcional de uma fonte confiável. Arquivos de configuração não são fornecidos; você mesmo deve encontrar um.\n3. Verifique novamente o status do Play Integrity.\n\nSempre exclua a configuração ativa antes de carregar uma nova. Carregar uma configuração PIF expirada fará com que a integridade forte via TrickyStore falhe, mesmo com uma keybox válida.</string>
+    <string name="pif_select_channel">Selecione o canal</string>
+    <string name="pif_channel_latest_release">Último lançamento</string>
+    <string name="pif_channel_canary_release">Lançamento Canary</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Gerenciamento de keybox</string>
     <string name="ts_import_keybox">Importar Keybox</string>
@@ -1443,6 +1450,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_import_target_list_summary">Importar target.txt de um arquivo</string>
     <string name="ts_target_list_imported">Lista de alvos importada</string>
     <string name="ts_loading_apps">Carregando aplicativos\u2026</string>
+    <string name="ts_auto_select">Seleção automática</string>
     <string name="ts_save">Salvar</string>
     <string name="ts_targets_saved">Lista de alvos importada</string>
     <string name="ts_failed">Falha: %s</string>
@@ -1499,7 +1507,4 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="essential_remove_confirm">Remover %s das notificações essenciais?</string>
     <string name="remove">Remover</string>
     <string name="add">Adicionar</string>
-    <!-- Emoji style -->
-    <string name="emoji_style_title">Estilo de emoji</string>
-    <string name="emoji_style_summary">Escolha o pacote de emojis do sistema sem alterar fontes de texto</string>
 </resources>
