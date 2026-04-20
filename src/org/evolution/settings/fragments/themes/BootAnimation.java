@@ -20,19 +20,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.SystemProperties;
 import android.provider.SearchIndexableResource;
-import android.provider.Settings;
 import android.util.Log;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.documentfile.provider.DocumentFile;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
@@ -42,7 +37,6 @@ import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -50,64 +44,73 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.evolution.settings.preferences.BootAnimationPreviewPreference;
+import org.evolution.settings.utils.BootAnimationUtils;
 
 @SearchIndexable
-public class BootAnimation extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class BootAnimation extends SettingsPreferenceFragment
+        implements OnPreferenceChangeListener {
 
     private static final String BOOTANIMATION_STYLE_KEY = "persist.sys.bootanimation_style";
     private static final String TAG = "BootAnimationSettings";
     private static final int REQUEST_CODE_PICK_ZIP = 1001;
-    private static final String CUSTOM_BOOTANIMATION_FILE = "/data/misc/bootanim/bootanimation.zip";
-
-    private static final String[] PRODUCT_BOOT_ANIMATION_FILES = {
-        "/product/media/bootanimation.zip",
-        "/product/media/bootanimation_evo_reveal.zip",
-        "/product/media/bootanimation_aokp.zip",
-        "/product/media/bootanimation_cm.zip",
-        "/product/media/bootanimation_ctos.zip",
-        "/product/media/bootanimation_cyberpunk.zip",
-        "/product/media/bootanimation_du.zip",
-        "/product/media/bootanimation_google.zip",
-        "/product/media/bootanimation_google_monet.zip",
-        "/product/media/bootanimation_pac.zip",
-        "/product/media/bootanimation_rr.zip",
-        "/product/media/bootanimation_slim.zip",
-        "/product/media/bootanimation_valorant.zip"
-    };
+    private static final String CUSTOM_BOOTANIMATION_FILE =
+            "/data/misc/bootanim/bootanimation.zip";
 
     private ListPreference mBootAnimationStyle;
+
+    // -----------------------------------------------------------------------
+    // Lifecycle
+    // -----------------------------------------------------------------------
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         addPreferencesFromResource(R.xml.boot_animation);
 
-        mBootAnimationStyle = (ListPreference) findPreference(BOOTANIMATION_STYLE_KEY);
+        // On genuine Pixel devices the boot animation service ignores the
+        // system property we set, so the entire preference screen is useless.
+        // Hide everything and return early.
+        if (BootAnimationUtils.isPixelDevice()) {
+            getPreferenceScreen().removeAll();
+            return;
+        }
+
+        mBootAnimationStyle = findPreference(BOOTANIMATION_STYLE_KEY);
         if (mBootAnimationStyle != null) {
             mBootAnimationStyle.setOnPreferenceChangeListener(this);
-
-            // Set the current value from the system property
             int currentStyle = SystemProperties.getInt(BOOTANIMATION_STYLE_KEY, 0);
             mBootAnimationStyle.setValue(String.valueOf(currentStyle));
             updateBootAnimationPreview();
         }
     }
 
+    // -----------------------------------------------------------------------
+    // Preference change
+    // -----------------------------------------------------------------------
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mBootAnimationStyle) {
-            int style = Integer.parseInt((String) newValue);
-            if (style == 13) { // Custom option selected
-                launchFilePicker();
-                return false; // Return false to prevent immediate property update
-            } else {
-                copyProductFile(style);
-                return true;
-            }
+        if (preference != mBootAnimationStyle) return false;
+
+        int style = Integer.parseInt((String) newValue);
+
+        if (style == BootAnimationUtils.STYLE_CUSTOM) {
+            // Don't update the prop yet — wait for the user to pick a file
+            launchFilePicker();
+            return false;
         }
-        return false;
+
+        // For all built-in styles, just flip the system property.
+        // The boot animation service reads it directly from BOOT_ANIMATION_FILES[style].
+        // No file copy needed.
+        SystemProperties.set(BOOTANIMATION_STYLE_KEY, String.valueOf(style));
+        updateBootAnimationPreview();
+        return true;
     }
+
+    // -----------------------------------------------------------------------
+    // File picker — custom boot animation
+    // -----------------------------------------------------------------------
 
     private void launchFilePicker() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
@@ -119,97 +122,73 @@ public class BootAnimation extends SettingsPreferenceFragment implements OnPrefe
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_PICK_ZIP && resultCode == Activity.RESULT_OK && data != null) {
+        if (requestCode == REQUEST_CODE_PICK_ZIP
+                && resultCode == Activity.RESULT_OK
+                && data != null) {
             Uri uri = data.getData();
-            if (uri != null) {
-                handleSelectedFile(uri);
-            }
+            if (uri != null) handleSelectedFile(uri);
         }
     }
 
     private void handleSelectedFile(Uri uri) {
         try {
-            // Copy the selected file to the custom boot animation location
-            InputStream inputStream = getContext().getContentResolver().openInputStream(uri);
-            File customBootAnimation = new File(CUSTOM_BOOTANIMATION_FILE);
-            // Ensure the directory exists
-            customBootAnimation.getParentFile().mkdirs();
-            try (OutputStream outputStream = new FileOutputStream(customBootAnimation)) {
-                byte[] buffer = new byte[1024];
-                int length;
-                while ((length = inputStream.read(buffer)) > 0) {
-                    outputStream.write(buffer, 0, length);
-                }
+            InputStream inputStream =
+                    requireContext().getContentResolver().openInputStream(uri);
+            if (inputStream == null) {
+                Log.e(TAG, "Could not open input stream for URI: " + uri);
+                return;
+            }
+
+            File dest = new File(CUSTOM_BOOTANIMATION_FILE);
+            dest.getParentFile().mkdirs();
+
+            try (OutputStream out = new FileOutputStream(dest)) {
+                byte[] buf = new byte[8192];
+                int len;
+                while ((len = inputStream.read(buf)) > 0) out.write(buf, 0, len);
             }
             inputStream.close();
-            // Set permissions to 644 (rw-r--r--) so 'graphics' user can read it
-            customBootAnimation.setReadable(true, false);
-            // Update system property to use custom boot animation
-            SystemProperties.set(BOOTANIMATION_STYLE_KEY, "13"); // Custom option value
+
+            // Allow the bootanim service (runs as 'graphics') to read the file
+            dest.setReadable(true, false);
+
+            SystemProperties.set(BOOTANIMATION_STYLE_KEY,
+                    String.valueOf(BootAnimationUtils.STYLE_CUSTOM));
+            mBootAnimationStyle.setValue(
+                    String.valueOf(BootAnimationUtils.STYLE_CUSTOM));
             updateBootAnimationPreview();
-            // Force the preference to update to the custom option
-            mBootAnimationStyle.setValue("13"); // Set to the custom option
-            Toast.makeText(getContext(), R.string.boot_animation_applied, Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(getContext(),
+                    R.string.boot_animation_applied, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "Error copying custom boot animation", e);
         }
     }
 
-    private void copyProductFile(int style) {
-        try {
-            if (style < 0 || style >= PRODUCT_BOOT_ANIMATION_FILES.length) {
-                Log.e(TAG, "Invalid style index");
-                return;
-            }
-            String productFilePath = PRODUCT_BOOT_ANIMATION_FILES[style];
-            File productFile = new File(productFilePath);
-            if (!productFile.exists()) {
-                Log.e(TAG, "Product file does not exist: " + productFilePath);
-                return;
-            }
-            InputStream inputStream = new FileInputStream(productFile);
-            File customBootAnimation = new File(CUSTOM_BOOTANIMATION_FILE);
-            customBootAnimation.getParentFile().mkdirs();
-            try (OutputStream outputStream = new FileOutputStream(customBootAnimation)) {
-                byte[] buffer = new byte[1024];
-                int length;
-                while ((length = inputStream.read(buffer)) > 0) {
-                    outputStream.write(buffer, 0, length);
-                }
-            }
-            inputStream.close();
-            SystemProperties.set(BOOTANIMATION_STYLE_KEY, String.valueOf(style));
-            updateBootAnimationPreview();
-            mBootAnimationStyle.setValue(String.valueOf(style));
-            Toast.makeText(getContext(), R.string.boot_animation_applied, Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Log.e(TAG, "Error copying custom boot animation", e);
-        }
-    }
+    // -----------------------------------------------------------------------
+    // Preview helper
+    // -----------------------------------------------------------------------
 
     private void updateBootAnimationPreview() {
-        BootAnimationPreviewPreference previewPreference = (BootAnimationPreviewPreference) findPreference("boot_animation_preview");
-        if (previewPreference != null) {
-            previewPreference.loadBootAnimationPreview();
-        }
+        BootAnimationPreviewPreference preview = findPreference("boot_animation_preview");
+        if (preview != null) preview.loadBootAnimationPreview();
     }
+
+    // -----------------------------------------------------------------------
+    // Boilerplate
+    // -----------------------------------------------------------------------
 
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.EVOLVER;
     }
 
-    /**
-     * For search
-     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                                                                            boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<>();
-
+                public List<SearchIndexableResource> getXmlResourcesToIndex(
+                        Context context, boolean enabled) {
+                    ArrayList<SearchIndexableResource> result = new ArrayList<>();
                     SearchIndexableResource sir = new SearchIndexableResource(context);
                     sir.xmlResId = R.xml.boot_animation;
                     result.add(sir);
