@@ -235,7 +235,7 @@
     <string name="status_bar_logo_style_avengers">Vingadores</string>
     <string name="status_bar_logo_style_batman">Batman</string>
     <string name="status_bar_logo_style_batman_tdk">Batman O Cavaleiro das Trevas</string>
-    <string name="status_bar_logo_style_beats">Batidas</string>
+    <string name="status_bar_logo_style_beats">Beats</string>
     <string name="status_bar_logo_style_biohazard">Radioativo</string>
     <string name="status_bar_logo_style_blackberry">Blackberry</string>
     <string name="status_bar_logo_style_cannabis">Maconha</string>
@@ -277,7 +277,7 @@
     <string name="status_bar_lyric_title">Letras na barra de status</string>
     <string name="status_bar_lyric_summary">Mostrar letra na barra de status (precisa de suporte do aplicativo)</string>
     <string name="status_bar_lyric_options_title">Opções</string>
-    <string name="disguise_props_for_music_app_title">Dispositivo disfarçado para aplicativos de música</string>
+    <string name="disguise_props_for_music_app_title">Mascarar dispositivo para aplicativos de música</string>
     <string name="disguise_props_for_music_app_summary">Disfarce o dispositivo em alguns aplicativos de música para suportar o recurso de \"letras na barra de status\". Após alterar, é necessário reiniciar o aplicativo para que a alteração tenha efeito.
 
 Dispositivo de disfarce em alguns aplicativos de música para suporte à barra de status da letra. Depois de alterar essa alternância, você deve reiniciar os aplicativos para que a alteração tenha efeito.</string>
@@ -419,7 +419,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="quick_settings_tile_animation_interpolator_accelerate">Acelerar</string>
     <string name="quick_settings_tile_animation_interpolator_decelerate">Desacelerar</string>
     <string name="quick_settings_tile_animation_interpolator_accelerateDecelerate">Acelerar desacelerar</string>
-    <string name="quick_settings_tile_animation_interpolator_bounce">Pular</string>
+    <string name="quick_settings_tile_animation_interpolator_bounce">Quicar</string>
     <string name="quick_settings_tile_animation_interpolator_overshoot">Ultrapassar</string>
     <string name="quick_settings_tile_animation_interpolator_anticipate">Antecipar</string>
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Antecipar e ultrapassar</string>
@@ -553,7 +553,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="spoofing_summary">Ignorar restrições de aplicativos por componentes de mascaramento</string>
     <string name="spoofing_system_wide_category">Em todo o sistema</string>
     <string name="spoofing_pixel_props_title">Propriedades do Pixel</string>
-    <string name="spoofing_pixel_props_summary">Mscarar um grupo seleto de aplicativos do Google para o dispositivo Pixel mais recente</string>
+    <string name="spoofing_pixel_props_summary">Mascarar um grupo seleto de aplicativos do Google para o dispositivo Pixel mais recente</string>
     <string name="tensor_spoof_title">Forçar recursos do Tensor</string>
     <string name="tensor_spoof_summary">Ative recursos exclusivos do Pixel Tensor em dispositivos não suportados. Pode levar a um comportamento inesperado ou ao aumento do uso da bateria.</string>
     <string name="spoofing_app_specific_category">Específico do Aplicativo</string>
@@ -574,6 +574,13 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="about_founders_title">Fundadores</string>
     <string name="about_team_members_title">Membros da equipe</string>
     <string name="about_remembering_title">Memorizando</string>
+    <string name="about_current_maintainers_title">Mantenedores atuais</string>
+    <string name="about_current_maintainers_loading_title">Carregando...</string>
+    <string name="about_current_maintainers_loading_summary">Buscando mantenedores atuais via OTA</string>
+    <string name="about_current_maintainers_empty_title">Nenhum mantenedor ativo encontrado</string>
+    <string name="about_current_maintainers_empty_summary">Não foi possível encontrar entradas mantidas atualmente nas compilações OTA.</string>
+    <string name="about_current_maintainers_last_updated">Última atualização: %1$s</string>
+    <string name="about_current_maintainers_last_updated_unknown">Última atualização: desconhecida</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Seletor de cores</string>
     <string name="press_color_to_apply">Selecione a cor abaixo para aplicar</string>
@@ -697,7 +704,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="ambient_media_art_title">Arte da capa de mídia ambiente</string>
     <string name="ambient_media_art_summary">Exibir capa de mídia na tela ambiente, quando disponível</string>
     <!-- Lock screen album art filter -->
-    <string name="ls_media_art_filter_title">Filtro de arte de capa de mídi</string>
+    <string name="ls_media_art_filter_title">Filtro de arte de capa de mídia</string>
     <string name="ls_media_art_filter_none">Nenhum</string>
     <string name="ls_media_art_filter_blur">Desfoque</string>
     <string name="ls_media_art_filter_grayscale">Tons de cinza</string>
@@ -1040,7 +1047,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="idle_manager_edit_policy">Editar: %1$s</string>
     <string name="idle_manager_idle_timeout">Tempo limite de inatividade</string>
     <string name="idle_manager_policy_balanced">Balanceado</string>
-    <string name="idle_manager_policy_aggressive">Aggressivo</string>
+    <string name="idle_manager_policy_aggressive">Agressivo</string>
     <string name="idle_manager_policy_custom">Personalizado</string>
     <string name="idle_manager_policy_balanced_desc">Os aplicativos inativos por 60 minutos serão acionados.</string>
     <string name="idle_manager_policy_aggressive_desc">Os aplicativos inativos por 15 minutos serão acionados. Recomendado para economia de bateria.</string>
@@ -1198,7 +1205,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="dynamic_bar_guide_chip_title">Aparência do chip</string>
     <string name="dynamic_bar_guide_swipe_title">Deslizar entre chips</string>
     <string name="dynamic_bar_guide_expand_title">Toque para expandir</string>
-    <string name="dynamic_bar_guide_dismiss_title">Delize para dispensar</string>
+    <string name="dynamic_bar_guide_dismiss_title">Deslize para dispensar</string>
     <string name="dynamic_bar_guide_keyguard_title">Chip de tela de bloqueio</string>
     <string name="dynamic_bar_footer_title">Sobre a Dynamic Bar</string>
     <string name="dynamic_bar_footer_body">A Dynamic Bar transforma seu status de barra em um hub interativo. Os chips de status aparecem e são animados com base nos eventos do sistema, fornecendo informações rápidas sem interromper o fluxo de trabalho.\n\nCada tipo de evento tem sua própria cor de destaque e um cartão expandido com ações rápidas.</string>
@@ -1369,7 +1376,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="video_wallpaper_tips_title">Dicas</string>
     <string name="video_wallpaper_tips_summary">• Vídeos são silenciados automaticamente\n• Vídeos em menor resolução consomem menos bateria\n• Loops mais curtos são recomendados para melhor desempenho\n• Se o vídeo não carregar, selecione o papel de parede dinâmico em Papéis de parede e estilo após selecionar o vídeo\n• É necessário reaplicar o papel de parede dinâmico após reiniciar o dispositivo</string>
     <string name="video_wallpaper_description">Vídeo animado e papel de parede GIF</string>
-    <string name="lunaris_os">FANTASMA</string>
+    <string name="lunaris_os">GHOST</string>
     <!-- Video Wallpaper Strings -->
     <string name="video_wallpaper_cleared">Papel de parede em vídeo removido</string>
     <string name="video_wallpaper_clear_failed">Falha ao limpar o papel de parede do vídeo</string>
