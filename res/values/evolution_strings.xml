@@ -60,8 +60,6 @@
     <string name="themes_brightness_slider_title">Brightness slider style</string>
     <string name="themes_brightness_slider_summary">Set brightness slider style</string>
     <string name="themes_animations_category">Animations</string>
-    <string name="themes_boot_animation_title">Boot animation</string>
-    <string name="themes_boot_animation_summary">Set boot animation style</string>
     <string name="themes_charging_animation_title">Charging ripple animation</string>
     <string name="themes_charging_animation_summary">Display an animation when the device is plugged in</string>
     <string name="themes_screen_off_animation_title">Screen off animation</string>
@@ -93,10 +91,18 @@
     <string name="theme_customization_brightness_slider_title">Brightness slider style</string>
     <string name="theme_customization_brightness_slider_summary">Set custom brightness slider style</string>
 
-    <!-- Themes/Boot animation preview -->
+    <!-- Themes/Boot animation -->
+    <string name="themes_boot_animation_title">Boot animation</string>
+    <string name="themes_boot_animation_summary">Set boot animation style</string>
+    <string name="boot_animation_custom_pick">Pick ZIP file</string>
+    <string name="boot_animation_custom_pick_summary">Select a custom bootanimation.zip</string>
+    <string name="boot_animation_applied_error">Failed to apply boot animation</string>
+    <string name="boot_animation_preview_loading">Loading preview…</string>
     <string name="boot_animation_preview_desc">Preview of the selected boot animation</string>
     <string name="boot_animation_preview_summary">Displays a preview of the currently selected boot animation</string>
     <string name="boot_animation_preview_title">Boot animation preview</string>
+    <string name="boot_animation_no_preview">No preview available</string>
+    <string name="boot_animation_style_unknown">Unknown</string>
 
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Accent color</string>
