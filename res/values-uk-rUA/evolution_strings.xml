@@ -586,7 +586,7 @@
     <string name="custom_seekbar_default_value">за замовчуванням</string>
     <string name="custom_seekbar_default_value_to_set">Значення за замовчуванням: <xliff:g id="v">%s</xliff:g>\nУтримуйте для встановлення</string>
     <string name="custom_seekbar_default_value_is_set">Значення за замовчуванням встановлено</string>
-    <!-- General -->
+    <!-- General strings -->
     <string name="enable">Увімкнути</string>
     <string name="disable">Вимкнути</string>
     <string name="boot_animation_applied">Анімація завантаження застосована</string>
@@ -596,6 +596,10 @@
     <string name="reset">Скинути</string>
     <string name="delete_message">Видалити вибраний елемент?</string>
     <string name="choose_app">Обдереть додаток</string>
+    <!-- Changelog -->
+    <string name="changelog_title">Поточний список змін</string>
+    <string name="changelog_summary">Переглянути зміни в джерелі прошивки</string>
+    <string name="changelog_error">Помилка завантаження списку змін</string>
     <!-- Units -->
     <string name="unit_hz">гц</string>
     <string name="unit_milliseconds">мілісекунди</string>
