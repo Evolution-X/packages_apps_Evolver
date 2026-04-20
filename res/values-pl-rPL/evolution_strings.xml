@@ -572,6 +572,13 @@
     <string name="about_founders_title">Założyciele</string>
     <string name="about_team_members_title">Członkowie zespołu</string>
     <string name="about_remembering_title">Zapamiętywanie</string>
+    <string name="about_current_maintainers_title">Obecni opiekunowie</string>
+    <string name="about_current_maintainers_loading_title">Ładowanie...</string>
+    <string name="about_current_maintainers_loading_summary">Pobieranie bieżących opiekunów z OTA</string>
+    <string name="about_current_maintainers_empty_title">Nie znaleziono aktywnych opiekunów</string>
+    <string name="about_current_maintainers_empty_summary">Nie można odnaleźć aktualnie utrzymywanych wpisów z kompilacji OTA.</string>
+    <string name="about_current_maintainers_last_updated">Ostatnia aktualizacja %1$s</string>
+    <string name="about_current_maintainers_last_updated_unknown">Ostatnia aktualizacja: nieznana</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Wybór kolorów</string>
     <string name="press_color_to_apply">Naciśnij na kolor poniżej, aby zastosować</string>
