@@ -278,9 +278,7 @@
     <string name="status_bar_lyric_summary">Mostrar letra na barra de status (precisa de suporte do aplicativo)</string>
     <string name="status_bar_lyric_options_title">Opções</string>
     <string name="disguise_props_for_music_app_title">Mascarar dispositivo para aplicativos de música</string>
-    <string name="disguise_props_for_music_app_summary">Disfarce o dispositivo em alguns aplicativos de música para suportar o recurso de \"letras na barra de status\". Após alterar, é necessário reiniciar o aplicativo para que a alteração tenha efeito.
-
-Dispositivo de disfarce em alguns aplicativos de música para suporte à barra de status da letra. Depois de alterar essa alternância, você deve reiniciar os aplicativos para que a alteração tenha efeito.</string>
+    <string name="disguise_props_for_music_app_summary">Disfarce o dispositivo em alguns aplicativos de música para suportar o recurso de \"letras na barra de status\". Após alterar, é necessário reiniciar o aplicativo para que a alteração tenha efeito.</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Estilo de relógio</string>
     <string name="status_bar_clock_position_right">Direita</string>
@@ -561,7 +559,7 @@ Dispositivo de disfarce em alguns aplicativos de música para suporte à barra d
     <string name="spoofing_photos_summary">Mascarar o aplicativo Google Fotos como um Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
-    <string name="spoofing_applying_changes">Aplicando alterações de falsificação\u2026</string>
+    <string name="spoofing_applying_changes">Aplicando alterações de mascaramento\u2026</string>
     <string name="spoofing_tensor_enabled">Recursos do tensor ativados</string>
     <string name="spoofing_tensor_disabled">Recursos do tensor desativados</string>
     <!-- About -->
@@ -1140,7 +1138,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="qs_show_media_player_summary">Exibir controles de mídia nas Configurações Rápidas</string>
     <!-- Dynamic Bar -->
     <string name="dynamic_bar">Dynamic Bar</string>
-    <string name="dynamic_bar_summary">Chip de status de barra inteligente para eventos ativos como gravação, mídia, temporizadores e muito mais</string>
+    <string name="dynamic_bar_summary">Chip inteligente na barra de status para eventos ativos como gravação, mídia, temporizadores e mais</string>
     <string name="dynamic_bar_enable">Ativar Dynamic Bar</string>
     <string name="dynamic_bar_enable_summary">Mostrar um chip dinâmico na barra de status para eventos ao vivo</string>
     <string name="dynamic_bar_keyguard_enable">Dynamic Bar na tela de bloqueio</string>
@@ -1432,7 +1430,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="pif_failed">Falha: %s</string>
     <string name="pif_select_device">Selecione o dispositivo</string>
     <string name="pif_generating">Gerando configuração\u2026</string>
-    <string name="pif_footer_title">Passando integridade básica</string>
+    <string name="pif_footer_title">Aprovando no teste de integridade básica</string>
     <string name="pif_footer_body">1. Toque em \"Obter impressão digital do Pixel Beta\" e selecione um dispositivo na lista disponível.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF funcional de uma fonte confiável. Arquivos de configuração não são fornecidos; você mesmo deve encontrar um.\n3. Verifique novamente o status do Play Integrity.\n\nSempre exclua a configuração ativa antes de carregar uma nova. Carregar uma configuração PIF expirada fará com que a integridade forte via TrickyStore falhe, mesmo com uma keybox válida.</string>
     <string name="pif_select_channel">Selecione o canal</string>
     <string name="pif_channel_latest_release">Último lançamento</string>
@@ -1465,7 +1463,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_target_mode_auto">Automático</string>
     <string name="ts_target_mode_leaf">Hack de folha</string>
     <string name="ts_target_mode_cert">Geração de certificado</string>
-    <string name="ts_footer_title">Passando forte integridade</string>
+    <string name="ts_footer_title">Aprovando no teste de integridade forte</string>
     <string name="ts_footer_body">1. Obtenha um XML de keybox válido de uma fonte confiável. keybox não são fornecidas; você mesmo deve encontrar um.\n2. Toque em \"Importar keybox\" e carregue o arquivo.\n3. Abra \"Gerenciar aplicativos de alvos\" e selecione Google Play Services e Google Play Store.\n4. Defina o modo de alvo como \"Folha\" se o seu dispositivo tiver um TEE funcionando, caso contrário, deixe-o como Automático.\n5. Verifique novamente o status do Play Integrity.\n\nSempre exclua a keybox existente antes de importar uma nova. Se o Google revogar uma keybox, ainda poderá permitir a passagem para a integridade do dispositivo, mesmo que a integridade forte falhe.</string>
     <!-- Game Spoofing -->
     <string name="gs_enable">Ativar mascaramento do jogo</string>
