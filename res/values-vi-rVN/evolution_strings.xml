@@ -572,6 +572,13 @@
     <string name="about_founders_title">Người sáng lập</string>
     <string name="about_team_members_title">Thành viên Đội ngũ</string>
     <string name="about_remembering_title">Remembering</string>
+    <string name="about_current_maintainers_title">Người bảo trì hiện tại</string>
+    <string name="about_current_maintainers_loading_title">Đang tải...</string>
+    <string name="about_current_maintainers_loading_summary">Đang tải thông tin người bảo trì hiện tại từ OTA</string>
+    <string name="about_current_maintainers_empty_title">Không tìm thấy người bảo trì nào đang hoạt động</string>
+    <string name="about_current_maintainers_empty_summary">Không tìm thấy các mục hiện đang được duy trì từ các bản dựng OTA.</string>
+    <string name="about_current_maintainers_last_updated">Lần cập nhật cuối: %1$s</string>
+    <string name="about_current_maintainers_last_updated_unknown">Cập nhật lần cuối: không xác định</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Bảng chọn màu</string>
     <string name="press_color_to_apply">Nhấn vào màu bên dưới để áp dụng</string>
@@ -586,7 +593,7 @@
     <string name="custom_seekbar_default_value">mặc định</string>
     <string name="custom_seekbar_default_value_to_set">Giá trị mặc định: <xliff:g id="v">%s</xliff:g>\nNhấn giữ để đặt</string>
     <string name="custom_seekbar_default_value_is_set">Giá trị mặc định đã được đặt</string>
-    <!-- General -->
+    <!-- General strings -->
     <string name="enable">Kích hoạt</string>
     <string name="disable">Tắt</string>
     <string name="boot_animation_applied">Đã áp dụng hiệu ứng khởi động</string>
@@ -596,6 +603,10 @@
     <string name="reset">Thiết lập lại</string>
     <string name="delete_message">Xoá các mục đã chọn?</string>
     <string name="choose_app">Chọn ứng dụng</string>
+    <!-- Changelog -->
+    <string name="changelog_title">Thay đổi hiện tại</string>
+    <string name="changelog_summary">Xem các thay đổi trong mã nguồn ROM</string>
+    <string name="changelog_error">Không thể tải nhật ký thay đổi</string>
     <!-- Units -->
     <string name="unit_hz">Hz</string>
     <string name="unit_milliseconds">mili giây</string>
@@ -1424,6 +1435,9 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="pif_generating">Đang tạo cấu hình\u2026</string>
     <string name="pif_footer_title">Đạt basic integrity</string>
     <string name="pif_footer_body">1. Nhấn \"Lấy dấu vân tay Pixel Beta\" và chọn thiết bị từ danh sách có sẵn.\n2. Nếu không tìm thấy thiết bị nào, hãy nhập cấu hình PIF đang hoạt động từ nguồn đáng tin cậy. Không cung cấp tệp cấu hình; bạn phải tự tìm.\n3. Kiểm tra lại trạng thái Play Integrity của bạn.\n\nLuôn xóa cấu hình đang hoạt động trước khi tải cấu hình mới. Tải cấu hình PIF đã hết hạn sẽ khiến strong integrity qua TrickyStore thất bại, ngay cả với keybox hợp lệ.</string>
+    <string name="pif_select_channel">Chọn kênh</string>
+    <string name="pif_channel_latest_release">Bản phát hành mới nhất</string>
+    <string name="pif_channel_canary_release">Bản phát hành Canary</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Quản lý keybox</string>
     <string name="ts_import_keybox">Nhập keybox</string>
@@ -1444,6 +1458,7 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="ts_import_target_list_summary">Nhập target.txt từ tệp</string>
     <string name="ts_target_list_imported">Đã nhập danh sách mục tiêu</string>
     <string name="ts_loading_apps">Đang tải ứng dụng\u2026</string>
+    <string name="ts_auto_select">Tự động chọn</string>
     <string name="ts_save">Lưu</string>
     <string name="ts_targets_saved">Đã lưu danh sách mục tiêu</string>
     <string name="ts_failed">Thất bại: %s</string>
@@ -1501,7 +1516,4 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="essential_remove_confirm">Xóa %s khỏi thông báo thiết yếu?</string>
     <string name="remove">Xóa</string>
     <string name="add">Thêm</string>
-    <!-- Emoji style -->
-    <string name="emoji_style_title">Phong cách biểu tượng cảm xúc</string>
-    <string name="emoji_style_summary">Chọn gói biểu tượng cảm xúc của hệ thống mà không cần thay đổi phông chữ</string>
 </resources>
