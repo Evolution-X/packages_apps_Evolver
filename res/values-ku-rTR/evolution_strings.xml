@@ -26,8 +26,9 @@
     <string name="miscellaneous_summary">گۆڕینی ناسنامە، هەڵبژاردنی گەشەپێدەر</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">زانیاری دەربارەی تیمی پەرەپێدەر</string>
+    <string name="general_category_title">گشتی</string>
+    <string name="gestures_category_title">ئاماژەکان</string>
     <!-- Themes -->
-    <string name="themes_general_category">گشتی</string>
     <string name="themes_monet_category">مۆنێت (Monet)</string>
     <string name="themes_monet_title">ڕێکخستنەکانی مۆنێت</string>
     <string name="themes_monet_summary">تایبەتمەندکردنی بزوێنەری ناوەکی ڕوکاری ئەندرۆید</string>
@@ -60,7 +61,7 @@
     <string name="themes_boot_animation_summary">دیاریکردنی شێوازی جووڵەی کاتی داگیرسانی ئامێر</string>
     <string name="themes_charging_animation_title">جووڵەی شەپۆلی بارگاویکردنەوە</string>
     <string name="themes_charging_animation_summary">نیشاندانی ئەنیمەیشن کاتێک مۆبایلەکە دەخەیتە سەر شەحن</string>
-    <string name="themes_screen_off_animation_title">ئەنیمەیشنی کوژانەوەی شاشە</string>
+    <string name="themes_screen_off_animation_title">ئەنیمەیشنی کوژانەوەی ڕوونما</string>
     <string name="themes_screen_off_animation_crt">تەلەفزیۆنی کۆن (CRT)</string>
     <string name="themes_screen_off_animation_scale">بچووکبوونەوە بەرەو ناوەڕاست (Scale)</string>
     <string name="themes_udfps_animation_title">ئەنیمەیشنی UDFPS</string>
@@ -117,8 +118,8 @@
     <string name="monet_engine_style_monochromatic">تاک‌ڕەنگ (Monochromatic)</string>
     <string name="monet_engine_color_source_title">سەرچاوەی ڕەنگ</string>
     <string name="monet_engine_color_source_both">هەردووکیان (بنەڕەتی)</string>
-    <string name="monet_engine_color_source_home">وێنەی شاشەی سەرەکی</string>
-    <string name="monet_engine_color_source_lock">وێنەی شاشەی قوفڵ</string>
+    <string name="monet_engine_color_source_home">وێنەی ڕوونمای سەرەکی</string>
+    <string name="monet_engine_color_source_lock">وێنەی ڕوونمای قوفڵ</string>
     <string name="monet_engine_color_source_preset">پێشوەختە</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">ڕووکار</string>
@@ -138,7 +139,7 @@
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">پەڵس (Pulse)</string>
     <string name="pulse_settings_summary">بینراوکاری موزیک لە شریتی گەڕان و AOD</string>
-    <string name="ambient_pulse_enabled_title">Pulse لە شاشەی Ambient</string>
+    <string name="ambient_pulse_enabled_title">Pulse لە ڕوونمای Ambient</string>
     <string name="ambient_pulse_enabled_summary">نیشاندانی بینراوکاری موزیک لەسەر ڕوونمای هەمیشە داگیرسراو</string>
     <string name="pulse_rounded_bars_title">ستوونی خڕکراو</string>
     <string name="pulse_rounded_bars_summary">نیشاندانی ستوونەکانی بینراوکار بە گۆشەی خڕکراو</string>
@@ -168,7 +169,6 @@
     <string name="theme_customization_lock_clock_face_title">شێوەی کاتژمێر</string>
     <string name="theme_customization_lock_clock_face_summary">گۆڕینی شێوەی دەرکەوتنی کاتژمێری ڕوونمای قفڵ</string>
     <!-- Status bar -->
-    <string name="status_bar_gestures_category">ئاماژەکان</string>
     <string name="status_bar_brightness_control_title">کۆنتڕۆڵکردنی ڕووناکی</string>
     <string name="status_bar_brightness_control_summary">ڕێکخستنی ڕۆشنایی بە کێشانی پەنجە بەسەر شریتی زانیاریدا</string>
     <string name="status_bar_quick_pull_down_title">داگرتنی خێرا</string>
@@ -180,8 +180,8 @@
     <string name="status_bar_icons_category">ئایکۆنەکان</string>
     <string name="status_bar_tuner_title">ڕێکخەری شریتی زانیاری (Status bar tuner)</string>
     <string name="status_bar_tuner_summary">هەڵبژاردنی ئەو وێنۆچکانەی کە لە سیستەمدا نیشان دەدرێن</string>
-    <string name="status_bar_battery_category_title">پاتری</string>
-    <string name="status_bar_battery_style_title">شێوازی پاتری</string>
+    <string name="status_bar_battery_category_title">باتری</string>
+    <string name="status_bar_battery_style_title">شێوازی باتری</string>
     <string name="status_bar_battery_style_icon_portrait">ستوونی (Portrait)</string>
     <string name="status_bar_battery_style_icon_rlandscape">ئاسۆیی لای ڕاست</string>
     <string name="status_bar_battery_style_icon_landscape">ئاسۆیی لای چەپ</string>
@@ -206,18 +206,18 @@
     <string name="status_bar_battery_style_text">دەق</string>
     <string name="status_bar_battery_style_hidden">شاردراوە</string>
     <string name="status_bar_battery_style_follow_status_bar">هەمان شێوازی شریتی دۆخ</string>
-    <string name="status_bar_battery_percent_title">ڕێژەی سەدی پاتری</string>
+    <string name="status_bar_battery_percent_title">ڕێژەی سەدی باتری</string>
     <string name="status_bar_battery_percent_hidden">شاردراوە</string>
     <string name="status_bar_battery_percent_text_inside">لە ناو ئایکۆنەکە</string>
     <string name="status_bar_battery_percent_text_next">لە تەنیشت ئایکۆنەکە</string>
     <string name="status_bar_battery_percent_text_next_right">تەنیشت وێنۆچکەکە (ڕاست)</string>
     <string name="status_bar_battery_percent_text_next_left">تەنیشت وێنۆچکەکە (چەپ)</string>
-    <string name="status_bar_battery_text_charging_title">ڕێژەی پاتری لە کاتی بارگاویکردن</string>
-    <string name="status_bar_battery_text_charging_summary">هەمیشە نیشاندانی ڕێژەی پاتری کاتێک مۆبایلەکە بارگاوی دەبێتەوە</string>
+    <string name="status_bar_battery_text_charging_title">ڕێژەی باتری لە کاتی بارگاویکردن</string>
+    <string name="status_bar_battery_text_charging_summary">هەمیشە نیشاندانی ڕێژەی باتری کاتێک مۆبایلەکە بارگاوی دەبێتەوە</string>
     <string name="status_bar_clock_and_date_title">ڕێکخستنی کاتژمێر</string>
     <string name="status_bar_clock_and_date_summary">ڕێکخستنی شێوازی کاتژمێر و ڕێکەوت لە شریتی دۆخدا</string>
-    <string name="status_bar_bluetooth_battery_title">پاتری بلوتووس</string>
-    <string name="status_bar_bluetooth_battery_summary">نیشاندانی دۆخی پاتری ئامێرە بلوتووسە بەستراوەکان، ئەگەر بەردەست بێت</string>
+    <string name="status_bar_bluetooth_battery_title">باتری بلوتووس</string>
+    <string name="status_bar_bluetooth_battery_summary">نیشاندانی دۆخی باتری ئامێرە بلوتووسە بەستراوەکان، ئەگەر بەردەست بێت</string>
     <string name="status_bar_colored_icons_title">ئایکۆنە ڕەنگاوڕەنگەکان</string>
     <string name="status_bar_colored_icons_summary">بەکارهێنانی ڕەنگی ئەپەکان بۆ وێنۆچکەکانی ئاگادارکردنەوە</string>
     <string name="status_bar_logo_title">لۆگۆی Evolution X</string>
@@ -287,7 +287,7 @@
     <string name="status_bar_clock_seconds_title">نیشاندانی چرکەکان</string>
     <string name="status_bar_clock_seconds_summary">نیشاندانی کات بە چرکەوە لە شریتی دۆخ</string>
     <string name="status_bar_clock_auto_hide_title">شاردنەوەی خۆکاری کاتژمێر</string>
-    <string name="status_bar_clock_auto_hide_summary">شاردنەوەی کاتژمێر کاتێک شاشەی سەرەکی دیارە</string>
+    <string name="status_bar_clock_auto_hide_summary">شاردنەوەی کاتژمێر کاتێک ڕوونمای سەرەکی دیارە</string>
     <string name="status_bar_am_pm_title">شێوازی بەیانی/ئێوارە (AM/PM)</string>
     <string name="status_bar_am_pm_info">کاتژمێری ٢٤ سەعاتی چالاکە</string>
     <string name="status_bar_am_pm_normal">ئاسایی</string>
@@ -502,7 +502,7 @@
     <string name="power_menu_lock_screen_secure_title">نیشاندان لە ڕوونمای قفڵی پارێزراو</string>
     <string name="power_menu_lock_screen_secure_summary">نیشاندانی پێڕستی وزە کاتێک ئامێرەکە قفڵە</string>
     <!-- Power menu/Power menu actions -->
-    <string name="power_menu_actions_screenshot_title">وێنەی شاشە</string>
+    <string name="power_menu_actions_screenshot_title">وێنەی ڕوونما</string>
     <string name="power_menu_actions_onthego_title">دۆخی لەڕێگەدا (On-The-Go)</string>
     <string name="power_menu_actions_airplane_title">دۆخی فڕۆکە</string>
     <string name="power_menu_actions_torch_title">لایت</string>
@@ -540,12 +540,12 @@
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">پیکسڵە زیرەکەکان تایبەتمەندییەکی پاشەکەوتکردنی وزەیە. بەپێی ژمارەی ئەو پیکسڵانەی دەیکوژێنیتەوە، تەمەنی باتری باشتر دەبێت.</string>
     <string name="smart_pixels_title">پێکسڵی زیرەک (Smart Pixels)</string>
-    <string name="smart_pixels_summary">کوژاندنەوەی پێکسڵەکان بۆ کەمکردنەوەی بەکارهێنانی وزە و پاتری</string>
-    <string name="smart_pixels_on_power_save_title">چالاکبوون لە کاتی پاشەکەوتی پاتری</string>
-    <string name="smart_pixels_on_power_save_summary">چالاککردنی پێکسڵی زیرەک کاتێک دۆخی پاشەکەوتی پاتری چالاکە</string>
+    <string name="smart_pixels_summary">کوژاندنەوەی پێکسڵەکان بۆ کەمکردنەوەی بەکارهێنانی وزە و باتری</string>
+    <string name="smart_pixels_on_power_save_title">چالاکبوون لە کاتی پاشەکەوتی باتری</string>
+    <string name="smart_pixels_on_power_save_summary">چالاککردنی پێکسڵی زیرەک کاتێک دۆخی پاشەکەوتی باتری چالاکە</string>
     <string name="smart_pixels_percent">ڕێژەی ئەو پێکسڵانەی دەکوژێنرێنەوە</string>
-    <string name="smart_pixels_shift_title">پاراستن لە سووتانی شاشە</string>
-    <string name="smart_pixels_shift_summary">پاراستنی شاشەکانی OLED لە سووتان (Burn-in) لە ڕێگەی جوڵاندنی پێکسڵەکان بە تێپەڕبوونی کات</string>
+    <string name="smart_pixels_shift_title">پاراستن لە سووتانی ڕوونما</string>
+    <string name="smart_pixels_shift_summary">پاراستنی ڕوونماکانی OLED لە سووتان (Burn-in) لە ڕێگەی جوڵاندنی پێکسڵەکان بە تێپەڕبوونی کات</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">چالاککردنی گۆڕینی ناسنامە</string>
     <string name="spoofing_summary">نیشاندانی ئامێرەکە وەک مۆدێلێکی تر بۆ تێپەڕاندنی سنووردارکردنەکان</string>
@@ -572,13 +572,20 @@
     <string name="about_founders_title">دامەزرێنەران</string>
     <string name="about_team_members_title">ئەندامانی تیم</string>
     <string name="about_remembering_title">یادەوەرییەکان</string>
+    <string name="about_current_maintainers_title">سەرپەرشتیارانی ئێستا</string>
+    <string name="about_current_maintainers_loading_title">بار دەکرێت...</string>
+    <string name="about_current_maintainers_loading_summary">وەرگرتنی ناوی سەرپەرشتیارانی ئێستا لە OTAـوە</string>
+    <string name="about_current_maintainers_empty_title">هیچ سەرپەرشتیارێکی چالاک نەدۆزرایەوە</string>
+    <string name="about_current_maintainers_empty_summary">نەتوانرا ناوی سەرپەرشتیارانی ئێستا لە وەشانەکانی OTAـدا بدۆزرێتەوە.</string>
+    <string name="about_current_maintainers_last_updated">دوایین نوێکردنەوە %1$s</string>
+    <string name="about_current_maintainers_last_updated_unknown">دوایین نوێکردنەوە: نادیار</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">هەڵبژاردنی ڕەنگ</string>
     <string name="press_color_to_apply">بۆ جێبەجێکردن دەست بنێ بە ڕەنگەکەدا</string>
     <string name="set">دیاریکردن</string>
     <string name="accent_color">ڕەنگی ئەکسێنت</string>
     <string name="notification_color">ڕەنگی ئاگاداری</string>
-    <string name="wallpaper_color">ڕەنگی وێنەی شاشە</string>
+    <string name="wallpaper_color">ڕەنگی وێنەی ڕوونما</string>
     <string name="rainbow_color">ڕەنگی پەلکەزێڕینە</string>
     <string name="custom_color">ڕەنگی تایبەت</string>
     <!-- Custom seekbar -->
@@ -586,7 +593,7 @@
     <string name="custom_seekbar_default_value">بە بنەڕەتی</string>
     <string name="custom_seekbar_default_value_to_set">بڕی بنەڕەتی: <xliff:g id="v">%s</xliff:g> \nدەستلێدانی درێژ بۆ دیاریکردن</string>
     <string name="custom_seekbar_default_value_is_set">بڕی بنەڕەتی دیاریکرا</string>
-    <!-- General -->
+    <!-- General strings -->
     <string name="enable">چالاککردن</string>
     <string name="disable">ناچالاککردن</string>
     <string name="boot_animation_applied">جووڵەی کارپێکردن جێبەجێ کرا</string>
@@ -596,6 +603,10 @@
     <string name="reset">دووبارە ڕێکخستنەوە</string>
     <string name="delete_message">بڕگەی دیاریکراو لاببرێت؟</string>
     <string name="choose_app">ئەپ هەڵبژێرە</string>
+    <!-- Changelog -->
+    <string name="changelog_title">لیستی گۆڕانکارییەکان</string>
+    <string name="changelog_summary">بینینی گۆڕانکارییەکان لە سەرچاوەی ROMـدا</string>
+    <string name="changelog_error">نەتوانرا لیستی گۆڕانکارییەکان بار بکرێت</string>
     <!-- Units -->
     <string name="unit_hz">هێرتز (Hz)</string>
     <string name="unit_milliseconds">میلی چرکە</string>
@@ -788,25 +799,25 @@
     <string name="ongoing_chip_bg_alpha_title">ڕوونی پاشبنەمای نیشاندەرەکە</string>
     <string name="ongoing_chip_bg_alpha_summary">دەستکاریکردنی ڕوونی (Opacity) نیشاندەری چالاکیی بەردەوام</string>
     <!-- Status bar - Battery Bar -->
-    <string name="battery_bar_title">هێڵی پاتری</string>
-    <string name="battery_bar_summary">نیشاندانی شریتێکی باریک لەسەر یان لە ژێر شریتی دۆخ بۆ ئاستی پاتری</string>
+    <string name="battery_bar_title">هێڵی باتری</string>
+    <string name="battery_bar_summary">نیشاندانی شریتێکی باریک لەسەر یان لە ژێر شریتی دۆخ بۆ ئاستی باتری</string>
     <string name="battery_bar_color">ڕەنگ</string>
     <string name="battery_bar_charging_color">ڕەنگی بارگاویکردن</string>
-    <string name="battery_bar_battery_low_color">ڕەنگی کەمی پاتری</string>
-    <string name="battery_bar_style_title">شێوازی شریتی پاتری</string>
-    <string name="battery_bar_thickness_title">ئەستووری هێڵی پاتری</string>
+    <string name="battery_bar_battery_low_color">ڕەنگی کەمی باتری</string>
+    <string name="battery_bar_style_title">شێوازی شریتی باتری</string>
+    <string name="battery_bar_thickness_title">ئەستووری هێڵی باتری</string>
     <string name="battery_bar_animate_title">ئەنیمەیشنی بارگاویکردن</string>
     <string name="battery_bar_style_regular">ئاسایی</string>
     <string name="battery_bar_style_center_mirrored">ناوەڕاست-ئاوێنەیی</string>
     <string name="battery_bar_style_reversed">پێچەوانە</string>
     <string name="battery_bar_use_charging_color">ڕەنگی تایبەتی بارگاویکردن</string>
     <string name="battery_bar_blend_color_title">تێکەڵکردنی ڕەنگەکان</string>
-    <string name="battery_bar_blend_color_summary">تێکەڵکردنی ڕەنگی پڕی و بەتاڵی پاتری بەپێی ڕێژەی سەدی</string>
+    <string name="battery_bar_blend_color_summary">تێکەڵکردنی ڕەنگی پڕی و بەتاڵی باتری بەپێی ڕێژەی سەدی</string>
     <string name="battery_bar_blend_color_reverse_title">پێچەوانەکردنی ئاراستەی ڕەنگ</string>
     <string name="battery_bar_blend_color_reverse_summary_off">پڕ ← بەتاڵ: سوور ← سەوز ← شین ← سوور</string>
     <string name="battery_bar_blend_color_reverse_summary_on">پڕ ← بەتاڵ: سوور → سەوز → شین → سوور</string>
     <string name="battery_bar_use_gradient_color">بەکارهێنانی ڕەنگی پلەبەندی (Gradient)</string>
-    <string name="battery_bar_gradient_color_summary">بەکارهێنانی ڕەنگی پلەبەندی وەک پێوەرێک بۆ ئاستی پاتری</string>
+    <string name="battery_bar_gradient_color_summary">بەکارهێنانی ڕەنگی پلەبەندی وەک پێوەرێک بۆ ئاستی باتری</string>
     <string name="battery_bar_high_color">ڕەنگی ئاستی بەرز</string>
     <string name="battery_bar_low_color">ڕەنگی ئاستی نزم</string>
     <string name="battery_bar_animate_color">ڕەنگی جووڵەی بارگاویکردن</string>
@@ -822,7 +833,7 @@
     <string name="notification_row_transparency_lockscreen_summary">دانانی پاشبنەمای نیوە-ڕوون بۆ ئاگادارکردنەوەکان لە قوفڵی ڕوونما</string>
     <!-- Dynamic charging animation -->
     <string name="wireless_charging_dynamic_color_title">ڕەنگی داینامیکی بارگاویکردن</string>
-    <string name="wireless_charging_dynamic_color_summary">بەکارهێنانی ئاستی پاتری بۆ دیاریکردنی ڕەنگی جووڵەی بارگاویکردن</string>
+    <string name="wireless_charging_dynamic_color_summary">بەکارهێنانی ئاستی باتری بۆ دیاریکردنی ڕەنگی جووڵەی بارگاویکردن</string>
     <!-- Ambient Wallpaper -->
     <string name="doze_always_on_wallpaper_title">وێنەی پاشبنەمای Ambient</string>
     <string name="doze_always_on_wallpaper_summary">نیشاندانی وێنەی پاشبنەمای قوفڵی ڕوونما لە Ambient Display</string>
@@ -913,9 +924,9 @@
     <string name="hardware_keys_action_voice_search">گەڕانی دەنگی</string>
     <string name="hardware_keys_action_in_app_search">گەڕانی ناو-ئەپ</string>
     <string name="hardware_keys_action_launch_camera">کردنەوەی کامێرا</string>
-    <string name="hardware_keys_action_sleep">کوژاندنەوەی شاشە</string>
+    <string name="hardware_keys_action_sleep">کوژاندنەوەی ڕوونما</string>
     <string name="hardware_keys_action_last_app">دوایین ئەپ</string>
-    <string name="hardware_keys_action_split_screen">دابەشکردنی شاشە</string>
+    <string name="hardware_keys_action_split_screen">دابەشکردنی ڕوونما</string>
     <string name="hardware_keys_action_close_app">داخستنی ئەپ</string>
     <string name="hardware_keys_action_play_pause_music">پەخش/ڕاگرتنی مۆسیقا</string>
     <string name="hardware_keys_action_torch">داگیرساندن/کوژاندنەوەی فلاش</string>
@@ -1000,7 +1011,7 @@
     <string name="app_spoofing_remove_confirm">لابردنی %1$s لە لیستی گۆڕینی ناسنامە؟</string>
     <!-- Idle Manager -->
     <string name="idle_manager_title">بەڕێوەبەری بێکاری (Idle Manager)</string>
-    <string name="idle_manager_summary">بەڕێوەبردنی پڕۆسەکانی پاشبنەما بۆ باشترکردنی پاتری</string>
+    <string name="idle_manager_summary">بەڕێوەبردنی پڕۆسەکانی پاشبنەما بۆ باشترکردنی باتری</string>
     <string name="idle_manager_app_count">%1$d ئەپ چاودێری دەکرێن</string>
     <string name="idle_manager_disabled">ناچالاکە — دایبگرە بۆ چالاککردن</string>
     <string name="idle_manager_tab_apps">ئەپەکان</string>
@@ -1022,7 +1033,7 @@
     <string name="idle_manager_policy_aggressive">توند (Aggressive)</string>
     <string name="idle_manager_policy_custom">تایبەت</string>
     <string name="idle_manager_policy_balanced_desc">کاردانەوە دوای 60 خولەک لە بێکاری.</string>
-    <string name="idle_manager_policy_aggressive_desc">کاردانەوە دوای 15 خولەک لە بێکاری. باشترینە بۆ پاتری.</string>
+    <string name="idle_manager_policy_aggressive_desc">کاردانەوە دوای 15 خولەک لە بێکاری. باشترینە بۆ باتری.</string>
     <string name="idle_manager_policy_custom_desc">کاتی بێکاری بە ئارەزووی خۆت دابنێ.</string>
     <string name="idle_manager_timeout_minutes">کاتی بەسەرچوون: %1$d خولەک</string>
     <string name="idle_manager_apply_custom">جێبەجێکردن</string>
@@ -1037,7 +1048,7 @@
     <string name="idle_action_rare_bucket_desc">کارەکانی پاشبنەما ڕادەگرێت تا ئەپەکە دەکرێتەوە.</string>
     <string name="idle_action_restricted_desc">توندترین دۆخی پاشبنەما کە زۆر کەم ڕێگە بە کارەکان دەدات.</string>
     <string name="idle_action_kill_bg_desc">پڕۆسەکانی پاشبنەما دەوەستێنێت.</string>
-    <string name="idle_action_full_kill_desc">سنووردارکردن + داخستنی پڕۆسەکان. بەهێزترینە بۆ پاتری.</string>
+    <string name="idle_action_full_kill_desc">سنووردارکردن + داخستنی پڕۆسەکان. بەهێزترینە بۆ باتری.</string>
     <string name="idle_manager_kill_count_label">کۆی کردارەکان</string>
     <string name="idle_manager_last_killed_label">دوایین کردار</string>
     <string name="idle_manager_last_killed">دوایین: %1$s</string>
@@ -1117,7 +1128,7 @@
     <string name="dynamic_bar_enable_summary">نیشاندانی نیشاندەرێکی داینامیکی لە شریتی دۆخ</string>
     <string name="dynamic_bar_keyguard_enable">Dynamic bar لەسەر قوفڵی ڕوونما</string>
     <string name="dynamic_bar_keyguard_enable_summary">نیشاندانی Dynamic bar لەگەڵ کارە خێراکان لەسەر قوفڵی ڕوونما</string>
-    <string name="dynamic_bar_keyguard_battery_chip">زانیاری پاتری</string>
+    <string name="dynamic_bar_keyguard_battery_chip">زانیاری باتری</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">هەرگیز نیشان مەدە</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">تەنها کاتێک بارگاو دەبێتەوە</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">هەمیشە</string>
@@ -1130,6 +1141,8 @@
     <string name="dynamic_bar_event_privacy_summary">ئاگاداری بەکارهێنانی کامێرا و مایکرۆفۆن</string>
     <string name="dynamic_bar_event_audio_recording">تۆمارکردنی دەنگ</string>
     <string name="dynamic_bar_event_audio_recording_summary">تۆمارکەری دەنگ و گرتنی دەنگی سیستەم</string>
+    <string name="dynamic_bar_event_call">پەیوەندیی بەردەوام</string>
+    <string name="dynamic_bar_event_call_summary">پەیوەندییە هاتوو و چالاکەکان</string>
     <string name="dynamic_bar_event_media">پەخشکردنی میدیا</string>
     <string name="dynamic_bar_event_media_summary">مۆسیقای ئێستا و کۆنترۆڵەکانی دەنگ</string>
     <string name="dynamic_bar_event_notification">ئاگادارییەکان</string>
@@ -1143,7 +1156,7 @@
     <string name="dynamic_bar_event_alarm">زەنگ</string>
     <string name="dynamic_bar_event_alarm_summary">زەنگە لێدراوەکان و ئەوانەی نزیکن</string>
     <string name="dynamic_bar_event_charging">دەستپێکردنی بارگاویکردن</string>
-    <string name="dynamic_bar_event_charging_summary">ئاستی پاتری کاتێک شەحن دەبێتەوە</string>
+    <string name="dynamic_bar_event_charging_summary">ئاستی باتری کاتێک شەحن دەبێتەوە</string>
     <string name="dynamic_bar_event_bluetooth">بلوتووس</string>
     <string name="dynamic_bar_event_bluetooth_summary">دۆخی پەیوەستبوونی ئامێرەکان</string>
     <string name="dynamic_bar_event_hotspot">هۆتسپۆت</string>
@@ -1195,7 +1208,7 @@
     <string name="notification_bg_alternate_color_summary">بەکارهێنانی ڕەنگێکی جیاواز بۆ پاشبنەمای ئاگادارییەکان</string>
     <!-- Cutout Progress -->
     <string name="cutout_progress_title">نیشاندەری دەوری کامێرا (Cutout progress)</string>
-    <string name="cutout_progress_summary">نیشاندانی ئاستی پاتری یان داگرتن وەک بازنەیەک لە دەوری کامێرا</string>
+    <string name="cutout_progress_summary">نیشاندانی ئاستی باتری یان داگرتن وەک بازنەیەک لە دەوری کامێرا</string>
     <string name="cutout_progress_enabled_title">چالاککردنی بازنەی پێشکەوتن</string>
     <string name="cutout_progress_enabled_summary">نیشاندانی بازنەیەک لە دەوری کامێرا لە کاتی داگرتنی فایلەکاندا</string>
     <string name="cutout_progress_cat_appearance">شێوەی دەرکەوتن</string>
@@ -1261,11 +1274,11 @@
     <string name="cutout_progress_glow_enabled_summary">نیشاندانی ڕووناکی لە دەوری بازنەکە</string>
     <string name="cutout_progress_glow_radius_title">نیوەتیرەی درەوشانەوە</string>
     <!-- Charging Ring -->
-    <string name="cutout_progress_cat_battery">بازنەی پاتری</string>
-    <string name="cutout_progress_battery_indicator_title">نیشاندانی ئاستی پاتری</string>
-    <string name="cutout_progress_battery_indicator_summary">نیشاندانی ئاستی پاتری وەک بازنەیەکی هاوسەنگ لە دەوری کامێرا</string>
+    <string name="cutout_progress_cat_battery">بازنەی باتری</string>
+    <string name="cutout_progress_battery_indicator_title">نیشاندانی ئاستی باتری</string>
+    <string name="cutout_progress_battery_indicator_summary">نیشاندانی ئاستی باتری وەک بازنەیەکی هاوسەنگ لە دەوری کامێرا</string>
     <string name="cutout_progress_charging_ring_title">نیشاندانی بازنەی بارگاویکردن</string>
-    <string name="cutout_progress_charging_ring_summary">نیشاندانی ئاستی پاتری لە کاتی بارگاویکردندا</string>
+    <string name="cutout_progress_charging_ring_summary">نیشاندانی ئاستی باتری لە کاتی بارگاویکردندا</string>
     <string name="cutout_progress_charging_pulse_title">ترپەی بارگاویکردن</string>
     <string name="cutout_progress_charging_pulse_summary">جووڵەیەکی ترپەیی لە ناوەندەوە بۆ دەرەوە لە کاتی بارگاویکردندا</string>
     <!-- Music Ring -->
@@ -1282,7 +1295,7 @@
     <string name="cutout_progress_music_stroke_title">ئەستووریی هێڵ</string>
     <string name="cutout_progress_music_clockwise_title">ئاراستەی کاتژمێر</string>
     <string name="cutout_progress_music_aod_title">نیشاندان لەسەر AOD</string>
-    <string name="cutout_progress_music_aod_summary">هێشتنەوەی بازنەی مۆسیقا بە دیاری لەسەر شاشەی هەمیشە داگیرساو</string>
+    <string name="cutout_progress_music_aod_summary">هێشتنەوەی بازنەی مۆسیقا بە دیاری لەسەر ڕوونمای هەمیشە داگیرساو</string>
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">Wallpaper Glymps</string>
     <string name="lock_glymps_enable_title">چالاککردنی Wallpaper Glymps</string>
@@ -1338,13 +1351,13 @@
     <string name="video_wallpaper_playback">ڕێکخستنەکانی لێدان</string>
     <string name="video_wallpaper_speed">خێراییی لێدان</string>
     <string name="video_wallpaper_pause_lock">ڕاگرتن لە ڕوونمای قوفڵ</string>
-    <string name="video_wallpaper_pause_lock_summary">پاشەکەوتکردنی پاتری کاتێک ڕوونما قوفڵە</string>
+    <string name="video_wallpaper_pause_lock_summary">پاشەکەوتکردنی باتری کاتێک ڕوونما قوفڵە</string>
     <!-- Info section -->
     <string name="video_wallpaper_info_category_title">زانیاری</string>
     <string name="video_wallpaper_info_title">فۆرماتە پشتگیریکراوەکان</string>
     <string name="video_wallpaper_info_summary">ڤیدیۆکانی MP4، ئەنیمەیشنەکانی GIF و WebP\nگەورەترین قەبارەی فایل: ٥٠ مێگابایت</string>
     <string name="video_wallpaper_tips_title">تێبینییەکان</string>
-    <string name="video_wallpaper_tips_summary">• ڤیدیۆکان بە شێوەی خۆکار بێدەنگ دەکرێن\n• ڤیدیۆکانی کوالێتی نزمتر پاتری کەمتر بەکاردەهێنن\n• ڤیدیۆ کورتەکان پێشنیار دەکرێن بۆ کارکردنی باشتر\n• ئەگەر وێنە ڤیدیۆییەکە کاری نەکرد، وێنەی زیندوو (Live wallpaper) لە بەشی وێنە و شێواز هەڵبژێرە\n• دوای هەر جارێک هەڵکردنەوەی مۆبایل دەبێت وێنە زیندووەکە دووبارە جێبەجێ بکەیتەوە</string>
+    <string name="video_wallpaper_tips_summary">• ڤیدیۆکان بە شێوەی خۆکار بێدەنگ دەکرێن\n• ڤیدیۆکانی کوالێتی نزمتر باتری کەمتر بەکاردەهێنن\n• ڤیدیۆ کورتەکان پێشنیار دەکرێن بۆ کارکردنی باشتر\n• ئەگەر وێنە ڤیدیۆییەکە کاری نەکرد، وێنەی زیندوو (Live wallpaper) لە بەشی وێنە و شێواز هەڵبژێرە\n• دوای هەر جارێک هەڵکردنەوەی مۆبایل دەبێت وێنە زیندووەکە دووبارە جێبەجێ بکەیتەوە</string>
     <string name="video_wallpaper_description">وێنەی پشتێنەی ڤیدیۆیی و GIFی جوڵاو</string>
     <string name="lunaris_os">تارمایی (Lunaris OS)</string>
     <!-- Video Wallpaper Strings -->
@@ -1367,9 +1380,9 @@
     <string name="ambient_display_category_title">ڕوونمای ئامبیێنت (Ambient)</string>
     <string name="ambient_bottom_title">بەشی خوارەوەی AOD</string>
     <string name="ambient_battery_disable_title">ناچالاککراوە</string>
-    <string name="ambient_battery_percent_title">ڕێژەی پاتری</string>
-    <string name="ambient_battery_both_title">پاتری (ڕێژە و پلەی گەرمی)</string>
-    <string name="ambient_battery_cpu_battery_temperature_title">ڕێژەی پاتری، پلەی گەرمی (پاتری و پڕۆسێسەر)</string>
+    <string name="ambient_battery_percent_title">ڕێژەی باتری</string>
+    <string name="ambient_battery_both_title">باتری (ڕێژە و پلەی گەرمی)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">ڕێژەی باتری، پلەی گەرمی (باتری و پڕۆسێسەر)</string>
     <string name="ambient_user_name_title">ناوی بەکارهێنەر</string>
     <string name="display_icon_title">ئایکۆنەکان</string>
     <string name="display_icon_summary">نیشاندانی وێنۆچکەکان لەگەڵ ڕێژە و پلەی گەرمی</string>
@@ -1404,6 +1417,9 @@
     <string name="pif_generating">ڕێکخستن دروست دەکرێت\u2026</string>
     <string name="pif_footer_title">تێپەڕاندنی دەستپاکی بنەڕەتی</string>
     <string name="pif_footer_body">١. کلیک لەسەر \"Fetch Pixel Beta fingerprint\" بکە و ئامێرێک لە لیستەکە هەڵبژێرە.\n٢. ئەگەر هیچ ئامێرێک نەبوو، ڕێکخستنێکی PIF ی کارا لە سەرچاوەیەکی جێی متمانەوە بهێنە. فایلی ڕێکخستن دابین نەکراوە؛ دەبێت خۆت بیدۆزیتەوە.\n٣. دۆخی Play Integrity تاقی بکەرەوە.\n\nهەمیشە ڕێکخستنە کۆنەکە بسڕەوە پێش ئەوەی دانەیەکی نوێ بار بکەیت. بارکردنی ڕێکخستنێکی بەسەرچوو دەبێتە هۆی شکستهێنانی Strong Integrity لە ڕێگەی TrickyStore، تەنانەت ئەگەر keybox ی کاراشت هەبێت.</string>
+    <string name="pif_select_channel">دیاریکردنی کەناڵ</string>
+    <string name="pif_channel_latest_release">نوێترین وەشان</string>
+    <string name="pif_channel_canary_release">وەشانی کەناری (ئەزموونی)</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">بەڕێوەبردنی Keybox</string>
     <string name="ts_import_keybox">هێنانی keybox</string>
@@ -1424,6 +1440,7 @@
     <string name="ts_import_target_list_summary">هێنانی فایلی target.txt لە فایلێکەوە</string>
     <string name="ts_target_list_imported">لیستی مەبەست هێنرا</string>
     <string name="ts_loading_apps">ئەپەکان بار دەکرێن\u2026</string>
+    <string name="ts_auto_select">خۆکارانه‌ ده‌ستنیشانکردن</string>
     <string name="ts_save">پاشەکەوتکردن</string>
     <string name="ts_targets_saved">لیستی مەبەست پاشەکەوت کرا</string>
     <string name="ts_failed">سەرکەوتوو نەبوو: %s</string>
@@ -1457,4 +1474,27 @@
     <string name="gs_config_saved">ڕێکخستن پاشەکەوت کرا</string>
     <string name="gs_loading_apps">ئەپەکان بار دەکرێن\u2026</string>
     <string name="gs_failed">سەرکەوتوو نەبوو: %s</string>
+    <!-- Depth Wallpaper -->
+    <string name="depthwall_file_header_select_title">دیاریکردنی بابەتی وێنەی قووڵی پاشبنەما</string>
+    <string name="depthwall_file_header_select_summary">دیاریکردنی وێنەی بابەتی پاشبنەمای قووڵی لە بیرگەوە.</string>
+    <string name="depthwall_wallpaper_enabled_title">وێنەی پاشبنەمای قووڵی (Depth)</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">بەکارهێنانی کاریگەریی قووڵی\nبۆ وێنەی پاشبنەما</string>
+    <string name="depthwall_wallpaper_enabled_summary">چالاککردنی وێنەی پاشبنەمای قووڵی (وەرگیراو لە iOS). پێویستی بە وێنەی شتێک هەیە.</string>
+    <string name="depthwall_wallpaper_opacity_title">ڕوونی وێنەی قووڵی</string>
+    <string name="depthwall_footer_text">تایبەتمەندی وێنەی پاشبنەمای قووڵی، کە ئیلهامی لە (Wallpaper Subject Segmentation) ی iOSـەوە وەرگرتووە، ڕێگەت پێدەدات بابەتێک (subject) بخەیتە سەر کاتژمێری شاشەی قفڵ بۆ نیشاندانی کاریگەریی قووڵی پاشبنەما.\n\n​بۆ ڕێکخستنی تایبەتمەندی وێنەی پاشبنەمای قووڵی:\n١. وێنەیەکی پاشبنەما دابنێ کە ئەو بابەتە یان ئەو پاشبنەمایەی تێدابێت کە دەتەوێت بابەتەکە لەسەری بێت.\n٢. وێنەی بابەتێک دیاری بکە بۆ شوێنکەوتن، ئەم وێنەیە لەسەر کاتژمێری شاشەی قفڵ نیشان دەدرێت.\n٣. لادانەکان (offsets) و ڕێژەی ڕوونی (opacity) بەپێی پێویستی خۆت دەستکاری بکە    </string>
+    <!-- Essential Notifications -->
+    <string name="essential_notifications">ئاگادارییە بنەڕەتییەکان</string>
+    <string name="essential_notifications_summary">هەڵبژاردنی ئەو ئەپانەی هەمیشە لە ئاگادارییەکاندا نیشان دەدرێن</string>
+    <string name="selected_apps_description">ئەپە دەستنیشانکراوەکان هەمیشە لە پەردەی ئاگادارییەکاندا دەردەکەون</string>
+    <string name="no_apps_selected">هیچ ئەپێک دیاری نەکراوە</string>
+    <string name="essential_apps_count">​%d ئەپ دەستنیشان کراوە</string>
+    <string name="add_apps">زیادکردنی ئەپ</string>
+    <string name="essential_configured_apps">ئەپە ڕێکخراوەکان</string>
+    <string name="essential_no_apps_configured">هیچ ئەپێک ڕێکنەخراوە</string>
+    <string name="essential_no_apps_available">هیچ ئەپێک بەردەست نییە</string>
+    <string name="essential_no_apps_found">هیچ ئەنجامێک نییە بۆ \"%s\"</string>
+    <string name="essential_remove_title">لابردنی ئەپ</string>
+    <string name="essential_remove_confirm">​%s لە ئاگادارییە بنەڕەتییەکان بسڕدرێتەوە?</string>
+    <string name="remove">لابردن</string>
+    <string name="add">زیادکردن</string>
 </resources>
