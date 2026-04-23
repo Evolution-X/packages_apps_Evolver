@@ -34,9 +34,16 @@ import org.json.JSONObject
 
 class PlayIntegrityFix : SettingsPreferenceFragment() {
 
+    private val isPifEnabled: Boolean
+        get() = Settings.System.getInt(
+            requireContext().contentResolver,
+            PIF_ENABLED_KEY, 1
+        ) != 0
+
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     private var activeConfigData: Map<String, String> = emptyMap()
+    private var autoFetchDone = false
 
     private enum class PifChannel { LATEST_RELEASE, CANARY }
 
@@ -50,10 +57,19 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         input.readBytes().toString(StandardCharsets.UTF_8)
                     } ?: ""
                     val normalized = normalizePifPayload(content)
+                    // Validate fingerprint before saving imported config
+                    val fp = try { JSONObject(normalized).optString("FINGERPRINT", "") } catch (_: Exception) { "" }
+                    if (fp.isNotEmpty() && !isValidFingerprint(fp)) {
+                        toast(getString(R.string.pif_failed, getString(R.string.pif_invalid_fingerprint)))
+                        return@let
+                    }
+                    val stamped = JSONObject(normalized).apply {
+                        put("manually_imported", true)
+                    }.toString(2)
                     Settings.Secure.putString(
                         requireContext().contentResolver,
                         PIF_CONFIG_KEY,
-                        normalized
+                        stamped
                     )
                     try {
                         val patch = JSONObject(normalized).optString("SECURITY_PATCH")
@@ -61,7 +77,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                             Settings.Secure.putString(requireContext().contentResolver, TrickyStore.PATCH_KEY, patch)
                         }
                     } catch (_: Exception) {}
-                    killPlayStore()
+                    killGms()
                     toast(getString(R.string.pif_imported_as, PIF_CONFIG_NAME))
                     refreshStatus()
                 } catch (e: Exception) {
@@ -94,17 +110,90 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             true
         }
 
-        findPreference<SwitchPreferenceCompat>("pif_spoof_photos")?.setOnPreferenceChangeListener { _, newValue ->
-            updateConfigValue("spoofPhotos", (newValue as Boolean).toString())
-            true
-        }
-
         refreshStatus()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         scope.cancel()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshStatus()
+        autoFetchDone = false
+        if (isPifEnabled) autoFetchIfStale()
+    }
+
+    private fun autoFetchIfStale() {
+        if (autoFetchDone) return
+        if (!isPifEnabled) return
+        val content = Settings.Secure.getString(
+            requireContext().contentResolver, PIF_CONFIG_KEY
+        )
+        val isManuallyImported = try {
+            !content.isNullOrEmpty() && JSONObject(content).optBoolean("manually_imported", false)
+        } catch (_: Exception) { false }
+
+        if (isManuallyImported) return
+
+        autoFetchDone = true
+        scope.launch {
+            try {
+                val serverResult = withContext(Dispatchers.IO) { fetchFallbackPif() }
+                if (serverResult !is PifFetchResult.Success) return@launch
+
+                val localPatch = try {
+                    if (!content.isNullOrEmpty()) JSONObject(content).optString("SECURITY_PATCH", "") else ""
+                } catch (_: Exception) { "" }
+                val serverPatch = serverResult.pifData.optString("SECURITY_PATCH", "")
+
+                val localPatchDate = parsePatchDate(localPatch)
+                val serverPatchDate = parsePatchDate(serverPatch)
+
+                val resultToSave: PifFetchResult.Success = when {
+                    // Server has a newer patch than local — take server
+                    serverPatchDate != null && (localPatchDate == null || serverPatchDate.after(localPatchDate)) -> {
+                        serverResult
+                    }
+                    // Server is not newer — check if server patch is stale (>21 days)
+                    (getPatchAgeDays(serverPatch) ?: 0L) > AUTO_FETCH_STALE_DAYS -> {
+                        val (devices, apiKey) = withContext(Dispatchers.IO) { fetchAvailableCanaryDevices() }
+                        if (devices.isNotEmpty() && !apiKey.isNullOrEmpty()) {
+                            val preferred = devices.firstOrNull { it.device == "komodo" }
+                                ?: devices.firstOrNull { it.device == "blazer" }
+                                ?: devices.first()
+                            val betaResult = withContext(Dispatchers.IO) { buildCanaryPifFromDevice(preferred, apiKey) }
+                            if (betaResult is PifFetchResult.Success) betaResult else return@launch
+                        } else {
+                            return@launch
+                        }
+                    }
+                    // Server is fresh and not newer than local — nothing to do
+                    else -> return@launch
+                }
+
+                val fp = resultToSave.pifData.optString("FINGERPRINT", "")
+                if (!isValidFingerprint(fp)) return@launch
+
+                val toSave = JSONObject(resultToSave.pifData.toString()).apply {
+                    put("manually_imported", false)
+                }
+                Settings.Secure.putString(
+                    requireContext().contentResolver,
+                    PIF_CONFIG_KEY,
+                    toSave.toString(2)
+                )
+                resultToSave.pifData.optString("SECURITY_PATCH")
+                    .takeIf { it.isNotEmpty() }?.let {
+                        Settings.Secure.putString(
+                            requireContext().contentResolver, TrickyStore.PATCH_KEY, it
+                        )
+                    }
+                killGms()
+                refreshStatus()
+            } catch (_: Exception) {}
+        }
     }
 
     private fun refreshStatus() {
@@ -116,9 +205,12 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         if (exists) {
             val model = activeConfigData["MODEL"] ?: ""
             val fingerprint = activeConfigData["FINGERPRINT"] ?: ""
+            val ageDays = getPatchAgeDays(activeConfigData["SECURITY_PATCH"] ?: "")
+            val ageStr = ageDays?.let { " · ${it}d ago" } ?: ""
             activePref?.title = PIF_CONFIG_NAME
             activePref?.summary = if (model.isNotEmpty()) {
-                "MODEL: $model" + if (fingerprint.isNotEmpty()) "\nFINGERPRINT: $fingerprint" else ""
+                "MODEL: $model$ageStr" +
+                if (fingerprint.isNotEmpty()) "\nFINGERPRINT: $fingerprint" else ""
             } else {
                 getString(R.string.pif_config_loaded)
             }
@@ -129,9 +221,6 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
 
         findPreference<Preference>("pif_delete_config")?.isEnabled = exists
 
-        val spoofPhotos = activeConfigData["spoofPhotos"]?.let { it == "true" || it == "1" } ?: false
-        findPreference<SwitchPreferenceCompat>("pif_spoof_photos")?.isChecked = spoofPhotos
-
         populateConfigDetails(activeConfigData)
     }
 
@@ -141,6 +230,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
 
         if (data.isEmpty()) return
 
+        val intKeys = setOf("DEVICE_INITIAL_SDK_INT", "SDK_INT")
+
         val displayOrder = listOf(
             "MODEL", "MANUFACTURER", "BRAND", "PRODUCT", "DEVICE",
             "FINGERPRINT", "SECURITY_PATCH", "ID", "RELEASE", "DEVICE_INITIAL_SDK_INT"
@@ -148,19 +239,47 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
 
         for (key in displayOrder) {
             val value = data[key] ?: continue
-            category.addPreference(Preference(requireContext()).apply {
+            category.addPreference(androidx.preference.EditTextPreference(requireContext()).apply {
                 this.title = key
                 this.summary = value
-                isSelectable = false
+                this.text = value
+                dialogTitle = key
+                setOnPreferenceChangeListener { _, newValue ->
+                    val v = (newValue as? String)?.trim() ?: return@setOnPreferenceChangeListener false
+                    if (v.isEmpty()) {
+                        toast(getString(R.string.pif_failed, "Value cannot be empty"))
+                        return@setOnPreferenceChangeListener false
+                    }
+                    if (key in intKeys && v.toIntOrNull() == null) {
+                        toast(getString(R.string.pif_failed, "Must be a valid integer"))
+                        return@setOnPreferenceChangeListener false
+                    }
+                    updateConfigValue(key, v)
+                    true
+                }
             })
         }
 
-        data.keys.filter { it !in displayOrder && !it.startsWith("spoof") && it != "DEBUG" && it != "verboseLogs" }
+        data.keys.filter { it !in displayOrder && !it.startsWith("spoof") && it != "DEBUG" && it != "verboseLogs" && it != "manually_imported" }
             .forEach { key ->
-                category.addPreference(Preference(requireContext()).apply {
+                category.addPreference(androidx.preference.EditTextPreference(requireContext()).apply {
                     this.title = key
                     this.summary = data[key]
-                    isSelectable = false
+                    this.text = data[key]
+                    dialogTitle = key
+                    setOnPreferenceChangeListener { _, newValue ->
+                        val v = (newValue as? String)?.trim() ?: return@setOnPreferenceChangeListener false
+                        if (v.isEmpty()) {
+                            toast(getString(R.string.pif_failed, "Value cannot be empty"))
+                            return@setOnPreferenceChangeListener false
+                        }
+                        if (key in intKeys && v.toIntOrNull() == null) {
+                            toast(getString(R.string.pif_failed, "Must be a valid integer"))
+                            return@setOnPreferenceChangeListener false
+                        }
+                        updateConfigValue(key, v)
+                        true
+                    }
                 })
             }
     }
@@ -169,7 +288,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.pif_delete_title, PIF_CONFIG_NAME))
             .setMessage(R.string.pif_delete_message)
-            .setPositiveButton(R.string.pif_delete) { _, _ ->
+            .setPositiveButton(R.string.action_delete) { _, _ ->
                 try {
                     Settings.Secure.putString(
                         requireContext().contentResolver,
@@ -216,12 +335,12 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 }
 
                 if (devices.isEmpty()) {
-                    toast(getString(R.string.pif_failed, "No devices found"))
+                    toast(getString(R.string.pif_failed, getString(R.string.pif_no_devices_found)))
                     return@launch
                 }
 
                 if (channel == PifChannel.CANARY && apiKey.isNullOrEmpty()) {
-                    toast(getString(R.string.pif_failed, "Failed to extract Flash Tool API key"))
+                    toast(getString(R.string.pif_failed, getString(R.string.pif_no_api_key)))
                     return@launch
                 }
 
@@ -258,6 +377,13 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 }
                 when (result) {
                     is PifFetchResult.Success -> {
+                        if (!isPifEnabled) return@launch
+                        // Validate fingerprint format before persisting
+                        val fp = result.pifData.optString("FINGERPRINT", "")
+                        if (!isValidFingerprint(fp)) {
+                            toast(getString(R.string.pif_failed, getString(R.string.pif_invalid_fingerprint)))
+                            return@launch
+                        }
                         Settings.Secure.putString(
                             requireContext().contentResolver,
                             PIF_CONFIG_KEY,
@@ -266,7 +392,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         result.pifData.optString("SECURITY_PATCH").takeIf { it.isNotEmpty() }?.let {
                             Settings.Secure.putString(requireContext().contentResolver, TrickyStore.PATCH_KEY, it)
                         }
-                        killPlayStore()
+                        killGms()
                         toast(getString(R.string.pif_fetched_model, result.model))
                         refreshStatus()
                     }
@@ -303,10 +429,16 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         }
     }
 
-    private fun killPlayStore() {
+    /**
+     * Force-stops Vending, DroidGuard, and GMS so the new fingerprint
+     * takes effect immediately without waiting for a natural restart.
+     */
+    private fun killGms() {
         try {
             val am = requireContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
             am.forceStopPackage(VENDING_PACKAGE)
+            am.forceStopPackage(DROIDGUARD_PACKAGE)
+            am.forceStopPackage(GMS_PACKAGE)
         } catch (_: Exception) {}
     }
 
@@ -324,7 +456,16 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val FLASH_URL = "https://flash.android.com"
         private const val FLASH_API = "https://content-flashstation-pa.googleapis.com/v1/builds"
         private const val PIXEL_BULLETIN_URL = "https://source.android.com/docs/security/bulletin/pixel"
+        private const val FALLBACK_PIF_URL = "https://raw.githubusercontent.com/Evolution-X/.github/refs/heads/main/profile/pif.json"
         private const val VENDING_PACKAGE = "com.android.vending"
+        private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
+        private const val GMS_PACKAGE = "com.google.android.gms"
+        private const val AUTO_FETCH_STALE_DAYS = 21L
+        private const val PIF_ENABLED_KEY = "spoof_pif_enabled"
+
+        private fun parsePatchDate(patch: String): java.util.Date? = try {
+            java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).parse(patch)
+        } catch (_: Exception) { null }
 
         private val DEVICE_MODEL_MAP = mapOf(
             "oriole" to "Pixel 6",
@@ -349,6 +490,23 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             "rango" to "Pixel 10 Pro Fold",
             "stallion" to "Pixel 10a",
         )
+
+        /**
+         * Validates that a fingerprint string matches the expected Android format:
+         * brand/product/device:VERSION/ID/INCREMENTAL:TYPE/KEYS
+         */
+        private fun isValidFingerprint(fp: String): Boolean =
+            Regex("""^[^/]+/[^/]+/[^:]+:[^/]+/[^/]+/[^:]+:[^/]+/[^:]+$""").matches(fp)
+
+        /**
+         * Returns the number of days elapsed since the given YYYY-MM-DD security patch date,
+         * or null if the date cannot be parsed.
+         */
+        private fun getPatchAgeDays(patch: String): Long? = try {
+            val sdf = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+            val diff = System.currentTimeMillis() - (sdf.parse(patch)?.time ?: return null)
+            diff / (1000L * 60 * 60 * 24)
+        } catch (_: Exception) { null }
 
         /**
          * Reads the config from a JSON string (stored in Settings.Secure).
@@ -480,20 +638,11 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 val buildId = fpParts.getOrNull(3) ?: ""
 
                 val pifJson = JSONObject().apply {
-                    put("TYPE", "user")
-                    put("TAGS", "release-keys")
-                    put("ID", buildId)
-                    put("BRAND", "google")
-                    put("DEVICE", pifDevice.device)
-                    put("FINGERPRINT", fingerprint)
-                    put("MANUFACTURER", "Google")
                     put("MODEL", pifDevice.model)
-                    put("PRODUCT", pifDevice.product)
-                    put("RELEASE", release)
+                    put("MANUFACTURER", "Google")
+                    put("FINGERPRINT", fingerprint)
                     put("SECURITY_PATCH", securityPatch)
-                    put("DEVICE_INITIAL_SDK_INT", "21")
-                    put("DEBUG", false)
-                    put("SDK_INT", "32")
+                    put("DEVICE_INITIAL_SDK_INT", "34")
                 }
                 return PifFetchResult.Success(pifDevice.model, pifJson)
             } catch (e: Exception) {
@@ -622,25 +771,39 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 }
 
                 val pifJson = JSONObject().apply {
-                    put("TYPE", "user")
-                    put("TAGS", "release-keys")
-                    put("ID", id)
-                    put("BRAND", "google")
-                    put("DEVICE", pifDevice.device)
-                    put("FINGERPRINT", fingerprint)
-                    put("MANUFACTURER", "Google")
                     put("MODEL", pifDevice.model)
-                    put("PRODUCT", pifDevice.product)
-                    put("RELEASE", "CANARY")
+                    put("MANUFACTURER", "Google")
+                    put("FINGERPRINT", fingerprint)
                     put("SECURITY_PATCH", securityPatch)
-                    put("DEVICE_INITIAL_SDK_INT", "32")
-                    put("DEBUG", false)
-                    put("SDK_INT", "32")
+                    put("DEVICE_INITIAL_SDK_INT", "34")
                 }
 
                 return PifFetchResult.Success(pifDevice.model, pifJson)
             } catch (e: Exception) {
                 return PifFetchResult.Error("Failed: ${e.message}")
+            }
+        }
+
+        /**
+         * Fetches the Evolution X hosted pif.json as a fallback when the live
+         * Google OTA scraper returns no devices (e.g. no network at first boot
+         * or Google has not published a new beta build yet).
+         */
+        private fun fetchFallbackPif(): PifFetchResult {
+            return try {
+                val content = URL(FALLBACK_PIF_URL).readText(StandardCharsets.UTF_8)
+                val json = JSONObject(content)
+                val fp = json.optString("FINGERPRINT", "")
+                if (fp.isEmpty() || !isValidFingerprint(fp)) {
+                    PifFetchResult.Error("Invalid fingerprint in fallback pif.json")
+                } else {
+                    PifFetchResult.Success(
+                        json.optString("MODEL", "Unknown"),
+                        json
+                    )
+                }
+            } catch (e: Exception) {
+                PifFetchResult.Error("Fallback fetch failed: ${e.message ?: ""}")
             }
         }
     }

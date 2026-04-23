@@ -22,7 +22,7 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="ls_media_art_enabled"
-        android:title="@string/enable" />
+        android:title="@string/action_enable" />
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
         android:key="ambient_media_art_enabled"

@@ -347,7 +347,7 @@ private fun TensorTargetsContent(context: android.content.Context) {
                         shape = RoundedCornerShape(10.dp),
                     ) {
                         Text(
-                            stringResource(R.string.ts_select_all),
+                            stringResource(R.string.action_select_all),
                             style = MaterialTheme.typography.labelMedium,
                         )
                     }
@@ -364,7 +364,7 @@ private fun TensorTargetsContent(context: android.content.Context) {
                         shape = RoundedCornerShape(10.dp),
                     ) {
                         Text(
-                            stringResource(R.string.ts_reset),
+                            stringResource(R.string.action_reset),
                             style = MaterialTheme.typography.labelMedium,
                         )
                     }

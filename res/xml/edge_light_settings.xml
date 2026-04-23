@@ -17,7 +17,7 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="edge_light_enabled"
-        android:title="@string/enable"
+        android:title="@string/action_enable"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
