@@ -1465,6 +1465,8 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_target_mode_cert">Geração de certificado</string>
     <string name="ts_footer_title">Aprovando no teste de integridade forte</string>
     <string name="ts_footer_body">1. Obtenha um XML de keybox válido de uma fonte confiável. keybox não são fornecidas; você mesmo deve encontrar um.\n2. Toque em \"Importar keybox\" e carregue o arquivo.\n3. Abra \"Gerenciar aplicativos de alvos\" e selecione Google Play Services e Google Play Store.\n4. Defina o modo de alvo como \"Folha\" se o seu dispositivo tiver um TEE funcionando, caso contrário, deixe-o como Automático.\n5. Verifique novamente o status do Play Integrity.\n\nSempre exclua a keybox existente antes de importar uma nova. Se o Google revogar uma keybox, ainda poderá permitir a passagem para a integridade do dispositivo, mesmo que a integridade forte falhe.</string>
+    <string name="ts_security_patch">Data do patch de segurança</string>
+    <string name="ts_no_patch">Não definido (usando o padrão do dispositivo)</string>
     <!-- Game Spoofing -->
     <string name="gs_enable">Ativar mascaramento do jogo</string>
     <string name="gs_enable_summary">Mascarar propriedades do dispositivo para jogos configurados</string>
