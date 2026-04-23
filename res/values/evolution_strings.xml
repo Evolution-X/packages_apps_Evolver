@@ -1603,6 +1603,9 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="pif_select_channel">Select channel</string>
     <string name="pif_channel_latest_release">Latest release</string>
     <string name="pif_channel_canary_release">Canary release</string>
+    <string name="pif_invalid_fingerprint">Invalid fingerprint format</string>
+    <string name="pif_no_devices_found">No devices found</string>
+    <string name="pif_no_api_key">Failed to extract Flash Tool API key</string>
 
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Keybox management</string>
