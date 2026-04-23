@@ -53,6 +53,11 @@
             android:key="ts_import_targets"
             android:title="@string/ts_import_target_list"
             android:summary="@string/ts_import_target_list_summary" />
+
+        <Preference
+            android:key="ts_security_patch"
+            android:title="@string/ts_security_patch"
+            android:summary="@string/ts_no_patch" />
     </PreferenceCategory>
 
     <PreferenceCategory

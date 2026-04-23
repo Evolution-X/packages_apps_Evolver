@@ -52,7 +52,7 @@ class TrickyStore : SettingsPreferenceFragment() {
                         KEYBOX_KEY,
                         encoded
                     )
-                    killPlayStore()
+                    killGms()
                     toast(getString(R.string.ts_keybox_imported))
                     refreshStatus()
                 } catch (e: Exception) {
@@ -113,6 +113,11 @@ class TrickyStore : SettingsPreferenceFragment() {
             true
         }
 
+        findPreference<Preference>("ts_security_patch")?.setOnPreferenceClickListener {
+            showPatchDateDialog()
+            true
+        }
+
         findPreference<Preference>("ts_import_targets")?.setOnPreferenceClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
@@ -151,6 +156,11 @@ class TrickyStore : SettingsPreferenceFragment() {
             else getString(R.string.ts_no_targets)
 
         findPreference<ListPreference>("ts_target_mode")?.value = readCurrentMode()
+
+        val patchDate = Settings.Secure.getString(requireContext().contentResolver, PATCH_KEY)
+        findPreference<Preference>("ts_security_patch")?.summary =
+            if (!patchDate.isNullOrEmpty()) patchDate
+            else getString(R.string.ts_no_patch)
     }
 
     private fun readCurrentMode(): String {
@@ -238,6 +248,38 @@ class TrickyStore : SettingsPreferenceFragment() {
                 toast(getString(R.string.ts_failed, e.message ?: ""))
             }
         }
+    }
+
+    private fun showPatchDateDialog() {
+        val current = Settings.Secure.getString(requireContext().contentResolver, PATCH_KEY) ?: ""
+        val input = android.widget.EditText(requireContext()).apply {
+            setText(current)
+            hint = "YYYY-MM-DD"
+            inputType = android.text.InputType.TYPE_CLASS_TEXT
+            setPadding(48, 24, 48, 24)
+        }
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.ts_security_patch)
+            .setView(input)
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                val value = input.text.toString().trim()
+                Settings.Secure.putString(
+                    requireContext().contentResolver,
+                    PATCH_KEY,
+                    value.ifEmpty { null }
+                )
+                refreshStatus()
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .setNeutralButton(R.string.ts_delete) { _, _ ->
+                Settings.Secure.putString(
+                    requireContext().contentResolver,
+                    PATCH_KEY,
+                    null
+                )
+                refreshStatus()
+            }
+            .show()
     }
 
     private fun getOverlayPackages(): Set<String> {
@@ -341,10 +383,12 @@ class TrickyStore : SettingsPreferenceFragment() {
         }
     }
 
-    private fun killPlayStore() {
+    private fun killGms() {
         try {
             val am = requireContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
             am.forceStopPackage(VENDING_PACKAGE)
+            am.forceStopPackage(DROIDGUARD_PACKAGE)
+            am.forceStopPackage(GMS_PACKAGE)
         } catch (_: Exception) {}
     }
 
@@ -357,11 +401,15 @@ class TrickyStore : SettingsPreferenceFragment() {
     companion object {
         private const val KEYBOX_KEY = "spoof_trickystore_keybox"
         private const val TARGET_KEY = "spoof_trickystore_target"
+        private const val PATCH_KEY = "spoof_trickystore_patch"
         private const val VENDING_PACKAGE = "com.android.vending"
+        private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
+        private const val GMS_PACKAGE = "com.google.android.gms"
 
         private val AUTO_SELECT_PACKAGES = setOf(
             "com.google.android.gms",
             "com.android.vending",
+            "com.google.android.apps.walletnfcrel",
         )
     }
 }

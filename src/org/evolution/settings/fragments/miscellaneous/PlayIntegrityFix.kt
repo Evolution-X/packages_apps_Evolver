@@ -54,6 +54,12 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         PIF_CONFIG_KEY,
                         normalized
                     )
+                    try {
+                        val patch = JSONObject(normalized).optString("SECURITY_PATCH")
+                        if (patch.isNotEmpty()) {
+                            Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, patch)
+                        }
+                    } catch (_: Exception) {}
                     killPlayStore()
                     toast(getString(R.string.pif_imported_as, PIF_CONFIG_NAME))
                     refreshStatus()
@@ -256,6 +262,9 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                             PIF_CONFIG_KEY,
                             result.pifData.toString(2)
                         )
+                        result.pifData.optString("SECURITY_PATCH").takeIf { it.isNotEmpty() }?.let {
+                            Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, it)
+                        }
                         killPlayStore()
                         toast(getString(R.string.pif_fetched_model, result.model))
                         refreshStatus()
@@ -310,6 +319,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val TAG = "PlayIntegrityFix"
         private const val PIF_CONFIG_KEY = "spoof_pif_config"
         private const val PIF_CONFIG_NAME = "pif.json"
+        private const val PATCH_KEY = "spoof_trickystore_patch"
         private const val GOOGLE_URL = "https://developer.android.com"
         private const val FLASH_URL = "https://flash.android.com"
         private const val FLASH_API = "https://content-flashstation-pa.googleapis.com/v1/builds"
