@@ -1450,6 +1450,8 @@
     <string name="ts_target_mode_cert">دروستکردنی بڕوانامە (Certificate generation)</string>
     <string name="ts_footer_title">تێپەڕاندنی دەستپاکی بەهێز (Strong integrity)</string>
     <string name="ts_footer_body">١. فایلێکی XML ی keybox ی کارا لە سەرچاوەیەکی جێی متمانەوە بەدەست بهێنە. Keybox دابین نەکراوە.\n٢. کلیک لەسەر \"Import keybox\" بکە و فایلەکە بار بکە.\n٣. بەشی \"Manage target apps\" بکەرەوە و Google Play Services و Google Play Store هەڵبژێرە.\n٤. ئەگەر ئامێرەکەت TEE ی کارای هەیە دۆخەکە بخە سەر \"Leaf\"، ئەگەر نا وازی لێ بهێنە لەسەر Auto.\n٥. دۆخی Play Integrity تاقی بکەرەوە.\n\nهەمیشە keybox ە کۆنەکە بسڕەوە پێش هێنانی دانەیەکی نوێ. ئەگەر گووگڵ keybox ێک پووچەڵ بکاتەوە، لەوانەیە هێشتا ڕێگەت پێ بدات Device Integrity تێپەڕێنیت بەڵام Strong Integrity شکست دەهێنێت.</string>
+    <string name="ts_security_patch">ڕێکەوتی نوێکاریی پاراستن</string>
+    <string name="ts_no_patch">دانەنراوە (بنەڕەتیی ئامێرەکە بەکاردێت)</string>
     <!-- Game Spoofing -->
     <string name="gs_enable">چالاککردنی ساختەکردنی یاری</string>
     <string name="gs_enable_summary">گۆڕینی تایبەتمەندی ئامێر بۆ ئەو یارییانەی ڕێکخراون</string>
