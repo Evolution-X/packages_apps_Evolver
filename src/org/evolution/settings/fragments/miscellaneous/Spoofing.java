@@ -34,7 +34,8 @@ public class Spoofing extends SettingsPreferenceFragment implements
 
     private static final String TAG = "Spoofing";
 
-    private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
+    private static final String KEY_IDENTITY_CATEGORY = "spoofing_identity_category";
+    private static final String KEY_FEATURES_CATEGORY = "spoofing_features_category";
     private static final String KEY_APP_SPECIFIC_CATEGORY = "spoofing_app_specific_category";
     private static final String PI_PP_SPOOF = "pi_pp_spoof";
     private static final String PI_PHOTOS_SPOOF = "pi_photos_spoof";
@@ -45,7 +46,8 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String SNAPCHAT_PACKAGE = "com.snapchat.android";
     private static final String VENDING_PACKAGE = "com.android.vending";
 
-    private PreferenceCategory mSystemWideCategory;
+    private PreferenceCategory mIdentityCategory;
+    private PreferenceCategory mFeaturesCategory;
     private PreferenceCategory mAppSpecificCategory;
     private SwitchPreferenceCompat mGoogleSpoof;
     private SwitchPreferenceCompat mPhotosSpoof;
@@ -64,7 +66,15 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final ContentResolver resolver = context.getContentResolver();
         mHandler = new Handler(Looper.getMainLooper());
 
-        mSystemWideCategory = (PreferenceCategory) findPreference(KEY_SYSTEM_WIDE_CATEGORY);
+        if (PixelPropsUtils.isCustomForkBuild()) {
+            if (getPreferenceScreen() != null) {
+                getPreferenceScreen().removeAll();
+            }
+            return;
+        }
+
+        mIdentityCategory = (PreferenceCategory) findPreference(KEY_IDENTITY_CATEGORY);
+        mFeaturesCategory = (PreferenceCategory) findPreference(KEY_FEATURES_CATEGORY);
         mAppSpecificCategory = (PreferenceCategory) findPreference(KEY_APP_SPECIFIC_CATEGORY);
         mPhotosSpoof = (SwitchPreferenceCompat) findPreference(PI_PHOTOS_SPOOF);
         mGoogleSpoof = (SwitchPreferenceCompat) findPreference(PI_PP_SPOOF);
@@ -73,13 +83,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
 
         // Google spoof: hide entirely on mainline Tensor devices
         if (PixelPropsUtils.isMainlinePixelDevice()) {
-            mSystemWideCategory.removePreference(mGoogleSpoof);
+            mIdentityCategory.removePreference(mGoogleSpoof);
         } else {
             mGoogleSpoof.setOnPreferenceChangeListener(this);
         }
         // Tensor targets: only relevant on non-Tensor devices
         if (mTensorTargets != null && PixelPropsUtils.isTensorPixelDevice()) {
-            mSystemWideCategory.removePreference(mTensorTargets);
+            mFeaturesCategory.removePreference(mTensorTargets);
         }
         mPhotosSpoof = initAppSpoof(mPhotosSpoof, PHOTOS_PACKAGE);
         mSnapchatSpoof = initAppSpoof(mSnapchatSpoof, SNAPCHAT_PACKAGE);

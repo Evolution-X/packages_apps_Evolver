@@ -11,7 +11,7 @@
     <!-- Evolution X logo -->
     <com.android.settingslib.widget.LayoutPreference
         android:key="evolution_logo"
-        android:layout="@layout/evolution_logo"
+        android:layout="@layout/evolution_logo_old"
         android:clickable="false"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.EvolutionXLogoPreferenceController"/>
 

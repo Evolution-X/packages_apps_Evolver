@@ -3,5 +3,4 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/video_wallpaper_description"
     android:thumbnail="@drawable/video_wallpaper_thumbnail"
-    android:author="@string/lunaris_os"
     android:settingsActivity="org.evolution.settings.fragments.VideoWallpaperFragment" />

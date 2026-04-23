@@ -361,7 +361,7 @@ private fun SensorBlockContent(context: Context) {
                                 text = if (!masterEnabled)
                                     stringResource(R.string.sensor_block_disabled)
                                 else if (blockedPackages.isEmpty())
-                                    stringResource(R.string.sensor_block_none_configured)
+                                    stringResource(R.string.sensor_block_no_apps_configured)
                                 else
                                     stringResource(R.string.sensor_block_count, blockedPackages.size),
                                 style = MaterialTheme.typography.bodyMedium,
@@ -628,7 +628,7 @@ private fun SensorBlockAppCard(
                             Badge(
                                 containerColor = MaterialTheme.colorScheme.tertiary,
                                 contentColor = MaterialTheme.colorScheme.onTertiary,
-                            ) { Text(stringResource(R.string.sensor_block_system_badge)) }
+                            ) { Text(stringResource(R.string.common_system_badge)) }
                         }
                     }
                     Text(
@@ -734,7 +734,7 @@ private fun SensorBlockAddAppDialog(
                     onValueChange = { searchQuery = it },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
-                    label = { Text(stringResource(R.string.search_apps)) },
+                    label = { Text(stringResource(R.string.action_search_apps)) },
                     leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                     trailingIcon = {
                         if (searchQuery.isNotEmpty()) {
@@ -819,7 +819,7 @@ private fun SensorBlockAddAppDialog(
                                             Badge(
                                                 containerColor = MaterialTheme.colorScheme.tertiary,
                                                 contentColor = MaterialTheme.colorScheme.onTertiary,
-                                            ) { Text(stringResource(R.string.sensor_block_system_badge)) }
+                                            ) { Text(stringResource(R.string.common_system_badge)) }
                                         }
                                     }
                                     Text(
