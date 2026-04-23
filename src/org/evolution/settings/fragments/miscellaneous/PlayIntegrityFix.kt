@@ -29,6 +29,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.evolution.settings.fragments.miscellaneous.TrickyStore
 import org.json.JSONObject
 
 class PlayIntegrityFix : SettingsPreferenceFragment() {
@@ -54,6 +55,12 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         PIF_CONFIG_KEY,
                         normalized
                     )
+                    try {
+                        val patch = JSONObject(normalized).optString("SECURITY_PATCH")
+                        if (patch.isNotEmpty()) {
+                            Settings.Secure.putString(requireContext().contentResolver, TrickyStore.PATCH_KEY, patch)
+                        }
+                    } catch (_: Exception) {}
                     killPlayStore()
                     toast(getString(R.string.pif_imported_as, PIF_CONFIG_NAME))
                     refreshStatus()
@@ -256,6 +263,9 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                             PIF_CONFIG_KEY,
                             result.pifData.toString(2)
                         )
+                        result.pifData.optString("SECURITY_PATCH").takeIf { it.isNotEmpty() }?.let {
+                            Settings.Secure.putString(requireContext().contentResolver, TrickyStore.PATCH_KEY, it)
+                        }
                         killPlayStore()
                         toast(getString(R.string.pif_fetched_model, result.model))
                         refreshStatus()
