@@ -1468,6 +1468,8 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="ts_target_mode_cert">Tạo chứng chỉ</string>
     <string name="ts_footer_title">Đạt strong integrity</string>
     <string name="ts_footer_body">1. Lấy keybox XML hợp lệ từ nguồn đáng tin cậy. Không cung cấp keybox; bạn phải tự tìm.\n2. Nhấn \"Nhập keybox\" và tải tệp.\n3. Mở \"Quản lý ứng dụng mục tiêu\" và chọn Google Play Services và Google Play Store.\n4. Đặt chế độ mục tiêu thành \"Leaf\" nếu thiết bị của bạn có TEE hoạt động, nếu không thì để là Tự động.\n5. Kiểm tra lại trạng thái Play Integrity của bạn.\n\nLuôn xóa keybox hiện có trước khi nhập keybox mới. Nếu Google thu hồi keybox, keybox đó vẫn có thể cho phép đạt device integrity mặc dù strong integrity sẽ thất bại.</string>
+    <string name="ts_security_patch">Ngày bản vá bảo mật</string>
+    <string name="ts_no_patch">Chưa đặt (sử dụng mặc định của thiết bị)</string>
     <!-- Game Spoofing -->
     <string name="gs_enable">Bật game spoofing</string>
     <string name="gs_enable_summary">Giả mạo thuộc tính thiết bị cho các trò chơi đã cấu hình</string>
