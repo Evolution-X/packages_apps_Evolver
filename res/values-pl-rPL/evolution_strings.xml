@@ -1467,6 +1467,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_target_mode_cert">Generowanie certyfikatu</string>
     <string name="ts_footer_title">Przejście silnej integralności</string>
     <string name="ts_footer_body">1. Uzyskaj prawidłowy plik XML zestawu kluczy z zaufanego źródła. Zestawy kluczy nie są dostępne; musisz znaleźć je samodzielnie.\n2. Kliknij „Importuj zestaw kluczy” i załaduj plik.\n3. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz Usługi Google Play i Sklep Google Play.\n4. Ustaw tryb docelowy na „Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE, w przeciwnym razie pozostaw tryb Automatyczny.\n5. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego. Jeśli Google unieważni zestaw kluczy, może nadal zezwolić na przekazanie jej do systemu integralności urządzenia, nawet jeśli silna integralność nie zostanie zaakceptowana.</string>
+    <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
+    <string name="ts_no_patch">Nie ustawiono (używając domyślnych ustawień urządzenia)</string>
     <!-- Game Spoofing -->
     <string name="gs_enable">Włącz fałszowanie aplikacji</string>
     <string name="gs_enable_summary">Fałszowanie właściwości urządzenia dla skonfigurowanych gier</string>
