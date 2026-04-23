@@ -37,7 +37,7 @@ object SystemUtils {
         AlertDialog.Builder(context)
             .setTitle(R.string.systemui_restart_title)
             .setMessage(R.string.systemui_restart_message)
-            .setPositiveButton(R.string.systemui_restart_yes) { _, _ ->
+            .setPositiveButton(R.string.action_yes) { _, _ ->
                 restartSystemUI(context)
             }
             .setNegativeButton(R.string.systemui_restart_not_now, null)

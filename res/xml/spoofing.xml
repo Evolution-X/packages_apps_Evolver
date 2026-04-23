@@ -8,30 +8,44 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/spoofing_title">
 
-    <!-- Play Integrity Fix -->
-    <Preference
-        android:key="play_integrity_fix"
-        android:title="@string/play_integrity_fix_title"
-        android:summary="@string/play_integrity_fix_summary"
-        android:fragment="org.evolution.settings.fragments.miscellaneous.PlayIntegrityFix" />
-
-    <!-- TrickyStore -->
-    <Preference
-        android:key="tricky_store"
-        android:title="@string/tricky_store_title"
-        android:summary="@string/tricky_store_summary"
-        android:fragment="org.evolution.settings.fragments.miscellaneous.TrickyStore" />
-
-    <!-- App Spoofing -->
-    <Preference
-        android:key="user_selectable_app_spoofing"
-        android:title="@string/user_selectable_app_spoofing_title"
-        android:summary="@string/user_selectable_app_spoofing_summary"
-        android:fragment="org.evolution.settings.fragments.miscellaneous.UserSelectedAppSpoofSettings" />
-
+    <!-- Integrity -->
     <PreferenceCategory
-        android:key="spoofing_system_wide_category"
-        android:title="@string/spoofing_system_wide_category">
+        android:key="spoofing_integrity_category"
+        android:title="@string/spoofing_integrity_category">
+
+        <!-- TrickyStore -->
+        <Preference
+            android:key="tricky_store"
+            android:title="@string/tricky_store_title"
+            android:summary="@string/tricky_store_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.TrickyStore" />
+
+        <!-- Play Integrity Fix -->
+        <Preference
+            android:key="play_integrity_fix"
+            android:title="@string/play_integrity_fix_title"
+            android:summary="@string/play_integrity_fix_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.PlayIntegrityFix" />
+
+        <!-- Hide developer status -->
+        <Preference
+            android:key="hide_developer_status_settings"
+            android:title="@string/hide_developer_status_title"
+            android:summary="@string/hide_developer_status_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.HideDeveloperStatusSettings" />
+    </PreferenceCategory>
+
+    <!-- Device Identity -->
+    <PreferenceCategory
+        android:key="spoofing_identity_category"
+        android:title="@string/spoofing_identity_category">
+
+        <!-- App Spoofing -->
+        <Preference
+            android:key="user_selectable_app_spoofing"
+            android:title="@string/user_selectable_app_spoofing_title"
+            android:summary="@string/user_selectable_app_spoofing_summary"
+            android:fragment="org.evolution.settings.fragments.miscellaneous.UserSelectedAppSpoofSettings" />
 
         <!-- Pixel props -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
@@ -39,6 +53,12 @@
             android:title="@string/spoofing_pixel_props_title"
             android:summary="@string/spoofing_pixel_props_summary"
             android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <!-- Features -->
+    <PreferenceCategory
+        android:key="spoofing_features_category"
+        android:title="@string/spoofing_features_category">
 
         <!-- Tensor feature targets -->
         <Preference

@@ -941,7 +941,7 @@ private fun AddAppDialog(
                         onValueChange = { searchQuery = it },
                         modifier = Modifier.fillMaxWidth(),
                         singleLine = true,
-                        label = { Text(stringResource(R.string.search_apps)) }
+                        label = { Text(stringResource(R.string.action_search_apps)) }
                     )
 
                     if (filteredApps.isEmpty()) {
@@ -971,7 +971,7 @@ private fun AddAppDialog(
                                 )
                                 if (searchQuery.isNotBlank()) {
                                     TextButton(onClick = { searchQuery = "" }) {
-                                        Text(stringResource(R.string.app_spoofing_clear_search))
+                                        Text(stringResource(R.string.common_clear_search))
                                     }
                                 }
                             }

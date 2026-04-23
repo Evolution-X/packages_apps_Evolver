@@ -891,7 +891,7 @@ private fun DashboardTab(
                     )
                     Spacer(Modifier.width(4.dp))
                     Text(
-                        stringResource(R.string.idle_manager_clear_stats_button),
+                        stringResource(R.string.action_clear),
                         style = MaterialTheme.typography.labelSmall
                     )
                 }
@@ -1473,7 +1473,7 @@ private fun AddAppDialog(
                         value = search,
                         onValueChange = { search = it },
                         modifier = Modifier.fillMaxWidth(),
-                        label = { Text(stringResource(R.string.search_apps)) },
+                        label = { Text(stringResource(R.string.action_search_apps)) },
                         singleLine = true
                     )
                     Spacer(Modifier.height(8.dp))
@@ -1821,7 +1821,7 @@ private fun PolicyAndActionSelector(
         ) {
             Icon(Icons.Default.Check, null, Modifier.size(18.dp))
             Spacer(Modifier.width(6.dp))
-            Text(stringResource(R.string.idle_manager_apply))
+            Text(stringResource(R.string.action_apply))
         }
     }
 }
