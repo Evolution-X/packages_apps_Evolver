@@ -362,6 +362,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         private val AUTO_SELECT_PACKAGES = setOf(
             "com.google.android.gms",
             "com.android.vending",
+            "com.google.android.apps.walletnfcrel",
         )
     }
 }
