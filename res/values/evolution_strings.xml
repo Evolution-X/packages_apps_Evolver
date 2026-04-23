@@ -1635,6 +1635,7 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ts_target_apps_count">%d apps configured</string>
     <string name="ts_import_target_list">Import target list</string>
     <string name="ts_import_target_list_summary">Import target.txt from a file</string>
+    <string name="ts_invalid_patch_date">Invalid date format. Use YYYY-MM-DD</string>
     <string name="ts_target_list_imported">Target list imported</string>
     <string name="ts_loading_apps">Loading apps\u2026</string>
     <string name="ts_auto_select">Auto-select</string>
@@ -1647,6 +1648,29 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ts_target_mode_cert">Certificate generation</string>
     <string name="ts_footer_title">Passing strong integrity</string>
     <string name="ts_footer_body">1. Obtain a valid keybox XML from a trusted source. Keyboxes are not provided; you must find one yourself.\n2. Tap \"Import keybox\" and load the file.\n3. Open \"Manage target apps\" and select Google Play Services and Google Play Store.\n4. Set target mode to \"Leaf\" if your device has a working TEE, otherwise leave it as Auto.\n5. Recheck your Play Integrity status.\n\nAlways delete the existing keybox before importing a new one. If Google revokes a keybox, it may still allow passing up to device integrity even though strong integrity will fail.</string>
+    <string name="ts_security_patch">Security patch date</string>
+    <string name="ts_no_patch">Not set (using device default)</string>
+
+    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_select_target_apps">Select Target Apps</string>
+    <string name="ts_select_target_apps_desc">Choose apps to enable attestation spoofing</string>
+    <string name="ts_search_apps">Search apps\u2026</string>
+    <string name="ts_system_apps">System apps</string>
+    <string name="ts_selected_count">%d selected</string>
+    <string name="ts_select_all">Select all</string>
+    <string name="ts_reset">Reset</string>
+    <string name="ts_mode_auto">Auto</string>
+    <string name="ts_mode_leaf">Leaf ?</string>
+    <string name="ts_mode_cert">Cert !</string>
+
+    <!-- TrickyStore verification mode preference -->
+    <string name="ts_verification_mode">Verification mode</string>
+    <string name="ts_verification_mode_auto">auto</string>
+    <string name="ts_verification_mode_cert">cert</string>
+    <string name="ts_verification_mode_leaf">leaf</string>
+    <string name="ts_verification_auto_count">%1$d auto</string>
+    <string name="ts_verification_cert_count">%1$d cert</string>
+    <string name="ts_verification_leaf_count">%1$d leaf</string>
 
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Select Depth wallpaper subject</string>
