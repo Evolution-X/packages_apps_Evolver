@@ -59,7 +59,7 @@ public class IconShapes extends SettingsPreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (!isAdded()) return;
-        requireActivity().setTitle(R.string.theme_customization_icon_shape_title);
+        requireActivity().setTitle(R.string.themes_icon_shape_title);
         mThemeUtils = ThemeUtils.getInstance(requireContext());
         mPkgs = mThemeUtils.getOverlayPackagesForCategory(mCategory, "android");
     }

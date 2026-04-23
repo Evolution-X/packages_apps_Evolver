@@ -23,7 +23,7 @@
     <!-- Enable/Disable -->
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="charging_animation_enabled"
-        android:title="@string/enable"
+        android:title="@string/action_enable"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingListPreference

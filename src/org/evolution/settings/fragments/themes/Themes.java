@@ -53,6 +53,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
     private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
+    private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
 
     private GlobalSettingListPreference mLockSound;
     private GlobalSettingListPreference mUnlockSound;
@@ -60,6 +61,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private SystemPropertySwitchPreference mSearchBar;
     private PreferenceCategory mIconsCategory;
     private Preference mUdfpsIcon;
+    private Preference mNavbarIcons;
     private PreferenceCategory mAnimationsCategory;
     private Preference mUdfpsAnimation;
     private ThemeUtils mThemeUtils;
@@ -82,6 +84,7 @@ public class Themes extends SettingsPreferenceFragment implements
         mLauncherCategory = (PreferenceCategory) findPreference(KEY_LAUNCHER_CATEGORY);
         mSearchBar = (SystemPropertySwitchPreference) findPreference(KEY_LAUNCHER_SEARCH_BAR);
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mNavbarIcons = (Preference) findPreference(KEY_NAVBAR_ICONS);
         mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
@@ -105,6 +108,11 @@ public class Themes extends SettingsPreferenceFragment implements
             prefScreen.removePreference(mLauncherCategory);
         }
 
+        if (mNavbarIcons != null
+                && isGestureNavigationEnabled(context)) {
+            mIconsCategory.removePreference(mNavbarIcons);
+        }
+
         if (mSearchBar != null) {
             mSearchBar.setChecked(isOneSearchAimActivityEnabled(context)
             && SystemProperties.getBoolean(KEY_LAUNCHER_SEARCH_BAR, false));
@@ -119,20 +127,9 @@ public class Themes extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
-        // Ensure newValue is a valid integer before parsing
-        int value = 0;
-        if (newValue instanceof String) {
-            try {
-                value = Integer.parseInt((String) newValue);
-            } catch (NumberFormatException e) {
-                // Handle the case where newValue is not an integer (like a file path)
-                if (preference == mLockSound || preference == mUnlockSound) {
-                    SystemUtils.showSystemUiRestartDialog(context);
-                    return true;
-                }
-                return false;
-            }
+        if (preference == mLockSound || preference == mUnlockSound) {
+            SystemUtils.showSystemUiRestartDialog(context);
+            return true;
         }
         return false;
     }
@@ -144,6 +141,11 @@ public class Themes extends SettingsPreferenceFragment implements
 
     private static boolean isOneSearchAimActivityEnabled(Context context) {
         return DeviceUtils.isActivityEnabled(context, VELVET_ONESEARCH_COMPONENT);
+    }
+
+    private static boolean isGestureNavigationEnabled(Context context) {
+        return Settings.Secure.getIntForUser(context.getContentResolver(),
+                Settings.Secure.NAVIGATION_MODE, 0, UserHandle.USER_CURRENT) == 2;
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
@@ -172,6 +174,11 @@ public class Themes extends SettingsPreferenceFragment implements
                         keys.add(KEY_UDFPS_ANIMATION);
                     }
                 }
+
+                if (isGestureNavigationEnabled(context)) {
+                    keys.add(KEY_NAVBAR_ICONS);
+                }
+
                 return keys;
             }
         };
