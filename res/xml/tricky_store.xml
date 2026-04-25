@@ -41,14 +41,6 @@
             android:title="@string/ts_manage_target_apps"
             android:summary="@string/ts_no_targets" />
 
-        <ListPreference
-            android:key="ts_target_mode"
-            android:title="@string/ts_target_mode"
-            android:summary="%s"
-            android:entries="@array/ts_target_mode_entries"
-            android:entryValues="@array/ts_target_mode_values"
-            android:defaultValue="auto" />
-
         <Preference
             android:key="ts_import_targets"
             android:title="@string/ts_import_target_list"

@@ -20,7 +20,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import com.android.internal.logging.nano.MetricsProto
@@ -103,11 +102,6 @@ class TrickyStore : SettingsPreferenceFragment() {
             true
         }
 
-        findPreference<ListPreference>("ts_target_mode")?.setOnPreferenceChangeListener { _, newValue ->
-            resaveTargetsWithMode(newValue as String)
-            true
-        }
-
         findPreference<Preference>("ts_manage_targets")?.setOnPreferenceClickListener {
             showTargetAppPicker()
             true
@@ -155,8 +149,6 @@ class TrickyStore : SettingsPreferenceFragment() {
             if (targetCount > 0) getString(R.string.ts_target_apps_count, targetCount)
             else getString(R.string.ts_no_targets)
 
-        findPreference<ListPreference>("ts_target_mode")?.value = readCurrentMode()
-
         val patchDate = Settings.Secure.getString(requireContext().contentResolver, PATCH_KEY)
         findPreference<Preference>("ts_security_patch")?.summary =
             if (!patchDate.isNullOrEmpty()) patchDate
@@ -195,59 +187,10 @@ class TrickyStore : SettingsPreferenceFragment() {
             .show()
     }
 
-    private fun getTargetModeSuffix(): String {
-        val mode = findPreference<ListPreference>("ts_target_mode")?.value ?: "auto"
-        return when (mode) {
-            "leaf" -> "?"
-            "cert" -> "!"
-            else -> ""
-        }
-    }
-
     private fun showTargetAppPicker() {
-        scope.launch {
-            val progress = AlertDialog.Builder(requireContext())
-                .setMessage(R.string.ts_loading_apps)
-                .setCancelable(false)
-                .show()
-
-            try {
-                val (labels, packages, checked) = withContext(Dispatchers.IO) {
-                    loadAppList()
-                }
-
-                progress.dismiss()
-
-                val dialog = AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.ts_manage_target_apps)
-                    .setMultiChoiceItems(labels, checked) { _, which, isChecked ->
-                        checked[which] = isChecked
-                    }
-                    .setPositiveButton(R.string.ts_save) { _, _ ->
-                        saveTargetFile(packages, checked)
-                        refreshStatus()
-                    }
-                    .setNeutralButton(R.string.ts_auto_select, null)
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show()
-
-                dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener {
-                    checked.fill(false)
-                    for (i in packages.indices) {
-                        if (packages[i] in AUTO_SELECT_PACKAGES) {
-                            checked[i] = true
-                        }
-                    }
-                    val listView = dialog.listView
-                    for (i in packages.indices) {
-                        listView.setItemChecked(i, checked[i])
-                    }
-                }
-            } catch (e: Exception) {
-                progress.dismiss()
-                toast(getString(R.string.ts_failed, e.message ?: ""))
-            }
-        }
+        val sheet = TrickyStoreAppPickerSheet()
+        sheet.onDismissed = { refreshStatus() }
+        sheet.show(parentFragmentManager, TrickyStoreAppPickerSheet.TAG)
     }
 
     private fun showPatchDateDialog() {
@@ -280,107 +223,6 @@ class TrickyStore : SettingsPreferenceFragment() {
                 refreshStatus()
             }
             .show()
-    }
-
-    private fun getOverlayPackages(): Set<String> {
-        val om = requireContext().getSystemService(Context.OVERLAY_SERVICE) as OverlayManager
-        val userHandle = Process.myUserHandle()
-
-        val androidOverlays = om.getOverlayInfosForTarget("android", userHandle)
-        val systemUiOverlays = om.getOverlayInfosForTarget("com.android.systemui", userHandle)
-        val settingsOverlays = om.getOverlayInfosForTarget("com.android.settings", userHandle)
-        val launcherOverlays = om.getOverlayInfosForTarget("com.android.launcher3", userHandle)
-
-        return (androidOverlays + systemUiOverlays + settingsOverlays + launcherOverlays)
-            .map { it.packageName }
-            .toSet()
-    }
-
-    private fun loadAppList(): Triple<Array<String>, Array<String>, BooleanArray> {
-        val pm = requireContext().packageManager
-        val overlayPackages = getOverlayPackages()
-
-        val installed = pm.getInstalledApplications(PackageManager.GET_META_DATA)
-            .filter { app ->
-                val systemApp = app.flags and ApplicationInfo.FLAG_SYSTEM != 0
-                val isExcluded = app.packageName.contains(".auto_generated") ||
-                                app.packageName.contains(".appsearch") ||
-                                app.packageName.contains(".backup") ||
-                                app.packageName.contains(".carrier") ||
-                                app.packageName.contains(".cellbroadcast") ||
-                                app.packageName.contains(".cts") ||
-                                app.packageName.contains(".federated") ||
-                                app.packageName.contains(".ims") ||
-                                app.packageName.contains(".overlay") ||
-                                app.packageName.contains(".qti") ||
-                                app.packageName.contains(".qualcomm") ||
-                                app.packageName.contains(".resources") ||
-                                app.packageName.contains(".systemui.clocks") ||
-                                app.packageName.contains(".systemui.plugin") ||
-                                app.packageName.contains(".theme") ||
-                                app.packageName.contains(".iconpack")
-                val isOverlay = app.packageName in overlayPackages
-
-                !isOverlay && !(systemApp && isExcluded)
-            }
-            .sortedBy { pm.getApplicationLabel(it).toString().lowercase() }
-
-        val currentTargets = readTargetPackages()
-        val labels = installed.map { pm.getApplicationLabel(it).toString() }.toTypedArray()
-        val packages = installed.map { it.packageName }.toTypedArray()
-        val checked = packages.map { it in currentTargets }.toBooleanArray()
-
-        return Triple(labels, packages, checked)
-    }
-
-    private fun readTargetPackages(): Set<String> {
-        val content = Settings.Secure.getString(requireContext().contentResolver, TARGET_KEY)
-            ?: return emptySet()
-        return content.lines()
-            .map { it.trim().removeSuffix("?").removeSuffix("!") }
-            .filter { it.isNotBlank() }
-            .toSet()
-    }
-
-    private fun saveTargetFile(packages: Array<String>, checked: BooleanArray) {
-        try {
-            val suffix = getTargetModeSuffix()
-            val selected = packages.zip(checked.toList())
-                .filter { it.second }
-                .map { it.first + suffix }
-            Settings.Secure.putString(
-                requireContext().contentResolver,
-                TARGET_KEY,
-                selected.joinToString("\n")
-            )
-            toast(getString(R.string.ts_targets_saved))
-        } catch (e: Exception) {
-            toast(getString(R.string.ts_failed, e.message ?: ""))
-        }
-    }
-
-    /**
-     * Re-saves existing target packages with a new mode suffix
-     * when the user changes the target mode preference.
-     */
-    private fun resaveTargetsWithMode(mode: String) {
-        try {
-            val suffix = when (mode) {
-                "leaf" -> "?"
-                "cert" -> "!"
-                else -> ""
-            }
-            val currentPackages = readTargetPackages()
-            if (currentPackages.isEmpty()) return
-
-            Settings.Secure.putString(
-                requireContext().contentResolver,
-                TARGET_KEY,
-                currentPackages.joinToString("\n") { it + suffix }
-            )
-        } catch (e: Exception) {
-            toast(getString(R.string.ts_failed, e.message ?: ""))
-        }
     }
 
     private fun killGms() {
