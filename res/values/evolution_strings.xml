@@ -1111,19 +1111,19 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="custom_gradient_start_color_title">Gradient start color</string>
     <string name="custom_gradient_end_color_title">Gradient end color</string>
     
-    <!-- App Spoofing -->
-    <string name="user_selectable_app_spoofing_title">App Spoofing</string>
-    <string name="user_selectable_app_spoofing_summary">Choose which apps to spoof device properties for</string>
+    <!-- App and Game Spoofing -->
+    <string name="user_selectable_app_spoofing_title">App &amp; Game Spoofing</string>
+    <string name="user_selectable_app_spoofing_summary">Spoof device properties for apps and games</string>
     <string name="user_select_spoofing_profile_title">Select spoofing profile</string>
     <string name="app_spoofing_category_title">Per-App Spoofing</string>
     <string name="app_spoofing_header_title">Enable Spoofing</string>
-    <string name="app_spoofing_configured_count">%1$d apps Spoofed</string>
+    <string name="app_spoofing_configured_count">%1$d apps &amp; games spoofed</string>
     <string name="app_spoofing_disabled">Disabled</string>
-    <string name="app_spoofing_add_apps">Add apps</string>
+    <string name="app_spoofing_add_apps">Add apps &amp; games</string>
     <string name="app_spoofing_spoofed_model">Select model</string>
     <string name="app_spoofing_clear_all">Clear all</string>
-    <string name="app_spoofing_configured_apps">Configured app list</string>
-    <string name="app_spoofing_no_apps_configured">No apps configured</string>
+    <string name="app_spoofing_configured_apps">Configured apps &amp; games</string>
+    <string name="app_spoofing_no_apps_configured">No apps or games configured</string>
     <string name="app_spoofing_spoof_model">Spoof model</string>
     <string name="app_spoofing_select_spoof_model">Select spoof model</string>
     <string name="app_spoofing_change_app">Change app</string>
@@ -1141,8 +1141,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Optional)</string>
     <string name="custom_spoof_profile_product">PRODUCT (Optional)</string>
     <string name="app_spoofing_clear_all_confirm">This will remove all configured app spoofing entries.</string>
-    <string name="app_spoofing_no_apps_available">No apps available</string>
-    <string name="app_spoofing_no_apps_found">No apps found for "%s"</string>
+    <string name="app_spoofing_no_apps_available">No apps or games available</string>
+    <string name="app_spoofing_no_apps_found">No apps or games found for \"%s\"</string>
     <string name="app_spoofing_clear_search">Clear search</string>
     <string name="app_spoofing_longpress_hint">Long press to quickly reassign profile</string>
     <string name="app_spoofing_remove_title">Remove app?</string>
@@ -1570,8 +1570,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="play_integrity_fix_summary">Manage PIF configuration and device fingerprints for basic integrity</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Manage keybox and target apps for attestation for strong integrity</string>
-    <string name="game_spoofing_title">Game spoofing</string>
-    <string name="game_spoofing_summary">Spoof device properties for specific games</string>
 
     <!-- Play Integrity Fix -->
     <string name="pif_status">Status</string>
@@ -1651,31 +1649,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ts_verification_mode_auto">auto</string>
     <string name="ts_verification_mode_cert">cert</string>
     <string name="ts_verification_mode_leaf">leaf</string>
-
-    <!-- Game Spoofing -->
-    <string name="gs_enable">Enable game spoofing</string>
-    <string name="gs_enable_summary">Spoof device properties for configured games</string>
-    <string name="gs_add_app">Add game</string>
-    <string name="gs_add_app_summary">Select an app and device profile to spoof</string>
-    <string name="gs_reload">Reload</string>
-    <string name="gs_reload_summary">Reload configuration from disk</string>
-    <string name="gs_configured_apps">Configured games</string>
-    <string name="gs_no_apps">No games configured</string>
-    <string name="gs_no_apps_summary">Tap \"Add game\" to get started</string>
-    <string name="gs_select_app">Select app</string>
-    <string name="gs_select_profile">Select device profile</string>
-    <string name="gs_edit_props">Edit properties</string>
-    <string name="gs_change_profile">Change device profile</string>
-    <string name="gs_remove">Remove</string>
-    <string name="gs_remove_title">Remove game?</string>
-    <string name="gs_remove_message">Remove %s from game spoofing?</string>
-    <string name="gs_edit_app">Edit %s</string>
-    <string name="gs_key">Key</string>
-    <string name="gs_value">Value</string>
-    <string name="gs_save">Save</string>
-    <string name="gs_config_saved">Configuration saved</string>
-    <string name="gs_loading_apps">Loading apps\u2026</string>
-    <string name="gs_failed">Failed: %s</string>
 
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Select Depth wallpaper subject</string>
