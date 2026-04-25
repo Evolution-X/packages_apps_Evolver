@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 Evolution X
+ * SPDX-FileCopyrightText: Evolution X
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -59,6 +59,13 @@ public class Spoofing extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.spoofing);
+
+        if (PixelPropsUtils.isCustomForkBuild()) {
+            if (getPreferenceScreen() != null) {
+                getPreferenceScreen().removeAll();
+            }
+            return;
+        }
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
