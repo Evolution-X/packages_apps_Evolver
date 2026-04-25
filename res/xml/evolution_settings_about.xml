@@ -120,6 +120,17 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="current_maintainers_category"
+        android:title="@string/about_current_maintainers_title">
+
+        <Preference
+            android:key="current_maintainers"
+            android:title="@string/about_current_maintainers_title"
+            android:summary="@string/about_current_maintainers_tap_to_view"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="remembering"
         android:title="@string/about_remembering_title">
 
@@ -128,9 +139,5 @@
             android:title="@string/about_member_5_title"
             android:summary="@string/about_member_5_summary" />
     </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="current_maintainers"
-        android:title="@string/about_current_maintainers_title" />
 
 </PreferenceScreen>

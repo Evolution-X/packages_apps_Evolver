@@ -634,6 +634,11 @@
     <string name="about_current_maintainers_empty_summary">Could not find currently maintained entries from OTA builds.</string>
     <string name="about_current_maintainers_last_updated">Last updated %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Last updated: unknown</string>
+    <string name="about_current_maintainers_tap_to_view">Tap to view active maintainers</string>
+    <string name="about_current_maintainers_sheet_subtitle">%1$d active maintainers</string>
+    <string name="about_current_maintainers_search_hint">Search maintainers or devices…</string>
+    <string name="about_current_maintainers_no_results">No maintainers match your search</string>
+    <string name="maintainer_link_forum">Forum</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
