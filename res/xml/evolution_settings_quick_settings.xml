@@ -175,6 +175,24 @@
         android:key="qs_layout_category"
         android:title="@string/quick_settings_layout_category_title">
 
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_widget_panel"
+            android:title="@string/qs_widget_panel_title"
+            android:summary="@string/qs_widget_panel_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_widget_ios_music"
+            android:title="@string/qs_widget_ios_music_title"
+            android:summary="@string/qs_widget_ios_music_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_widget_slider_corner"
+            android:title="@string/qs_widget_slider_corner_title"
+            android:summary="@string/qs_widget_slider_corner_summary"
+            android:defaultValue="false" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_panel_style"
             android:title="@string/qs_panel_style_title"
