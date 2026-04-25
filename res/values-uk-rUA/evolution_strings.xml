@@ -532,11 +532,13 @@
     <string name="miscellaneous_ignore_window_secure_summary">Зняти обмеження на знятках і записи екрану для всіх додатків, потенційно ризикуючи витіком конфіденційності</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Скасувати обмеження запису екрану</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Видалити обмеження розміру 15 Гб файлу\nМоже призвести до більшого, ніж необхідний файл виводу</string>
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Приховати список додатків</string>
-    <string name="hide_applist_summary">Не дозволяти додаткам перевіряти обрані додатки зі списку</string>
-    <string name="menu_show_overlay">Відображати шари</string>
-    <string name="menu_hide_overlay">Сховати шари</string>
+    <!-- Miscellaneous/Hide Apps (consolidated HideAppList + HideDeveloperStatus) -->
+    <string name="hide_apps_title">Сховати програми</string>
+    <string name="hide_apps_summary">Приховати обрані додатки зі списками додатків та перевірками статусу розробника</string>
+    <string name="hide_apps_none_configured">Немає прихованих застосунків</string>
+    <string name="search_apps">Пошук додатків</string>
+    <!-- %1$d = number of apps currently hidden in any mode -->
+    <string name="hide_apps_count">Немає прихованих застосунків</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Smart Pixels — це функція енергозбереження. Залежно від кількості вимкнених пікселів, ви можете помітити покращення часу роботи від акумулятора. Зауважте, що в деяких випадках це може призвести до появи нечутливих зон на сенсорному екрані</string>
     <string name="smart_pixels_title">Розумні пікселі</string>
@@ -579,6 +581,11 @@
     <string name="about_current_maintainers_empty_summary">Не вдалося знайти записи, що наразі підтримуються, з OTA-збірок.</string>
     <string name="about_current_maintainers_last_updated">Останнє оновлення %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Останнє оновлення: невідомо</string>
+    <string name="about_current_maintainers_tap_to_view">Торкніться, щоб переглянути активних супроводжувальних осіб</string>
+    <string name="about_current_maintainers_sheet_subtitle">%1$d Активні супроводжувальні</string>
+    <string name="about_current_maintainers_search_hint">Пошук супроводжувальних або пристроїв…</string>
+    <string name="about_current_maintainers_no_results">Жоден супроводжувальний не відповідає вашому пошуку</string>
+    <string name="maintainer_link_forum">Форум</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Палітра кольорів</string>
     <string name="press_color_to_apply">Натисніть на колір нижче, щоб застосувати</string>
@@ -1461,6 +1468,22 @@
     <string name="ts_footer_body">1. Отримувати дійсний XML ключ від надійного джерела. Ключі не надано; ви повинні знайти його самостійно.\n2. Торкніться кнопки \"Імпорт ключа\" і завантажте файл.\n3. Відкрийте \"Керування цільовими додатками\" та виберіть сервіси Google Play і Google Play Store.\n4. Встановіть цільовий режим на \"Зворотній зв\'язок\", якщо ваш пристрій працює TEE, в іншому випадку залиште його як авто.\n5. Перевірте стан гри.\n\nЗавжди видаляти існуючу клавішу перед імпортом нового. Якщо Google скасує клавіатуру, вона все одно може дозволити передавання інформації до цілісності пристрою, навіть якщо сильна цілісність зазнає невдачі.</string>
     <string name="ts_security_patch">Дата виправлення системи безпеки</string>
     <string name="ts_no_patch">Не встановлено (використовується типовим пристроєм)</string>
+    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_select_target_apps">Вибрати цільові додатки</string>
+    <string name="ts_select_target_apps_desc">Виберіть додатки для увімкнення Spoofing атестації</string>
+    <string name="ts_search_apps">Пошук додатків\u2026</string>
+    <string name="ts_system_apps">Системні додатки</string>
+    <string name="ts_selected_count">%d вибрано</string>
+    <string name="ts_select_all">Вибрати все</string>
+    <string name="ts_reset">Скинути</string>
+    <string name="ts_mode_auto">Автоматично</string>
+    <string name="ts_mode_leaf">Листок ?</string>
+    <string name="ts_mode_cert">Gen !</string>
+    <!-- TrickyStore verification mode preference -->
+    <string name="ts_verification_mode">Режим перевірки</string>
+    <string name="ts_verification_mode_auto">автоматично</string>
+    <string name="ts_verification_mode_cert">сертифікат — ланцюжок всіх сертифікатів</string>
+    <string name="ts_verification_mode_leaf">лист — лише сертифікат на лист</string>
     <!-- Game Spoofing -->
     <string name="gs_enable">Увімкнути спуфінг гри</string>
     <string name="gs_enable_summary">Підміна властивостей пристрою для конкретних ігор</string>
