@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019-2025 The Evolution X Project
+ * SPDX-FileCopyrightText: Evolution X
  * SPDX-License-Identifier: Apache-2.0
  */
 
