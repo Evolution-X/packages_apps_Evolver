@@ -851,13 +851,19 @@
     <string name="qs_compact_media_player_mode_summary">Use compact mode for the quick settings media player</string>
     <string name="qs_show_media_player_title">Media player</string>
     <string name="qs_show_media_player_summary">Display media controls in quick settings</string>
-    <string name="qs_widgets_enabled_title">QS widgets</string>
-    <string name="qs_widgets_enabled_summary">Show widgets for quick access. Limits QS rows to 2 to avoid breaking QS panel scrolling</string>
     <string name="qs_tile_gradient_title">QS tile gradient</string>
     <string name="qs_tile_gradient_summary">Enable gradient backgrounds for QS tiles</string>
     <string name="qs_tiles_haptic_feedback_title">Vibrate on QS tile tap</string>
     <string name="qs_panel_tile_haptic_intensity_title">QS tile intensity</string>
     <string name="qs_haptics_intensity_title">QS fling intensity</string>
+
+    <!-- QS widget -->
+    <string name="qs_widget_panel_title">Show widget in QS panel</string>
+    <string name="qs_widget_panel_summary">Show media and volume, brightness widget in QS panel</string>
+    <string name="qs_widget_ios_music_title">Show iOS music widget</string>
+    <string name="qs_widget_ios_music_summary">Show iOS-like media panel</string>
+    <string name="qs_widget_slider_corner_title">Show rounded widget slider</string>
+    <string name="qs_widget_slider_corner_summary">Show rounded style vertical widget sliders in QS panel</string>
 
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Heads up</string>
