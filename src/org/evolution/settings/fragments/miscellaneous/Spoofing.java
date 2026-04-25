@@ -39,7 +39,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String PI_PP_SPOOF = "pi_pp_spoof";
     private static final String PI_PHOTOS_SPOOF = "pi_photos_spoof";
     private static final String PI_SNAPCHAT_SPOOF = "pi_snapchat_spoof";
-    private static final String PI_TENSOR_SPOOF = "pi_tensor_spoof";
+    private static final String KEY_TENSOR_TARGETS = "tensor_targets_settings";
 
     private static final String PHOTOS_PACKAGE = "com.google.android.apps.photos";
     private static final String SNAPCHAT_PACKAGE = "com.snapchat.android";
@@ -50,7 +50,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mGoogleSpoof;
     private SwitchPreferenceCompat mPhotosSpoof;
     private SwitchPreferenceCompat mSnapchatSpoof;
-    private SwitchPreferenceCompat mTensorSpoof;
+    private Preference mTensorTargets;
 
     private Handler mHandler;
     private Runnable mPendingKill;
@@ -69,7 +69,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mPhotosSpoof = (SwitchPreferenceCompat) findPreference(PI_PHOTOS_SPOOF);
         mGoogleSpoof = (SwitchPreferenceCompat) findPreference(PI_PP_SPOOF);
         mSnapchatSpoof = (SwitchPreferenceCompat) findPreference(PI_SNAPCHAT_SPOOF);
-        mTensorSpoof = (SwitchPreferenceCompat) findPreference(PI_TENSOR_SPOOF);
+        mTensorTargets = findPreference(KEY_TENSOR_TARGETS);
 
         // Google spoof: hide entirely on mainline Tensor devices
         if (PixelPropsUtils.isMainlinePixelDevice()) {
@@ -77,47 +77,30 @@ public class Spoofing extends SettingsPreferenceFragment implements
         } else {
             mGoogleSpoof.setOnPreferenceChangeListener(this);
         }
-
-        // Tensor spoof: only relevant on non-Tensor devices
-        if (mTensorSpoof != null) {
-            if (!PixelPropsUtils.isTensorPixelDevice()) {
-                boolean isTensorEnabled = Settings.Secure.getInt(resolver, Settings.Secure.PI_TENSOR_SPOOF, 0) == 1;
-                mTensorSpoof.setChecked(isTensorEnabled);
-                mTensorSpoof.setOnPreferenceChangeListener(this);
-            } else {
-                mSystemWideCategory.removePreference(mTensorSpoof);
-            }
+        // Tensor targets: only relevant on non-Tensor devices
+        if (mTensorTargets != null && PixelPropsUtils.isTensorPixelDevice()) {
+            mSystemWideCategory.removePreference(mTensorTargets);
         }
+        mPhotosSpoof = initAppSpoof(mPhotosSpoof, PHOTOS_PACKAGE);
+        mSnapchatSpoof = initAppSpoof(mSnapchatSpoof, SNAPCHAT_PACKAGE);
+    }
 
-        if (mPhotosSpoof != null) {
-            try {
-                getContext().getPackageManager().getPackageInfo(PHOTOS_PACKAGE, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                mAppSpecificCategory.removePreference(mPhotosSpoof);
-                mPhotosSpoof = null;
-            }
+    /**
+     * Checks whether {@code pkg} is installed. If not, removes {@code pref} from the
+     * app-specific category and returns null. If installed, syncs the checked state from
+     * Settings.Secure and registers the change listener, then returns the preference unchanged.
+     */
+    private SwitchPreferenceCompat initAppSpoof(SwitchPreferenceCompat pref, String pkg) {
+        if (pref == null) return null;
+        try {
+            getContext().getPackageManager().getPackageInfo(pkg, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            mAppSpecificCategory.removePreference(pref);
+            return null;
         }
-
-        if (mPhotosSpoof != null) {
-            boolean isPhotosEnabled = Settings.Secure.getInt(resolver, Settings.Secure.PI_PHOTOS_SPOOF, 1) == 1;
-            mPhotosSpoof.setChecked(isPhotosEnabled);
-            mPhotosSpoof.setOnPreferenceChangeListener(this);
-        }
-
-        if (mSnapchatSpoof != null) {
-            try {
-                getContext().getPackageManager().getPackageInfo(SNAPCHAT_PACKAGE, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                mAppSpecificCategory.removePreference(mSnapchatSpoof);
-                mSnapchatSpoof = null;
-            }
-        }
-
-        if (mSnapchatSpoof != null) {
-            boolean isSnapchatEnabled = Settings.Secure.getInt(resolver, Settings.Secure.PI_SNAPCHAT_SPOOF, 0) == 1;
-            mSnapchatSpoof.setChecked(isSnapchatEnabled);
-            mSnapchatSpoof.setOnPreferenceChangeListener(this);
-        }
+        // SecureSettingSwitchPreference already syncs checked state from Settings.Secure
+        pref.setOnPreferenceChangeListener(this);
+        return pref;
     }
 
     private void scheduleKill(String pkg) {
@@ -175,44 +158,17 @@ public class Spoofing extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final ContentResolver resolver = getContext().getContentResolver();
-        boolean enabled = (Boolean) newValue;
-
+        if (mSnapchatSpoof == null && mPhotosSpoof == null && mGoogleSpoof == null) return true;
+        // SecureSettingSwitchPreference handles the Settings.Secure write automatically.
+        // We only need to trigger the kill so the target app picks up the new props.
         if (preference == mSnapchatSpoof) {
-            int current = Settings.Secure.getInt(resolver, Settings.Secure.PI_SNAPCHAT_SPOOF, 0);
-            if ((enabled ? 1 : 0) == current) return true;
-            Settings.Secure.putInt(resolver, Settings.Secure.PI_SNAPCHAT_SPOOF, enabled ? 1 : 0);
             scheduleKill(SNAPCHAT_PACKAGE);
-            return true;
-        }
-
-        if (preference == mPhotosSpoof) {
-            int current = Settings.Secure.getInt(resolver, Settings.Secure.PI_PHOTOS_SPOOF, 1);
-            if ((enabled ? 1 : 0) == current) return true;
-            Settings.Secure.putInt(resolver, Settings.Secure.PI_PHOTOS_SPOOF, enabled ? 1 : 0);
+        } else if (preference == mPhotosSpoof) {
             scheduleKill(PHOTOS_PACKAGE);
-            return true;
-        }
-
-        if (preference == mGoogleSpoof) {
-            int current = Settings.Secure.getInt(resolver, Settings.Secure.PI_PP_SPOOF, 1);
-            if ((enabled ? 1 : 0) == current) return true;
-            Settings.Secure.putInt(resolver, Settings.Secure.PI_PP_SPOOF, enabled ? 1 : 0);
+        } else if (preference == mGoogleSpoof) {
             scheduleKill(null);
-            return true;
         }
-
-        if (preference == mTensorSpoof) {
-            int current = Settings.Secure.getInt(resolver, Settings.Secure.PI_TENSOR_SPOOF, 0);
-            if ((enabled ? 1 : 0) == current) return true;
-            Settings.Secure.putInt(resolver, Settings.Secure.PI_TENSOR_SPOOF, enabled ? 1 : 0);
-            scheduleKill(null);
-            Toast.makeText(getContext(),
-                    enabled ? R.string.spoofing_tensor_enabled : R.string.spoofing_tensor_disabled,
-                    Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        return false;
+        return true;
     }
 
     @Override
