@@ -25,8 +25,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
+import com.android.settingslib.spa.framework.theme.SettingsTheme
 import org.evolution.settings.utils.ColorPickerDialog
-import org.evolution.settings.utils.EvolverTheme
 
 class CutoutProgressColorPickerDialogFragment : DialogFragment() {
 
@@ -62,7 +62,7 @@ class CutoutProgressColorPickerDialogFragment : DialogFragment() {
                 ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed
             )
             setContent {
-                EvolverTheme {
+                SettingsTheme {
                     ColorPickerDialog(
                         initialColor = initialColor,
                         onDismiss = { dismiss() },
