@@ -65,6 +65,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
     private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
     private static final String KEY_SINGLE_QS_TONE_ENABLED = "single_qs_tone_enabled";
+    private static final String KEY_QS_WIDGET_PANEL = "qs_widget_panel";
+    private static final String KEY_QS_WIDGET_IOS_MUSIC = "qs_widget_ios_music";
+    private static final String KEY_QS_WIDGET_SLIDER_CORNER = "qs_widget_slider_corner";
 
 //    private static final int BATTERY_STYLE_PORTRAIT = 0;
 //    private static final int BATTERY_STYLE_TEXT = 4;
@@ -85,6 +88,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SecureSettingSwitchPreference mMediaSquiggleAnimation;
     private SecureSettingSwitchPreference mQsShowMediaPlayer;
     private SystemSettingSwitchPreference mSingleQsToneEnabled;
+    private SystemSettingSwitchPreference mQsWidgetPanel;
+    private SystemSettingSwitchPreference mQsWidgetIosMusic;
+    private SystemSettingSwitchPreference mQsWidgetSliderCorner;
 //    private SystemSettingListPreference mBatteryStyle;
 //    private SystemSettingListPreference mBatteryPercent;
 
@@ -119,6 +125,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         if (mQsShowMediaPlayer != null) {
             mQsShowMediaPlayer.setOnPreferenceChangeListener(this);
         }
+
+        mQsWidgetPanel = (SystemSettingSwitchPreference) findPreference(KEY_QS_WIDGET_PANEL);
+        if (mQsWidgetPanel != null) {
+            mQsWidgetPanel.setOnPreferenceChangeListener(this);
+        }
+
+        mQsWidgetIosMusic = (SystemSettingSwitchPreference) findPreference(KEY_QS_WIDGET_IOS_MUSIC);
+        mQsWidgetSliderCorner = (SystemSettingSwitchPreference) findPreference(KEY_QS_WIDGET_SLIDER_CORNER);
+
+        updateWidgetPanelDependencies();
 
         mSingleQsToneEnabled = (SystemSettingSwitchPreference) findPreference(KEY_SINGLE_QS_TONE_ENABLED);
         if (mSingleQsToneEnabled != null) {
@@ -177,6 +193,21 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         updateSquiggleAnimationVisibility();
     }
 
+    private void updateWidgetPanelDependencies() {
+        if (mQsWidgetPanel == null) return;
+
+        ContentResolver resolver = getContext().getContentResolver();
+        boolean isWidgetPanelEnabled = Settings.System.getInt(resolver,
+                KEY_QS_WIDGET_PANEL, 0) == 1;
+
+        if (mQsWidgetIosMusic != null)
+            mQsWidgetIosMusic.setVisible(isWidgetPanelEnabled);
+        if (mQsWidgetSliderCorner != null)
+            mQsWidgetSliderCorner.setVisible(isWidgetPanelEnabled);
+        if (mQsShowMediaPlayer != null)
+            mQsShowMediaPlayer.setVisible(!isWidgetPanelEnabled);
+    }
+
     private void updatePanelStylePrefs(int panelStyle) {
         boolean isClassic = panelStyle == 1;
 
@@ -222,6 +253,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         } else if (preference == mMediaSquiggleAnimation) {
+            SystemUtils.showSystemUiRestartDialog(getActivity());
+            return true;
+        } else if (preference == mQsWidgetPanel) {
+            updateWidgetPanelDependencies();
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
 //        } else if (preference == mBatteryStyle) {
@@ -284,6 +319,16 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                     Settings.System.MEDIA_WAVEFORM_SEEKBAR, 0) == 1;
                 if (waveformEnabled) {
                     keys.add(KEY_MEDIA_SQUIGGLE_ANIMATION);
+                }
+
+                boolean isWidgetPanelEnabled = Settings.System.getInt(resolver,
+                    KEY_QS_WIDGET_PANEL, 0) == 1;
+
+                if (isWidgetPanelEnabled) {
+                    keys.add(KEY_QS_SHOW_MEDIA_PLAYER);
+                } else {
+                    keys.add(KEY_QS_WIDGET_IOS_MUSIC);
+                    keys.add(KEY_QS_WIDGET_SLIDER_CORNER);
                 }
 
                 return keys;
