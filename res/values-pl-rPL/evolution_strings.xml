@@ -958,7 +958,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="hardware_keys_action_split_screen">Podziel ekran</string>
     <string name="hardware_keys_action_close_app">Zatrzymaj aplikację</string>
     <string name="hardware_keys_action_play_pause_music">Odtwarzaj/wstrzymaj odtwarzanie muzyki</string>
-    <string name="hardware_keys_action_torch">Włącz/wyłącz latarkę</string>
+    <string name="hardware_keys_action_torch">Przełącz latarkę</string>
     <string name="hardware_keys_action_screenshot">Zrób zrzut ekranu</string>
     <string name="hardware_keys_action_volume_panel">Przełącznik panelu głośności</string>
     <string name="hardware_keys_action_clear_all_notifications">Wyczyść wszystkie powiadomienia</string>
@@ -1179,9 +1179,9 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="dynamic_bar_compact_notifications">Kompaktowe powiadomienia</string>
     <string name="dynamic_bar_compact_notifications_summary">Pokaż powiadomienia jako mały wskaźnik, dotknij, aby rozwinąć</string>
     <string name="dynamic_bar_event_timer">Minutnik</string>
-    <string name="dynamic_bar_event_timer_summary">Minutnik odliczania z aplikacji Zegar</string>
+    <string name="dynamic_bar_event_timer_summary">Minutnik odliczania z aplikacji zegara</string>
     <string name="dynamic_bar_event_stopwatch">Stoper</string>
-    <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji Zegar</string>
+    <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji zegara</string>
     <string name="dynamic_bar_event_alarm">Alarm</string>
     <string name="dynamic_bar_event_alarm_summary">Dzwoniące i nadchodzące alarmy</string>
     <string name="dynamic_bar_event_charging">Rozpoczęto ładowanie</string>
@@ -1320,7 +1320,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="cutout_progress_music_color_mode_album_art">Okładka albumu</string>
     <string name="cutout_progress_music_color_mode_custom">Niestandardowy kolor</string>
     <string name="cutout_progress_music_custom_color_title">Niestandardowy kolor</string>
-    <string name="cutout_progress_music_opacity_title">Przezroczystość pierścienia</string>
+    <string name="cutout_progress_music_opacity_title">Nieprzezroczystość pierścienia</string>
     <string name="cutout_progress_music_stroke_title">Grubość obrysu</string>
     <string name="cutout_progress_music_clockwise_title">Zgodnie z ruchem wskazówek zegara</string>
     <string name="cutout_progress_music_aod_title">Pokaż na Ekran zawsze włączony</string>
