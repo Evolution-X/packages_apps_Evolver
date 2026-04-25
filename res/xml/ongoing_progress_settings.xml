@@ -20,10 +20,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/ongoing_progress_settings_title" >
 
-    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+    <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="ongoing_action_chip"
-        android:title="@string/ongoing_action_chip_title"
-        android:summary="@string/ongoing_action_chip_summary"
+        android:title="@string/enable"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -43,6 +42,7 @@
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="ongoing_chip_bg_alpha"
+        android:dependency="ongoing_action_chip"
         android:title="@string/ongoing_chip_bg_alpha_title"
         android:summary="@string/ongoing_chip_bg_alpha_summary"
         android:defaultValue="100"
@@ -52,12 +52,14 @@
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
         android:key="ongoing_compact_mode"
+        android:dependency="ongoing_action_chip"
         android:title="@string/ongoing_compact_mode_title"
         android:summary="@string/ongoing_compact_mode_summary"
         android:defaultValue="false" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="ongoing_progress_footer"
+        android:dependency="ongoing_action_chip"
         android:title="@string/ongoing_progress_footer_text"
         android:selectable="false"
         settings:searchable="false" />
