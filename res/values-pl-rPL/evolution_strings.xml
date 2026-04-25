@@ -537,6 +537,11 @@
     <string name="hide_apps_summary">Ukryj wybrane aplikacje na listach aplikacji i w sprawdzaniu statusu programisty</string>
     <string name="hide_apps_none_configured">Brak ukrytych aplikacji</string>
     <string name="search_apps">Wyszukaj aplikacje</string>
+    <string name="hide_apps_clear_search">Wyczyść wyszukiwanie</string>
+    <string name="hide_apps_system_badge">System</string>
+    <string name="hide_apps_toggle_app_list">Lista aplikacji</string>
+    <string name="hide_apps_toggle_dev_status">Status programisty</string>
+    <string name="hide_apps_toggle_hidden">Ukryty</string>
     <!-- %1$d = number of apps currently hidden in any mode -->
     <string name="hide_apps_count">%1$d ukrytych aplikacji</string>
     <!-- Miscellaneous/Smart Pixels -->
@@ -1442,6 +1447,9 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="pif_select_channel">Wybierz kanał</string>
     <string name="pif_channel_latest_release">Najnowsze wydanie</string>
     <string name="pif_channel_canary_release">Wydanie canary</string>
+    <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
+    <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
+    <string name="pif_no_api_key">Nie udało się wyodrębnić klucza API narzędzia do wgrywania</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Zarządzanie zestawem kluczy</string>
     <string name="ts_import_keybox">Importuj zestaw kluczy</string>
