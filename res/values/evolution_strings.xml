@@ -1642,6 +1642,28 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ts_security_patch">Security patch date</string>
     <string name="ts_no_patch">Not set (using device default)</string>
 
+    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_select_target_apps">Select Target Apps</string>
+    <string name="ts_select_target_apps_desc">Choose apps to enable attestation spoofing</string>
+    <string name="ts_search_apps">Search apps\u2026</string>
+    <string name="ts_system_apps">System apps</string>
+    <string name="ts_selected_count">%d selected</string>
+    <string name="ts_select_all">Select all</string>
+    <string name="ts_reset">Reset</string>
+    <string name="ts_mode_auto">Auto</string>
+    <string name="ts_mode_leaf">Leaf ?</string>
+    <string name="ts_mode_cert">Gen !</string>
+
+    <!-- TrickyStore verification mode preference -->
+    <string name="ts_verification_mode">Verification mode</string>
+    <string name="ts_verification_mode_auto">auto</string>
+    <string name="ts_verification_mode_cert">cert</string>
+    <string name="ts_verification_mode_leaf">leaf</string>
+    <string name="ts_target_apps_count_with_mode">%1$d apps configured · %2$s</string>
+    <string name="ts_verification_auto_count">%1$d auto</string>
+    <string name="ts_verification_cert_count">%1$d cert</string>
+    <string name="ts_verification_leaf_count">%1$d leaf</string>
+
     <!-- Game Spoofing -->
     <string name="gs_enable">Enable game spoofing</string>
     <string name="gs_enable_summary">Spoof device properties for configured games</string>
