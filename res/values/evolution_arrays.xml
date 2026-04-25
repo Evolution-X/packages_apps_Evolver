@@ -799,15 +799,19 @@
         <item>8</item>
     </string-array>
 
-    <!-- Apps list to hide from Hide developer status setting -->
-    <string-array name="hide_applist_hidden_apps" translatable="false">
+    <!-- Apps excluded from the Tensor targets picker -->
+    <string-array name="tensor_targets_hidden_apps" translatable="false">
         <item>android</item>
         <item>com.android.settings</item>
         <item>com.android.systemui</item>
-        <item>com.android.shell</item>
-        <item>com.android.chrome</item>
-        <item>com.android.webview</item>
-        <item>com.google.android.webview</item>
+        <item>com.google.android.apps.photos</item>
+    </string-array>
+
+    <!-- Apps pre-selected in the Tensor targets picker -->
+    <string-array name="tensor_targets_default_apps" translatable="false">
+        <item>com.google.android.googlequicksearchbox</item>
+        <item>com.google.android.apps.pixel.agent</item>
+        <item>com.google.android.apps.pixel.creativeassistant</item>
     </string-array>
 
     <!-- Power Menu styles  -->
@@ -1605,18 +1609,5 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
-    </string-array>
-
-    <!-- TrickyStore -->
-    <string-array name="ts_target_mode_entries">
-        <item>@string/ts_target_mode_auto</item>
-        <item>@string/ts_target_mode_leaf</item>
-        <item>@string/ts_target_mode_cert</item>
-    </string-array>
- 
-    <string-array name="ts_target_mode_values">
-        <item>auto</item>
-        <item>leaf</item>
-        <item>cert</item>
     </string-array>
 </resources>
