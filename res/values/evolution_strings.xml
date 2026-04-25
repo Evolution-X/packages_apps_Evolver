@@ -568,11 +568,16 @@
     <string name="miscellaneous_unlimit_screenrecord_title">Unlimit screenrecord</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remove the 15GiB file size limit\nMay result in a larger than needed output file</string>
 
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Hide applist</string>
-    <string name="hide_applist_summary">Prevent apps from checking selected apps from appslist</string>
-    <string name="menu_show_overlay">Show overlay</string>
-    <string name="menu_hide_overlay">Hide overlay</string>
+    <!-- Miscellaneous/Common -->
+    <string name="common_clear_search">Clear search</string>
+    <string name="common_system_badge">SYS</string>
+
+    <!-- Miscellaneous/Hide developer status -->
+    <string name="hide_developer_status_title">Hide developer status</string>
+    <string name="hide_developer_status_summary">Hide selected apps from developer status checks</string>
+    <string name="hide_developer_status_none_configured">No apps hidden</string>
+    <!-- %1$d = number of apps currently hidden -->
+    <string name="hide_developer_status_count">%1$d apps hidden</string>
 
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Smart pixels is a power saving feature. Depending on how many pixels you decide to turn off, you could see improvement in battery life. Note that in some cases it can result in unresponsive areas on touch screen</string>
@@ -586,16 +591,21 @@
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
-    <string name="tensor_spoof_title">Force Tensor features</string>
-    <string name="tensor_spoof_summary">Enable Pixel Tensor-exclusive features on unsupported devices. May lead to unexpected behavior or increased battery usage.</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
     <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
-    <string name="spoofing_tensor_enabled">Tensor features enabled</string>
-    <string name="spoofing_tensor_disabled">Tensor features disabled</string>
+
+    <!-- Miscellaneous/Spoofing/Tensor -->
+    <string name="tensor_spoof_title">Tensor feature targets</string>
+    <string name="tensor_spoof_summary">Spoof Tensor-exclusive features for selected apps</string>
+    <string name="tensor_spoof_enable">Tensor spoofing</string>
+    <string name="tensor_spoof_enable_summary">Grant selected apps access to Pixel Tensor-exclusive features</string>
+    <string name="tensor_targets_none_configured">No apps targeted</string>
+    <string name="tensor_targets_count">%1$d apps targeted</string>
+    <string name="tensor_targets_empty_description">Selected apps will report Tensor hardware features to unlock AI and Pixel-exclusive functionality</string>
 
     <!-- About -->
     <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>
@@ -1627,18 +1637,30 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ts_target_apps_count">%d apps configured</string>
     <string name="ts_import_target_list">Import target list</string>
     <string name="ts_import_target_list_summary">Import target.txt from a file</string>
+    <string name="ts_invalid_patch_date">Invalid date format. Use YYYY-MM-DD</string>
     <string name="ts_target_list_imported">Target list imported</string>
-    <string name="ts_loading_apps">Loading apps\u2026</string>
-    <string name="ts_auto_select">Auto-select</string>
-    <string name="ts_save">Save</string>
     <string name="ts_targets_saved">Target list saved</string>
     <string name="ts_failed">Failed: %s</string>
-    <string name="ts_target_mode">Target mode</string>
-    <string name="ts_target_mode_auto">Auto</string>
-    <string name="ts_target_mode_leaf">Leaf hack</string>
-    <string name="ts_target_mode_cert">Certificate generation</string>
     <string name="ts_footer_title">Passing strong integrity</string>
     <string name="ts_footer_body">1. Obtain a valid keybox XML from a trusted source. Keyboxes are not provided; you must find one yourself.\n2. Tap \"Import keybox\" and load the file.\n3. Open \"Manage target apps\" and select Google Play Services and Google Play Store.\n4. Set target mode to \"Leaf\" if your device has a working TEE, otherwise leave it as Auto.\n5. Recheck your Play Integrity status.\n\nAlways delete the existing keybox before importing a new one. If Google revokes a keybox, it may still allow passing up to device integrity even though strong integrity will fail.</string>
+    <string name="ts_patch_date_hint" translatable="false">YYYY-MM-DD</string>
+    <string name="ts_security_patch">Security patch date</string>
+    <string name="ts_no_patch">Not set (using device default)</string>
+    <string name="ts_select_target_apps">Select Target Apps</string>
+    <string name="ts_select_target_apps_desc">Choose apps to enable attestation spoofing</string>
+    <string name="ts_selected_count">%d selected</string>
+    <string name="ts_select_all">Select all</string>
+    <string name="ts_reset">Reset</string>
+    <string name="ts_mode_auto">Auto</string>
+    <string name="ts_mode_leaf">Leaf</string>
+    <string name="ts_mode_cert">Cert</string>
+    <string name="ts_verification_mode">Verification mode</string>
+    <string name="ts_verification_mode_auto">auto</string>
+    <string name="ts_verification_mode_cert">cert</string>
+    <string name="ts_verification_mode_leaf">leaf</string>
+    <string name="ts_verification_auto_count">%1$d auto</string>
+    <string name="ts_verification_cert_count">%1$d cert</string>
+    <string name="ts_verification_leaf_count">%1$d leaf</string>
 
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Select Depth wallpaper subject</string>
