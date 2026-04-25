@@ -277,7 +277,7 @@
     <string name="status_bar_lyric_title">Tekst piosenki na pasku stanu</string>
     <string name="status_bar_lyric_summary">Pokaż tekst piosenki na pasku stanu (wymaga wsparcia aplikacji)</string>
     <string name="status_bar_lyric_options_title">Opcje</string>
-    <string name="disguise_props_for_music_app_title">Podszywaj się pod inny model urządzenia dla aplikacji muzycznych</string>
+    <string name="disguise_props_for_music_app_title">Ukryj urządzenie dla aplikacji muzycznych</string>
     <string name="disguise_props_for_music_app_summary">Ukryj urządzenie w niektórych aplikacjach muzycznych do obsługi tekstu na pasku stanu. Po zmianie tego przełącznika należy ponownie uruchomić aplikacje, aby zmiana zaczęła działać.</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Styl zegara</string>
@@ -288,7 +288,7 @@
     <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
     <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli launcher jest widoczny</string>
-    <string name="status_bar_am_pm_title">Format 12-godzinny (AM/PM)</string>
+    <string name="status_bar_am_pm_title">Styl AM/PM</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
     <string name="status_bar_am_pm_normal">Normalny</string>
     <string name="status_bar_am_pm_small">Mały</string>
@@ -303,7 +303,7 @@
     <string name="status_bar_date_style_lowercase">Małe litery</string>
     <string name="status_bar_date_style_uppercase">Wielkie litery</string>
     <string name="status_bar_date_format_custom">Niestandardowy format (java)</string>
-    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. mm/dd/yy</string>
+    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. mm/dd/rr</string>
     <string name="status_bar_date_string_edittext_summary">Wprowadź ciąg znaków</string>
     <string name="status_bar_clock_date_position">Położenie daty</string>
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
@@ -831,8 +831,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="battery_bar_title">Pasek baterii</string>
     <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii nad paskiem stanu</string>
     <string name="battery_bar_color">Kolor</string>
-    <string name="battery_bar_charging_color">Kolor podczas ładowania</string>
-    <string name="battery_bar_battery_low_color">Kolor niskiego poziomu naładowania baterii</string>
+    <string name="battery_bar_charging_color">Kolor ładowania</string>
+    <string name="battery_bar_battery_low_color">Kolor słabej baterii</string>
     <string name="battery_bar_style_title">Wyrównanie</string>
     <string name="battery_bar_thickness_title">Grubość</string>
     <string name="battery_bar_animate_title">Animacja ładowania</string>
