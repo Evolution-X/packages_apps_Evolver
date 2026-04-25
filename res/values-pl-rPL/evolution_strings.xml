@@ -532,11 +532,13 @@
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów i nagrywania ekranu dla wszystkich aplikacji, potencjalne ryzyko wycieku danych osobowych</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Lista ukrytych aplikacji</string>
-    <string name="hide_applist_summary">Zapobiegaj wykrywaniu przez aplikacje wybranych aplikacji z listy</string>
-    <string name="menu_show_overlay">Pokaż nakładkę</string>
-    <string name="menu_hide_overlay">Ukryj nakładkę</string>
+    <!-- Miscellaneous/Hide Apps (consolidated HideAppList + HideDeveloperStatus) -->
+    <string name="hide_apps_title">Ukryj aplikacje</string>
+    <string name="hide_apps_summary">Ukryj wybrane aplikacje na listach aplikacji i w sprawdzaniu statusu programisty</string>
+    <string name="hide_apps_none_configured">Brak ukrytych aplikacji</string>
+    <string name="search_apps">Wyszukaj aplikacje</string>
+    <!-- %1$d = number of apps currently hidden in any mode -->
+    <string name="hide_apps_count">%1$d ukrytych aplikacji</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Inteligentne piksele to funkcja oszczędzania energii. Poprawa żywotności baterii będzie zauważalna w zależności od ilości wyłączonych pikseli. Pamiętaj, że w niektórych przypadkach może to spowodować brak reakcji części ekranu dotykowego</string>
     <string name="smart_pixels_title">Inteligentne piksele</string>
@@ -579,6 +581,11 @@
     <string name="about_current_maintainers_empty_summary">Nie można odnaleźć aktualnie utrzymywanych wpisów z kompilacji OTA.</string>
     <string name="about_current_maintainers_last_updated">Ostatnia aktualizacja %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Ostatnia aktualizacja: nieznana</string>
+    <string name="about_current_maintainers_tap_to_view">Dotknij, aby wyświetlić aktywnych opiekunów</string>
+    <string name="about_current_maintainers_sheet_subtitle">%1$d aktywnych opiekunów</string>
+    <string name="about_current_maintainers_search_hint">Szukaj opiekunów lub urządzeń…</string>
+    <string name="about_current_maintainers_no_results">Brak opiekunów odpowiadających twojemu wyszukiwaniu</string>
+    <string name="maintainer_link_forum">Forum</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Wybór kolorów</string>
     <string name="press_color_to_apply">Naciśnij na kolor poniżej, aby zastosować</string>
@@ -991,19 +998,19 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="custom_gradient_color_mode_custom">Tryb niestandardowy</string>
     <string name="custom_gradient_start_color_title">Kolor początkowy gradientu</string>
     <string name="custom_gradient_end_color_title">Kolor końca gradientu</string>
-    <!-- App Spoofing -->
-    <string name="user_selectable_app_spoofing_title">Fałszowanie aplikacji</string>
-    <string name="user_selectable_app_spoofing_summary">Wybierz aplikacje, dla których chcesz sfałszować właściwości urządzenia</string>
+    <!-- App and Game Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Fałszowanie aplikacji i gier</string>
+    <string name="user_selectable_app_spoofing_summary">Fałszowanie właściwości urządzenia dla aplikacji i gier</string>
     <string name="user_select_spoofing_profile_title">Wybierz profil fałszowania</string>
     <string name="app_spoofing_category_title">Fałszowanie aplikacji</string>
     <string name="app_spoofing_header_title">Włącz fałszowanie</string>
-    <string name="app_spoofing_configured_count">%1$d aplikacji sfałszowanych</string>
+    <string name="app_spoofing_configured_count">%1$d aplikacji i gier sfałszowanych</string>
     <string name="app_spoofing_disabled">Wyłączony</string>
-    <string name="app_spoofing_add_apps">Dodaj aplikacje</string>
+    <string name="app_spoofing_add_apps">Dodaj aplikacje i gry</string>
     <string name="app_spoofing_spoofed_model">Wybierz model</string>
     <string name="app_spoofing_clear_all">Wyczyść wszystko</string>
-    <string name="app_spoofing_configured_apps">Lista skonfigurowanych aplikacji</string>
-    <string name="app_spoofing_no_apps_configured">Brak skonfigurowanych aplikacji</string>
+    <string name="app_spoofing_configured_apps">Skonfigurowane aplikacje i gry</string>
+    <string name="app_spoofing_no_apps_configured">Brak skonfigurowanych aplikacji lub gier</string>
     <string name="app_spoofing_spoof_model">Fałszowanie modelu</string>
     <string name="app_spoofing_select_spoof_model">Wybierz fałszowany model</string>
     <string name="app_spoofing_change_app">Wybierz aplikację</string>
@@ -1020,8 +1027,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="custom_spoof_profile_fingerprint">Odcisk palca (opcjonalnie)</string>
     <string name="custom_spoof_profile_product">Produkt (opcjonalnie)</string>
     <string name="app_spoofing_clear_all_confirm">Spowoduje to usunięcie wszystkich skonfigurowanych wpisów dotyczących fałszowania aplikacji.</string>
-    <string name="app_spoofing_no_apps_available">Brak dostępnych aplikacji</string>
-    <string name="app_spoofing_no_apps_found">Nie znaleziono aplikacji dla \"%s\"</string>
+    <string name="app_spoofing_no_apps_available">Brak dostępnych aplikacji lub gier</string>
+    <string name="app_spoofing_no_apps_found">Nie znaleziono aplikacji lub gier dla \"%s\"</string>
     <string name="app_spoofing_clear_search">Wyczyść wyszukiwanie</string>
     <string name="app_spoofing_longpress_hint">Naciśnij i przytrzymaj, aby szybko zmienić przypisanie profilu</string>
     <string name="app_spoofing_remove_title">Usunąć aplikację?</string>
@@ -1334,7 +1341,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="lock_glymps_clear_cache_title">Wyczyść pamięć podręczną</string>
     <string name="lock_glymps_clear_cache_summary">Usuń wszystkie pamięci podręczne tapet</string>
     <string name="lock_glymps_behavior_category">Zachowanie</string>
-    <string name="lock_glymps_change_on_title">Zmiana tapety włączona</string>
+    <string name="lock_glymps_change_on_title">Moment zmiany tapety</string>
     <string name="lock_glymps_change_on_summary">Kiedy zmienić tapetę ekranu</string>
     <string name="lock_glymps_timer_interval_title">Odstęp czasowy</string>
     <string name="lock_glymps_timer_interval_summary">Jak często automatycznie zmieniać tapetę</string>
@@ -1408,8 +1415,6 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="play_integrity_fix_summary">Zarządzaj konfiguracją poprawki integralności Google Play i odciskami palców urządzenia</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Zarządzaj zestawem kluczy i aplikacjami docelowymi do poświadczania silnej integralności</string>
-    <string name="game_spoofing_title">Fałszowanie gier</string>
-    <string name="game_spoofing_summary">Fałszowanie właściwości urządzenia dla wybranych gier</string>
     <!-- Play Integrity Fix -->
     <string name="pif_status">Status</string>
     <string name="pif_active_config">Aktywna konfiguracja</string>
@@ -1469,30 +1474,22 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_footer_body">1. Uzyskaj prawidłowy plik XML zestawu kluczy z zaufanego źródła. Zestawy kluczy nie są dostępne; musisz znaleźć je samodzielnie.\n2. Kliknij „Importuj zestaw kluczy” i załaduj plik.\n3. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz Usługi Google Play i Sklep Google Play.\n4. Ustaw tryb docelowy na „Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE, w przeciwnym razie pozostaw tryb Automatyczny.\n5. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego. Jeśli Google unieważni zestaw kluczy, może nadal zezwolić na przekazanie jej do systemu integralności urządzenia, nawet jeśli silna integralność nie zostanie zaakceptowana.</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używając domyślnych ustawień urządzenia)</string>
-    <!-- Game Spoofing -->
-    <string name="gs_enable">Włącz fałszowanie aplikacji</string>
-    <string name="gs_enable_summary">Fałszowanie właściwości urządzenia dla skonfigurowanych gier</string>
-    <string name="gs_add_app">Dodaj grę</string>
-    <string name="gs_add_app_summary">Wybierz aplikację i profil urządzenia, które chcesz sfałszować</string>
-    <string name="gs_reload">Przeładuj</string>
-    <string name="gs_reload_summary">Ponowne załadowanie konfiguracji z dysku</string>
-    <string name="gs_configured_apps">Skonfigurowane gry</string>
-    <string name="gs_no_apps">Brak skonfigurowanych gier</string>
-    <string name="gs_no_apps_summary">Naciśnij \"Dodaj grę\", aby rozpocząć</string>
-    <string name="gs_select_app">Wybierz aplikację</string>
-    <string name="gs_select_profile">Wybierz profil urządzenia</string>
-    <string name="gs_edit_props">Edytuj właściwości</string>
-    <string name="gs_change_profile">Wybierz profil urządzenia</string>
-    <string name="gs_remove">Usuń</string>
-    <string name="gs_remove_title">Usunąć grę?</string>
-    <string name="gs_remove_message">Usunąć %s z listy fałszowania?</string>
-    <string name="gs_edit_app">Edytuj %s</string>
-    <string name="gs_key">Klucz</string>
-    <string name="gs_value">Wartość</string>
-    <string name="gs_save">Zapisz</string>
-    <string name="gs_config_saved">Konfiguracja zapisana</string>
-    <string name="gs_loading_apps">Ładowanie aplikacji\u2026</string>
-    <string name="gs_failed">Niepowodzenie: %s</string>
+    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_select_target_apps">Wybierz aplikacje docelowe</string>
+    <string name="ts_select_target_apps_desc">Wybierz aplikacje, aby włączyć fałszowanie poświadczenia</string>
+    <string name="ts_search_apps">Wyszukaj aplikacje\u2026</string>
+    <string name="ts_system_apps">Aplikacje systemowe</string>
+    <string name="ts_selected_count">%d wybranych</string>
+    <string name="ts_select_all">Zaznacz wszystko</string>
+    <string name="ts_reset">Resetuj</string>
+    <string name="ts_mode_auto">Automatyczny</string>
+    <string name="ts_mode_leaf">Podmiana certyfikatu</string>
+    <string name="ts_mode_cert">Generowanie certyfikatu</string>
+    <!-- TrickyStore verification mode preference -->
+    <string name="ts_verification_mode">Tryb weryfikacji</string>
+    <string name="ts_verification_mode_auto">automatyczny</string>
+    <string name="ts_verification_mode_cert">generowanie certyfikatu</string>
+    <string name="ts_verification_mode_leaf">podmiana certyfikatu </string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
     <string name="depthwall_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
