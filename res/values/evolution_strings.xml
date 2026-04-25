@@ -563,11 +563,18 @@
     <string name="miscellaneous_unlimit_screenrecord_title">Unlimit screenrecord</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remove the 15GiB file size limit\nMay result in a larger than needed output file</string>
 
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Hide applist</string>
-    <string name="hide_applist_summary">Prevent apps from checking selected apps from appslist</string>
-    <string name="menu_show_overlay">Show overlay</string>
-    <string name="menu_hide_overlay">Hide overlay</string>
+    <!-- Miscellaneous/Hide Apps (consolidated HideAppList + HideDeveloperStatus) -->
+    <string name="hide_apps_title">Hide apps</string>
+    <string name="hide_apps_summary">Hide selected apps from app lists and developer status checks</string>
+    <string name="hide_apps_none_configured">No apps hidden</string>
+    <string name="search_apps">Search apps</string>
+    <string name="hide_apps_clear_search">Clear search</string>
+    <string name="hide_apps_system_badge">SYS</string>
+    <string name="hide_apps_toggle_app_list">App list</string>
+    <string name="hide_apps_toggle_dev_status">Dev status</string>
+    <string name="hide_apps_toggle_hidden">Hidden</string>
+    <!-- %1$d = number of apps currently hidden in any mode -->
+    <string name="hide_apps_count">%1$d apps hidden</string>
 
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Smart Pixels is a power saving feature. Depending on how many pixels you decide to turn off, you could see improvement in battery life. Note that in some cases it can result in unresponsive areas on touch screen</string>

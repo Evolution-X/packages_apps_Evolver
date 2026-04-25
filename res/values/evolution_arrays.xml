@@ -810,8 +810,8 @@
         <item>8</item>
     </string-array>
 
-    <!-- Apps list to hide from Hide developer status setting -->
-    <string-array name="hide_applist_hidden_apps" translatable="false">
+    <!-- Apps list to hide -->
+    <string-array name="hide_apps_hidden_apps" translatable="false">
         <item>android</item>
         <item>com.android.settings</item>
         <item>com.android.systemui</item>
