@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2025 Evolution X
+ * SPDX-FileCopyrightText: Evolution X
  * Copyright (C) 2025 crDroid Android Project
  * Copyright (C) 2023-2024 the risingOS Android Project
  *

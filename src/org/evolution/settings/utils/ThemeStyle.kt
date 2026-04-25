@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Evolution X
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 package org.evolution.settings.utils
 
 enum class ThemeStyle(val displayName: String, val systemValue: String) {

@@ -19,10 +19,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/depthwall_wallpaper_enabled_title">
 
-    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+    <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="depth_wallpaper_enabled"
-        android:title="@string/depthwall_wallpaper_enabled_title"
-        android:summary="@string/depthwall_wallpaper_enabled_summary"
+        android:title="@string/enable"
         android:defaultValue="false" />
 
     <Preference
@@ -34,6 +33,7 @@
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="depth_wallpaper_opacity"
+        android:dependency="depth_wallpaper_enabled"
         android:title="@string/depthwall_wallpaper_opacity_title"
         android:max="100"
         settings:min="1"
@@ -43,6 +43,7 @@
         
     <com.android.settingslib.widget.FooterPreference
         android:key="depthwall_footer"
+        android:dependency="depth_wallpaper_enabled"
         android:title="@string/depthwall_footer_text"
         android:selectable="false"
         settings:searchable="false" />
