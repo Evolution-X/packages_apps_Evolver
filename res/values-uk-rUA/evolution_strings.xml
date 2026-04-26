@@ -537,6 +537,11 @@
     <string name="hide_apps_summary">Приховати обрані додатки зі списками додатків та перевірками статусу розробника</string>
     <string name="hide_apps_none_configured">Немає прихованих застосунків</string>
     <string name="search_apps">Пошук додатків</string>
+    <string name="hide_apps_clear_search">Очистити пошук</string>
+    <string name="hide_apps_system_badge">SYS</string>
+    <string name="hide_apps_toggle_app_list">Список додатків</string>
+    <string name="hide_apps_toggle_dev_status">Статус розробника</string>
+    <string name="hide_apps_toggle_hidden">Приховано</string>
     <!-- %1$d = number of apps currently hidden in any mode -->
     <string name="hide_apps_count">Немає прихованих застосунків</string>
     <!-- Miscellaneous/Smart Pixels -->
@@ -1434,6 +1439,9 @@
     <string name="pif_select_channel">Оберіть канал</string>
     <string name="pif_channel_latest_release">Останній випуск</string>
     <string name="pif_channel_canary_release">Канарний реліз</string>
+    <string name="pif_invalid_fingerprint">Недійсний формат відбитка пальця</string>
+    <string name="pif_no_devices_found">Пристроїв не знайдено</string>
+    <string name="pif_no_api_key">Не вдалося видобути ключ API Flash Tool</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Керування ключами</string>
     <string name="ts_import_keybox">Імпортувати Keybox</string>
@@ -1482,6 +1490,10 @@
     <string name="ts_verification_mode_auto">автоматично</string>
     <string name="ts_verification_mode_cert">cert</string>
     <string name="ts_verification_mode_leaf">лист</string>
+    <string name="ts_target_apps_count_with_mode">%1$d Налаштованих програм · %2$s</string>
+    <string name="ts_verification_auto_count">%1$d Автоматично</string>
+    <string name="ts_verification_cert_count">%1$d Сертифікат</string>
+    <string name="ts_verification_leaf_count">%1$d Листок</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Вибрати шпалери з ефектом глибини</string>
     <string name="depthwall_file_header_select_summary">Вибрати зображення для шпалер з ефектом глибини зі сховища.</string>
