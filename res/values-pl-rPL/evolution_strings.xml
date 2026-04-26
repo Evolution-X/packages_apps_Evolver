@@ -532,18 +532,16 @@
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów i nagrywania ekranu dla wszystkich aplikacji, potencjalne ryzyko wycieku danych osobowych</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
-    <!-- Miscellaneous/Hide Apps (consolidated HideAppList + HideDeveloperStatus) -->
-    <string name="hide_apps_title">Ukryj aplikacje</string>
-    <string name="hide_apps_summary">Ukryj wybrane aplikacje na listach aplikacji i w sprawdzaniu statusu programisty</string>
-    <string name="hide_apps_none_configured">Brak ukrytych aplikacji</string>
-    <string name="search_apps">Wyszukaj aplikacje</string>
-    <string name="hide_apps_clear_search">Wyczyść wyszukiwanie</string>
-    <string name="hide_apps_system_badge">System</string>
-    <string name="hide_apps_toggle_app_list">Lista aplikacji</string>
-    <string name="hide_apps_toggle_dev_status">Status programisty</string>
-    <string name="hide_apps_toggle_hidden">Ukryty</string>
-    <!-- %1$d = number of apps currently hidden in any mode -->
-    <string name="hide_apps_count">%1$d ukrytych aplikacji</string>
+    <!-- Miscellaneous/Hide developer status -->
+    <string name="hide_developer_status_title">Ukryj status programisty</string>
+    <string name="hide_developer_status_summary">Ukryj wybrane aplikacje przed sprawdzaniem statusu programisty</string>
+    <string name="hide_developer_status_none_configured">Brak ukrytych aplikacji</string>
+    <string name="hide_developer_status_clear_search">Wyczyść wyszukiwanie</string>
+    <string name="hide_developer_status_system_badge">System</string>
+    <string name="hide_developer_status_toggle_label">Status programisty</string>
+    <string name="hide_developer_status_toggle_hidden">Ukryty</string>
+    <!-- %1$d = number of apps currently hidden -->
+    <string name="hide_developer_status_count">%1$d ukrytych aplikacji</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Inteligentne piksele to funkcja oszczędzania energii. Poprawa żywotności baterii będzie zauważalna w zależności od ilości wyłączonych pikseli. Pamiętaj, że w niektórych przypadkach może to spowodować brak reakcji części ekranu dotykowego</string>
     <string name="smart_pixels_title">Inteligentne piksele</string>
@@ -616,6 +614,7 @@
     <string name="reset">Resetuj</string>
     <string name="delete_message">Usunąć zaznaczony element?</string>
     <string name="choose_app">Wybierz aplikację</string>
+    <string name="search_apps">Wyszukaj aplikacje</string>
     <!-- Changelog -->
     <string name="changelog_title">Bieżąca lista zmian</string>
     <string name="changelog_summary">Wyświetl zmiany w źródle ROM</string>
@@ -928,12 +927,26 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="statusbar_extra_padding_start_title">Początkowe wypełnienie</string>
     <string name="statusbar_extra_padding_top_title">Górne wypełnienie</string>
     <string name="statusbar_extra_padding_end_title">Końcowe wypełnienie</string>
-    <!-- Sensor block per-package -->
+    <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_title">Blokowanie czujników dla aplikacji</string>
     <string name="sensor_block_summary">Zablokuj dostęp do niektórych czujników dla niektórych aplikacji, aby oszczędzać baterię</string>
     <string name="sensor_block_app_picker_title">Blokuj czujniki dla tych aplikacji</string>
     <string name="add_sensor_block_package_title">Dodaj aplikacje do blokady czujników</string>
     <string name="add_sensor_block_package_summary">Znaczący ruch, akcelerometr, czujniki przyspieszenia liniowego zostaną zablokowane dla tych aplikacji</string>
+    <string name="sensor_block_none_configured">Brak zablokowanych aplikacji</string>
+    <string name="sensor_block_system_badge">System</string>
+    <!-- %1$d = number of apps currently blocked -->
+    <string name="sensor_block_count">%1$d zablokowanych aplikacji</string>
+    <string name="sensor_block_add_apps">Dodaj aplikacje</string>
+    <string name="sensor_block_configured_apps">Zablokowane aplikacje</string>
+    <string name="sensor_block_no_apps_configured">Brak zablokowanych aplikacji</string>
+    <string name="sensor_block_no_apps_available">Brak dostępnych aplikacji</string>
+    <string name="sensor_block_no_apps_found">Brak wyników dla \"%1$s”</string>
+    <string name="sensor_block_remove_title">Usunąć aplikację?</string>
+    <string name="sensor_block_remove_confirm">Usunąć %1$s z listy blokady czujnika?</string>
+    <string name="sensor_block_clear_all">Wyczyść wszystko</string>
+    <string name="sensor_block_clear_all_confirm">Spowoduje to odblokowanie wszystkich aplikacji i wyłączenie blokowania czujnika.</string>
+    <string name="sensor_block_disabled">Wyłączony</string>
     <!-- Blink flashlight for incoming calls -->
     <string name="flashlight_on_call_title">Migaj latarką podczas połączenia przychodzącego</string>
     <string name="flashlight_on_call_disabled">Wyłączone</string>
@@ -1467,6 +1480,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_target_apps_count">%d skonfigurowanych aplikacji</string>
     <string name="ts_import_target_list">Importuj listę docelową</string>
     <string name="ts_import_target_list_summary">Importuj target.txt z pliku</string>
+    <string name="ts_invalid_patch_date">Nieprawidłowy format daty. Użyj RRRR-MM-DD</string>
     <string name="ts_target_list_imported">Zaimportowano listę docelową</string>
     <string name="ts_loading_apps">Ładowanie aplikacji\u2026</string>
     <string name="ts_auto_select">Wybierz automatycznie</string>
@@ -1497,7 +1511,6 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_verification_mode_auto">tryb automatyczny</string>
     <string name="ts_verification_mode_cert">generowanie certyfikatu</string>
     <string name="ts_verification_mode_leaf">podmiana certyfikatu </string>
-    <string name="ts_target_apps_count_with_mode">%1$d skonfigurowanych aplikacji · %2$s</string>
     <string name="ts_verification_auto_count">%1$d automatycznie</string>
     <string name="ts_verification_cert_count">%1$d generowanie certyfikatu</string>
     <string name="ts_verification_leaf_count">%1$d podmiana certyfikatu</string>
