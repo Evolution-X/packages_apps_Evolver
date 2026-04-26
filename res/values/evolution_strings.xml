@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2026 Evolution X
+     Copyright (C) Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -671,6 +671,7 @@
     <string name="reset">Reset</string>
     <string name="delete_message">Remove selected item?</string>
     <string name="choose_app">Choose app</string>
+    <string name="search_apps">Search apps</string>
 
     <!-- Changelog -->
     <string name="changelog_title">Current changelog</string>
@@ -1031,12 +1032,27 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="statusbar_extra_padding_top_title">Top padding</string>
     <string name="statusbar_extra_padding_end_title">End padding</string>
 
-    <!-- Sensor block per-package -->
+    <!-- Miscellaneous/Sensor block -->
+    <string name="sensor_block_header_title">Sensor block</string>
     <string name="sensor_block_title">Sensor block per-package</string>
     <string name="sensor_block_summary">Block access to certain sensors for some apps to save battery</string>
     <string name="sensor_block_app_picker_title">Block sensors for these apps</string>
     <string name="add_sensor_block_package_title">Add apps for Sensor block</string>
     <string name="add_sensor_block_package_summary">Significant motion, accelerometer, linear acceleration sensors will be blocked for these apps</string>
+    <string name="sensor_block_none_configured">No apps blocked</string>
+    <string name="sensor_block_system_badge">SYS</string>
+    <!-- %1$d = number of apps currently blocked -->
+    <string name="sensor_block_count">%1$d apps blocked</string>
+    <string name="sensor_block_add_apps">Add apps</string>
+    <string name="sensor_block_configured_apps">Blocked apps</string>
+    <string name="sensor_block_no_apps_configured">No apps blocked</string>
+    <string name="sensor_block_no_apps_available">No apps available</string>
+    <string name="sensor_block_no_apps_found">No results for "%1$s"</string>
+    <string name="sensor_block_remove_title">Remove app?</string>
+    <string name="sensor_block_remove_confirm">Remove %1$s from the sensor block list?</string>
+    <string name="sensor_block_clear_all">Clear all</string>
+    <string name="sensor_block_clear_all_confirm">This will unblock all apps and disable sensor blocking.</string>
+    <string name="sensor_block_disabled">Disabled</string>
 
     <!-- Blink flashlight for incoming calls -->
     <string name="flashlight_on_call_title">Blink flashlight for incoming call</string>
