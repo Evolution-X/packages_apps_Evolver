@@ -1496,6 +1496,10 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_verification_mode_auto">automático</string>
     <string name="ts_verification_mode_cert">cert</string>
     <string name="ts_verification_mode_leaf">leaf</string>
+    <string name="ts_target_apps_count_with_mode">%1$d aplicativos configurados · %2$s</string>
+    <string name="ts_verification_auto_count">%1$d Automático</string>
+    <string name="ts_verification_cert_count">%1$d cert</string>
+    <string name="ts_verification_leaf_count">%1$d leaf</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Selecione o tema do papel de parede de profundidade</string>
     <string name="depthwall_file_header_select_summary">Selecione a imagem do tema do papel de parede de profundidade do armazenamento.</string>
