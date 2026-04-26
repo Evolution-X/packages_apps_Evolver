@@ -1475,7 +1475,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_targets_saved">Lista docelowa zapisana</string>
     <string name="ts_failed">Niepowodzenie: %s</string>
     <string name="ts_target_mode">Tryb docelowy</string>
-    <string name="ts_target_mode_auto">Automatyczny</string>
+    <string name="ts_target_mode_auto">Tryb automatyczny</string>
     <string name="ts_target_mode_leaf">Podmiana certyfikatu</string>
     <string name="ts_target_mode_cert">Generowanie certyfikatu</string>
     <string name="ts_footer_title">Przejście silnej integralności</string>
@@ -1490,12 +1490,12 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_selected_count">%d wybranych</string>
     <string name="ts_select_all">Zaznacz wszystko</string>
     <string name="ts_reset">Resetuj</string>
-    <string name="ts_mode_auto">Automatyczny</string>
+    <string name="ts_mode_auto">Tryb automatyczny</string>
     <string name="ts_mode_leaf">Podmiana certyfikatu</string>
     <string name="ts_mode_cert">Generowanie certyfikatu</string>
     <!-- TrickyStore verification mode preference -->
     <string name="ts_verification_mode">Tryb weryfikacji</string>
-    <string name="ts_verification_mode_auto">automatyczny</string>
+    <string name="ts_verification_mode_auto">tryb automatyczny</string>
     <string name="ts_verification_mode_cert">generowanie certyfikatu</string>
     <string name="ts_verification_mode_leaf">podmiana certyfikatu </string>
     <string name="ts_target_apps_count_with_mode">%1$d skonfigurowanych aplikacji · %2$s</string>
