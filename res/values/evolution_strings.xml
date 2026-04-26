@@ -1365,7 +1365,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- Cutout Progress -->
     <string name="cutout_progress_title">Cutout Progress Ring</string>
     <string name="cutout_progress_summary">Show progress ring around punch hole</string>
-    <string name="cutout_progress_enabled_title">Enable cutout progress ring</string>
     <string name="cutout_progress_enabled_summary">Show a progress ring around the camera cutout during downloads</string>
     <string name="cutout_progress_cat_appearance">Appearance</string>
     <string name="cutout_progress_cat_behaviour">Behaviour</string>
