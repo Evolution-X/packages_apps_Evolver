@@ -277,7 +277,7 @@
     <string name="status_bar_lyric_title">Tekst piosenki na pasku stanu</string>
     <string name="status_bar_lyric_summary">Pokaż tekst piosenki na pasku stanu (wymaga wsparcia aplikacji)</string>
     <string name="status_bar_lyric_options_title">Opcje</string>
-    <string name="disguise_props_for_music_app_title">Podszywaj się pod inny model urządzenia dla aplikacji muzycznych</string>
+    <string name="disguise_props_for_music_app_title">Ukryj urządzenie dla aplikacji muzycznych</string>
     <string name="disguise_props_for_music_app_summary">Ukryj urządzenie w niektórych aplikacjach muzycznych do obsługi tekstu na pasku stanu. Po zmianie tego przełącznika należy ponownie uruchomić aplikacje, aby zmiana zaczęła działać.</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Styl zegara</string>
@@ -288,7 +288,7 @@
     <string name="status_bar_clock_seconds_summary">Wyświetlaj sekundy obok zegara na pasku stanu</string>
     <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, jeśli launcher jest widoczny</string>
-    <string name="status_bar_am_pm_title">Format 12-godzinny (AM/PM)</string>
+    <string name="status_bar_am_pm_title">Styl AM/PM</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
     <string name="status_bar_am_pm_normal">Normalny</string>
     <string name="status_bar_am_pm_small">Mały</string>
@@ -303,7 +303,7 @@
     <string name="status_bar_date_style_lowercase">Małe litery</string>
     <string name="status_bar_date_style_uppercase">Wielkie litery</string>
     <string name="status_bar_date_format_custom">Niestandardowy format (java)</string>
-    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. mm/dd/yy</string>
+    <string name="status_bar_date_string_edittext_title">Musi to być format daty np. mm/dd/rr</string>
     <string name="status_bar_date_string_edittext_summary">Wprowadź ciąg znaków</string>
     <string name="status_bar_clock_date_position">Położenie daty</string>
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
@@ -537,6 +537,11 @@
     <string name="hide_apps_summary">Ukryj wybrane aplikacje na listach aplikacji i w sprawdzaniu statusu programisty</string>
     <string name="hide_apps_none_configured">Brak ukrytych aplikacji</string>
     <string name="search_apps">Wyszukaj aplikacje</string>
+    <string name="hide_apps_clear_search">Wyczyść wyszukiwanie</string>
+    <string name="hide_apps_system_badge">System</string>
+    <string name="hide_apps_toggle_app_list">Lista aplikacji</string>
+    <string name="hide_apps_toggle_dev_status">Status programisty</string>
+    <string name="hide_apps_toggle_hidden">Ukryty</string>
     <!-- %1$d = number of apps currently hidden in any mode -->
     <string name="hide_apps_count">%1$d ukrytych aplikacji</string>
     <!-- Miscellaneous/Smart Pixels -->
@@ -699,10 +704,10 @@
     <string name="dw_wallpaper_enabled_title">Tapeta z efektem głębi</string>
     <string name="dw_wallpaper_enabled_summary_tile">Zastosuj efekt głębi \n do tapety</string>
     <string name="dw_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu.</string>
-    <string name="dw_wallpaper_opacity_title">Przezroczystość tapety z efektem głębi</string>
+    <string name="dw_wallpaper_opacity_title">Krycie tapety z głębią</string>
     <string name="depth_wallpaper_offset_x_title">Poziome przesunięcie tapety z efektem głębi</string>
     <string name="depth_wallpaper_offset_y_title">Pionowe przesunięcie tapety z efektem głębi</string>
-    <string name="dw_footer_text">Funkcja tapety z efektem głębi, inspirowana segmentacją obiektów na ekranie blokady w systemie iOS, umożliwia nałożenie obiektu na zegar na ekranie blokady, aby pokazać efekt głębi tapety.\n\nAby skonfigurować funkcję tapety głębi:\n1. Ustaw tapetę z obiektem lub tłem, nad którym ma się on znajdować.\n2. Wybierz obraz obiektu do śledzenia. Zostanie on nałożony na zegar na ekranie blokady.\n3. Dostosuj przesunięcia i krycie według własnych potrzeb    </string>
+    <string name="dw_footer_text">Funkcja tapety z głębią, inspirowana segmentacją obiektów na ekranie blokady w systemie iOS, umożliwia nałożenie obiektu na zegar na ekranie blokady, aby pokazać efekt głębi tapety.\n\nAby skonfigurować funkcję tapety głębi:\n1. Ustaw tapetę z obiektem lub tłem, nad którym ma się on znajdować.\n2. Wybierz obraz obiektu do śledzenia. Zostanie on nałożony na zegar na ekranie blokady.\n3. Dostosuj przesunięcia i krycie według własnych potrzeb    </string>
     <!-- Lock screen media art -->
     <string name="ls_media_art_title">Okładka multimediów</string>
     <string name="ls_media_art_summary">Wyświetl okładkę multimediów, gdy jest dostępna</string>
@@ -820,14 +825,14 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ongoing_chip_color_mode_accent">Kolor akcentu systemowego</string>
     <string name="ongoing_chip_color_mode_icon">Kolor ikony aplikacji</string>
     <string name="ongoing_chip_color_mode_album_art">Kolor okładki albumu</string>
-    <string name="ongoing_chip_bg_alpha_title">Przezroczystość tła znacznika</string>
-    <string name="ongoing_chip_bg_alpha_summary">Dostosuj przezroczystość trwającego znacznika akcji</string>
+    <string name="ongoing_chip_bg_alpha_title">Krycie tła znacznika</string>
+    <string name="ongoing_chip_bg_alpha_summary">Dostosuj krycie znacznika trwającej akcji</string>
     <!-- Status bar - Battery Bar -->
     <string name="battery_bar_title">Pasek baterii</string>
     <string name="battery_bar_summary">Wyświetl i dostosuj pasek baterii nad paskiem stanu</string>
     <string name="battery_bar_color">Kolor</string>
-    <string name="battery_bar_charging_color">Kolor podczas ładowania</string>
-    <string name="battery_bar_battery_low_color">Kolor niskiego poziomu naładowania baterii</string>
+    <string name="battery_bar_charging_color">Kolor ładowania</string>
+    <string name="battery_bar_battery_low_color">Kolor słabej baterii</string>
     <string name="battery_bar_style_title">Wyrównanie</string>
     <string name="battery_bar_thickness_title">Grubość</string>
     <string name="battery_bar_animate_title">Animacja ładowania</string>
@@ -953,9 +958,9 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="hardware_keys_action_split_screen">Podziel ekran</string>
     <string name="hardware_keys_action_close_app">Zatrzymaj aplikację</string>
     <string name="hardware_keys_action_play_pause_music">Odtwarzaj/wstrzymaj odtwarzanie muzyki</string>
-    <string name="hardware_keys_action_torch">Włącz/wyłącz latarkę</string>
+    <string name="hardware_keys_action_torch">Przełącz latarkę</string>
     <string name="hardware_keys_action_screenshot">Zrób zrzut ekranu</string>
-    <string name="hardware_keys_action_volume_panel">Przełącznik panelu głośności</string>
+    <string name="hardware_keys_action_volume_panel">Przełącz panel głośności</string>
     <string name="hardware_keys_action_clear_all_notifications">Wyczyść wszystkie powiadomienia</string>
     <string name="hardware_keys_action_notifications_panel">Przełącz panel powiadomień</string>
     <string name="hardware_keys_action_expand_qs_panel">Rozwiń panel szybkich ustawień</string>
@@ -971,8 +976,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="charging_animation_summary">Pokaż efekty wizualne podczas ładowania urządzenia na ekranie blokady lub na Ekran zawsze aktywny</string>
     <string name="charging_animation_style_category_title">Styl animacji</string>
     <string name="charging_animation_style_title">Typ efektu</string>
-    <string name="charging_ripple_opacity_title">Nieprzezroczystość słupków</string>
-    <string name="charging_ripple_opacity_summary">Dostosuj widoczność słupków</string>
+    <string name="charging_ripple_opacity_title">Krycie fal</string>
+    <string name="charging_ripple_opacity_summary">Dostosuj widoczność fal</string>
     <string name="charging_glow_intensity_title">Intensywność świecenia</string>
     <string name="charging_glow_intensity_summary">Dostosuj jasność świecenia i cząsteczek</string>
     <string name="charging_arc_count_title">Liczba słupków</string>
@@ -1099,7 +1104,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="lockscreen_custom_clock_style_summary">Konfiguruj style zegara na ekranie blokady</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Przesuń w lewo lub w prawo, aby wyświetlić podgląd stylów zegara</string>
     <string name="lockscreen_custom_clock_style_info">Niestandardowy styl zegara zastępuje style zegara AOSP niestandardowymi zegarami. Inteligentna przestrzeń zostanie wyłączona. Możesz, zamiast tego włączyć i używać niestandardowej pogody.</string>
-    <string name="lockscreen_custom_clock_opacity_title">Niestandardowa przezroczystość zegara</string>
+    <string name="lockscreen_custom_clock_opacity_title">Niestandardowe krycie zegara</string>
     <string name="lockscreen_custom_clock_opacity_summary">Dostosuj przezroczystość niestandardowego stylu zegara</string>
     <string name="lockscreen_custom_clock_frame_margin_top_title">Niestandardowa wysokość zegara</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Dostosuj wysokość niestandardowego stylu zegara</string>
@@ -1174,9 +1179,9 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="dynamic_bar_compact_notifications">Kompaktowe powiadomienia</string>
     <string name="dynamic_bar_compact_notifications_summary">Pokaż powiadomienia jako mały wskaźnik, dotknij, aby rozwinąć</string>
     <string name="dynamic_bar_event_timer">Minutnik</string>
-    <string name="dynamic_bar_event_timer_summary">Minutnik odliczania z aplikacji Zegar</string>
+    <string name="dynamic_bar_event_timer_summary">Minutnik odliczania z aplikacji zegara</string>
     <string name="dynamic_bar_event_stopwatch">Stoper</string>
-    <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji Zegar</string>
+    <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji zegara</string>
     <string name="dynamic_bar_event_alarm">Alarm</string>
     <string name="dynamic_bar_event_alarm_summary">Dzwoniące i nadchodzące alarmy</string>
     <string name="dynamic_bar_event_charging">Rozpoczęto ładowanie</string>
@@ -1246,7 +1251,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="cutout_progress_error_color_title">Kolor błędu</string>
     <string name="cutout_progress_finish_flash_color_title">Kolor końca wgrywania</string>
     <string name="cutout_progress_bg_ring_color_title">Kolor tła pierścienia</string>
-    <string name="cutout_progress_opacity_title">Przezroczystość pierścienia</string>
+    <string name="cutout_progress_opacity_title">Krycie pierścienia</string>
     <string name="cutout_progress_stroke_width_title">Grubość obrysu</string>
     <string name="cutout_progress_ring_gap_title">Przerwa pierścienia (odległość od wycięcia)</string>
     <string name="cutout_progress_clockwise_title">Zgodnie z ruchem wskazówek zegara</string>
@@ -1257,7 +1262,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="cutout_progress_easing_title">Łagodzenie postępu</string>
     <string name="cutout_progress_bg_ring_enabled_title">Pokaż tło pierścienia</string>
     <string name="cutout_progress_bg_ring_enabled_summary">Narysuj subtelny pełny pierścień za łukiem postępu</string>
-    <string name="cutout_progress_bg_ring_opacity_title">Przezroczystość tła pierścienia</string>
+    <string name="cutout_progress_bg_ring_opacity_title">Krycie tła pierścienia</string>
     <string name="cutout_progress_finish_style_title">Styl animacji końcowej</string>
     <string name="cutout_progress_finish_hold_title">Czas przytrzymania</string>
     <string name="cutout_progress_finish_exit_title">Czas wyjścia</string>
@@ -1315,7 +1320,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="cutout_progress_music_color_mode_album_art">Okładka albumu</string>
     <string name="cutout_progress_music_color_mode_custom">Niestandardowy kolor</string>
     <string name="cutout_progress_music_custom_color_title">Niestandardowy kolor</string>
-    <string name="cutout_progress_music_opacity_title">Przezroczystość pierścienia</string>
+    <string name="cutout_progress_music_opacity_title">Krycie pierścienia</string>
     <string name="cutout_progress_music_stroke_title">Grubość obrysu</string>
     <string name="cutout_progress_music_clockwise_title">Zgodnie z ruchem wskazówek zegara</string>
     <string name="cutout_progress_music_aod_title">Pokaż na Ekran zawsze włączony</string>
@@ -1442,6 +1447,9 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="pif_select_channel">Wybierz kanał</string>
     <string name="pif_channel_latest_release">Najnowsze wydanie</string>
     <string name="pif_channel_canary_release">Wydanie canary</string>
+    <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
+    <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
+    <string name="pif_no_api_key">Nie udało się wyodrębnić klucza API narzędzia do wgrywania</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Zarządzanie zestawem kluczy</string>
     <string name="ts_import_keybox">Importuj zestaw kluczy</string>
@@ -1496,8 +1504,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="depthwall_wallpaper_enabled_title">Tapeta z efektem głębi</string>
     <string name="depthwall_wallpaper_enabled_summary_tile">Zastosuj efekt głębi \n do tapety</string>
     <string name="depthwall_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu.</string>
-    <string name="depthwall_wallpaper_opacity_title">Nieprzezroczystość tapety z efektem głębi</string>
-    <string name="depthwall_footer_text">Funkcja tapety z efektem głębi, inspirowana segmentacją obiektów na ekranie blokady w systemie iOS, umożliwia nałożenie obiektu na zegar na ekranie blokady, aby pokazać efekt głębi tapety.\n\nAby skonfigurować funkcję tapety głębi:\n1. Ustaw tapetę z obiektem lub tłem, nad którym ma się on znajdować.\n2. Wybierz obraz obiektu do śledzenia. Zostanie on nałożony na zegar na ekranie blokady.\n3. Dostosuj przesunięcia i krycie według własnych potrzeb.    </string>
+    <string name="depthwall_wallpaper_opacity_title">Krycie tapety z głębią</string>
+    <string name="depthwall_footer_text">Funkcja tapety z głębią, inspirowana segmentacją obiektów na ekranie blokady w systemie iOS, umożliwia nałożenie obiektu na zegar na ekranie blokady, aby pokazać efekt głębi tapety.\n\nAby skonfigurować funkcję tapety głębi:\n1. Ustaw tapetę z obiektem lub tłem, nad którym ma się on znajdować.\n2. Wybierz obraz obiektu do śledzenia. Zostanie on nałożony na zegar na ekranie blokady.\n3. Dostosuj przesunięcia i krycie według własnych potrzeb.    </string>
     <!-- Essential Notifications -->
     <string name="essential_notifications">Ważne powiadomienia</string>
     <string name="essential_notifications_summary">Wybierz aplikacje zawsze wyświetlane w powiadomieniach</string>
