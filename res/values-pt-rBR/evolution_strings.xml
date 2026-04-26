@@ -532,11 +532,18 @@
     <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas de tela e gravações de tela para todos os aplicativos, potencialmente arriscando vazamentos de privacidade</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela ilimitada</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remova o limite de tamanho de arquivo 15GiB\nPode resultar em um arquivo de saída maior que o necessário</string>
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Ocultar lista de aplicativos</string>
-    <string name="hide_applist_summary">Impedir que aplicativos verifiquem aplicativos selecionados da lista de aplicativos</string>
-    <string name="menu_show_overlay">Mostrar sobreposições</string>
-    <string name="menu_hide_overlay">Ocultar as sobreposições</string>
+    <!-- Miscellaneous/Hide Apps (consolidated HideAppList + HideDeveloperStatus) -->
+    <string name="hide_apps_title">Ocultar aplicativos</string>
+    <string name="hide_apps_summary">Ocultar aplicativos selecionados das listas de aplicativos e verificações de status do desenvolvedor</string>
+    <string name="hide_apps_none_configured">Nenhum aplicativo oculto</string>
+    <string name="search_apps">Pesquisar aplicativos</string>
+    <string name="hide_apps_clear_search">Limpar pesquisa</string>
+    <string name="hide_apps_system_badge">SYS</string>
+    <string name="hide_apps_toggle_app_list">Lista de aplicativos</string>
+    <string name="hide_apps_toggle_dev_status">Status do Desenvolvedor</string>
+    <string name="hide_apps_toggle_hidden">Oculto</string>
+    <!-- %1$d = number of apps currently hidden in any mode -->
+    <string name="hide_apps_count">%1$d aplicativos ocultos</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Pixels Inteligentes é um recurso de economia de energia. Dependendo de quantos pixels você decidir desligar, você poderá ver uma melhoria na vida útil da bateria. Observe que, em alguns casos, isso pode resultar em áreas que não respondem na tela sensível ao toque</string>
     <string name="smart_pixels_title">Pixels Inteligentes</string>
@@ -579,6 +586,11 @@
     <string name="about_current_maintainers_empty_summary">Não foi possível encontrar entradas mantidas atualmente nas compilações OTA.</string>
     <string name="about_current_maintainers_last_updated">Última atualização: %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Última atualização: desconhecida</string>
+    <string name="about_current_maintainers_tap_to_view">Toque para ver os mantenedores ativos</string>
+    <string name="about_current_maintainers_sheet_subtitle">%1$d mantenedores ativos</string>
+    <string name="about_current_maintainers_search_hint">Procurar mantenedores ou dispositivos…</string>
+    <string name="about_current_maintainers_no_results">Nenhum mantenedor corresponde à sua pesquisa</string>
+    <string name="maintainer_link_forum">Fórum</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Seletor de cores</string>
     <string name="press_color_to_apply">Selecione a cor abaixo para aplicar</string>
@@ -989,19 +1001,19 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="custom_gradient_color_mode_custom">Modo personalizado</string>
     <string name="custom_gradient_start_color_title">Cor inicial do gradiente</string>
     <string name="custom_gradient_end_color_title">Cor final do gradiente</string>
-    <!-- App Spoofing -->
-    <string name="user_selectable_app_spoofing_title">Mascaramento por aplicativo</string>
-    <string name="user_selectable_app_spoofing_summary">Escolha para quais aplicativos mascarar as propriedades do dispositivo</string>
+    <!-- App and Game Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Mascaramento de aplicativo &amp; jogo</string>
+    <string name="user_selectable_app_spoofing_summary">Mascarar propriedades do dispositivo para aplicativos e jogos específicos</string>
     <string name="user_select_spoofing_profile_title">Selecione o perfil de mascaramento</string>
     <string name="app_spoofing_category_title">Mascaramento por aplicativo</string>
     <string name="app_spoofing_header_title">Ativar mascaramento</string>
-    <string name="app_spoofing_configured_count">%1$d aplicativos mascarados</string>
+    <string name="app_spoofing_configured_count">%1$d aplicativos &amp; jogos mascarados</string>
     <string name="app_spoofing_disabled">Desativado</string>
-    <string name="app_spoofing_add_apps">Adicionar aplicativos</string>
+    <string name="app_spoofing_add_apps">Adicionar aplicativos &amp; jogos</string>
     <string name="app_spoofing_spoofed_model">Selecione o modelo</string>
     <string name="app_spoofing_clear_all">Limpar tudo</string>
-    <string name="app_spoofing_configured_apps">Lista de aplicativos configurados</string>
-    <string name="app_spoofing_no_apps_configured">Nenhum aplicativo configurado</string>
+    <string name="app_spoofing_configured_apps">Aplicativos configurados &amp; Jogos</string>
+    <string name="app_spoofing_no_apps_configured">Nenhum aplicativo ou jogo configurado</string>
     <string name="app_spoofing_spoof_model">Modelo mascarado</string>
     <string name="app_spoofing_select_spoof_model">Selecionar modelo mascarado</string>
     <string name="app_spoofing_change_app">Alterar aplicativo</string>
@@ -1018,8 +1030,8 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Opcional)</string>
     <string name="custom_spoof_profile_product">PRODUTO (Opcional)</string>
     <string name="app_spoofing_clear_all_confirm">Isso removerá todas as entradas configuradas do mascaramento do aplicativo.</string>
-    <string name="app_spoofing_no_apps_available">Nenhum aplicativo disponível</string>
-    <string name="app_spoofing_no_apps_found">Nenhum aplicativo encontrado para \"%s\"</string>
+    <string name="app_spoofing_no_apps_available">Nenhum aplicativo ou jogo disponível</string>
+    <string name="app_spoofing_no_apps_found">Nenhum aplicativo ou jogo encontrado para \"%s\"</string>
     <string name="app_spoofing_clear_search">Limpar pesquisa</string>
     <string name="app_spoofing_longpress_hint">Pressione e segure para reatribuir o perfil rapidamente</string>
     <string name="app_spoofing_remove_title">Remover aplicativo?</string>
@@ -1406,8 +1418,6 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="play_integrity_fix_summary">Gerencie a configuração do PIF e as impressões digitais do dispositivo para obter integridade básica</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Gerencie keybox e aplicativos alvo para atestação de forte integridade</string>
-    <string name="game_spoofing_title">Mascaramento de jogo</string>
-    <string name="game_spoofing_summary">Mascarar propriedades do dispositivo para jogos específicos</string>
     <!-- Play Integrity Fix -->
     <string name="pif_status">Status</string>
     <string name="pif_active_config">Configuração ativa</string>
@@ -1435,6 +1445,9 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="pif_select_channel">Selecione o canal</string>
     <string name="pif_channel_latest_release">Último lançamento</string>
     <string name="pif_channel_canary_release">Lançamento Canary</string>
+    <string name="pif_invalid_fingerprint">Formato de fingerprint inválido</string>
+    <string name="pif_no_devices_found">Nenhum dispositivo encontrado</string>
+    <string name="pif_no_api_key">Falha ao extrair a chave API do Flash Tool</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Gerenciamento de keybox</string>
     <string name="ts_import_keybox">Importar Keybox</string>
@@ -1467,30 +1480,26 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_footer_body">1. Obtenha um XML de keybox válido de uma fonte confiável. keybox não são fornecidas; você mesmo deve encontrar um.\n2. Toque em \"Importar keybox\" e carregue o arquivo.\n3. Abra \"Gerenciar aplicativos de alvos\" e selecione Google Play Services e Google Play Store.\n4. Defina o modo de alvo como \"Folha\" se o seu dispositivo tiver um TEE funcionando, caso contrário, deixe-o como Automático.\n5. Verifique novamente o status do Play Integrity.\n\nSempre exclua a keybox existente antes de importar uma nova. Se o Google revogar uma keybox, ainda poderá permitir a passagem para a integridade do dispositivo, mesmo que a integridade forte falhe.</string>
     <string name="ts_security_patch">Data do patch de segurança</string>
     <string name="ts_no_patch">Não definido (usando o padrão do dispositivo)</string>
-    <!-- Game Spoofing -->
-    <string name="gs_enable">Ativar mascaramento do jogo</string>
-    <string name="gs_enable_summary">Mascarar propriedades do dispositivo para jogos configurados</string>
-    <string name="gs_add_app">Adicionar jogo</string>
-    <string name="gs_add_app_summary">Selecione um aplicativo e perfil de dispositivo para mascarar</string>
-    <string name="gs_reload">Recarregar</string>
-    <string name="gs_reload_summary">Recarregar configuração do disco</string>
-    <string name="gs_configured_apps">Jogos configurados</string>
-    <string name="gs_no_apps">Nenhum jogo configurado</string>
-    <string name="gs_no_apps_summary">Toque em \"Adicionar jogo\" para começar</string>
-    <string name="gs_select_app">Selecione o aplicativo</string>
-    <string name="gs_select_profile">Selecione o perfil do dispositivo</string>
-    <string name="gs_edit_props">Editar propriedades</string>
-    <string name="gs_change_profile">Alterar perfil do dispositivo</string>
-    <string name="gs_remove">Remover</string>
-    <string name="gs_remove_title">Remover jogo?</string>
-    <string name="gs_remove_message">Remover %s do jogo mascarado?</string>
-    <string name="gs_edit_app">Editar %s</string>
-    <string name="gs_key">Chave</string>
-    <string name="gs_value">Valor</string>
-    <string name="gs_save">Salvar</string>
-    <string name="gs_config_saved">Configuração salva</string>
-    <string name="gs_loading_apps">Carregando aplicativos\u2026</string>
-    <string name="gs_failed">Falha: %s</string>
+    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_select_target_apps">Selecionar aplicativos alvo</string>
+    <string name="ts_select_target_apps_desc">Escolha os aplicativos para ativar o mascaramento de atestado</string>
+    <string name="ts_search_apps">Pesquisar aplicativos\u2026</string>
+    <string name="ts_system_apps">Aplicativos do sistema</string>
+    <string name="ts_selected_count">%d selecionado</string>
+    <string name="ts_select_all">Selecionar todos</string>
+    <string name="ts_reset">Redefinir</string>
+    <string name="ts_mode_auto">Automático</string>
+    <string name="ts_mode_leaf">Leaf?</string>
+    <string name="ts_mode_cert">Gen !</string>
+    <!-- TrickyStore verification mode preference -->
+    <string name="ts_verification_mode">Modo de verificação</string>
+    <string name="ts_verification_mode_auto">automático</string>
+    <string name="ts_verification_mode_cert">cert</string>
+    <string name="ts_verification_mode_leaf">leaf</string>
+    <string name="ts_target_apps_count_with_mode">%1$d aplicativos configurados · %2$s</string>
+    <string name="ts_verification_auto_count">%1$d Automático</string>
+    <string name="ts_verification_cert_count">%1$d cert</string>
+    <string name="ts_verification_leaf_count">%1$d leaf</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Selecione o tema do papel de parede de profundidade</string>
     <string name="depthwall_file_header_select_summary">Selecione a imagem do tema do papel de parede de profundidade do armazenamento.</string>
