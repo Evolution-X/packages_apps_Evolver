@@ -120,7 +120,7 @@
     <string name="monet_engine_color_source_both">Oba (domyślne)</string>
     <string name="monet_engine_color_source_home">Tapeta ekranu głównego</string>
     <string name="monet_engine_color_source_lock">Tapeta ekranu blokady</string>
-    <string name="monet_engine_color_source_preset">Predefiniowane</string>
+    <string name="monet_engine_color_source_preset">Ustawienie wstępne</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interfejs</string>
     <string name="lock_screen_charging_category">Ładowanie</string>
@@ -1498,6 +1498,10 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_verification_mode_auto">automatyczny</string>
     <string name="ts_verification_mode_cert">generowanie certyfikatu</string>
     <string name="ts_verification_mode_leaf">podmiana certyfikatu </string>
+    <string name="ts_target_apps_count_with_mode">%1$d skonfigurowanych aplikacji · %2$s</string>
+    <string name="ts_verification_auto_count">%1$d automatycznie</string>
+    <string name="ts_verification_cert_count">%1$d generowanie certyfikatu</string>
+    <string name="ts_verification_leaf_count">%1$d podmiana certyfikatu</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
     <string name="depthwall_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
