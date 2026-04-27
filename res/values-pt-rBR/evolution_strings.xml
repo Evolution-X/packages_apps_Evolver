@@ -214,8 +214,8 @@
     <string name="status_bar_battery_percent_text_next_left">Ao lado do ícone (esquerda)</string>
     <string name="status_bar_battery_text_charging_title">Porcentagem da bateria durante carregamento</string>
     <string name="status_bar_battery_text_charging_summary">Sempre mostrar a porcentagem da bateria enquanto carrega</string>
-    <string name="status_bar_clock_and_date_title">Relógio &amp; data</string>
-    <string name="status_bar_clock_and_date_summary">Personalize relógio &amp; data</string>
+    <string name="status_bar_clock_and_date_title">Relógio e Data</string>
+    <string name="status_bar_clock_and_date_summary">Personalizar relógio e data</string>
     <string name="status_bar_bluetooth_battery_title">Porcentagem da bateria Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Exibir o status da bateria do dispositivo Bluetooth conectado, se disponível</string>
     <string name="status_bar_colored_icons_title">Ícones coloridos</string>
@@ -266,7 +266,7 @@
     <string name="status_bar_notif_count_title">Contador de notificações</string>
     <string name="status_bar_notif_count_summary">Exibir o número de notificações não lidas em cada ícone de aplicativo</string>
     <string name="status_bar_privacy_indicators_category">Indicadores de privacidade</string>
-    <string name="status_bar_mic_camera_privacy_indicator_title">Microfone &amp; câmera</string>
+    <string name="status_bar_mic_camera_privacy_indicator_title">Microfone e câmera</string>
     <string name="status_bar_mic_camera_privacy_indicator_summary">Exibir um indicador quando um aplicativo acessar o microfone ou a câmera</string>
     <string name="status_bar_location_privacy_indicator_title">Localização</string>
     <string name="status_bar_location_privacy_indicator_summary">Exibir um indicador quando um aplicativo acessar sua localização</string>
@@ -365,7 +365,7 @@
     <string name="quick_settings_tile_ui_style_title">Estilo das configurações rápidas</string>
     <string name="quick_settings_tile_ui_style_a11_circle">Blocos redondos</string>
     <string name="quick_settings_tile_ui_style_a11_square">Blocos quadrados</string>
-    <string name="quick_settings_tile_ui_style_a11_mix">Círculo &amp; Blocos quadrados</string>
+    <string name="quick_settings_tile_ui_style_a11_mix">Círculo e Blocos quadrados</string>
     <string name="quick_settings_panel_style_title">Estilo do painel de configurações rápidas</string>
     <string name="quick_settings_panel_style_outline">Contorno</string>
     <string name="quick_settings_panel_style_two_tone">Dois tons de destaque</string>
@@ -382,7 +382,7 @@
     <string name="quick_settings_tile_label_hide_summary">Mostrar apenas o ícone no bloco</string>
     <string name="quick_settings_tile_layout_title">Layout vertical</string>
     <string name="quick_settings_tile_layout_summary">Mostrar o texto embaixo dos ícones dos blocos</string>
-    <string name="quick_settings_layout_columns_rows_title">Colunas &amp; linhas</string>
+    <string name="quick_settings_layout_columns_rows_title">Colunas e linhas</string>
     <string name="quick_settings_layout_columns_rows_summary">Personalizar colunas e linhas das configurações rápidas</string>
     <string name="quick_settings_layout_columns_rows_footer_text">As linhas das configurações rápidas devem ser iguais ou maiores que as linhas das configurações rápidas avançadas. Use o número superior de colunas para o estilo de bloco circular/quadrado (A11).</string>
     <string name="quick_settings_columns_portrait_title">Colunas (retrato)</string>
@@ -466,7 +466,7 @@
     <string name="notifications_interface_category">Interface</string>
     <string name="notifications_kill_app_button_title">Encerrar aplicativo</string>
     <string name="notifications_kill_app_button_summary">Mostrar botão para encerrar o aplicativo no menu de toque longo da notificação</string>
-    <string name="notifications_sounds_vibration_category">Sons &amp; vibração</string>
+    <string name="notifications_sounds_vibration_category">Sons e vibração</string>
     <string name="notifications_alert_display_on_title">Alerta enquanto a tela estiver ligada</string>
     <string name="notifications_alert_display_on_summary">Reproduza som e vibração para notificações enquanto a tela estiver ligada</string>
     <!-- Notifications/Compact Heads-up -->
@@ -532,18 +532,16 @@
     <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas de tela e gravações de tela para todos os aplicativos, potencialmente arriscando vazamentos de privacidade</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela ilimitada</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remova o limite de tamanho de arquivo 15GiB\nPode resultar em um arquivo de saída maior que o necessário</string>
-    <!-- Miscellaneous/Hide Apps (consolidated HideAppList + HideDeveloperStatus) -->
-    <string name="hide_apps_title">Ocultar aplicativos</string>
-    <string name="hide_apps_summary">Ocultar aplicativos selecionados das listas de aplicativos e verificações de status do desenvolvedor</string>
-    <string name="hide_apps_none_configured">Nenhum aplicativo oculto</string>
-    <string name="search_apps">Pesquisar aplicativos</string>
-    <string name="hide_apps_clear_search">Limpar pesquisa</string>
-    <string name="hide_apps_system_badge">SYS</string>
-    <string name="hide_apps_toggle_app_list">Lista de aplicativos</string>
-    <string name="hide_apps_toggle_dev_status">Status do Desenvolvedor</string>
-    <string name="hide_apps_toggle_hidden">Oculto</string>
-    <!-- %1$d = number of apps currently hidden in any mode -->
-    <string name="hide_apps_count">%1$d aplicativos ocultos</string>
+    <!-- Miscellaneous/Hide developer status -->
+    <string name="hide_developer_status_title">Ocultar status de desenvolvedor</string>
+    <string name="hide_developer_status_summary">Ocultar aplicativos selecionados das verificações de status do desenvolvedor</string>
+    <string name="hide_developer_status_none_configured">Nenhum aplicativo oculto</string>
+    <string name="hide_developer_status_clear_search">Limpar pesquisa</string>
+    <string name="hide_developer_status_system_badge">SISTEMA</string>
+    <string name="hide_developer_status_toggle_label">Status do desenvolvedor</string>
+    <string name="hide_developer_status_toggle_hidden">Oculto</string>
+    <!-- %1$d = number of apps currently hidden -->
+    <string name="hide_developer_status_count">%1$d aplicativos ocultos</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Pixels Inteligentes é um recurso de economia de energia. Dependendo de quantos pixels você decidir desligar, você poderá ver uma melhoria na vida útil da bateria. Observe que, em alguns casos, isso pode resultar em áreas que não respondem na tela sensível ao toque</string>
     <string name="smart_pixels_title">Pixels Inteligentes</string>
@@ -615,6 +613,7 @@
     <string name="reset">Redefinir</string>
     <string name="delete_message">Remover o item selecionado?</string>
     <string name="choose_app">Escolher aplicativo</string>
+    <string name="search_apps">Pesquisar aplicativos</string>
     <!-- Changelog -->
     <string name="changelog_title">Registro das últimas alterações</string>
     <string name="changelog_summary">Ver alterações na fonte da ROM</string>
@@ -926,12 +925,26 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="statusbar_extra_padding_start_title">Iniciar preenchimento</string>
     <string name="statusbar_extra_padding_top_title">Preenchimento superior</string>
     <string name="statusbar_extra_padding_end_title">Preenchimento final</string>
-    <!-- Sensor block per-package -->
+    <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_title">Bloquear sensores por pacote</string>
     <string name="sensor_block_summary">Bloqueie o acesso a determinados sensores de alguns aplicativos para economizar bateria</string>
     <string name="sensor_block_app_picker_title">Bloquear sensores para estes aplicativos</string>
     <string name="add_sensor_block_package_title">Adicionar aplicativos ao \"bloqueio de sensores\"</string>
     <string name="add_sensor_block_package_summary">Sensores significativos de movimento, acelerômetro e aceleração linear serão bloqueados para esses aplicativos</string>
+    <string name="sensor_block_none_configured">Nenhum aplicativo bloqueado</string>
+    <string name="sensor_block_system_badge">SISTEMA</string>
+    <!-- %1$d = number of apps currently blocked -->
+    <string name="sensor_block_count">%1$d aplicativos bloqueados</string>
+    <string name="sensor_block_add_apps">Adicionar aplicativos</string>
+    <string name="sensor_block_configured_apps">Aplicativos bloqueados</string>
+    <string name="sensor_block_no_apps_configured">Nenhum aplicativo bloqueado</string>
+    <string name="sensor_block_no_apps_available">Nenhum aplicativo disponível</string>
+    <string name="sensor_block_no_apps_found">Nenhum resultado para \"%1$s\"</string>
+    <string name="sensor_block_remove_title">Remover aplicativo?</string>
+    <string name="sensor_block_remove_confirm">Remover %1$s da lista de bloqueios de sensores?</string>
+    <string name="sensor_block_clear_all">Limpar tudo</string>
+    <string name="sensor_block_clear_all_confirm">Isso desbloqueará todos os aplicativos e desativará o bloqueio do sensor.</string>
+    <string name="sensor_block_disabled">Desativado</string>
     <!-- Blink flashlight for incoming calls -->
     <string name="flashlight_on_call_title">Piscar lanterna ao receber ligações</string>
     <string name="flashlight_on_call_disabled">Desativado</string>
@@ -1002,17 +1015,17 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="custom_gradient_start_color_title">Cor inicial do gradiente</string>
     <string name="custom_gradient_end_color_title">Cor final do gradiente</string>
     <!-- App and Game Spoofing -->
-    <string name="user_selectable_app_spoofing_title">Mascaramento de aplicativo &amp; jogo</string>
+    <string name="user_selectable_app_spoofing_title">Mascaramento de aplicativo e jogo</string>
     <string name="user_selectable_app_spoofing_summary">Mascarar propriedades do dispositivo para aplicativos e jogos específicos</string>
     <string name="user_select_spoofing_profile_title">Selecione o perfil de mascaramento</string>
     <string name="app_spoofing_category_title">Mascaramento por aplicativo</string>
     <string name="app_spoofing_header_title">Ativar mascaramento</string>
-    <string name="app_spoofing_configured_count">%1$d aplicativos &amp; jogos mascarados</string>
+    <string name="app_spoofing_configured_count">%1$d aplicativos e jogos mascarados</string>
     <string name="app_spoofing_disabled">Desativado</string>
-    <string name="app_spoofing_add_apps">Adicionar aplicativos &amp; jogos</string>
+    <string name="app_spoofing_add_apps">Adicionar aplicativos e jogos</string>
     <string name="app_spoofing_spoofed_model">Selecione o modelo</string>
     <string name="app_spoofing_clear_all">Limpar tudo</string>
-    <string name="app_spoofing_configured_apps">Aplicativos configurados &amp; Jogos</string>
+    <string name="app_spoofing_configured_apps">Aplicativos e jogos configurados</string>
     <string name="app_spoofing_no_apps_configured">Nenhum aplicativo ou jogo configurado</string>
     <string name="app_spoofing_spoof_model">Modelo mascarado</string>
     <string name="app_spoofing_select_spoof_model">Selecionar modelo mascarado</string>
@@ -1121,7 +1134,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="shape_flower">Flor</string>
     <string name="shape_heart">Coração</string>
     <string name="shape_hexagon">Hexágono</string>
-    <string name="shape_leaf">Folha</string>
+    <string name="shape_leaf">Leaf</string>
     <string name="shape_cloudy">Nublado</string>
     <string name="shape_cylindrical">Cilíndrico</string>
     <string name="shape_stretched">Esticado</string>
@@ -1407,11 +1420,11 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ambient_bottom_title">Parte inferior do AOD</string>
     <string name="ambient_battery_disable_title">Desativado</string>
     <string name="ambient_battery_percent_title">Nível da bateria</string>
-    <string name="ambient_battery_both_title">Bateria (Nível &amp; temperatura)</string>
-    <string name="ambient_battery_cpu_battery_temperature_title">Nível da bateria, temperatura (bateria &amp; CPU)</string>
+    <string name="ambient_battery_both_title">Bateria (Nível e temperatura)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Nível da bateria, temperatura (bateria e CPU)</string>
     <string name="ambient_user_name_title">Nome do usuário</string>
     <string name="display_icon_title">Ícones</string>
-    <string name="display_icon_summary">Exibir ícones junto com nível&amp; temperatura</string>
+    <string name="display_icon_summary">Exibir ícones junto com nível e temperatura</string>
     <!-- Misc preference entries -->
     <string name="play_integrity_fix_title">Correção de Integridade do Google Play</string>
     <string name="play_integrity_fix_summary">Gerencie a configuração do PIF e as impressões digitais do dispositivo para obter integridade básica</string>
@@ -1465,6 +1478,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_target_apps_count">%d aplicativos configurados</string>
     <string name="ts_import_target_list">Importar lista de alvos</string>
     <string name="ts_import_target_list_summary">Importar target.txt de um arquivo</string>
+    <string name="ts_invalid_patch_date">Formato de data inválido. Use AAAA-MM-DD</string>
     <string name="ts_target_list_imported">Lista de alvos importada</string>
     <string name="ts_loading_apps">Carregando aplicativos\u2026</string>
     <string name="ts_auto_select">Seleção automática</string>
@@ -1473,10 +1487,10 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_failed">Falha: %s</string>
     <string name="ts_target_mode">Modo alvo</string>
     <string name="ts_target_mode_auto">Automático</string>
-    <string name="ts_target_mode_leaf">Hack de folha</string>
+    <string name="ts_target_mode_leaf">Hack de leaf</string>
     <string name="ts_target_mode_cert">Geração de certificado</string>
     <string name="ts_footer_title">Aprovando no teste de integridade forte</string>
-    <string name="ts_footer_body">1. Obtenha um XML de keybox válido de uma fonte confiável. keybox não são fornecidas; você mesmo deve encontrar um.\n2. Toque em \"Importar keybox\" e carregue o arquivo.\n3. Abra \"Gerenciar aplicativos de alvos\" e selecione Google Play Services e Google Play Store.\n4. Defina o modo de alvo como \"Folha\" se o seu dispositivo tiver um TEE funcionando, caso contrário, deixe-o como Automático.\n5. Verifique novamente o status do Play Integrity.\n\nSempre exclua a keybox existente antes de importar uma nova. Se o Google revogar uma keybox, ainda poderá permitir a passagem para a integridade do dispositivo, mesmo que a integridade forte falhe.</string>
+    <string name="ts_footer_body">1. Obtenha um XML de keybox válido de uma fonte confiável. keybox não são fornecidas; você mesmo deve encontrar um.\n2. Toque em \"Importar keybox\" e carregue o arquivo.\n3. Abra \"Gerenciar aplicativos de alvos\" e selecione Google Play Services e Google Play Store.\n4. Defina o modo de alvo como \"Leaf\" se o seu dispositivo tiver um TEE funcionando, caso contrário, deixe-o como Automático.\n5. Verifique novamente o status do Play Integrity.\n\nSempre exclua a keybox existente antes de importar uma nova. Se o Google revogar uma keybox, ainda poderá permitir a passagem para a integridade do dispositivo, mesmo que a integridade forte falhe.</string>
     <string name="ts_security_patch">Data do patch de segurança</string>
     <string name="ts_no_patch">Não definido (usando o padrão do dispositivo)</string>
     <!-- TrickyStoreAppPickerSheet UI -->
@@ -1489,13 +1503,12 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_reset">Redefinir</string>
     <string name="ts_mode_auto">Automático</string>
     <string name="ts_mode_leaf">Leaf?</string>
-    <string name="ts_mode_cert">Gen !</string>
+    <string name="ts_mode_cert">Cert !</string>
     <!-- TrickyStore verification mode preference -->
     <string name="ts_verification_mode">Modo de verificação</string>
     <string name="ts_verification_mode_auto">automático</string>
     <string name="ts_verification_mode_cert">cert</string>
     <string name="ts_verification_mode_leaf">leaf</string>
-    <string name="ts_target_apps_count_with_mode">%1$d aplicativos configurados · %2$s</string>
     <string name="ts_verification_auto_count">%1$d Automático</string>
     <string name="ts_verification_cert_count">%1$d cert</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
