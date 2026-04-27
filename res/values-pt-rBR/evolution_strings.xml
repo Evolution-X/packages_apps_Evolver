@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2026 Evolution X
+     SPDX-FileCopyrightText: Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -57,8 +57,6 @@
     <string name="themes_brightness_slider_title">Estilo do controle deslizante de brilho</string>
     <string name="themes_brightness_slider_summary">Definir estilo do controle deslizante de brilho</string>
     <string name="themes_animations_category">Animações</string>
-    <string name="themes_boot_animation_title">Animação de inicialização</string>
-    <string name="themes_boot_animation_summary">Definir estilo de animação de inicialização</string>
     <string name="themes_charging_animation_title">Animação de ondulação ao carregar</string>
     <string name="themes_charging_animation_summary">Exibir uma animação quando o dispositivo for conectado</string>
     <string name="themes_screen_off_animation_title">Animação ao desligar a tela</string>
@@ -89,10 +87,18 @@
     <string name="theme_customization_lock_clock_summary">Definir estilo de fonte do relógio da tela de bloqueio</string>
     <string name="theme_customization_brightness_slider_title">Estilo do controle deslizante de brilho</string>
     <string name="theme_customization_brightness_slider_summary">Definir estilo de controle deslizante de brilho personalizado</string>
-    <!-- Themes/Boot animation preview -->
+    <!-- Themes/Boot animation -->
+    <string name="themes_boot_animation_title">Animação de inicialização</string>
+    <string name="themes_boot_animation_summary">Definir estilo de animação de inicialização</string>
+    <string name="boot_animation_custom_pick">Escolha o arquivo ZIP</string>
+    <string name="boot_animation_custom_pick_summary">Selecione um bootanimation.zip personalizado</string>
+    <string name="boot_animation_applied_error">Falha ao aplicar animação de inicialização</string>
+    <string name="boot_animation_preview_loading">Carregando visualização…</string>
     <string name="boot_animation_preview_desc">Pré-visualização da animação de inicialização selecionada</string>
     <string name="boot_animation_preview_summary">Exibe uma prévia da animação de inicialização atualmente selecionada</string>
     <string name="boot_animation_preview_title">Visualização da animação de inicialização</string>
+    <string name="boot_animation_no_preview">Nenhuma visualização disponível</string>
+    <string name="boot_animation_style_unknown">Desconhecido</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Cor de destaque</string>
     <string name="monet_engine_custom_color_summary">Escolha uma cor personalizada para destaque</string>
@@ -924,6 +930,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="statusbar_extra_padding_top_title">Preenchimento superior</string>
     <string name="statusbar_extra_padding_end_title">Preenchimento final</string>
     <!-- Miscellaneous/Sensor block -->
+    <string name="sensor_block_header_title">Bloquear sensor</string>
     <string name="sensor_block_title">Bloquear sensores por pacote</string>
     <string name="sensor_block_summary">Bloqueie o acesso a determinados sensores de alguns aplicativos para economizar bateria</string>
     <string name="sensor_block_app_picker_title">Bloquear sensores para estes aplicativos</string>
@@ -935,6 +942,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="sensor_block_count">%1$d aplicativos bloqueados</string>
     <string name="sensor_block_add_apps">Adicionar aplicativos</string>
     <string name="sensor_block_configured_apps">Aplicativos bloqueados</string>
+    <string name="sensor_block_empty_description">Os aplicativos listados aqui terão seus sensores bloqueados em todo o sistema</string>
     <string name="sensor_block_no_apps_configured">Nenhum aplicativo bloqueado</string>
     <string name="sensor_block_no_apps_available">Nenhum aplicativo disponível</string>
     <string name="sensor_block_no_apps_found">Nenhum resultado para \"%1$s\"</string>
@@ -1028,6 +1036,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="app_spoofing_spoof_model">Modelo mascarado</string>
     <string name="app_spoofing_select_spoof_model">Selecionar modelo mascarado</string>
     <string name="app_spoofing_change_app">Alterar aplicativo</string>
+    <string name="app_spoofing_empty_description">Os aplicativos selecionados reportarão uma identidade de dispositivo mascarada para ignorar as verificações de hardware</string>
     <string name="show_system_apps">Mostrar aplicativos do sistema</string>
     <string name="hide_system_apps">Ocultar aplicativos do sistema</string>
     <!-- Custom App Spoofing Profiles -->
