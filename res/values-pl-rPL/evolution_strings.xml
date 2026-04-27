@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2026 Evolution X
+     SPDX-FileCopyrightText: Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -57,8 +57,6 @@
     <string name="themes_brightness_slider_title">Styl suwaka jasności</string>
     <string name="themes_brightness_slider_summary">Ustaw styl suwaka jasności</string>
     <string name="themes_animations_category">Animacje</string>
-    <string name="themes_boot_animation_title">Animacja startowa</string>
-    <string name="themes_boot_animation_summary">Ustaw styl animacji startowej</string>
     <string name="themes_charging_animation_title">Animacja falowania podczas ładowania</string>
     <string name="themes_charging_animation_summary">Wyświetl animację podczas podłączania urządzenia do ładowania</string>
     <string name="themes_screen_off_animation_title">Animacja wyłączania ekranu</string>
@@ -89,10 +87,18 @@
     <string name="theme_customization_lock_clock_summary">Ustaw styl czcionki zegara na ekranie blokady</string>
     <string name="theme_customization_brightness_slider_title">Styl suwaka jasności</string>
     <string name="theme_customization_brightness_slider_summary">Ustaw niestandardowy styl suwaka jasności</string>
-    <!-- Themes/Boot animation preview -->
+    <!-- Themes/Boot animation -->
+    <string name="themes_boot_animation_title">Animacja startowa</string>
+    <string name="themes_boot_animation_summary">Ustaw styl animacji startowej</string>
+    <string name="boot_animation_custom_pick">Wybierz plik zip</string>
+    <string name="boot_animation_custom_pick_summary">Wybierz niestandardowy animacjarozruchu.zip</string>
+    <string name="boot_animation_applied_error">Nie udało się zastosować animacji rozruchu</string>
+    <string name="boot_animation_preview_loading">Ładowanie podglądu…</string>
     <string name="boot_animation_preview_desc">Podgląd wybranej animacji startowej</string>
     <string name="boot_animation_preview_summary">Podgląd aktualnie wybranej animacji startowej</string>
     <string name="boot_animation_preview_title">Podgląd animacji startowej</string>
+    <string name="boot_animation_no_preview">Brak dostępnego podglądu</string>
+    <string name="boot_animation_style_unknown">Nieznany</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Kolor akcentu</string>
     <string name="monet_engine_custom_color_summary">Wybierz niestandardowy kolor akcentu</string>
@@ -926,6 +932,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="statusbar_extra_padding_top_title">Górne wypełnienie</string>
     <string name="statusbar_extra_padding_end_title">Końcowe wypełnienie</string>
     <!-- Miscellaneous/Sensor block -->
+    <string name="sensor_block_header_title">Blokada czujnika</string>
     <string name="sensor_block_title">Blokowanie czujników dla aplikacji</string>
     <string name="sensor_block_summary">Zablokuj dostęp do niektórych czujników dla niektórych aplikacji, aby oszczędzać baterię</string>
     <string name="sensor_block_app_picker_title">Blokuj czujniki dla tych aplikacji</string>
@@ -937,6 +944,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="sensor_block_count">%1$d zablokowanych aplikacji</string>
     <string name="sensor_block_add_apps">Dodaj aplikacje</string>
     <string name="sensor_block_configured_apps">Zablokowane aplikacje</string>
+    <string name="sensor_block_empty_description">Aplikacje wymienione tutaj będą miały zablokowane swoje czujniki w całym systemie</string>
     <string name="sensor_block_no_apps_configured">Brak zablokowanych aplikacji</string>
     <string name="sensor_block_no_apps_available">Brak dostępnych aplikacji</string>
     <string name="sensor_block_no_apps_found">Brak wyników dla \"%1$s”</string>
@@ -1030,6 +1038,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="app_spoofing_spoof_model">Fałszowanie modelu</string>
     <string name="app_spoofing_select_spoof_model">Wybierz fałszowany model</string>
     <string name="app_spoofing_change_app">Wybierz aplikację</string>
+    <string name="app_spoofing_empty_description">Wybrane aplikacje będą zgłaszać sfałszowaną tożsamość urządzenia, aby ominąć sprawdzanie sprzętowe</string>
     <string name="show_system_apps">Pokaż aplikacje systemowe</string>
     <string name="hide_system_apps">Ukryj aplikacje systemowe</string>
     <!-- Custom App Spoofing Profiles -->
