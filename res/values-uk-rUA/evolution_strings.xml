@@ -532,18 +532,16 @@
     <string name="miscellaneous_ignore_window_secure_summary">Зняти обмеження на знятках і записи екрану для всіх додатків, потенційно ризикуючи витіком конфіденційності</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Скасувати обмеження запису екрану</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Видалити обмеження розміру 15 Гб файлу\nМоже призвести до більшого, ніж необхідний файл виводу</string>
-    <!-- Miscellaneous/Hide Apps (consolidated HideAppList + HideDeveloperStatus) -->
-    <string name="hide_apps_title">Сховати програми</string>
-    <string name="hide_apps_summary">Приховати обрані додатки зі списками додатків та перевірками статусу розробника</string>
-    <string name="hide_apps_none_configured">Немає прихованих застосунків</string>
-    <string name="search_apps">Пошук додатків</string>
-    <string name="hide_apps_clear_search">Очистити пошук</string>
-    <string name="hide_apps_system_badge">SYS</string>
-    <string name="hide_apps_toggle_app_list">Список додатків</string>
-    <string name="hide_apps_toggle_dev_status">Статус розробника</string>
-    <string name="hide_apps_toggle_hidden">Приховано</string>
-    <!-- %1$d = number of apps currently hidden in any mode -->
-    <string name="hide_apps_count">Немає прихованих застосунків</string>
+    <!-- Miscellaneous/Hide developer status -->
+    <string name="hide_developer_status_title">Приховати статус розробника</string>
+    <string name="hide_developer_status_summary">Приховати вибрані програми від перевірок статусу розробника</string>
+    <string name="hide_developer_status_none_configured">Немає прихованих застосунків</string>
+    <string name="hide_developer_status_clear_search">Очистити пошук</string>
+    <string name="hide_developer_status_system_badge">SYS</string>
+    <string name="hide_developer_status_toggle_label">Статус розробника</string>
+    <string name="hide_developer_status_toggle_hidden">Приховано</string>
+    <!-- %1$d = number of apps currently hidden -->
+    <string name="hide_developer_status_count">Додатків %1$d приховано</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Smart Pixels — це функція енергозбереження. Залежно від кількості вимкнених пікселів, ви можете помітити покращення часу роботи від акумулятора. Зауважте, що в деяких випадках це може призвести до появи нечутливих зон на сенсорному екрані</string>
     <string name="smart_pixels_title">Розумні пікселі</string>
@@ -615,6 +613,7 @@
     <string name="reset">Скинути</string>
     <string name="delete_message">Видалити вибраний елемент?</string>
     <string name="choose_app">Обдереть додаток</string>
+    <string name="search_apps">Пошук додатків</string>
     <!-- Changelog -->
     <string name="changelog_title">Поточний список змін</string>
     <string name="changelog_summary">Переглянути зміни в джерелі прошивки</string>
@@ -920,12 +919,26 @@
     <string name="statusbar_extra_padding_start_title">Початок відступу</string>
     <string name="statusbar_extra_padding_top_title">Верхній відступ</string>
     <string name="statusbar_extra_padding_end_title">Кінець відступу</string>
-    <!-- Sensor block per-package -->
+    <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_title">Блокування датчиків попакетно</string>
     <string name="sensor_block_summary">Блокуйте доступ до певних датчиків для деяких програм, щоб заощадити заряд акумулятора</string>
     <string name="sensor_block_app_picker_title">Блокувати датчики для цих програм</string>
     <string name="add_sensor_block_package_title">Вибрати додатки, для яких блокуються датчики</string>
     <string name="add_sensor_block_package_summary">Датчики руху, акселерометра та лінійного прискорення будуть заблоковані для цих додатків</string>
+    <string name="sensor_block_none_configured">Жодних програм не заблоковано</string>
+    <string name="sensor_block_system_badge">SYS</string>
+    <!-- %1$d = number of apps currently blocked -->
+    <string name="sensor_block_count">%1$d додатків заблоковано</string>
+    <string name="sensor_block_add_apps">Додати програми</string>
+    <string name="sensor_block_configured_apps">Заблоковані застосунки</string>
+    <string name="sensor_block_no_apps_configured">Жодних програм не заблоковано</string>
+    <string name="sensor_block_no_apps_available">Немає доступних додатків</string>
+    <string name="sensor_block_no_apps_found">Нічого не знайдено для \"%1$s\"</string>
+    <string name="sensor_block_remove_title">Видалити додаток?</string>
+    <string name="sensor_block_remove_confirm">Видалити %1$s зі списку блокування датчиків?</string>
+    <string name="sensor_block_clear_all">Очистити все</string>
+    <string name="sensor_block_clear_all_confirm">Це розблокує всі програми та вимкне блокування датчиків.</string>
+    <string name="sensor_block_disabled">Вимкнено</string>
     <!-- Blink flashlight for incoming calls -->
     <string name="flashlight_on_call_title">Блимати ліхтариком для вхідного дзвінка</string>
     <string name="flashlight_on_call_disabled">Вимкнено</string>
@@ -1459,6 +1472,7 @@
     <string name="ts_target_apps_count">%d додатків налаштовано</string>
     <string name="ts_import_target_list">Список цілей імпорту</string>
     <string name="ts_import_target_list_summary">Імпортувати цільовий список з файлу</string>
+    <string name="ts_invalid_patch_date">Невірний формат дати. Використовуйте РРРР-ММ-ДД</string>
     <string name="ts_target_list_imported">Цільовий список імпортовано</string>
     <string name="ts_loading_apps">Завантаження додатків\u2026</string>
     <string name="ts_auto_select">Автовибір</string>
@@ -1483,13 +1497,12 @@
     <string name="ts_reset">Скинути</string>
     <string name="ts_mode_auto">Автоматично</string>
     <string name="ts_mode_leaf">Листок ?</string>
-    <string name="ts_mode_cert">Gen !</string>
+    <string name="ts_mode_cert">Сертифікат !</string>
     <!-- TrickyStore verification mode preference -->
     <string name="ts_verification_mode">Режим перевірки</string>
     <string name="ts_verification_mode_auto">автоматично</string>
     <string name="ts_verification_mode_cert">cert</string>
     <string name="ts_verification_mode_leaf">лист</string>
-    <string name="ts_target_apps_count_with_mode">%1$d Налаштованих програм · %2$s</string>
     <string name="ts_verification_auto_count">%1$d Автоматично</string>
     <string name="ts_verification_cert_count">%1$d Сертифікат</string>
     <string name="ts_verification_leaf_count">%1$d Листок</string>
