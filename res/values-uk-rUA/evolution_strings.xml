@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2026 Evolution X
+     Copyright (C) Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -57,8 +57,6 @@
     <string name="themes_brightness_slider_title">Стиль повзунка яскравості</string>
     <string name="themes_brightness_slider_summary">Стиль повзунка яскравості</string>
     <string name="themes_animations_category">Анімація</string>
-    <string name="themes_boot_animation_title">Анімація завантаження</string>
-    <string name="themes_boot_animation_summary">Встановити стиль завантажувальної анімації</string>
     <string name="themes_charging_animation_title">Анімація заряджання</string>
     <string name="themes_charging_animation_summary">Показувати анімацію при підключенні зарядного пристрою</string>
     <string name="themes_screen_off_animation_title">Анімація вимкнення екрану</string>
@@ -89,10 +87,17 @@
     <string name="theme_customization_lock_clock_summary">Встановити стиль шрифту годинника на екрані блокування</string>
     <string name="theme_customization_brightness_slider_title">Стиль повзунка яскравості</string>
     <string name="theme_customization_brightness_slider_summary">Встановити користувацький стиль повзунка яскравості</string>
-    <!-- Themes/Boot animation preview -->
+    <!-- Themes/Boot animation -->
+    <string name="themes_boot_animation_title">Анімація завантаження</string>
+    <string name="themes_boot_animation_summary">Встановити стиль завантажувальної анімації</string>
+    <string name="boot_animation_custom_pick">Вибрати ZIP файл</string>
+    <string name="boot_animation_custom_pick_summary">Виберіть власну анімацію завантаження</string>
+    <string name="boot_animation_applied_error">Не вдалося застосувати бутанімацію</string>
+    <string name="boot_animation_preview_loading">Завантаження попереднього перегляду…</string>
     <string name="boot_animation_preview_desc">Попередній перегляд вибраної анімації завантаження</string>
     <string name="boot_animation_preview_summary">Відображає попередній перегляд поточної анімації завантаження</string>
     <string name="boot_animation_preview_title">Попередній перегляд анімації завантаження</string>
+    <string name="boot_animation_no_preview">Попередній перегляд недоступний</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Колір акценту</string>
     <string name="monet_engine_custom_color_summary">Вибрати власний колір для відтінку</string>
@@ -918,6 +923,7 @@
     <string name="statusbar_extra_padding_top_title">Верхній відступ</string>
     <string name="statusbar_extra_padding_end_title">Кінець відступу</string>
     <!-- Miscellaneous/Sensor block -->
+    <string name="sensor_block_header_title">Блокування датчиків</string>
     <string name="sensor_block_title">Блокування датчиків попакетно</string>
     <string name="sensor_block_summary">Блокуйте доступ до певних датчиків для деяких програм, щоб заощадити заряд акумулятора</string>
     <string name="sensor_block_app_picker_title">Блокувати датчики для цих програм</string>
