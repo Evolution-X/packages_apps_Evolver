@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2026 Evolution X
+     SPDX-FileCopyrightText: Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -57,8 +57,6 @@
     <string name="themes_brightness_slider_title">Kiểu thanh độ sáng</string>
     <string name="themes_brightness_slider_summary">Đặt kiểu thanh điều chỉnh độ sáng</string>
     <string name="themes_animations_category">Các hiệu ứng chuyển động</string>
-    <string name="themes_boot_animation_title">Hiệu ứng khởi động</string>
-    <string name="themes_boot_animation_summary">Đặt kiểu hiệu ứng khởi động</string>
     <string name="themes_charging_animation_title">Hiệu ứng sạc</string>
     <string name="themes_charging_animation_summary">Hiển thị hiệu ứng khi thiết bị được cắm sạc</string>
     <string name="themes_screen_off_animation_title">Hiệu ứng tắt màn hình</string>
@@ -89,10 +87,17 @@
     <string name="theme_customization_lock_clock_summary">Đặt kiểu phông chữ đồng hồ màn hình khóa</string>
     <string name="theme_customization_brightness_slider_title">Kiểu thanh độ sáng</string>
     <string name="theme_customization_brightness_slider_summary">Đặt kiểu thanh điều chỉnh độ sáng tùy chỉnh</string>
-    <!-- Themes/Boot animation preview -->
+    <!-- Themes/Boot animation -->
+    <string name="themes_boot_animation_title">Hiệu ứng khởi động</string>
+    <string name="themes_boot_animation_summary">Đặt kiểu hiệu ứng khởi động</string>
+    <string name="boot_animation_custom_pick">Chọn tệp ZIP</string>
+    <string name="boot_animation_custom_pick_summary">Chọn tệp bootanimation.zip tùy chỉnh</string>
+    <string name="boot_animation_applied_error">Không thể áp dụng boot animation</string>
+    <string name="boot_animation_preview_loading">Đang tải bản xem trước…</string>
     <string name="boot_animation_preview_desc">Xem trước hiệu ứng khởi động đã chọn</string>
     <string name="boot_animation_preview_summary">Hiển thị bản xem trước hiệu ứng khởi động hiện tại</string>
     <string name="boot_animation_preview_title">Xem trước hoạt ảnh khởi động</string>
+    <string name="boot_animation_no_preview">Không có bản xem trước</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">Màu nhấn</string>
     <string name="monet_engine_custom_color_summary">Chọn màu tùy chỉnh cho điểm nhấn</string>
@@ -532,11 +537,14 @@
     <string name="miscellaneous_ignore_window_secure_summary">Bỏ hạn chế chụp màn hình và ghi màn hình, có thể rò rỉ riêng tư</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Bỏ giới hạn ghi màn hình</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Gỡ bỏ giới hạn kích thước file 15GiB\nCó thể tạo file xuất lớn hơn mức cần thiết</string>
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">Ẩn danh sách ứng dụng</string>
-    <string name="hide_applist_summary">Ngăn ứng dụng kiểm tra ứng dụng đã chọn từ danh sách</string>
-    <string name="menu_show_overlay">Hiện lớp phủ</string>
-    <string name="menu_hide_overlay">Ẩn lớp phủ</string>
+    <!-- Miscellaneous/Hide developer status -->
+    <string name="hide_developer_status_title">Ẩn trạng thái nhà phát triển</string>
+    <string name="hide_developer_status_summary">Ẩn các ứng dụng đã chọn khỏi quá trình kiểm tra trạng thái của nhà phát triển</string>
+    <string name="hide_developer_status_none_configured">Không có ứng dụng nào bị ẩn</string>
+    <string name="hide_developer_status_clear_search">Xóa tìm kiếm</string>
+    <string name="hide_developer_status_system_badge">SYS</string>
+    <!-- %1$d = number of apps currently hidden -->
+    <string name="hide_developer_status_count">%1$d ứng dụng bị ẩn</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Điểm ảnh thông minh là một tính năng tiết kiệm pin. Tùy thuộc vào bao nhiêu điểm bạn quyết định tắt, bạn có thể thấy cải thiện thời gian sử dụng pin. Lưu ý trong một số trường hợp sẽ có một vùng cảm ứng không hoạt động</string>
     <string name="smart_pixels_title">Điểm ảnh thông minh</string>
@@ -579,6 +587,11 @@
     <string name="about_current_maintainers_empty_summary">Không tìm thấy các mục hiện đang được duy trì từ các bản dựng OTA.</string>
     <string name="about_current_maintainers_last_updated">Lần cập nhật cuối: %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Cập nhật lần cuối: không xác định</string>
+    <string name="about_current_maintainers_tap_to_view">Nhấn vào đây để xem những người bảo trì đang hoạt động</string>
+    <string name="about_current_maintainers_sheet_subtitle">%1$d người bảo trì hoạt động</string>
+    <string name="about_current_maintainers_search_hint">Tìm kiếm người bảo trì hoặc thiết bị…</string>
+    <string name="about_current_maintainers_no_results">Không có người bảo trì nào phù hợp với tìm kiếm của bạn</string>
+    <string name="maintainer_link_forum">Diễn đàn</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">Bảng chọn màu</string>
     <string name="press_color_to_apply">Nhấn vào màu bên dưới để áp dụng</string>
@@ -603,6 +616,7 @@
     <string name="reset">Thiết lập lại</string>
     <string name="delete_message">Xoá các mục đã chọn?</string>
     <string name="choose_app">Chọn ứng dụng</string>
+    <string name="search_apps">Tìm kiếm ứng dụng</string>
     <!-- Changelog -->
     <string name="changelog_title">Thay đổi hiện tại</string>
     <string name="changelog_summary">Xem các thay đổi trong mã nguồn ROM</string>
@@ -917,12 +931,28 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="statusbar_extra_padding_start_title">Khoảng cách đầu</string>
     <string name="statusbar_extra_padding_top_title">Khoảng cách bên trên</string>
     <string name="statusbar_extra_padding_end_title">Khoảng cách cuối</string>
-    <!-- Sensor block per-package -->
+    <!-- Miscellaneous/Sensor block -->
+    <string name="sensor_block_header_title">Chặn cảm biến</string>
     <string name="sensor_block_title">Chặn cảm biến trên mỗi gói</string>
     <string name="sensor_block_summary">Chặn quyền truy cập vào một số cảm biến nhất định đối với một số ứng dụng để tiết kiệm pin</string>
     <string name="sensor_block_app_picker_title">Chặn cảm biến cho các ứng dụng này</string>
     <string name="add_sensor_block_package_title">Thêm ứng dụng cho Chặn cảm biến</string>
     <string name="add_sensor_block_package_summary">Các cảm biến chuyển động, gia tốc kế, cảm biến gia tốc tuyến tính quan trọng sẽ bị chặn đối với các ứng dụng này</string>
+    <string name="sensor_block_none_configured">Không có ứng dụng nào bị chặn</string>
+    <string name="sensor_block_system_badge">SYS</string>
+    <!-- %1$d = number of apps currently blocked -->
+    <string name="sensor_block_count">%1$d ứng dụng bị chặn</string>
+    <string name="sensor_block_add_apps">Thêm ứng dụng</string>
+    <string name="sensor_block_configured_apps">Ứng dụng bị chặn</string>
+    <string name="sensor_block_empty_description">Các ứng dụng được liệt kê ở đây sẽ bị chặn cảm biến trên toàn hệ thống</string>
+    <string name="sensor_block_no_apps_configured">Không có ứng dụng nào bị chặn</string>
+    <string name="sensor_block_no_apps_available">Không có ứng dụng nào khả dụng</string>
+    <string name="sensor_block_no_apps_found">Không tìm thấy kết quả cho \"%1$s\"</string>
+    <string name="sensor_block_remove_title">Xóa ứng dụng?</string>
+    <string name="sensor_block_remove_confirm">Xóa %1$s từ danh sách chặn cảm biến?</string>
+    <string name="sensor_block_clear_all">Xoá tất cả</string>
+    <string name="sensor_block_clear_all_confirm">Thao tác này sẽ mở khóa tất cả ứng dụng và vô hiệu hóa tính năng chặn cảm biến.</string>
+    <string name="sensor_block_disabled">Tắt</string>
     <!-- Blink flashlight for incoming calls -->
     <string name="flashlight_on_call_title">Nháy đèn pin khi có cuộc gọi đến</string>
     <string name="flashlight_on_call_disabled">Vô hiệu hóa</string>
@@ -992,22 +1022,23 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="custom_gradient_color_mode_custom">Chế độ tùy chỉnh</string>
     <string name="custom_gradient_start_color_title">Màu bắt đầu gradient</string>
     <string name="custom_gradient_end_color_title">Màu kết thúc gradient</string>
-    <!-- App Spoofing -->
-    <string name="user_selectable_app_spoofing_title">Giả mạo ứng dụng</string>
-    <string name="user_selectable_app_spoofing_summary">Chọn ứng dụng nào để giả mạo thuộc tính thiết bị</string>
+    <!-- App and Game Spoofing -->
+    <string name="user_selectable_app_spoofing_title">Ứng dụng &amp; Giả mạo trò chơi</string>
+    <string name="user_selectable_app_spoofing_summary">Giả mạo thuộc tính thiết bị cho ứng dụng và trò chơi</string>
     <string name="user_select_spoofing_profile_title">Chọn hồ sơ giả mạo</string>
     <string name="app_spoofing_category_title">Giả mạo từng ứng dụng</string>
     <string name="app_spoofing_header_title">Cho phép giả mạo</string>
-    <string name="app_spoofing_configured_count">%1$d ứng dụng đã giả mạo</string>
+    <string name="app_spoofing_configured_count">%1$d ứng dụng &amp; trò chơi đã giả mạo</string>
     <string name="app_spoofing_disabled">Tắt</string>
-    <string name="app_spoofing_add_apps">Thêm ứng dụng</string>
+    <string name="app_spoofing_add_apps">Thêm ứng dụng &amp; trò chơi</string>
     <string name="app_spoofing_spoofed_model">Lựa chọn model</string>
     <string name="app_spoofing_clear_all">Xoá tất cả</string>
-    <string name="app_spoofing_configured_apps">Danh sách ứng dụng đã cấu hình</string>
-    <string name="app_spoofing_no_apps_configured">Không có ứng dụng nào được cấu hình</string>
+    <string name="app_spoofing_configured_apps">Ứng dụng đã cấu hình &amp; trò chơi</string>
+    <string name="app_spoofing_no_apps_configured">Không có ứng dụng hoặc trò chơi nào được cấu hình</string>
     <string name="app_spoofing_spoof_model">Giả mạo model</string>
     <string name="app_spoofing_select_spoof_model">Lựa chọn model giả mạo</string>
     <string name="app_spoofing_change_app">Thay đổi ứng dụng</string>
+    <string name="app_spoofing_empty_description">Các ứng dụng được chọn sẽ báo cáo danh tính thiết bị giả mạo để bỏ qua các bước kiểm tra phần cứng</string>
     <string name="show_system_apps">Hiện ứng dụng hệ thống</string>
     <string name="hide_system_apps">Ẩn các ứng dụng hệ thống</string>
     <!-- Custom App Spoofing Profiles -->
@@ -1021,8 +1052,8 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="custom_spoof_profile_fingerprint">DẤU VÂN TAY (Tùy chọn)</string>
     <string name="custom_spoof_profile_product">SẢN PHẨM (Tùy chọn)</string>
     <string name="app_spoofing_clear_all_confirm">Điều này sẽ xóa tất cả các mục nhập giả mạo ứng dụng đã được cấu hình.</string>
-    <string name="app_spoofing_no_apps_available">Không có ứng dụng nào khả dụng</string>
-    <string name="app_spoofing_no_apps_found">Không tìm thấy ứng dụng nào cho \"%s\"</string>
+    <string name="app_spoofing_no_apps_available">Không có ứng dụng hoặc trò chơi nào khả dụng</string>
+    <string name="app_spoofing_no_apps_found">Không tìm thấy ứng dụng hoặc trò chơi nào cho \"%s\"</string>
     <string name="app_spoofing_clear_search">Xóa tìm kiếm</string>
     <string name="app_spoofing_longpress_hint">Nhấn giữ để nhanh chóng gán lại hồ sơ</string>
     <string name="app_spoofing_remove_title">Xóa ứng dụng?</string>
@@ -1159,8 +1190,6 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="dynamic_bar_event_privacy_summary">Cảnh báo truy cập camera và micrô</string>
     <string name="dynamic_bar_event_audio_recording">Ghi âm</string>
     <string name="dynamic_bar_event_audio_recording_summary">Ghi âm giọng nói và thu âm thanh</string>
-    <string name="dynamic_bar_event_call">Ongoing call</string>
-    <string name="dynamic_bar_event_call_summary">Incoming and active calls</string>
     <string name="dynamic_bar_event_media">Phát lại đa phương tiện</string>
     <string name="dynamic_bar_event_media_summary">Nhạc đang phát và điều khiển âm thanh</string>
     <string name="dynamic_bar_event_notification">Thông báo</string>
@@ -1227,7 +1256,6 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <!-- Cutout Progress -->
     <string name="cutout_progress_title">Vòng Tiến độ Cắt rời</string>
     <string name="cutout_progress_summary">Hiện vòng tiến độ xung quanh lỗ bấm</string>
-    <string name="cutout_progress_enabled_title">Bật vòng tiến độ cắt rời</string>
     <string name="cutout_progress_enabled_summary">Hiện một vòng tiến độ xung quanh phần cắt camera trong khi tải xuống</string>
     <string name="cutout_progress_cat_appearance">Giao diện</string>
     <string name="cutout_progress_cat_behaviour">Hành vi</string>
@@ -1409,8 +1437,6 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="play_integrity_fix_summary">Quản lý cấu hình PIF và dấu vân tay thiết bị để đạt basic integrity</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Quản lý keybox và ứng dụng mục tiêu cho chứng thực để đạt strong integrity</string>
-    <string name="game_spoofing_title">Game spoofing</string>
-    <string name="game_spoofing_summary">Giả mạo thuộc tính thiết bị cho các trò chơi cụ thể</string>
     <!-- Play Integrity Fix -->
     <string name="pif_status">Trạng thái</string>
     <string name="pif_active_config">Cấu hình đang hoạt động</string>
@@ -1438,6 +1464,9 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="pif_select_channel">Chọn kênh</string>
     <string name="pif_channel_latest_release">Bản phát hành mới nhất</string>
     <string name="pif_channel_canary_release">Bản phát hành Canary</string>
+    <string name="pif_invalid_fingerprint">Định dạng dấu vân tay không hợp lệ</string>
+    <string name="pif_no_devices_found">Không tìm thấy thiết bị nào</string>
+    <string name="pif_no_api_key">Không thể trích xuất khóa API của Flash Tool</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">Quản lý keybox</string>
     <string name="ts_import_keybox">Nhập keybox</string>
@@ -1456,6 +1485,7 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="ts_target_apps_count">%d ứng dụng đã cấu hình</string>
     <string name="ts_import_target_list">Nhập danh sách mục tiêu</string>
     <string name="ts_import_target_list_summary">Nhập target.txt từ tệp</string>
+    <string name="ts_invalid_patch_date">Định dạng ngày tháng không hợp lệ. Hãy sử dụng định dạng YYYY-MM-DD</string>
     <string name="ts_target_list_imported">Đã nhập danh sách mục tiêu</string>
     <string name="ts_loading_apps">Đang tải ứng dụng\u2026</string>
     <string name="ts_auto_select">Tự động chọn</string>
@@ -1470,30 +1500,25 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="ts_footer_body">1. Lấy keybox XML hợp lệ từ nguồn đáng tin cậy. Không cung cấp keybox; bạn phải tự tìm.\n2. Nhấn \"Nhập keybox\" và tải tệp.\n3. Mở \"Quản lý ứng dụng mục tiêu\" và chọn Google Play Services và Google Play Store.\n4. Đặt chế độ mục tiêu thành \"Leaf\" nếu thiết bị của bạn có TEE hoạt động, nếu không thì để là Tự động.\n5. Kiểm tra lại trạng thái Play Integrity của bạn.\n\nLuôn xóa keybox hiện có trước khi nhập keybox mới. Nếu Google thu hồi keybox, keybox đó vẫn có thể cho phép đạt device integrity mặc dù strong integrity sẽ thất bại.</string>
     <string name="ts_security_patch">Ngày bản vá bảo mật</string>
     <string name="ts_no_patch">Chưa đặt (sử dụng mặc định của thiết bị)</string>
-    <!-- Game Spoofing -->
-    <string name="gs_enable">Bật game spoofing</string>
-    <string name="gs_enable_summary">Giả mạo thuộc tính thiết bị cho các trò chơi đã cấu hình</string>
-    <string name="gs_add_app">Thêm trò chơi</string>
-    <string name="gs_add_app_summary">Chọn ứng dụng và hồ sơ thiết bị để giả mạo</string>
-    <string name="gs_reload">Tải lại</string>
-    <string name="gs_reload_summary">Tải lại cấu hình từ đĩa</string>
-    <string name="gs_configured_apps">Trò chơi đã cấu hình</string>
-    <string name="gs_no_apps">Chưa cấu hình trò chơi nào</string>
-    <string name="gs_no_apps_summary">Nhấn \"Thêm trò chơi\" để bắt đầu</string>
-    <string name="gs_select_app">Chọn ứng dụng</string>
-    <string name="gs_select_profile">Chọn hồ sơ thiết bị</string>
-    <string name="gs_edit_props">Chỉnh sửa thuộc tính</string>
-    <string name="gs_change_profile">Thay đổi hồ sơ thiết bị</string>
-    <string name="gs_remove">Xóa</string>
-    <string name="gs_remove_title">Xóa trò chơi?</string>
-    <string name="gs_remove_message">Xóa %s khỏi game spoofing?</string>
-    <string name="gs_edit_app">Chỉnh sửa %s</string>
-    <string name="gs_key">Khóa</string>
-    <string name="gs_value">Giá trị</string>
-    <string name="gs_save">Lưu</string>
-    <string name="gs_config_saved">Đã lưu cấu hình</string>
-    <string name="gs_loading_apps">Đang tải ứng dụng\u2026</string>
-    <string name="gs_failed">Thất bại: %s</string>
+    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_select_target_apps">Chọn ứng dụng mục tiêu</string>
+    <string name="ts_select_target_apps_desc">Chọn ứng dụng để kích hoạt tính năng giả mạo chứng thực</string>
+    <string name="ts_search_apps">Tìm kiếm ứng dụng\u2026</string>
+    <string name="ts_system_apps">Ứng dụng hệ thống</string>
+    <string name="ts_selected_count">%d đã chọn</string>
+    <string name="ts_select_all">Chọn tất cả</string>
+    <string name="ts_reset">Thiết lập lại</string>
+    <string name="ts_mode_auto">Tự động</string>
+    <string name="ts_mode_leaf">Leaf ?</string>
+    <string name="ts_mode_cert">Chứng chỉ !</string>
+    <!-- TrickyStore verification mode preference -->
+    <string name="ts_verification_mode">Chế độ xác minh</string>
+    <string name="ts_verification_mode_auto">tự động</string>
+    <string name="ts_verification_mode_cert">chứng chỉ</string>
+    <string name="ts_verification_mode_leaf">leaf</string>
+    <string name="ts_verification_auto_count">%1$d tự động</string>
+    <string name="ts_verification_cert_count">%1$d chứng chỉ</string>
+    <string name="ts_verification_leaf_count">%1$d leaf</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Chọn đối tượng cho hình nền Depth</string>
     <string name="depthwall_file_header_select_summary">Chọn ảnh đối tượng cho hình nền depth từ bộ nhớ.</string>
