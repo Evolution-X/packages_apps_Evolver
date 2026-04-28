@@ -293,6 +293,10 @@
     <string name="keyguard_now_bar_height_title">Now bar height</string>
     <string name="keyguard_now_bar_height_summary">Adjust the height of the Now bar</string>
 
+    <!-- Lock screen/Scrim -->
+    <string name="keyguard_scrim_transparent_title">Transparent lock screen scrim</string>
+    <string name="keyguard_scrim_transparent_summary">Hide the lock screen wallpaper dimming layer</string>
+
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Show Google Smartspace when available</string>
