@@ -55,6 +55,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
     private static final String KEY_CARRIER_NAME = "lockscreen_show_carrier";
     private static final String KEY_CUSTOM_CLOCK = "lockscreen_custom_clock_style";
+    private static final String KEY_KEYGUARD_SCRIM = "keyguard_scrim_transparent";
 //    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
 //    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
 
@@ -64,6 +65,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mWeather;
     private SwitchPreferenceCompat mFpSuccessVib;
     private SwitchPreferenceCompat mFpErrorVib;
+    private SwitchPreferenceCompat mKeyguardScrim;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -114,6 +116,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
         mWeather.setOnPreferenceChangeListener(this);
 
+        mKeyguardScrim = (SwitchPreferenceCompat) findPreference(KEY_KEYGUARD_SCRIM);
+        mKeyguardScrim.setOnPreferenceChangeListener(this);
+
         updateCustomClockSummary();
         updateWeatherSettings();
     }
@@ -129,6 +134,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mWeather) {
             mWeather.setChecked((Boolean)newValue);
+            SystemUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mKeyguardScrim) {
+            mKeyguardScrim.setChecked((Boolean) newValue);
             SystemUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
