@@ -97,6 +97,13 @@
             android:summary="@string/status_bar_carrier_lock_screen_summary"
             android:defaultValue="true" />
 
+        <!-- Scrim -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="keyguard_scrim_transparent"
+            android:title="@string/keyguard_scrim_transparent_title"
+            android:summary="@string/keyguard_scrim_transparent_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
