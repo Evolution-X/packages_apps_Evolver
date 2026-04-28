@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) Evolution X
+     SPDX-FileCopyrightText: Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -935,6 +935,7 @@
     <string name="sensor_block_count">%1$d додатків заблоковано</string>
     <string name="sensor_block_add_apps">Додати програми</string>
     <string name="sensor_block_configured_apps">Заблоковані застосунки</string>
+    <string name="sensor_block_empty_description">Датчики перелічених тут програм будуть заблоковані в масштабах усієї системи</string>
     <string name="sensor_block_no_apps_configured">Жодних програм не заблоковано</string>
     <string name="sensor_block_no_apps_available">Немає доступних додатків</string>
     <string name="sensor_block_no_apps_found">Нічого не знайдено для \"%1$s\"</string>
@@ -1028,6 +1029,7 @@
     <string name="app_spoofing_spoof_model">Підміна моделі</string>
     <string name="app_spoofing_select_spoof_model">Обрати підмінну модель</string>
     <string name="app_spoofing_change_app">Змінити програму</string>
+    <string name="app_spoofing_empty_description">Вибрані програми повідомлятимуть про підроблену ідентифікацію пристрою, щоб обійти перевірки обладнання</string>
     <string name="show_system_apps">Системні додатки</string>
     <string name="hide_system_apps">Сховати системні додатки</string>
     <!-- Custom App Spoofing Profiles -->
@@ -1179,8 +1181,6 @@
     <string name="dynamic_bar_event_privacy_summary">Сповіщення про доступ до камери та мікрофону</string>
     <string name="dynamic_bar_event_audio_recording">Запис звуку</string>
     <string name="dynamic_bar_event_audio_recording_summary">Голосовий записувач та запис звуку</string>
-    <string name="dynamic_bar_event_call">Поточний виклик</string>
-    <string name="dynamic_bar_event_call_summary">Вхідні та активні виклики</string>
     <string name="dynamic_bar_event_media">Відтворення медіа</string>
     <string name="dynamic_bar_event_media_summary">Відтворення музики та аудіо елементів керування</string>
     <string name="dynamic_bar_event_notification">Сповіщення</string>
