@@ -9,7 +9,7 @@
     <string name="evolver_dashboard_summary">Rozwijaj swoje urządzenie na swój sposób</string>
     <!-- Categories -->
     <string name="themes_title">Motywy</string>
-    <string name="themes_summary">Silnik Monet, czcionki, ikony, animacje</string>
+    <string name="themes_summary">Motyw dynamiczny, czcionki, ikony, animacje</string>
     <string name="lock_screen_title">Ekran blokady</string>
     <string name="lock_screen_summary">Interfejs, Co jest grane, odcisk palca</string>
     <string name="status_bar_title">Pasek stanu</string>
@@ -29,9 +29,9 @@
     <string name="general_category_title">Ogólne</string>
     <string name="gestures_category_title">Gesty</string>
     <!-- Themes -->
-    <string name="themes_monet_category">Silnik Monet</string>
-    <string name="themes_monet_title">Ustawienia silnika Monet</string>
-    <string name="themes_monet_summary">Dostosuj wbudowany silnik motywów Androida</string>
+    <string name="themes_monet_category">Motyw dynamiczny</string>
+    <string name="themes_monet_title">Ustawienia motywu dynamicznego</string>
+    <string name="themes_monet_summary">Dostosuj wbudowany motyw dynamiczny Androida</string>
     <string name="themes_audio_category">Dźwięk</string>
     <string name="themes_lock_sound_title">Dźwięk blokady</string>
     <string name="themes_unlock_sound_title">Dźwięk odblokowania</string>
@@ -91,8 +91,8 @@
     <string name="themes_boot_animation_title">Animacja startowa</string>
     <string name="themes_boot_animation_summary">Ustaw styl animacji startowej</string>
     <string name="boot_animation_custom_pick">Wybierz plik zip</string>
-    <string name="boot_animation_custom_pick_summary">Wybierz niestandardowy animacjarozruchu.zip</string>
-    <string name="boot_animation_applied_error">Nie udało się zastosować animacji rozruchu</string>
+    <string name="boot_animation_custom_pick_summary">Wybierz niestandardowy animacjastartowa.zip</string>
+    <string name="boot_animation_applied_error">Nie udało się zastosować animacji startowej</string>
     <string name="boot_animation_preview_loading">Ładowanie podglądu…</string>
     <string name="boot_animation_preview_desc">Podgląd wybranej animacji startowej</string>
     <string name="boot_animation_preview_summary">Podgląd aktualnie wybranej animacji startowej</string>
@@ -315,8 +315,8 @@
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
     <string name="status_bar_clock_date_left">Po lewej stronie zegara</string>
     <!-- Statusbar Clock background chip -->
-    <string name="statusbar_clock_chip_title">Wskaźnik tła zegara</string>
-    <string name="statusbar_clock_chip_summary">Wybierz niestandardowy wskaźnik tła za zegarem</string>
+    <string name="statusbar_clock_chip_title">Tło za zegarem</string>
+    <string name="statusbar_clock_chip_summary">Wybierz niestandardowe tło za zegarem</string>
     <string name="solid_accent">Stały kolor akcentu</string>
     <string name="outline">Obrys</string>
     <string name="solid_accent_gradient">Jednolity kolor akcentu gradientowego</string>
@@ -427,8 +427,8 @@
     <string name="quick_settings_tile_animation_interpolator_overshoot">Przeregulowanie</string>
     <string name="quick_settings_tile_animation_interpolator_anticipate">Cofnięcie</string>
     <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Cofnięcie z przeregulowaniem</string>
-    <string name="quick_settings_data_usage_title">Wykorzystanie danych mobilnych</string>
-    <string name="quick_settings_data_usage_summary">Wyświetla podsumowanie wykorzystania danych mobilnych w sekcji szybkich ustawień</string>
+    <string name="quick_settings_data_usage_title">Wykorzystanie danych</string>
+    <string name="quick_settings_data_usage_summary">Wyświetla podsumowanie wykorzystania danych w stopce szybkich ustawień</string>
     <string name="quick_settings_lock_screen_category">Ekran blokady</string>
     <string name="quick_settings_secure_lock_screen_title">Szybkie ustawienia na ekranie blokady</string>
     <string name="quick_settings_secure_lock_screen_summary">Zezwól na przesunięcie palcem w dół na ekranie blokady, aby wyświetlić szybkie ustawienia</string>
@@ -515,7 +515,7 @@
     <string name="power_menu_actions_settings_title">Ustawienia</string>
     <string name="power_menu_actions_lockdown_title">Blokada</string>
     <string name="power_menu_actions_lockdown_unavailable">Wyłączono możliwość blokowania, ponieważ blokada ekranu nie jest bezpieczna</string>
-    <string name="power_menu_actions_soundpanel_title">Panel dźwiękowy</string>
+    <string name="power_menu_actions_soundpanel_title">Panel dźwięku</string>
     <string name="power_menu_actions_users_title">Użytkownicy</string>
     <string name="power_menu_actions_logout_title">Wyloguj się</string>
     <string name="power_menu_actions_emergency_title">Tryb awaryjny</string>
@@ -557,8 +557,8 @@
     <string name="smart_pixels_shift_summary">Zapobiegaj wypalaniu na urządzeniach OLED przez okresowe przesuwanie pikseli</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Fałszowanie</string>
-    <string name="spoofing_summary">Poprawka integralności Google Play, identyfikacja urządzenia i funkcje fałszowania.</string>
-    <string name="spoofing_integrity_category">Poprawka integralności Google Play</string>
+    <string name="spoofing_summary">Integralność Google Play, identyfikacja urządzenia i funkcje fałszowania.</string>
+    <string name="spoofing_integrity_category">Integralność Google Play</string>
     <string name="spoofing_identity_category">Identyfikacja urządzenia</string>
     <string name="spoofing_features_category">Funkcje sprzętowe</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
@@ -1092,7 +1092,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="idle_manager_policy_balanced_desc">Aplikacje nieaktywne przez 60 minut zostaną objęte działaniem.</string>
     <string name="idle_manager_policy_aggressive_desc">Aplikacje nieaktywne przez 15 minut zostaną objęte działaniem. Zalecane dla oszczędzania baterii.</string>
     <string name="idle_manager_policy_custom_desc">Ustaw własny limit czasu bezczynności.</string>
-    <string name="idle_manager_timeout_minutes">Przekroczono limit czasu: %1$d min</string>
+    <string name="idle_manager_timeout_minutes">Limit czasu: %1$d min</string>
     <string name="idle_manager_apply_custom">Zastosuj</string>
     <string name="idle_manager_timeout_label">Limit czasu</string>
     <string name="idle_manager_policy_label">Polityka</string>
@@ -1102,8 +1102,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="idle_action_kill_bg">Zamknij w tle</string>
     <string name="idle_action_full_kill">Pełne zamknięcie</string>
     <string name="idle_manager_policy_custom_desc_dynamic">Aplikacje bezczynne przez %1$d minut zostaną objęte działaniem.</string>
-    <string name="idle_action_rare_bucket_desc">Przenosi aplikację do rzadkiego trybu czuwania. Blokuje zadania w tle i alarmy. Aplikacja przywraca się automatycznie po otwarciu.</string>
-    <string name="idle_action_restricted_desc">Przenosi aplikację do ograniczonego trybu czuwania. Najbardziej restrykcyjny poziom. Dozwolone jest bardzo niewiele operacji w tle.</string>
+    <string name="idle_action_rare_bucket_desc">Przenosi aplikację w tryb ograniczonej aktywności w tle. Blokuje zadania w tle i alarmy. Aplikacja zostaje automatycznie przywrócona po otwarciu.</string>
+    <string name="idle_action_restricted_desc">Przenosi aplikację w tryb silnie ograniczonej aktywności w tle. Najbardziej restrykcyjna kategoria. Dozwolonych jest bardzo niewiele operacji w tle.</string>
     <string name="idle_action_kill_bg_desc">Łagodne zakończenie procesów w tle przechowywanych w pamięci podręcznej. Aplikacja może sama się ponownie uruchomić.</string>
     <string name="idle_action_full_kill_desc">Ograniczony przedział + łagodne zakończenie. Maksymalne wymuszanie. Idealne dla oszczędzania baterii.</string>
     <string name="idle_manager_kill_count_label">Suma akcji</string>
