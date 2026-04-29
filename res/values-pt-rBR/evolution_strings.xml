@@ -556,21 +556,29 @@
     <string name="smart_pixels_shift_title">Proteção contra Burn-in</string>
     <string name="smart_pixels_shift_summary">Evita o burn-in em dispositivos OLED, alterando os pixels de vez em quando</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Mascaramento de componente</string>
-    <string name="spoofing_summary">Ignorar restrições de aplicativos por componentes de mascaramento</string>
-    <string name="spoofing_system_wide_category">Em todo o sistema</string>
+    <string name="spoofing_title">Mascarar dispositivo</string>
+    <string name="spoofing_summary">Play Integrity, identidade do dispositivo e falsificação de recursos</string>
+    <string name="spoofing_integrity_category">Integridade do jogo</string>
+    <string name="spoofing_identity_category">Identidade do dispositivo</string>
+    <string name="spoofing_features_category">Recursos de hardware</string>
     <string name="spoofing_pixel_props_title">Propriedades do Pixel</string>
-    <string name="spoofing_pixel_props_summary">Mascarar um grupo seleto de aplicativos do Google para o dispositivo Pixel mais recente</string>
-    <string name="tensor_spoof_title">Forçar recursos do Tensor</string>
-    <string name="tensor_spoof_summary">Ative recursos exclusivos do Pixel Tensor em dispositivos não suportados. Pode levar a um comportamento inesperado ou ao aumento do uso da bateria.</string>
-    <string name="spoofing_app_specific_category">Específico do Aplicativo</string>
+    <string name="spoofing_pixel_props_summary">Informar a identidade mais recente do dispositivo Pixel para um conjunto selecionado de apps do Google</string>
+    <string name="spoofing_app_specific_category">Substituições específicas do aplicativo</string>
     <string name="spoofing_photos_title">Google Fotos</string>
     <string name="spoofing_photos_summary">Mascarar o aplicativo Google Fotos como um Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
     <string name="spoofing_applying_changes">Aplicando alterações de mascaramento\u2026</string>
-    <string name="spoofing_tensor_enabled">Recursos do tensor ativados</string>
-    <string name="spoofing_tensor_disabled">Recursos do tensor desativados</string>
+    <!-- Miscellaneous/Spoofing/Tensor -->
+    <string name="tensor_spoof_title">Destinos de recursos tensores</string>
+    <string name="tensor_spoof_summary">Conceda aos aplicativos selecionados acesso aos recursos de IA exclusivos do Pixel Tensor</string>
+    <string name="tensor_spoof_enable">Falsificação de tensor</string>
+    <string name="tensor_spoof_enable_summary">Conceda aos aplicativos selecionados acesso a recursos exclusivos do Pixel Tensor</string>
+    <string name="tensor_targets_none_configured">Nenhum aplicativo segmentado</string>
+    <string name="tensor_targets_count">%1$d aplicativos segmentados</string>
+    <string name="tensor_targets_system_badge">SISTEMA</string>
+    <string name="tensor_targets_clear_search">Limpar pesquisa</string>
+    <string name="tensor_targets_empty_description">Os aplicativos selecionados relatarão recursos de hardware do Tensor para desbloquear funcionalidades exclusivas de AI e Pixel</string>
     <!-- About -->
     <string name="about_info">Evolution X é uma ROM Android personalizada que visa replicar a experiência do Google Pixel, com personalização adicional. Baseado no Projeto LineageOS.</string>
     <string name="about_website_title">Site</string>
@@ -1485,20 +1493,14 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_import_target_list_summary">Importar target.txt de um arquivo</string>
     <string name="ts_invalid_patch_date">Formato de data inválido. Use AAAA-MM-DD</string>
     <string name="ts_target_list_imported">Lista de alvos importada</string>
-    <string name="ts_loading_apps">Carregando aplicativos\u2026</string>
-    <string name="ts_auto_select">Seleção automática</string>
-    <string name="ts_save">Salvar</string>
     <string name="ts_targets_saved">Lista de alvos importada</string>
     <string name="ts_failed">Falha: %s</string>
-    <string name="ts_target_mode">Modo alvo</string>
-    <string name="ts_target_mode_auto">Automático</string>
-    <string name="ts_target_mode_leaf">Hack de leaf</string>
-    <string name="ts_target_mode_cert">Geração de certificado</string>
     <string name="ts_footer_title">Aprovando no teste de integridade forte</string>
     <string name="ts_footer_body">1. Obtenha um XML de keybox válido de uma fonte confiável. keybox não são fornecidas; você mesmo deve encontrar um.\n2. Toque em \"Importar keybox\" e carregue o arquivo.\n3. Abra \"Gerenciar aplicativos de alvos\" e selecione Google Play Services e Google Play Store.\n4. Defina o modo de alvo como \"Leaf\" se o seu dispositivo tiver um TEE funcionando, caso contrário, deixe-o como Automático.\n5. Verifique novamente o status do Play Integrity.\n\nSempre exclua a keybox existente antes de importar uma nova. Se o Google revogar uma keybox, ainda poderá permitir a passagem para a integridade do dispositivo, mesmo que a integridade forte falhe.</string>
     <string name="ts_security_patch">Data do patch de segurança</string>
     <string name="ts_no_patch">Não definido (usando o padrão do dispositivo)</string>
-    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_clear_search">Limpar pesquisa</string>
+    <string name="ts_system_badge">SISTEMA</string>
     <string name="ts_select_target_apps">Selecionar aplicativos alvo</string>
     <string name="ts_select_target_apps_desc">Escolha os aplicativos para ativar o mascaramento de atestado</string>
     <string name="ts_search_apps">Pesquisar aplicativos\u2026</string>
@@ -1507,9 +1509,8 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_select_all">Selecionar todos</string>
     <string name="ts_reset">Redefinir</string>
     <string name="ts_mode_auto">Automático</string>
-    <string name="ts_mode_leaf">Leaf?</string>
-    <string name="ts_mode_cert">Cert !</string>
-    <!-- TrickyStore verification mode preference -->
+    <string name="ts_mode_leaf">Folha</string>
+    <string name="ts_mode_cert">Certificado</string>
     <string name="ts_verification_mode">Modo de verificação</string>
     <string name="ts_verification_mode_auto">automático</string>
     <string name="ts_verification_mode_cert">cert</string>
