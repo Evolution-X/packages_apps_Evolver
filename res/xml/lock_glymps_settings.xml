@@ -6,7 +6,7 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="lock_glymps_enabled"
-        android:title="@string/enable"
+        android:title="@string/action_enable"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.WallpaperPreviewPreference

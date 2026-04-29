@@ -226,10 +226,10 @@ class FontsPickerPreference @JvmOverloads constructor(
                         AlertDialog.Builder(context)
                             .setTitle(R.string.reboot_required_title)
                             .setMessage(R.string.reboot_required_custom_font_title)
-                            .setPositiveButton(R.string.reboot_now) { _, _ ->
+                            .setPositiveButton(R.string.action_reboot_now) { _, _ ->
                                 ExternalFontInstaller.rebootDevice()
                             }
-                            .setNegativeButton(R.string.later, null)
+                            .setNegativeButton(R.string.action_later, null)
                             .show()
                     }
                     pendingCustomFontUri = null
@@ -371,7 +371,7 @@ class FontsPickerPreference @JvmOverloads constructor(
             AlertDialog.Builder(ctx)
                 .setTitle(R.string.systemui_restart_title)
                 .setMessage(R.string.systemui_restart_message)
-                .setPositiveButton(R.string.systemui_restart_yes) { _, _ -> onConfirm() }
+                .setPositiveButton(R.string.action_yes) { _, _ -> onConfirm() }
                 .setNegativeButton(R.string.systemui_restart_not_now) { _, _ -> onLater() }
                 .show()
         }

@@ -281,7 +281,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.pif_delete_title, PIF_CONFIG_NAME))
             .setMessage(R.string.pif_delete_message)
-            .setPositiveButton(R.string.pif_delete) { _, _ ->
+            .setPositiveButton(R.string.action_delete) { _, _ ->
                 try {
                     Settings.Secure.putString(
                         requireContext().contentResolver,

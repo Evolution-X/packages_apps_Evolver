@@ -13,7 +13,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginRight="20dp"
         android:enabled="false"
-        android:text="@string/apply_change_button_title"
+        android:text="@string/action_apply"
         android:textAllCaps="false"
         style="@style/ActionPrimaryButton" />
 

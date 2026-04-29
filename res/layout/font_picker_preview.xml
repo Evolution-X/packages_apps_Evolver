@@ -138,7 +138,7 @@
                     android:id="@+id/apply_extended_fab"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/apply_button_text"
+                    android:text="@string/action_apply"
                     android:textAllCaps="false"
                     android:textColor="@color/settingslib_btn_colored_text_material"
                     android:theme="@style/Theme.CollapsingToolbar.Settings"

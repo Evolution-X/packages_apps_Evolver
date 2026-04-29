@@ -238,7 +238,7 @@ class LockClockFontsPreference @JvmOverloads constructor(
             androidx.appcompat.app.AlertDialog.Builder(ctx)
                 .setTitle(R.string.systemui_restart_title)
                 .setMessage(R.string.systemui_restart_message)
-                .setPositiveButton(R.string.systemui_restart_yes) { _, _ ->
+                .setPositiveButton(R.string.action_yes) { _, _ ->
                     onConfirm()
                 }
                 .setNegativeButton(R.string.systemui_restart_not_now) { _, _ ->

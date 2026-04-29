@@ -20,7 +20,7 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="network_traffic_enabled"
-        android:title="@string/enable" />
+        android:title="@string/action_enable" />
 
     <org.evolution.settings.preferences.SystemSettingListPreference
         android:key="network_traffic_mode"
