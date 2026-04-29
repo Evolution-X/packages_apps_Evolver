@@ -550,11 +550,7 @@
     <string name="smart_pixels_warning_text">Inteligentne piksele to funkcja oszczędzania energii. Poprawa żywotności baterii będzie zauważalna w zależności od ilości wyłączonych pikseli. Pamiętaj, że w niektórych przypadkach może to spowodować brak reakcji części ekranu dotykowego</string>
     <string name="smart_pixels_title">Inteligentne piksele</string>
     <string name="smart_pixels_summary">Oszczędzaj baterię poprzez wyłączanie dodatkowych pikseli</string>
-    <string name="smart_pixels_on_power_save_title">Automatyczne włączanie w trybie oszczędzania baterii</string>
-    <string name="smart_pixels_on_power_save_summary">Włącz inteligentne piksele, gdy oszczędzanie baterii jest włączone</string>
     <string name="smart_pixels_percent">Procent pikseli do wyłączenia</string>
-    <string name="smart_pixels_shift_title">Ochrona przed wypaleniem ekranu</string>
-    <string name="smart_pixels_shift_summary">Zapobiegaj wypalaniu na urządzeniach OLED przez okresowe przesuwanie pikseli</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Fałszowanie</string>
     <string name="spoofing_summary">Integralność Google Play, identyfikacja urządzenia i funkcje fałszowania.</string>
@@ -1192,10 +1188,6 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="dynamic_bar_keyguard_compact_chip">Kompaktowy wskaźnik na ekranie blokady</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Zawsze używaj kompaktowego stylu wskaźnika na ekranie blokady. Po wyłączeniu tryb kompaktowy jest używany tylko wtedy, gdy brakuje miejsca.</string>
     <string name="dynamic_bar_events">Zdarzenia</string>
-    <string name="dynamic_bar_event_recording">Nagrywanie ekranu</string>
-    <string name="dynamic_bar_event_recording_summary">Aktywny wskaźnik nagrywania ekranu</string>
-    <string name="dynamic_bar_event_privacy">Wskaźniki prywatności</string>
-    <string name="dynamic_bar_event_privacy_summary">Alerty dostępu do kamery i mikrofonu</string>
     <string name="dynamic_bar_event_audio_recording">Nagrywanie dźwięku</string>
     <string name="dynamic_bar_event_audio_recording_summary">Rejestrator głosu i przechwytywanie dźwięku</string>
     <string name="dynamic_bar_event_media">Odtwarzanie multimediów</string>
@@ -1224,8 +1216,6 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="dynamic_bar_event_clipboard_summary">Skopiowany tekst i podgląd obrazu</string>
     <string name="dynamic_bar_event_torch">Latarka</string>
     <string name="dynamic_bar_event_torch_summary">Przełącznik i jasność latarki</string>
-    <string name="dynamic_bar_event_casting">Przesyłanie</string>
-    <string name="dynamic_bar_event_casting_summary">Status przesyłania ekranu i multimediów</string>
     <string name="dynamic_bar_event_ongoing">Bieżące działania</string>
     <string name="dynamic_bar_event_ongoing_summary">Nawigacja, dostawy i inne działania na żywo</string>
     <string name="dynamic_bar_event_sports">Sporty</string>
