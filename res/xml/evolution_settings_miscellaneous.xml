@@ -30,13 +30,6 @@
             android:title="@string/spoofing_title"
             android:summary="@string/spoofing_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.Spoofing" />
-
-        <!-- Hide developer status -->
-        <Preference
-            android:key="hide_developer_status_settings"
-            android:title="@string/hide_developer_status_title"
-            android:summary="@string/hide_developer_status_summary"
-            android:fragment="org.evolution.settings.fragments.miscellaneous.HideDeveloperStatusSettings" />
     </PreferenceCategory>
 
     <PreferenceCategory
