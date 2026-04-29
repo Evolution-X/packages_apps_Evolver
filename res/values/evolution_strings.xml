@@ -589,16 +589,23 @@
     <string name="spoofing_system_wide_category">System-Wide</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
     <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
-    <string name="tensor_spoof_title">Force Tensor features</string>
-    <string name="tensor_spoof_summary">Enable Pixel Tensor-exclusive features on unsupported devices. May lead to unexpected behavior or increased battery usage.</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
     <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
-    <string name="spoofing_tensor_enabled">Tensor features enabled</string>
-    <string name="spoofing_tensor_disabled">Tensor features disabled</string>
+
+    <!-- Miscellaneous/Spoofing/Tensor -->
+    <string name="tensor_spoof_title">Tensor feature targets</string>
+    <string name="tensor_spoof_summary">Spoof Tensor-exclusive features for selected apps</string>
+    <string name="tensor_spoof_enable">Tensor spoofing</string>
+    <string name="tensor_spoof_enable_summary">Grant selected apps access to Pixel Tensor-exclusive features</string>
+    <string name="tensor_targets_none_configured">No apps targeted</string>
+    <string name="tensor_targets_count">%1$d apps targeted</string>
+    <string name="tensor_targets_system_badge">SYS</string>
+    <string name="tensor_targets_clear_search">Clear search</string>
+    <string name="tensor_targets_empty_description">Selected apps will report Tensor hardware features to unlock AI and Pixel-exclusive functionality</string>
 
     <!-- About -->
     <string name="about_info">Evolution X is a custom Android ROM that aims to replicate the Google Pixel experience, with added customization. Based on the LineageOS Project.</string>
