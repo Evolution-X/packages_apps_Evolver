@@ -547,14 +547,10 @@
     <!-- %1$d = number of apps currently hidden -->
     <string name="hide_developer_status_count">%1$d aplicativos ocultos</string>
     <!-- Miscellaneous/Smart Pixels -->
-    <string name="smart_pixels_warning_text">Pixels Inteligentes é um recurso de economia de energia. Dependendo de quantos pixels você decidir desligar, você poderá ver uma melhoria na vida útil da bateria. Observe que, em alguns casos, isso pode resultar em áreas que não respondem na tela sensível ao toque</string>
+    <string name="smart_pixels_warning_text">Pixels inteligentes é um recurso de economia de energia. Dependendo de quantos pixels você decidir desligar, você poderá ver uma melhoria na vida útil da bateria. Observe que, em alguns casos, isso pode resultar em áreas que não respondem na tela sensível ao toque</string>
     <string name="smart_pixels_title">Pixels Inteligentes</string>
     <string name="smart_pixels_summary">Economize bateria desligando pixels extras</string>
-    <string name="smart_pixels_on_power_save_title">Ativar automaticamente na economia de bateria</string>
-    <string name="smart_pixels_on_power_save_summary">Ativar os Pixels Inteligentes quando a economia de bateria estiver ativada</string>
     <string name="smart_pixels_percent">Porcentagem de pixels a serem desativados</string>
-    <string name="smart_pixels_shift_title">Proteção contra Burn-in</string>
-    <string name="smart_pixels_shift_summary">Evita o burn-in em dispositivos OLED, alterando os pixels de vez em quando</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Mascarar dispositivo</string>
     <string name="spoofing_summary">Integridade do Google Play, identidade do dispositivo e recurso mascaramento</string>
@@ -570,12 +566,12 @@
     <string name="spoofing_snap_summary">Mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
     <string name="spoofing_applying_changes">Aplicando alterações de mascaramento\u2026</string>
     <!-- Miscellaneous/Spoofing/Tensor -->
-    <string name="tensor_spoof_title">Destinos de recursos tensores</string>
+    <string name="tensor_spoof_title">Alvos do recurso tensor</string>
     <string name="tensor_spoof_summary">Conceda aos aplicativos selecionados acesso aos recursos de IA exclusivos do Pixel Tensor</string>
     <string name="tensor_spoof_enable">Mascaramento tensor</string>
     <string name="tensor_spoof_enable_summary">Conceda aos aplicativos selecionados acesso a recursos exclusivos do Pixel Tensor</string>
-    <string name="tensor_targets_none_configured">Nenhum aplicativo segmentado</string>
-    <string name="tensor_targets_count">%1$d aplicativos segmentados</string>
+    <string name="tensor_targets_none_configured">Nenhum aplicativo alvo</string>
+    <string name="tensor_targets_count">%1$d aplicativos alvos</string>
     <string name="tensor_targets_system_badge">SISTEMA</string>
     <string name="tensor_targets_clear_search">Limpar pesquisa</string>
     <string name="tensor_targets_empty_description">Os aplicativos selecionados relatarão recursos de hardware do Tensor para desbloquear funcionalidades exclusivas de AI e Pixel</string>
@@ -1190,10 +1186,6 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="dynamic_bar_keyguard_compact_chip">Chip compacto na tela de bloqueio</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Sempre use o estilo de chip compacto na tela de bloqueio. Quando desativado, o modo compacto é usado somente quando o espaço é limitado.</string>
     <string name="dynamic_bar_events">Eventos</string>
-    <string name="dynamic_bar_event_recording">Gravação de tela</string>
-    <string name="dynamic_bar_event_recording_summary">Indicador de gravação de tela ativa</string>
-    <string name="dynamic_bar_event_privacy">Indicadores de privacidade</string>
-    <string name="dynamic_bar_event_privacy_summary">Alertas de acesso à câmera e ao microfone</string>
     <string name="dynamic_bar_event_audio_recording">Gravação de áudio</string>
     <string name="dynamic_bar_event_audio_recording_summary">Gravador de voz e captura de áudio</string>
     <string name="dynamic_bar_event_media">Reprodução de mídia</string>
@@ -1222,8 +1214,6 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="dynamic_bar_event_clipboard_summary">Texto copiado e visualização de imagem</string>
     <string name="dynamic_bar_event_torch">Lanterna</string>
     <string name="dynamic_bar_event_torch_summary">Alternar lanterna e brilho</string>
-    <string name="dynamic_bar_event_casting">Transmissão</string>
-    <string name="dynamic_bar_event_casting_summary">Transmissão de tela e status de transmissão de mídia</string>
     <string name="dynamic_bar_event_ongoing">Atividades em andamento</string>
     <string name="dynamic_bar_event_ongoing_summary">Navegação, entregas e outras atividades ao vivo</string>
     <string name="dynamic_bar_event_sports">Esportes</string>
@@ -1513,10 +1503,10 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_mode_cert">Certificado</string>
     <string name="ts_verification_mode">Modo de verificação</string>
     <string name="ts_verification_mode_auto">automático</string>
-    <string name="ts_verification_mode_cert">cert</string>
+    <string name="ts_verification_mode_cert">certificado</string>
     <string name="ts_verification_mode_leaf">leaf</string>
     <string name="ts_verification_auto_count">%1$d Automático</string>
-    <string name="ts_verification_cert_count">%1$d cert</string>
+    <string name="ts_verification_cert_count">%1$d certificado</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Selecione o tema do papel de parede de profundidade</string>
