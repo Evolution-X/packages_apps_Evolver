@@ -570,12 +570,12 @@
     <string name="spoofing_snap_summary">Mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
     <string name="spoofing_applying_changes">Aplicando alterações de mascaramento\u2026</string>
     <!-- Miscellaneous/Spoofing/Tensor -->
-    <string name="tensor_spoof_title">Destinos de recursos tensores</string>
+    <string name="tensor_spoof_title">Alvos do recurso tensor</string>
     <string name="tensor_spoof_summary">Conceda aos aplicativos selecionados acesso aos recursos de IA exclusivos do Pixel Tensor</string>
     <string name="tensor_spoof_enable">Mascaramento tensor</string>
     <string name="tensor_spoof_enable_summary">Conceda aos aplicativos selecionados acesso a recursos exclusivos do Pixel Tensor</string>
-    <string name="tensor_targets_none_configured">Nenhum aplicativo segmentado</string>
-    <string name="tensor_targets_count">%1$d aplicativos segmentados</string>
+    <string name="tensor_targets_none_configured">Nenhum aplicativo alvo</string>
+    <string name="tensor_targets_count">%1$d aplicativos alvos</string>
     <string name="tensor_targets_system_badge">SISTEMA</string>
     <string name="tensor_targets_clear_search">Limpar pesquisa</string>
     <string name="tensor_targets_empty_description">Os aplicativos selecionados relatarão recursos de hardware do Tensor para desbloquear funcionalidades exclusivas de AI e Pixel</string>
@@ -1513,10 +1513,10 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_mode_cert">Certificado</string>
     <string name="ts_verification_mode">Modo de verificação</string>
     <string name="ts_verification_mode_auto">automático</string>
-    <string name="ts_verification_mode_cert">cert</string>
+    <string name="ts_verification_mode_cert">certificado</string>
     <string name="ts_verification_mode_leaf">leaf</string>
     <string name="ts_verification_auto_count">%1$d Automático</string>
-    <string name="ts_verification_cert_count">%1$d cert</string>
+    <string name="ts_verification_cert_count">%1$d certificado</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Selecione o tema do papel de parede de profundidade</string>
