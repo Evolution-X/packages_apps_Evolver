@@ -112,7 +112,7 @@
     <string name="monet_engine_whole_palette_title">Cała paleta</string>
     <string name="monet_engine_whole_palette_summary">Ustaw jasność i nasycenie tak, aby miały wpływ również na kolory dodatkowe</string>
     <string name="monet_engine_tint_background_title">Odcień tła</string>
-    <string name="monet_engine_tint_background_summary">Spraw, aby wybór jasności i nasycenia wpływał również na kolory tła</string>
+    <string name="monet_engine_tint_background_summary">Spraw, aby wybór luminacji i nasycenia wpływał również na kolory tła</string>
     <string name="monet_engine_style_title">Styl motywu</string>
     <string name="monet_engine_style_tonal_spot">Punkt tonalny (domyślny)</string>
     <string name="monet_engine_style_vibrant">Intensywny</string>
@@ -120,7 +120,7 @@
     <string name="monet_engine_style_spritz">Rozbłysk</string>
     <string name="monet_engine_style_rainbow">Tęcza</string>
     <string name="monet_engine_style_fruit_salad">Sałatka owocowa</string>
-    <string name="monet_engine_style_content">Zawartość</string>
+    <string name="monet_engine_style_content">Treść</string>
     <string name="monet_engine_style_monochromatic">Monochromatyczny</string>
     <string name="monet_engine_color_source_title">Źródło koloru</string>
     <string name="monet_engine_color_source_both">Oba (domyślne)</string>
@@ -138,9 +138,9 @@
     <string name="lock_screen_fingerprint_ripple_title">Animacja falowania</string>
     <string name="lock_screen_fingerprint_ripple_summary">Pokaż animację falowania podczas odblokowywania odciskiem palca</string>
     <string name="lock_screen_fingerprint_success_vibration_title">Wibracja po udanej autoryzacji</string>
-    <string name="lock_screen_fingerprint_success_vibration_summary">Wibruj po pomyślnym uwierzytelnieniu odcisku palca</string>
+    <string name="lock_screen_fingerprint_success_vibration_summary">Wibracja po pomyślnym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Wibracja po nieudanej autoryzacji</string>
-    <string name="lock_screen_fingerprint_error_vibration_summary">Wibruj po nieudanym uwierzytelnieniu odcisku palca</string>
+    <string name="lock_screen_fingerprint_error_vibration_summary">Wibracja po nieudanym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_miscellaneous_category">Różne</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
