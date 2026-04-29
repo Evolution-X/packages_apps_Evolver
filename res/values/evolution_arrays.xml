@@ -1636,4 +1636,16 @@
         <item>swiftui</item>
         <item>facebook</item>
     </string-array>
+
+    <string-array name="qs_show_media_player_entries" translatable="false">
+        <item>@string/qs_show_media_player_hide</item>
+        <item>@string/qs_show_media_player_top</item>
+        <item>@string/qs_show_media_player_bottom</item>
+    </string-array>
+
+    <string-array name="qs_show_media_player_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
