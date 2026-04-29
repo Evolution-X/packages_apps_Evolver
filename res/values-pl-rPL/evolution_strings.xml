@@ -25,7 +25,7 @@
     <string name="miscellaneous_title">Różne</string>
     <string name="miscellaneous_summary">Fałszowanie, opcje programisty</string>
     <string name="about_title">Evolution X</string>
-    <string name="about_summary">O Evolution X</string>
+    <string name="about_summary">O naszym ROM-ie</string>
     <string name="general_category_title">Ogólne</string>
     <string name="gestures_category_title">Gesty</string>
     <!-- Themes -->
@@ -58,7 +58,7 @@
     <string name="themes_brightness_slider_summary">Ustaw styl suwaka jasności</string>
     <string name="themes_animations_category">Animacje</string>
     <string name="themes_charging_animation_title">Animacja falowania podczas ładowania</string>
-    <string name="themes_charging_animation_summary">Wyświetl animację podczas podłączania urządzenia do ładowania</string>
+    <string name="themes_charging_animation_summary">Wyświetl animację, gdy urządzenie jest podłączone</string>
     <string name="themes_screen_off_animation_title">Animacja wyłączania ekranu</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">Skala</string>
@@ -223,7 +223,7 @@
     <string name="status_bar_clock_and_date_title">Zegar i data</string>
     <string name="status_bar_clock_and_date_summary">Dostosuj zegar i datę</string>
     <string name="status_bar_bluetooth_battery_title">Stan baterii urządzenia Bluetooth</string>
-    <string name="status_bar_bluetooth_battery_summary">Pokaż aktualny stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępny</string>
+    <string name="status_bar_bluetooth_battery_summary">Wyświetl stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępne</string>
     <string name="status_bar_colored_icons_title">Kolorowe ikony</string>
     <string name="status_bar_colored_icons_summary">Użyj ikon launchera dla powiadomień aplikacji</string>
     <string name="status_bar_logo_title">Logo</string>
@@ -284,7 +284,7 @@
     <string name="status_bar_lyric_summary">Pokaż tekst piosenki na pasku stanu (wymaga wsparcia aplikacji)</string>
     <string name="status_bar_lyric_options_title">Opcje</string>
     <string name="disguise_props_for_music_app_title">Ukryj urządzenie dla aplikacji muzycznych</string>
-    <string name="disguise_props_for_music_app_summary">Ukryj urządzenie w niektórych aplikacjach muzycznych do obsługi tekstu na pasku stanu. Po zmianie tego przełącznika należy ponownie uruchomić aplikacje, aby zmiana zaczęła działać.</string>
+    <string name="disguise_props_for_music_app_summary">Ukryj urządzenie w niektórych aplikacjach muzycznych, aby obsługiwać teksty na pasku stanu. Po zmianie tego przełącznika należy ponownie uruchomić aplikacje, aby zmiana zaczęła obowiązywać.</string>
     <!-- Status bar/Clock & date-->
     <string name="status_bar_clock_position_title">Styl zegara</string>
     <string name="status_bar_clock_position_right">Po prawej</string>
@@ -409,8 +409,8 @@
     <string name="quick_settings_brightness_slider_position_bottom">Na dole</string>
     <string name="quick_settings_auto_brightness_icon_title">Ikona automatycznej jasności</string>
     <string name="quick_settings_auto_brightness_icon_summary">Pokaż ikonę przełączania automatycznej jasności obok suwaka</string>
-    <string name="quick_settings_brightness_slider_haptic_title">Wibracja przy dotknięciu</string>
-    <string name="quick_settings_brightness_slider_haptic_summary">Wibracje przy zmianie jasności za pomocą suwaka</string>
+    <string name="quick_settings_brightness_slider_haptic_title">Wibracja dotykowa</string>
+    <string name="quick_settings_brightness_slider_haptic_summary">Wibracja przy zmianie jasności za pomocą suwaka</string>
     <string name="quick_settings_animations_category">Animacje</string>
     <string name="quick_settings_tile_animation_style_title">Styl animacji kafelków</string>
     <string name="quick_settings_tile_animation_duration_title">Czas trwania animacji</string>
@@ -460,7 +460,7 @@
     <string name="quick_settings_tile_shape_rounded_square_smooth">Zaokrąglony kwadrat (gładki)</string>
     <string name="quick_settings_tile_shape_rounded_square">Zaokrąglony kwadrat</string>
     <string name="quick_settings_tile_shape_square">Kwadrat</string>
-    <string name="quick_settings_tile_haptic_summary">Zapewnij czułość dotykania kafelków szybkich ustawień</string>
+    <string name="quick_settings_tile_haptic_summary">Wibracja przy dotknięciu kafelków szybkich ustawień</string>
     <!-- QS footer icons -->
     <string name="quick_settings_footer_category">Dolny pasek</string>
     <string name="quick_settings_footer_edit_icon_title">Edytuj ikonę kafelków</string>
@@ -554,23 +554,31 @@
     <string name="smart_pixels_on_power_save_summary">Włącz inteligentne piksele, gdy oszczędzanie baterii jest włączone</string>
     <string name="smart_pixels_percent">Procent pikseli do wyłączenia</string>
     <string name="smart_pixels_shift_title">Ochrona przed wypaleniem ekranu</string>
-    <string name="smart_pixels_shift_summary">Zapobiega wypalaniu na urządzeniach OLED przez częstsze przesuwanie pikseli</string>
+    <string name="smart_pixels_shift_summary">Zapobiegaj wypalaniu na urządzeniach OLED przez okresowe przesuwanie pikseli</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Fałszowanie komponentów</string>
-    <string name="spoofing_summary">Pomiń ograniczenia aplikacji poprzez fałszowanie komponentów</string>
-    <string name="spoofing_system_wide_category">W całym systemie</string>
+    <string name="spoofing_title">Fałszowanie</string>
+    <string name="spoofing_summary">Poprawka integralności Google Play, identyfikacja urządzenia i funkcje fałszowania.</string>
+    <string name="spoofing_integrity_category">Poprawka integralności Google Play</string>
+    <string name="spoofing_identity_category">Identyfikacja urządzenia</string>
+    <string name="spoofing_features_category">Funkcje sprzętowe</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
-    <string name="spoofing_pixel_props_summary">Sfałszuj wybraną grupę aplikacji Google pod najnowsze urządzenie Pixel</string>
-    <string name="tensor_spoof_title">Wymuś funkcje Tensor</string>
-    <string name="tensor_spoof_summary">Włącz funkcje dostępne wyłącznie dla Pixel Tensor na urządzeniach nieobsługiwanych. Może to prowadzić do nieoczekiwanego działania lub zwiększonego zużycia baterii.</string>
-    <string name="spoofing_app_specific_category">Specyficzne dla aplikacji</string>
+    <string name="spoofing_pixel_props_summary">Przekaż najnowszą identyfikację urządzenia Pixel do wybranego zestawu aplikacji Google</string>
+    <string name="spoofing_app_specific_category">Nadpisanie specyficzne dla aplikacji</string>
     <string name="spoofing_photos_title">Zdjęcia Google</string>
     <string name="spoofing_photos_summary">Sfałszuj aplikację Zdjęcia Google, udając Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Sfałszuj Snapchat udając Pixel XL, aby naprawić możliwe problemy z czatem</string>
     <string name="spoofing_applying_changes">Stosowanie zmian fałszowania\u2026</string>
-    <string name="spoofing_tensor_enabled">Funkcje Tensor włączone</string>
-    <string name="spoofing_tensor_disabled">Funkcje Tensor wyłączone</string>
+    <!-- Miscellaneous/Spoofing/Tensor -->
+    <string name="tensor_spoof_title">Cele funkcji Tensor</string>
+    <string name="tensor_spoof_summary">Udziel wybranym aplikacjom dostępu do funkcji AI dostępnych tylko dla Pixel Tensor</string>
+    <string name="tensor_spoof_enable">Fałszowanie Tensor</string>
+    <string name="tensor_spoof_enable_summary">Przyznaj wybranym aplikacjom dostęp do funkcji ekskluzywnych dla Pixel Tensor</string>
+    <string name="tensor_targets_none_configured">Brak docelowych aplikacji</string>
+    <string name="tensor_targets_count">%1$d aplikacji docelowych</string>
+    <string name="tensor_targets_system_badge">System</string>
+    <string name="tensor_targets_clear_search">Wyczyść wyszukiwanie</string>
+    <string name="tensor_targets_empty_description">Wybrane aplikacje będą raportować funkcje sprzętowe Tensor, aby odblokować funkcje AI i ekskluzywne funkcje Pixel</string>
     <!-- About -->
     <string name="about_info">Evolution X to niestandardowy ROM Android, który ma odzwierciedlać wrażenia z Google Pixel, z dodatkowymi możliwościami personalizacji. Oparty na projekcie LineageOS.</string>
     <string name="about_website_title">Strona internetowa</string>
@@ -733,17 +741,17 @@
     <string name="ls_media_art_blur_level_title">Poziom rozmycia okładki multimediów</string>
     <string name="ls_media_art_blur_level_summary">Intensywność rozmycia przy zastosowaniu filtra rozmycia</string>
     <!-- Haptics Settings -->
-    <string name="haptics_settings_title">Systemowe wibracje</string>
+    <string name="haptics_settings_title">Wibracja systemu</string>
     <string name="haptics_settings_summary">Modyfikuj intensywność wibracji systemu</string>
     <string name="back_gesture_haptic_intensity_title">Intensywność wibracji gestu wstecz</string>
     <string name="brightness_slider_haptics_intensity_title">Intensywność wibracji suwaka jasności</string>
     <string name="edge_scrolling_haptics_intensity_title">Intensywność wibracji podczas przewijania krawędzi</string>
     <string name="volume_slider_haptics_intensity_title">Intensywność wibracji suwaka głośności</string>
-    <string name="volume_sound_haptics_title">Dźwiękowe potwierdzenie podczas regulacji głośności</string>
-    <string name="volume_sound_haptics_summary">Włącz dźwiękowe potwierdzenie podczas regulacji głośności</string>
-    <string name="qs_panel_tile_haptic_intensity_title">Intensywność wibracji gestu wstecz</string>
-    <string name="qs_haptics_intensity_title">Intensywność wibracji gestu szybkich ustawień</string>
-    <string name="qs_tiles_haptic_feedback_title">Wibruj przy dotykaniu kafelków szybkich ustawień</string>
+    <string name="volume_sound_haptics_title">Dźwiękowe potwierdzenie regulacji głośności</string>
+    <string name="volume_sound_haptics_summary">Włącz dźwiękowe potwierdzenie podczas regulacji poziomu głośności</string>
+    <string name="qs_panel_tile_haptic_intensity_title">Intensywność wibracji kafelka szybkich ustawień</string>
+    <string name="qs_haptics_intensity_title">Intensywność wibracji przy szybkim przesunięciu szybkich ustawień</string>
+    <string name="qs_tiles_haptic_feedback_title">Wibracja przy dotknięciu kafelków szybkich ustawień</string>
     <!-- Weather -->
     <string name="weather_settings_title">Ustawienia pogody</string>
     <string name="weather_settings_summary">Konfiguracja pakietu ikon i usługi pogodowej</string>
@@ -1487,20 +1495,14 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_import_target_list_summary">Importuj target.txt z pliku</string>
     <string name="ts_invalid_patch_date">Nieprawidłowy format daty. Użyj RRRR-MM-DD</string>
     <string name="ts_target_list_imported">Zaimportowano listę docelową</string>
-    <string name="ts_loading_apps">Ładowanie aplikacji\u2026</string>
-    <string name="ts_auto_select">Wybierz automatycznie</string>
-    <string name="ts_save">Zapisz</string>
     <string name="ts_targets_saved">Lista docelowa zapisana</string>
     <string name="ts_failed">Niepowodzenie: %s</string>
-    <string name="ts_target_mode">Tryb docelowy</string>
-    <string name="ts_target_mode_auto">Tryb automatyczny</string>
-    <string name="ts_target_mode_leaf">Podmiana certyfikatu</string>
-    <string name="ts_target_mode_cert">Generowanie certyfikatu</string>
     <string name="ts_footer_title">Przejście silnej integralności</string>
     <string name="ts_footer_body">1. Uzyskaj prawidłowy plik XML zestawu kluczy z zaufanego źródła. Zestawy kluczy nie są dostępne; musisz znaleźć je samodzielnie.\n2. Kliknij „Importuj zestaw kluczy” i załaduj plik.\n3. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz Usługi Google Play i Sklep Google Play.\n4. Ustaw tryb docelowy na „Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE, w przeciwnym razie pozostaw tryb Automatyczny.\n5. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego. Jeśli Google unieważni zestaw kluczy, może nadal zezwolić na przekazanie jej do systemu integralności urządzenia, nawet jeśli silna integralność nie zostanie zaakceptowana.</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używając domyślnych ustawień urządzenia)</string>
-    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_clear_search">Wyczyść wyszukiwanie</string>
+    <string name="ts_system_badge">System</string>
     <string name="ts_select_target_apps">Wybierz aplikacje docelowe</string>
     <string name="ts_select_target_apps_desc">Wybierz aplikacje, aby włączyć fałszowanie poświadczenia</string>
     <string name="ts_search_apps">Wyszukaj aplikacje\u2026</string>
@@ -1509,9 +1511,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_select_all">Zaznacz wszystko</string>
     <string name="ts_reset">Resetuj</string>
     <string name="ts_mode_auto">Tryb automatyczny</string>
-    <string name="ts_mode_leaf">Podmiana certyfikatu</string>
+    <string name="ts_mode_leaf">Podmiana certyfikatu </string>
     <string name="ts_mode_cert">Generowanie certyfikatu</string>
-    <!-- TrickyStore verification mode preference -->
     <string name="ts_verification_mode">Tryb weryfikacji</string>
     <string name="ts_verification_mode_auto">tryb automatyczny</string>
     <string name="ts_verification_mode_cert">generowanie certyfikatu</string>
