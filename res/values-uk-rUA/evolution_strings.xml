@@ -555,21 +555,29 @@
     <string name="smart_pixels_shift_title">Захист від вигорання</string>
     <string name="smart_pixels_shift_summary">Запобігає вигоранню на пристроях з OLED екраном, періодично змінюючи пікселі</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Підробка компонентів</string>
-    <string name="spoofing_summary">Обходьте обмеження додатків шляхом підробки компонентів</string>
-    <string name="spoofing_system_wide_category">Загальносистемний</string>
+    <string name="spoofing_title">Підміна</string>
+    <string name="spoofing_summary">Цілісність відтворення, ідентифікація пристрою та підміна функцій</string>
+    <string name="spoofing_integrity_category">Play Integrity</string>
+    <string name="spoofing_identity_category">Ідентифікація пристрою</string>
+    <string name="spoofing_features_category">Функції апаратного забезпечення</string>
     <string name="spoofing_pixel_props_title">Пропозиції Pixel</string>
-    <string name="spoofing_pixel_props_summary">Імітувати пристрій як Pixel 8 Pro для всіх додатків Google</string>
-    <string name="tensor_spoof_title">Імітація особливостей tensor</string>
-    <string name="tensor_spoof_summary">Увімкнути функції Pixel Tensor-exclusive функцій на непідтримуваних пристроях. Може призвести до неочікуваної поведінки або збільшення споживання заряду акумулятора.</string>
-    <string name="spoofing_app_specific_category">Спеціально для програми</string>
+    <string name="spoofing_pixel_props_summary">Повідомити про останню ідентифікацію пристрою Pixel у курсивному наборі додатків Google</string>
+    <string name="spoofing_app_specific_category">Перевизначення застосунків</string>
     <string name="spoofing_photos_title">Google Фото</string>
     <string name="spoofing_photos_summary">Імітувати пристрій як Pixel XL для додатку Google Photos щоб розблокувати необмежену кількість пам\'яті зображень</string>
     <string name="spoofing_snap_title">Підробка Snapchat</string>
     <string name="spoofing_snap_summary">Імітувати Pixel XL для Snapchat для вирішення можливих проблем чату</string>
     <string name="spoofing_applying_changes">Застосування spoof змін\u2026</string>
-    <string name="spoofing_tensor_enabled">Тензорні функції включені</string>
-    <string name="spoofing_tensor_disabled">Функції Tensor вимкнуто</string>
+    <!-- Miscellaneous/Spoofing/Tensor -->
+    <string name="tensor_spoof_title">Цільові об\'єкти тензора</string>
+    <string name="tensor_spoof_summary">Надати вибраним додаткам доступ до функцій Pixel Tensor-exclusive AI</string>
+    <string name="tensor_spoof_enable">Увімкнути підробку тензора</string>
+    <string name="tensor_spoof_enable_summary">Надати вибраним додаткам доступ до функцій Pixel Tensor-exclusive</string>
+    <string name="tensor_targets_none_configured">Немає цільових додатків</string>
+    <string name="tensor_targets_count">Цільових програм %1$d</string>
+    <string name="tensor_targets_system_badge">SYS</string>
+    <string name="tensor_targets_clear_search">Очистити пошук</string>
+    <string name="tensor_targets_empty_description">Вибрані додатки повідомлять про функціонал Tensor для розблокування функцій AI і Pixel-exclusive</string>
     <!-- About -->
     <string name="about_info">Evolution X - це користувацька Android ROM, яка спрямована на повторення досвіду Google Pixel із доданими налаштуваннями, на основі проекту LineageOS.</string>
     <string name="about_website_title">Сайт</string>
