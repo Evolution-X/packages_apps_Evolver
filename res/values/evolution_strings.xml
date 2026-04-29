@@ -586,12 +586,14 @@
     <string name="smart_pixels_percent">Percent of pixels to disable</string>
 
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Component spoofing</string>
-    <string name="spoofing_summary">Bypass app restrictions by spoofing components</string>
-    <string name="spoofing_system_wide_category">System-Wide</string>
+    <string name="spoofing_title">Spoofing</string>
+    <string name="spoofing_summary">Play Integrity, device identity, and feature spoofing</string>
+    <string name="spoofing_integrity_category">Play Integrity</string>
+    <string name="spoofing_identity_category">Device Identity</string>
+    <string name="spoofing_features_category">Hardware Features</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
-    <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
-    <string name="spoofing_app_specific_category">App-Specific</string>
+    <string name="spoofing_pixel_props_summary">Report the latest Pixel device identity to a curated set of Google apps</string>
+    <string name="spoofing_app_specific_category">App-Specific Overrides</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
@@ -600,7 +602,7 @@
 
     <!-- Miscellaneous/Spoofing/Tensor -->
     <string name="tensor_spoof_title">Tensor feature targets</string>
-    <string name="tensor_spoof_summary">Spoof Tensor-exclusive features for selected apps</string>
+    <string name="tensor_spoof_summary">Grant selected apps access to Pixel Tensor-exclusive AI features</string>
     <string name="tensor_spoof_enable">Tensor spoofing</string>
     <string name="tensor_spoof_enable_summary">Grant selected apps access to Pixel Tensor-exclusive features</string>
     <string name="tensor_targets_none_configured">No apps targeted</string>
