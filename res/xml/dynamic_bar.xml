@@ -49,20 +49,6 @@
         android:dependency="ax_dynamic_bar_enabled">
 
         <SwitchPreferenceCompat
-            android:key="event_screen_recording"
-            android:title="@string/dynamic_bar_event_recording"
-            android:summary="@string/dynamic_bar_event_recording_summary"
-            android:icon="@drawable/ic_fiber_manual_record"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
-            android:key="event_privacy"
-            android:title="@string/dynamic_bar_event_privacy"
-            android:summary="@string/dynamic_bar_event_privacy_summary"
-            android:icon="@drawable/ic_videocam"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
             android:key="event_audio_recording"
             android:title="@string/dynamic_bar_event_audio_recording"
             android:summary="@string/dynamic_bar_event_audio_recording_summary"
@@ -169,13 +155,6 @@
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
-            android:key="event_casting"
-            android:title="@string/dynamic_bar_event_casting"
-            android:summary="@string/dynamic_bar_event_casting_summary"
-            android:icon="@drawable/ic_cast"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
             android:key="event_promoted_ongoing"
             android:title="@string/dynamic_bar_event_ongoing"
             android:summary="@string/dynamic_bar_event_ongoing_summary"
@@ -216,12 +195,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="dynamic_bar_footer_category">
+        android:key="dynamic_bar_footer_category"
+        android:title="@string/dynamic_bar_footer_title">
 
-        <Preference
+        <com.android.settingslib.widget.FooterPreference
             android:key="dynamic_bar_footer"
-            android:title="@string/dynamic_bar_footer_title"
-            android:summary="@string/dynamic_bar_footer_body"
+            android:title="@string/dynamic_bar_footer_body"
             android:icon="@drawable/ic_info"
             android:selectable="false" />
     </PreferenceCategory>
