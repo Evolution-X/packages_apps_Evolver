@@ -557,8 +557,8 @@
     <string name="smart_pixels_shift_summary">Evita o burn-in em dispositivos OLED, alterando os pixels de vez em quando</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Mascarar dispositivo</string>
-    <string name="spoofing_summary">Play Integrity, identidade do dispositivo e falsificação de recursos</string>
-    <string name="spoofing_integrity_category">Integridade do jogo</string>
+    <string name="spoofing_summary">Integridade do Google Play, identidade do dispositivo e recurso mascaramento</string>
+    <string name="spoofing_integrity_category">Integridade do Google Play</string>
     <string name="spoofing_identity_category">Identidade do dispositivo</string>
     <string name="spoofing_features_category">Recursos de hardware</string>
     <string name="spoofing_pixel_props_title">Propriedades do Pixel</string>
@@ -572,7 +572,7 @@
     <!-- Miscellaneous/Spoofing/Tensor -->
     <string name="tensor_spoof_title">Destinos de recursos tensores</string>
     <string name="tensor_spoof_summary">Conceda aos aplicativos selecionados acesso aos recursos de IA exclusivos do Pixel Tensor</string>
-    <string name="tensor_spoof_enable">Falsificação de tensor</string>
+    <string name="tensor_spoof_enable">Mascaramento tensor</string>
     <string name="tensor_spoof_enable_summary">Conceda aos aplicativos selecionados acesso a recursos exclusivos do Pixel Tensor</string>
     <string name="tensor_targets_none_configured">Nenhum aplicativo segmentado</string>
     <string name="tensor_targets_count">%1$d aplicativos segmentados</string>
@@ -1509,7 +1509,7 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_select_all">Selecionar todos</string>
     <string name="ts_reset">Redefinir</string>
     <string name="ts_mode_auto">Automático</string>
-    <string name="ts_mode_leaf">Folha</string>
+    <string name="ts_mode_leaf">Leaf</string>
     <string name="ts_mode_cert">Certificado</string>
     <string name="ts_verification_mode">Modo de verificação</string>
     <string name="ts_verification_mode_auto">automático</string>
