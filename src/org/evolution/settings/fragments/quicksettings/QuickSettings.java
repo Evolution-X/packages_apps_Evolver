@@ -86,7 +86,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mQsTileLabelHide;
     private SystemSettingSwitchPreference mMediaWaveformSeekBar;
     private SecureSettingSwitchPreference mMediaSquiggleAnimation;
-    private SecureSettingSwitchPreference mQsShowMediaPlayer;
+    private SecureSettingListPreference mQsShowMediaPlayer;
     private SystemSettingSwitchPreference mSingleQsToneEnabled;
     private SystemSettingSwitchPreference mQsWidgetPanel;
     private SystemSettingSwitchPreference mQsWidgetIosMusic;
@@ -121,7 +121,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mCompactMediaPlayer = findPreference(KEY_COMPACT_MEDIA_PLAYER_ENABLED);
         mCompactMediaPlayer.setOnPreferenceChangeListener(this);
 
-        mQsShowMediaPlayer = (SecureSettingSwitchPreference) findPreference(KEY_QS_SHOW_MEDIA_PLAYER);
+        mQsShowMediaPlayer = (SecureSettingListPreference) findPreference(KEY_QS_SHOW_MEDIA_PLAYER);
         if (mQsShowMediaPlayer != null) {
             mQsShowMediaPlayer.setOnPreferenceChangeListener(this);
         }
@@ -243,7 +243,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             SystemUtils.showSystemUiRestartDialog(context);
             return true;
         } else if (preference == mQsShowMediaPlayer) {
-            SystemUtils.showSystemUiRestartDialog(getActivity());
+            int value = Integer.parseInt((String) newValue);
+            if (value == 0) {
+                SystemUtils.showSystemUiRestartDialog(getActivity());
+            }
             return true;
         } else if (preference == mSingleQsToneEnabled) {
             SystemUtils.showSystemUiRestartDialog(getActivity());

@@ -849,8 +849,10 @@
     <string name="qs_header_style4">Simple</string>
     <string name="qs_compact_media_player_mode_title">Compact media player</string>
     <string name="qs_compact_media_player_mode_summary">Use compact mode for the quick settings media player</string>
-    <string name="qs_show_media_player_title">Media player</string>
-    <string name="qs_show_media_player_summary">Display media controls in quick settings</string>
+    <string name="qs_show_media_player_title">Media player position</string>
+    <string name="qs_show_media_player_hide">Hide</string>
+    <string name="qs_show_media_player_top">Show at top</string>
+    <string name="qs_show_media_player_bottom">Show at bottom</string>
     <string name="qs_tile_gradient_title">QS tile gradient</string>
     <string name="qs_tile_gradient_summary">Enable gradient backgrounds for QS tiles</string>
     <string name="qs_tiles_haptic_feedback_title">Vibrate on QS tile tap</string>
