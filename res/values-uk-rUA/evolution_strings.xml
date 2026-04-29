@@ -546,14 +546,10 @@
     <!-- %1$d = number of apps currently hidden -->
     <string name="hide_developer_status_count">Додатків %1$d приховано</string>
     <!-- Miscellaneous/Smart Pixels -->
-    <string name="smart_pixels_warning_text">Smart Pixels — це функція енергозбереження. Залежно від кількості вимкнених пікселів, ви можете помітити покращення часу роботи від акумулятора. Зауважте, що в деяких випадках це може призвести до появи нечутливих зон на сенсорному екрані</string>
+    <string name="smart_pixels_warning_text">Розумні пікселі - це функція економії заряду. В залежності від того, скільки пікселів ви вирішили вимкнути, це може збільшити час роботи батареї. Зверніть увагу, в деяких випадках це може призвести до того, що на сенсорному екрані будуть зони, які не відповідають</string>
     <string name="smart_pixels_title">Розумні пікселі</string>
     <string name="smart_pixels_summary">Збережіть акумулятор, вимкнувши додаткові пікселі</string>
-    <string name="smart_pixels_on_power_save_title">Автоматичне увімкнення в режимі збереження енергії</string>
-    <string name="smart_pixels_on_power_save_summary">Увімкнути розумні пікселі, коли ввімкнено збереження акумулятора</string>
     <string name="smart_pixels_percent">Відсоток пікселів для вимкнення</string>
-    <string name="smart_pixels_shift_title">Захист від вигорання</string>
-    <string name="smart_pixels_shift_summary">Запобігає вигоранню на пристроях з OLED екраном, періодично змінюючи пікселі</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Підміна</string>
     <string name="spoofing_summary">Цілісність відтворення, ідентифікація пристрою та підміна функцій</string>
@@ -1183,10 +1179,6 @@
     <string name="dynamic_bar_keyguard_compact_chip">Компактний чіп блокування екрана</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Завжди використовувати компактний стиль чіпів на екрані блокування. Якщо вимкнено, режим компактний використовується лише тоді, коли простір обмежений.</string>
     <string name="dynamic_bar_events">Події</string>
-    <string name="dynamic_bar_event_recording">Запис екрану</string>
-    <string name="dynamic_bar_event_recording_summary">Індикатор активного запису</string>
-    <string name="dynamic_bar_event_privacy">Індикатори конфіденційності</string>
-    <string name="dynamic_bar_event_privacy_summary">Сповіщення про доступ до камери та мікрофону</string>
     <string name="dynamic_bar_event_audio_recording">Запис звуку</string>
     <string name="dynamic_bar_event_audio_recording_summary">Голосовий записувач та запис звуку</string>
     <string name="dynamic_bar_event_media">Відтворення медіа</string>
@@ -1215,8 +1207,6 @@
     <string name="dynamic_bar_event_clipboard_summary">Текст та попередній перегляд зображення скопійовано</string>
     <string name="dynamic_bar_event_torch">Ліхтарик</string>
     <string name="dynamic_bar_event_torch_summary">Перемикач ліхтарика й яскравості</string>
-    <string name="dynamic_bar_event_casting">Трансляція</string>
-    <string name="dynamic_bar_event_casting_summary">Статус трансляції екрану та медіафайлів</string>
     <string name="dynamic_bar_event_ongoing">Поточні дії</string>
     <string name="dynamic_bar_event_ongoing_summary">Навігація, доставка та інші події в реальному часі</string>
     <string name="dynamic_bar_event_sports">Спорт</string>
