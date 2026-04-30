@@ -538,12 +538,13 @@
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów i nagrywania ekranu dla wszystkich aplikacji, potencjalne ryzyko wycieku danych osobowych</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nielimitowane nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15GB\nMoże spowodować większy niż wymagany plik wyjściowy</string>
+    <!-- Miscellaneous/Common -->
+    <string name="common_clear_search">Wyczyść wyszukiwanie</string>
+    <string name="common_system_badge">System</string>
     <!-- Miscellaneous/Hide developer status -->
     <string name="hide_developer_status_title">Ukryj status programisty</string>
     <string name="hide_developer_status_summary">Ukryj wybrane aplikacje przed sprawdzaniem statusu programisty</string>
     <string name="hide_developer_status_none_configured">Brak ukrytych aplikacji</string>
-    <string name="hide_developer_status_clear_search">Wyczyść wyszukiwanie</string>
-    <string name="hide_developer_status_system_badge">System</string>
     <!-- %1$d = number of apps currently hidden -->
     <string name="hide_developer_status_count">%1$d ukrytych aplikacji</string>
     <!-- Miscellaneous/Smart Pixels -->
@@ -572,8 +573,6 @@
     <string name="tensor_spoof_enable_summary">Przyznaj wybranym aplikacjom dostęp do funkcji ekskluzywnych dla Pixel Tensor</string>
     <string name="tensor_targets_none_configured">Brak docelowych aplikacji</string>
     <string name="tensor_targets_count">%1$d aplikacji docelowych</string>
-    <string name="tensor_targets_system_badge">System</string>
-    <string name="tensor_targets_clear_search">Wyczyść wyszukiwanie</string>
     <string name="tensor_targets_empty_description">Wybrane aplikacje będą raportować funkcje sprzętowe Tensor, aby odblokować funkcje AI i ekskluzywne funkcje Pixel</string>
     <!-- About -->
     <string name="about_info">Evolution X to niestandardowy ROM Android, który ma odzwierciedlać wrażenia z Google Pixel, z dodatkowymi możliwościami personalizacji. Oparty na projekcie LineageOS.</string>
@@ -1493,12 +1492,8 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_footer_body">1. Uzyskaj prawidłowy plik XML zestawu kluczy z zaufanego źródła. Zestawy kluczy nie są dostępne; musisz znaleźć je samodzielnie.\n2. Kliknij „Importuj zestaw kluczy” i załaduj plik.\n3. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz Usługi Google Play i Sklep Google Play.\n4. Ustaw tryb docelowy na „Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE, w przeciwnym razie pozostaw tryb Automatyczny.\n5. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego. Jeśli Google unieważni zestaw kluczy, może nadal zezwolić na przekazanie jej do systemu integralności urządzenia, nawet jeśli silna integralność nie zostanie zaakceptowana.</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używając domyślnych ustawień urządzenia)</string>
-    <string name="ts_clear_search">Wyczyść wyszukiwanie</string>
-    <string name="ts_system_badge">System</string>
     <string name="ts_select_target_apps">Wybierz aplikacje docelowe</string>
     <string name="ts_select_target_apps_desc">Wybierz aplikacje, aby włączyć fałszowanie poświadczenia</string>
-    <string name="ts_search_apps">Wyszukaj aplikacje\u2026</string>
-    <string name="ts_system_apps">Aplikacje systemowe</string>
     <string name="ts_selected_count">%d wybranych</string>
     <string name="ts_select_all">Zaznacz wszystko</string>
     <string name="ts_reset">Resetuj</string>
