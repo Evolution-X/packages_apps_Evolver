@@ -1188,6 +1188,8 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="dynamic_bar_events">Eventos</string>
     <string name="dynamic_bar_event_audio_recording">Gravação de áudio</string>
     <string name="dynamic_bar_event_audio_recording_summary">Gravador de voz e captura de áudio</string>
+    <string name="dynamic_bar_event_call">Chamada em andamento</string>
+    <string name="dynamic_bar_event_call_summary">Chamadas recebidas e ativas</string>
     <string name="dynamic_bar_event_media">Reprodução de mídia</string>
     <string name="dynamic_bar_event_media_summary">Agora reproduzindo música e controles de áudio</string>
     <string name="dynamic_bar_event_notification">Notificações</string>
