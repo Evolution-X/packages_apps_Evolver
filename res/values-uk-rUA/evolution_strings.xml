@@ -537,12 +537,13 @@
     <string name="miscellaneous_ignore_window_secure_summary">Зняти обмеження на знятках і записи екрану для всіх додатків, потенційно ризикуючи витіком конфіденційності</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Скасувати обмеження запису екрану</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Видалити обмеження розміру 15 Гб файлу\nМоже призвести до більшого, ніж необхідний файл виводу</string>
+    <!-- Miscellaneous/Common -->
+    <string name="common_clear_search">Очистити пошук</string>
+    <string name="common_system_badge">SYS</string>
     <!-- Miscellaneous/Hide developer status -->
     <string name="hide_developer_status_title">Приховати статус розробника</string>
     <string name="hide_developer_status_summary">Приховати вибрані програми від перевірок статусу розробника</string>
     <string name="hide_developer_status_none_configured">Немає прихованих застосунків</string>
-    <string name="hide_developer_status_clear_search">Очистити пошук</string>
-    <string name="hide_developer_status_system_badge">SYS</string>
     <!-- %1$d = number of apps currently hidden -->
     <string name="hide_developer_status_count">Додатків %1$d приховано</string>
     <!-- Miscellaneous/Smart Pixels -->
@@ -571,8 +572,6 @@
     <string name="tensor_spoof_enable_summary">Надати вибраним додаткам доступ до функцій Pixel Tensor-exclusive</string>
     <string name="tensor_targets_none_configured">Немає цільових додатків</string>
     <string name="tensor_targets_count">Цільових програм %1$d</string>
-    <string name="tensor_targets_system_badge">SYS</string>
-    <string name="tensor_targets_clear_search">Очистити пошук</string>
     <string name="tensor_targets_empty_description">Вибрані додатки повідомлять про функціонал Tensor для розблокування функцій AI і Pixel-exclusive</string>
     <!-- About -->
     <string name="about_info">Evolution X - це користувацька Android ROM, яка спрямована на повторення досвіду Google Pixel із доданими налаштуваннями, на основі проекту LineageOS.</string>
@@ -1484,12 +1483,8 @@
     <string name="ts_footer_body">1. Отримувати дійсний XML ключ від надійного джерела. Ключі не надано; ви повинні знайти його самостійно.\n2. Торкніться кнопки \"Імпорт ключа\" і завантажте файл.\n3. Відкрийте \"Керування цільовими додатками\" та виберіть сервіси Google Play і Google Play Store.\n4. Встановіть цільовий режим на \"Зворотній зв\'язок\", якщо ваш пристрій працює TEE, в іншому випадку залиште його як авто.\n5. Перевірте стан гри.\n\nЗавжди видаляти існуючу клавішу перед імпортом нового. Якщо Google скасує клавіатуру, вона все одно може дозволити передавання інформації до цілісності пристрою, навіть якщо сильна цілісність зазнає невдачі.</string>
     <string name="ts_security_patch">Дата виправлення системи безпеки</string>
     <string name="ts_no_patch">Не встановлено (використовується типовим пристроєм)</string>
-    <string name="ts_clear_search">Очистити пошук</string>
-    <string name="ts_system_badge">SYS</string>
     <string name="ts_select_target_apps">Вибрати цільові додатки</string>
     <string name="ts_select_target_apps_desc">Виберіть додатки для увімкнення Spoofing атестації</string>
-    <string name="ts_search_apps">Пошук додатків\u2026</string>
-    <string name="ts_system_apps">Системні додатки</string>
     <string name="ts_selected_count">%d вибрано</string>
     <string name="ts_select_all">Вибрати все</string>
     <string name="ts_reset">Скинути</string>
