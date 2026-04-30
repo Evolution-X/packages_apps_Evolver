@@ -538,12 +538,13 @@
     <string name="miscellaneous_ignore_window_secure_summary">Remover restrições em capturas de tela e gravações de tela para todos os aplicativos, potencialmente arriscando vazamentos de privacidade</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela ilimitada</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remova o limite de tamanho de arquivo 15GiB\nPode resultar em um arquivo de saída maior que o necessário</string>
+    <!-- Miscellaneous/Common -->
+    <string name="common_clear_search">Limpar pesquisa</string>
+    <string name="common_system_badge">SISTEMA</string>
     <!-- Miscellaneous/Hide developer status -->
     <string name="hide_developer_status_title">Ocultar status de desenvolvedor</string>
     <string name="hide_developer_status_summary">Ocultar aplicativos selecionados das verificações de status do desenvolvedor</string>
     <string name="hide_developer_status_none_configured">Nenhum aplicativo oculto</string>
-    <string name="hide_developer_status_clear_search">Limpar pesquisa</string>
-    <string name="hide_developer_status_system_badge">SISTEMA</string>
     <!-- %1$d = number of apps currently hidden -->
     <string name="hide_developer_status_count">%1$d aplicativos ocultos</string>
     <!-- Miscellaneous/Smart Pixels -->
@@ -572,8 +573,6 @@
     <string name="tensor_spoof_enable_summary">Conceda aos aplicativos selecionados acesso a recursos exclusivos do Pixel Tensor</string>
     <string name="tensor_targets_none_configured">Nenhum aplicativo alvo</string>
     <string name="tensor_targets_count">%1$d aplicativos alvos</string>
-    <string name="tensor_targets_system_badge">SISTEMA</string>
-    <string name="tensor_targets_clear_search">Limpar pesquisa</string>
     <string name="tensor_targets_empty_description">Os aplicativos selecionados relatarão recursos de hardware do Tensor para desbloquear funcionalidades exclusivas de AI e Pixel</string>
     <!-- About -->
     <string name="about_info">Evolution X é uma ROM Android personalizada que visa replicar a experiência do Google Pixel, com personalização adicional. Baseado no Projeto LineageOS.</string>
@@ -1491,12 +1490,8 @@ A barra de progresso alterna dinamicamente entre os estados de mídia e download
     <string name="ts_footer_body">1. Obtenha um XML de keybox válido de uma fonte confiável. keybox não são fornecidas; você mesmo deve encontrar um.\n2. Toque em \"Importar keybox\" e carregue o arquivo.\n3. Abra \"Gerenciar aplicativos de alvos\" e selecione Google Play Services e Google Play Store.\n4. Defina o modo de alvo como \"Leaf\" se o seu dispositivo tiver um TEE funcionando, caso contrário, deixe-o como Automático.\n5. Verifique novamente o status do Play Integrity.\n\nSempre exclua a keybox existente antes de importar uma nova. Se o Google revogar uma keybox, ainda poderá permitir a passagem para a integridade do dispositivo, mesmo que a integridade forte falhe.</string>
     <string name="ts_security_patch">Data do patch de segurança</string>
     <string name="ts_no_patch">Não definido (usando o padrão do dispositivo)</string>
-    <string name="ts_clear_search">Limpar pesquisa</string>
-    <string name="ts_system_badge">SISTEMA</string>
     <string name="ts_select_target_apps">Selecionar aplicativos alvo</string>
     <string name="ts_select_target_apps_desc">Escolha os aplicativos para ativar o mascaramento de atestado</string>
-    <string name="ts_search_apps">Pesquisar aplicativos\u2026</string>
-    <string name="ts_system_apps">Aplicativos do sistema</string>
     <string name="ts_selected_count">%d selecionado</string>
     <string name="ts_select_all">Selecionar todos</string>
     <string name="ts_reset">Redefinir</string>
