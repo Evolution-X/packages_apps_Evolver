@@ -549,27 +549,31 @@
     <string name="smart_pixels_warning_text">Điểm ảnh thông minh là một tính năng tiết kiệm pin. Tùy thuộc vào bao nhiêu điểm bạn quyết định tắt, bạn có thể thấy cải thiện thời gian sử dụng pin. Lưu ý trong một số trường hợp sẽ có một vùng cảm ứng không hoạt động</string>
     <string name="smart_pixels_title">Điểm ảnh thông minh</string>
     <string name="smart_pixels_summary">Tiết kiệm pin bằng cách tắt các điểm ảnh</string>
-    <string name="smart_pixels_on_power_save_title">Tự động bật khi bật trình tiết kiệm pin</string>
-    <string name="smart_pixels_on_power_save_summary">Tự động bật Điểm ảnh thông minh khi trình tiết kiệm pin được bật</string>
     <string name="smart_pixels_percent">Phần trăm điểm ảnh sẽ bị tắt</string>
-    <string name="smart_pixels_shift_title">Bảo vệ lưu ảnh</string>
-    <string name="smart_pixels_shift_summary">Tránh lưu ảnh trên màn hình OLED bằng cách di chuyển các điểm ảnh thường xuyên</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Giả mạo thành phần</string>
+    <string name="spoofing_title">Giả lập</string>
     <string name="spoofing_summary">Vượt hạn chế ứng dụng bằng cách giả mạo</string>
-    <string name="spoofing_system_wide_category">Toàn hệ thống</string>
+    <string name="spoofing_integrity_category">Play Integrity</string>
+    <string name="spoofing_identity_category">Danh tính Thiết bị</string>
+    <string name="spoofing_features_category">Tính năng Phần cứng</string>
     <string name="spoofing_pixel_props_title">Thuộc tính Pixel</string>
     <string name="spoofing_pixel_props_summary">Giả mạo nhóm ứng dụng Google thành thiết bị Pixel mới nhất</string>
-    <string name="tensor_spoof_title">Buộc các tính năng Tensor</string>
-    <string name="tensor_spoof_summary">Bật các tính năng độc quyền của Pixel Tensor trên các thiết bị không được hỗ trợ. Có thể dẫn đến hành vi không mong muốn hoặc tăng mức sử dụng pin.</string>
     <string name="spoofing_app_specific_category">Theo ứng dụng</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Giả mạo ứng dụng Google Photos như một Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Giả mạo Snapchat như một Pixel XL để sửa vấn đề chat</string>
     <string name="spoofing_applying_changes">Áp dụng các thay đổi giả mạo\u2026</string>
-    <string name="spoofing_tensor_enabled">Các tính năng Tensor đã bật</string>
-    <string name="spoofing_tensor_disabled">Các tính năng Tensor đã tắt</string>
+    <!-- Miscellaneous/Spoofing/Tensor -->
+    <string name="tensor_spoof_title">Buộc các tính năng Tensor</string>
+    <string name="tensor_spoof_summary">Bật các tính năng độc quyền của Pixel Tensor trên các thiết bị không được hỗ trợ. Có thể dẫn đến hành vi không mong muốn hoặc tăng mức sử dụng pin.</string>
+    <string name="tensor_spoof_enable">Giả mạo Tensor</string>
+    <string name="tensor_spoof_enable_summary">Cấp cho ứng dụng được chọn quyền truy cập vào các tính năng độc quyền của Pixel Tensor</string>
+    <string name="tensor_targets_none_configured">Chưa có ứng dụng đích nào</string>
+    <string name="tensor_targets_count">%1$d ứng dụng đích</string>
+    <string name="tensor_targets_system_badge">SYS</string>
+    <string name="tensor_targets_clear_search">Dọn tìm kiếm</string>
+    <string name="tensor_targets_empty_description">Ứng dụng được chọn sẽ báo cáo các tính năng phần cứng Tensor để mở khóa AI và các chức năng độc quyền của Pixel</string>
     <!-- About -->
     <string name="about_info">Evolution X là một bản ROM Android tùy chỉnh nhằm mục đích tái tạo trải nghiệm Google Pixel, với tùy chỉnh được thêm vào. Dựa trên Dự án LineageOS.</string>
     <string name="about_website_title">Trang web</string>
@@ -1184,12 +1188,10 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="dynamic_bar_keyguard_compact_chip">Chip màn hình khóa nhỏ gọn</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Luôn sử dụng kiểu chip nhỏ gọn trên màn hình khóa. Khi bị vô hiệu hóa, chế độ nhỏ gọn chỉ được sử dụng khi không gian lưu trữ bị hạn chế.</string>
     <string name="dynamic_bar_events">Sự kiện</string>
-    <string name="dynamic_bar_event_recording">Ghi màn hình</string>
-    <string name="dynamic_bar_event_recording_summary">Chỉ báo ghi màn hình đang hoạt động</string>
-    <string name="dynamic_bar_event_privacy">Chỉ báo quyền riêng tư</string>
-    <string name="dynamic_bar_event_privacy_summary">Cảnh báo truy cập camera và micrô</string>
     <string name="dynamic_bar_event_audio_recording">Ghi âm</string>
     <string name="dynamic_bar_event_audio_recording_summary">Ghi âm giọng nói và thu âm thanh</string>
+    <string name="dynamic_bar_event_call">Cuộc gọi đang diễn ra</string>
+    <string name="dynamic_bar_event_call_summary">Cuộc gọi đến và cuộc gọi đang hoạt động</string>
     <string name="dynamic_bar_event_media">Phát lại đa phương tiện</string>
     <string name="dynamic_bar_event_media_summary">Nhạc đang phát và điều khiển âm thanh</string>
     <string name="dynamic_bar_event_notification">Thông báo</string>
@@ -1216,8 +1218,6 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="dynamic_bar_event_clipboard_summary">Xem trước văn bản và hình ảnh đã sao chép</string>
     <string name="dynamic_bar_event_torch">Đèn pin</string>
     <string name="dynamic_bar_event_torch_summary">Bật/tắt đèn pin và độ sáng</string>
-    <string name="dynamic_bar_event_casting">Chiếu (Casting)</string>
-    <string name="dynamic_bar_event_casting_summary">Trạng thái chiếu màn hình và chiếu đa phương tiện</string>
     <string name="dynamic_bar_event_ongoing">Hoạt động đang diễn ra</string>
     <string name="dynamic_bar_event_ongoing_summary">Điều hướng, di chuyển và các hoạt động trực tiếp khác</string>
     <string name="dynamic_bar_event_sports">Thể thao</string>
@@ -1487,20 +1487,14 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="ts_import_target_list_summary">Nhập target.txt từ tệp</string>
     <string name="ts_invalid_patch_date">Định dạng ngày tháng không hợp lệ. Hãy sử dụng định dạng YYYY-MM-DD</string>
     <string name="ts_target_list_imported">Đã nhập danh sách mục tiêu</string>
-    <string name="ts_loading_apps">Đang tải ứng dụng\u2026</string>
-    <string name="ts_auto_select">Tự động chọn</string>
-    <string name="ts_save">Lưu</string>
     <string name="ts_targets_saved">Đã lưu danh sách mục tiêu</string>
     <string name="ts_failed">Thất bại: %s</string>
-    <string name="ts_target_mode">Chế độ mục tiêu</string>
-    <string name="ts_target_mode_auto">Tự động</string>
-    <string name="ts_target_mode_leaf">Leaf hack</string>
-    <string name="ts_target_mode_cert">Tạo chứng chỉ</string>
     <string name="ts_footer_title">Đạt strong integrity</string>
     <string name="ts_footer_body">1. Lấy keybox XML hợp lệ từ nguồn đáng tin cậy. Không cung cấp keybox; bạn phải tự tìm.\n2. Nhấn \"Nhập keybox\" và tải tệp.\n3. Mở \"Quản lý ứng dụng mục tiêu\" và chọn Google Play Services và Google Play Store.\n4. Đặt chế độ mục tiêu thành \"Leaf\" nếu thiết bị của bạn có TEE hoạt động, nếu không thì để là Tự động.\n5. Kiểm tra lại trạng thái Play Integrity của bạn.\n\nLuôn xóa keybox hiện có trước khi nhập keybox mới. Nếu Google thu hồi keybox, keybox đó vẫn có thể cho phép đạt device integrity mặc dù strong integrity sẽ thất bại.</string>
     <string name="ts_security_patch">Ngày bản vá bảo mật</string>
     <string name="ts_no_patch">Chưa đặt (sử dụng mặc định của thiết bị)</string>
-    <!-- TrickyStoreAppPickerSheet UI -->
+    <string name="ts_clear_search">Dọn tìm kiếm</string>
+    <string name="ts_system_badge">SYS</string>
     <string name="ts_select_target_apps">Chọn ứng dụng mục tiêu</string>
     <string name="ts_select_target_apps_desc">Chọn ứng dụng để kích hoạt tính năng giả mạo chứng thực</string>
     <string name="ts_search_apps">Tìm kiếm ứng dụng\u2026</string>
@@ -1511,7 +1505,6 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="ts_mode_auto">Tự động</string>
     <string name="ts_mode_leaf">Leaf ?</string>
     <string name="ts_mode_cert">Chứng chỉ !</string>
-    <!-- TrickyStore verification mode preference -->
     <string name="ts_verification_mode">Chế độ xác minh</string>
     <string name="ts_verification_mode_auto">tự động</string>
     <string name="ts_verification_mode_cert">chứng chỉ</string>
