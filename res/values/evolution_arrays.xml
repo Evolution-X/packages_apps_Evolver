@@ -704,33 +704,24 @@
         <item>matrix</item>
     </string-array>
 
-    <!-- Quick settings - Tiles animation -->
-    <string-array name="quick_settings_tile_animation_style_entries" translatable="false">
-        <item>@string/quick_settings_tile_animation_style_off</item>
-        <item>@string/quick_settings_tile_animation_style_rotate</item>
-        <item>@string/qs_tile_animation_style_flipx</item>
-        <item>@string/qs_tile_animation_style_flipy</item>
+    <!-- QS Tiles animation style -->
+    <string-array name="qs_tile_animation_style_entries" translatable="false">
+        <item>@string/default_value</item>
+        <item>@string/qs_tile_animation_style_bounce</item>
+        <item>@string/qs_tile_animation_style_ripple</item>
+        <item>@string/qs_tile_animation_style_flip</item>
+        <item>@string/qs_tile_animation_style_fade</item>
+        <item>@string/qs_tile_animation_style_pulse</item>
+        <item>@string/qs_tile_animation_style_shake</item>
+        <item>@string/qs_tile_animation_style_wobble</item>
+        <item>@string/qs_tile_animation_style_spin</item>
+        <item>@string/qs_tile_animation_style_squish</item>
+        <item>@string/qs_tile_animation_style_tilt</item>
+        <item>@string/qs_tile_animation_style_heartbeat</item>
+        <item>@string/qs_tile_animation_style_swing</item>
     </string-array>
 
-    <string-array name="quick_settings_tile_animation_style_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="quick_settings_tile_animation_interpolator_entries" translatable="false">
-        <item>@string/quick_settings_tile_animation_interpolator_linear</item>
-        <item>@string/quick_settings_tile_animation_interpolator_accelerate</item>
-        <item>@string/quick_settings_tile_animation_interpolator_decelerate</item>
-        <item>@string/quick_settings_tile_animation_interpolator_accelerateDecelerate</item>
-        <item>@string/quick_settings_tile_animation_interpolator_bounce</item>
-        <item>@string/quick_settings_tile_animation_interpolator_overshoot</item>
-        <item>@string/quick_settings_tile_animation_interpolator_anticipate</item>
-        <item>@string/quick_settings_tile_animation_interpolator_anticipateOvershoot</item>
-    </string-array>
-
-    <string-array name="quick_settings_tile_animation_interpolator_values" translatable="false">
+    <string-array name="qs_tile_animation_style_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
@@ -739,6 +730,11 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
     </string-array>
 
     <!-- QS Header -->
