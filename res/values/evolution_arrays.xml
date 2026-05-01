@@ -1636,11 +1636,15 @@
         <item>@string/emoji_style_stock</item>
         <item>@string/emoji_style_ios</item>
         <item>@string/emoji_style_samsung</item>
+        <item>@string/emoji_style_swiftui</item>
+        <item>@string/emoji_style_facebook</item>
     </string-array>
 
     <string-array name="emoji_style_values">
         <item>android</item>
         <item>ios</item>
         <item>samsung</item>
+        <item>swiftui</item>
+        <item>facebook</item>
     </string-array>
 </resources>
