@@ -58,9 +58,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_MEDIA_SQUIGGLE_ANIMATION = "media_squiggle_animation";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
-//    private static final String KEY_TILE_ANIM_STYLE = "qs_tile_animation_style";
-//    private static final String KEY_TILE_ANIM_DURATION = "qs_tile_animation_duration";
-//    private static final String KEY_TILE_ANIM_INTERPOLATOR = "qs_tile_animation_interpolator";
     private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
     private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
     private static final String KEY_QS_TILE_SHAPE = "qs_tile_shape";
@@ -90,9 +87,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mSingleQsToneEnabled;
 //    private SystemSettingListPreference mBatteryStyle;
 //    private SystemSettingListPreference mBatteryPercent;
-//    private SystemSettingListPreference mTileAnimationInterpolator;
-//    private SystemSettingListPreference mTileAnimationStyle;
-//    private SystemSettingSeekBarPreference mTileAnimationDuration;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -170,15 +164,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             brightnessCategory.removePreference(mShowAutoBrightness);
         }
 
-//        mTileAnimationStyle = (SystemSettingListPreference) findPreference(KEY_TILE_ANIM_STYLE);
-//        mTileAnimationDuration = (SystemSettingSeekBarPreference) findPreference(KEY_TILE_ANIM_DURATION);
-//        mTileAnimationInterpolator = (SystemSettingListPreference) findPreference(KEY_TILE_ANIM_INTERPOLATOR);
-//        mTileAnimationStyle.setOnPreferenceChangeListener(this);
-
-//        int tileAnimationStyle = Settings.System.getIntForUser(getContentResolver(),
-//                Settings.System.QS_TILE_ANIMATION_STYLE, 0, UserHandle.USER_CURRENT);
-//        updateTileAnimStyle(tileAnimationStyle);
-
         mQsPanelStyle = findPreference(KEY_QS_PANEL_STYLE);
         mQsPanelStyle.setOnPreferenceChangeListener(this);
         mQsTileShape = findPreference(KEY_QS_TILE_SHAPE);
@@ -244,10 +229,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //            mBatteryPercent.setEnabled(
 //                    value != BATTERY_STYLE_TEXT && value != BATTERY_STYLE_HIDDEN);
 //            return true;
-//        } else if (preference == mTileAnimationStyle) {
-//            int value = Integer.parseInt((String) newValue);
-//            updateTileAnimStyle(value);
-//            return true;
         }
         return false;
     }
@@ -272,11 +253,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mMediaSquiggleAnimation.setVisible(!waveformEnabled);
         mMediaSquiggleAnimation.setEnabled(!waveformEnabled);
     }
-
-//    private void updateTileAnimStyle(int tileAnimationStyle) {
-//        mTileAnimationDuration.setEnabled(tileAnimationStyle != 0);
-//        mTileAnimationInterpolator.setEnabled(tileAnimationStyle != 0);
-//    }
 
     @Override
     public int getMetricsCategory() {
