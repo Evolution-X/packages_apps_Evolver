@@ -121,6 +121,32 @@
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
 
+    <!-- Per-palette chroma override -->
+    <string name="chroma_accent1_title">Primary chroma</string>
+    <string name="chroma_accent2_title">Secondary chroma</string>
+    <string name="chroma_accent3_title">Tertiary chroma</string>
+    <string name="chroma_neutral1_title">Neutral chroma</string>
+    <string name="chroma_neutral2_title">Neutral variant chroma</string>
+
+    <!-- Hue / tone category -->
+    <string name="hue_tone_settings_category">Hue &amp; lightness</string>
+
+    <!-- Hue rotation -->
+    <string name="hue_shift_title">Hue rotation</string>
+    <string name="hue_shift_desc">Rotate the seed color hue. Produces harmonious adjacent hues without changing your seed color manually.</string>
+
+    <!-- Tone shifts -->
+    <string name="tone_shift_light_title">Lightness bias (light mode)</string>
+    <string name="tone_shift_light_desc">Shift all light-mode colors lighter (+) or darker (−) independent of contrast.</string>
+    <string name="tone_shift_dark_title">Lightness bias (dark mode)</string>
+    <string name="tone_shift_dark_desc">Shift all dark-mode colors lighter (+) or darker (−) independent of contrast.</string>
+ 
+    <!-- Secondary seed -->
+    <string name="secondary_seed_category">Secondary seed color</string>
+    <string name="use_secondary_seed_title">Enable secondary seed</string>
+    <string name="use_secondary_seed_desc">Drive secondary and tertiary palettes from a separate seed color for two-tone theming.</string>
+    <string name="secondary_seed_color_title">Secondary seed color</string>
+
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_category">Charging</string>
