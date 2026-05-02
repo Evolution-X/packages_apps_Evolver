@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2026 Evolution X
+     SPDX-FileCopyrightText: Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -57,8 +57,6 @@
     <string name="themes_brightness_slider_title">شێوازی نیشاندەری ڕۆشنایی</string>
     <string name="themes_brightness_slider_summary">دیاریکردنی شێوازی نیشاندەری ڕۆشنایی</string>
     <string name="themes_animations_category">ئەنیمەیشنەکان</string>
-    <string name="themes_boot_animation_title">جووڵەی کارپێکردن (Boot animation)</string>
-    <string name="themes_boot_animation_summary">دیاریکردنی شێوازی جووڵەی کاتی داگیرسانی ئامێر</string>
     <string name="themes_charging_animation_title">جووڵەی شەپۆلی بارگاویکردنەوە</string>
     <string name="themes_charging_animation_summary">نیشاندانی ئەنیمەیشن کاتێک مۆبایلەکە دەخەیتە سەر شەحن</string>
     <string name="themes_screen_off_animation_title">ئەنیمەیشنی کوژانەوەی ڕوونما</string>
@@ -89,10 +87,17 @@
     <string name="theme_customization_lock_clock_summary">دیاریکردنی شێوازی فۆنتی کاتژمێری ڕوونمای قفڵ</string>
     <string name="theme_customization_brightness_slider_title">شێوازی نیشاندەری ڕۆشنایی</string>
     <string name="theme_customization_brightness_slider_summary">دیاریکردنی شێوازی تایبەتی نیشاندەری ڕۆشنایی</string>
-    <!-- Themes/Boot animation preview -->
+    <!-- Themes/Boot animation -->
+    <string name="themes_boot_animation_title">جووڵەی کارپێکردن (Boot animation)</string>
+    <string name="themes_boot_animation_summary">دیاریکردنی شێوازی جووڵەی کاتی داگیرسانی ئامێر</string>
+    <string name="boot_animation_custom_pick">هەڵبژاردنی فایلی ZIP</string>
+    <string name="boot_animation_custom_pick_summary">هەڵبژاردنی فایلی bootanimation.zipی دەستکرد</string>
+    <string name="boot_animation_applied_error">جێبەجێکردنی جووڵەی کارپێکردن سەرکەوتوو نەبوو</string>
+    <string name="boot_animation_preview_loading">پێشبینین بار دەکرێت\u2026</string>
     <string name="boot_animation_preview_desc">پێشاندانی جووڵەی کارپێکردنی هەڵبژێردراو</string>
     <string name="boot_animation_preview_summary">پێشاندانی نموونەیەک لە جووڵەی کارپێکردنی ئێستا</string>
     <string name="boot_animation_preview_title">بینینی جووڵەی کارپێکردن</string>
+    <string name="boot_animation_no_preview">پێشبینین بەردەست نییە</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_custom_color_title">ڕەنگی ئەکسێنت</string>
     <string name="monet_engine_custom_color_summary">هەڵبژاردنی ڕەنگی دەستکرد بۆ بزوێنەری مۆنێت</string>
@@ -406,13 +411,19 @@
     <string name="quick_settings_brightness_slider_haptic_title">وەڵامدانەوەی لەرینەوە (Haptic)</string>
     <string name="quick_settings_brightness_slider_haptic_summary">لەرینەوە لە کاتی گۆڕینی ڕۆشنایی بە بەکارهێنانی نیشاندەرەکە</string>
     <string name="quick_settings_animations_category">ئەنیمەیشنەکان</string>
-    <string name="quick_settings_tile_animation_style_title">شێوازی جووڵەی خانەکان</string>
-    <string name="quick_settings_tile_animation_duration_title">ماوەی ئەنیمەیشن</string>
-    <string name="quick_settings_tile_animation_interpolator_title">ناوبەستکەری جووڵە (Interpolator)</string>
-    <string name="quick_settings_tile_animation_style_off">بێ ئەنیمەیشن</string>
-    <string name="quick_settings_tile_animation_style_rotate">سووڕانەوە (Rotate)</string>
-    <string name="qs_tile_animation_style_flipx">وەرگەڕان لەسەر تەوەرەی X</string>
-    <string name="qs_tile_animation_style_flipy">وەرگەڕان لەسەر تەوەرەی Y</string>
+    <string name="qs_tile_animation_style_title">جووڵەی خانەکانی QS</string>
+    <string name="qs_tile_animation_style_bounce">بازدان</string>
+    <string name="qs_tile_animation_style_ripple">شەپۆلی (Ripple)</string>
+    <string name="qs_tile_animation_style_flip">هەڵگەڕانەوە (Flip)</string>
+    <string name="qs_tile_animation_style_fade">کاڵبوونەوە</string>
+    <string name="qs_tile_animation_style_pulse">لەرەلەر</string>
+    <string name="qs_tile_animation_style_shake">ڕاوەشاندن</string>
+    <string name="qs_tile_animation_style_wobble">لەرینەوە</string>
+    <string name="qs_tile_animation_style_spin">خوولانەوە</string>
+    <string name="qs_tile_animation_style_squish">پەستان</string>
+    <string name="qs_tile_animation_style_tilt">لاربوونەوە</string>
+    <string name="qs_tile_animation_style_heartbeat">ترپەی دڵ</string>
+    <string name="qs_tile_animation_style_swing">جووڵانەوە</string>
     <string name="quick_settings_tile_animation_interpolator_linear">هێڵی</string>
     <string name="quick_settings_tile_animation_interpolator_accelerate">خێراکەر</string>
     <string name="quick_settings_tile_animation_interpolator_decelerate">خاوکەرەوە</string>
@@ -532,36 +543,42 @@
     <string name="miscellaneous_ignore_window_secure_summary">لابردنی کۆتوبەندی سەر وێنەگرتنی ڕوونما و ڕیکۆردکردن بۆ هەموو ئەپەکان</string>
     <string name="miscellaneous_unlimit_screenrecord_title">تۆمارکردنی ڕوونمای بێ سنوور</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">لابردنی سنووری قەبارەی فایلی ١٥ گێگابایت\nلەیەکتریوانەیە قەبارەی فایلەکە زۆر گەورە بێت</string>
-    <!-- Miscellaneous/Hide applist -->
-    <string name="hide_applist_title">شاردنەوەی لیستی ئەپەکان</string>
-    <string name="hide_applist_summary">ڕێگریکردن لە ئەپەکان لە پشکنینی لیستی ئەپە دامەزراوەکان</string>
-    <string name="menu_show_overlay">نیشاندانی ئۆڤەرلەيی</string>
-    <string name="menu_hide_overlay">شاردنەوەی ئۆڤەرلەیی</string>
+    <!-- Miscellaneous/Common -->
+    <string name="common_clear_search">سڕینەوەی گەڕان</string>
+    <string name="common_system_badge">SYS</string>
+    <!-- Miscellaneous/Hide developer status -->
+    <string name="hide_developer_status_title">شاردنەوەی باری گەشەپێدەر</string>
+    <string name="hide_developer_status_summary">شاردنەوەی ئەپە دەستنیشانکراوەکان لە پشکنینەکانی باری گەشەپێدەر</string>
+    <string name="hide_developer_status_none_configured">هیچ ئەپێک نەشاراوەتەوە</string>
+    <!-- %1$d = number of apps currently hidden -->
+    <string name="hide_developer_status_count">%1$d ئەپ شاراوەتەوە</string>
     <!-- Miscellaneous/Smart Pixels -->
-    <string name="smart_pixels_warning_text">پیکسڵە زیرەکەکان تایبەتمەندییەکی پاشەکەوتکردنی وزەیە. بەپێی ژمارەی ئەو پیکسڵانەی دەیکوژێنیتەوە، تەمەنی باتری باشتر دەبێت.</string>
+    <string name="smart_pixels_warning_text">پێکسڵی زیرەک تایبەتمەندییەکی پاشەکەوتکردنی وزەیە. بەپێی ئەوەی چەند پێکسڵ دەکوژێنیتەوە، تەمەنی باتری باشتر دەبێت. تێبینی: لە هەندێک دۆخدا لەوانەیە ببێتە هۆی وەڵام نەدانەوەی هەندێک شوێنی ڕوونمای دەست لێدان (Touch).</string>
     <string name="smart_pixels_title">پێکسڵی زیرەک (Smart Pixels)</string>
     <string name="smart_pixels_summary">کوژاندنەوەی پێکسڵەکان بۆ کەمکردنەوەی بەکارهێنانی وزە و باتری</string>
-    <string name="smart_pixels_on_power_save_title">چالاکبوون لە کاتی پاشەکەوتی باتری</string>
-    <string name="smart_pixels_on_power_save_summary">چالاککردنی پێکسڵی زیرەک کاتێک دۆخی پاشەکەوتی باتری چالاکە</string>
     <string name="smart_pixels_percent">ڕێژەی ئەو پێکسڵانەی دەکوژێنرێنەوە</string>
-    <string name="smart_pixels_shift_title">پاراستن لە سووتانی ڕوونما</string>
-    <string name="smart_pixels_shift_summary">پاراستنی ڕوونماکانی OLED لە سووتان (Burn-in) لە ڕێگەی جوڵاندنی پێکسڵەکان بە تێپەڕبوونی کات</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">چالاککردنی گۆڕینی ناسنامە</string>
+    <string name="spoofing_title">فێڵکردن (Spoofing)</string>
     <string name="spoofing_summary">نیشاندانی ئامێرەکە وەک مۆدێلێکی تر بۆ تێپەڕاندنی سنووردارکردنەکان</string>
-    <string name="spoofing_system_wide_category">لە سەرانسەری سیستەم</string>
+    <string name="spoofing_integrity_category">Play Integrity (دەستپاکیی پلەی)</string>
+    <string name="spoofing_identity_category">ناسنامەی ئامێر</string>
+    <string name="spoofing_features_category">تایبەتمەندییەکانی ڕەقەکاڵا</string>
     <string name="spoofing_pixel_props_title">تایبەتمەندییەکانی Pixel</string>
     <string name="spoofing_pixel_props_summary">گۆڕینی ناسنامەی کۆمەڵە ئەپێکی Google بۆ نوێترین ئامێری Pixel</string>
-    <string name="tensor_spoof_title">سەپاندنی تایبەتمەندییەکانی Tensor</string>
-    <string name="tensor_spoof_summary">چالاککردنی تایبەتمەندییە ناوازەکانی Pixel Tensor لەسەر ئامێرە پاڵپشت نەکراوەکان.</string>
     <string name="spoofing_app_specific_category">تایبەت بە ئەپ</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">گۆڕینی ناسنامەی Google Photos بۆ Pixel XL بۆ هەڵگرتنی بێسنووری وێنە</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">گۆڕینی ناسنامەی Snapchat بۆ Pixel XL بۆ چاککردنی کێشەکان</string>
     <string name="spoofing_applying_changes">جێبەجێکردنی گۆڕانکارییەکانی ناسنامە\u2026</string>
-    <string name="spoofing_tensor_enabled">تایبەتمەندییەکانی Tensor چالاک کران</string>
-    <string name="spoofing_tensor_disabled">تایبەتمەندییەکانی Tensor ناچالاک کران</string>
+    <!-- Miscellaneous/Spoofing/Tensor -->
+    <string name="tensor_spoof_title">سەپاندنی تایبەتمەندییەکانی Tensor</string>
+    <string name="tensor_spoof_summary">چالاککردنی تایبەتمەندییە ناوازەکانی Pixel Tensor لەسەر ئامێرە پاڵپشت نەکراوەکان.</string>
+    <string name="tensor_spoof_enable">ناسنامەی Tensor</string>
+    <string name="tensor_spoof_enable_summary">ڕێگەدان بە ئەپە دەستنیشانکراوەکان بۆ گەیشتن بە تایبەتمەندییە ناوازەکانی Pixel Tensor</string>
+    <string name="tensor_targets_none_configured">هیچ ئەپێک نەکراوەتە ئامانج</string>
+    <string name="tensor_targets_count">%1$d ئەپ کراوەتە ئامانج</string>
+    <string name="tensor_targets_empty_description">ئەپە دەستنیشانکراوەکان ڕاپۆرتی تایبەتمەندییەکانی ڕەقەکاڵای Tensor دەکەن بۆ کاراکردنی زیرەکیی دەستکرد و تایبەتمەندییەکانی پیکسڵ</string>
     <!-- About -->
     <string name="about_info">Evolution X ڕۆمێکی دەستکاریراوی ئەندرۆیدە کە ئامانجی دووبارەکردنەوەی ئەزموونی Google Pixelە. لەسەر پڕۆژەی LineageOS دروستکراوە.</string>
     <string name="about_website_title">ماڵپەڕ</string>
@@ -579,6 +596,11 @@
     <string name="about_current_maintainers_empty_summary">نەتوانرا ناوی سەرپەرشتیارانی ئێستا لە وەشانەکانی OTAـدا بدۆزرێتەوە.</string>
     <string name="about_current_maintainers_last_updated">دوایین نوێکردنەوە %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">دوایین نوێکردنەوە: نادیار</string>
+    <string name="about_current_maintainers_tap_to_view">دایبگرە بۆ بینینی سەرپەرشتیارە چالاکەکان</string>
+    <string name="about_current_maintainers_sheet_subtitle">%1$d سەرپەرشتیاری چالاک</string>
+    <string name="about_current_maintainers_search_hint">گەڕان بۆ سەرپەرشتیاران یان ئامێرەکان\u2026</string>
+    <string name="about_current_maintainers_no_results">هیچ سەرپەرشتیارێک لەگەڵ گەڕانەکەت ناگونجێت</string>
+    <string name="maintainer_link_forum">کۆڕبەند</string>
     <!-- Color Picker -->
     <string name="dialog_color_picker">هەڵبژاردنی ڕەنگ</string>
     <string name="press_color_to_apply">بۆ جێبەجێکردن دەست بنێ بە ڕەنگەکەدا</string>
@@ -603,6 +625,7 @@
     <string name="reset">دووبارە ڕێکخستنەوە</string>
     <string name="delete_message">بڕگەی دیاریکراو لاببرێت؟</string>
     <string name="choose_app">ئەپ هەڵبژێرە</string>
+    <string name="search_apps">گەڕان لە ئەپەکان</string>
     <!-- Changelog -->
     <string name="changelog_title">لیستی گۆڕانکارییەکان</string>
     <string name="changelog_summary">بینینی گۆڕانکارییەکان لە سەرچاوەی ROMـدا</string>
@@ -899,12 +922,28 @@
     <string name="statusbar_extra_padding_start_title">پەراوێزی سەرەتا</string>
     <string name="statusbar_extra_padding_top_title">پەراوێزی سەرەوە</string>
     <string name="statusbar_extra_padding_end_title">پەراوێزی کۆتایی</string>
-    <!-- Sensor block per-package -->
+    <!-- Miscellaneous/Sensor block -->
+    <string name="sensor_block_header_title">بلۆککردنی هەستەوەر</string>
     <string name="sensor_block_title">بلۆککردنی هەستەوەرەکان</string>
     <string name="sensor_block_summary">ڕێگری لە ئەپەکان بۆ گەیشتن بە هەستەوەرەکانی ئامێرەکە</string>
     <string name="sensor_block_app_picker_title">بلۆککردنی هەستەوەرەکان بۆ ئەم ئەپانە</string>
     <string name="add_sensor_block_package_title">زیادکردنی ئەپ بۆ بلۆکی هەستەوەر</string>
     <string name="add_sensor_block_package_summary">هەستەوەرەکانی جوڵەی گرنگ، خێراپێو، و خێراپێوی هێڵی بۆ ئەم ئەپانە بلۆک دەکرێن</string>
+    <string name="sensor_block_none_configured">هیچ ئەپێک بلۆک نەکراوە</string>
+    <string name="sensor_block_system_badge">SYS</string>
+    <!-- %1$d = number of apps currently blocked -->
+    <string name="sensor_block_count">%1$d ئەپ بلۆک کراوە</string>
+    <string name="sensor_block_add_apps">زیادکردنی ئەپەکان</string>
+    <string name="sensor_block_configured_apps">ئەپە بلۆککراوەکان</string>
+    <string name="sensor_block_empty_description">ئەو ئەپانەی لێرەدا ڕیزکراون، هەستەوەرەکانیان لە هەموو سیستمەکەدا بلۆک دەکرێت</string>
+    <string name="sensor_block_no_apps_configured">هیچ ئەپێک بلۆک نەکراوە</string>
+    <string name="sensor_block_no_apps_available">هیچ ئەپێک بەردەست نییە</string>
+    <string name="sensor_block_no_apps_found">هیچ ئەنجامێک نییە بۆ \"%1$s\"</string>
+    <string name="sensor_block_remove_title">لابردنی ئەپ؟</string>
+    <string name="sensor_block_remove_confirm">لابردنی %1$s لە لیستی بلۆکی هەستەوەر؟</string>
+    <string name="sensor_block_clear_all">سڕینەوەی هەمووی</string>
+    <string name="sensor_block_clear_all_confirm">ئەمە هەموو ئەپەکان لادەبات و بلۆککردنی هەستەوەرەکان ناچالاک دەکات.</string>
+    <string name="sensor_block_disabled">ناچالاککراوە</string>
     <!-- Blink flashlight for incoming calls -->
     <string name="flashlight_on_call_title">فلاش لێدان بۆ پەیوەندی هاتوو</string>
     <string name="flashlight_on_call_disabled">ناچالاککراوە</string>
@@ -974,7 +1013,7 @@
     <string name="custom_gradient_color_mode_custom">دەستکرد</string>
     <string name="custom_gradient_start_color_title">ڕەنگی دەسپێک</string>
     <string name="custom_gradient_end_color_title">ڕەنگی کۆتایی</string>
-    <!-- App Spoofing -->
+    <!-- App and Game Spoofing -->
     <string name="user_selectable_app_spoofing_title">گۆڕینی ناسنامەی ئەپ (Spoofing)</string>
     <string name="user_selectable_app_spoofing_summary">هەڵبژاردنی ئەو ئەپانەی دەتەوێت ناسنامەی ئامێرەکەیان بۆ بگۆڕیت</string>
     <string name="user_select_spoofing_profile_title">هەڵبژاردنی پرۆفایلی ناسنامە</string>
@@ -990,6 +1029,7 @@
     <string name="app_spoofing_spoof_model">گۆڕینی مۆدێل</string>
     <string name="app_spoofing_select_spoof_model">مۆدێلی ناسنامە هەڵبژێرە</string>
     <string name="app_spoofing_change_app">گۆڕینی ئەپ</string>
+    <string name="app_spoofing_empty_description">ئەپە دەستنیشانکراوەکان ناسنامەیەکی دەستکردی ئامێر نیشان دەدەن بۆ تێپەڕاندنی پشکنینەکانی ڕەقەکاڵا</string>
     <string name="show_system_apps">نیشاندانی ئەپەکانی سیستەم</string>
     <string name="hide_system_apps">شاردنەوەی ئەپەکانی سیستەم</string>
     <!-- Custom App Spoofing Profiles -->
@@ -1135,10 +1175,6 @@
     <string name="dynamic_bar_keyguard_compact_chip">شێوازی بچووک</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">هەمیشە شێوازی بچووک لەسەر قوفڵی ڕوونما بەکاربهێنە</string>
     <string name="dynamic_bar_events">ڕووداوەکان</string>
-    <string name="dynamic_bar_event_recording">تۆمارکردنی ڕوونما</string>
-    <string name="dynamic_bar_event_recording_summary">نیشاندەری تۆمارکردنی چالاکی ڕوونما</string>
-    <string name="dynamic_bar_event_privacy">نیشاندەرەکانی تایبەتمەندی</string>
-    <string name="dynamic_bar_event_privacy_summary">ئاگاداری بەکارهێنانی کامێرا و مایکرۆفۆن</string>
     <string name="dynamic_bar_event_audio_recording">تۆمارکردنی دەنگ</string>
     <string name="dynamic_bar_event_audio_recording_summary">تۆمارکەری دەنگ و گرتنی دەنگی سیستەم</string>
     <string name="dynamic_bar_event_call">پەیوەندیی بەردەوام</string>
@@ -1169,8 +1205,6 @@
     <string name="dynamic_bar_event_clipboard_summary">پێشبینینی تێکست و وێنە کۆپیکراوەکان</string>
     <string name="dynamic_bar_event_torch">لایت</string>
     <string name="dynamic_bar_event_torch_summary">داگیرساندنی فلاش و ئاستی ڕووناکی</string>
-    <string name="dynamic_bar_event_casting">ناردنی ڕوونما (Casting)</string>
-    <string name="dynamic_bar_event_casting_summary">دۆخی ناردنی ڕوونما و میدیا بۆ ئامێری تر</string>
     <string name="dynamic_bar_event_ongoing">چالاکییە بەردەوامەکان</string>
     <string name="dynamic_bar_event_ongoing_summary">ڕێنیشاندەری ڕێگا، گەیاندنی داواکارییەکان و چالاکییە زیندووەکانی تر</string>
     <string name="dynamic_bar_event_sports">وەرزش</string>
@@ -1209,7 +1243,6 @@
     <!-- Cutout Progress -->
     <string name="cutout_progress_title">نیشاندەری دەوری کامێرا (Cutout progress)</string>
     <string name="cutout_progress_summary">نیشاندانی ئاستی باتری یان داگرتن وەک بازنەیەک لە دەوری کامێرا</string>
-    <string name="cutout_progress_enabled_title">چالاککردنی بازنەی پێشکەوتن</string>
     <string name="cutout_progress_enabled_summary">نیشاندانی بازنەیەک لە دەوری کامێرا لە کاتی داگرتنی فایلەکاندا</string>
     <string name="cutout_progress_cat_appearance">شێوەی دەرکەوتن</string>
     <string name="cutout_progress_cat_behaviour">ڕەفتار</string>
@@ -1391,8 +1424,6 @@
     <string name="play_integrity_fix_summary">بەڕێوەبردنی ڕێکخستنی PIF و ناسنامەی ئامێرەکان بۆ تێپەڕاندنی دەستپاکی بنەڕەتی</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">بەڕێوەبردنی keybox و ئەپە مەبەستەکان بۆ سەلماندنی دەستپاکی بەهێز</string>
-    <string name="game_spoofing_title">ساختەکردنی یاری (Game spoofing)</string>
-    <string name="game_spoofing_summary">گۆڕینی تایبەتمەندییەکانی ئامێر بۆ یارییە دیاریکراوەکان</string>
     <!-- Play Integrity Fix -->
     <string name="pif_status">دۆخ (Status)</string>
     <string name="pif_active_config">ڕێکخستنی چالاک</string>
@@ -1420,6 +1451,9 @@
     <string name="pif_select_channel">دیاریکردنی کەناڵ</string>
     <string name="pif_channel_latest_release">نوێترین وەشان</string>
     <string name="pif_channel_canary_release">وەشانی کەناری (ئەزموونی)</string>
+    <string name="pif_invalid_fingerprint">فۆرماتی پەنجەمۆر نادروستە</string>
+    <string name="pif_no_devices_found">هیچ ئامێرێک نەدۆزرایەوە</string>
+    <string name="pif_no_api_key">نەتوانرا کلیلی APIی Flash Tool دەربهێنرێت</string>
     <!-- TrickyStore -->
     <string name="ts_keybox_management">بەڕێوەبردنی Keybox</string>
     <string name="ts_import_keybox">هێنانی keybox</string>
@@ -1438,44 +1472,29 @@
     <string name="ts_target_apps_count">%d ئەپ ڕێکخراوە</string>
     <string name="ts_import_target_list">هێنانی لیستی مەبەست</string>
     <string name="ts_import_target_list_summary">هێنانی فایلی target.txt لە فایلێکەوە</string>
+    <string name="ts_invalid_patch_date">فۆرماتی ڕێکەوت نادروستە. ساڵ-مانگ-ڕۆژ بەکاربهێنە</string>
     <string name="ts_target_list_imported">لیستی مەبەست هێنرا</string>
-    <string name="ts_loading_apps">ئەپەکان بار دەکرێن\u2026</string>
-    <string name="ts_auto_select">خۆکارانه‌ ده‌ستنیشانکردن</string>
-    <string name="ts_save">پاشەکەوتکردن</string>
     <string name="ts_targets_saved">لیستی مەبەست پاشەکەوت کرا</string>
     <string name="ts_failed">سەرکەوتوو نەبوو: %s</string>
-    <string name="ts_target_mode">دۆخی مەبەست (Target mode)</string>
-    <string name="ts_target_mode_auto">خۆکار (Auto)</string>
-    <string name="ts_target_mode_leaf">Leaf hack</string>
-    <string name="ts_target_mode_cert">دروستکردنی بڕوانامە (Certificate generation)</string>
     <string name="ts_footer_title">تێپەڕاندنی دەستپاکی بەهێز (Strong integrity)</string>
     <string name="ts_footer_body">١. فایلێکی XML ی keybox ی کارا لە سەرچاوەیەکی جێی متمانەوە بەدەست بهێنە. Keybox دابین نەکراوە.\n٢. کلیک لەسەر \"Import keybox\" بکە و فایلەکە بار بکە.\n٣. بەشی \"Manage target apps\" بکەرەوە و Google Play Services و Google Play Store هەڵبژێرە.\n٤. ئەگەر ئامێرەکەت TEE ی کارای هەیە دۆخەکە بخە سەر \"Leaf\"، ئەگەر نا وازی لێ بهێنە لەسەر Auto.\n٥. دۆخی Play Integrity تاقی بکەرەوە.\n\nهەمیشە keybox ە کۆنەکە بسڕەوە پێش هێنانی دانەیەکی نوێ. ئەگەر گووگڵ keybox ێک پووچەڵ بکاتەوە، لەوانەیە هێشتا ڕێگەت پێ بدات Device Integrity تێپەڕێنیت بەڵام Strong Integrity شکست دەهێنێت.</string>
     <string name="ts_security_patch">ڕێکەوتی نوێکاریی پاراستن</string>
     <string name="ts_no_patch">دانەنراوە (بنەڕەتیی ئامێرەکە بەکاردێت)</string>
-    <!-- Game Spoofing -->
-    <string name="gs_enable">چالاککردنی ساختەکردنی یاری</string>
-    <string name="gs_enable_summary">گۆڕینی تایبەتمەندی ئامێر بۆ ئەو یارییانەی ڕێکخراون</string>
-    <string name="gs_add_app">زیادکردنی یاری</string>
-    <string name="gs_add_app_summary">ئەپێک و ناسنامەی ئامێرێک هەڵبژێرە بۆ ساختەکردن</string>
-    <string name="gs_reload">بارکردنەوە</string>
-    <string name="gs_reload_summary">دووبارە بارکردنەوەی ڕێکخستنەکان لە بیرگەوە</string>
-    <string name="gs_configured_apps">یارییە ڕێکخراوەکان</string>
-    <string name="gs_no_apps">هیچ یارییەک ڕێکنەخراوە</string>
-    <string name="gs_no_apps_summary">کلیک لەسەر \"Add game\" بکە بۆ دەستپێکردن</string>
-    <string name="gs_select_app">ئەپ هەڵبژێرە</string>
-    <string name="gs_select_profile">ناسنامەی ئامێر هەڵبژێرە</string>
-    <string name="gs_edit_props">دەستکاری تایبەتمەندییەکان</string>
-    <string name="gs_change_profile">گۆڕینی ناسنامەی ئامێر</string>
-    <string name="gs_remove">لابردن</string>
-    <string name="gs_remove_title">یارییەکە لادەبرێت؟</string>
-    <string name="gs_remove_message">ئایا %s لە لیستی ساختەکردنی یاری لادەبرێت؟</string>
-    <string name="gs_edit_app">دەستکاری %s</string>
-    <string name="gs_key">کلیل (Key)</string>
-    <string name="gs_value">بڕ (Value)</string>
-    <string name="gs_save">پاشەکەوتکردن</string>
-    <string name="gs_config_saved">ڕێکخستن پاشەکەوت کرا</string>
-    <string name="gs_loading_apps">ئەپەکان بار دەکرێن\u2026</string>
-    <string name="gs_failed">سەرکەوتوو نەبوو: %s</string>
+    <string name="ts_select_target_apps">دیاریکردنی ئەپە مەبەستەکان</string>
+    <string name="ts_select_target_apps_desc">ئەپەکان هەڵبژێرە بۆ چالاککردنی ناسنامەی دەستکرد</string>
+    <string name="ts_selected_count">%d دەستنیشانکراوە</string>
+    <string name="ts_select_all">دیاریکردنی هەمووی</string>
+    <string name="ts_reset">دووبارە ڕێکخستنەوە</string>
+    <string name="ts_mode_auto">خۆکار</string>
+    <string name="ts_mode_leaf">Leaf</string>
+    <string name="ts_mode_cert">Cert</string>
+    <string name="ts_verification_mode">دۆخی پشکنین</string>
+    <string name="ts_verification_mode_auto">خۆکار</string>
+    <string name="ts_verification_mode_cert">cert</string>
+    <string name="ts_verification_mode_leaf">leaf</string>
+    <string name="ts_verification_auto_count">%1$d خۆکار</string>
+    <string name="ts_verification_cert_count">%1$d cert</string>
+    <string name="ts_verification_leaf_count">%1$d leaf</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">دیاریکردنی بابەتی وێنەی قووڵی پاشبنەما</string>
     <string name="depthwall_file_header_select_summary">دیاریکردنی وێنەی بابەتی پاشبنەمای قووڵی لە بیرگەوە.</string>
