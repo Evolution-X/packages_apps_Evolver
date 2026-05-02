@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2014-2025 Lunaris AOSP
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/monet_settings_title">
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="monet_preview"
+        android:layout="@layout/monet_preview"
+        android:selectable="false"/>
+
+    <PreferenceCategory
+        android:title="@string/color_settings_category"
+        android:key="color_settings_category">
+
+        <SwitchPreferenceCompat
+            android:key="use_wallpaper_colors"
+            android:title="@string/use_wallpaper_colors_title"
+            android:summary="@string/use_wallpaper_colors_desc"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="custom_seed_color"
+            android:title="@string/custom_seed_color_title"
+            android:summary="#6750A4"
+            android:persistent="false" />
+
+        <Preference
+            android:key="wallpaper_seed_color"
+            android:title="@string/wallpaper_seed_color_title"
+            android:summary="@string/wallpaper_seed_color_desc"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="theme_style"
+            android:title="@string/theme_style_title"
+            android:summary="%s"
+            android:entries="@array/monet_engine_style_entries"
+            android:entryValues="@array/monet_engine_style_values"
+            android:defaultValue="TONAL_SPOT" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/secondary_seed_category"
+        android:key="secondary_seed_category">
+
+        <SwitchPreferenceCompat
+            android:key="use_secondary_seed"
+            android:title="@string/use_secondary_seed_title"
+            android:summary="@string/use_secondary_seed_desc"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="secondary_seed_color"
+            android:title="@string/secondary_seed_color_title"
+            android:summary="#FF5500"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/advanced_settings_category"
+        android:key="advanced_settings_category">
+
+        <SwitchPreferenceCompat
+            android:key="fidelity_enabled"
+            android:title="@string/fidelity_title"
+            android:summary="@string/fidelity_desc"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="contrast_level"
+            android:title="@string/contrast_level_title"
+            android:max="100"
+            settings:min="-100"
+            settings:interval="1"
+            settings:units="%"
+            android:defaultValue="0"
+            android:persistent="false" />
+
+        <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="chroma_boost"
+            android:title="@string/chroma_boost_title"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:defaultValue="0"
+            android:persistent="false" />
+        
+        <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="chroma_boost_accent1"
+            android:title="@string/chroma_accent1_title"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:defaultValue="0"
+            android:persistent="false" />
+
+        <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="chroma_boost_accent2"
+            android:title="@string/chroma_accent2_title"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:defaultValue="0"
+            android:persistent="false" />
+
+        
+        <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="chroma_boost_accent3"
+            android:title="@string/chroma_accent3_title"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:defaultValue="0"
+            android:persistent="false" />
+
+       <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="chroma_boost_neutral1"
+            android:title="@string/chroma_neutral1_title"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:defaultValue="0"
+            android:persistent="false" />
+
+       <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="chroma_boost_neutral2"
+            android:title="@string/chroma_neutral2_title"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:defaultValue="0"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/hue_tone_settings_category"
+        android:key="hue_tone_settings_category">
+
+        <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="hue_shift"
+            android:title="@string/hue_shift_title"
+            android:summary="@string/hue_shift_desc"
+            android:max="180"
+            settings:min="-180"
+            settings:interval="1"
+            settings:units="°"
+            android:defaultValue="0"
+            android:persistent="false" />
+
+       <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="tone_shift_light"
+            android:title="@string/tone_shift_light_title"
+            android:summary="@string/tone_shift_light_desc"
+            android:max="50"
+            settings:min="-50"
+            settings:interval="1"
+            settings:units=""
+            android:defaultValue="0"
+            android:persistent="false" />
+
+       <org.evolution.settings.preferences.CustomSeekBarPreference
+            android:key="tone_shift_dark"
+            android:title="@string/tone_shift_dark_title"
+            android:summary="@string/tone_shift_dark_desc"
+            android:max="50"
+            settings:min="-50"
+            settings:interval="1"
+            settings:units=""
+            android:defaultValue="0"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="monet_two_category">
+            
+        <Preference
+            android:key="about_color_customization"
+            android:title="@string/about_color_customization_title"
+            android:summary="@string/about_color_customization_desc"
+            android:selectable="false" />
+
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
+
+</PreferenceScreen>
