@@ -147,6 +147,10 @@
     <string name="pulse_settings_summary">Mostrar um visualizador de barra na tela de bloqueio enquanto a música está tocando</string>
     <string name="ambient_pulse_enabled_title">Pulse na tela ambiente</string>
     <string name="ambient_pulse_enabled_summary">Mostrar visualizador na tela ambiente</string>
+    <string name="pulse_bass_haptics_title">Vibração de grave</string>
+    <string name="pulse_bass_haptics_none">Sem vibração suave em picos de grave intenso</string>
+    <string name="pulse_bass_haptics_running">Somente quando o pulso está mostrando</string>
+    <string name="pulse_bass_haptics_always">Sempre que a reprodução de mídia estiver ativa</string>
     <string name="pulse_rounded_bars_title">Barras arredondadas</string>
     <string name="pulse_rounded_bars_summary">Exibir barras do visualizador com cantos arredondados</string>
     <string name="pulse_color">Cor do visualizador</string>
@@ -164,6 +168,8 @@
     <string name="pulse_renderer_minimal_wave">Onda mínima</string>
     <string name="pulse_renderer_sparkle">Brilho</string>
     <string name="pulse_renderer_matrix">Matriz</string>
+    <string name="pulse_renderer_particle">Partícula</string>
+    <string name="pulse_renderer_waveform">Forma de onda</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Deslize para a esquerda ou direita para visualizar os estilos de relógio</string>
     <!-- Lock screen Clock Revamp -->
@@ -412,13 +418,19 @@
     <string name="quick_settings_brightness_slider_haptic_title">Feedback tátil</string>
     <string name="quick_settings_brightness_slider_haptic_summary">Reproduzir resposta tátil ao alterar o brilho usando o controle deslizante</string>
     <string name="quick_settings_animations_category">Animações</string>
-    <string name="quick_settings_tile_animation_style_title">Estilo da animação dos blocos</string>
-    <string name="quick_settings_tile_animation_duration_title">Duração da animação</string>
-    <string name="quick_settings_tile_animation_interpolator_title">Interpolador de animação dos blocos</string>
-    <string name="quick_settings_tile_animation_style_off">Sem animação</string>
-    <string name="quick_settings_tile_animation_style_rotate">Rotacionar</string>
-    <string name="qs_tile_animation_style_flipx">Virar X</string>
-    <string name="qs_tile_animation_style_flipy">Virar Y</string>
+    <string name="qs_tile_animation_style_title">Animação de blocos das configurações rápidas</string>
+    <string name="qs_tile_animation_style_bounce">Quicar</string>
+    <string name="qs_tile_animation_style_ripple">Ondulação</string>
+    <string name="qs_tile_animation_style_flip">Virar</string>
+    <string name="qs_tile_animation_style_fade">Desaparecer</string>
+    <string name="qs_tile_animation_style_pulse">Pulse</string>
+    <string name="qs_tile_animation_style_shake">Sacudir</string>
+    <string name="qs_tile_animation_style_wobble">Oscilação</string>
+    <string name="qs_tile_animation_style_spin">Rodar</string>
+    <string name="qs_tile_animation_style_squish">Esmagar</string>
+    <string name="qs_tile_animation_style_tilt">Inclinar</string>
+    <string name="qs_tile_animation_style_heartbeat">Batimento cardíaco</string>
+    <string name="qs_tile_animation_style_swing">Balanço</string>
     <string name="quick_settings_tile_animation_interpolator_linear">Linear</string>
     <string name="quick_settings_tile_animation_interpolator_accelerate">Acelerar</string>
     <string name="quick_settings_tile_animation_interpolator_decelerate">Desacelerar</string>
