@@ -706,6 +706,18 @@
         <item>waveform</item>
     </string-array>
 
+    <string-array name="pulse_bass_haptics_entries" translatable="false">
+        <item>@string/pulse_bass_haptics_none</item>
+        <item>@string/pulse_bass_haptics_running</item>
+        <item>@string/pulse_bass_haptics_always</item>
+    </string-array>
+
+    <string-array name="pulse_bass_haptics_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- QS Tiles animation style -->
     <string-array name="qs_tile_animation_style_entries" translatable="false">
         <item>@string/default_value</item>
