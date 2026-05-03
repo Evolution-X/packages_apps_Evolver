@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016-2025 crDroid Android Project
+ * Copyright (C) 2016-2026 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,11 +34,13 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 import org.evolution.settings.preferences.SecureSettingListPreference;
+import org.evolution.settings.utils.DeviceUtils;
 
 @SearchIndexable
 public class PulseSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_PULSE_BASS_HAPTICS = "pulse_bass_haptics";
     private static final String KEY_PULSE_RENDERER = "pulse_renderer";
     private static final String KEY_PULSE_COLOR = "pulse_color";
 
@@ -61,6 +63,11 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                     Settings.Secure.PULSE_RENDERER,
                     UserHandle.USER_CURRENT);
             updateColorPreferenceVisibility(currentRenderer);
+        }
+
+        boolean hapticAvailable = DeviceUtils.hasVibrator(getContext());
+        if (!hapticAvailable) {
+            getPreferenceScreen().removePreference(findPreference(KEY_PULSE_BASS_HAPTICS));
         }
     }
 
@@ -95,6 +102,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 Settings.Secure.PULSE_COLOR, "lavalamp", UserHandle.USER_CURRENT);
         Settings.Secure.putStringForUser(resolver,
                 Settings.Secure.PULSE_RENDERER, "solid", UserHandle.USER_CURRENT);
+        Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.PULSE_BASS_HAPTICS, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
