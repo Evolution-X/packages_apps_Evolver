@@ -147,6 +147,10 @@
     <string name="pulse_settings_summary">Wyświetlaj wizualizator słupkowy na ekranie blokady podczas odtwarzania muzyki</string>
     <string name="ambient_pulse_enabled_title">Pulse na ekranie otoczenia</string>
     <string name="ambient_pulse_enabled_summary">Pokaż wizualizator na ekranie otoczenia</string>
+    <string name="pulse_bass_haptics_title">Wibracja basu</string>
+    <string name="pulse_bass_haptics_none">Brak subtelnych wibracji przy gwałtownych skokach basu</string>
+    <string name="pulse_bass_haptics_running">Tylko gdy puls jest wyświetlany</string>
+    <string name="pulse_bass_haptics_always">Zawsze, gdy odtwarzanie multimediów jest aktywne</string>
     <string name="pulse_rounded_bars_title">Zaokrąglone słupki</string>
     <string name="pulse_rounded_bars_summary">Wyświetl słupki wizualizatora z zaokrąglonymi rogami</string>
     <string name="pulse_color">Kolor wizualizatora</string>
@@ -164,6 +168,8 @@
     <string name="pulse_renderer_minimal_wave">Minimalna fala</string>
     <string name="pulse_renderer_sparkle">Iskierki</string>
     <string name="pulse_renderer_matrix">Matrix</string>
+    <string name="pulse_renderer_particle">Cząsteczka</string>
+    <string name="pulse_renderer_waveform">Fala</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Przeciągnij w lewo lub prawo, aby zobaczyć styl zegara</string>
     <!-- Lock screen Clock Revamp -->
@@ -1346,7 +1352,7 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="cutout_progress_music_stroke_title">Grubość obrysu</string>
     <string name="cutout_progress_music_clockwise_title">Zgodnie z ruchem wskazówek zegara</string>
     <string name="cutout_progress_music_aod_title">Pokaż na Ekran zawsze włączony</string>
-    <string name="cutout_progress_music_aod_summary">Utrzymuj pierścień muzyczny widoczny na Ekranie otoczenia</string>
+    <string name="cutout_progress_music_aod_summary">Utrzymuj pierścień muzyczny widoczny na ekranie otoczenia</string>
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">Tapety z glifami</string>
     <string name="lock_glymps_enable_title">Włącz tapety z glifami</string>
