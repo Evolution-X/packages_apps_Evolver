@@ -146,6 +146,10 @@
     <string name="pulse_settings_summary">Показати візуалізацію на екрані блокування, коли грає музика</string>
     <string name="ambient_pulse_enabled_title">Пульсація на включеному Активному екрані</string>
     <string name="ambient_pulse_enabled_summary">Показати візуалізацію на Ambient Display</string>
+    <string name="pulse_bass_haptics_title">Басова тактильна резонансність</string>
+    <string name="pulse_bass_haptics_none">Відсутність ледь помітної вібрації на різких басових піках</string>
+    <string name="pulse_bass_haptics_running">Тільки коли відображається пульс</string>
+    <string name="pulse_bass_haptics_always">Щоразу, коли активне відтворення медіафайлів</string>
     <string name="pulse_rounded_bars_title">Закруглені панелі</string>
     <string name="pulse_rounded_bars_summary">Показати панель візуалізації за допомогою закруглених кутів</string>
     <string name="pulse_color">Колір візуалізації</string>
@@ -163,6 +167,8 @@
     <string name="pulse_renderer_minimal_wave">Мінімальна хвиля</string>
     <string name="pulse_renderer_sparkle">Іскра</string>
     <string name="pulse_renderer_matrix">Матриця</string>
+    <string name="pulse_renderer_particle">Частинка</string>
+    <string name="pulse_renderer_waveform">Форма хвилі</string>
     <!-- Lock screen Clock Highlight Guide -->
     <string name="ls_clock_face_highlight_text">Проведіть вліво або вправо, щоб переглянути стиль годинника</string>
     <!-- Lock screen Clock Revamp -->
