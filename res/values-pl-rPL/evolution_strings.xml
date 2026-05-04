@@ -1519,6 +1519,14 @@ Pasek postępu dynamicznie przełącza się między stanem multimediów i pobier
     <string name="ts_verification_auto_count">%1$d automatycznie</string>
     <string name="ts_verification_cert_count">%1$d generowanie certyfikatu</string>
     <string name="ts_verification_leaf_count">%1$d podmiana certyfikatu</string>
+    <string name="ts_revocation_status">Status odwołania skrzynki na klucze</string>
+    <string name="ts_revocation_checking">Sprawdzanie statusu odwołania…</string>
+    <string name="ts_revocation_no_keybox">Nie zainstalowano zestawu kluczy</string>
+    <string name="ts_revocation_valid">✓ Ważny — nie odwołany</string>
+    <string name="ts_revocation_revoked">✗ Cofnięty (%s)</string>
+    <string name="ts_revocation_suspended">⚠ Zawieszony (%s)</string>
+    <string name="ts_revocation_network_error">Nie można nawiązać połączenia z serwerem odwołań</string>
+    <string name="ts_revocation_error">Sprawdzanie nie powiodło się: %s</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
     <string name="depthwall_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
