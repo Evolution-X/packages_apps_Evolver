@@ -1510,6 +1510,14 @@
     <string name="ts_verification_auto_count">%1$d Автоматично</string>
     <string name="ts_verification_cert_count">%1$d Сертифікат</string>
     <string name="ts_verification_leaf_count">%1$d Листок</string>
+    <string name="ts_revocation_status">Стан анулювання Keybox</string>
+    <string name="ts_revocation_checking">Перевірка статусу відкликання…</string>
+    <string name="ts_revocation_no_keybox">Не встановлено жодного набору ключів</string>
+    <string name="ts_revocation_valid">✓ Дійсний — не відкликано</string>
+    <string name="ts_revocation_revoked">✗ Скасовано (%s)</string>
+    <string name="ts_revocation_suspended">⚠ Призупинено (%s)</string>
+    <string name="ts_revocation_network_error">Не вдалося зв’язатися зі сервером відкликання</string>
+    <string name="ts_revocation_error">Перевірка не вдалася: %s</string>
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Вибрати шпалери з ефектом глибини</string>
     <string name="depthwall_file_header_select_summary">Вибрати зображення для шпалер з ефектом глибини зі сховища.</string>
