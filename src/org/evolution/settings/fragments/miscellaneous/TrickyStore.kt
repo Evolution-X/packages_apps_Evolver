@@ -15,11 +15,24 @@ import android.util.Base64
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
+import java.io.BufferedReader
+import java.io.ByteArrayInputStream
+import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
+import java.net.HttpURLConnection
+import java.net.URL
+import java.security.cert.CertificateFactory
+import java.security.cert.X509Certificate
+import java.util.regex.Pattern
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.json.JSONObject
 
 class TrickyStore : SettingsPreferenceFragment() {
 
@@ -40,12 +53,90 @@ class TrickyStore : SettingsPreferenceFragment() {
                     killGms()
                     toast(getString(R.string.ts_keybox_imported))
                     refreshStatus()
+                    checkKeyboxRevocation()
                 } catch (e: Exception) {
                     toast(getString(R.string.ts_failed, e.message ?: ""))
                 }
             }
         }
     }
+
+    private fun checkKeyboxRevocation() {
+        val raw = Settings.Secure.getString(requireContext().contentResolver, KEYBOX_KEY)
+        val pref = findPreference<Preference>("ts_revocation_status") ?: return
+        if (raw.isNullOrEmpty()) {
+            pref.summary = getString(R.string.ts_revocation_no_keybox)
+            return
+        }
+        pref.summary = getString(R.string.ts_revocation_checking)
+        lifecycleScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                runCatching { performRevocationCheck(raw) }
+            }
+            result.fold(
+                onSuccess = { (summary) -> pref.summary = summary },
+                onFailure = { e -> pref.summary = getString(R.string.ts_revocation_error, e.message) }
+            )
+        }
+    }
+
+    private fun performRevocationCheck(raw: String): Pair<String, Unit> {
+        val xml = decodeKeyboxForRevocation(raw)
+            ?: return Pair(getString(R.string.ts_revocation_error, "Cannot decode keybox"), Unit)
+        val serials = extractCertSerials(xml)
+        if (serials.isEmpty())
+            return Pair(getString(R.string.ts_revocation_error, "No certs found"), Unit)
+        val json = fetchRevocationJson()
+            ?: return Pair(getString(R.string.ts_revocation_network_error), Unit)
+        val entries = json.optJSONObject("entries")
+            ?: return Pair(getString(R.string.ts_revocation_valid), Unit)
+        for (serial in serials) {
+            val entry = entries.optJSONObject(serial) ?: continue
+            val status = entry.optString("status", "").uppercase()
+            val reason = entry.optString("reason", "")
+            if (status == "REVOKED")
+                return Pair(getString(R.string.ts_revocation_revoked, reason), Unit)
+            if (status == "SUSPENDED")
+                return Pair(getString(R.string.ts_revocation_suspended, reason), Unit)
+        }
+        return Pair(getString(R.string.ts_revocation_valid), Unit)
+    }
+
+    private fun decodeKeyboxForRevocation(payload: String): String? {
+        val trimmed = payload.trim()
+        if (trimmed.startsWith("<")) return trimmed
+        return try {
+            val decoded = Base64.decode(trimmed, Base64.DEFAULT)
+            val asXml = String(decoded, Charsets.UTF_8).trim()
+            if (asXml.startsWith("<")) asXml else null
+        } catch (_: Exception) { null }
+    }
+
+    private fun extractCertSerials(xml: String): List<String> {
+        val serials = mutableListOf<String>()
+        val factory = CertificateFactory.getInstance("X.509")
+        val matcher = Pattern.compile(
+            "-----BEGIN CERTIFICATE-----([\\s\\S]+?)-----END CERTIFICATE-----"
+        ).matcher(xml)
+        while (matcher.find()) {
+            try {
+                val der = Base64.decode(
+                    matcher.group(1)!!.replace("\\s".toRegex(), ""), Base64.DEFAULT)
+                val cert = factory.generateCertificate(ByteArrayInputStream(der)) as X509Certificate
+                serials.add(cert.serialNumber.toString(16).uppercase())
+            } catch (_: Exception) {}
+        }
+        return serials
+    }
+
+    private fun fetchRevocationJson(): JSONObject? = try {
+        val conn = URL(REVOCATION_URL).openConnection() as HttpURLConnection
+        conn.connectTimeout = 10_000
+        conn.readTimeout = 10_000
+        if (conn.responseCode == HttpURLConnection.HTTP_OK)
+            JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
+        else null
+    } catch (_: Exception) { null }
 
     private val targetPicker = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -102,12 +193,15 @@ class TrickyStore : SettingsPreferenceFragment() {
             true
         }
 
+        findPreference<Preference>("ts_revocation_status")?.isEnabled = false
+
         refreshStatus()
     }
 
     override fun onResume() {
         super.onResume()
         refreshStatus()
+        checkKeyboxRevocation()
     }
 
     private fun refreshStatus() {
@@ -254,5 +348,6 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val VENDING_PACKAGE = "com.android.vending"
         private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
         private const val GMS_PACKAGE = "com.google.android.gms"
+        private const val REVOCATION_URL = "https://android.googleapis.com/attestation/status"
     }
 }

@@ -1678,6 +1678,14 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ts_verification_auto_count">%1$d auto</string>
     <string name="ts_verification_cert_count">%1$d cert</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
+    <string name="ts_revocation_status">Keybox revocation status</string>
+    <string name="ts_revocation_checking">Checking revocation status…</string>
+    <string name="ts_revocation_no_keybox">No keybox installed</string>
+    <string name="ts_revocation_valid">✓ Valid — not revoked</string>
+    <string name="ts_revocation_revoked">✗ Revoked (%s)</string>
+    <string name="ts_revocation_suspended">⚠ Suspended (%s)</string>
+    <string name="ts_revocation_network_error">Could not reach revocation server</string>
+    <string name="ts_revocation_error">Check failed: %s</string>
 
     <!-- Depth Wallpaper -->
     <string name="depthwall_file_header_select_title">Select Depth wallpaper subject</string>
