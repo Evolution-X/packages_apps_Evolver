@@ -31,29 +31,37 @@ class DeviceConfigSwitchPreference @JvmOverloads constructor(
     }
 
     init {
-    attrs?.let {
-        val ta = context.obtainStyledAttributes(it, R.styleable.DeviceConfigSwitchPreference)
-        try {
-            namespace = ta.getString(R.styleable.DeviceConfigSwitchPreference_deviceConfigNamespace) ?: ""
-            featureFlag = ta.getString(R.styleable.DeviceConfigSwitchPreference_deviceConfigFlag) ?: ""
-            defaultValue = ta.getBoolean(R.styleable.DeviceConfigSwitchPreference_deviceConfigDefault, false)
-        } finally {
-            ta.recycle()
-        }
-    }
+        // The source of truth is DeviceConfig, so the preference must not keep an independent
+        // SharedPreferences copy that can drift from the backing flag.
+        isPersistent = false
 
-    if (namespace.isNotEmpty() && featureFlag.isNotEmpty()) {
-        isChecked = DeviceConfig.getBoolean(namespace, featureFlag, defaultValue)
-    }
-}
-
-    private val configListener = DeviceConfig.OnPropertiesChangedListener { properties ->
-        if (properties.namespace == namespace) {
-            val newValue = properties.getBoolean(featureFlag, defaultValue)
-            if (isChecked != newValue) {
-                isChecked = newValue
+        attrs?.let {
+            val ta = context.obtainStyledAttributes(it, R.styleable.DeviceConfigSwitchPreference)
+            try {
+                namespace =
+                    ta.getString(R.styleable.DeviceConfigSwitchPreference_deviceConfigNamespace) ?: ""
+                featureFlag =
+                    ta.getString(R.styleable.DeviceConfigSwitchPreference_deviceConfigFlag) ?: ""
+                defaultValue =
+                    ta.getBoolean(R.styleable.DeviceConfigSwitchPreference_deviceConfigDefault, false)
+            } finally {
+                ta.recycle()
             }
         }
+
+        syncFromDeviceConfig()
+    }
+
+    private val configListener = DeviceConfig.OnPropertiesChangedListener { properties ->
+        if (properties.namespace != namespace) {
+            return@OnPropertiesChangedListener
+        }
+
+        if (properties.keyset.isNotEmpty() && !properties.keyset.contains(featureFlag)) {
+            return@OnPropertiesChangedListener
+        }
+
+        syncFromDeviceConfig()
     }
 
     fun setDeviceConfig(namespace: String, flag: String, default: Boolean = false) {
@@ -61,15 +69,20 @@ class DeviceConfigSwitchPreference @JvmOverloads constructor(
         this.featureFlag = flag
         this.defaultValue = default
 
-        // Load initial value
-        isChecked = DeviceConfig.getBoolean(namespace, flag, default)
+        syncFromDeviceConfig()
     }
 
     override fun onAttached() {
         super.onAttached()
+        syncFromDeviceConfig()
+
+        if (!hasValidDeviceConfig()) {
+            return
+        }
+
         DeviceConfig.addOnPropertiesChangedListener(
             namespace,
-            { it.run() },
+            context.mainExecutor,
             configListener
         )
     }
@@ -80,7 +93,15 @@ class DeviceConfigSwitchPreference @JvmOverloads constructor(
     }
 
     override fun onClick() {
+        if (!hasValidDeviceConfig()) {
+            return
+        }
+
         val newValue = !isChecked
+        if (!callChangeListener(newValue)) {
+            return
+        }
+
         val success = DeviceConfig.setProperty(
             namespace,
             featureFlag,
@@ -89,6 +110,19 @@ class DeviceConfigSwitchPreference @JvmOverloads constructor(
         )
         if (success) {
             isChecked = newValue
+        }
+    }
+
+    private fun hasValidDeviceConfig(): Boolean = namespace.isNotEmpty() && featureFlag.isNotEmpty()
+
+    private fun syncFromDeviceConfig() {
+        if (!hasValidDeviceConfig()) {
+            return
+        }
+
+        val currentValue = DeviceConfig.getBoolean(namespace, featureFlag, defaultValue)
+        if (isChecked != currentValue) {
+            isChecked = currentValue
         }
     }
 }
