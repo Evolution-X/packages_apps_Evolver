@@ -833,7 +833,7 @@
     <string name="compact_heads_up_notifications_enabled_title">Notificação flutuante compacta</string>
     <string name="compact_heads_up_notifications_enabled_summary">Exibir notificações em tamanho compacto</string>
     <string name="notifications_less_boring_heads_up_title">Menos irritante</string>
-    <string name="notifications_less_boring_heads_up_summary">Exibir notificações pop-up apenas para alarmes, chamadas e aplicativos de mensagens</string>
+    <string name="notifications_less_boring_heads_up_summary">Mostrar notificações pop-up apenas para alarmes, chamadas e apps de mensagens</string>
     <string name="notif_style_title">Estilo da notificação</string>
     <string name="notif_style1">Cyberpunk</string>
     <string name="notif_style2">Duas linhas</string>
@@ -1159,7 +1159,7 @@
     <string name="glass_blur">Desfoque de vidro</string>
     <string name="frosted_blur">Desfoque congelado</string>
     <string name="wallpaper_dim_level_summary">Configurar o nível de escurecimento do papel de parede</string>
-    <string name="wallpaper_styles_footer">Para que os estilos de papel de parede funcionem de maneira eficaz, defina os papéis de parede tela de bloqueio e tela inicial separadamente. Usar a mesma imagem é bom, mas evite aplicá-la nas duas ao mesmo tempo. Isso não é necessário ao usar a opção \"Ambos\" para estilos desfoque ou dim.</string>
+    <string name="wallpaper_styles_footer">Para que os estilos de papel de parede funcionem de maneira eficaz, defina os papéis de parede tela de bloqueio e tela inicial separadamente. Usar a mesma imagem é bom, mas evite aplicá-la nas duas ao mesmo tempo. Isso não é necessário ao usar a opção \"Ambos\" para estilos desfoque ou escurecimento.</string>
     <string name="wallpaper_performance_warning">⚠ Aviso de desempenho: esses efeitos consomem muitos recursos e podem afetar o desempenho em dispositivos de baixo custo. Os efeitos podem causar atraso, consumo de bateria ou travamentos em telefones mais antigos.</string>
     <string name="wallpaper_saturation_title">Nível de saturação</string>
     <string name="wallpaper_saturation_summary">Aumente ou reduza a intensidade da cor</string>
@@ -1253,9 +1253,9 @@
     <string name="volume_sound_haptics_summary">Tocar um som ao ajustar o volume</string>
     <!-- Volume panel styles -->
     <string name="volume_style_title">Estilo do painel de volume</string>
-    <string name="revamped_aosp_style">AOSP renovado</string>
-    <string name="rui_style">IU do Realme</string>
-    <string name="aosp_style">AOSP padrão</string>
+    <string name="revamped_aosp_style">AOSP reformulado</string>
+    <string name="rui_style">Realme UI</string>
+    <string name="aosp_style">Padrão AOSP</string>
     <string name="double_layer_style">Camada dupla</string>
     <string name="gradient_style">Gradiente</string>
     <string name="neumorph_style">Neumorfo</string>
@@ -1342,10 +1342,10 @@
     <string name="custom_seekbar_default_value_to_set">Valor padrão: <xliff:g id="v">%s</xliff:g>\nToque longo para definir</string>
     <string name="custom_seekbar_default_value_is_set">Valor padrão definido</string>
     <!-- SystemUI restart dialog -->
-    <string name="systemui_restart_title">Reiniciar SystemUI</string>
-    <string name="systemui_restart_message">Uma reinicialização do SystemUI é necessária para que as alterações tenham efeito. Reiniciar agora?</string>
+    <string name="systemui_restart_title">Reiniciar a interface do sistema</string>
+    <string name="systemui_restart_message">Uma reinicialização da interface do sistema é necessária para que as alterações tenham efeito. Reiniciar agora?</string>
     <string name="systemui_restart_not_now">Agora não</string>
-    <string name="systemui_restart_process">Reiniciando SystemUI…</string>
+    <string name="systemui_restart_process">Reiniciando a interface do sistema…</string>
     <!-- Units -->
     <string name="unit_hz">Hz</string>
     <string name="unit_milliseconds">milissegundos</string>
@@ -1360,7 +1360,7 @@
     <string name="action_yes">Sim</string>
     <string name="action_set">Definir</string>
     <string name="action_reset">Redefinir</string>
-    <string name="action_remove">Removedor</string>
+    <string name="action_remove">Remover</string>
     <string name="action_add">Adicionar</string>
     <string name="action_add_apps">Adicionar aplicativos</string>
     <string name="action_choose_app">Escolher aplicativo</string>
@@ -1399,14 +1399,14 @@
     <string name="hardware_keys_action_screenshot">Tirar uma captura de tela</string>
     <string name="hardware_keys_action_volume_panel">Alternar painel de volume</string>
     <string name="hardware_keys_action_clear_all_notifications">Limpar todas as notificações</string>
-    <string name="hardware_keys_action_notifications_panel">Painel de notificação Ligar/desligar</string>
+    <string name="hardware_keys_action_notifications_panel">Alternar painel de notificações</string>
     <string name="hardware_keys_action_expand_qs_panel">Expandir configurações rápidas</string>
     <string name="hardware_keys_action_ringer_modes">Alterar modo de toque</string>
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Deslizar com três dedos</string>
-    <string name="shake_gestures_enabled_title">Agitar gestos</string>
+    <string name="shake_gestures_enabled_title">Gestos de agitar</string>
     <string name="shake_gestures_enabled_summary">Agite o dispositivo para realizar uma ação</string>
-    <string name="shake_gestures_action_title">Agite a ação do gesto</string>
+    <string name="shake_gestures_action_title">Ação do gesto ao agitar</string>
     <string name="shake_gestures_intensity_title">Sensibilidade de agitação</string>
     <string name="shake_gestures_intensity_summary">Ajuste a sensibilidade da detecção de vibração</string>
     <string name="flashlight_on_call_title">Pisque a lanterna ao receber uma chamada</string>
@@ -1438,4 +1438,7 @@
     <!-- Emoji style -->
     <string name="emoji_style_title">Estilo emoji</string>
     <string name="emoji_style_summary">Escolha o pacote de emojis do sistema sem alterar as fontes do texto</string>
+    <string name="emoji_style_stock">Stock</string>
+    <string name="emoji_style_ios">iOS</string>
+    <string name="emoji_style_samsung">Samsung</string>
 </resources>
