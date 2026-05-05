@@ -231,8 +231,8 @@
     <!-- Lock screen/AOD -->
     <string name="aod_display_category_title">Ekran zawsze włączony</string>
     <string name="aod_pulse_category_title">Puls/drzemka</string>
-    <string name="lockscreen_custom_image_enabled_title">Obraz Ekran zawsze włączony</string>
-    <string name="lockscreen_custom_image_title">Wybierz obraz Ekran zawsze włączony</string>
+    <string name="lockscreen_custom_image_enabled_title">Obraz ekran zawsze włączony</string>
+    <string name="lockscreen_custom_image_title">Wybierz obraz ekran zawsze włączony</string>
     <string name="lockscreen_custom_image_summary">Ustaw niestandardowy obraz dla ekran zawsze włączony</string>
     <string name="lockscreen_custom_image_pick_summary">Wybierz obraz z galerii</string>
     <string name="custom_aod_image_not_supported">Nie obsługiwane przez wybrany styl zegara</string>
@@ -643,7 +643,7 @@
     <string name="cutout_progress_music_opacity_title">Krycie pierścienia</string>
     <string name="cutout_progress_music_stroke_title">Grubość obrysu</string>
     <string name="cutout_progress_music_clockwise_title">Kierunek zgodny z ruchem wskazówek zegara</string>
-    <string name="cutout_progress_music_aod_title">Pokaż na Ekran zawsze włączony</string>
+    <string name="cutout_progress_music_aod_title">Pokaż na ekran zawsze włączony</string>
     <string name="cutout_progress_music_aod_summary">Zachowaj widoczność pierścienia muzycznego na ekranie otoczenia</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Stan baterii urządzenia Bluetooth</string>
@@ -1440,4 +1440,7 @@
     <!-- Emoji style -->
     <string name="emoji_style_title">Styl emoji</string>
     <string name="emoji_style_summary">Wybierz pakiet emoji systemowych bez zmiany czcionek tekstu</string>
+    <string name="emoji_style_stock">Fabryczny</string>
+    <string name="emoji_style_ios">iOS</string>
+    <string name="emoji_style_samsung">Samsung</string>
 </resources>
