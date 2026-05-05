@@ -5,6 +5,7 @@
 
 package org.evolution.settings.fragments.themes
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
@@ -103,6 +104,8 @@ import android.widget.ImageView as AndroidImageView
 
 private const val TAG = "BootAnimationSettings"
 private const val BOOTANIMATION_STYLE_KEY = "persist.sys.bootanimation_style"
+private const val ACTION_BOOTANIM_STYLE_CHANGED =
+    "org.evolution.intent.action.BOOTANIM_STYLE_CHANGED"
 private const val CUSTOM_BOOTANIMATION_FILE = "/data/misc/bootanim/bootanimation.zip"
 
 // ---------------------------------------------------------------------------
@@ -175,6 +178,7 @@ private fun BootAnimationScreen(context: android.content.Context) {
             SystemProperties.set(BOOTANIMATION_STYLE_KEY, index.toString())
             selectedIndex = index
             loadPreview(index)
+            context.sendBroadcast(Intent(ACTION_BOOTANIM_STYLE_CHANGED))
         } catch (e: Exception) {
             Log.e(TAG, "Failed to set boot animation style", e)
             Toast.makeText(context, R.string.boot_animation_applied_error, Toast.LENGTH_SHORT).show()
