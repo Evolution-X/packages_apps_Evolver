@@ -263,7 +263,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         AlertDialog.Builder(requireContext())
             .setTitle(R.string.ts_delete_keybox_title)
             .setMessage(R.string.ts_delete_keybox_message)
-            .setPositiveButton(R.string.ts_delete) { _, _ ->
+            .setPositiveButton(R.string.action_delete) { _, _ ->
                 try {
                     Settings.Secure.putString(
                         requireContext().contentResolver,
@@ -293,7 +293,7 @@ class TrickyStore : SettingsPreferenceFragment() {
             .setView(input)
             .setPositiveButton(android.R.string.ok, null)
             .setNegativeButton(android.R.string.cancel, null)
-            .setNeutralButton(R.string.ts_delete) { _, _ ->
+            .setNeutralButton(R.string.action_delete) { _, _ ->
                 Settings.Secure.putString(
                     requireContext().contentResolver,
                     PATCH_KEY,

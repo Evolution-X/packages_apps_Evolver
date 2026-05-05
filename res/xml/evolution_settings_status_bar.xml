@@ -101,13 +101,6 @@
             android:summary="@string/statusbar_clock_chip_summary"
             android:fragment="org.evolution.settings.fragments.statusbar.ClockChipSettings" />
 
-        <!-- Statusbar lyric -->
-        <!--<Preference
-            android:key="status_bar_lyric_settings"
-            android:title="@string/status_bar_lyric_title"
-            android:summary="@string/status_bar_lyric_summary"
-            android:fragment="org.evolution.settings.fragments.statusbar.StatusbarLyricSettings" />-->
-
         <!-- Bluetooth battery status -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="bluetooth_show_battery"

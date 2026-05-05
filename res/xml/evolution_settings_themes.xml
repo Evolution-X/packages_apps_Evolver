@@ -15,8 +15,8 @@
         <!-- Font style -->
         <org.evolution.settings.preferences.FontsPickerPreference
             android:key="system_font"
-            android:title="@string/theme_customization_font_title"
-            android:summary="theme_customization_font_summary" />
+            android:title="@string/font_styles_title"
+            android:summary="@string/font_styles_summary" />
     </PreferenceCategory>
 
     <PreferenceCategory

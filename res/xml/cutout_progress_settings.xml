@@ -22,7 +22,7 @@
 
     <lineageos.preference.SecureSettingMainSwitchPreference
         android:key="cutout_progress_enabled"
-        android:title="@string/enable"
+        android:title="@string/action_enable"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SecureSettingListPreference

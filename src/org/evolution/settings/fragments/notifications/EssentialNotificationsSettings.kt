@@ -273,7 +273,7 @@ private fun EssentialNotificationsContent(context: Context) {
                     modifier = Modifier.size(18.dp),
                 )
                 Spacer(modifier = Modifier.width(4.dp))
-                Text(stringResource(R.string.add_apps))
+                Text(stringResource(R.string.action_add_apps))
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -458,7 +458,7 @@ private fun AddAppDialog(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(stringResource(R.string.add_apps))
+                Text(stringResource(R.string.action_add_apps))
                 TextButton(onClick = { showSystemApps = !showSystemApps }) {
                     Text(
                         if (showSystemApps) stringResource(R.string.hide_system_apps)
@@ -480,7 +480,7 @@ private fun AddAppDialog(
                     onValueChange = { searchQuery = it },
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
-                    label = { Text(stringResource(R.string.search_apps)) },
+                    label = { Text(stringResource(R.string.action_search_apps)) },
                     leadingIcon = {
                         Icon(Icons.Default.Search, contentDescription = null)
                     },
@@ -520,7 +520,7 @@ private fun AddAppDialog(
                             )
                             if (searchQuery.isNotBlank()) {
                                 TextButton(onClick = { searchQuery = "" }) {
-                                    Text(stringResource(R.string.app_spoofing_clear_search))
+                                    Text(stringResource(R.string.common_clear_search))
                                 }
                             }
                         }
