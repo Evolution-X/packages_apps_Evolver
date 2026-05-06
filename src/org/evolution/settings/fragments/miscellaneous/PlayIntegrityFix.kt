@@ -120,6 +120,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
     }
 
     private fun autoFetchIfStale() {
+        if (autoFetchDone) return
         val content = Settings.Secure.getString(
             requireContext().contentResolver, PIF_CONFIG_KEY
         )
@@ -127,62 +128,63 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             !content.isNullOrEmpty() && JSONObject(content).optBoolean("manually_imported", false)
         } catch (_: Exception) { false }
 
-        val shouldFetch = if (isManuallyImported) {
-            false
-        } else if (content.isNullOrEmpty()) {
-            true
-        } else {
-            val ageDays = try {
-                val patch = JSONObject(content).optString("SECURITY_PATCH", "")
-                getPatchAgeDays(patch)
-            } catch (_: Exception) { null }
-            ageDays != null && ageDays > AUTO_FETCH_STALE_DAYS
-        }
-        if (shouldFetch && !autoFetchDone) {
-            autoFetchDone = true
-            autoFetchLatestRelease()
-        }
-    }
+        if (isManuallyImported) return
 
-    private fun autoFetchLatestRelease() {
+        autoFetchDone = true
         scope.launch {
             try {
-                // Try evo hosted pif.json first
-                val evoResult = withContext(Dispatchers.IO) { fetchFallbackPif() }
-                val result = if (evoResult is PifFetchResult.Success) {
-                    evoResult
-                } else {
-                    // Fall back to pixel canary scraper
-                    val (devices, apiKey) = withContext(Dispatchers.IO) { fetchAvailableCanaryDevices() }
-                    if (devices.isNotEmpty() && !apiKey.isNullOrEmpty()) {
-                        val preferred = devices.firstOrNull { it.device == "komodo" }
-                            ?: devices.firstOrNull { it.device == "blazer" }
-                            ?: devices.first()
-                        withContext(Dispatchers.IO) { buildCanaryPifFromDevice(preferred, apiKey) }
-                    } else {
-                        PifFetchResult.Error("No config available")
+                val serverResult = withContext(Dispatchers.IO) { fetchFallbackPif() }
+                if (serverResult !is PifFetchResult.Success) return@launch
+
+                val localPatch = try {
+                    if (!content.isNullOrEmpty()) JSONObject(content).optString("SECURITY_PATCH", "") else ""
+                } catch (_: Exception) { "" }
+                val serverPatch = serverResult.pifData.optString("SECURITY_PATCH", "")
+
+                val localPatchDate = parsePatchDate(localPatch)
+                val serverPatchDate = parsePatchDate(serverPatch)
+
+                val resultToSave: PifFetchResult.Success = when {
+                    // Server has a newer patch than local — take server
+                    serverPatchDate != null && (localPatchDate == null || serverPatchDate.after(localPatchDate)) -> {
+                        serverResult
                     }
-                }
-                if (result is PifFetchResult.Success) {
-                    val fp = result.pifData.optString("FINGERPRINT", "")
-                    if (!isValidFingerprint(fp)) return@launch
-                    val toSave = JSONObject(result.pifData.toString()).apply {
-                        put("manually_imported", false)
-                    }
-                    Settings.Secure.putString(
-                        requireContext().contentResolver,
-                        PIF_CONFIG_KEY,
-                        toSave.toString(2)
-                    )
-                    result.pifData.optString("SECURITY_PATCH")
-                        .takeIf { it.isNotEmpty() }?.let {
-                            Settings.Secure.putString(
-                                requireContext().contentResolver, TrickyStore.PATCH_KEY, it
-                            )
+                    // Server is not newer — check if server patch is stale (>21 days)
+                    (getPatchAgeDays(serverPatch) ?: 0L) > AUTO_FETCH_STALE_DAYS -> {
+                        val (devices, apiKey) = withContext(Dispatchers.IO) { fetchAvailableCanaryDevices() }
+                        if (devices.isNotEmpty() && !apiKey.isNullOrEmpty()) {
+                            val preferred = devices.firstOrNull { it.device == "komodo" }
+                                ?: devices.firstOrNull { it.device == "blazer" }
+                                ?: devices.first()
+                            val betaResult = withContext(Dispatchers.IO) { buildCanaryPifFromDevice(preferred, apiKey) }
+                            if (betaResult is PifFetchResult.Success) betaResult else return@launch
+                        } else {
+                            return@launch
                         }
-                    killGms()
-                    refreshStatus()
+                    }
+                    // Server is fresh and not newer than local — nothing to do
+                    else -> return@launch
                 }
+
+                val fp = resultToSave.pifData.optString("FINGERPRINT", "")
+                if (!isValidFingerprint(fp)) return@launch
+
+                val toSave = JSONObject(resultToSave.pifData.toString()).apply {
+                    put("manually_imported", false)
+                }
+                Settings.Secure.putString(
+                    requireContext().contentResolver,
+                    PIF_CONFIG_KEY,
+                    toSave.toString(2)
+                )
+                resultToSave.pifData.optString("SECURITY_PATCH")
+                    .takeIf { it.isNotEmpty() }?.let {
+                        Settings.Secure.putString(
+                            requireContext().contentResolver, TrickyStore.PATCH_KEY, it
+                        )
+                    }
+                killGms()
+                refreshStatus()
             } catch (_: Exception) {}
         }
     }
@@ -450,7 +452,11 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val VENDING_PACKAGE = "com.android.vending"
         private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
         private const val GMS_PACKAGE = "com.google.android.gms"
-        private const val AUTO_FETCH_STALE_DAYS = 30L
+        private const val AUTO_FETCH_STALE_DAYS = 21L
+
+        private fun parsePatchDate(patch: String): java.util.Date? = try {
+            java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).parse(patch)
+        } catch (_: Exception) { null }
 
         private val DEVICE_MODEL_MAP = mapOf(
             "oriole" to "Pixel 6",
