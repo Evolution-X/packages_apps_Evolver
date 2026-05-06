@@ -336,17 +336,15 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                     val key = normalizeKey(maintainer, github)
                     var bucket = aggregate[key]
                     if (bucket == null) {
-                        bucket = AggregatedMaintainer(maintainer, github, paypal, forum)
+                        bucket = AggregatedMaintainer(maintainer, github, paypal)
                         aggregate[key] = bucket
                     } else {
                         if (bucket.paypal.isEmpty() && UrlUtils.isValidHttpUrl(paypal)) {
                             bucket.paypal = paypal
                         }
-                        if (bucket.forumUrl.isEmpty() && UrlUtils.isValidHttpUrl(forum)) {
-                            bucket.forumUrl = forum
-                        }
                     }
-                    bucket.devices.add(deviceLabel)
+                    val forumLink = if (UrlUtils.isValidHttpUrl(forum)) forum else null
+                    bucket.deviceEntries.add(DeviceEntry(deviceLabel, forumLink))
 
                 } catch (e: Exception) {
                     Log.d(TAG, "Failed parsing OTA JSON: $path", e)
@@ -355,12 +353,16 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
             val result = mutableListOf<MaintainerInfo>()
             for (m in aggregate.values) {
-                val sortedDevices = m.devices.sortedWith(String.CASE_INSENSITIVE_ORDER)
-                val summary   = sortedDevices.joinToString(", ")
+                val sortedEntries = m.deviceEntries.sortedWith(
+                    compareBy(String.CASE_INSENSITIVE_ORDER) { it.label }
+                )
+                val summary   = sortedEntries.joinToString(", ") { it.label }
                 val donateUrl = if (UrlUtils.isValidHttpUrl(m.paypal)) m.paypal else null
-                val forumUrl  = if (UrlUtils.isValidHttpUrl(m.forumUrl)) m.forumUrl else null
                 val clickUrl  = donateUrl ?: UrlUtils.buildGithubUrl(m.github)
-                result.add(MaintainerInfo(m.maintainer, summary, m.github, donateUrl, clickUrl, forumUrl))
+                val forumUrls = sortedEntries
+                    .filter { it.forumUrl != null }
+                    .map { it.label to it.forumUrl!! }
+                result.add(MaintainerInfo(m.maintainer, summary, m.github, donateUrl, clickUrl, forumUrls))
             }
             result.sortWith(Comparator.comparing { it.maintainer.lowercase(Locale.ROOT) })
 
@@ -395,12 +397,22 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                 val summary    = UrlUtils.trimToEmpty(obj.optString("summary", ""))
                 val github     = UrlUtils.trimToEmpty(obj.optString("github", ""))
                 val clickUrl   = UrlUtils.trimToEmpty(obj.optString("click_url", ""))
-                val forumRaw   = UrlUtils.trimToEmpty(obj.optString("forum_url", ""))
                 if (maintainer.isEmpty()) continue
                 if (summary.isEmpty() && clickUrl.isEmpty()) continue
                 val cachedDonate = if (clickUrl.contains("github.com")) null else clickUrl.ifEmpty { null }
-                val cachedForum  = if (UrlUtils.isValidHttpUrl(forumRaw)) forumRaw else null
-                list.add(MaintainerInfo(maintainer, summary, github, cachedDonate, clickUrl, cachedForum))
+                val forumsArr = obj.optJSONArray("forum_urls")
+                val cachedForumUrls = mutableListOf<Pair<String, String>>()
+                if (forumsArr != null) {
+                    for (j in 0 until forumsArr.length()) {
+                        val fo    = forumsArr.optJSONObject(j) ?: continue
+                        val label = UrlUtils.trimToEmpty(fo.optString("label", ""))
+                        val url   = UrlUtils.trimToEmpty(fo.optString("url",   ""))
+                        if (label.isNotEmpty() && UrlUtils.isValidHttpUrl(url)) {
+                            cachedForumUrls.add(label to url)
+                        }
+                    }
+                }
+                list.add(MaintainerInfo(maintainer, summary, github, cachedDonate, clickUrl, cachedForumUrls))
             }
             list
         } catch (e: Exception) {
@@ -422,7 +434,14 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                 obj.put("summary",    info.summary)
                 obj.put("github",     info.github)
                 obj.put("click_url",  info.clickUrl ?: "")
-                obj.put("forum_url",  info.forumUrl ?: "")
+                val forumsArr = JSONArray()
+                for ((label, url) in info.forumUrls) {
+                    val fo = JSONObject()
+                    fo.put("label", label)
+                    fo.put("url",   url)
+                    forumsArr.put(fo)
+                }
+                obj.put("forum_urls", forumsArr)
             } catch (_: Exception) {}
             arr.put(obj)
         }
@@ -467,7 +486,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                 devices    = info.summary,
                 github     = info.github ?: "",
                 donateUrl  = info.donateUrl,
-                forumUrl   = info.forumUrl,
+                forumUrls  = info.forumUrls,
             )
         }
 
@@ -486,16 +505,19 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
     // Data classes
     // -------------------------------------------------------------------------
 
+    private data class DeviceEntry(
+        val label: String,
+        val forumUrl: String?,
+    )
+
     private data class AggregatedMaintainer(
         val maintainer: String,
         val github: String,
         var paypal: String,
-        var forumUrl: String,
-        val devices: LinkedHashSet<String> = LinkedHashSet(),
+        val deviceEntries: LinkedHashSet<DeviceEntry> = LinkedHashSet(),
     ) {
         init {
-            paypal   = if (UrlUtils.isValidHttpUrl(paypal)) paypal else ""
-            forumUrl = if (UrlUtils.isValidHttpUrl(forumUrl)) forumUrl else ""
+            paypal = if (UrlUtils.isValidHttpUrl(paypal)) paypal else ""
         }
     }
 
@@ -505,7 +527,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         val github: String,
         val donateUrl: String?,
         val clickUrl: String?,
-        val forumUrl: String?,
+        val forumUrls: List<Pair<String, String>>,
     )
 
     private data class FetchResult(
