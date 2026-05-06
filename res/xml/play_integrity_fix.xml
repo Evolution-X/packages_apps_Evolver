@@ -17,9 +17,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/play_integrity_fix_title">
 
+    <lineageos.preference.SystemSettingMainSwitchPreference
+        android:key="spoof_pif_enabled"
+        android:title="@string/pif_master_switch_title"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:key="pif_status_category"
-        android:title="@string/pif_status">
+        android:title="@string/pif_status"
+        android:dependency="spoof_pif_enabled">
 
         <Preference
             android:key="pif_active_config"

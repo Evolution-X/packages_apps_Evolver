@@ -34,6 +34,12 @@ import org.json.JSONObject
 
 class PlayIntegrityFix : SettingsPreferenceFragment() {
 
+    private val isPifEnabled: Boolean
+        get() = Settings.System.getInt(
+            requireContext().contentResolver,
+            PIF_ENABLED_KEY, 1
+        ) != 0
+
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     private var activeConfigData: Map<String, String> = emptyMap()
@@ -116,11 +122,12 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         super.onResume()
         refreshStatus()
         autoFetchDone = false
-        autoFetchIfStale()
+        if (isPifEnabled) autoFetchIfStale()
     }
 
     private fun autoFetchIfStale() {
         if (autoFetchDone) return
+        if (!isPifEnabled) return
         val content = Settings.Secure.getString(
             requireContext().contentResolver, PIF_CONFIG_KEY
         )
@@ -370,6 +377,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 }
                 when (result) {
                     is PifFetchResult.Success -> {
+                        if (!isPifEnabled) return@launch
                         // Validate fingerprint format before persisting
                         val fp = result.pifData.optString("FINGERPRINT", "")
                         if (!isValidFingerprint(fp)) {
@@ -453,6 +461,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
         private const val GMS_PACKAGE = "com.google.android.gms"
         private const val AUTO_FETCH_STALE_DAYS = 21L
+        private const val PIF_ENABLED_KEY = "spoof_pif_enabled"
 
         private fun parsePatchDate(patch: String): java.util.Date? = try {
             java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).parse(patch)
