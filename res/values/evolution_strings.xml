@@ -1146,8 +1146,10 @@
     <string name="pif_invalid_fingerprint">Invalid fingerprint format</string>
     <string name="pif_no_devices_found">No devices found</string>
     <string name="pif_no_api_key">Failed to extract Flash Tool API key</string>
+    <string name="pif_master_switch_title">Enable Play Integrity Fix</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Manage keybox and target apps for strong integrity attestation</string>
+    <string name="ts_master_switch_title">Enable TrickyStore spoofing</string>
     <string name="ts_keybox_management">Keybox management</string>
     <string name="ts_import_keybox">Import keybox</string>
     <string name="ts_no_keybox">No keybox installed</string>

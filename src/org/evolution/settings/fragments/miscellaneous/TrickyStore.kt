@@ -36,6 +36,12 @@ import org.json.JSONObject
 
 class TrickyStore : SettingsPreferenceFragment() {
 
+    private val isTrickyStoreEnabled: Boolean
+        get() = Settings.System.getInt(
+            requireContext().contentResolver,
+            TRICKYSTORE_ENABLED_KEY, 1
+        ) != 0
+
     private val keyboxPicker = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -150,6 +156,7 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     private fun autoFetchIfNoKeybox() {
         if (!isOfficialBuild) return
+        if (!isTrickyStoreEnabled) return
         val existing = Settings.Secure.getString(requireContext().contentResolver, KEYBOX_KEY)
         if (!existing.isNullOrEmpty()) return
         fetchOfficialKeybox(silent = true)
@@ -179,6 +186,7 @@ class TrickyStore : SettingsPreferenceFragment() {
             }
             result.fold(
                 onSuccess = { xml ->
+                    if (!isTrickyStoreEnabled) return@fold
                     try {
                         val existing = Settings.Secure.getString(
                             requireContext().contentResolver, KEYBOX_KEY)
@@ -292,8 +300,10 @@ class TrickyStore : SettingsPreferenceFragment() {
     override fun onResume() {
         super.onResume()
         refreshStatus()
-        checkKeyboxRevocation()
-        autoFetchIfNoKeybox()
+        if (isTrickyStoreEnabled) {
+            checkKeyboxRevocation()
+            autoFetchIfNoKeybox()
+        }
     }
 
     private fun refreshStatus() {
@@ -443,5 +453,6 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val REVOCATION_URL = "https://android.googleapis.com/attestation/status"
         private const val OFFICIAL_KEYBOX_URL =
             "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/keybox.xml"
+        private const val TRICKYSTORE_ENABLED_KEY = "spoof_trickystore_enabled"
     }
 }
