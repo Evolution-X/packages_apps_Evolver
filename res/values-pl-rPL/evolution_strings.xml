@@ -1104,8 +1104,10 @@
     <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
     <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
     <string name="pif_no_api_key">Nie udało się wyodrębnić klucza API narzędzia do wgrywania</string>
+    <string name="pif_master_switch_title">Włącz poprawkę integralności Google Play</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Zarządzaj zestawem kluczy i aplikacjami docelowymi dla poświadczenia silnej integralności</string>
+    <string name="ts_master_switch_title">Włącz fałszowanie TrickyStore</string>
     <string name="ts_keybox_management">Zarządzanie zestawem kluczy</string>
     <string name="ts_import_keybox">Importuj zestaw kluczy</string>
     <string name="ts_no_keybox">Nie zainstalowano zestawu kluczy</string>
@@ -1156,6 +1158,8 @@
     <string name="ts_fetch_keybox_fetching">Pobieranie zestawu kluczy…</string>
     <string name="ts_fetch_keybox_success">Pobieranie oficjalnego zestawu kluczy powiodło się</string>
     <string name="ts_fetch_keybox_failed">Pobieranie nieudane: %s</string>
+    <string name="ts_fetch_keybox_revoked_refetch">Zestaw na klucze został unieważniony, pobieranie nowego…</string>
+    <string name="ts_fetch_keybox_same_file">Zestaw kluczy jest obecnie aktualny</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Style tapety</string>
     <string name="wallpaper_settings_summary">Konfiguruj style i efekty tapet</string>
