@@ -24,6 +24,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -82,7 +83,7 @@ data class MaintainerUiEntry(
     val devices: String,
     val github: String,
     val donateUrl: String?,
-    val forumUrl: String?,
+    val forumUrls: List<Pair<String, String>>,
 )
 
 // ---------------------------------------------------------------------------
@@ -302,7 +303,7 @@ private fun MaintainerRow(
     var expanded by remember { mutableStateOf(false) }
 
     val githubUrl  = if (entry.github.isNotBlank()) "https://github.com/${entry.github}" else null
-    val hasAnyLink = githubUrl != null || entry.donateUrl != null || entry.forumUrl != null
+    val hasAnyLink = githubUrl != null || entry.donateUrl != null || entry.forumUrls.isNotEmpty()
 
     Surface(
         modifier = Modifier
@@ -378,35 +379,41 @@ private fun MaintainerRow(
                 exit  = fadeOut(MaterialTheme.motionScheme.fastEffectsSpec()) +
                         shrinkVertically(MaterialTheme.motionScheme.fastSpatialSpec()),
             ) {
-                Row(
+                FlowRow(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 10.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement   = Arrangement.spacedBy(8.dp),
                 ) {
                     if (githubUrl != null) {
                         LinkButton(
-                            label    = stringResource(R.string.maintainer_link_github),
-                            iconRes  = R.drawable.ic_github_2,
-                            modifier = Modifier.weight(1f),
-                            onClick  = { onOpenUrl(githubUrl) },
+                            label   = stringResource(R.string.maintainer_link_github),
+                            iconRes = R.drawable.ic_github_2,
+                            onClick = { onOpenUrl(githubUrl) },
                         )
                     }
                     if (entry.donateUrl != null) {
                         LinkButton(
-                            label    = stringResource(R.string.maintainer_link_donate),
-                            iconRes  = R.drawable.ic_donate,
-                            modifier = Modifier.weight(1f),
-                            onClick  = { onOpenUrl(entry.donateUrl) },
+                            label   = stringResource(R.string.maintainer_link_donate),
+                            iconRes = R.drawable.ic_donate,
+                            onClick = { onOpenUrl(entry.donateUrl) },
                         )
                     }
-                    if (entry.forumUrl != null) {
+                    if (entry.forumUrls.size == 1) {
                         LinkButton(
-                            label    = stringResource(R.string.maintainer_link_forum),
-                            iconRes  = R.drawable.ic_forum,
-                            modifier = Modifier.weight(1f),
-                            onClick  = { onOpenUrl(entry.forumUrl) },
+                            label   = stringResource(R.string.maintainer_link_forum),
+                            iconRes = R.drawable.ic_forum,
+                            onClick = { onOpenUrl(entry.forumUrls[0].second) },
                         )
+                    } else if (entry.forumUrls.size > 1) {
+                        entry.forumUrls.forEach { (deviceLabel, url) ->
+                            LinkButton(
+                                label   = deviceLabel,
+                                iconRes = R.drawable.ic_forum,
+                                onClick = { onOpenUrl(url) },
+                            )
+                        }
                     }
                 }
             }
@@ -423,11 +430,10 @@ private fun LinkButton(
     label: String,
     iconRes: Int,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     FilledTonalButton(
         onClick  = onClick,
-        modifier = modifier,
+        modifier = Modifier,
         shape    = RoundedCornerShape(10.dp),
         contentPadding = PaddingValues(horizontal = 8.dp, vertical = 6.dp),
     ) {
