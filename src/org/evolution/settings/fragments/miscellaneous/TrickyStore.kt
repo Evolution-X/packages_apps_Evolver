@@ -61,6 +61,9 @@ class TrickyStore : SettingsPreferenceFragment() {
         }
     }
 
+    private val isOfficialBuild: Boolean
+        get() = android.os.SystemProperties.get("ro.evolution.build.type", "") == "Official"
+
     private fun checkKeyboxRevocation() {
         val raw = Settings.Secure.getString(requireContext().contentResolver, KEYBOX_KEY)
         val pref = findPreference<Preference>("ts_revocation_status") ?: return
@@ -94,8 +97,15 @@ class TrickyStore : SettingsPreferenceFragment() {
             val entry = entries.optJSONObject(serial) ?: continue
             val status = entry.optString("status", "").uppercase()
             val reason = entry.optString("reason", "")
-            if (status == "REVOKED")
+            if (status == "REVOKED") {
+                if (isOfficialBuild) {
+                    lifecycleScope.launch {
+                        toast(getString(R.string.ts_fetch_keybox_revoked_refetch))
+                        fetchOfficialKeybox(silent = true)
+                    }
+                }
                 return Pair(getString(R.string.ts_revocation_revoked, reason), Unit)
+            }
             if (status == "SUSPENDED")
                 return Pair(getString(R.string.ts_revocation_suspended, reason), Unit)
         }
@@ -137,6 +147,76 @@ class TrickyStore : SettingsPreferenceFragment() {
             JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
         else null
     } catch (_: Exception) { null }
+
+    private fun autoFetchIfNoKeybox() {
+        if (!isOfficialBuild) return
+        val existing = Settings.Secure.getString(requireContext().contentResolver, KEYBOX_KEY)
+        if (!existing.isNullOrEmpty()) return
+        fetchOfficialKeybox(silent = true)
+    }
+
+    private fun fetchOfficialKeybox(silent: Boolean = false) {
+        val pref = findPreference<Preference>("ts_fetch_keybox")
+        if (!silent) {
+            pref?.isEnabled = false
+            pref?.summary = getString(R.string.ts_fetch_keybox_fetching)
+        }
+        lifecycleScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                runCatching {
+                    val conn = URL(OFFICIAL_KEYBOX_URL).openConnection() as HttpURLConnection
+                    conn.connectTimeout = 10_000
+                    conn.readTimeout = 10_000
+                    check(conn.responseCode == HttpURLConnection.HTTP_OK) {
+                        "HTTP ${conn.responseCode}"
+                    }
+                    conn.inputStream.use { it.readBytes().toString(Charsets.UTF_8) }
+                }
+            }
+            if (!silent) {
+                pref?.isEnabled = true
+                pref?.summary = getString(R.string.ts_fetch_keybox_summary)
+            }
+            result.fold(
+                onSuccess = { xml ->
+                    try {
+                        val existing = Settings.Secure.getString(
+                            requireContext().contentResolver, KEYBOX_KEY)
+                        val existingXml = if (!existing.isNullOrEmpty())
+                            decodeKeyboxForRevocation(existing) else null
+                        if (existingXml != null && existingXml.trim() == xml.trim()) {
+                            if (!silent) toast(getString(R.string.ts_fetch_keybox_same_file))
+                            return@fold
+                        }
+                        val fetchedSerials = extractCertSerials(xml)
+                        val revocationJson = withContext(Dispatchers.IO) { fetchRevocationJson() }
+                        val entries = revocationJson?.optJSONObject("entries")
+                        if (entries != null && fetchedSerials.isNotEmpty()) {
+                            val fetchedRevoked = fetchedSerials.any { serial ->
+                                entries.optJSONObject(serial)
+                                    ?.optString("status", "")
+                                    ?.uppercase() == "REVOKED"
+                            }
+                            if (fetchedRevoked) return@fold
+                        }
+                        val encoded = Base64.encodeToString(
+                            xml.toByteArray(Charsets.UTF_8), Base64.NO_WRAP)
+                        Settings.Secure.putString(
+                            requireContext().contentResolver, KEYBOX_KEY, encoded)
+                        killGms()
+                        if (!silent) toast(getString(R.string.ts_fetch_keybox_success))
+                        refreshStatus()
+                        checkKeyboxRevocation()
+                    } catch (e: Exception) {
+                        if (!silent) toast(getString(R.string.ts_fetch_keybox_failed, e.message ?: ""))
+                    }
+                },
+                onFailure = { e ->
+                    if (!silent) toast(getString(R.string.ts_fetch_keybox_failed, e.message ?: ""))
+                }
+            )
+        }
+    }
 
     private val targetPicker = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -193,6 +273,17 @@ class TrickyStore : SettingsPreferenceFragment() {
             true
         }
 
+        findPreference<Preference>("ts_fetch_keybox")?.apply {
+            if (isOfficialBuild) {
+                setOnPreferenceClickListener {
+                    fetchOfficialKeybox()
+                    true
+                }
+            } else {
+                isVisible = false
+            }
+        }
+
         findPreference<Preference>("ts_revocation_status")?.isEnabled = false
 
         refreshStatus()
@@ -202,6 +293,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         super.onResume()
         refreshStatus()
         checkKeyboxRevocation()
+        autoFetchIfNoKeybox()
     }
 
     private fun refreshStatus() {
@@ -349,5 +441,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
         private const val GMS_PACKAGE = "com.google.android.gms"
         private const val REVOCATION_URL = "https://android.googleapis.com/attestation/status"
+        private const val OFFICIAL_KEYBOX_URL =
+            "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/keybox.xml"
     }
 }

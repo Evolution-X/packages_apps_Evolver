@@ -1194,6 +1194,13 @@
     <string name="ts_revocation_suspended">⚠ Suspended (%s)</string>
     <string name="ts_revocation_network_error">Could not reach revocation server</string>
     <string name="ts_revocation_error">Check failed: %s</string>
+    <string name="ts_fetch_keybox">Fetch official keybox</string>
+    <string name="ts_fetch_keybox_summary">Download keybox from Evolution X servers</string>
+    <string name="ts_fetch_keybox_fetching">Fetching keybox…</string>
+    <string name="ts_fetch_keybox_success">Official keybox fetched successfully</string>
+    <string name="ts_fetch_keybox_failed">Fetch failed: %s</string>
+    <string name="ts_fetch_keybox_revoked_refetch">Keybox revoked, fetching a newer one…</string>
+    <string name="ts_fetch_keybox_same_file">Keybox is already up to date</string>
 
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Wallpaper styles</string>

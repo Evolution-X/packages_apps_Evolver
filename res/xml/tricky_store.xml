@@ -22,6 +22,11 @@
         android:title="@string/ts_keybox_management">
 
         <Preference
+            android:key="ts_fetch_keybox"
+            android:title="@string/ts_fetch_keybox"
+            android:summary="@string/ts_fetch_keybox_summary" />
+
+        <Preference
             android:key="ts_import_keybox"
             android:title="@string/ts_import_keybox"
             android:summary="@string/ts_no_keybox" />
