@@ -55,6 +55,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
     private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
     private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
+    private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
 
     private GlobalSettingListPreference mLockSound;
     private GlobalSettingListPreference mUnlockSound;
@@ -63,6 +64,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private SystemPropertySwitchPreference mSearchBar;
     private PreferenceCategory mIconsCategory;
     private Preference mUdfpsIcon;
+    private Preference mNavbarIcons;
     private PreferenceCategory mAnimationsCategory;
     private Preference mUdfpsAnimation;
     private ThemeUtils mThemeUtils;
@@ -85,6 +87,7 @@ public class Themes extends SettingsPreferenceFragment implements
         mLauncherCategory = (PreferenceCategory) findPreference(KEY_LAUNCHER_CATEGORY);
         mSearchBar = (SystemPropertySwitchPreference) findPreference(KEY_LAUNCHER_SEARCH_BAR);
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mNavbarIcons = (Preference) findPreference(KEY_NAVBAR_ICONS);
         mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
@@ -107,6 +110,11 @@ public class Themes extends SettingsPreferenceFragment implements
 
         if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
             prefScreen.removePreference(mLauncherCategory);
+        }
+
+        if (mNavbarIcons != null
+                && isGestureNavigationEnabled(context)) {
+            mIconsCategory.removePreference(mNavbarIcons);
         }
 
         if (mSearchBar != null) {
@@ -147,6 +155,11 @@ public class Themes extends SettingsPreferenceFragment implements
         return DeviceUtils.isActivityEnabled(context, VELVET_ONESEARCH_COMPONENT);
     }
 
+    private static boolean isGestureNavigationEnabled(Context context) {
+        return Settings.Secure.getIntForUser(context.getContentResolver(),
+                Settings.Secure.NAVIGATION_MODE, 0, UserHandle.USER_CURRENT) == 2;
+    }
+
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
         new BaseSearchIndexProvider(R.xml.evolution_settings_themes) {
 
@@ -173,6 +186,11 @@ public class Themes extends SettingsPreferenceFragment implements
                         keys.add(KEY_UDFPS_ANIMATION);
                     }
                 }
+
+                if (isGestureNavigationEnabled(context)) {
+                    keys.add(KEY_NAVBAR_ICONS);
+                }
+
                 return keys;
             }
         };
