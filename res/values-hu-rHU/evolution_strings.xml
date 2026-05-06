@@ -790,8 +790,10 @@
     <string name="pif_invalid_fingerprint">Érvénytelen ujjlenyomat-formátum</string>
     <string name="pif_no_devices_found">Nem található készülék</string>
     <string name="pif_no_api_key">A \'Flash Tool\' API-kulcsát nem lehet kibontani</string>
+    <string name="pif_master_switch_title">Az Áruházi integritásjavítás bekapcsolása</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Keybox-ok és célalkalmazások kezelése az erős integritás-igazolás érdekében</string>
+    <string name="ts_master_switch_title">A Tenor TrickyStore álcázás bekapcsolása</string>
     <string name="ts_keybox_management">Keybox kezelés</string>
     <string name="ts_import_keybox">Keybox importálása</string>
     <string name="ts_no_keybox">Nincs telepítve keybox</string>
@@ -831,6 +833,8 @@
     <string name="ts_fetch_keybox_fetching">Keybox lekérése…</string>
     <string name="ts_fetch_keybox_success">A hivatalos keybox sikeresen lekérve</string>
     <string name="ts_fetch_keybox_failed">A lekérés meghiúsult: %s</string>
+    <string name="ts_fetch_keybox_revoked_refetch">A keybox visszavonva, egy újabb lekérése…</string>
+    <string name="ts_fetch_keybox_same_file">A keybox már naprakész</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">A háttérkép stílusa</string>
     <string name="wallpaper_effect_target_title">Effekt alkalmazása</string>
