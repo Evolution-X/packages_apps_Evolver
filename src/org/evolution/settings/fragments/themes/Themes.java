@@ -127,20 +127,9 @@ public class Themes extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
-        // Ensure newValue is a valid integer before parsing
-        int value = 0;
-        if (newValue instanceof String) {
-            try {
-                value = Integer.parseInt((String) newValue);
-            } catch (NumberFormatException e) {
-                // Handle the case where newValue is not an integer (like a file path)
-                if (preference == mLockSound || preference == mUnlockSound) {
-                    SystemUtils.showSystemUiRestartDialog(context);
-                    return true;
-                }
-                return false;
-            }
+        if (preference == mLockSound || preference == mUnlockSound) {
+            SystemUtils.showSystemUiRestartDialog(context);
+            return true;
         }
         if (KEY_EMOJI_STYLE.equals(preference.getKey())) {
             SystemRestartUtils.showSystemRestartDialog(getActivity());
