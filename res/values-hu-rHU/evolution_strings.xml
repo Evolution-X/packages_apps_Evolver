@@ -170,6 +170,10 @@
     <string name="lockscreen_custom_clock_frame_margin_top_title">Az Óra magassága</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Az egyéni Óra függőleges pozíciójának beállítása</string>
     <string name="lockscreen_custom_clock_color_mode_title">Az Óra színmódja</string>
+    <string name="lockscreen_custom_clock_size_title">Óraméret</string>
+    <string name="lockscreen_custom_clock_size_summary">Méretezheti a záróképernyő óráját (50–150%)</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">Egyéni \"Mindig bekapcsolva\" óraanimáció</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">AOD animáció beállítása az egyéni órastílushoz</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Albumborító</string>
     <string name="ls_media_art_summary">Az albumborító megjelenítése, ha elérhető</string>
@@ -822,6 +826,11 @@
     <string name="ts_revocation_suspended">⚠ Felfüggesztett (%s)</string>
     <string name="ts_revocation_network_error">A szerver nem elérhető </string>
     <string name="ts_revocation_error">Az ellenőrzés meghiúsult: %s</string>
+    <string name="ts_fetch_keybox">A hivatalos keybox lekérése</string>
+    <string name="ts_fetch_keybox_summary">Keybox letöltése az Evolution X szerverről</string>
+    <string name="ts_fetch_keybox_fetching">Keybox lekérése…</string>
+    <string name="ts_fetch_keybox_success">A hivatalos keybox sikeresen lekérve</string>
+    <string name="ts_fetch_keybox_failed">A lekérés meghiúsult: %s</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">A háttérkép stílusa</string>
     <string name="wallpaper_effect_target_title">Effekt alkalmazása</string>
