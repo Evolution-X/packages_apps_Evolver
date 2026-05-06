@@ -170,6 +170,10 @@
     <string name="lockscreen_custom_clock_frame_margin_top_title">Wysokość zegara</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Dostosuj pionową pozycję niestandardowego zegara</string>
     <string name="lockscreen_custom_clock_color_mode_title">Tryb koloru zegara</string>
+    <string name="lockscreen_custom_clock_size_title">Rozmiar zegara</string>
+    <string name="lockscreen_custom_clock_size_summary">Skaluj zegar ekranu blokady (50–150%)</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">Niestandardowy zegar animacji ekran zawsze włączony</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">Ustaw animację ekran zawsze włączony dla niestandardowego stylu zegara</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Okładka multimediów</string>
     <string name="ls_media_art_summary">Wyświetl okładkę multimediów, gdy jest dostępna</string>
@@ -1147,6 +1151,11 @@
     <string name="ts_revocation_suspended">⚠ Zawieszony (%s)</string>
     <string name="ts_revocation_network_error">Nie można nawiązać połączenia z serwerem odwołań</string>
     <string name="ts_revocation_error">Sprawdzanie nie powiodło się: %s</string>
+    <string name="ts_fetch_keybox">Pobierz oficjalny zestaw kluczy</string>
+    <string name="ts_fetch_keybox_summary">Pobieranie zestawu kluczy z serwerów Evolution X</string>
+    <string name="ts_fetch_keybox_fetching">Pobieranie zestawu kluczy…</string>
+    <string name="ts_fetch_keybox_success">Pobieranie oficjalnego zestawu kluczy powiodło się</string>
+    <string name="ts_fetch_keybox_failed">Pobieranie nieudane: %s</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Style tapety</string>
     <string name="wallpaper_settings_summary">Konfiguruj style i efekty tapet</string>
@@ -1443,4 +1452,6 @@
     <string name="emoji_style_stock">Fabryczny</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
+    <string name="emoji_style_swiftui">SwiftUI</string>
+    <string name="emoji_style_facebook">Facebook</string>
 </resources>
