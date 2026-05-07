@@ -207,7 +207,7 @@
     <string name="nowplaying_show_on_lockscreen_title">Pokaż na ekranie blokady</string>
     <string name="nowplaying_show_on_lockscreen_summary">Wyświetlaj informacje o muzyce, gdy urządzenie jest zablokowane</string>
     <string name="nowplaying_icon_style_title">Styl ikony</string>
-    <string name="nowplaying_icon_style_summary">Wybierz ikonę do wyświetlenia</string>
+    <string name="nowplaying_icon_style_summary">Wybierz ikonę, którą chcesz wyświetlić</string>
     <string name="nowplaying_icon_size_title">Rozmiar ikony</string>
     <string name="nowplaying_icon_size_summary">Dostosuj rozmiar ikony</string>
     <string name="nowplaying_show_on_aod_title">Pokaż na ekran zawsze włączony</string>
@@ -344,7 +344,7 @@
     <string name="battery_bar_style_title">Wyrównanie</string>
     <string name="battery_bar_thickness_title">Grubość</string>
     <string name="battery_bar_animate_title">Animacja ładowania</string>
-    <string name="battery_bar_style_regular">Regularna</string>
+    <string name="battery_bar_style_regular">Regularny</string>
     <string name="battery_bar_style_center_mirrored">Wyśrodkowanie z odbiciem lustrzanym</string>
     <string name="battery_bar_style_reversed">Odwrócenie</string>
     <string name="battery_bar_use_charging_color">Niestandardowy kolor ładowania</string>
@@ -369,7 +369,7 @@
     <string name="status_bar_clock_seconds_summary">Wyświetl sekundy obok zegara na pasku stanu</string>
     <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, gdy launcher jest widoczny</string>
-    <string name="status_bar_am_pm_title">Format 12-godzinny (AM/PM)</string>
+    <string name="status_bar_am_pm_title">Styl AM/PM</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
     <string name="status_bar_am_pm_normal">Normalny</string>
     <string name="status_bar_am_pm_small">Mały</string>
@@ -649,6 +649,7 @@
     <string name="cutout_progress_music_clockwise_title">Kierunek zgodny z ruchem wskazówek zegara</string>
     <string name="cutout_progress_music_aod_title">Pokaż na ekran zawsze włączony</string>
     <string name="cutout_progress_music_aod_summary">Zachowaj widoczność pierścienia muzycznego na ekranie otoczenia</string>
+    <string name="cutout_progress_anim_ms_title">Płynny postęp</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Stan baterii urządzenia Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Wyświetl stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępne</string>
@@ -661,6 +662,8 @@
     <string name="statusbar_extra_padding_end_title">Końcowe wypełnienie</string>
     <string name="qs_single_tone_title">Jednotonowe szybkie ustawienia</string>
     <string name="qs_single_tone_summary">Ukryj przyciemnienie powiadomień, aby uzyskać jednolity wygląd szybkich ustawień</string>
+    <string name="qs_tile_alternate_color_title">Alternatywny kolor kafelków szybkich ustawień</string>
+    <string name="qs_tile_alternate_color_summary">Użyj alternatywnego koloru tła dla kafelków szybkich ustawień</string>
     <string name="qs_brightness_slider_shape_title">Kształt suwaka jasności</string>
     <string name="media_waveform_seekbar_title">Pasek fali</string>
     <string name="media_waveform_seekbar_summary">Pokaż animowany efekt fali dla postępu odtwarzania multimediów</string>
@@ -757,7 +760,7 @@
     <string name="qs_tile_animation_style_title">Animacja kafelków</string>
     <string name="qs_tile_animation_style_bounce">Odbicie</string>
     <string name="qs_tile_animation_style_ripple">Fala</string>
-    <string name="qs_tile_animation_style_flip">Przerzuć</string>
+    <string name="qs_tile_animation_style_flip">Przerzut</string>
     <string name="qs_tile_animation_style_fade">Zanikanie</string>
     <string name="qs_tile_animation_style_pulse">Pulse</string>
     <string name="qs_tile_animation_style_shake">Potrząśnięcie</string>
@@ -817,15 +820,22 @@
     <string name="qs_header_style4">Prosty</string>
     <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimediów</string>
     <string name="qs_compact_media_player_mode_summary">Użyj trybu kompaktowego dla odtwarzacza multimediów szybkich ustawień</string>
-    <string name="qs_show_media_player_title">Odtwarzacz multimediów</string>
-    <string name="qs_show_media_player_summary">Wyświetl sterowanie multimediami w szybkich ustawieniach</string>
-    <string name="qs_widgets_enabled_title">Widżety szybkich ustawień</string>
-    <string name="qs_widgets_enabled_summary">Pokaż widżety dla szybkiego dostępu. Ogranicza wiersze szybkich ustawień do 2, aby uniknąć rozjechania przewijania panelu szybkich ustawień</string>
+    <string name="qs_show_media_player_title">Pozycja odtwarzacza multimediów</string>
+    <string name="qs_show_media_player_hide">Ukryj</string>
+    <string name="qs_show_media_player_top">Pokaż na górze</string>
+    <string name="qs_show_media_player_bottom">Pokaż na dole</string>
     <string name="qs_tile_gradient_title">Gradient kafelków szybkich ustawień</string>
     <string name="qs_tile_gradient_summary">Włącz gradient tła dla kafelków szybkich ustawień</string>
     <string name="qs_tiles_haptic_feedback_title">Wibracja przy dotknięciu kafelka szybkich ustawień</string>
     <string name="qs_panel_tile_haptic_intensity_title">Intensywność kafelków szybkich ustawień</string>
     <string name="qs_haptics_intensity_title">Intensywność dynamicznego przewijania szybkich ustawień</string>
+    <!-- QS widget -->
+    <string name="qs_widget_panel_title">Pokaż widżet w panelu szybkich ustawień</string>
+    <string name="qs_widget_panel_summary">Pokaż widżet multimediów i głośności oraz jasności w panelu QS</string>
+    <string name="qs_widget_ios_music_title">Pokaż widżet muzyki iOS</string>
+    <string name="qs_widget_ios_music_summary">Pokaż panel multimediów podobny do iOS</string>
+    <string name="qs_widget_slider_corner_title">Pokaż zaokrąglony suwak widżetu</string>
+    <string name="qs_widget_slider_corner_summary">Pokaż zaokrąglony styl pionowy suwaków widżetów w panelu szybkich ustawień</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Wyskakujące powiadomienia</string>
     <string name="notifications_heads_up_summary">Zezwalaj na wyskakujące powiadomienia</string>
@@ -1104,8 +1114,10 @@
     <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
     <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
     <string name="pif_no_api_key">Nie udało się wyodrębnić klucza API narzędzia do wgrywania</string>
+    <string name="pif_master_switch_title">Włącz poprawkę integralności Google Play</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Zarządzaj zestawem kluczy i aplikacjami docelowymi dla poświadczenia silnej integralności</string>
+    <string name="ts_master_switch_title">Włącz fałszowanie TrickyStore</string>
     <string name="ts_keybox_management">Zarządzanie zestawem kluczy</string>
     <string name="ts_import_keybox">Importuj zestaw kluczy</string>
     <string name="ts_no_keybox">Nie zainstalowano zestawu kluczy</string>
@@ -1156,6 +1168,8 @@
     <string name="ts_fetch_keybox_fetching">Pobieranie zestawu kluczy…</string>
     <string name="ts_fetch_keybox_success">Pobieranie oficjalnego zestawu kluczy powiodło się</string>
     <string name="ts_fetch_keybox_failed">Pobieranie nieudane: %s</string>
+    <string name="ts_fetch_keybox_revoked_refetch">Zestaw na klucze został unieważniony, pobieranie nowego…</string>
+    <string name="ts_fetch_keybox_same_file">Zestaw kluczy jest obecnie aktualny</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Style tapety</string>
     <string name="wallpaper_settings_summary">Konfiguruj style i efekty tapet</string>
