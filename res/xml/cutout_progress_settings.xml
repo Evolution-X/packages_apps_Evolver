@@ -201,6 +201,16 @@
             android:entryValues="@array/cutout_progress_easing_values"
             android:defaultValue="0" />
 
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="cutout_progress_anim_ms"
+            android:title="@string/cutout_progress_anim_ms_title"
+            android:max="750"
+            settings:min="0"
+            settings:interval="50"
+            settings:units="ms"
+            android:defaultValue="250"
+            android:dependency="cutout_progress_enabled" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
