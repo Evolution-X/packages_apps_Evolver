@@ -170,6 +170,10 @@
     <string name="lockscreen_custom_clock_frame_margin_top_title">Altura do relógio</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Ajuste a posição vertical do relógio personalizado</string>
     <string name="lockscreen_custom_clock_color_mode_title">Modo de cor do relógio</string>
+    <string name="lockscreen_custom_clock_size_title">Tamanho do relógio</string>
+    <string name="lockscreen_custom_clock_size_summary">Escala do relógio da tela de bloqueio (50-150%)</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">Animação personalizada do relógio AOD</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">Defina a animação AOD para um estilo de relógio personalizado</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Arte de capa da mídia</string>
     <string name="ls_media_art_summary">Exibir capa de mídia quando disponível</string>
@@ -1099,8 +1103,10 @@
     <string name="pif_invalid_fingerprint">Formato de fingerprint inválido</string>
     <string name="pif_no_devices_found">Nenhum dispositivo encontrado</string>
     <string name="pif_no_api_key">Falha ao extrair a chave API do Flash Tool</string>
+    <string name="pif_master_switch_title">Ativar Play Integrity Fix</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Gerencie keybox e aplicativos alvos para um forte atestado de integridade</string>
+    <string name="ts_master_switch_title">Ativar mascaramento do TrickyStore</string>
     <string name="ts_keybox_management">Gerenciamento de keybox</string>
     <string name="ts_import_keybox">Importar Keybox</string>
     <string name="ts_no_keybox">Nenhum keybox instalada</string>
@@ -1146,6 +1152,13 @@
     <string name="ts_revocation_suspended">⚠ Suspensa (%s)</string>
     <string name="ts_revocation_network_error">Não foi possível acessar o servidor de revogação</string>
     <string name="ts_revocation_error">Falha na verificação: %s</string>
+    <string name="ts_fetch_keybox">Buscar keybox oficial</string>
+    <string name="ts_fetch_keybox_summary">Baixe o keybox dos servidores Evolution X</string>
+    <string name="ts_fetch_keybox_fetching">Buscando keybox…</string>
+    <string name="ts_fetch_keybox_success">Keybox oficial encontrada com sucesso</string>
+    <string name="ts_fetch_keybox_failed">Falha na busca: %s</string>
+    <string name="ts_fetch_keybox_revoked_refetch">A Keybox foi revogada, buscando uma mais recente…</string>
+    <string name="ts_fetch_keybox_same_file">A Keybox já está atualizada</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Estilos de papel de parede</string>
     <string name="wallpaper_settings_summary">Configure estilos e efeitos de papel de parede</string>
