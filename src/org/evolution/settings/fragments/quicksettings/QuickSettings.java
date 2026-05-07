@@ -213,6 +213,20 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mQsWidgetSliderCorner.setVisible(isWidgetPanelEnabled);
         if (mQsShowMediaPlayer != null)
             mQsShowMediaPlayer.setVisible(!isWidgetPanelEnabled);
+
+        // Hide/show brightness slider category
+        PreferenceCategory brightnessCategory =
+                (PreferenceCategory) findPreference(QS_BRIGHTNESS_CATEGORY);
+        if (brightnessCategory != null)
+            brightnessCategory.setVisible(!isWidgetPanelEnabled);
+
+        // Sync LineageSettings brightness slider value
+        LineageSettings.Secure.putIntForUser(
+                resolver,
+                LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER,
+                isWidgetPanelEnabled ? 0 : 1,
+                UserHandle.USER_CURRENT
+        );
     }
 
     private void updatePanelStylePrefs(int panelStyle) {
