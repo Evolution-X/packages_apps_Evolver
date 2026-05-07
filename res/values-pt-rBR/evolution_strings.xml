@@ -170,6 +170,10 @@
     <string name="lockscreen_custom_clock_frame_margin_top_title">Altura do relógio</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Ajuste a posição vertical do relógio personalizado</string>
     <string name="lockscreen_custom_clock_color_mode_title">Modo de cor do relógio</string>
+    <string name="lockscreen_custom_clock_size_title">Tamanho do relógio</string>
+    <string name="lockscreen_custom_clock_size_summary">Escala do relógio da tela de bloqueio (50-150%)</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">Animação personalizada do relógio AOD</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">Defina a animação AOD para um estilo de relógio personalizado</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Arte de capa da mídia</string>
     <string name="ls_media_art_summary">Exibir capa de mídia quando disponível</string>
@@ -644,6 +648,7 @@
     <string name="cutout_progress_music_clockwise_title">Sentido horário</string>
     <string name="cutout_progress_music_aod_title">Mostrar na tela sempre ativo</string>
     <string name="cutout_progress_music_aod_summary">Manter o anel de música visível na tela ambiente</string>
+    <string name="cutout_progress_anim_ms_title">Suavidade do progresso</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Porcentagem da bateria Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Exibir o status da bateria do dispositivo Bluetooth conectado, se disponível</string>
@@ -656,6 +661,8 @@
     <string name="statusbar_extra_padding_end_title">Preenchimento final</string>
     <string name="qs_single_tone_title">Configurações rápidas de tom único</string>
     <string name="qs_single_tone_summary">Ocultar a tela de notificação para configurações unificadas de aparência rápida</string>
+    <string name="qs_tile_alternate_color_title">Cor alternativa do bloco nas configurações rápidas</string>
+    <string name="qs_tile_alternate_color_summary">Usar uma cor de fundo alternativa para blocos nas configurações rápidas</string>
     <string name="qs_brightness_slider_shape_title">Forma do controle deslizante de brilho</string>
     <string name="media_waveform_seekbar_title">Barra de busca de forma de onda</string>
     <string name="media_waveform_seekbar_summary">Exibir um efeito de forma de onda animado para o progresso da reprodução de mídia</string>
@@ -812,15 +819,22 @@
     <string name="qs_header_style4">Simples</string>
     <string name="qs_compact_media_player_mode_title">Reprodutor de mídia compacto</string>
     <string name="qs_compact_media_player_mode_summary">Use o modo compacto para as configurações rápidas do media player</string>
-    <string name="qs_show_media_player_title">Reprodutor de mídia</string>
-    <string name="qs_show_media_player_summary">Exibir controles de mídia em configurações rápidas</string>
-    <string name="qs_widgets_enabled_title">Widgets de configurações rápidas</string>
-    <string name="qs_widgets_enabled_summary">Mostre widgets para acesso rápido. Limite as linhas de configurações rápidas a 2 para evitar quebra de rolagem do painel de configurações rápidas do AOSP</string>
+    <string name="qs_show_media_player_title">Posição do reprodutor de mídia</string>
+    <string name="qs_show_media_player_hide">oculto</string>
+    <string name="qs_show_media_player_top">Exibir no topo</string>
+    <string name="qs_show_media_player_bottom">Exibir na parte inferior</string>
     <string name="qs_tile_gradient_title">Gradiente das configurações rápidas</string>
     <string name="qs_tile_gradient_summary">Habilite fundos gradientes para blocos de configurações rápidas</string>
     <string name="qs_tiles_haptic_feedback_title">Vibrar no toque de tela QS</string>
     <string name="qs_panel_tile_haptic_intensity_title">Intensidade das configurações rápidas</string>
     <string name="qs_haptics_intensity_title">Intensidade de lançamento QS</string>
+    <!-- QS widget -->
+    <string name="qs_widget_panel_title">Mostrar widget no painel de configurações rápidas</string>
+    <string name="qs_widget_panel_summary">Mostrar mídia e volume, widget de brilho nas configurações rápidas</string>
+    <string name="qs_widget_ios_music_title">Mostrar widget de música do iOS</string>
+    <string name="qs_widget_ios_music_summary">Mostrar painel de mídia semelhante a iOS</string>
+    <string name="qs_widget_slider_corner_title">Mostrar controle deslizante arredondado do widget</string>
+    <string name="qs_widget_slider_corner_summary">Mostrar controles deslizantes de widget verticais de estilo arredondado no Painel de configurações rápidas</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Notificações flutuantes</string>
     <string name="notifications_heads_up_summary">Permitir notificações flutuantes</string>
@@ -1099,8 +1113,10 @@
     <string name="pif_invalid_fingerprint">Formato de fingerprint inválido</string>
     <string name="pif_no_devices_found">Nenhum dispositivo encontrado</string>
     <string name="pif_no_api_key">Falha ao extrair a chave API do Flash Tool</string>
+    <string name="pif_master_switch_title">Ativar Play Integrity Fix</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Gerencie keybox e aplicativos alvos para um forte atestado de integridade</string>
+    <string name="ts_master_switch_title">Ativar mascaramento do TrickyStore</string>
     <string name="ts_keybox_management">Gerenciamento de keybox</string>
     <string name="ts_import_keybox">Importar Keybox</string>
     <string name="ts_no_keybox">Nenhum keybox instalada</string>
@@ -1146,6 +1162,13 @@
     <string name="ts_revocation_suspended">⚠ Suspensa (%s)</string>
     <string name="ts_revocation_network_error">Não foi possível acessar o servidor de revogação</string>
     <string name="ts_revocation_error">Falha na verificação: %s</string>
+    <string name="ts_fetch_keybox">Buscar keybox oficial</string>
+    <string name="ts_fetch_keybox_summary">Baixe o keybox dos servidores Evolution X</string>
+    <string name="ts_fetch_keybox_fetching">Buscando keybox…</string>
+    <string name="ts_fetch_keybox_success">Keybox oficial encontrada com sucesso</string>
+    <string name="ts_fetch_keybox_failed">Falha na busca: %s</string>
+    <string name="ts_fetch_keybox_revoked_refetch">A Keybox foi revogada, buscando uma mais recente…</string>
+    <string name="ts_fetch_keybox_same_file">A Keybox já está atualizada</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Estilos de papel de parede</string>
     <string name="wallpaper_settings_summary">Configure estilos e efeitos de papel de parede</string>
