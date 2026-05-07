@@ -74,7 +74,7 @@
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animacja startowa</string>
     <string name="themes_boot_animation_summary">Ustaw styl animacji startowej</string>
-    <string name="boot_animation_custom_pick">Wybierz plik zip</string>
+    <string name="boot_animation_custom_pick">Wybierz plik ZIP</string>
     <string name="boot_animation_custom_pick_summary">Wybierz niestandardowy animacjastartowa.zip</string>
     <string name="boot_animation_applied_error">Nie udało się zastosować animacji startowej</string>
     <string name="boot_animation_preview_loading">Ładowanie podglądu…</string>
@@ -484,10 +484,10 @@
     <string name="ongoing_progress_settings_title">Znacznik akcji paska stanu</string>
     <string name="ongoing_progress_settings_summary">Dostosuj wskaźnik postępu znacznika akcji</string>
     <string name="ongoing_action_chip_title">Znacznik trwającej akcji</string>
-    <string name="ongoing_action_chip_summary">Pokaż wskaźnik postępu dla trwających działań, takich jak pobieranie</string>
+    <string name="ongoing_action_chip_summary">Pokaż wskaźnik postępu dla trwających akcji, takich jak pobieranie</string>
     <string name="ongoing_media_progress_title">Postęp multimediów</string>
     <string name="ongoing_media_progress_summary">Pokaż postęp odtwarzania multimediów w znaczniku</string>
-    <string name="ongoing_progress_footer_text">Znacznik akcji pokazuje bieżący stan odtwarzania multimediów i aktywnych transferów.\n\nMultimedia: naciśnij, aby otworzyć sterowanie, naciśnij dwukrotnie, aby odtworzyć/wstrzymać, przesuń w lewo/prawo, aby zmienić utwór, przytrzymaj, aby otworzyć aplikację.\n\nPobieranie/Wysyłanie: pokazuje postęp transferu. Naciśnij, aby otworzyć odpowiednią aplikację. Ukrywa się automatycznie, gdy nie ma aktywnych transferów.</string>
+    <string name="ongoing_progress_footer_text">Znacznik akcji pokazuje bieżący stan odtwarzania multimediów i aktywnych transferów.\n\nMultimedia: naciśnij, aby otworzyć sterowanie, dwukrotnie naciśnij, aby odtworzyć/wstrzymać, przesuń w lewo/prawo, aby zmienić utwór, przytrzymaj, aby otworzyć aplikację.\n\nPobieranie/Wysyłanie: pokazuje postęp transferu. Naciśnij, aby otworzyć odpowiednią aplikację. Ukrywa się automatycznie, gdy nie ma aktywnych transferów.</string>
     <string name="ongoing_compact_mode_title">Wskaźnik kompaktowy</string>
     <string name="ongoing_compact_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
     <string name="ongoing_chip_color_mode_title">Kolor tła znacznika</string>
@@ -519,7 +519,7 @@
     <string name="dynamic_bar_event_notification">Powiadomienia</string>
     <string name="dynamic_bar_event_notification_summary">Alerty powiadomień przychodzących</string>
     <string name="dynamic_bar_compact_notifications">Kompaktowe powiadomienia</string>
-    <string name="dynamic_bar_compact_notifications_summary">Najpierw pokaż powiadomienia jako mały znacznik; dotknij, aby rozwinąć</string>
+    <string name="dynamic_bar_compact_notifications_summary">Najpierw pokaż powiadomienia jako mały znacznik; naciśnij, aby rozwinąć</string>
     <string name="dynamic_bar_event_timer">Minutnik</string>
     <string name="dynamic_bar_event_timer_summary">Odliczanie czasu z aplikacji zegara</string>
     <string name="dynamic_bar_event_stopwatch">Stoper</string>
@@ -551,12 +551,12 @@
     <string name="dynamic_bar_guide_title">Jak używać dynamicznego paska</string>
     <string name="dynamic_bar_guide_chip">Wydarzenia są wyświetlane na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, odtwarzanie multimediów i minutniki</string>
     <string name="dynamic_bar_guide_swipe">Gdy aktywnych jest wiele zdarzeń, przesuń palcem w lewo lub w prawo na wskaźniku, aby je przeglądać</string>
-    <string name="dynamic_bar_guide_expand">Dotknij znacznik, aby rozwinąć go do szczegółowej karty ze sterowaniem i dodatkowymi informacjami</string>
+    <string name="dynamic_bar_guide_expand">Naciśnij znacznik, aby rozwinąć go do szczegółowej karty ze sterowaniem i dodatkowymi informacjami</string>
     <string name="dynamic_bar_guide_dismiss">Przesuń rozwiniętą kartę, aby ją zamknąć. Zdarzenie będzie kontynuowane w tle</string>
     <string name="dynamic_bar_guide_keyguard">Znacznik paska dynamicznego pojawia się również na dole ekranu blokady, oferując sterowanie odtwarzaniem i szybkie akcje</string>
     <string name="dynamic_bar_guide_chip_title">Wygląd znacznika</string>
     <string name="dynamic_bar_guide_swipe_title">Przesuwaj między wskaźnikami</string>
-    <string name="dynamic_bar_guide_expand_title">Dotknij, aby rozwinąć</string>
+    <string name="dynamic_bar_guide_expand_title">Naciśnij, aby rozwinąć</string>
     <string name="dynamic_bar_guide_dismiss_title">Przesuń, aby odrzucić</string>
     <string name="dynamic_bar_guide_keyguard_title">Wskaźnik na ekranie blokady</string>
     <string name="dynamic_bar_footer_title">O pasku dynamicznym</string>
@@ -709,7 +709,7 @@
     <string name="quick_settings_tile_shape_rounded_square_smooth">Zaokrąglony kwadrat (gładki)</string>
     <string name="quick_settings_tile_shape_rounded_square">Zaokrąglony kwadrat</string>
     <string name="quick_settings_tile_shape_square">Kwadrat</string>
-    <string name="quick_settings_tile_haptic_summary">Wibracja podczas dotykania kafelków szybkich ustawień</string>
+    <string name="quick_settings_tile_haptic_summary">Wibracja podczas naciskania kafelków szybkich ustawień</string>
     <string name="shape_circle">Okrąg</string>
     <string name="shape_square">Kwadrat</string>
     <string name="shape_four_sided_cookie">Ciasteczko 4-stronne</string>
@@ -826,7 +826,7 @@
     <string name="qs_show_media_player_bottom">Pokaż na dole</string>
     <string name="qs_tile_gradient_title">Gradient kafelków szybkich ustawień</string>
     <string name="qs_tile_gradient_summary">Włącz gradient tła dla kafelków szybkich ustawień</string>
-    <string name="qs_tiles_haptic_feedback_title">Wibracja przy dotknięciu kafelka szybkich ustawień</string>
+    <string name="qs_tiles_haptic_feedback_title">Wibracja przy naciśnięciu kafelka szybkich ustawień</string>
     <string name="qs_panel_tile_haptic_intensity_title">Intensywność kafelków szybkich ustawień</string>
     <string name="qs_haptics_intensity_title">Intensywność dynamicznego przewijania szybkich ustawień</string>
     <!-- QS widget -->
@@ -841,7 +841,7 @@
     <string name="notifications_heads_up_summary">Zezwalaj na wyskakujące powiadomienia</string>
     <string name="notifications_interface_category">Interfejs</string>
     <string name="notifications_kill_app_button_title">Zatrzymaj aplikację</string>
-    <string name="notifications_kill_app_button_summary">Wyświetl przycisk zatrzymania aplikacji w menu powiadomień po długim naciśnięciu</string>
+    <string name="notifications_kill_app_button_summary">Wyświetl przycisk zatrzymania aplikacji w menu powiadomień po przytrzymaniu</string>
     <string name="notifications_sounds_vibration_category">Dźwięki i wibracje</string>
     <string name="notifications_alert_display_on_title">Alert, gdy wyświetlacz jest włączony</string>
     <string name="notifications_alert_display_on_summary">Odtwarzaj dźwięk i wibracje dla powiadomień, gdy ekran jest włączony</string>
@@ -866,7 +866,7 @@
     <string name="notification_row_transparency_lockscreen_title">Przezroczyste powiadomienia na ekranie blokady</string>
     <string name="notification_row_transparency_lockscreen_summary">Użyj przezroczystego tła dla powiadomień na ekranie blokady</string>
     <string name="notification_bubble_apps_title">Dymki powiadomień</string>
-    <string name="notification_bubble_apps_summary">Otwieraj aplikacje w pływającym dymku po dotknięciu ich powiadomień</string>
+    <string name="notification_bubble_apps_summary">Otwieraj aplikacje w pływającym dymku po naciśnięciu ich powiadomień</string>
     <string name="media_squiggle_animation_title">Animacja falowania</string>
     <string name="media_squiggle_animation_summary">Pokaż animację falowania paska w panelu multimediów podczas odtwarzania</string>
     <string name="small_landscape_notification_title">Małe powiadomienia poziome</string>
@@ -902,7 +902,7 @@
     <string name="edge_light_animation_effect_comet">Kometa</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interfejs</string>
-    <string name="power_menu_actions_title">Opcje menu zasilania</string>
+    <string name="power_menu_actions_title">Akcje menu zasilania</string>
     <string name="power_menu_actions_summary">Wybierz, które opcje mają być wyświetlane</string>
     <string name="power_menu_lock_screen_category">Ekran blokady</string>
     <string name="power_menu_lock_screen_secure_title">Pokaż na zabezpieczonym ekranie blokady</string>
@@ -997,7 +997,7 @@
     <string name="app_spoofing_clear_all_confirm">Spowoduje to usunięcie wszystkich skonfigurowanych wpisów dotyczących fałszowania aplikacji.</string>
     <string name="app_spoofing_no_apps_available">Brak dostępnych aplikacji lub gier</string>
     <string name="app_spoofing_no_apps_found">Brak wyników dla „%s”</string>
-    <string name="app_spoofing_longpress_hint">Naciśnij długo j, aby szybko ponownie przypisać profil</string>
+    <string name="app_spoofing_longpress_hint">Przytrzymaj, aby szybko ponownie przypisać profil</string>
     <string name="app_spoofing_remove_title">Usunąć aplikację?</string>
     <string name="app_spoofing_remove_confirm">Usunąć %1$s z listy fałszowania?</string>
     <string name="add_new_spoof_profile">Dodaj nowy profil</string>
@@ -1032,7 +1032,7 @@
     <string name="idle_manager_title">Menedżer bezczynności</string>
     <string name="idle_manager_summary">Zarządzaj procesami w tle i optymalizuj baterię</string>
     <string name="idle_manager_app_count">%1$d aplikacji monitorowanych</string>
-    <string name="idle_manager_disabled">Wyłączone — dotknij, aby włączyć</string>
+    <string name="idle_manager_disabled">Wyłączone — naciśnij, aby włączyć</string>
     <string name="idle_manager_tab_apps">Aplikacje</string>
     <string name="idle_manager_tab_dashboard">Panel</string>
     <string name="idle_manager_add_apps">Dodaj aplikacje</string>
@@ -1068,15 +1068,15 @@
     <string name="idle_action_kill_bg_desc">Łagodnie zamknięcie procesów w tle z pamięci podręcznej. Aplikacja może sama uruchomić się ponownie.</string>
     <string name="idle_action_full_kill_desc">Ograniczony tryb gotowości połączony z łagodnym zamknięciem. Maksymalne wymuszanie dla oszczędzania baterii.</string>
     <string name="idle_manager_kill_count_label">Suma akcji</string>
-    <string name="idle_manager_last_killed_label">Ostatnia czynność</string>
+    <string name="idle_manager_last_killed_label">Ostatnia akcja</string>
     <string name="idle_manager_last_killed">Ostatnia: %1$s</string>
-    <string name="idle_manager_longpress_hint">Naciśnij długo, aby szybko edytować</string>
+    <string name="idle_manager_longpress_hint">Przytrzymaj, aby szybko edytować</string>
     <string name="idle_manager_critical_system_warning">Krytyczny pakiet systemowy. Ograniczenie go może spowodować niestabilność.</string>
     <string name="idle_manager_remove_title">Usunąć aplikację?</string>
     <string name="idle_manager_remove_confirm">%1$s zostanie usunięty, a jego przedział trybu gotowości zostanie przywrócony.</string>
     <string name="idle_manager_apps_acted_on">Aplikacje objęte działaniem</string>
     <string name="idle_manager_total_actions">Suma akcji</string>
-    <string name="idle_manager_action_breakdown">Podział działań</string>
+    <string name="idle_manager_action_breakdown">Podział akcji</string>
     <string name="idle_manager_recent_activity">Ostatnia aktywność</string>
     <string name="idle_manager_no_activity">Brak aktywności</string>
     <string name="idle_manager_no_activity_hint">Akcje będą wyświetlane tutaj po wyłączeniu ekranu i przejściu aplikacji w tryb bezczynności.</string>
@@ -1139,7 +1139,7 @@
     <string name="ts_targets_saved">Lista docelowa zapisana</string>
     <string name="ts_failed">Niepowodzenie: %s</string>
     <string name="ts_footer_title">Przejście silnej integralności</string>
-    <string name="ts_footer_body">1. Uzyskaj prawidłowy plik xml zestawu kluczy z zaufanego źródła. Zestawy kluczy nie są dostępne; musisz znaleźć ją samodzielnie.\n2. Kliknij „Importuj zestaw kluczy” i załaduj plik.\n3. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz Usługi Google Play i Sklep Google Play.\n4. Ustaw tryb docelowy na „Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw tryb automatyczny.\n5. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego. Jeśli Google unieważni zestaw kluczy, może nadal zezwalać na integralność urządzenia, nawet jeśli silna integralność się nie powiedzie.</string>
+    <string name="ts_footer_body">1. Uzyskaj prawidłowy plik XML zestawu kluczy z zaufanego źródła. Zestawy kluczy nie są dostępne; musisz znaleźć ją samodzielnie.\n2. Naciśnij „Importuj zestaw kluczy” i załaduj plik.\n3. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz Usługi Google Play i Sklep Google Play.\n4. Ustaw tryb docelowy na „Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw tryb automatyczny.\n5. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego. Jeśli Google unieważni zestaw kluczy, może nadal zezwalać na integralność urządzenia, nawet jeśli silna integralność się nie powiedzie.</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używane domyślne ustawienia urządzenia)</string>
     <string name="ts_select_target_apps">Wybierz aplikacje docelowe</string>
@@ -1203,8 +1203,8 @@
     <string name="lock_glymps_source_category">Źródło tapet</string>
     <string name="lock_glymps_source_title">Źródło tapet</string>
     <string name="lock_glymps_source_summary">Wybierz, skąd pobrać tapety</string>
-    <string name="lock_glymps_custom_urls_title">Zarządzaj niestandardowymi linkami</string>
-    <string name="lock_glymps_custom_urls_summary">Dodaj lub usuń niestandardowe linki tapet</string>
+    <string name="lock_glymps_custom_urls_title">Zarządzaj niestandardowymi łączami</string>
+    <string name="lock_glymps_custom_urls_summary">Dodaj lub usuń niestandardowe łącza tapet</string>
     <string name="lock_glymps_folder_title">Folder lokalny</string>
     <string name="lock_glymps_folder_summary">Wyświetl lokalizację folderu i liczbę tapet (maksymalnie 10 tapet)</string>
     <string name="lock_glymps_download_category">Ustawienia pobierania</string>
@@ -1233,7 +1233,7 @@
     <string name="lock_glymps_home_preview_desc">Podgląd tapety ekranu głównego</string>
     <!-- Video wallpaper -->
     <string name="video_wallpaper_title">Tapeta wideo</string>
-    <string name="video_wallpaper_category">Dostosowanie tapety</string>
+    <string name="video_wallpaper_category">Personalizacja tapety</string>
     <string name="video_wallpaper_category_title">Tapeta wideo</string>
     <string name="video_wallpaper_category_summary">Ustaw animowane tapety (MP4, GIF, WebP)</string>
     <string name="video_wallpaper_current_title">Bieżąca tapeta</string>
@@ -1252,7 +1252,7 @@
     <string name="video_wallpaper_info_title">Obsługiwane formaty</string>
     <string name="video_wallpaper_info_summary">Filmy MP4, animacje GIF i WebP. Maksymalny rozmiar pliku: 50 MB</string>
     <string name="video_wallpaper_tips_title">Wskazówki</string>
-    <string name="video_wallpaper_tips_summary">• Filmy są wyciszone automatycznie\n• Filmy o niższej rozdzielczości zużywają mniej baterii\n• Krótkie pętle są zalecane dla lepszej wydajności\n• Jeśli tapeta wideo nie się załaduje, ponownie wybierz żywą tapetę z Tapeta i styl\n• Zastosuj ponownie po ponownym uruchomieniu urządzenia</string>
+    <string name="video_wallpaper_tips_summary">• Filmy są wyciszone automatycznie\n• Filmy o niższej rozdzielczości zużywają mniej baterii\n• Krótkie pętle są zalecane dla lepszej wydajności\n• Jeśli tapeta wideo nie się załaduje, ponownie wybierz żywą tapetę z Tapeta i styl\n• Zastosuj ponownie po restarcie urządzenia</string>
     <string name="video_wallpaper_description">Film animowany i tapeta GIF</string>
     <string name="video_wallpaper_cleared">Tapeta wideo wyczyszczona</string>
     <string name="video_wallpaper_clear_failed">Nie udało się wyczyścić tapety wideo</string>
@@ -1319,7 +1319,7 @@
     <string name="no_custom_font">Brak niestandardowej czcionki</string>
     <string name="add_custom_font">Dodaj niestandardową czcionkę</string>
     <string name="change_custom_font">Zmień niestandardową czcionkę</string>
-    <string name="reset_custom_font_content_desc">Resetuj niestandardową czcionkę</string>
+    <string name="reset_custom_font_content_desc">Zresetuj niestandardową czcionkę</string>
     <string name="reboot_required_custom_font_title">Wymagany restart dla niestandardowej czcionki</string>
     <string name="reboot_required_custom_font_desc">Pominięcie restartu po zmianie czcionki niestandardowej może spowodować niespójności wizualne w niektórych aplikacjach.</string>
     <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
@@ -1343,7 +1343,7 @@
     <string name="about_current_maintainers_empty_summary">Nie można znaleźć aktualnie utrzymywanych wpisów z kompilacji OTA</string>
     <string name="about_current_maintainers_last_updated">Ostatnia aktualizacja %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Ostatnia aktualizacja: nieznana</string>
-    <string name="about_current_maintainers_tap_to_view">Dotknij, aby wyświetlić aktywnych opiekunów</string>
+    <string name="about_current_maintainers_tap_to_view">Naciśnij, aby wyświetlić aktywnych opiekunów</string>
     <string name="about_current_maintainers_sheet_subtitle">%1$d aktywnych opiekunów</string>
     <string name="about_current_maintainers_search_hint">Wyszukaj opiekunów lub urządzenia…</string>
     <string name="about_current_maintainers_no_results">Brak opiekunów odpowiadających twojemu wyszukiwaniu</string>
@@ -1364,11 +1364,11 @@
     <string name="custom_seekbar_value">Wartość: <xliff:g id="v">%s</xliff:g>
   </string>
     <string name="custom_seekbar_default_value">Domyślny</string>
-    <string name="custom_seekbar_default_value_to_set">Wartość domyślna: <xliff:g id="v">%s</xliff:g>\nPrzytrzymaj dłużej by ustawić</string>
+    <string name="custom_seekbar_default_value_to_set">Wartość domyślna: <xliff:g id="v">%s</xliff:g>\nPrzytrzymaj aby ustawić</string>
     <string name="custom_seekbar_default_value_is_set">Wartość domyślna jest ustawiona</string>
     <!-- SystemUI restart dialog -->
-    <string name="systemui_restart_title">Restart interfejsu systemu</string>
-    <string name="systemui_restart_message">Wymagany restart interfejsu systemu, aby zastosować zmiany. Zrestartować teraz? </string>
+    <string name="systemui_restart_title">Zrestartuj interfejs systemu</string>
+    <string name="systemui_restart_message">Wymagany jest restart interfejsu systemu, aby zastosować zmiany. Zrestartować teraz? </string>
     <string name="systemui_restart_not_now">Nie teraz</string>
     <string name="systemui_restart_process">Restartowanie interfejsu systemowego…</string>
     <!-- Units -->
@@ -1391,7 +1391,7 @@
     <string name="action_choose_app">Wybierz aplikację</string>
     <string name="action_search_apps">Wyszukaj aplikacje</string>
     <string name="action_select_all">Zaznacz wszystko</string>
-    <string name="action_restart">Uruchom ponownie</string>
+    <string name="action_restart">Zrestartuj</string>
     <string name="action_reboot_now">Zrestartuj teraz</string>
     <string name="show_system_apps">Pokaż aplikacje systemowe</string>
     <string name="hide_system_apps">Ukryj aplikacje systemowe</string>
@@ -1403,12 +1403,12 @@
     <string name="boot_animation_applied">Animacja startowa została zastosowana</string>
     <string name="reboot_device">Zrestartuj urządzenie</string>
     <string name="reboot_required_title">Wymagany restart</string>
-    <string name="reboot_required_message">Wymagany restart, aby zastosować zmianę czcionki. Zrestartować teraz?</string>
+    <string name="reboot_required_message">Wymagany jest restart, aby zastosować zmianę czcionki. Zrestartować teraz?</string>
     <string name="action_later">Później</string>
     <string name="reset_default_title">Przywróć ustawienia domyślne</string>
     <string name="reset_default_message">Spowoduje to zresetowanie czcionki do domyślnej czcionki systemowej. Czy na pewno?</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
-    <string name="hardware_keys_action_nothing">Brak działań</string>
+    <string name="hardware_keys_action_nothing">Brak akcji</string>
     <string name="hardware_keys_action_menu">Otwórz/zamknij menu</string>
     <string name="hardware_keys_action_app_switch">Ostatnie aplikacje</string>
     <string name="hardware_keys_action_search">Asystent wyszukiwania</string>
@@ -1422,7 +1422,7 @@
     <string name="hardware_keys_action_play_pause_music">Odtwórz/wstrzymaj muzykę</string>
     <string name="hardware_keys_action_torch">Przełącz latarkę</string>
     <string name="hardware_keys_action_screenshot">Zrób zrzut ekranu</string>
-    <string name="hardware_keys_action_volume_panel">Przełącznik panelu głośności</string>
+    <string name="hardware_keys_action_volume_panel">Przełącz panel głośności</string>
     <string name="hardware_keys_action_clear_all_notifications">Wyczyść wszystkie powiadomienia</string>
     <string name="hardware_keys_action_notifications_panel">Przełącz panel powiadomień</string>
     <string name="hardware_keys_action_expand_qs_panel">Rozwiń szybkie ustawienia</string>
@@ -1442,7 +1442,7 @@
     <string name="flashlight_on_call_always">Zawsze</string>
     <string name="flashlight_on_call_ignore_dnd_title">Ignoruj nie przeszkadzać</string>
     <string name="flashlight_on_call_ignore_dnd_summary">Migaj, nawet gdy tryb nie przeszkadzać jest aktywny</string>
-    <string name="flashlight_on_call_rate_title">Szybkość migania</string>
+    <string name="flashlight_on_call_rate_title">Częstotliwość migania</string>
     <!-- Charging animation -->
     <string name="charging_animation_title">Animacja ładowania</string>
     <string name="charging_animation_summary">Pokaż efekty wizualne podczas ładowania na ekranie blokady lub ekran zawsze włączony</string>
