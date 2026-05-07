@@ -5,7 +5,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
-    <string name="evolver_dashboard_title">Кастомізація Evolver</string>
+    <string name="evolver_dashboard_title">Кастомізація Evo-X</string>
     <string name="evolver_dashboard_summary">Еволюція вашого пристрою на ваш смак</string>
     <!-- Categories -->
     <string name="themes_title">Теми</string>
@@ -647,7 +647,6 @@
     <string name="cutout_progress_music_clockwise_title">За годинниковою стрілкою</string>
     <string name="cutout_progress_music_aod_title">Показати на AOD</string>
     <string name="cutout_progress_music_aod_summary">Показувати музичне кільце на Ambient Display</string>
-    <string name="cutout_progress_anim_ms_title">Плавність прогресу</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Показати заряд Bluetooth-пристрою</string>
     <string name="status_bar_bluetooth_battery_summary">Показувати заряд батареї під\'єднаних в даний час bluetooth-пристроїв, якщо можливо</string>
@@ -945,11 +944,6 @@
     <string name="disable_flash_sms_summary">Перетворити повноекранні флеш-повідомлення на стандартні сповіщення.</string>
     <string name="common_clear_search">Очистити пошук</string>
     <string name="common_system_badge">SYS</string>
-    <!-- Miscellaneous/Hide developer status -->
-    <string name="hide_developer_status_title">Приховати статус розробника</string>
-    <string name="hide_developer_status_summary">Приховати вибрані програми від перевірок статусу розробника</string>
-    <string name="hide_developer_status_none_configured">Немає прихованих застосунків</string>
-    <string name="hide_developer_status_count">Додатків %1$d приховано</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Розумні пікселі - це функція енергозбереження, яка вимикає відсоток пікселів, щоб допомогти продовжити життя акумулятора. У деяких випадках це може призвести до того, що на екрані може не реагувати сенсорні області</string>
     <string name="smart_pixels_title">Розумні пікселі</string>
