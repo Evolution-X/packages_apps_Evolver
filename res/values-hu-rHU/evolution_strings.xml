@@ -613,8 +613,18 @@
     <string name="qs_header_style2">Oxygen</string>
     <string name="qs_header_style3">Analóg</string>
     <string name="qs_header_style4">Egyszerű</string>
-    <string name="qs_widgets_enabled_title">Kisalkalmazások a Gyorsbeállításokhoz</string>
+    <string name="qs_show_media_player_title">A médialejátszó pozíciója</string>
+    <string name="qs_show_media_player_hide">Elrejtett</string>
+    <string name="qs_show_media_player_top">Felül</string>
+    <string name="qs_show_media_player_bottom">Alul</string>
     <string name="qs_tile_gradient_summary">A gyorsbeállítási csempék színátmenetes hátterűek lehetnek</string>
+    <!-- QS widget -->
+    <string name="qs_widget_panel_title">Kisalkalmazás a Gyorsbeállítások panelen</string>
+    <string name="qs_widget_panel_summary">Média, hangerő és fényerő kisalkalmazások a Gyorsbeállítások panelén</string>
+    <string name="qs_widget_ios_music_title">iOS zene kisalkalmazás megjelenítése</string>
+    <string name="qs_widget_ios_music_summary">iOS kinézetű médiapanel megjelenítése</string>
+    <string name="qs_widget_slider_corner_title">Lekerekített csúszka megjelenítése</string>
+    <string name="qs_widget_slider_corner_summary">Lekerekített stílusú függőleges kisalkalmazási csúszkák megjelenítése a Gyorsbeállítások panelén</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Lebegő értesítés</string>
     <string name="notifications_interface_category">Kezelőfelület</string>
@@ -790,8 +800,10 @@
     <string name="pif_invalid_fingerprint">Érvénytelen ujjlenyomat-formátum</string>
     <string name="pif_no_devices_found">Nem található készülék</string>
     <string name="pif_no_api_key">A \'Flash Tool\' API-kulcsát nem lehet kibontani</string>
+    <string name="pif_master_switch_title">Az Áruházi integritásjavítás bekapcsolása</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Keybox-ok és célalkalmazások kezelése az erős integritás-igazolás érdekében</string>
+    <string name="ts_master_switch_title">A Tenor TrickyStore álcázás bekapcsolása</string>
     <string name="ts_keybox_management">Keybox kezelés</string>
     <string name="ts_import_keybox">Keybox importálása</string>
     <string name="ts_no_keybox">Nincs telepítve keybox</string>
@@ -831,6 +843,8 @@
     <string name="ts_fetch_keybox_fetching">Keybox lekérése…</string>
     <string name="ts_fetch_keybox_success">A hivatalos keybox sikeresen lekérve</string>
     <string name="ts_fetch_keybox_failed">A lekérés meghiúsult: %s</string>
+    <string name="ts_fetch_keybox_revoked_refetch">A keybox visszavonva, egy újabb lekérése…</string>
+    <string name="ts_fetch_keybox_same_file">A keybox már naprakész</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">A háttérkép stílusa</string>
     <string name="wallpaper_effect_target_title">Effekt alkalmazása</string>
