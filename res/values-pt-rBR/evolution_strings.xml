@@ -648,7 +648,6 @@
     <string name="cutout_progress_music_clockwise_title">Sentido horário</string>
     <string name="cutout_progress_music_aod_title">Mostrar na tela sempre ativo</string>
     <string name="cutout_progress_music_aod_summary">Manter o anel de música visível na tela ambiente</string>
-    <string name="cutout_progress_anim_ms_title">Suavidade do progresso</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Porcentagem da bateria Bluetooth</string>
     <string name="status_bar_bluetooth_battery_summary">Exibir o status da bateria do dispositivo Bluetooth conectado, se disponível</string>
@@ -946,11 +945,6 @@
     <string name="disable_flash_sms_summary">Converter mensagens flash de tela cheia em notificações padrão.</string>
     <string name="common_clear_search">Limpar pesquisa</string>
     <string name="common_system_badge">SISTEMA</string>
-    <!-- Miscellaneous/Hide developer status -->
-    <string name="hide_developer_status_title">Ocultar status de desenvolvedor</string>
-    <string name="hide_developer_status_summary">Ocultar aplicativos selecionados das verificações de status do desenvolvedor</string>
-    <string name="hide_developer_status_none_configured">Nenhum aplicativo oculto</string>
-    <string name="hide_developer_status_count">%1$d aplicativos ocultos</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">Smart Pixels é um recurso de economia de energia que desativa uma porcentagem de pixels para ajudar a prolongar a vida útil da bateria. Em alguns casos, pode resultar em áreas de toque sem resposta na tela</string>
     <string name="smart_pixels_title">Pixels Inteligentes</string>
