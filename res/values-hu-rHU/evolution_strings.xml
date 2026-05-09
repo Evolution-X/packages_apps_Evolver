@@ -28,6 +28,13 @@
     <string name="about_summary">A ROM-unkról</string>
     <string name="general_category_title">Általános</string>
     <string name="gestures_category_title">Mozdulatvezérlés</string>
+    <!-- Reorganized categories -->
+    <string name="themes_monet_colors_category">Monet &amp; Színek</string>
+    <string name="lock_screen_clock_category">Óra</string>
+    <string name="lock_screen_media_category">Média</string>
+    <string name="lock_screen_charging_effects_category">Töltési animációk</string>
+    <string name="notifications_flashlight_category">Zseblámpa</string>
+    <string name="status_bar_features_category">Funkciók</string>
     <!-- Themes -->
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet-beállítások</string>
@@ -154,6 +161,10 @@
     <string name="pulse_renderer_matrix">Mátrix</string>
     <string name="pulse_renderer_particle">Részekre bontott</string>
     <string name="pulse_renderer_waveform">Hullámokra bontott</string>
+    <string name="pulse_show_on_ambient_title">Megjelenítés a \'Környezeti kijelző\'-n</string>
+    <string name="pulse_show_on_ambient_summary">A vizualizáció megjelenítése \'Mindig bekapcsolva\' és \'Környezeti kijelző\' módokban. Csak lezárt képernyőn nem.</string>
+    <string name="pulse_height_multiplier_title">A pulzálás magassága</string>
+    <string name="pulse_height_multiplier_summary">Beállíthatja a vizualizáció magasságát</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">A kiválasztott óra nem támogat egyéni betűtípusokat</string>
     <string name="lockscreen_clock_category_title">Óra</string>
@@ -191,6 +202,12 @@
     <string name="ls_media_art_fade_level_summary">Egyéni elhalványítási érték megadása</string>
     <string name="ls_media_art_blur_level_title">A Médiaborító elhomályosítási szintje</string>
     <string name="ls_media_art_blur_level_summary">Az elmosás intenzitása a szűrő alkalmazásakor</string>
+    <string name="ls_media_art_pixel_size_title">A médiaborító pixelmérete</string>
+    <string name="ls_media_art_pixel_size_summary">Beállíthatja a záróképernyőn megjelenített médiaelemek képpontméretét</string>
+    <!-- AOD Media Settings -->
+    <string name="show_on_aod_title">Megjelenítés \'Mindig bekapcsolva\' (AOD) esetén is</string>
+    <string name="show_on_aod_summary">Médiaborító megjelenítése a \'Mindig bekapcsolva\' képernyőn</string>
+    <string name="aod_brightness_title">AOD-fényerő</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">\'Most hallható\'</string>
     <string name="nowplaying_summary">Az aktuálisan lejátszott zene adatainak megjelenítése lezárt képernyőn és a „Mindig bekapcsolva\" módban</string>
