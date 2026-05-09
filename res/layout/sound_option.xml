@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:background="@drawable/selector_border_edge_custom">
+
+    <TextView
+        android:id="@+id/option_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingVertical="8dp"
+        android:paddingStart="8dp"
+        android:textAppearance="@style/OptionTitleTextAppearance"/>
+
+    <ImageButton
+        android:id="@+id/option_play"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="4dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Preview sound"
+        android:src="@android:drawable/ic_media_play"
+        android:scaleType="centerInside"
+        android:padding="8dp"/>
+
+</LinearLayout>
