@@ -70,20 +70,35 @@
                 </FrameLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/apply_extended_fab"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/apply"
-                android:textAllCaps="false"
-                android:textColor="@color/settingslib_btn_colored_text_material"
-                android:theme="@style/Theme.CollapsingToolbar.Settings"
                 android:layout_gravity="center"
                 android:layout_marginTop="24dp"
-                android:gravity="center"
-                style="@style/op_control_text_style_h6"
-                app:backgroundTint="@color/settingslib_btn_colored_background_material"
-                app:fabSize="normal" />
+                android:orientation="vertical">
+
+                <SeekBar
+                    android:id="@+id/clock_seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="12dp" />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/apply_extended_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/apply"
+                    android:textAllCaps="false"
+                    android:textColor="@color/settingslib_btn_colored_text_material"
+                    android:theme="@style/Theme.CollapsingToolbar.Settings"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/op_control_text_style_h6"
+                    app:backgroundTint="@color/settingslib_btn_colored_background_material"
+                    app:fabSize="normal" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
