@@ -35,6 +35,7 @@
     <string name="lock_screen_media_category">Медіа</string>
     <string name="lock_screen_charging_effects_category">Ефекти заряджання</string>
     <string name="notifications_flashlight_category">Ліхтарик</string>
+    <string name="status_bar_features_category">Особливості</string>
     <!-- Themes -->
     <string name="themes_monet_category">Функція \"Monet\"</string>
     <string name="themes_monet_title">Налаштування \"Monet\"</string>
@@ -160,6 +161,10 @@
     <string name="pulse_renderer_matrix">Матриця</string>
     <string name="pulse_renderer_particle">Частинка</string>
     <string name="pulse_renderer_waveform">Форма хвилі</string>
+    <string name="pulse_show_on_ambient_title">Показувати на Ambient дисплеї</string>
+    <string name="pulse_show_on_ambient_summary">Відображати візуалізатор на завжди ввімкненому дисплеї та в режимі сну. Вимкнути, щоб відображати лише на екрані блокування.</string>
+    <string name="pulse_height_multiplier_title">Висота Імпульсу</string>
+    <string name="pulse_height_multiplier_summary">Налаштуйте висоту візуалізації</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">Вибраний годинник не підтримує користувацькі шрифти</string>
     <string name="lockscreen_clock_category_title">Годинник</string>
@@ -197,6 +202,12 @@
     <string name="ls_media_art_fade_level_summary">Встановити рівень затухання для обкладинки мультимедіа</string>
     <string name="ls_media_art_blur_level_title">Рівень розмиття обкладинки</string>
     <string name="ls_media_art_blur_level_summary">Інтенсивність розмиття при застосуванні фільтра</string>
+    <string name="ls_media_art_pixel_size_title">Розмір пікселя медіа-арту</string>
+    <string name="ls_media_art_pixel_size_summary">Налаштування розміру пікселів для медіа-ілюстрацій, що відображаються на екрані блокування</string>
+    <!-- AOD Media Settings -->
+    <string name="show_on_aod_title">Показати на AOD</string>
+    <string name="show_on_aod_summary">Відображати медіа-твори мистецтва на постійно ввімкненому дисплеї</string>
+    <string name="aod_brightness_title">AOD яскравість</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Зараз грає</string>
     <string name="nowplaying_summary">Показувати поточну інформацію про музику на екрані блокування та на AOD</string>
