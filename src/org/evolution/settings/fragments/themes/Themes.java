@@ -30,11 +30,10 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
-import org.evolution.settings.preferences.GlobalSettingListPreference;
+import org.evolution.settings.preferences.SoundPickerPreference;
 import org.evolution.settings.preferences.SystemPropertyListPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
-import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
 public class Themes extends SettingsPreferenceFragment implements
@@ -57,8 +56,8 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
     private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
 
-    private GlobalSettingListPreference mLockSound;
-    private GlobalSettingListPreference mUnlockSound;
+    private SoundPickerPreference mLockSound;
+    private SoundPickerPreference mUnlockSound;
     private PreferenceCategory mLauncherCategory;
     private SystemPropertyListPreference mEmojiStyle;
     private SystemPropertySwitchPreference mSearchBar;
@@ -80,10 +79,22 @@ public class Themes extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources resources = context.getResources();
 
-        mLockSound = (GlobalSettingListPreference) findPreference(KEY_LOCK_SOUND);
-        mLockSound.setOnPreferenceChangeListener(this);
-        mUnlockSound = (GlobalSettingListPreference) findPreference(KEY_UNLOCK_SOUND);
-        mUnlockSound.setOnPreferenceChangeListener(this);
+        mLockSound = (SoundPickerPreference) findPreference(KEY_LOCK_SOUND);
+        if (mLockSound != null) {
+            mLockSound.entries = getResources().getTextArray(R.array.themes_lock_unlock_sounds_entries);
+            mLockSound.entryValues = getResources().getTextArray(R.array.themes_lock_sounds_values);
+            mLockSound.settingKey = "lock_sound";
+            mLockSound.defaultValue = "/product/media/audio/ui/Lock.ogg";
+        }
+
+        mUnlockSound = (SoundPickerPreference) findPreference(KEY_UNLOCK_SOUND);
+        if (mUnlockSound != null) {
+            mUnlockSound.entries = getResources().getTextArray(R.array.themes_lock_unlock_sounds_entries);
+            mUnlockSound.entryValues = getResources().getTextArray(R.array.themes_unlock_sounds_values);
+            mUnlockSound.settingKey = "unlock_sound";
+            mUnlockSound.defaultValue = "/product/media/audio/ui/Unlock.ogg";
+        }
+
         mLauncherCategory = (PreferenceCategory) findPreference(KEY_LAUNCHER_CATEGORY);
         mSearchBar = (SystemPropertySwitchPreference) findPreference(KEY_LAUNCHER_SEARCH_BAR);
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
@@ -135,10 +146,6 @@ public class Themes extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
-        if (preference == mLockSound || preference == mUnlockSound) {
-            SystemUtils.showSystemUiRestartDialog(context);
-            return true;
-        }
         if (KEY_EMOJI_STYLE.equals(preference.getKey())) {
             SystemRestartUtils.showSystemRestartDialog(getActivity());
             return true;
