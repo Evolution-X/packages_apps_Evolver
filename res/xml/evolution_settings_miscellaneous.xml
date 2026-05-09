@@ -8,28 +8,16 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/miscellaneous_title">
 
-    <!--<PreferenceCategory
-        android:key="haptics_settings_category"
-        android:title="@string/haptics_settings_title">
-
-        <Preference
-            android:key="haptics_settings"
-            android:title="@string/haptics_settings_title"
-            android:summary="@string/haptics_settings_summary"
-            android:fragment="com.android.settings.sound.HapticsPreferenceFragment"/>
-
-    </PreferenceCategory>-->
-
     <PreferenceCategory
         android:key="miscellaneous_spoofing_category"
         android:title="@string/miscellaneous_spoofing_category">
 
-        <!-- Component spoofing -->
         <Preference
             android:key="spoofing"
             android:title="@string/spoofing_title"
             android:summary="@string/spoofing_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.Spoofing" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -50,45 +38,63 @@
             android:title="@string/shake_gestures_enabled_title"
             android:summary="@string/shake_gestures_enabled_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.ShakeGestures" />
+
+        <!-- Flashlight on call -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="flashlight_on_call"
+            android:title="@string/flashlight_on_call_title"
+            android:entries="@array/flashlight_on_call_entries"
+            android:entryValues="@array/flashlight_on_call_values"
+            android:defaultValue="0" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="flashlight_on_call_ignore_dnd"
+            android:title="@string/flashlight_on_call_ignore_dnd_title"
+            android:summary="@string/flashlight_on_call_ignore_dnd_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="flashlight_on_call_rate"
+            android:title="@string/flashlight_on_call_rate_title"
+            android:defaultValue="1"
+            android:max="5"
+            settings:min="1"
+            settings:units="@string/unit_hz" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="miscellaneous_general_category"
         android:title="@string/general_category_title">
 
-        <!-- Sensor block per package -->
         <Preference
             android:key="sensor_block_settings"
             android:title="@string/sensor_block_title"
             android:summary="@string/sensor_block_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.SensorBlock" />
 
-        <!-- Floating rotation button -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="show_rotation_suggestions"
             android:title="@string/floating_rotation_button_title"
             android:summary="@string/floating_rotation_button_summary"
             android:defaultValue="true" />
 
-        <!-- Notification bubble apps -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_bubble_apps"
             android:title="@string/notification_bubble_apps_title"
             android:summary="@string/notification_bubble_apps_summary"
             android:defaultValue="false" />
 
-        <!-- Disable flash sms -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="disable_flash_sms"
             android:title="@string/disable_flash_sms_title"
             android:summary="@string/disable_flash_sms_summary"
             android:defaultValue="false"/>
 
-        <!-- Smart Pixels -->
         <Preference
             android:key="smart_pixels"
-            android:title="@string/smart_pixels_title" 
-            android:summary="@string/smart_pixels_summary" 
+            android:title="@string/smart_pixels_title"
+            android:summary="@string/smart_pixels_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.SmartPixels" />
 
     </PreferenceCategory>
@@ -97,53 +103,48 @@
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 
-        <!-- USB configuration -->
         <Preference
             android:key="default_usb_configuration"
             android:title="@string/usb_default_config_title"
             android:summary="@string/usb_default_config_summary"
             android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
 
-        <!-- No storage restrict -->
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="no_storage_restrict"
             android:title="@string/no_storage_restrict_title"
             android:summary="@string/no_storage_restrict_summary"
             android:defaultValue="false" />
 
-        <!-- Block PairIP license activity -->
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pairip.activity.block"
             android:title="@string/miscellaneous_pairip_activity_block_title"
             android:summary="@string/miscellaneous_pairip_activity_block_summary"
             android:defaultValue="false" />
 
-        <!-- Block wallpaper dimming -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="block_wallpaper_dimming"
             android:title="@string/miscellaneous_block_wallpaper_dimming_title"
             android:summary="@string/miscellaneous_block_wallpaper_dimming_summary"
             android:defaultValue="false" />
 
-        <!-- Unlimit screenrecord -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="unlimit_screenrecord"
             android:title="@string/miscellaneous_unlimit_screenrecord_title"
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
             android:defaultValue="false" />
 
-        <!-- Allow application downgrade -->
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="pm_downgrade_allowed"
             android:title="@string/miscellaneous_app_downgrade_title"
             android:summary="@string/miscellaneous_app_downgrade_summary"
             android:defaultValue="false" />
 
-        <!-- Ignore window secure flags -->
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="window_ignore_secure"
             android:title="@string/miscellaneous_ignore_window_secure_title"
             android:summary="@string/miscellaneous_ignore_window_secure_summary"
             android:defaultValue="false" />
+
     </PreferenceCategory>
+
 </PreferenceScreen>

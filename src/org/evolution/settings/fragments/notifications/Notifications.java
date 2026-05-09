@@ -29,24 +29,11 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
-import org.evolution.settings.preferences.CustomSeekBarPreference;
-import org.evolution.settings.preferences.SystemSettingSwitchPreference;
-import org.evolution.settings.utils.SystemUtils;
-
 @SearchIndexable
 public class Notifications extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "Notifications";
-
-    private static final String FLASHLIGHT_CATEGORY = "flashlight_category";
-    private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
-    private static final String FLASHLIGHT_DND_PREF = "flashlight_on_call_ignore_dnd";
-    private static final String FLASHLIGHT_RATE_PREF = "flashlight_on_call_rate";
-
-    private ListPreference mFlashOnCall;
-    private SwitchPreferenceCompat mFlashOnCallIgnoreDND;
-    private CustomSeekBarPreference mFlashOnCallRate;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,39 +44,12 @@ public class Notifications extends SettingsPreferenceFragment implements
         final ContentResolver resolver = mContext.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = mContext.getResources();
-
-        if (!Utils.deviceHasFlashlight(mContext)) {
-            final PreferenceCategory flashlightCategory =
-                    (PreferenceCategory) prefScreen.findPreference(FLASHLIGHT_CATEGORY);
-            prefScreen.removePreference(flashlightCategory);
-        } else {
-            mFlashOnCall = (ListPreference)
-                    prefScreen.findPreference(FLASHLIGHT_CALL_PREF);
-            mFlashOnCall.setOnPreferenceChangeListener(this);
-
-            mFlashOnCallIgnoreDND = (SwitchPreferenceCompat)
-                    prefScreen.findPreference(FLASHLIGHT_DND_PREF);
-            int value = Settings.System.getInt(resolver,
-                    Settings.System.FLASHLIGHT_ON_CALL, 0);
-
-            mFlashOnCallRate = (CustomSeekBarPreference)
-                    prefScreen.findPreference(FLASHLIGHT_RATE_PREF);
-
-            mFlashOnCallIgnoreDND.setEnabled(value > 1);
-            mFlashOnCallRate.setEnabled(value > 0);
-        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
-        if (preference == mFlashOnCall) {
-            int value = Integer.parseInt((String) newValue);
-            mFlashOnCallIgnoreDND.setEnabled(value > 1);
-            mFlashOnCallRate.setEnabled(value > 0);
-            return true;
-        }
         return false;
     }
 
@@ -99,20 +59,5 @@ public class Notifications extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.evolution_settings_notifications) {
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    final Resources res = context.getResources();
-
-                    if (!Utils.deviceHasFlashlight(context)) {
-                        keys.add(FLASHLIGHT_CALL_PREF);
-                        keys.add(FLASHLIGHT_DND_PREF);
-                        keys.add(FLASHLIGHT_RATE_PREF);
-                    }
-
-                    return keys;
-                }
-            };
+            new BaseSearchIndexProvider(R.xml.evolution_settings_notifications);
 }

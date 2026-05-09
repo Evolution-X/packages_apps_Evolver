@@ -26,11 +26,12 @@
             android:entries="@array/emoji_style_entries"
             android:entryValues="@array/emoji_style_values"
             android:defaultValue="android" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="themes_general_category"
-        android:title="@string/general_category_title">
+        android:key="themes_monet_colors_category"
+        android:title="@string/themes_monet_colors_category">
 
         <!-- Monet engine -->
         <Preference
@@ -45,6 +46,7 @@
             android:title="@string/gradient_settings_title"
             android:summary="@string/gradient_settings_summary"
             android:fragment="org.evolution.settings.fragments.themes.GradientSettings" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -53,7 +55,7 @@
 
         <!-- Themes -->
         <Preference
-        android:key="custom_system_theme"
+            android:key="custom_system_theme"
             android:title="@string/custom_system_theme_title"
             android:summary="@string/custom_system_theme_summary">
             <intent
@@ -82,11 +84,12 @@
             android:title="@string/themes_udfps_icon_title"
             android:summary="@string/themes_udfps_icon_summary"
             android:fragment="org.evolution.settings.fragments.themes.UdfpsIconPicker" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="themes_animations_category"
-        android:title="@string/themes_animations_category">
+        android:key="themes_visual_effects_category"
+        android:title="@string/themes_visual_effects_category">
 
         <!-- Boot animation -->
         <Preference
@@ -96,7 +99,7 @@
             android:fragment="org.evolution.settings.fragments.themes.BootAnimation"
             settings:controller="org.evolution.settings.fragments.themes.BootAnimationController" />
 
-        <!-- Screen Off animation -->
+        <!-- Screen off animation -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="screen_off_animation"
             android:title="@string/themes_screen_off_animation_title"
@@ -110,6 +113,7 @@
             android:title="@string/themes_udfps_animation_title"
             android:summary="@string/themes_udfps_animation_summary"
             android:fragment="org.evolution.settings.fragments.themes.UdfpsAnimation" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -127,6 +131,7 @@
             android:title="@string/themes_launcher_force_new_search_bar"
             android:summary="@string/themes_launcher_force_new_search_bar_summary"
             android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -168,5 +173,7 @@
             android:key="unlock_sound"
             android:title="@string/themes_unlock_sound_title"
             android:defaultValue="/product/media/audio/ui/Unlock.ogg" />
+
     </PreferenceCategory>
+
 </PreferenceScreen>

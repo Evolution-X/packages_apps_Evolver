@@ -49,7 +49,7 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_UNLOCK_SOUND = "unlock_sound";
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_UDFPS_ICON = "udfps_icon";
-    private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
+    private static final String KEY_ANIMATIONS_CATEGORY = "themes_visual_effects_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
     private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
