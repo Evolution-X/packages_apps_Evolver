@@ -28,6 +28,14 @@
     <string name="about_summary">O naszym ROM-ie</string>
     <string name="general_category_title">Ogólne</string>
     <string name="gestures_category_title">Gesty</string>
+    <!-- Reorganized categories -->
+    <string name="themes_monet_colors_category">Motyw dynamiczny i kolory</string>
+    <string name="themes_visual_effects_category">Efekty wizualne</string>
+    <string name="lock_screen_clock_category">Zegar</string>
+    <string name="lock_screen_media_category">Multimedia</string>
+    <string name="lock_screen_charging_effects_category">Efekty ładowania</string>
+    <string name="notifications_flashlight_category">Latarka</string>
+    <string name="status_bar_features_category">Funkcje</string>
     <!-- Themes -->
     <string name="themes_monet_category">Motyw dynamiczny</string>
     <string name="themes_monet_title">Ustawienia motywu dynamicznego</string>
@@ -154,6 +162,10 @@
     <string name="pulse_renderer_matrix">Matrix</string>
     <string name="pulse_renderer_particle">Cząsteczka</string>
     <string name="pulse_renderer_waveform">Fala</string>
+    <string name="pulse_show_on_ambient_title">Pokaż na ekranie otoczenia</string>
+    <string name="pulse_show_on_ambient_summary">Wyświetlaj wizualizator na zawsze włączonym ekranie i trybie otoczenia. Wyłącz, aby wyświetlić tylko na ekranie blokady.</string>
+    <string name="pulse_height_multiplier_title">Wysokość impulsu</string>
+    <string name="pulse_height_multiplier_summary">Dostosuj wysokość wizualizacji</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">Wybrany zegar nie wspiera niestandardowych czcionek</string>
     <string name="lockscreen_clock_category_title">Zegar</string>
@@ -191,6 +203,12 @@
     <string name="ls_media_art_fade_level_summary">Ustaw poziom zanikania dla okładki multimediów</string>
     <string name="ls_media_art_blur_level_title">Poziom rozmycia okładki albumu</string>
     <string name="ls_media_art_blur_level_summary">Intensywność rozmycia przy zastosowaniu filtra rozmycia</string>
+    <string name="ls_media_art_pixel_size_title">Rozmiar pikseli grafiki multimediów</string>
+    <string name="ls_media_art_pixel_size_summary">Dostosuj rozmiar pikseli dla grafiki multimedialnej wyświetlanej na ekranie blokady</string>
+    <!-- AOD Media Settings -->
+    <string name="show_on_aod_title">Pokaż na ekran zawsze włączony</string>
+    <string name="show_on_aod_summary">Wyświetlaj okładkę multimedialną na ekran zawsze włączony</string>
+    <string name="aod_brightness_title">Jasność ekran zawsze włączony</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Co jest grane</string>
     <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i ekran zawsze włączony</string>
