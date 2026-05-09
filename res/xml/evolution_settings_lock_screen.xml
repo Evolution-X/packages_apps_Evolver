@@ -9,21 +9,8 @@
     android:title="@string/lock_screen_title">
 
     <PreferenceCategory
-        android:key="lock_screen_interface_category"
-        android:title="@string/lock_screen_interface_category">
-
-        <Preference
-            android:key="nowplaying_settings"
-            android:title="@string/nowplaying_title"
-            android:summary="@string/nowplaying_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.NowplayingSettings" />
-
-        <!-- Ambient Wallpaper -->
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="doze_always_on_wallpaper_enabled"
-            android:title="@string/doze_always_on_wallpaper_title"
-            android:summary="@string/doze_always_on_wallpaper_summary"
-            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
+        android:key="lock_screen_clock_category"
+        android:title="@string/lock_screen_clock_category">
 
         <!-- Custom clock style -->
         <Preference
@@ -32,32 +19,25 @@
             android:summary="@string/lockscreen_custom_clock_style_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.CustomClockPreview" />
 
+        <!-- Smartspace -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_smartspace_enabled"
+            android:title="@string/lockscreen_smartspace_title"
+            android:summary="@string/lockscreen_smartspace_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lock_screen_media_category"
+        android:title="@string/lock_screen_media_category">
+
+        <!-- Now Playing -->
         <Preference
-            android:key="depth_wallpaper"
-            android:title="@string/dw_wallpaper_enabled_title"
-            android:summary="@string/dw_wallpaper_enabled_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.WallpaperDepth" />
-
-        <!--<Preference
-            android:key="peek_display"
-            android:title="@string/peek_display_notifications_title"
-            android:summary="@string/peek_display_notifications_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.PeekDisplay" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="keyguard_now_bar_enabled"
-            android:title="@string/keyguard_now_bar_enabled_title"
-            android:summary="@string/keyguard_now_bar_enabled_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-    	    android:key="nowbar_margin_bottom"
-    	    android:title="@string/keyguard_now_bar_height_title"
-    	    android:summary="@string/keyguard_now_bar_height_summary"
-    	    android:defaultValue="18"
-    	    android:min="1"
-    	    android:max="210"
-            android:dependency="keyguard_now_bar_enabled" />-->
+            android:key="nowplaying_settings"
+            android:title="@string/nowplaying_title"
+            android:summary="@string/nowplaying_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.NowplayingSettings" />
 
         <!-- Lockscreen Media Art -->
         <Preference
@@ -66,32 +46,6 @@
             android:summary="@string/ls_media_art_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.MediaArtSettings" />
 
-        <!-- Charging stats -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_battery_info"
-            android:title="@string/lock_screen_charging_stats_title"
-            android:summary="@string/lock_screen_charging_stats_summary"
-            android:defaultValue="true" />
-
-        <!-- Lockscreen remaining charging time -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_charging_time"
-            android:title="@string/lock_screen_charging_time_title"
-            android:summary="@string/lock_screen_charging_time_summary"
-            android:defaultValue="true" />
-
-        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="custom_aod_image_enabled"
-            android:title="@string/lockscreen_custom_image_enabled_title"
-            android:summary="@string/lockscreen_custom_image_summary"
-            android:defaultValue="false" />
-
-        <Preference
-            android:key="lockscreen_custom_image"
-            android:title="@string/lockscreen_custom_image_title"
-            android:summary="@string/lockscreen_custom_image_pick_summary"
-            android:dependency="custom_aod_image_enabled" />-->
-
         <!-- Pulse music visualizer -->
         <Preference
             android:key="pulse_settings"
@@ -99,17 +53,47 @@
             android:summary="@string/pulse_settings_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.PulseSettings" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lock_screen_interface_category"
+        android:title="@string/lock_screen_interface_category">
+
+        <!-- Ambient Wallpaper -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="doze_always_on_wallpaper_enabled"
+            android:title="@string/doze_always_on_wallpaper_title"
+            android:summary="@string/doze_always_on_wallpaper_summary"
+            android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
+
+        <!-- Depth wallpaper -->
+        <Preference
+            android:key="depth_wallpaper"
+            android:title="@string/dw_wallpaper_enabled_title"
+            android:summary="@string/dw_wallpaper_enabled_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.WallpaperDepth" />
+
+        <!-- Charging stats -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_battery_info"
+            android:title="@string/lock_screen_charging_stats_title"
+            android:summary="@string/lock_screen_charging_stats_summary"
+            android:defaultValue="true" />
+
+        <!-- Remaining charging time -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_charging_time"
+            android:title="@string/lock_screen_charging_time_title"
+            android:summary="@string/lock_screen_charging_time_summary"
+            android:defaultValue="true" />
+
+        <!-- Carrier name -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_show_carrier"
             android:title="@string/status_bar_carrier_lock_screen_title"
             android:summary="@string/status_bar_carrier_lock_screen_summary"
             android:defaultValue="true" />
 
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="lockscreen_smartspace_enabled"
-            android:title="@string/lockscreen_smartspace_title"
-            android:summary="@string/lockscreen_smartspace_summary"
-            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -180,8 +164,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="lock_screen_charging_category"
-        android:title="@string/lock_screen_charging_category">
+        android:key="lock_screen_charging_effects_category"
+        android:title="@string/lock_screen_charging_effects_category">
 
         <Preference
             android:key="charging_animation_settings"
@@ -189,66 +173,62 @@
             android:summary="@string/charging_animation_summary"
             android:fragment="org.evolution.settings.fragments.lockscreen.ChargingAnimationSettings" />
 
-        <!-- Charging animation -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="charging_animation"
             android:title="@string/themes_charging_animation_title"
             android:summary="@string/themes_charging_animation_summary"
             android:defaultValue="true" />
 
-        <!-- Dynamic charging animation -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="wireless_charging_dynamic_color"
             android:title="@string/wireless_charging_dynamic_color_title"
             android:summary="@string/wireless_charging_dynamic_color_summary"
             android:defaultValue="true" />
 
-        <!-- Ripple Shape -->
-        <org.evolution.settings.preferences.SystemSettingListPreference  
+        <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="wireless_charging_ripple_shape"
             android:title="@string/ripple_shape_title"
             android:summary="%s"
             android:entries="@array/ripple_shape_entries"
             android:entryValues="@array/ripple_shape_values"
             android:defaultValue="0" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="lockscreen_gestures_category"
         android:title="@string/lock_screen_fingerprint_category">
 
-        <!-- Fingerprint unlock ripple animation -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"
             android:title="@string/lock_screen_fingerprint_ripple_title"
             android:summary="@string/lock_screen_fingerprint_ripple_summary"
             android:defaultValue="true" />
 
-        <!-- Authentication success vibration -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="fp_success_vibrate"
             android:title="@string/lock_screen_fingerprint_success_vibration_title"
             android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
             android:defaultValue="true" />
 
-        <!-- Authentication error vibration -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="fp_error_vibrate"
             android:title="@string/lock_screen_fingerprint_error_vibration_title"
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
             android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="lock_screen_power_menu_category"
         android:title="@string/power_menu_title">
 
-        <!-- Secure lock screen power menu -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_enable_power_menu"
             android:title="@string/power_menu_lock_screen_secure_title"
             android:summary="@string/power_menu_lock_screen_secure_summary"
             android:defaultValue="true" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
