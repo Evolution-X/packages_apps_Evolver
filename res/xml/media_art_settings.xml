@@ -15,47 +15,66 @@
      limitations under the License.
 -->
 
-<PreferenceScreen 
+<PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/ls_media_art_title" >
+    android:title="@string/ls_media_art_title">
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="ls_media_art_enabled"
         android:title="@string/action_enable" />
 
+    <!-- AOD Toggle -->
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
-        android:key="ambient_media_art_enabled"
-        android:title="@string/ambient_media_art_title"
-        android:summary="@string/ambient_media_art_summary"
-        android:dependency="ls_media_art_enabled"
-        android:defaultValue="true" />
+        android:key="ls_media_art_aod_enabled"
+        android:title="@string/show_on_aod_title"
+        android:summary="@string/show_on_aod_summary"
+        android:defaultValue="false"
+        android:dependency="ls_media_art_enabled" />
+
+    <!-- AOD Dim Level -->
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="ls_media_art_aod_dim_level"
+        android:title="@string/aod_brightness_title"
+        android:max="100"
+        android:min="0"
+        android:defaultValue="35"
+        android:dependency="ls_media_art_aod_enabled" />
 
     <org.evolution.settings.preferences.SystemSettingListPreference
         android:key="ls_media_art_filter"
         android:title="@string/ls_media_art_filter_title"
+        android:summary="%s"
         android:entries="@array/ls_media_art_filter_entries"
         android:entryValues="@array/ls_media_art_filter_values"
-        android:dependency="ls_media_art_enabled"
-        android:defaultValue="0" />
+        android:defaultValue="1"
+        android:dependency="ls_media_art_enabled" />
+
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="ls_media_art_pixel_size"
+        android:title="@string/ls_media_art_pixel_size_title"
+        android:summary="@string/ls_media_art_pixel_size_summary"
+        android:max="45"
+        android:min="5"
+        android:defaultValue="20"
+        android:dependency="ls_media_art_enabled" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="ls_media_art_fade_level"
         android:title="@string/ls_media_art_fade_level_title"
         android:summary="@string/ls_media_art_fade_level_summary"
-        android:defaultValue="40"
-        settings:interval="1"
-        settings:units="%"
         android:max="100"
         android:min="0"
+        android:defaultValue="40"
         android:dependency="ls_media_art_enabled" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="ls_media_art_blur_level"
         android:title="@string/ls_media_art_blur_level_title"
         android:summary="@string/ls_media_art_blur_level_summary"
-        android:max="600"
+        android:max="200"
         android:min="0"
-        android:defaultValue="200"
+        android:defaultValue="90"
         android:dependency="ls_media_art_enabled" />
+
 </PreferenceScreen>
