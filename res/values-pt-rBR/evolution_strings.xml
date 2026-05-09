@@ -28,6 +28,14 @@
     <string name="about_summary">Sobre Evolution X</string>
     <string name="general_category_title">Geral</string>
     <string name="gestures_category_title">Gestos</string>
+    <!-- Reorganized categories -->
+    <string name="themes_monet_colors_category">Tema Monet e cores</string>
+    <string name="themes_visual_effects_category">Efeitos visuais</string>
+    <string name="lock_screen_clock_category">Relógio</string>
+    <string name="lock_screen_media_category">Mídia</string>
+    <string name="lock_screen_charging_effects_category">Efeitos de carregamento</string>
+    <string name="notifications_flashlight_category">Lanterna</string>
+    <string name="status_bar_features_category">Recursos</string>
     <!-- Themes -->
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Configurações do tema Monet</string>
@@ -154,6 +162,10 @@
     <string name="pulse_renderer_matrix">Matriz</string>
     <string name="pulse_renderer_particle">Partícula</string>
     <string name="pulse_renderer_waveform">Forma de onda</string>
+    <string name="pulse_show_on_ambient_title">Mostrar na tela ambiente</string>
+    <string name="pulse_show_on_ambient_summary">Exibe visualizador na tela sempre ativa e no modo ambiente. Desative para mostrar apenas na tela de bloqueio.</string>
+    <string name="pulse_height_multiplier_title">Altura do pulso</string>
+    <string name="pulse_height_multiplier_summary">Ajustar a altura da visualização</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">O relógio selecionado não suporta fontes personalizadas</string>
     <string name="lockscreen_clock_category_title">Relógio</string>
@@ -191,6 +203,12 @@
     <string name="ls_media_art_fade_level_summary">Defina o nível de esmaecimento da capa da mídia</string>
     <string name="ls_media_art_blur_level_title">Nível de desfoque da arte da capa</string>
     <string name="ls_media_art_blur_level_summary">Intensidade do desfoque quando o filtro de desfoque é aplicado</string>
+    <string name="ls_media_art_pixel_size_title">Tamanho do pixel de arte multimídia</string>
+    <string name="ls_media_art_pixel_size_summary">Ajustar o tamanho do pixel de arte de mídia exibido na tela de bloqueio</string>
+    <!-- AOD Media Settings -->
+    <string name="show_on_aod_title">Mostrar na tela sempre ativo</string>
+    <string name="show_on_aod_summary">Exibir arte da mídia na tela sempre ativa</string>
+    <string name="aod_brightness_title">Brilho AOD</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Now playing</string>
     <string name="nowplaying_summary">Exibir informações de música atualmente reproduzidas na tela de bloqueio e AOD</string>
