@@ -30,6 +30,14 @@
     <string name="general_category_title">General</string>
     <string name="gestures_category_title">Gestures</string>
 
+    <!-- Reorganized categories -->
+    <string name="themes_monet_colors_category">Monet &amp; Colors</string>
+    <string name="themes_visual_effects_category">Visual effects</string>
+    <string name="lock_screen_clock_category">Clock</string>
+    <string name="lock_screen_media_category">Media</string>
+    <string name="lock_screen_charging_effects_category">Charging effects</string>
+    <string name="notifications_flashlight_category">Flashlight</string>
+
     <!-- Themes -->
     <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet settings</string>
