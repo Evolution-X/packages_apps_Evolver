@@ -17,7 +17,10 @@ package org.evolution.settings.fragments.lockscreen;
 
 import android.content.Context;
 import android.content.ContentResolver;
+import android.database.ContentObserver;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.provider.Settings;
 
@@ -33,28 +36,104 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.android.internal.util.evolution.VibrationUtils;
+
 @SearchIndexable
-public class MediaArtSettings extends SettingsPreferenceFragment {
+public class MediaArtSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
+
+    private static final String KEY_MEDIA_ART_FILTER = "ls_media_art_filter";
+    private static final String KEY_PIXEL_SIZE = "ls_media_art_pixel_size";
+    private static final int FILTER_PIXELATION = 7;
+
+    private ListPreference mMediaArtFilter;
+    private Preference mPixelSize;
+
+    private ContentObserver mMediaFilterObserver = new ContentObserver(new Handler(Looper.getMainLooper())) {
+        @Override
+        public void onChange(boolean selfChange) {
+            updatePixelSizeVisibility();
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.media_art_settings);
+
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
+
+        mMediaArtFilter = (ListPreference) findPreference(KEY_MEDIA_ART_FILTER);
+        mPixelSize = findPreference(KEY_PIXEL_SIZE);
+
+        if (mMediaArtFilter != null) {
+            mMediaArtFilter.setOnPreferenceChangeListener(this);
+        }
+
+        updatePixelSizeVisibility();
+
+        if (resolver != null) {
+            resolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.LS_MEDIA_ART_FILTER),
+                false,
+                mMediaFilterObserver,
+                UserHandle.USER_CURRENT
+            );
+        }
     }
 
-    public static void reset(Context context) {
-        ContentResolver resolver = context.getContentResolver();
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LS_MEDIA_ART_ENABLED, 0, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LS_MEDIA_ART_FILTER, 0, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LS_MEDIA_ART_FADE_LEVEL, 40, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LS_MEDIA_ART_BLUR_LEVEL, 200, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.AMBIENT_MEDIA_ART_ENABLED, 1, UserHandle.USER_CURRENT);
+    @Override
+    public void onResume() {
+        super.onResume();
+        updatePixelSizeVisibility();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Context context = getContext();
+        if (context != null && context.getContentResolver() != null) {
+            context.getContentResolver().unregisterContentObserver(mMediaFilterObserver);
+        }
+    }
+
+    private void updatePixelSizeVisibility() {
+        if (mPixelSize == null) return;
+
+        Context context = getContext();
+        if (context == null) return;
+
+        final ContentResolver resolver = context.getContentResolver();
+        int currentFilter = Settings.System.getIntForUser(
+            resolver,
+            Settings.System.LS_MEDIA_ART_FILTER,
+            0,
+            UserHandle.USER_CURRENT
+        );
+
+        mPixelSize.setVisible(currentFilter == FILTER_PIXELATION);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mMediaArtFilter) {
+            int filterValue = Integer.parseInt((String) newValue);
+            if (mPixelSize != null) {
+                mPixelSize.setVisible(filterValue == FILTER_PIXELATION);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference != null && preference.getKey() != null) {
+            VibrationUtils.triggerVibration(getContext(), 3);
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override

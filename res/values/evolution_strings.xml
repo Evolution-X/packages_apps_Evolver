@@ -212,6 +212,13 @@
     <string name="ls_media_art_fade_level_summary">Set the fade level for media cover art</string>
     <string name="ls_media_art_blur_level_title">Cover art blur level</string>
     <string name="ls_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
+    <string name="ls_media_art_pixel_size_title">Media art pixel size</string>
+    <string name="ls_media_art_pixel_size_summary">Adjust the pixel size for media artwork displayed on the lock screen</string>
+
+    <!-- AOD Media Settings -->
+    <string name="show_on_aod_title">Show on AOD</string>
+    <string name="show_on_aod_summary">Display media artwork on always-on display</string>
+    <string name="aod_brightness_title">AOD brightness</string>
 
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Now Playing</string>
