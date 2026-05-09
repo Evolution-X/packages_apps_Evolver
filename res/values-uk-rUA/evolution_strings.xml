@@ -28,6 +28,13 @@
     <string name="about_summary">Про прошивку</string>
     <string name="general_category_title">Загальні</string>
     <string name="gestures_category_title">Жести</string>
+    <!-- Reorganized categories -->
+    <string name="themes_monet_colors_category">Монет &amp; кольори</string>
+    <string name="themes_visual_effects_category">Візуальні ефекти</string>
+    <string name="lock_screen_clock_category">Годинник</string>
+    <string name="lock_screen_media_category">Медіа</string>
+    <string name="lock_screen_charging_effects_category">Ефекти заряджання</string>
+    <string name="notifications_flashlight_category">Ліхтарик</string>
     <!-- Themes -->
     <string name="themes_monet_category">Функція \"Monet\"</string>
     <string name="themes_monet_title">Налаштування \"Monet\"</string>
