@@ -28,6 +28,14 @@
     <string name="about_summary">زانیاری دەربارەی تیمی پەرەپێدەر</string>
     <string name="general_category_title">گشتی</string>
     <string name="gestures_category_title">ئاماژەکان</string>
+    <!-- Reorganized categories -->
+    <string name="themes_monet_colors_category">مۆنێت &amp; و ڕەنگەکان</string>
+    <string name="themes_visual_effects_category">کاریگەرییە بینراوەکان</string>
+    <string name="lock_screen_clock_category">کاتژمێر</string>
+    <string name="lock_screen_media_category">میدیا</string>
+    <string name="lock_screen_charging_effects_category">کاریگەرییەکانی بارگاویکردنەوە</string>
+    <string name="notifications_flashlight_category">لایت</string>
+    <string name="status_bar_features_category">تایبەتمەندییەکان</string>
     <!-- Themes -->
     <string name="themes_monet_category">مۆنێت (Monet)</string>
     <string name="themes_monet_title">ڕێکخستنەکانی مۆنێت</string>
@@ -153,6 +161,10 @@
     <string name="pulse_renderer_matrix">ماترێکس</string>
     <string name="pulse_renderer_particle">تەنۆلکە</string>
     <string name="pulse_renderer_waveform">شەپۆلی</string>
+    <string name="pulse_show_on_ambient_title">نیشاندان لە ڕوونمای ئامبیێنت</string>
+    <string name="pulse_show_on_ambient_summary">پیشاندانی بینراوکار لەسەر ڕوونمای هەمیشە داگیرساو و دۆخی ئامبیێنت. ناچالاکی بکە بۆ ئەوەی تەنها لەسەر قوفڵی ڕوونما پیشان بدرێت.</string>
+    <string name="pulse_height_multiplier_title">بەرزیی ترپە</string>
+    <string name="pulse_height_multiplier_summary">ڕێکخستنی بەرزیی بینراوکار</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">کاتژمێری هەڵبژێردراو پشتگیری فۆنتی دەستکرد ناکات</string>
     <string name="lockscreen_clock_category_title">کاتژمێر</string>
@@ -169,6 +181,10 @@
     <string name="lockscreen_custom_clock_frame_margin_top_title">بەرزی کاتژمێر</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">ڕێکخستنی شوێنی ستوونی کاتژمێرە تایبەتەکە</string>
     <string name="lockscreen_custom_clock_color_mode_title">دۆخی ڕەنگی کاتژمێر</string>
+    <string name="lockscreen_custom_clock_size_title">قەبارەی کاتژمێر</string>
+    <string name="lockscreen_custom_clock_size_summary">قەبارەی کاتژمێری قوفڵی ڕوونما بگۆڕە (٥٠–١٥٠٪)</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">ئەنیمەیشنی AOD بۆ کاتژمێری تایبەت</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">دانانی ئەنیمەیشنی AOD بۆ شێوازی کاتژمێری تایبەت</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">وێنەی بەرگی میدیا</string>
     <string name="ls_media_art_summary">نیشاندانی وێنەی بەرگی میدیا کاتێک بەردەستە</string>
@@ -186,6 +202,12 @@
     <string name="ls_media_art_fade_level_summary">دانانی ئاستی کاڵبوونەوە بۆ وێنەی بەرگی میدیا</string>
     <string name="ls_media_art_blur_level_title">ئاستی لێڵبوونی وێنەی بەرگ</string>
     <string name="ls_media_art_blur_level_summary">خەستی لێڵی کاتێک فلتەری لێڵکردن جێبەجێ دەکرێت</string>
+    <string name="ls_media_art_pixel_size_title">قەبارەی پێکسڵی وێنەی میدیا</string>
+    <string name="ls_media_art_pixel_size_summary">ڕێکخستنی قەبارەی پێکسڵ بۆ ئەو وێنەی میدیایەی لەسەر قوفڵی ڕوونما پیشان دەدرێت</string>
+    <!-- AOD Media Settings -->
+    <string name="show_on_aod_title">نیشاندان لەسەر AOD</string>
+    <string name="show_on_aod_summary">پیشاندانی وێنەی میدیا لەسەر ڕوونمای هەمیشە داگیرساو</string>
+    <string name="aod_brightness_title">ڕۆشنایی AOD</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">ئێستا پەخش دەکرێت (Now Playing)</string>
     <string name="nowplaying_summary">پیشاندانی زانیاریی مۆسیقای ئێستا لەسەر قوفڵی ڕوونما و AOD</string>
@@ -655,6 +677,8 @@
     <string name="statusbar_extra_padding_end_title">پەراوێزی کۆتایی</string>
     <string name="qs_single_tone_title">QS بە یەک ڕەنگ</string>
     <string name="qs_single_tone_summary">شاردنەوەی پەردەی ئاگادارییەکان بۆ دەرکەوتنێکی یەکگرتووی ڕێکخستنە خێراکان</string>
+    <string name="qs_tile_alternate_color_title">ڕەنگی جێگرەوەی خانەی QS</string>
+    <string name="qs_tile_alternate_color_summary">بەکارهێنانی ڕەنگێکی جێگرەوەی پاشبنەما بۆ خانەکانی QS</string>
     <string name="qs_brightness_slider_shape_title">شێوەی خلیسکێنەری ڕۆشنایی</string>
     <string name="media_waveform_seekbar_title">شریتی گەڕانی شەپۆلی</string>
     <string name="media_waveform_seekbar_summary">پیشاندانی کاریگەرییەکی ئەنیمەیشنی شەپۆلی بۆ پێشکەوتنی لێدانی میدیا</string>
@@ -811,15 +835,22 @@
     <string name="qs_header_style4">سادە</string>
     <string name="qs_compact_media_player_mode_title">لێدەری میدیای پەستێنراو</string>
     <string name="qs_compact_media_player_mode_summary">بەکارهێنانی دۆخی پەستێنراو بۆ لێدەری میدیای ڕێکخستنە خێراکان</string>
-    <string name="qs_show_media_player_title">لێدەری میدیا</string>
-    <string name="qs_show_media_player_summary">پیشاندانی کۆنتڕۆڵەکانی میدیا لە ڕێکخستنە خێراکاندا</string>
-    <string name="qs_widgets_enabled_title">وێجێتەکانی QS</string>
-    <string name="qs_widgets_enabled_summary">پیشاندانی وێجێتەکان بۆ دەستگەیشتنی خێرا. ڕیزەکانی QS سنووردار دەکات بۆ ٢ ڕیز بۆ ئەوەی ڕێگری بکات لە تێکچوونی خلیسکاندنی پانێڵی QS</string>
+    <string name="qs_show_media_player_title">شوێنی لێدەری میدیا</string>
+    <string name="qs_show_media_player_hide">شاردنەوە</string>
+    <string name="qs_show_media_player_top">پیشاندان لە سەرەوە</string>
+    <string name="qs_show_media_player_bottom">پیشاندان لە خوارەوە</string>
     <string name="qs_tile_gradient_title">پلەبەندیی خانەکانی QS</string>
     <string name="qs_tile_gradient_summary">چالاککردنی ڕەنگی پلەبەندی بۆ پاشبنەمای خانەکانی QS</string>
     <string name="qs_tiles_haptic_feedback_title">لەرزین لە کاتی داگرتنی خانەی QS</string>
     <string name="qs_panel_tile_haptic_intensity_title">هێزی لەرزینی خانەی QS</string>
     <string name="qs_haptics_intensity_title">هێزی فڕێدانی QS</string>
+    <!-- QS widget -->
+    <string name="qs_widget_panel_title">پیشاندانی وێجێت لە پانێڵی QS</string>
+    <string name="qs_widget_panel_summary">پیشاندانی وێجێتی میدیا، دەنگ و ڕۆشنایی لە پانێڵی QS</string>
+    <string name="qs_widget_ios_music_title">پیشاندانی وێجێتی مۆسیقای iOS</string>
+    <string name="qs_widget_ios_music_summary">پیشاندانی پانێڵێکی میدیای هاوشێوەی iOS</string>
+    <string name="qs_widget_slider_corner_title">پیشاندانی خلیسکێنەری وێجێتی خڕکراو</string>
+    <string name="qs_widget_slider_corner_summary">پیشاندانی خلیسکێنەری وێجێتی ستوونی بە شێوازی خڕکراو لە پانێڵی QS</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">ئاگادارییە سەروەکان (Heads up)</string>
     <string name="notifications_heads_up_summary">ڕێگەدان بە ئاگادارییە سەرهەڵدەرەکان (Pop-up)</string>
@@ -931,11 +962,6 @@
     <string name="disable_flash_sms_summary">گۆڕینی نامە فلاشە پڕ-ڕوونماکان بۆ ئاگادارکردنەوەی ستاندارد.</string>
     <string name="common_clear_search">سڕینەوەی گەڕان</string>
     <string name="common_system_badge">سیستم (SYS)</string>
-    <!-- Miscellaneous/Hide developer status -->
-    <string name="hide_developer_status_title">شاردنەوەی باری گەشەپێدەر</string>
-    <string name="hide_developer_status_summary">شاردنەوەی ئەپە دەستنیشانکراوەکان لە پشکنینەکانی باری گەشەپێدەر</string>
-    <string name="hide_developer_status_none_configured">هیچ ئەپێک نەشاراوەتەوە</string>
-    <string name="hide_developer_status_count">%1$d ئەپ شاراوەتەوە</string>
     <!-- Miscellaneous/Smart Pixels -->
     <string name="smart_pixels_warning_text">پێکسڵی زیرەک تایبەتمەندییەکی پاشەکەوتکردنی وزەیە کە ڕێژەیەکی سەدی پێکسڵەکان ناچالاک دەکات بۆ یارمەتیدان لە درێژکردنەوەی تەمەنی باتری. لە هەندێک حاڵەتدا، ڕەنگە ببێتە هۆی وەڵامنەدانەوەی هەندێک شوێنی دەستلێدان لەسەر ڕوونما</string>
     <string name="smart_pixels_title">پێکسڵی زیرەک (Smart Pixels)</string>
@@ -1098,8 +1124,10 @@
     <string name="pif_invalid_fingerprint">فۆرماتی پەنجەمۆر نادروستە</string>
     <string name="pif_no_devices_found">هیچ ئامێرێک نەدۆزرایەوە</string>
     <string name="pif_no_api_key">نەتوانرا کلیلی APIی Flash Tool دەربهێنرێت</string>
+    <string name="pif_master_switch_title">چالاککردنی Play Integrity Fix</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">بەڕێوەبردنی keybox و ئەپە مەبەستەکان بۆ پشتڕاستکردنەوەی دەستپاکی بەهێز</string>
+    <string name="ts_master_switch_title">چالاککردنی فێڵکردنی TrickyStore</string>
     <string name="ts_keybox_management">بەڕێوەبردنی Keybox</string>
     <string name="ts_import_keybox">هێنانی keybox</string>
     <string name="ts_no_keybox">هیچ keybox ێک دانەمەزراوە</string>
@@ -1145,6 +1173,13 @@
     <string name="ts_revocation_suspended">⚠ ڕاگیراوە (%s)</string>
     <string name="ts_revocation_network_error">نەتوانرا پەیوەندیی بە سێرڤەری هەڵوەشاندنەوە بکرێت</string>
     <string name="ts_revocation_error">پشکنین شکستی هێنا: %s</string>
+    <string name="ts_fetch_keybox">هێنانی keyboxی فەرمی</string>
+    <string name="ts_fetch_keybox_summary">داگرتنی keybox لە سێرڤەرەکانی Evolution X</string>
+    <string name="ts_fetch_keybox_fetching">keybox دەهێنرێت…</string>
+    <string name="ts_fetch_keybox_success">keyboxی فەرمی بە سەرکەوتوویی هێنرا</string>
+    <string name="ts_fetch_keybox_failed">هێنان شکستی هێنا: %s</string>
+    <string name="ts_fetch_keybox_revoked_refetch">Keybox هەڵوەشاوەتەوە، دانەیەکی نوێتر دەهێنرێت…</string>
+    <string name="ts_fetch_keybox_same_file">Keybox پێشتر نوێکراوەتەوە</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">شێوازەکانی وێنەی پاشبنەما</string>
     <string name="wallpaper_settings_summary">ڕێکخستنی شێواز و کاریگەرییەکانی وێنەی پشتێنە</string>
@@ -1437,4 +1472,9 @@
     <!-- Emoji style -->
     <string name="emoji_style_title">شێوازی ئیمۆجی</string>
     <string name="emoji_style_summary">پاکێجی ئیمۆجیی سیستم هەڵبژێرە بەبێ گۆڕینی فۆنتی دەقەکان</string>
+    <string name="emoji_style_stock">بنەڕەتی (Stock)</string>
+    <string name="emoji_style_ios">iOS</string>
+    <string name="emoji_style_samsung">سامسۆنگ (Samsung)</string>
+    <string name="emoji_style_swiftui">SwiftUI</string>
+    <string name="emoji_style_facebook">فەیسبووک (Facebook)</string>
 </resources>
