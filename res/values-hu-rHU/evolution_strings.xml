@@ -64,8 +64,6 @@
     <string name="themes_brightness_slider_title">A Fényerőcsúszka stílusa</string>
     <string name="themes_brightness_slider_summary">Itt állíthatja be a csúszka stílusát</string>
     <string name="themes_animations_category">Animációk</string>
-    <string name="themes_charging_animation_title">Fodrozódó töltési animáció</string>
-    <string name="themes_charging_animation_summary">Animáció megjelenítése, ha a telefon a töltőhöz csatlakozik</string>
     <string name="themes_screen_off_animation_title">Képernyőkikapcsolási animáció</string>
     <string name="themes_screen_off_animation_crt">Képcső</string>
     <string name="themes_screen_off_animation_scale">Összeugrás</string>
@@ -868,7 +866,6 @@
     <string name="wallpaper_saturation_summary">Növelheti vagy csökkentheti a színek intenzitását</string>
     <string name="wallpaper_vignette_intensity_summary">A szélek sötétsége</string>
     <string name="wallpaper_posterize_levels_summary">Színmélység-csökkentés</string>
-    <string name="wireless_charging_dynamic_color_title">Dinamikus töltési színek</string>
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_footer_text">📁 Mappa elérése: /sdcard/Glymps\n\n⚠️ Ócska készülékeken némi laggolás lehetséges!\n\n🎨 Tipp: Használjon Egyéni kiemelést a Monet-beállításokban a stabil színekhez.</string>
     <string name="lock_glymps_lock_screen">Záróképernyő</string>
@@ -1004,7 +1001,6 @@
     <string name="charging_appearance_category_title">Megjelenés</string>
     <string name="charging_color_mode_title">Színmód</string>
     <string name="charging_display_category_title">Megjelenítési beállítások</string>
-    <string name="ripple_shape_title">Hullámforma töltéskor</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Az Emoji stílusa</string>
     <string name="emoji_style_summary">Emoji-csomag választása a rendszerhez a szövegbetűtípusok módosítása nélkül</string>
