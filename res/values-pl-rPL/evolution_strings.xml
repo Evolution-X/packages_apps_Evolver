@@ -65,8 +65,6 @@
     <string name="themes_brightness_slider_title">Styl suwaka jasności</string>
     <string name="themes_brightness_slider_summary">Ustaw styl suwaka jasności</string>
     <string name="themes_animations_category">Animacje</string>
-    <string name="themes_charging_animation_title">Animacja falowania podczas ładowania</string>
-    <string name="themes_charging_animation_summary">Wyświetl animację, gdy urządzenie jest podłączone</string>
     <string name="themes_screen_off_animation_title">Animacja wyłączania ekranu</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">Skala</string>
@@ -1205,8 +1203,6 @@
     <string name="wallpaper_vignette_intensity_summary">Ciemność krawędzi</string>
     <string name="wallpaper_posterize_levels_title">Poziomy posteryzacji</string>
     <string name="wallpaper_posterize_levels_summary">Zmniejszenie głębi kolorów</string>
-    <string name="wireless_charging_dynamic_color_title">Dynamiczny kolor ładowania</string>
-    <string name="wireless_charging_dynamic_color_summary">Kolor animacji fali ładowania na podstawie poziomu baterii</string>
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">Tapety z glifami</string>
     <string name="lock_glymps_enable_title">Włącz tapety z glifami</string>
@@ -1471,7 +1467,6 @@
     <string name="charging_display_category_title">Opcje wyświetlania</string>
     <string name="charging_show_on_lockscreen_summary">Pokaż animację, gdy widoczny jest ekran blokady</string>
     <string name="charging_show_on_aod_summary">Pokaż animację w trybie ekranu otoczenia</string>
-    <string name="ripple_shape_title">Kształt fali ładowania</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Styl emoji</string>
     <string name="emoji_style_summary">Wybierz pakiet emoji systemowych bez zmiany czcionek tekstu</string>
