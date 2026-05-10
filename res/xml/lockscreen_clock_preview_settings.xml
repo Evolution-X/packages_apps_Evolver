@@ -59,7 +59,7 @@
         android:summary="@string/lockscreen_custom_clock_opacity_summary"
         android:defaultValue="100"
         android:max="100"
-        settings:min="10" 
+        settings:min="0"
         settings:units="%" />
 
     <org.evolution.settings.preferences.SecureSettingSwitchPreference
