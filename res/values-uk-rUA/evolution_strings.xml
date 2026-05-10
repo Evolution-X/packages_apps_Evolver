@@ -65,8 +65,6 @@
     <string name="themes_brightness_slider_title">Стиль повзунка яскравості</string>
     <string name="themes_brightness_slider_summary">Встановити стиль повзунка яскравості</string>
     <string name="themes_animations_category">Анімація</string>
-    <string name="themes_charging_animation_title">Анімація заряджання</string>
-    <string name="themes_charging_animation_summary">Показувати анімацію при підключенні зарядного пристрою</string>
     <string name="themes_screen_off_animation_title">Анімація вимкнення екрану</string>
     <string name="themes_screen_off_animation_crt">Ефект старого телевізора</string>
     <string name="themes_screen_off_animation_scale">Масштабування</string>
@@ -1203,8 +1201,6 @@
     <string name="wallpaper_vignette_intensity_summary">Темрява країв</string>
     <string name="wallpaper_posterize_levels_title">Рівні постеризації</string>
     <string name="wallpaper_posterize_levels_summary">Зменшення глибини кольору</string>
-    <string name="wireless_charging_dynamic_color_title">Динамічний колір при заряджанні</string>
-    <string name="wireless_charging_dynamic_color_summary">Колір анімацію зарядки пульсуючий режим на основі рівня заряду батареї</string>
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">Шпалери Glymps</string>
     <string name="lock_glymps_enable_title">Увімкнути шпалери Glymps</string>
@@ -1468,7 +1464,6 @@
     <string name="charging_display_category_title">Параметри відображення</string>
     <string name="charging_show_on_lockscreen_summary">Показувати анімацію, коли видно екран блокування</string>
     <string name="charging_show_on_aod_summary">Показати анімацію в режимі активного екрану</string>
-    <string name="ripple_shape_title">Зарядна форма спуску</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Стиль емодзі</string>
     <string name="emoji_style_summary">Вибрати системний смайлик без зміни шрифтів тексту</string>
