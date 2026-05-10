@@ -68,8 +68,6 @@
     <string name="themes_brightness_slider_title">Brightness slider style</string>
     <string name="themes_brightness_slider_summary">Set brightness slider style</string>
     <string name="themes_animations_category">Animations</string>
-    <string name="themes_charging_animation_title">Charging ripple animation</string>
-    <string name="themes_charging_animation_summary">Display an animation when the device is plugged in</string>
     <string name="themes_screen_off_animation_title">Screen off animation</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">Scale</string>
@@ -1251,8 +1249,6 @@
     <string name="wallpaper_vignette_intensity_summary">Darkness of edges</string>
     <string name="wallpaper_posterize_levels_title">Posterize levels</string>
     <string name="wallpaper_posterize_levels_summary">Color depth reduction</string>
-    <string name="wireless_charging_dynamic_color_title">Dynamic charging color</string>
-    <string name="wireless_charging_dynamic_color_summary">Color the charging ripple animation based on battery level</string>
 
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">Wallpaper Glymps</string>
@@ -1557,7 +1553,6 @@
     <string name="charging_display_category_title">Display options</string>
     <string name="charging_show_on_lockscreen_summary">Show animation when the lock screen is visible</string>
     <string name="charging_show_on_aod_summary">Show animation in ambient display mode</string>
-    <string name="ripple_shape_title">Charging ripple shape</string>
 
     <!-- Emoji style -->
     <string name="emoji_style_title">Emoji style</string>

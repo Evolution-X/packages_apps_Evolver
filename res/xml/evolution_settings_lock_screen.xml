@@ -178,26 +178,6 @@
             android:fragment="org.evolution.settings.fragments.lockscreen.ChargingAnimationSettings"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="charging_animation"
-            android:title="@string/themes_charging_animation_title"
-            android:summary="@string/themes_charging_animation_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="wireless_charging_dynamic_color"
-            android:title="@string/wireless_charging_dynamic_color_title"
-            android:summary="@string/wireless_charging_dynamic_color_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="wireless_charging_ripple_shape"
-            android:title="@string/ripple_shape_title"
-            android:summary="%s"
-            android:entries="@array/ripple_shape_entries"
-            android:entryValues="@array/ripple_shape_values"
-            android:defaultValue="0" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
