@@ -52,7 +52,6 @@
     <string name="themes_system_icons_title">Ícones do sistema</string>
     <string name="themes_system_icons_summary">Definir estilo do ícone do sistema</string>
     <string name="themes_icon_shape_title">Formato do ícone</string>
-    <string name="themes_icon_shape_summary">Definir formato do ícone do sistema</string>
     <string name="themes_signal_icon_title">Ícone de sinal</string>
     <string name="themes_signal_icon_summary">Definir estilo do ícone de sinal</string>
     <string name="themes_wifi_icon_title">ícone Wi-Fi</string>
@@ -79,7 +78,6 @@
     <string name="themes_launcher_force_new_search_bar_summary">Ativar o novo estilo da barra de pesquisa do Google</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animação de inicialização</string>
-    <string name="themes_boot_animation_summary">Definir estilo de animação de inicialização</string>
     <string name="boot_animation_custom_pick">Escolha o arquivo ZIP</string>
     <string name="boot_animation_custom_pick_summary">Selecione um bootanimation.zip personalizado</string>
     <string name="boot_animation_applied_error">Falha ao aplicar animação de inicialização</string>
@@ -172,7 +170,6 @@
     <string name="theme_customization_lock_clock_face_summary">Modificar aparência do relógio na tela de bloqueio</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Estilo de relógio personalizado</string>
-    <string name="lockscreen_custom_clock_style_summary">Configurar estilos de relógio da tela de bloqueio</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Deslize para a esquerda ou direita para visualizar os estilos de relógio</string>
     <string name="lockscreen_custom_clock_style_info">O estilo de relógio personalizado substitui os estilos de relógio AOSP. O Smartspace estará desativado. Você pode ativar o clima personalizado.</string>
     <string name="lockscreen_custom_clock_opacity_title">Opacidade do relógio</string>
@@ -406,7 +403,6 @@
     <string name="status_bar_clock_date_right">À direita do relógio</string>
     <string name="status_bar_clock_date_left">À esquerda do relógio</string>
     <string name="statusbar_clock_chip_title">Chip de fundo do relógio</string>
-    <string name="statusbar_clock_chip_summary">Selecione um estilo de chip de fundo atrás do relógio</string>
     <string name="solid_accent">Realce sólido</string>
     <string name="outline">Contorno</string>
     <string name="solid_accent_gradient">Gradiente de acento sólido</string>
@@ -995,7 +991,6 @@
     <string name="app_spoofing_configured_count">%1$d aplicativos e jogos mascarados</string>
     <string name="app_spoofing_disabled">Desativado</string>
     <string name="app_spoofing_add_apps">Adicionar aplicativos e jogos</string>
-    <string name="app_spoofing_spoofed_model">Selecione o modelo</string>
     <string name="app_spoofing_clear_all">Limpar tudo</string>
     <string name="app_spoofing_configured_apps">Aplicativos e jogos configurados</string>
     <string name="app_spoofing_no_apps_configured">Nenhum aplicativo ou jogo configurado</string>
@@ -1170,6 +1165,7 @@
     <string name="ts_revocation_valid">✓ Válida — não revogada</string>
     <string name="ts_revocation_revoked">✗ Revogada (%s)</string>
     <string name="ts_revocation_suspended">⚠ Suspensa (%s)</string>
+    <string name="ts_revocation_soft_banned">Banimento temporário (a integridade forte pode falhar)</string>
     <string name="ts_revocation_network_error">Não foi possível acessar o servidor de revogação</string>
     <string name="ts_revocation_error">Falha na verificação: %s</string>
     <string name="ts_fetch_keybox">Buscar keybox oficial</string>
@@ -1436,7 +1432,6 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Deslizar com três dedos</string>
     <string name="shake_gestures_enabled_title">Gestos de agitar</string>
-    <string name="shake_gestures_enabled_summary">Agite o dispositivo para realizar uma ação</string>
     <string name="shake_gestures_action_title">Ação do gesto ao agitar</string>
     <string name="shake_gestures_intensity_title">Sensibilidade de agitação</string>
     <string name="shake_gestures_intensity_summary">Ajuste a sensibilidade da detecção de vibração</string>
