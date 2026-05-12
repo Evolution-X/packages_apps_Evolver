@@ -21,8 +21,7 @@
 
     <org.evolution.settings.preferences.ClockBackgroundChipPreference
         android:key="statusbar_clock_chip"
-        android:title="@string/statusbar_clock_chip_title"
-        android:summary="@string/statusbar_clock_chip_summary" />
+        android:title="@string/statusbar_clock_chip_title" />
 
     <org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference
         android:key="statusbar_clock_chip_gradient_start_color"
