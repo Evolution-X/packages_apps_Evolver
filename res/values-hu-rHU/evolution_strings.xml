@@ -51,7 +51,6 @@
     <string name="themes_system_icons_title">Rendszerikonok</string>
     <string name="themes_system_icons_summary">Itt állíthatja be a rendszerikonok stílusát</string>
     <string name="themes_icon_shape_title">Ikonforma</string>
-    <string name="themes_icon_shape_summary">Itt állíthatja be a rendszerikonok formáját</string>
     <string name="themes_signal_icon_title">Térerőkijelzés-ikon</string>
     <string name="themes_signal_icon_summary">Itt állíthatja be a térerő-ikon stílusát</string>
     <string name="themes_wifi_icon_title">WiFi-ikon</string>
@@ -78,7 +77,6 @@
     <string name="themes_launcher_force_new_search_bar_summary">Elérhetővé teszi az új stílusú Google keresősávot</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Bootanimáció</string>
-    <string name="themes_boot_animation_summary">Itt állíthatja be a boot-animáció stílusát</string>
     <string name="boot_animation_custom_pick">ZIP-fájl választása</string>
     <string name="boot_animation_custom_pick_summary">Válasszon egy egyéni bootanimation.zip-et</string>
     <string name="boot_animation_applied_error">A bootanimáció nem alkalmazható</string>
@@ -171,7 +169,6 @@
     <string name="theme_customization_lock_clock_face_summary">Módosíthatja a záróképernyő-óra megjelenését</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Egyéni órastílus</string>
-    <string name="lockscreen_custom_clock_style_summary">Itt állíthatja be a záróképernyő órastílusát</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Csúsztassa balra vagy jobbra az órastílus-előnézetek megtekintéséhez</string>
     <string name="lockscreen_custom_clock_style_info">Az egyéni órastílus az AOSP órastílusokat egyéni órákra cseréli. A Smartspace letiltásra kerül. Helyette engedélyezheti és használhatja az egyéni időjárás-előrejelzést.</string>
     <string name="lockscreen_custom_clock_opacity_title">Az Óra átlátszósága</string>
@@ -848,6 +845,7 @@
     <string name="ts_revocation_valid">✓ Érvényes — nem visszavont</string>
     <string name="ts_revocation_revoked">✗ Visszavont (%s)</string>
     <string name="ts_revocation_suspended">⚠ Felfüggesztett (%s)</string>
+    <string name="ts_revocation_soft_banned">Enyhén-tiltott (Az erős integritás megiúsulhat)</string>
     <string name="ts_revocation_network_error">A szerver nem elérhető </string>
     <string name="ts_revocation_error">Az ellenőrzés meghiúsult: %s</string>
     <string name="ts_fetch_keybox">A hivatalos keybox lekérése</string>
