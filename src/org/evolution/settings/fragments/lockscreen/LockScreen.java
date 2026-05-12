@@ -32,6 +32,7 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
+import org.evolution.settings.fragments.lockscreen.CustomClockController;
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
@@ -53,6 +54,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
     private static final String KEY_CARRIER_NAME = "lockscreen_show_carrier";
+    private static final String KEY_CUSTOM_CLOCK = "lockscreen_custom_clock_style";
 //    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
 //    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
 
@@ -112,6 +114,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
         mWeather.setOnPreferenceChangeListener(this);
 
+        updateCustomClockSummary();
         updateWeatherSettings();
     }
 
@@ -132,6 +135,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
         return false;
     }
 
+    private void updateCustomClockSummary() {
+        Preference pref = findPreference(KEY_CUSTOM_CLOCK);
+        if (pref == null) return;
+        pref.setSummary(new CustomClockController(getContext(), KEY_CUSTOM_CLOCK).getSummary());
+    }
+
     private void updateWeatherSettings() {
         if (mWeather == null || mSmartspace == null) return;
 
@@ -144,6 +153,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        updateCustomClockSummary();
         updateWeatherSettings();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }

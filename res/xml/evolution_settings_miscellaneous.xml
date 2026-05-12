@@ -36,7 +36,6 @@
         <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
             android:key="shake_gestures_enabled"
             android:title="@string/shake_gestures_enabled_title"
-            android:summary="@string/shake_gestures_enabled_summary"
             android:fragment="org.evolution.settings.fragments.miscellaneous.ShakeGestures"
             android:defaultValue="false" />
 
