@@ -52,7 +52,6 @@
     <string name="themes_system_icons_title">Системні іконки</string>
     <string name="themes_system_icons_summary">Встановити системний стиль іконок</string>
     <string name="themes_icon_shape_title">Форма значків</string>
-    <string name="themes_icon_shape_summary">Задати форму піктограми</string>
     <string name="themes_signal_icon_title">Стиль індикатора сигналу</string>
     <string name="themes_signal_icon_summary">Встановити стиль іконки сигналу</string>
     <string name="themes_wifi_icon_title">Стиль значка WiFi</string>
@@ -79,7 +78,6 @@
     <string name="themes_launcher_force_new_search_bar_summary">Увімкнути новий стиль панелі пошуку Google</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Анімація завантаження</string>
-    <string name="themes_boot_animation_summary">Встановити стиль завантажувальної анімації</string>
     <string name="boot_animation_custom_pick">Вибрати ZIP файл</string>
     <string name="boot_animation_custom_pick_summary">Виберіть власну анімацію завантаження</string>
     <string name="boot_animation_applied_error">Не вдалося застосувати бутанімацію</string>
@@ -171,7 +169,6 @@
     <string name="theme_customization_lock_clock_face_summary">Зміна зовнішнього вигляду годинника на екрані блокування</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Користувацький стиль годинника</string>
-    <string name="lockscreen_custom_clock_style_summary">Налаштування стилів годинника на екрані блокування</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Проведіть вліво або вправо, щоб переглянути стиль годинника</string>
     <string name="lockscreen_custom_clock_style_info">Користувацький стиль годинника замінює стилі годинника AOSP. Smartspace буде вимкнено. Замість цього ви можете увімкнути погоду.</string>
     <string name="lockscreen_custom_clock_opacity_title">Прозорість годинника</string>
@@ -405,7 +402,6 @@
     <string name="status_bar_clock_date_right">Праворуч від годинника</string>
     <string name="status_bar_clock_date_left">Ліворуч від годинника</string>
     <string name="statusbar_clock_chip_title">Колір фонової підкладки годинника</string>
-    <string name="statusbar_clock_chip_summary">Виберіть стиль фонового чіпа за годинником</string>
     <string name="solid_accent">Суцільний акцент</string>
     <string name="outline">Контур</string>
     <string name="solid_accent_gradient">Суцільний акцентний градієнт</string>
@@ -1169,6 +1165,7 @@
     <string name="ts_revocation_valid">✓ Дійсний — не відкликано</string>
     <string name="ts_revocation_revoked">✗ Скасовано (%s)</string>
     <string name="ts_revocation_suspended">⚠ Призупинено (%s)</string>
+    <string name="ts_revocation_soft_banned">Програмний бан (Сильна Цілісність може зазнати невдачі)</string>
     <string name="ts_revocation_network_error">Не вдалося зв’язатися зі сервером відкликання</string>
     <string name="ts_revocation_error">Перевірка не вдалася: %s</string>
     <string name="ts_fetch_keybox">Отримати офіційний ключ</string>
@@ -1435,7 +1432,6 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Свайп трьома пальцями</string>
     <string name="shake_gestures_enabled_title">Жести струшування</string>
-    <string name="shake_gestures_enabled_summary">Струсніть пристрій для виконання дії</string>
     <string name="shake_gestures_action_title">Дія при струшуванні</string>
     <string name="shake_gestures_intensity_title">Чутривість до струшування</string>
     <string name="shake_gestures_intensity_summary">Налаштуйте чутливість виявлення струшування</string>
