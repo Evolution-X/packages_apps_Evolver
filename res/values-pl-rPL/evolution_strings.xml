@@ -52,7 +52,6 @@
     <string name="themes_system_icons_title">Ikony systemowe</string>
     <string name="themes_system_icons_summary">Ustaw styl ikon systemowych</string>
     <string name="themes_icon_shape_title">Kształt ikon</string>
-    <string name="themes_icon_shape_summary">Ustaw kształt ikon systemowych</string>
     <string name="themes_signal_icon_title">Ikona sygnału</string>
     <string name="themes_signal_icon_summary">Ustaw styl ikony sygnału</string>
     <string name="themes_wifi_icon_title">Ikona Wi-Fi</string>
@@ -79,7 +78,6 @@
     <string name="themes_launcher_force_new_search_bar_summary">Włącz nowy styl paska wyszukiwania Google</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animacja startowa</string>
-    <string name="themes_boot_animation_summary">Ustaw styl animacji startowej</string>
     <string name="boot_animation_custom_pick">Wybierz plik ZIP</string>
     <string name="boot_animation_custom_pick_summary">Wybierz niestandardowy animacjastartowa.zip</string>
     <string name="boot_animation_applied_error">Nie udało się zastosować animacji startowej</string>
@@ -172,7 +170,6 @@
     <string name="theme_customization_lock_clock_face_summary">Zmodyfikuj wygląd zegara na ekranie blokady</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Niestandardowy styl zegara</string>
-    <string name="lockscreen_custom_clock_style_summary">Konfiguruj style zegara na ekranie blokady</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Przesuń w lewo lub w prawo, aby wyświetlić podgląd stylów zegara</string>
     <string name="lockscreen_custom_clock_style_info">Niestandardowy styl zegara zastępuje styl zegara AOSP - inteligentna przestrzeń zostanie wyłączona. Zamiast tego możesz włączyć niestandardową pogodę.</string>
     <string name="lockscreen_custom_clock_opacity_title">Krycie zegara</string>
@@ -406,7 +403,6 @@
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
     <string name="status_bar_clock_date_left">Po lewej stronie zegara</string>
     <string name="statusbar_clock_chip_title">Tło za zegarem</string>
-    <string name="statusbar_clock_chip_summary">Wybierz styl znacznika tła za zegarem</string>
     <string name="solid_accent">Jednolity akcent</string>
     <string name="outline">Obrys</string>
     <string name="solid_accent_gradient">Jednolity akcent gradientowy</string>
@@ -996,7 +992,6 @@
     <string name="app_spoofing_configured_count">%1$d aplikacji i gier sfałszowanych</string>
     <string name="app_spoofing_disabled">Wyłączony</string>
     <string name="app_spoofing_add_apps">Dodaj aplikacje i gry</string>
-    <string name="app_spoofing_spoofed_model">Wybierz model</string>
     <string name="app_spoofing_clear_all">Wyczyść wszystko</string>
     <string name="app_spoofing_configured_apps">Skonfigurowane aplikacje i gry</string>
     <string name="app_spoofing_no_apps_configured">Brak skonfigurowanych aplikacji lub gier</string>
@@ -1171,6 +1166,7 @@
     <string name="ts_revocation_valid">✓ Ważny — nie unieważniony</string>
     <string name="ts_revocation_revoked">✗ Unieważniony (%s)</string>
     <string name="ts_revocation_suspended">⚠ Zawieszony (%s)</string>
+    <string name="ts_revocation_soft_banned">Częściowo odwołany (silna integralność może nie zadziałać)</string>
     <string name="ts_revocation_network_error">Nie można nawiązać połączenia z serwerem odwołań</string>
     <string name="ts_revocation_error">Sprawdzanie nie powiodło się: %s</string>
     <string name="ts_fetch_keybox">Pobierz oficjalny zestaw kluczy</string>
@@ -1438,7 +1434,6 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Przesunięcie trzema palcami</string>
     <string name="shake_gestures_enabled_title">Gesty potrząsania</string>
-    <string name="shake_gestures_enabled_summary">Potrząśnij urządzeniem, aby wykonać akcję</string>
     <string name="shake_gestures_action_title">Akcja gestu potrząsania</string>
     <string name="shake_gestures_intensity_title">Czułość potrząsania</string>
     <string name="shake_gestures_intensity_summary">Dostosuj czułość wykrywania potrząsania</string>
