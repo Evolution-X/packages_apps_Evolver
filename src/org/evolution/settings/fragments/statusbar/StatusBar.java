@@ -28,6 +28,7 @@ import java.util.List;
 
 import lineageos.preference.LineageSystemSettingListPreference;
 
+import org.evolution.settings.fragments.statusbar.ClockChipController;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
@@ -47,6 +48,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 //    private static final String KEY_BATTERY_PERCENT = "status_bar_show_battery_percent";
 //    private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
+    private static final String KEY_CLOCK_CHIP = "statusbar_clock_chip";
     private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
@@ -129,6 +131,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
             mIconsCategory.removePreference(mBluetoothBatteryStatus);
         }
+
+        updateClockChipSummary();
     }
 
     @Override
@@ -162,6 +166,12 @@ public class StatusBar extends SettingsPreferenceFragment implements
         return false;
     }
 
+    private void updateClockChipSummary() {
+        Preference pref = findPreference(KEY_CLOCK_CHIP);
+        if (pref == null) return;
+        pref.setSummary(new ClockChipController(getContext(), KEY_CLOCK_CHIP).getSummary());
+    }
+
     private void updateQuickPulldownSummary(int value) {
         String summary = "";
         switch (value) {
@@ -190,6 +200,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        updateClockChipSummary();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 

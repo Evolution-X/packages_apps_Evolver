@@ -30,6 +30,7 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
+import org.evolution.settings.fragments.themes.IconShapeController;
 import org.evolution.settings.preferences.SoundPickerPreference;
 import org.evolution.settings.preferences.SystemPropertyListPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
@@ -54,8 +55,10 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
     private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
+    private static final String KEY_ICON_SHAPE = "android.theme.customization.adaptive_icon_shape";
     private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
     private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
+    private static final String KEY_BOOT_ANIMATION = "boot_animation";
 
     private SoundPickerPreference mLockSound;
     private SoundPickerPreference mUnlockSound;
@@ -144,6 +147,9 @@ public class Themes extends SettingsPreferenceFragment implements
         if (mEmojiStyle != null) {
             mEmojiStyle.setOnPreferenceChangeListener(this);
         }
+
+        updateBootAnimationSummary();
+        updateIconShapeSummary();
     }
 
     @Override
@@ -156,9 +162,23 @@ public class Themes extends SettingsPreferenceFragment implements
         return false;
     }
 
+    private void updateBootAnimationSummary() {
+        Preference pref = findPreference(KEY_BOOT_ANIMATION);
+        if (pref == null) return;
+        pref.setSummary(new BootAnimationController(getContext(), KEY_BOOT_ANIMATION).getSummary());
+    }
+
+    private void updateIconShapeSummary() {
+        Preference pref = findPreference(KEY_ICON_SHAPE);
+        if (pref == null) return;
+        pref.setSummary(new IconShapeController(getContext(), KEY_ICON_SHAPE).getSummary());
+    }
+
     @Override
     public void onResume() {
         super.onResume();
+        updateBootAnimationSummary();
+        updateIconShapeSummary();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
