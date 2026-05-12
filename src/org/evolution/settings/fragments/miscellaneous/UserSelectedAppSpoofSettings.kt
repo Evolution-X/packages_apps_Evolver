@@ -50,7 +50,6 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Close
@@ -165,8 +164,8 @@ private fun brandColorForProfile(profileKey: String, brand: String): Color {
         b.contains("asus") || profileKey.startsWith("ROG") -> Color(0xFFD00024)
         b.contains("xiaomi") || profileKey.startsWith("MI") || profileKey.startsWith("F5") -> Color(0xFFFF6900)
         b.contains("oneplus") || profileKey.startsWith("OP") -> Color(0xFFEB0029)
-        b.contains("nubia") || profileKey.startsWith("RM") -> Color(0xFF00C4B3)
-        b.contains("realme") || profileKey.startsWith("RMX") || profileKey.startsWith("RMP") -> Color(0xFFFFD700)
+        b.contains("realme") || profileKey.startsWith("RMX") || profileKey.startsWith("RMP") || profileKey.startsWith("RM15") -> Color(0xFFFFD700)
+        b.contains("nubia") || profileKey.startsWith("RM9") || profileKey.startsWith("RM10") -> Color(0xFF00C4B3)
         b.contains("lenovo") || profileKey.startsWith("LY") -> Color(0xFFE2231A)
         b.contains("honor") || profileKey.startsWith("HMV") -> Color(0xFF0066B3)
         b.contains("black shark") || profileKey.startsWith("BS") -> Color(0xFF00FF99)
@@ -195,11 +194,9 @@ private fun AppSpoofingContent(context: Context) {
     var spoofEnabled by remember { mutableStateOf(true) }
 
     var showAddDialog by remember { mutableStateOf(false) }
-    var showModelDialog by remember { mutableStateOf(false) }
     var showAddCustomProfileDialog by remember { mutableStateOf(false) }
     var showClearAllConfirm by remember { mutableStateOf(false) }
     var customProfileToEdit by remember { mutableStateOf<CustomSpoofProfile?>(null) }
-    var editTarget by remember { mutableStateOf<AppItem?>(null) }
     var customProfiles by remember { mutableStateOf(listOf<CustomSpoofProfile>()) }
 
     fun loadState() {
@@ -288,102 +285,6 @@ private fun AppSpoofingContent(context: Context) {
             onWriteCustomProfiles = { updated ->
                 writeCustomProfiles(context, updated)
                 customProfiles = updated
-            }
-        )
-    }
-
-    if (showModelDialog) {
-        AlertDialog(
-            onDismissRequest = { showModelDialog = false },
-            title = { Text(stringResource(R.string.user_select_spoofing_profile_title)) },
-            text = {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(280.dp)
-                        .verticalScroll(rememberScrollState()),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    profileValues.forEachIndexed { index, value ->
-                        val label = profileLabels.getOrElse(index) { value }
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable {
-                                    val target = editTarget ?: return@clickable
-                                    configuredMap = LinkedHashMap(configuredMap).apply {
-                                        put(target.packageName, value)
-                                    }
-                                    persistConfigured()
-                                    if (spoofEnabled) stopPackage(target.packageName)
-                                    showModelDialog = false
-                                }
-                                .padding(8.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(Icons.Default.Apps, contentDescription = null)
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(label)
-                        }
-                    }
-                    customProfiles.forEach { profile ->
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable {
-                                    val target = editTarget ?: return@clickable
-                                    configuredMap = LinkedHashMap(configuredMap).apply {
-                                        put(target.packageName, profile.id)
-                                    }
-                                    persistConfigured()
-                                    if (spoofEnabled) stopPackage(target.packageName)
-                                    showModelDialog = false
-                                }
-                                .padding(8.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(Icons.Default.Apps, contentDescription = null)
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(text = profile.name, modifier = Modifier.weight(1f))
-                            IconButton(onClick = {
-                                customProfileToEdit = profile
-                                showAddCustomProfileDialog = true
-                                showModelDialog = false
-                            }) {
-                                Icon(Icons.Default.Edit, contentDescription = null, modifier = Modifier.size(20.dp))
-                            }
-                            IconButton(onClick = {
-                                val newList = customProfiles.filter { it.id != profile.id }
-                                writeCustomProfiles(context, newList)
-                                customProfiles = newList
-                                val newConfigured = configuredMap.filterValues { it != profile.id }
-                                if (newConfigured.size != configuredMap.size) {
-                                    configuredMap = LinkedHashMap(newConfigured)
-                                    persistConfigured()
-                                }
-                            }) {
-                                Icon(Icons.Default.Delete, contentDescription = null, modifier = Modifier.size(20.dp))
-                            }
-                        }
-                    }
-                }
-            },
-            confirmButton = {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    TextButton(onClick = {
-                        showModelDialog = false
-                        showAddCustomProfileDialog = true
-                    }) {
-                        Text(stringResource(R.string.add_new_spoof_profile))
-                    }
-                    TextButton(onClick = { showModelDialog = false }) {
-                        Text(stringResource(R.string.cancel))
-                    }
-                }
             }
         )
     }
@@ -563,15 +464,6 @@ private fun AppSpoofingContent(context: Context) {
                             Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(18.dp))
                             Spacer(modifier = Modifier.width(4.dp))
                             Text(stringResource(R.string.app_spoofing_add_apps), style = MaterialTheme.typography.labelSmall)
-                        }
-
-                        OutlinedButton(
-                            onClick = { showModelDialog = true },
-                            modifier = Modifier.weight(1f)
-                        ) {
-                            Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(stringResource(R.string.app_spoofing_spoofed_model), style = MaterialTheme.typography.labelSmall)
                         }
 
                         OutlinedButton(
