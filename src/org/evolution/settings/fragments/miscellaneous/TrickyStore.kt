@@ -98,22 +98,32 @@ class TrickyStore : SettingsPreferenceFragment() {
         val json = fetchRevocationJson()
             ?: return Pair(getString(R.string.ts_revocation_network_error), Unit)
         val entries = json.optJSONObject("entries")
-            ?: return Pair(getString(R.string.ts_revocation_valid), Unit)
-        for (serial in serials) {
-            val entry = entries.optJSONObject(serial) ?: continue
-            val status = entry.optString("status", "").uppercase()
-            val reason = entry.optString("reason", "")
-            if (status == "REVOKED") {
-                if (isOfficialBuild) {
-                    lifecycleScope.launch {
-                        toast(getString(R.string.ts_fetch_keybox_revoked_refetch))
-                        fetchOfficialKeybox(silent = true)
+        if (entries != null) {
+            for (serial in serials) {
+                val entry = entries.optJSONObject(serial) ?: continue
+                val status = entry.optString("status", "").uppercase()
+                val reason = entry.optString("reason", "")
+                if (status == "REVOKED") {
+                    if (isOfficialBuild) {
+                        lifecycleScope.launch {
+                            toast(getString(R.string.ts_fetch_keybox_revoked_refetch))
+                            fetchOfficialKeybox(silent = true)
+                        }
                     }
+                    return Pair(getString(R.string.ts_revocation_revoked, reason), Unit)
                 }
-                return Pair(getString(R.string.ts_revocation_revoked, reason), Unit)
+                if (status == "SUSPENDED")
+                    return Pair(getString(R.string.ts_revocation_suspended, reason), Unit)
             }
-            if (status == "SUSPENDED")
-                return Pair(getString(R.string.ts_revocation_suspended, reason), Unit)
+        }
+        if (isKeyboxSoftBanned(serials)) {
+            if (isOfficialBuild) {
+                lifecycleScope.launch {
+                    toast(getString(R.string.ts_fetch_keybox_revoked_refetch))
+                    fetchOfficialKeybox(silent = true)
+                }
+            }
+            return Pair(getString(R.string.ts_revocation_soft_banned), Unit)
         }
         return Pair(getString(R.string.ts_revocation_valid), Unit)
     }
@@ -151,6 +161,41 @@ class TrickyStore : SettingsPreferenceFragment() {
         conn.readTimeout = 10_000
         if (conn.responseCode == HttpURLConnection.HTTP_OK)
             JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
+        else null
+    } catch (_: Exception) { null }
+
+    private fun isKeyboxSoftBanned(serials: List<String>): Boolean {
+        val files = fetchSoftBannedFileList() ?: return false
+        for (filename in files) {
+            val xml = fetchRawKeybox("$SOFTBANNED_RAW_BASE_URL$filename") ?: continue
+            val bannedSerials = extractCertSerials(xml)
+            if (serials.any { it in bannedSerials }) return true
+        }
+        return false
+    }
+
+    private fun fetchSoftBannedFileList(): List<String>? = try {
+        val conn = URL(SOFTBANNED_API_URL).openConnection() as HttpURLConnection
+        conn.connectTimeout = 10_000
+        conn.readTimeout = 10_000
+        if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+            val response = org.json.JSONArray(
+                BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() }
+            )
+            (0 until response.length()).mapNotNull { i ->
+                response.optJSONObject(i)
+                    ?.optString("name")
+                    ?.takeIf { it.endsWith(".xml") }
+            }
+        } else null
+    } catch (_: Exception) { null }
+
+    private fun fetchRawKeybox(url: String): String? = try {
+        val conn = URL(url).openConnection() as HttpURLConnection
+        conn.connectTimeout = 10_000
+        conn.readTimeout = 10_000
+        if (conn.responseCode == HttpURLConnection.HTTP_OK)
+            conn.inputStream.use { it.readBytes().toString(Charsets.UTF_8) }
         else null
     } catch (_: Exception) { null }
 
@@ -454,5 +499,9 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val OFFICIAL_KEYBOX_URL =
             "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/keybox.xml"
         private const val TRICKYSTORE_ENABLED_KEY = "spoof_trickystore_enabled"
+        private const val SOFTBANNED_API_URL =
+            "https://git.evolution-x.org/api/v1/repos/EvoX/keybox/contents/softbanned"
+        private const val SOFTBANNED_RAW_BASE_URL =
+            "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/softbanned/"
     }
 }

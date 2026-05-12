@@ -1216,6 +1216,7 @@
     <string name="ts_revocation_valid">✓ Valid — not revoked</string>
     <string name="ts_revocation_revoked">✗ Revoked (%s)</string>
     <string name="ts_revocation_suspended">⚠ Suspended (%s)</string>
+    <string name="ts_revocation_soft_banned">Soft-banned (Strong Integrity may fail)</string>
     <string name="ts_revocation_network_error">Could not reach revocation server</string>
     <string name="ts_revocation_error">Check failed: %s</string>
     <string name="ts_fetch_keybox">Fetch official keybox</string>
