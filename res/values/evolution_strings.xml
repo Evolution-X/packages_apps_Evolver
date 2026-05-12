@@ -55,7 +55,6 @@
     <string name="themes_system_icons_title">System icons</string>
     <string name="themes_system_icons_summary">Set system icon style</string>
     <string name="themes_icon_shape_title">Icon shape</string>
-    <string name="themes_icon_shape_summary">Set system icon shape</string>
     <string name="themes_signal_icon_title">Signal icon</string>
     <string name="themes_signal_icon_summary">Set signal icon style</string>
     <string name="themes_wifi_icon_title">Wi-Fi icon</string>
@@ -83,7 +82,6 @@
 
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Boot animation</string>
-    <string name="themes_boot_animation_summary">Set boot animation style</string>
     <string name="boot_animation_custom_pick">Pick ZIP file</string>
     <string name="boot_animation_custom_pick_summary">Select a custom bootanimation.zip</string>
     <string name="boot_animation_applied_error">Failed to apply boot animation</string>
@@ -181,7 +179,6 @@
 
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Custom clock style</string>
-    <string name="lockscreen_custom_clock_style_summary">Configure lock screen clock styles</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Swipe left or right to preview clock styles</string>
     <string name="lockscreen_custom_clock_style_info">Custom clock style replaces AOSP clock styles. Smartspace will be disabled. You can enable custom weather instead.</string>
     <string name="lockscreen_custom_clock_opacity_title">Clock opacity</string>
@@ -427,7 +424,6 @@
     <string name="status_bar_clock_date_right">Right of time</string>
     <string name="status_bar_clock_date_left">Left of time</string>
     <string name="statusbar_clock_chip_title">Clock background chip</string>
-    <string name="statusbar_clock_chip_summary">Select a background chip style behind the clock</string>
     <string name="solid_accent">Solid accent</string>
     <string name="outline">Outline</string>
     <string name="solid_accent_gradient">Solid accent gradient</string>
@@ -1523,7 +1519,6 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Three-finger swipe</string>
     <string name="shake_gestures_enabled_title">Shake gestures</string>
-    <string name="shake_gestures_enabled_summary">Shake the device to perform an action</string>
     <string name="shake_gestures_action_title">Shake gesture action</string>
     <string name="shake_gestures_intensity_title">Shake sensitivity</string>
     <string name="shake_gestures_intensity_summary">Adjust the sensitivity of shake detection</string>

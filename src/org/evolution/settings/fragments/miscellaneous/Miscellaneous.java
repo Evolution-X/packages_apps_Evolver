@@ -31,6 +31,7 @@ import java.util.List;
 
 import lineageos.providers.LineageSettings;
 
+import org.evolution.settings.fragments.miscellaneous.ShakeGesturesController;
 import org.evolution.settings.preferences.CustomSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.PreferenceUtils;
@@ -44,6 +45,7 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
     private static final String TAG = "Miscellaneous";
 
     private static final String KEY_THREE_FINGERS_SWIPE = "three_fingers_swipe";
+    private static final String KEY_SHAKE_GESTURES = "shake_gestures_enabled";
     private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
     private static final String FLASHLIGHT_DND_PREF = "flashlight_on_call_ignore_dnd";
     private static final String FLASHLIGHT_RATE_PREF = "flashlight_on_call_rate";
@@ -88,6 +90,24 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
             mFlashOnCallIgnoreDND.setEnabled(value > 1);
             mFlashOnCallRate.setEnabled(value > 0);
         }
+
+        updateShakeGesturesSummary();
+
+        Preference shakeGestures = findPreference(KEY_SHAKE_GESTURES);
+        if (shakeGestures != null) {
+            shakeGestures.setOnPreferenceChangeListener((pref, newValue) -> {
+                boolean enabled = (Boolean) newValue;
+                String summary;
+                if (!enabled) {
+                    summary = getString(com.android.settings.R.string.gesture_setting_off);
+                } else {
+                    summary = new ShakeGesturesController(
+                        getContext(), KEY_SHAKE_GESTURES).getSummary().toString();
+                }
+                pref.setSummary(summary);
+                return true;
+            });
+        }
     }
 
     private ListPreference initList(String key, Action value) {
@@ -128,9 +148,16 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         return false;
     }
 
+    private void updateShakeGesturesSummary() {
+        Preference pref = findPreference(KEY_SHAKE_GESTURES);
+        if (pref == null) return;
+        pref.setSummary(new ShakeGesturesController(getContext(), KEY_SHAKE_GESTURES).getSummary());
+    }
+
     @Override
     public void onResume() {
         super.onResume();
+        updateShakeGesturesSummary();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
