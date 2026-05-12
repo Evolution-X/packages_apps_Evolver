@@ -50,7 +50,6 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Close
@@ -165,8 +164,8 @@ private fun brandColorForProfile(profileKey: String, brand: String): Color {
         b.contains("asus") || profileKey.startsWith("ROG") -> Color(0xFFD00024)
         b.contains("xiaomi") || profileKey.startsWith("MI") || profileKey.startsWith("F5") -> Color(0xFFFF6900)
         b.contains("oneplus") || profileKey.startsWith("OP") -> Color(0xFFEB0029)
-        b.contains("nubia") || profileKey.startsWith("RM") -> Color(0xFF00C4B3)
-        b.contains("realme") || profileKey.startsWith("RMX") || profileKey.startsWith("RMP") -> Color(0xFFFFD700)
+        b.contains("realme") || profileKey.startsWith("RMX") || profileKey.startsWith("RMP") || profileKey.startsWith("RM15") -> Color(0xFFFFD700)
+        b.contains("nubia") || profileKey.startsWith("RM9") || profileKey.startsWith("RM10") -> Color(0xFF00C4B3)
         b.contains("lenovo") || profileKey.startsWith("LY") -> Color(0xFFE2231A)
         b.contains("honor") || profileKey.startsWith("HMV") -> Color(0xFF0066B3)
         b.contains("black shark") || profileKey.startsWith("BS") -> Color(0xFF00FF99)
@@ -563,15 +562,6 @@ private fun AppSpoofingContent(context: Context) {
                             Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(18.dp))
                             Spacer(modifier = Modifier.width(4.dp))
                             Text(stringResource(R.string.app_spoofing_add_apps), style = MaterialTheme.typography.labelSmall)
-                        }
-
-                        OutlinedButton(
-                            onClick = { showModelDialog = true },
-                            modifier = Modifier.weight(1f)
-                        ) {
-                            Icon(Icons.Default.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(stringResource(R.string.app_spoofing_spoofed_model), style = MaterialTheme.typography.labelSmall)
                         }
 
                         OutlinedButton(

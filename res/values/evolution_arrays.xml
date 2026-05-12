@@ -1246,9 +1246,9 @@
     <string-array name="perapp_spoof_profile_values" translatable="false">
         <item>BS4C</item>
         <item>F5</item>
+        <item>S25U</item>
         <item>GZF5</item>
         <item>HMV2R</item>
-        <item>LY700</item>
         <item>LY70023</item>
         <item>MI11TP</item>
         <item>MI13</item>
@@ -1256,46 +1256,32 @@
         <item>MI14P</item>
         <item>OP12</item>
         <item>OP13</item>
-        <item>OP8P5G</item>
-        <item>PXL</item>
         <item>PXL10PXL</item>
         <item>RM9P</item>
         <item>RM10P</item>
         <item>RM15P5G</item>
-        <item>RMX14</item>
-        <item>RMP35G</item>
-        <item>ROG6DU</item>
-        <item>ROG8P</item>
         <item>ROG9P</item>
-        <item>S25U</item>
         <item>None</item>
     </string-array>
 
     <string-array name="perapp_spoof_profile_labels">
         <item>Black Shark 4 (China)</item>
         <item>Poco F5</item>
+        <item>Samsung Galaxy S25 Ultra</item>
         <item>Samsung Galaxy Z Fold 5</item>
         <item>Honor Magic V2 RSR</item>
         <item>Lenovo Legion Y700</item>
-        <item>Lenovo Legion Y700 (2023)</item>
         <item>Xiaomi 11T Pro</item>
         <item>Xiaomi 13</item>
         <item>Xiaomi 13 Pro</item>
         <item>Xiaomi 14 Pro</item>
         <item>OnePlus 12</item>
         <item>OnePlus 13</item>
-        <item>OnePlus 8 Pro 5G</item>
-        <item>Pixel XL</item>
         <item>Pixel 10 Pro XL</item>
         <item>REDMAGIC 9 Pro</item>
-        <item>RedMagic 10 Pro</item>
+        <item>REDMAGIC 10 Pro</item>
         <item>Realme 15 Pro 5G</item>
-        <item>Realme 14</item>
-        <item>Realme P3 5G</item>
-        <item>ROG Phone 6D Ultimate</item>
-        <item>Asus ROG Phone 8 Pro</item>
-        <item>Asus ROG Phone 9 Pro</item>
-        <item>Samsung Galaxy S25 Ultra</item>
+        <item>ROG Phone 9 Pro</item>
         <item>None</item>
     </string-array>
 
