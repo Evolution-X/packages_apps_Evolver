@@ -39,6 +39,14 @@
         android:entryValues="@array/monet_engine_color_source_values"
         android:defaultValue="both" />
 
+    <org.evolution.settings.preferences.HuePickerPreference
+        android:key="accent_hue"
+        android:title="@string/monet_engine_custom_color_title"
+        android:defaultValue="218"
+        android:max="360"
+        settings:min="0"
+        settings:interval="1" />
+
     <org.evolution.settings.preferences.colorpicker.ColorPickerPreference
         android:key="accent_color"
         android:title="@string/monet_engine_custom_color_title"

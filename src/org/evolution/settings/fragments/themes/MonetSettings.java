@@ -37,6 +37,7 @@ import com.android.settingslib.search.SearchIndexable;
 
 import org.evolution.settings.preferences.colorpicker.ColorPickerPreference;
 import org.evolution.settings.preferences.CustomSeekBarPreference;
+import org.evolution.settings.preferences.HuePickerPreference;
 
 import java.lang.CharSequence;
 
@@ -84,6 +85,7 @@ public class MonetSettings extends DashboardFragment implements
     private static final String PREF_CHROMA_FACTOR = "chroma_factor";
     private static final String PREF_WHOLE_PALETTE = "whole_palette";
     private static final String PREF_TINT_BACKGROUND = "tint_background";
+    private static final String PREF_HUE_PICKER = "accent_hue";
 
     private static final int DEFAULT_COLOR = 0xFF1b6ef3;
 
@@ -96,6 +98,7 @@ public class MonetSettings extends DashboardFragment implements
     private CustomSeekBarPreference mChromaPref;
     private SwitchPreferenceCompat mWholePalettePref;
     private SwitchPreferenceCompat mTintBackgroundPref;
+    private HuePickerPreference mHuePicker;
 
     private int mAccentColorValue;
     private int mBgColorValue;
@@ -120,6 +123,7 @@ public class MonetSettings extends DashboardFragment implements
         mChromaPref = findPreference(PREF_CHROMA_FACTOR);
         mWholePalettePref = findPreference(PREF_WHOLE_PALETTE);
         mTintBackgroundPref = findPreference(PREF_TINT_BACKGROUND);
+        mHuePicker = findPreference(PREF_HUE_PICKER);
         mSharedPreferences = getActivity().getSharedPreferences(TAG, Context.MODE_PRIVATE);
 
         updatePreferences();
@@ -158,6 +162,12 @@ public class MonetSettings extends DashboardFragment implements
                 } else {
                     mAccentColorValue = mSharedPreferences.getInt(PREF_ACCENT_COLOR, DEFAULT_COLOR);
                     color = ColorPickerPreference.convertToRGB(mAccentColorValue).replace("#", "");
+                }
+                if (mHuePicker != null) {
+                    float[] hsv = new float[3];
+                    android.graphics.Color.colorToHSV(mAccentColorValue, hsv);
+                    mHuePicker.setHue(Math.round(hsv[0]));
+                    mHuePicker.setOnPreferenceChangeListener(this);
                 }
                 boolean hasBGColor = object.has(OVERLAY_CATEGORY_BG_COLOR);
                 mAccentBackgroundPref.setChecked(mSharedPreferences.getBoolean(PREF_ACCENT_BACKGROUND, hasBGColor));
@@ -231,7 +241,20 @@ public class MonetSettings extends DashboardFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mThemeStylePref) {
+        if (preference == mHuePicker) {
+            int hue = (Integer) newValue;
+            int color = HuePickerPreference.hsvToColor(hue);
+            String rgbColor = ColorPickerPreference.convertToRGB(color).replace("#", "");
+            mAccentColorValue = color;
+            mSharedPreferences.edit().putInt(PREF_ACCENT_COLOR, color).apply();
+            try {
+                JSONObject object = getSettingsJson();
+                object.putOpt(OVERLAY_CATEGORY_ACCENT_COLOR, rgbColor);
+                object.putOpt(OVERLAY_CATEGORY_SYSTEM_PALETTE, rgbColor);
+                putSettingsJson(object);
+            } catch (JSONException ignored) {}
+            return true;
+        } else if (preference == mThemeStylePref) {
             String value = (String) newValue;
             setStyleValue(value);
             updateListByValue(mThemeStylePref, value, false);
@@ -290,6 +313,7 @@ public class MonetSettings extends DashboardFragment implements
 
     private void updateAccentEnablement(String source) {
         final boolean shouldEnable = source != null && source.equals(COLOR_SOURCE_PRESET);
+        if (mHuePicker != null) mHuePicker.setEnabled(shouldEnable);
         mAccentColorPref.setEnabled(shouldEnable);
         mAccentBackgroundPref.setEnabled(shouldEnable);
         setColorValue();
