@@ -52,7 +52,6 @@
     <string name="themes_system_icons_title">وێنۆچکەکانی سیستم</string>
     <string name="themes_system_icons_summary">دانانی شێوازی وێنۆچکەی سیستم</string>
     <string name="themes_icon_shape_title">شێوەی ئایکۆنەکان</string>
-    <string name="themes_icon_shape_summary">دانانی شێوەی وێنۆچکەی سیستم</string>
     <string name="themes_signal_icon_title">وێنۆچکەی شەپۆل</string>
     <string name="themes_signal_icon_summary">دانانی شێوازی وێنۆچکەی شەپۆل</string>
     <string name="themes_wifi_icon_title">وێنۆچکەی وای-فای</string>
@@ -79,7 +78,6 @@
     <string name="themes_launcher_force_new_search_bar_summary">چالاککردنی شێوازی نوێی شریتی گەڕانی Google</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">جووڵەی کارپێکردن (Boot animation)</string>
-    <string name="themes_boot_animation_summary">دیاریکردنی شێوازی جووڵەی کاتی داگیرسانی ئامێر</string>
     <string name="boot_animation_custom_pick">هەڵبژاردنی فایلی ZIP</string>
     <string name="boot_animation_custom_pick_summary">هەڵبژاردنی فایلی bootanimation.zipی دەستکرد</string>
     <string name="boot_animation_applied_error">جێبەجێکردنی جووڵەی کارپێکردن سەرکەوتوو نەبوو</string>
@@ -171,7 +169,6 @@
     <string name="theme_customization_lock_clock_face_summary">دەستکاریکردنی دەرکەوتنی کاتژمێری قوفڵی ڕوونما</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">شێوازی کاتژمێری دەستکرد</string>
-    <string name="lockscreen_custom_clock_style_summary">ڕێکخستنی شێوازەکانی کاتژمێری قوفڵی ڕوونما</string>
     <string name="lockscreen_custom_clock_style_highlight_text">بۆ چەپ یان ڕاست بخلیسکێنە بۆ پێشبینینی شێوازەکان</string>
     <string name="lockscreen_custom_clock_style_info">شێوازی کاتژمێری تایبەت جێگەی شێوازەکانی کاتژمێری AOSP دەگرێتەوە. Smartspace ناچالاک دەبێت. لەبری ئەوە دەتوانیت کەشوهەوای تایبەت چالاک بکەیت.</string>
     <string name="lockscreen_custom_clock_opacity_title">ڕوونیی کاتژمێر (Opacity)</string>
@@ -405,7 +402,6 @@
     <string name="status_bar_clock_date_right">لای ڕاستی کات</string>
     <string name="status_bar_clock_date_left">لای چەپی کات</string>
     <string name="statusbar_clock_chip_title">کایەڵی پاشبنەمای کاتژمێر</string>
-    <string name="statusbar_clock_chip_summary">شێوازێکی پاشبنەما (Chip) بۆ پشتی کاتژمێرەکە هەڵبژێرە</string>
     <string name="solid_accent">ڕەنگی بنچینەیی تۆخ</string>
     <string name="outline">چوارچێوە (Outline)</string>
     <string name="solid_accent_gradient">پلەبەندیی ڕەنگی بنچینەیی</string>
@@ -994,7 +990,6 @@
     <string name="app_spoofing_configured_count">%1$d ئەپ ناسنامەی گۆڕدراوە</string>
     <string name="app_spoofing_disabled">ناچالاککراوە</string>
     <string name="app_spoofing_add_apps">زیادکردنی ئەپ</string>
-    <string name="app_spoofing_spoofed_model">مۆدێل هەڵبژێرە</string>
     <string name="app_spoofing_clear_all">سڕینەوەی هەمووی</string>
     <string name="app_spoofing_configured_apps">لیستی ئەپە ڕێکخراوەکان</string>
     <string name="app_spoofing_no_apps_configured">هیچ ئەپێک ڕێکنەخراوە</string>
@@ -1169,6 +1164,7 @@
     <string name="ts_revocation_valid">✓ دروستە — هەڵنەوەشاوەتەوە</string>
     <string name="ts_revocation_revoked">✗ هەڵوەشاوەتەوە (%s)</string>
     <string name="ts_revocation_suspended">⚠ ڕاگیراوە (%s)</string>
+    <string name="ts_revocation_soft_banned">بە شێوەیەکی کاتی قەدەغەکراوە (پشکنینی دەستپاکیی بەهێز [Strong Integrity] لەوانەیە شکستی بهێنێت)</string>
     <string name="ts_revocation_network_error">نەتوانرا پەیوەندیی بە سێرڤەری هەڵوەشاندنەوە بکرێت</string>
     <string name="ts_revocation_error">پشکنین شکستی هێنا: %s</string>
     <string name="ts_fetch_keybox">هێنانی keyboxی فەرمی</string>
@@ -1435,7 +1431,6 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">خلیسکاندن بە سێ پەنجە</string>
     <string name="shake_gestures_enabled_title">ئاماژەکانی ڕاوەشاندن</string>
-    <string name="shake_gestures_enabled_summary">ئامێرەکە ڕاوەشێنە بۆ ئەنجامدانی کردارێک</string>
     <string name="shake_gestures_action_title">کرداری ئاماژەی ڕاوەشاندن</string>
     <string name="shake_gestures_intensity_title">هەستیاریی ڕاوەشاندن</string>
     <string name="shake_gestures_intensity_summary">ڕێکخستنی هەستیاریی ناسینەوەی ڕاوەشاندن</string>
