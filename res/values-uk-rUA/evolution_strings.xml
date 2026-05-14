@@ -158,7 +158,7 @@
     <string name="pulse_renderer_particle">Частинка</string>
     <string name="pulse_renderer_waveform">Форма хвилі</string>
     <string name="pulse_show_on_ambient_title">Показувати на Ambient дисплеї</string>
-    <string name="pulse_show_on_ambient_summary">Відображати візуалізатор на завжди ввімкненому дисплеї та в режимі сну. Вимкнути, щоб відображати лише на екрані блокування.</string>
+    <string name="pulse_show_on_ambient_summary">Показувати візуалізатор на завжди ввімкненому дисплеї та в режимі сну. Вимкнути, щоб показувати.</string>
     <string name="pulse_height_multiplier_title">Висота Імпульсу</string>
     <string name="pulse_height_multiplier_summary">Налаштуйте висоту візуалізації</string>
     <!-- Lock screen/Clock -->
@@ -197,11 +197,11 @@
     <string name="ls_media_art_fade_level_summary">Встановити рівень затухання для обкладинки мультимедіа</string>
     <string name="ls_media_art_blur_level_title">Рівень розмиття обкладинки</string>
     <string name="ls_media_art_blur_level_summary">Інтенсивність розмиття при застосуванні фільтра</string>
-    <string name="ls_media_art_pixel_size_title">Розмір пікселя медіа-арту</string>
-    <string name="ls_media_art_pixel_size_summary">Налаштування розміру пікселів для медіа-ілюстрацій, що відображаються на екрані блокування</string>
+    <string name="ls_media_art_pixel_size_title">Розмір пікселя медіаарт</string>
+    <string name="ls_media_art_pixel_size_summary">Налаштування розміру пікселів для медіаілюстрацій показуватися</string>
     <!-- AOD Media Settings -->
     <string name="show_on_aod_title">Показати на AOD</string>
-    <string name="show_on_aod_summary">Відображати медіа-твори мистецтва на постійно ввімкненому дисплеї</string>
+    <string name="show_on_aod_summary">Показувати медіатвори мистецтва на постійно ввімкненому дисплеї</string>
     <string name="aod_brightness_title">AOD яскравість</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Зараз грає</string>
