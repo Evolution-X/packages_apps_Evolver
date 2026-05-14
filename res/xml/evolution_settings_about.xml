@@ -21,8 +21,8 @@
 
     <!-- Changelog -->
     <Preference
-        android:key="changelog"
-        android:icon="@drawable/ic_about_changelog"
+        android:key="about_changelog"
+        android:icon="@drawable/ic_changelog"
         android:title="@string/changelog_title"
         android:summary="@string/changelog_summary">
         <intent android:action="android.intent.action.MAIN"
@@ -32,9 +32,10 @@
 
     <!-- Website -->
     <Preference
+        android:key="about_website"
         android:title="@string/about_website_title"
         android:summary="@string/about_website_summary"
-        android:icon="@drawable/ic_evolver_about">
+        android:icon="@drawable/ic_about">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://evolution-x.org" />
@@ -42,9 +43,10 @@
 
     <!-- Github -->
     <Preference
+        android:key="about_github"
         android:title="@string/about_github_title"
         android:summary="@string/about_github_summary"
-        android:icon="@drawable/ic_about_github">
+        android:icon="@drawable/ic_github">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://github.com/Evolution-X" />
@@ -52,9 +54,10 @@
 
     <!-- Discord -->
     <Preference
+        android:key="about_discord"
         android:title="@string/about_discord_title"
         android:summary="@string/about_discord_summary"
-        android:icon="@drawable/ic_about_discord">
+        android:icon="@drawable/ic_discord">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://discord.gg/3qbSZHx" />
@@ -62,9 +65,10 @@
 
     <!-- X -->
     <Preference
+        android:key="about_x"
         android:title="@string/about_x_title"
         android:summary="@string/about_x_summary"
-        android:icon="@drawable/ic_about_x">
+        android:icon="@drawable/ic_x">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://x.com/EvolutionXROM" />
