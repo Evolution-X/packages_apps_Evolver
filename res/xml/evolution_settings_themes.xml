@@ -64,6 +64,13 @@
                 android:targetClass="com.android.axion.axthemestore.MainActivity" />
         </Preference>
 
+        <!-- Settings icon -->
+        <Preference
+            android:key="settings_icon"
+            android:title="@string/settings_icon_title"
+            android:summary="@string/settings_icon_summary"
+            android:fragment="org.evolution.settings.fragments.themes.SettingsIcon" />
+
         <!-- Icon shape -->
         <Preference
             android:key="android.theme.customization.adaptive_icon_shape"
