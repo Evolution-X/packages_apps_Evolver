@@ -55,8 +55,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
 //    private static final String KEY_INTERFACE_CATEGORY = "quick_settings_interface_category";
     private static final String KEY_COMPACT_MEDIA_PLAYER_ENABLED = "qs_compact_media_player_mode";
-    private static final String KEY_MEDIA_WAVEFORM_SEEKBAR = "media_waveform_seekbar";
-    private static final String KEY_MEDIA_SQUIGGLE_ANIMATION = "media_squiggle_animation";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
     private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
@@ -87,8 +85,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private Preference mQsTileShape;
     private Preference mQsTileIconShape;
     private SwitchPreferenceCompat mQsTileLabelHide;
-    private SystemSettingSwitchPreference mMediaWaveformSeekBar;
-    private SecureSettingSwitchPreference mMediaSquiggleAnimation;
     private SecureSettingListPreference mQsShowMediaPlayer;
     private SystemSettingSwitchPreference mSingleQsToneEnabled;
     private SystemSettingSwitchPreference mQsWidgetPanel;
@@ -149,16 +145,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mQsTileAlternateColor.setOnPreferenceChangeListener(this);
         }
 
-        mMediaWaveformSeekBar = (SystemSettingSwitchPreference) findPreference(KEY_MEDIA_WAVEFORM_SEEKBAR);
-        if (mMediaWaveformSeekBar != null) {
-            mMediaWaveformSeekBar.setOnPreferenceChangeListener(this);
-        }
-
-        mMediaSquiggleAnimation = (SecureSettingSwitchPreference) findPreference(KEY_MEDIA_SQUIGGLE_ANIMATION);
-        if (mMediaSquiggleAnimation != null) {
-            mMediaSquiggleAnimation.setOnPreferenceChangeListener(this);
-        }
-
         mShowBrightnessSlider = findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
         mShowBrightnessSlider.setOnPreferenceChangeListener(this);
         boolean showSlider = LineageSettings.Secure.getIntForUser(resolver,
@@ -197,8 +183,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         int panelStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
         updatePanelStylePrefs(panelStyle);
-
-        updateSquiggleAnimationVisibility();
     }
 
     private void updateWidgetPanelDependencies() {
@@ -262,13 +246,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         } else if (preference == mQsTileAlternateColor) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
-        } else if (preference == mMediaWaveformSeekBar) {
-            updateSquiggleAnimationVisibility((Boolean) newValue);
-            SystemUtils.showSystemUiRestartDialog(getActivity());
-            return true;
-        } else if (preference == mMediaSquiggleAnimation) {
-            SystemUtils.showSystemUiRestartDialog(getActivity());
-            return true;
         } else if (preference == mQsWidgetPanel) {
             updateWidgetPanelDependencies();
             SystemUtils.showSystemUiRestartDialog(getActivity());
@@ -280,27 +257,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //            return true;
         }
         return false;
-    }
-
-    private void updateSquiggleAnimationVisibility() {
-        updateSquiggleAnimationVisibility(null);
-    }
-
-    private void updateSquiggleAnimationVisibility(Boolean newValue) {
-        if (mMediaSquiggleAnimation == null) return;
-
-        final ContentResolver resolver = getActivity().getContentResolver();
-        boolean waveformEnabled;
-
-        if (newValue != null) {
-            waveformEnabled = newValue;
-        } else {
-            waveformEnabled = Settings.System.getInt(resolver,
-                Settings.System.MEDIA_WAVEFORM_SEEKBAR, 0) == 1;
-        }
-
-        mMediaSquiggleAnimation.setVisible(!waveformEnabled);
-        mMediaSquiggleAnimation.setEnabled(!waveformEnabled);
     }
 
     @Override
@@ -333,12 +289,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 if (!hapticAvailable) {
                     keys.add(KEY_BRIGHTNESS_SLIDER_HAPTIC);
                     keys.add(KEY_QS_TILE_HAPTIC);
-                }
-
-                boolean waveformEnabled = Settings.System.getInt(resolver,
-                    Settings.System.MEDIA_WAVEFORM_SEEKBAR, 0) == 1;
-                if (waveformEnabled) {
-                    keys.add(KEY_MEDIA_SQUIGGLE_ANIMATION);
                 }
 
                 boolean isWidgetPanelEnabled = Settings.System.getInt(resolver,

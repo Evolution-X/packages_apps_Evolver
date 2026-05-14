@@ -59,13 +59,6 @@
             android:entryValues="@array/qs_show_media_player_values"
             android:defaultValue="2" />
 
-        <!-- Waveform seekbar -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="media_waveform_seekbar"
-            android:title="@string/media_waveform_seekbar_title"
-            android:summary="@string/media_waveform_seekbar_summary"
-            android:defaultValue="false" />
-
         <!-- Squiggle animation for media notification -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="media_squiggle_animation"
