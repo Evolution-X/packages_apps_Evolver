@@ -46,6 +46,7 @@
             android:key="ts_revocation_status"
             android:title="@string/ts_revocation_status"
             android:summary="@string/ts_revocation_no_keybox"
+            android:icon="@drawable/ic_ts_status_unknown"
             android:selectable="false" />
     </PreferenceCategory>
 

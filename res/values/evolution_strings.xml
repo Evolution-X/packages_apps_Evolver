@@ -1221,6 +1221,8 @@
     <string name="ts_fetch_keybox_failed">Fetch failed: %s</string>
     <string name="ts_fetch_keybox_revoked_refetch">Keybox revoked, fetching a newer one…</string>
     <string name="ts_fetch_keybox_same_file">Keybox is already up to date</string>
+    <string name="ts_fetch_keybox_blocked">Your keybox is valid — no fetch needed</string>
+    <string name="ts_fetch_keybox_last_fetched">Last fetched: %1$s</string>
 
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Wallpaper styles</string>
