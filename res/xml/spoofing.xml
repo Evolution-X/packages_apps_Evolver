@@ -43,11 +43,11 @@
             android:fragment="org.evolution.settings.fragments.miscellaneous.UserSelectedAppSpoofSettings" />
 
         <!-- Pixel props -->
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+        <Preference
             android:key="pi_pp_spoof"
             android:title="@string/spoofing_pixel_props_title"
             android:summary="@string/spoofing_pixel_props_summary"
-            android:defaultValue="true" />
+            android:fragment="org.evolution.settings.fragments.miscellaneous.PixelPropsSettings" />
     </PreferenceCategory>
 
     <!-- Features -->
