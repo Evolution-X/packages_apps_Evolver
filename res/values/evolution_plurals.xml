@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="ts_added_installed_count">
+        <item quantity="one">Added %d app to targets</item>
+        <item quantity="other">Added %d apps to targets</item>
+    </plurals>
+</resources>
