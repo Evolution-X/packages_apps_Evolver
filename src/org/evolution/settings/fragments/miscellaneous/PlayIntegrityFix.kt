@@ -15,10 +15,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.SwitchPreferenceCompat
 import com.android.internal.logging.nano.MetricsProto
+import com.android.internal.util.evolution.PixelDeviceRepository
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import java.net.URL
@@ -43,9 +45,6 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     private var activeConfigData: Map<String, String> = emptyMap()
-    private var autoFetchDone = false
-
-    private enum class PifChannel { LATEST_RELEASE, CANARY }
 
     private val importLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -92,7 +91,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         addPreferencesFromResource(R.xml.play_integrity_fix)
 
         findPreference<Preference>("pif_fetch_beta")?.setOnPreferenceClickListener {
-            showChannelSelectionDialog()
+            fetchDevicesForChannel()
             true
         }
 
@@ -110,6 +109,23 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             true
         }
 
+        findPreference<ListPreference>("pif_spoof_vending_finger")?.apply {
+            val current = activeConfigData["spoofVendingFinger"] ?: "0"
+            value = current
+            setOnPreferenceChangeListener { _, newValue ->
+                updateConfigValue("spoofVendingFinger", newValue as String)
+                true
+            }
+        }
+
+        findPreference<SwitchPreferenceCompat>("pif_spoof_vending_sdk")?.apply {
+            isChecked = activeConfigData["spoofVendingSdk"].let { it == "1" || it == "true" }
+            setOnPreferenceChangeListener { _, newValue ->
+                updateConfigValue("spoofVendingSdk", if (newValue as Boolean) "1" else "0")
+                true
+            }
+        }
+
         refreshStatus()
     }
 
@@ -121,12 +137,28 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
     override fun onResume() {
         super.onResume()
         refreshStatus()
-        autoFetchDone = false
-        if (isPifEnabled) autoFetchIfStale()
+        if (isPifEnabled && !isAutoFetchCooldownActive()) autoFetchIfStale()
+    }
+
+    private fun isAutoFetchCooldownActive(): Boolean {
+        val last = Settings.Secure.getLong(
+            requireContext().contentResolver, LAST_AUTO_FETCH_KEY, 0L)
+        return last > 0L && System.currentTimeMillis() - last < 24 * 60 * 60 * 1000L
+    }
+
+    private fun markAutoFetchDone() {
+        Settings.Secure.putLong(
+            requireContext().contentResolver, LAST_AUTO_FETCH_KEY,
+            System.currentTimeMillis()
+        )
+    }
+
+    private fun clearAutoFetchCooldown() {
+        Settings.Secure.putLong(
+            requireContext().contentResolver, LAST_AUTO_FETCH_KEY, 0L)
     }
 
     private fun autoFetchIfStale() {
-        if (autoFetchDone) return
         if (!isPifEnabled) return
         val content = Settings.Secure.getString(
             requireContext().contentResolver, PIF_CONFIG_KEY
@@ -137,7 +169,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
 
         if (isManuallyImported) return
 
-        autoFetchDone = true
+        markAutoFetchDone()
         scope.launch {
             try {
                 val serverResult = withContext(Dispatchers.IO) { fetchFallbackPif() }
@@ -160,9 +192,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     (getPatchAgeDays(serverPatch) ?: 0L) > AUTO_FETCH_STALE_DAYS -> {
                         val (devices, apiKey) = withContext(Dispatchers.IO) { fetchAvailableCanaryDevices() }
                         if (devices.isNotEmpty() && !apiKey.isNullOrEmpty()) {
-                            val preferred = devices.firstOrNull { it.device == "komodo" }
-                                ?: devices.firstOrNull { it.device == "blazer" }
-                                ?: devices.first()
+                            val preferred = getMatchingPixelDevice(devices)
+                                ?: devices.random()
                             val betaResult = withContext(Dispatchers.IO) { buildCanaryPifFromDevice(preferred, apiKey) }
                             if (betaResult is PifFetchResult.Success) betaResult else return@launch
                         } else {
@@ -207,9 +238,12 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             val fingerprint = activeConfigData["FINGERPRINT"] ?: ""
             val ageDays = getPatchAgeDays(activeConfigData["SECURITY_PATCH"] ?: "")
             val ageStr = ageDays?.let { " · ${it}d ago" } ?: ""
+            val expiryStr = activeConfigData["_canary_month"]?.let { month ->
+                getCanaryExpiryString(month, activeConfigData["_canary_release_date"])
+            }?.let { " · $it" } ?: ""
             activePref?.title = PIF_CONFIG_NAME
             activePref?.summary = if (model.isNotEmpty()) {
-                "MODEL: $model$ageStr" +
+                "MODEL: $model$ageStr$expiryStr" +
                 if (fingerprint.isNotEmpty()) "\nFINGERPRINT: $fingerprint" else ""
             } else {
                 getString(R.string.pif_config_loaded)
@@ -222,6 +256,11 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         findPreference<Preference>("pif_delete_config")?.isEnabled = exists
 
         populateConfigDetails(activeConfigData)
+
+        findPreference<ListPreference>("pif_spoof_vending_finger")?.value =
+            activeConfigData["spoofVendingFinger"] ?: "0"
+        findPreference<SwitchPreferenceCompat>("pif_spoof_vending_sdk")?.isChecked =
+            activeConfigData["spoofVendingSdk"].let { it == "1" || it == "true" }
     }
 
     private fun populateConfigDetails(data: Map<String, String>) {
@@ -260,7 +299,14 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             })
         }
 
-        data.keys.filter { it !in displayOrder && !it.startsWith("spoof") && it != "DEBUG" && it != "verboseLogs" && it != "manually_imported" }
+        data.keys.filter {
+            it !in displayOrder
+                && !it.startsWith("spoof")
+                && !it.startsWith("_")
+                && it != "DEBUG"
+                && it != "verboseLogs"
+                && it != "manually_imported"
+        }
             .forEach { key ->
                 category.addPreference(androidx.preference.EditTextPreference(requireContext()).apply {
                     this.title = key
@@ -295,6 +341,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         PIF_CONFIG_KEY,
                         null
                     )
+                    clearAutoFetchCooldown()
                     toast(getString(R.string.pif_deleted, PIF_CONFIG_NAME))
                     refreshStatus()
                 } catch (e: Exception) {
@@ -305,22 +352,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             .show()
     }
 
-    private fun showChannelSelectionDialog() {
-        val channels = arrayOf(
-            getString(R.string.pif_channel_latest_release),
-            getString(R.string.pif_channel_canary_release)
-        )
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.pif_select_channel)
-            .setItems(channels) { _, which ->
-                val channel = if (which == 0) PifChannel.LATEST_RELEASE else PifChannel.CANARY
-                fetchDevicesForChannel(channel)
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
-    }
-
-    private fun fetchDevicesForChannel(channel: PifChannel) {
+    private fun fetchDevicesForChannel() {
         val fetchPref = findPreference<Preference>("pif_fetch_beta") ?: return
         fetchPref.summary = getString(R.string.pif_fetching)
         fetchPref.isEnabled = false
@@ -328,10 +360,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         scope.launch {
             try {
                 val (devices, apiKey) = withContext(Dispatchers.IO) {
-                    when (channel) {
-                        PifChannel.LATEST_RELEASE -> fetchAvailableDevices() to null
-                        PifChannel.CANARY -> fetchAvailableCanaryDevices()
-                    }
+                    fetchAvailableCanaryDevices()
                 }
 
                 if (devices.isEmpty()) {
@@ -339,17 +368,24 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     return@launch
                 }
 
-                if (channel == PifChannel.CANARY && apiKey.isNullOrEmpty()) {
+                if (apiKey.isNullOrEmpty()) {
                     toast(getString(R.string.pif_failed, getString(R.string.pif_no_api_key)))
                     return@launch
                 }
 
-                val modelNames = devices.map { it.model }.toTypedArray()
+                val sortedDevices = devices.sortedWith(
+                    compareByDescending<PifDevice> {
+                        it.device == android.os.SystemProperties.get(MATCH_DEVICE_PROP, "")
+                    }.thenByDescending {
+                        PIXEL_DEVICE_GENERATION[it.device] ?: 0
+                    }
+                )
+                val modelNames = sortedDevices.map { it.model }.toTypedArray()
 
                 AlertDialog.Builder(requireContext())
                     .setTitle(R.string.pif_select_device)
                     .setItems(modelNames) { _, which ->
-                        generateAndSavePif(devices[which], channel, apiKey)
+                        generateAndSavePif(sortedDevices[which], apiKey)
                     }
                     .setNegativeButton(android.R.string.cancel, null)
                     .show()
@@ -362,7 +398,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         }
     }
 
-    private fun generateAndSavePif(device: PifDevice, channel: PifChannel, apiKey: String?) {
+    private fun generateAndSavePif(device: PifDevice, apiKey: String) {
         val fetchPref = findPreference<Preference>("pif_fetch_beta")
         fetchPref?.summary = getString(R.string.pif_generating)
         fetchPref?.isEnabled = false
@@ -370,10 +406,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         scope.launch {
             try {
                 val result = withContext(Dispatchers.IO) {
-                    when (channel) {
-                        PifChannel.LATEST_RELEASE -> buildPifFromDevice(device)
-                        PifChannel.CANARY -> buildCanaryPifFromDevice(device, apiKey ?: "")
-                    }
+                    buildCanaryPifFromDevice(device, apiKey)
                 }
                 when (result) {
                     is PifFetchResult.Success -> {
@@ -429,16 +462,20 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         }
     }
 
-    /**
-     * Force-stops Vending, DroidGuard, and GMS so the new fingerprint
-     * takes effect immediately without waiting for a natural restart.
-     */
     private fun killGms() {
         try {
             val am = requireContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
             am.forceStopPackage(VENDING_PACKAGE)
             am.forceStopPackage(DROIDGUARD_PACKAGE)
             am.forceStopPackage(GMS_PACKAGE)
+            am.forceStopPackage(GMS_PERSISTENT_PACKAGE)
+            am.forceStopPackage(RKPD_PACKAGE)
+            am.forceStopPackage(GSF_PACKAGE)
+            am.forceStopPackage(CONTACT_KEYS_PACKAGE)
+            am.forceStopPackage(SAFETY_CORE_PACKAGE)
+            am.forceStopPackage(VELVET_PACKAGE)
+            requireContext().packageManager.clearApplicationUserData(
+                VENDING_PACKAGE, null)
         } catch (_: Exception) {}
     }
 
@@ -457,39 +494,38 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val FLASH_API = "https://content-flashstation-pa.googleapis.com/v1/builds"
         private const val PIXEL_BULLETIN_URL = "https://source.android.com/docs/security/bulletin/pixel"
         private const val FALLBACK_PIF_URL = "https://raw.githubusercontent.com/Evolution-X/.github/refs/heads/main/profile/pif.json"
-        private const val VENDING_PACKAGE = "com.android.vending"
-        private const val DROIDGUARD_PACKAGE = "com.google.android.gms.unstable"
-        private const val GMS_PACKAGE = "com.google.android.gms"
+        private const val VENDING_PACKAGE           = "com.android.vending"
+        private const val DROIDGUARD_PACKAGE        = "com.google.android.gms.unstable"
+        private const val GMS_PACKAGE               = "com.google.android.gms"
+        private const val GMS_PERSISTENT_PACKAGE    = "com.google.android.gms.persistent"
+        private const val RKPD_PACKAGE              = "com.google.android.rkpdapp"
+        private const val GSF_PACKAGE               = "com.google.android.gsf"
+        private const val CONTACT_KEYS_PACKAGE      = "com.google.android.contactkeys"
+        private const val SAFETY_CORE_PACKAGE       = "com.google.android.safetycore"
+        private const val VELVET_PACKAGE            = "com.google.android.googlequicksearchbox"
         private const val AUTO_FETCH_STALE_DAYS = 21L
         private const val PIF_ENABLED_KEY = "spoof_pif_enabled"
+        private const val LAST_AUTO_FETCH_KEY = "spoof_pif_last_auto_fetch"
+        private const val MATCH_DEVICE_PROP = "ro.evolution.device"
+
+        private val PIXEL_DEVICE_GENERATION = mapOf(
+            "rango"      to 10,  // Pixel 10 Pro Fold
+            "mustang"    to 10,  // Pixel 10 Pro XL
+            "blazer"     to 10,  // Pixel 10 Pro
+            "frankel"    to 10,  // Pixel 10
+            "comet"      to 9,   // Pixel 9 Pro Fold
+            "komodo"     to 9,   // Pixel 9 Pro XL
+            "caiman"     to 9,   // Pixel 9 Pro
+            "tokay"      to 9,   // Pixel 9
+            "tegu"       to 9,   // Pixel 9a
+            "akita"      to 8,   // Pixel 8a
+            "husky"      to 8,   // Pixel 8 Pro
+            "shiba"      to 8,   // Pixel 8
+        )
 
         private fun parsePatchDate(patch: String): java.util.Date? = try {
             java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).parse(patch)
         } catch (_: Exception) { null }
-
-        private val DEVICE_MODEL_MAP = mapOf(
-            "oriole" to "Pixel 6",
-            "raven" to "Pixel 6 Pro",
-            "bluejay" to "Pixel 6a",
-            "panther" to "Pixel 7",
-            "cheetah" to "Pixel 7 Pro",
-            "lynx" to "Pixel 7a",
-            "shiba" to "Pixel 8",
-            "tangorpro" to "Pixel Tablet",
-            "felix" to "Pixel Fold",
-            "husky" to "Pixel 8 Pro",
-            "akita" to "Pixel 8a",
-            "tokay" to "Pixel 9",
-            "caiman" to "Pixel 9 Pro",
-            "komodo" to "Pixel 9 Pro XL",
-            "comet" to "Pixel 9 Pro Fold",
-            "tegu" to "Pixel 9a",
-            "frankel" to "Pixel 10",
-            "blazer" to "Pixel 10 Pro",
-            "mustang" to "Pixel 10 Pro XL",
-            "rango" to "Pixel 10 Pro Fold",
-            "stallion" to "Pixel 10a",
-        )
 
         /**
          * Validates that a fingerprint string matches the expected Android format:
@@ -507,6 +543,38 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             val diff = System.currentTimeMillis() - (sdf.parse(patch)?.time ?: return null)
             diff / (1000L * 60 * 60 * 24)
         } catch (_: Exception) { null }
+
+        /**
+         * Given a canary month string (YYYY-MM), estimates the expiry date as
+         * ~6 weeks from the 1st of that month and returns a human-readable
+         * string: "expires YYYY-MM-DD" or "expired YYYY-MM-DD" if past.
+         */
+        private fun getCanaryExpiryString(canaryMonth: String, releaseDate: String? = null): String? = try {
+            val sdf = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+            // Prefer the real release date (from the factory image's Last-Modified
+            // header) when we have one; fall back to assuming the 1st of the canary
+            // month only when it's unavailable, e.g. older saved configs.
+            val base = sdf.parse(releaseDate ?: "$canaryMonth-01") ?: return null
+            val expiry = java.util.Date(base.time + 42L * 24 * 60 * 60 * 1000)
+            val expiryStr = sdf.format(expiry)
+            if (expiry.before(java.util.Date())) "expired $expiryStr"
+            else "expires $expiryStr"
+        } catch (_: Exception) { null }
+
+        /**
+         * Returns the current device's codename if it appears in the filtered
+         * Pixel 8+ device list, enabling autopif4-style --match behaviour on
+         * actual Pixel hardware. Returns null on non-Pixel or unrecognized devices.
+         */
+        private fun getMatchingPixelDevice(devices: List<PifDevice>): PifDevice? {
+            return try {
+                val codename = android.os.SystemProperties.get(MATCH_DEVICE_PROP, "")
+                // No longer requires the device to be in PIXEL_DEVICE_GENERATION — that
+                // map is just a sort-order preference, and would otherwise prevent
+                // matching on a current device that isn't in it yet.
+                devices.firstOrNull { it.device == codename }
+            } catch (_: Exception) { null }
+        }
 
         /**
          * Reads the config from a JSON string (stored in Settings.Secure).
@@ -557,97 +625,15 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             return json.toString(2)
         }
 
-        private fun fetchPartialUrl(url: String, maxBytes: Int): String {
-            val conn = URL(url).openConnection()
-            conn.connectTimeout = 15000
-            conn.readTimeout = 15000
-            conn.getInputStream().use { input ->
-                val buf = ByteArray(512)
-                val sb = StringBuilder()
-                var total = 0
-                while (total < maxBytes) {
-                    val read = input.read(buf)
-                    if (read == -1) break
-                    sb.append(String(buf, 0, read, StandardCharsets.ISO_8859_1))
-                    total += read
-                }
-                return sb.toString()
-            }
-        }
-
         data class PifDevice(
             val product: String,
             val device: String,
             val model: String,
-            val otaUrl: String,
         )
 
         private sealed class PifFetchResult {
             data class Success(val model: String, val pifData: JSONObject) : PifFetchResult()
             data class Error(val message: String) : PifFetchResult()
-        }
-
-        /**
-         * Phase 1: Scrape Google developer site to find all available beta devices.
-         */
-        private fun fetchAvailableDevices(): List<PifDevice> {
-            val versionsHtml = URL("$GOOGLE_URL/about/versions").readText(StandardCharsets.UTF_8)
-            val knownVersions = Regex("""https://developer\.android\.com/about/versions/(\d+)""")
-                .findAll(versionsHtml).map { it.groupValues[1].toInt() }.toSet().sortedDescending()
-
-            val maxVersion = knownVersions.firstOrNull() ?: return emptyList()
-            val versions = listOf(maxVersion + 1) + knownVersions
-
-            for (version in versions) {
-                try {
-                    val downloadUrl = "$GOOGLE_URL/about/versions/$version/download-ota"
-                    val otaHtml = URL(downloadUrl).readText(StandardCharsets.UTF_8)
-                    val otaList = Regex("""href="(https://dl\.google\.com/[^"]*ota/([^/"]+_beta)[^"]*?)"""")
-                        .findAll(otaHtml).map { it.groupValues[1] to it.groupValues[2] }.toList()
-                    if (otaList.isEmpty()) continue
-
-                    val devices = mutableListOf<PifDevice>()
-                    val seen = mutableSetOf<String>()
-                    for ((otaUrl, product) in otaList) {
-                        val device = product.replace("_beta", "")
-                        if (device in seen) continue
-                        seen.add(device)
-                        val model = DEVICE_MODEL_MAP[device] ?: device
-                        devices.add(PifDevice(product, device, model, otaUrl))
-                    }
-                    if (devices.isNotEmpty()) return devices
-                } catch (_: Exception) { continue }
-            }
-            return emptyList()
-        }
-
-        /**
-         * Phase 2: Fetch OTA metadata for a specific device and build pif JSON.
-         */
-        private fun buildPifFromDevice(pifDevice: PifDevice): PifFetchResult {
-            try {
-                val partial = fetchPartialUrl(pifDevice.otaUrl, 4096)
-
-                val fingerprint = Regex("""post-build=(.*)""").find(partial)?.groupValues?.get(1)?.trim()
-                    ?: return PifFetchResult.Error("Could not extract fingerprint")
-                val securityPatch = Regex("""security-patch-level=(.*)""").find(partial)?.groupValues?.get(1)?.trim()
-                    ?: return PifFetchResult.Error("Could not extract security patch")
-
-                val fpParts = fingerprint.split("/")
-                val release = fpParts.getOrNull(2)?.substringAfter(":", "") ?: ""
-                val buildId = fpParts.getOrNull(3) ?: ""
-
-                val pifJson = JSONObject().apply {
-                    put("MODEL", pifDevice.model)
-                    put("MANUFACTURER", "Google")
-                    put("FINGERPRINT", fingerprint)
-                    put("SECURITY_PATCH", securityPatch)
-                    put("DEVICE_INITIAL_SDK_INT", "34")
-                }
-                return PifFetchResult.Success(pifDevice.model, pifJson)
-            } catch (e: Exception) {
-                return PifFetchResult.Error("Failed: ${e.message}")
-            }
         }
 
         private fun fetchAvailableCanaryDevices(): Pair<List<PifDevice>, String?> {
@@ -683,22 +669,27 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                             if (device in seen) return@forEach
                             seen.add(device)
                             val model = match.groupValues[2].trim()
-                                .ifEmpty { DEVICE_MODEL_MAP[device] ?: device }
+                                .ifEmpty {
+                                    PixelDeviceRepository.DEVICE_MODEL_MAP[device] as? String
+                                        ?: device
+                                }
                             devices.add(
                                 PifDevice(
                                     product = "${device}_beta",
                                     device = device,
                                     model = model,
-                                    otaUrl = "",
                                 )
                             )
                         }
 
                         if (devices.isEmpty()) continue
 
-                        val flashHtml = URL(FLASH_URL).readText(StandardCharsets.UTF_8)
-                        val apiKey = Regex("""AIza[0-9A-Za-z_-]{35}""").find(flashHtml)?.value
+                        val apiKey = fetchFlashToolApiKey()
 
+                        // Don't filter by PIXEL_DEVICE_GENERATION here — that map only
+                        // covers devices known when this was last updated, and would
+                        // otherwise silently hide a newer Pixel from the picker. Unknown
+                        // devices just sort last in fetchDevicesForChannel() instead.
                         return devices to apiKey
                     } catch (_: Exception) { continue }
                 }
@@ -707,6 +698,52 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             } catch (e: Exception) {
                 Log.e(TAG, "Canary device fetch failed", e)
                 return emptyList<PifDevice>() to null
+            }
+        }
+
+        /**
+         * Extracts the Flash Tool API key from flash.android.com. Prefers the
+         * targeted data-client-config attribute (matching upstream autopif4.sh),
+         * falling back to a generic AIza-prefixed key scan if the page structure
+         * changes and the targeted extraction comes up empty.
+         */
+        private fun fetchFlashToolApiKey(): String? {
+            val flashHtml = try {
+                URL(FLASH_URL).readText(StandardCharsets.UTF_8)
+            } catch (_: Exception) {
+                return null
+            }
+
+            val targeted = Regex("""data-client-config="([^"]*)"""")
+                .find(flashHtml)?.groupValues?.get(1)
+                ?.split(";")?.getOrNull(1)
+                ?.split("&")?.getOrNull(0)
+
+            return targeted ?: Regex("""AIza[0-9A-Za-z_-]{35}""").find(flashHtml)?.value
+        }
+
+        /**
+         * HEAD-requests the factory image to read its Last-Modified header,
+         * giving a precise canary release date instead of assuming the 1st of
+         * the canary month. Returns a yyyy-MM-dd string, or null if it can't
+         * be determined.
+         */
+        private fun fetchLastModifiedDate(url: String): String? {
+            return try {
+                val conn = URL(url).openConnection() as java.net.HttpURLConnection
+                conn.requestMethod = "HEAD"
+                conn.connectTimeout = 10000
+                conn.readTimeout = 10000
+                val lastModified = conn.getHeaderField("Last-Modified")
+                conn.disconnect()
+                lastModified?.let {
+                    val parsed = java.text.SimpleDateFormat(
+                        "EEE, dd MMM yyyy HH:mm:ss zzz", java.util.Locale.US
+                    ).parse(it)
+                    parsed?.let { d -> java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(d) }
+                }
+            } catch (_: Exception) {
+                null
             }
         }
 
@@ -732,6 +769,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 var id: String? = null
                 var incremental: String? = null
                 var canaryId: String? = null
+                var factoryImageUrl: String? = null
 
                 for (i in buildsArray.length() - 1 downTo 0) {
                     val b = buildsArray.optJSONObject(i) ?: continue
@@ -745,6 +783,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     id = rc
                     incremental = bid
                     canaryId = meta.optString("id").takeIf { it.contains("canary-") }
+                    factoryImageUrl = b.optString("factoryImageDownloadUrl").takeIf { it.isNotEmpty() }
+                        ?: meta.optString("factoryImageDownloadUrl").takeIf { it.isNotEmpty() }
                     break
                 }
 
@@ -770,12 +810,20 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     "$canaryMonth-05"
                 }
 
+                val releaseDate = factoryImageUrl?.let { fetchLastModifiedDate(it) }
+
                 val pifJson = JSONObject().apply {
-                    put("MODEL", pifDevice.model)
                     put("MANUFACTURER", "Google")
+                    put("BRAND", "google")
+                    put("MODEL", pifDevice.model)
+                    put("PRODUCT", pifDevice.product)
+                    put("DEVICE", pifDevice.device)
                     put("FINGERPRINT", fingerprint)
                     put("SECURITY_PATCH", securityPatch)
-                    put("DEVICE_INITIAL_SDK_INT", "34")
+                    put("DEVICE_INITIAL_SDK_INT", "32")
+                    put("_canary_month", canaryMonth)
+                    releaseDate?.let { put("_canary_release_date", it) }
+                    put("_comment_canary", "Canary Released: ${releaseDate ?: canaryMonth} | Estimated Expiry: ~6 weeks from release")
                 }
 
                 return PifFetchResult.Success(pifDevice.model, pifJson)

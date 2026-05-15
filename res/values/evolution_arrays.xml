@@ -1671,4 +1671,14 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="pif_spoof_vending_finger_entries">
+        <item>@string/pif_vending_finger_disabled</item>
+        <item>@string/pif_vending_finger_same</item>
+    </string-array>
+
+    <string-array name="pif_spoof_vending_finger_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>
