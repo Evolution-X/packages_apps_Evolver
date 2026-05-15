@@ -1018,7 +1018,7 @@
     <string name="spoofing_identity_category">Device identity</string>
     <string name="spoofing_features_category">Hardware features</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
-    <string name="spoofing_pixel_props_summary">Report the latest Pixel device identity to a curated set of Google apps</string>
+    <string name="spoofing_pixel_props_summary">Spoof selected apps as a Pixel device to unlock Pixel-exclusive features</string>
     <string name="spoofing_app_specific_category">App-specific overrides</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof Google Photos as a Pixel XL</string>
@@ -1062,6 +1062,10 @@
     <string name="custom_spoof_profile_model">Model</string>
     <string name="custom_spoof_profile_fingerprint">Fingerprint (optional)</string>
     <string name="custom_spoof_profile_product">Product (optional)</string>
+    <string name="pp_target_count">Spoofing %1$d app(s) as Pixel</string>
+    <string name="pp_spoof_as">Spoof as</string>
+    <string name="pp_empty_description">Selected apps will report the chosen Pixel device identity to unlock Pixel-exclusive features</string>
+    <string name="pp_mainline_unsupported">This device is already a Pixel. Spoofing is not available on mainline Pixel devices.</string>
 
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_header_title">Sensor block</string>
@@ -1148,8 +1152,8 @@
     <string name="pif_active_config">Active configuration</string>
     <string name="pif_no_config">No configuration loaded</string>
     <string name="pif_config_loaded">Configuration loaded</string>
-    <string name="pif_fetch_pixel_beta">Fetch Pixel Beta fingerprint</string>
-    <string name="pif_fetch_pixel_beta_summary">Download the latest Pixel Beta fingerprint from Google</string>
+    <string name="pif_fetch_pixel_beta">Fetch Pixel Canary fingerprint</string>
+    <string name="pif_fetch_pixel_beta_summary">Download the latest Pixel Canary fingerprint from Google</string>
     <string name="pif_fetching">Fetching from Google\u2026</string>
     <string name="pif_fetched_model">Fetched fingerprint for %s</string>
     <string name="pif_import_config">Import configuration</string>
@@ -1165,10 +1169,7 @@
     <string name="pif_select_device">Select device</string>
     <string name="pif_generating">Generating configuration\u2026</string>
     <string name="pif_footer_title">Passing basic integrity</string>
-    <string name="pif_footer_body">1. Tap "Fetch Pixel Beta fingerprint" and select a device from the list.\n2. If no devices are found, import a working PIF config from a trusted source. Config files are not provided.\n3. Recheck your Play Integrity status.\n\nAlways delete the active configuration before loading a new one. Loading an expired PIF config will cause TrickyStore strong integrity to fail even with a valid keybox.</string>
-    <string name="pif_select_channel">Select channel</string>
-    <string name="pif_channel_latest_release">Latest release</string>
-    <string name="pif_channel_canary_release">Canary release</string>
+    <string name="pif_footer_body">1. Tap "Fetch Pixel Canary fingerprint" and select a device from the list.\n2. If no devices are found, import a working PIF config from a trusted source. Config files are not provided.\n3. Recheck your Play Integrity status.\n\nAlways delete the active configuration before loading a new one. Loading an expired PIF config will cause TrickyStore strong integrity to fail even with a valid keybox.</string>
     <string name="pif_invalid_fingerprint">Invalid fingerprint format</string>
     <string name="pif_no_devices_found">No devices found</string>
     <string name="pif_no_api_key">Failed to extract Flash Tool API key</string>
@@ -1197,7 +1198,7 @@
     <string name="ts_targets_saved">Target list saved</string>
     <string name="ts_failed">Failed: %s</string>
     <string name="ts_footer_title">Passing strong integrity</string>
-    <string name="ts_footer_body">1. Obtain a valid keybox XML from a trusted source. Keyboxes are not provided; you must find one yourself.\n2. Tap \"Import keybox\" and load the file.\n3. Open \"Manage target apps\" and select Google Play Services and Google Play Store.\n4. Set target mode to \"Leaf\" if your device has a working TEE; otherwise leave it as Auto.\n5. Recheck your Play Integrity status.\n\nAlways delete the existing keybox before importing a new one. If Google revokes a keybox, it may still allow passing up to device integrity even though strong integrity will fail.</string>
+    <string name="ts_footer_body">A keybox is fetched and kept valid automatically — revoked, suspended, expiring, or invalid keyboxes are replaced without any action needed.\n\nFor manual setup:\n1. Obtain a valid keybox XML from a trusted source. Keyboxes are not provided.\n2. Tap \"Import keybox\" and load the file. The chain is validated on import — corrupted or untrusted files are rejected immediately.\n3. Open \"Manage target apps\" and add Google Play Services and Google Play Store.\n4. Set target mode to \"Leaf\" if your device has a working TEE; otherwise leave it on Auto.\n5. Recheck your Play Integrity status.\n\nIf Google revokes a keybox it may still pass device integrity but will fail strong integrity.</string>
     <string name="ts_patch_date_hint" translatable="false">YYYY-MM-DD</string>
     <string name="ts_security_patch">Security patch date</string>
     <string name="ts_no_patch">Not set (using device default)</string>
@@ -1214,22 +1215,57 @@
     <string name="ts_verification_auto_count">%1$d auto</string>
     <string name="ts_verification_cert_count">%1$d cert</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
-    <string name="ts_revocation_status">Revocation status</string>
-    <string name="ts_revocation_checking">Checking revocation status…</string>
-    <string name="ts_revocation_no_keybox">No keybox installed</string>
-    <string name="ts_revocation_valid">✓ Valid — not revoked</string>
-    <string name="ts_revocation_revoked">✗ Revoked (%s)</string>
-    <string name="ts_revocation_suspended">⚠ Suspended (%s)</string>
-    <string name="ts_revocation_soft_banned">Soft-banned (Strong Integrity may fail)</string>
-    <string name="ts_revocation_network_error">Could not reach revocation server</string>
-    <string name="ts_revocation_error">Check failed: %s</string>
     <string name="ts_fetch_keybox">Fetch official keybox</string>
     <string name="ts_fetch_keybox_summary">Download keybox from Evolution X servers</string>
     <string name="ts_fetch_keybox_fetching">Fetching keybox…</string>
     <string name="ts_fetch_keybox_success">Official keybox fetched successfully</string>
     <string name="ts_fetch_keybox_failed">Fetch failed: %s</string>
-    <string name="ts_fetch_keybox_revoked_refetch">Keybox revoked, fetching a newer one…</string>
     <string name="ts_fetch_keybox_same_file">Keybox is already up to date</string>
+    <string name="ts_fetch_keybox_blocked">Your keybox is valid — no fetch needed</string>
+    <string name="ts_fetch_keybox_last_fetched">Last fetched: %1$s</string>
+    <string name="ts_fetch_keybox_auto_replaced">Keybox automatically replaced with a valid one</string>
+    <string name="ts_fetch_keybox_no_valid_found">No valid keybox available yet, will retry tomorrow</string>
+
+    <!-- Keybox info row -->
+    <string name="ts_keybox_info_title">Keybox details</string>
+    <string name="ts_keybox_info_pending">Checking…</string>
+    <string name="ts_security_level_strongbox">StrongBox</string>
+    <string name="ts_security_level_tee">TEE-backed</string>
+    <string name="ts_security_level_software">Software (weak)</string>
+    <string name="ts_chain_rkp">RKP chain</string>
+    <string name="ts_chain_batch">Batch chain</string>
+    <string name="ts_chain_invalid_title">Invalid certificate chain</string>
+    <string name="ts_chain_invalid_message">The keybox certificate chain is invalid or could not be verified. It may be corrupted or tampered with. Would you like to replace it with the official keybox?</string>
+    <string name="ts_expires">Expires %1$s</string>
+    <string name="ts_expiry_unknown">unknown expiry</string>
+    <string name="ts_expiring_soon_title">Keybox expiring soon</string>
+    <string name="ts_expiring_soon_message">This keybox\'s certificate expires on %1$s. It currently passes integrity but will stop working after expiry. Replace it now with the official keybox?</string>
+    <string name="ts_untrusted_root_title">Unrecognized keybox root</string>
+    <string name="ts_untrusted_root_message">This keybox has a certificate chain rooted at an authority not recognized by Evolution X. It may still pass Strong Integrity on some devices. Keep it installed or replace it with the official keybox?</string>
+    <string name="ts_untrusted_root_keep">Keep</string>
+    <string name="ts_untrusted_root_replace">Replace</string>
+
+    <!-- Revocation status -->
+    <string name="ts_revocation_expiring_soon">Keybox expiring soon — tap to review</string>
+    <string name="ts_revocation_chain_invalid">Keybox chain is invalid or untrusted</string>
+    <string name="ts_revocation_untrusted_root">Keybox chain has an unrecognized root — may still pass integrity</string>
+    <string name="ts_revocation_status">Revocation status</string>
+    <string name="ts_revocation_checking">Checking revocation status…</string>
+    <string name="ts_revocation_no_keybox">No keybox installed</string>
+    <string name="ts_revocation_valid">Valid — not revoked</string>
+    <string name="ts_revocation_revoked">Revoked%s</string>
+    <string name="ts_revocation_suspended">Suspended%s</string>
+    <string name="ts_revocation_network_error">Could not reach revocation server</string>
+    <string name="ts_revocation_error">Check failed: %s</string>
+    <string name="ts_revocation_last_checked">Last checked: %1$s</string>
+    <string name="ts_revocation_tap_to_check">Tap to check revocation status</string>
+    <string name="ts_revocation_not_yet_checked">Not yet checked — tap to verify now</string>
+
+    <!-- Toasts for new auto-replace triggers -->
+    <string name="ts_fetch_keybox_revoked_refetch">Keybox revoked, fetching a newer one…</string>
+    <string name="ts_fetch_keybox_suspended_refetch">Keybox suspended, fetching a newer one…</string>
+    <string name="ts_fetch_keybox_expiring_refetch">Keybox expiring soon, fetching replacement…</string>
+    <string name="ts_fetch_keybox_chain_invalid_refetch">Keybox chain invalid, fetching replacement…</string>
 
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Wallpaper styles</string>
@@ -1490,6 +1526,7 @@
     <string name="action_select_all">Select all</string>
     <string name="action_restart">Restart</string>
     <string name="action_reboot_now">Reboot now</string>
+    <string name="action_add_installed">Add installed</string>
     <string name="show_system_apps">Show system apps</string>
     <string name="hide_system_apps">Hide system apps</string>
     <string name="default_value">Default</string>

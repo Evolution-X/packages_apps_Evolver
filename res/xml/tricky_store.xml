@@ -43,10 +43,16 @@
             android:summary="@string/ts_delete_keybox_summary" />
 
         <Preference
+            android:key="ts_keybox_info"
+            android:title="@string/ts_keybox_info_title"
+            android:icon="@drawable/ic_ts_status_unknown"
+            android:selectable="false" />
+
+        <Preference
             android:key="ts_revocation_status"
             android:title="@string/ts_revocation_status"
             android:summary="@string/ts_revocation_no_keybox"
-            android:selectable="false" />
+            android:icon="@drawable/ic_ts_status_unknown" />
     </PreferenceCategory>
 
     <PreferenceCategory
