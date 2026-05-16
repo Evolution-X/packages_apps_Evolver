@@ -1051,4 +1051,10 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Lock screen clock highlight guide -->
+    <string name="ls_clock_title">A záróképernyő órái</string>
+    <string name="ls_clock_summary">Beállíthatja az óratílust és a kisalkalmazásokat</string>
+    <string name="clock_styles_disclaimer_title">Mielőtt folytatná</string>
+    <string name="clock_styles_disclaimer_message">Ügyeljen a következőkre hogy az óraszámlapok és widgetek tökéletese működjenek:\n\n• Kapcsolja ki a Smartspace-t a záróképernyőn\n• Kapcsolja ki az Időjárást a záróképernyőn\n• Kapcsolja ki a nagy órastílust a záróképernyőn\n\nEzeket a beállításokat a Záróképernyő beállításaiban találhatja meg.</string>
+    <string name="ls_clock_face_highlight_text">Csúsztassa balra vagy jobbra az órastílus-előnézetek megtekintéséhez</string>
 </resources>
