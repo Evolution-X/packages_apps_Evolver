@@ -292,43 +292,6 @@
     <string name="depth_wallpaper_offset_x_title">لادانی ئاسۆیی</string>
     <string name="depth_wallpaper_offset_y_title">لادانی ستوونی</string>
     <string name="dw_footer_text">\"وێنەی پشتێنەی قووڵی\" وێنەی ئامانجێک دەخاتە سەرەوەی کاتژمێری قوفڵی ڕوونما، ئیلهامی لە دابەشکردنی وێنەی پشتێنەی iOS وەرگرتووە.\n\nڕێکخستن:\n١. وێنەیەکی پشتێنە بەو پاشبنەمایەی دەتەوێت لە پشتی ئامانجەکەوە بێت دابنێ.\n٢. وێنەیەکی ئامانجەکە هەڵبژێرە بۆ دانانی لە سەروو کاتژمێری قوفڵی ڕوونما.\n٣. لادانەکان و ڕوونییەکە بەپێی ئارەزووی خۆت ڕێکبخە.</string>
-    <!-- Lock screen/Widgets -->
-    <string name="lockscreen_widgets_title">وێجێتەکان</string>
-    <string name="lockscreen_widgets_enabled_title">چالاککردنی وێجێتەکانی ڕوونمای قوفڵ</string>
-    <string name="lockscreen_widgets_enabled_summary">زیادکردنی وێجێت بۆ ڕوونمای قوفڵ</string>
-    <string name="lockscreen_display_widgets_title">وێجێتی زانیاریی ئامێر</string>
-    <string name="lockscreen_display_widgets_summary">پیشاندانی وێجێتی زانیاریی ئامێر لەسەر ڕوونمای قوفڵ</string>
-    <string name="large_widgets_category_title">وێجێتە گەورەکان</string>
-    <string name="main_custom_widgets1">وێجێتی گەورەی 1</string>
-    <string name="main_custom_widgets2">وێجێتی گەورەی 2</string>
-    <string name="mini_widgets_category_title">وێجێتە بچووکەکان</string>
-    <string name="custom_widgets1">وێجێتی بچووکی 1</string>
-    <string name="custom_widgets2">وێجێتی بچووکی 2</string>
-    <string name="custom_widgets3">وێجێتی بچووکی 3</string>
-    <string name="custom_widgets4">وێجێتی بچووکی 4</string>
-    <string name="camera">کامێرا</string>
-    <string name="clock_timer">کاتژمێر/کاتیار</string>
-    <string name="calculator">ژمێرەر</string>
-    <string name="gallery">گالەری</string>
-    <string name="media">لێدەری میدیا</string>
-    <string name="torch">چرا</string>
-    <string name="controls_media_button_play">لێدان</string>
-    <string name="weather">کەشوهەوا</string>
-    <string name="wifi">وایفای</string>
-    <string name="data">داتا</string>
-    <string name="ringer">زەنگ</string>
-    <string name="bt">بلوتووس</string>
-    <string name="hotspot">هۆتسپۆت</string>
-    <string name="wallet">جزدان (Wallet)</string>
-    <string name="qr_scanner">سکێنەری QR</string>
-    <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">شێوازی وێجێتەکانی ڕوونمای قوفڵ</string>
-    <string name="lockscreen_widgets_style1">مەتێریاڵی خڕ</string>
-    <string name="lockscreen_widgets_style2">مەتێریاڵی چوارگۆشە</string>
-    <string name="lockscreen_widgets_style3">چوارگۆشەی نیوەڕوون</string>
-    <string name="lockscreen_widgets_style4">خڕی نیوەڕوون</string>
-    <string name="lockscreen_widgets_transparency_title">ڕوونیی شێوازی نیوەڕوون</string>
-    <string name="lockscreen_widgets_transparency_summary">ڕێکخستنی ئاستی ناڕوونیی وێجێتی شێوازی نیوەڕوون</string>
     <!-- Status bar -->
     <string name="status_bar_toggle_brightness_title">کۆنتڕۆڵکردنی ڕووناکی</string>
     <string name="status_bar_toggle_brightness_summary">خلیسکاندنی پەنجە بەسەر شریتی دۆخدا بۆ گۆڕینی ئاستی ڕووناکی</string>
@@ -1510,10 +1473,4 @@
     <string name="emoji_style_samsung">سامسۆنگ</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">فەیسبووک</string>
-    <!-- Lock screen clock highlight guide -->
-    <string name="ls_clock_title">کاتژمێرەکانی ڕوونمای قوفڵ</string>
-    <string name="ls_clock_summary">شێوازی کاتژمێر و وێجێتەکانت دابنێ</string>
-    <string name="clock_styles_disclaimer_title">پێش ئەوەی بەردەوام بیت</string>
-    <string name="clock_styles_disclaimer_message">بۆ باشترین ئەزموون لەگەڵ ڕووکارەکانی کاتژمێر و وێجێتەکان، تکایە دڵنیابەرەوە لە:\n\n• ناچالاککردنی Smartspaceی ڕوونمای قوفڵ\n• ناچالاککردنی کەشوهەوای ڕوونمای قوفڵ\n• ناچالاککردنی شێوازی کاتژمێری گەورە\n\nدەتوانیت ئەم هەڵبژاردنانە لە ڕێکخستنەکانی ڕوونمای قوفڵدا بدۆزیتەوە.</string>
-    <string name="ls_clock_face_highlight_text">بۆ چەپ یان ڕاست بخلیسکێنە بۆ پێشبینینی شێوازەکان</string>
 </resources>
