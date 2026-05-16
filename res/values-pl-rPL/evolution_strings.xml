@@ -276,6 +276,9 @@
     <string name="keyguard_now_bar_enabled_summary">Włącz widżety paska teraz na ekranie blokady</string>
     <string name="keyguard_now_bar_height_title">Wysokość paska teraz</string>
     <string name="keyguard_now_bar_height_summary">Dostosuj wysokość paska teraz</string>
+    <!-- Lock screen/Scrim -->
+    <string name="keyguard_scrim_transparent_title">Przezroczysta nakładka ekranu blokady</string>
+    <string name="keyguard_scrim_transparent_summary">Ukryj warstwę przyciemniającą tapetę ekranu blokady</string>
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Inteligentna przestrzeń</string>
     <string name="lockscreen_smartspace_summary">Pokaż inteligentną przestrzeń Google, jeśli jest dostępna</string>
@@ -290,8 +293,10 @@
     <string name="depth_wallpaper_offset_y_title">Przesunięcie pionowe</string>
     <string name="dw_footer_text">Tapeta z efektem głębi nakłada obraz obiektu nad zegarem ekranu blokady, inspirowana segmentacją obiektu tapety iOS.\n\nKonfiguracja:\n1. Ustaw tapetę z tłem, które ma być za obiektem.\n2. Wybierz obraz obiektu do nałożenia nad zegarem ekranu blokady.\n3. Dostosuj przesunięcia i przezroczystość według preferencji.</string>
     <!-- Status bar -->
-    <string name="status_bar_brightness_control_title">Kontrola jasności</string>
-    <string name="status_bar_brightness_control_summary">Dostosuj jasność, przeciągając palcem po pasku stanu</string>
+    <string name="status_bar_toggle_brightness_title">Kontrola jasności</string>
+    <string name="status_bar_toggle_brightness_summary">Dostosuj jasność, przeciągając palcem po pasku stanu</string>
+    <string name="status_bar_toggle_brightness_lockscreen_title">Kontrola jasności na ekranie blokady</string>
+    <string name="status_bar_toggle_brightness_lockscreen_summary">Zezwalaj na kontrolę jasności na pasku stanu ekranu blokady</string>
     <string name="status_bar_quick_pull_down_title">Szybkie rozwijanie</string>
     <string name="status_bar_quick_pull_down_summary">%1$s krawędzi paska stanu rozwija szybkie ustawienia</string>
     <string name="status_bar_quick_pull_down_off">Wyłącz</string>
@@ -531,7 +536,7 @@
     <string name="dynamic_bar_event_notification">Powiadomienia</string>
     <string name="dynamic_bar_event_notification_summary">Alerty powiadomień przychodzących</string>
     <string name="dynamic_bar_compact_notifications">Kompaktowe powiadomienia</string>
-    <string name="dynamic_bar_compact_notifications_summary">Najpierw pokaż powiadomienia jako mały znacznik; naciśnij, aby rozwinąć</string>
+    <string name="dynamic_bar_compact_notifications_summary">Najpierw pokaż powiadomienia jako mały znacznik; dotknij, aby rozwinąć</string>
     <string name="dynamic_bar_event_timer">Minutnik</string>
     <string name="dynamic_bar_event_timer_summary">Odliczanie czasu z aplikacji zegara</string>
     <string name="dynamic_bar_event_stopwatch">Stoper</string>
@@ -1174,6 +1179,8 @@
     <string name="ts_fetch_keybox_failed">Pobieranie nieudane: %s</string>
     <string name="ts_fetch_keybox_revoked_refetch">Zestaw na klucze został unieważniony, pobieranie nowego…</string>
     <string name="ts_fetch_keybox_same_file">Zestaw kluczy jest obecnie aktualny</string>
+    <string name="ts_fetch_keybox_blocked">Twój zestaw kluczy jest ważny — nie trzeba go pobierać</string>
+    <string name="ts_fetch_keybox_last_fetched">Ostatnie pobranie: %1$s</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Style tapety</string>
     <string name="wallpaper_settings_summary">Konfiguruj style i efekty tapet</string>
@@ -1321,7 +1328,7 @@
     <string name="no_custom_font">Brak niestandardowej czcionki</string>
     <string name="add_custom_font">Dodaj niestandardową czcionkę</string>
     <string name="change_custom_font">Zmień niestandardową czcionkę</string>
-    <string name="reset_custom_font_content_desc">Zresetuj niestandardową czcionkę</string>
+    <string name="reset_custom_font_content_desc">Resetuj niestandardową czcionkę</string>
     <string name="reboot_required_custom_font_title">Wymagany restart dla niestandardowej czcionki</string>
     <string name="reboot_required_custom_font_desc">Pominięcie restartu po zmianie czcionki niestandardowej może spowodować niespójności wizualne w niektórych aplikacjach.</string>
     <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
@@ -1345,7 +1352,7 @@
     <string name="about_current_maintainers_empty_summary">Nie można znaleźć aktualnie utrzymywanych wpisów z kompilacji OTA</string>
     <string name="about_current_maintainers_last_updated">Ostatnia aktualizacja %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Ostatnia aktualizacja: nieznana</string>
-    <string name="about_current_maintainers_tap_to_view">Naciśnij, aby wyświetlić aktywnych opiekunów</string>
+    <string name="about_current_maintainers_tap_to_view">Dotknij, aby wyświetlić aktywnych opiekunów</string>
     <string name="about_current_maintainers_sheet_subtitle">%1$d aktywnych opiekunów</string>
     <string name="about_current_maintainers_search_hint">Wyszukaj opiekunów lub urządzenia…</string>
     <string name="about_current_maintainers_no_results">Brak opiekunów odpowiadających twojemu wyszukiwaniu</string>
@@ -1443,7 +1450,7 @@
     <string name="flashlight_on_call_always">Zawsze</string>
     <string name="flashlight_on_call_ignore_dnd_title">Ignoruj nie przeszkadzać</string>
     <string name="flashlight_on_call_ignore_dnd_summary">Migaj, nawet gdy tryb nie przeszkadzać jest aktywny</string>
-    <string name="flashlight_on_call_rate_title">Częstotliwość migania</string>
+    <string name="flashlight_on_call_rate_title">Szybkość migania</string>
     <!-- Charging animation -->
     <string name="charging_animation_title">Animacja ładowania</string>
     <string name="charging_animation_summary">Pokaż efekty wizualne podczas ładowania na ekranie blokady lub ekran zawsze włączony</string>
