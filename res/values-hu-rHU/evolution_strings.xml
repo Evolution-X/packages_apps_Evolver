@@ -30,6 +30,7 @@
     <string name="gestures_category_title">Mozdulatvezérlés</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Monet &amp; Színek</string>
+    <string name="themes_visual_effects_category">Vizuális effektek</string>
     <string name="lock_screen_clock_category">Óra</string>
     <string name="lock_screen_media_category">Média</string>
     <string name="lock_screen_charging_effects_category">Töltési animációk</string>
@@ -246,6 +247,9 @@
     <!-- Lock screen/Now bar -->
     <string name="keyguard_now_bar_height_title">A \'Most sáv\" magassága</string>
     <string name="keyguard_now_bar_height_summary">Szabályozhatja a \'Most sáv\' megasságát</string>
+    <!-- Lock screen/Scrim -->
+    <string name="keyguard_scrim_transparent_title">Záróképernyő átlátszó rétege</string>
+    <string name="keyguard_scrim_transparent_summary">Elrejti a záróképernyő-háttérkép elmosott rétegét</string>
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Ha elérhető, akkor megjeleníti a Google Smartspace-t</string>
@@ -253,8 +257,10 @@
     <string name="dw_wallpaper_enabled_title">Térhatású Háttérkép</string>
     <string name="dw_wallpaper_enabled_summary_tile">Mélységi hatás\nalkalmazása a háttérre</string>
     <!-- Status bar -->
-    <string name="status_bar_brightness_control_title">Fényerőszabályzás</string>
-    <string name="status_bar_brightness_control_summary">Fényerő változtatása az állapotsávon való csúsztatással</string>
+    <string name="status_bar_toggle_brightness_title">Fényerőszabályzás</string>
+    <string name="status_bar_toggle_brightness_summary">Engedélyezi az értesítési sávon a fényerő változtatását ujjának csúsztatásával</string>
+    <string name="status_bar_toggle_brightness_lockscreen_title">Fényerő-vezérlés a Záróképernyőn</string>
+    <string name="status_bar_toggle_brightness_lockscreen_summary">Lehetővé teszi a fényerő állítását a képernyőzár állapotsorán</string>
     <string name="status_bar_quick_pull_down_summary">Az Állapotsor %1$s részén nyitható le a Gyorsbeállítások</string>
     <string name="status_bar_quick_pull_down_off">Ki</string>
     <string name="status_bar_quick_pull_down_right">jobb oldalán</string>
@@ -844,7 +850,7 @@
     <string name="ts_revocation_valid">✓ Érvényes — nem visszavont</string>
     <string name="ts_revocation_revoked">✗ Visszavont (%s)</string>
     <string name="ts_revocation_suspended">⚠ Felfüggesztett (%s)</string>
-    <string name="ts_revocation_soft_banned">Enyhén-tiltott (Az erős integritás megiúsulhat)</string>
+    <string name="ts_revocation_soft_banned">Enyhén-tiltott (Az erős integritás meghiúsulhat)</string>
     <string name="ts_revocation_network_error">A szerver nem elérhető </string>
     <string name="ts_revocation_error">Az ellenőrzés meghiúsult: %s</string>
     <string name="ts_fetch_keybox">A hivatalos keybox lekérése</string>
@@ -854,6 +860,8 @@
     <string name="ts_fetch_keybox_failed">A lekérés meghiúsult: %s</string>
     <string name="ts_fetch_keybox_revoked_refetch">A keybox visszavonva, egy újabb lekérése…</string>
     <string name="ts_fetch_keybox_same_file">A keybox már naprakész</string>
+    <string name="ts_fetch_keybox_blocked">A keybox érvényes — nem kell lekérni</string>
+    <string name="ts_fetch_keybox_last_fetched">Utoljára lekérve: %1$s</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">A háttérkép stílusa</string>
     <string name="wallpaper_effect_target_title">Effekt alkalmazása</string>
@@ -1002,6 +1010,7 @@
     <string name="emoji_style_title">Az Emoji stílusa</string>
     <string name="emoji_style_summary">Emoji-csomag választása a rendszerhez a szövegbetűtípusok módosítása nélkül</string>
     <string name="emoji_style_stock">Gyári</string>
+    <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
