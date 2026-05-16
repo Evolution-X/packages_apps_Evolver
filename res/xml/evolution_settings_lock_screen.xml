@@ -25,6 +25,13 @@
             android:summary="@string/lockscreen_smartspace_summary"
             android:defaultValue="true" />
 
+        <!-- Lockscreen widgets  -->
+        <Preference
+            android:key="lockscreen_widgets"
+            android:title="@string/lockscreen_widgets_title"
+            android:summary="@string/lockscreen_widgets_enabled_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.LockScreenWidgets" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
