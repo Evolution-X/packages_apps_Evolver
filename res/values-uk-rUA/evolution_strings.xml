@@ -158,7 +158,7 @@
     <string name="pulse_renderer_particle">Частинка</string>
     <string name="pulse_renderer_waveform">Форма хвилі</string>
     <string name="pulse_show_on_ambient_title">Показувати на Ambient дисплеї</string>
-    <string name="pulse_show_on_ambient_summary">Показувати візуалізатор на завжди ввімкненому дисплеї та в режимі сну. Вимкнути, щоб показувати.</string>
+    <string name="pulse_show_on_ambient_summary">Візуалізатор на постійному екрані і Ambient режим. Вимкніть тільки на екрані блокування.</string>
     <string name="pulse_height_multiplier_title">Висота Імпульсу</string>
     <string name="pulse_height_multiplier_summary">Налаштуйте висоту візуалізації</string>
     <!-- Lock screen/Clock -->
@@ -275,6 +275,9 @@
     <string name="keyguard_now_bar_enabled_summary">Увімкнути віджети панелі Асистента на екрані блокування</string>
     <string name="keyguard_now_bar_height_title">Висота навігаційної панелі</string>
     <string name="keyguard_now_bar_height_summary">Налаштування висоти панелі навігації</string>
+    <!-- Lock screen/Scrim -->
+    <string name="keyguard_scrim_transparent_title">Прозорий екран блокування</string>
+    <string name="keyguard_scrim_transparent_summary">Приховати шар затемнення шпалер екрана блокування</string>
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Розумне місце (Smartspace)</string>
     <string name="lockscreen_smartspace_summary">Показувати Google Smartspace за наявності</string>
@@ -288,9 +291,48 @@
     <string name="depth_wallpaper_offset_x_title">Горизонтальне зміщення</string>
     <string name="depth_wallpaper_offset_y_title">Вертикальне зміщення</string>
     <string name="dw_footer_text">Шпалери глибини накладають зображення об\'єкта над годинником на екрані блокування, натхненні сегментацією за темами шпалер iOS.\n\nНалаштування:\n1. Встановіть шпалери з потрібним фоном позаду об\'єкта.\n2. Виберіть зображення об’єкта, яке потрібно накласти на годинник на екрані блокування.\n3. Налаштуйте зміщення та непрозорість на свій смак.</string>
+    <!-- Lock screen/Widgets -->
+    <string name="lockscreen_widgets_title">Віджети</string>
+    <string name="lockscreen_widgets_enabled_title">Увімкнути віджети на екрані блокування</string>
+    <string name="lockscreen_widgets_enabled_summary">Додати віджети на екран блокування</string>
+    <string name="lockscreen_display_widgets_title">Віджет із інформацією про пристрій</string>
+    <string name="lockscreen_display_widgets_summary">Відображати віджет інформації про пристрій на екрані блокування</string>
+    <string name="large_widgets_category_title">Великі віджети</string>
+    <string name="main_custom_widgets1">Великий віджет 1</string>
+    <string name="main_custom_widgets2">Великий віджет 2</string>
+    <string name="mini_widgets_category_title">Міні-віджети</string>
+    <string name="custom_widgets1">Міні-віджет 1</string>
+    <string name="custom_widgets2">Міні-віджет 2</string>
+    <string name="custom_widgets3">Міні-віджет 3</string>
+    <string name="custom_widgets4">Міні-віджет 4</string>
+    <string name="camera">Камера</string>
+    <string name="clock_timer">Годинник / Таймер</string>
+    <string name="calculator">Калькулятор</string>
+    <string name="gallery">Галерея</string>
+    <string name="media">Медіаплеєр</string>
+    <string name="torch">Ліхтарик</string>
+    <string name="controls_media_button_play">Грати</string>
+    <string name="weather">Погода</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="data">Мобільний інтернет</string>
+    <string name="ringer">Дзвінок</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Точка доступу</string>
+    <string name="wallet">Гаманець</string>
+    <string name="qr_scanner">QR-сканер</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">Стиль віджетів на екрані блокування</string>
+    <string name="lockscreen_widgets_style1">Матеріал Округлений</string>
+    <string name="lockscreen_widgets_style2">Матеріал Квадратний</string>
+    <string name="lockscreen_widgets_style3">Квадратний напівпрозорий</string>
+    <string name="lockscreen_widgets_style4">Округлі напівпрозорі</string>
+    <string name="lockscreen_widgets_transparency_title">Прозорий стиль прозорості</string>
+    <string name="lockscreen_widgets_transparency_summary">Налаштування непрозорості віджета напівпрозорого стилю</string>
     <!-- Status bar -->
-    <string name="status_bar_brightness_control_title">Керування яскравістю</string>
-    <string name="status_bar_brightness_control_summary">Регулювати яскравість екрану рухом пальця по рядку стану</string>
+    <string name="status_bar_toggle_brightness_title">Керування яскравістю</string>
+    <string name="status_bar_toggle_brightness_summary">Регулювати яскравість екрану рухом пальця по рядку стану</string>
+    <string name="status_bar_toggle_brightness_lockscreen_title">Керування яскравістю на екрані блокування</string>
+    <string name="status_bar_toggle_brightness_lockscreen_summary">Дозволити керування яскравістю на панелі статусу</string>
     <string name="status_bar_quick_pull_down_title">Швидке опускання</string>
     <string name="status_bar_quick_pull_down_summary">%1$s рядка стану розгортає швидкі налаштування</string>
     <string name="status_bar_quick_pull_down_off">Вимкнути</string>
@@ -1172,6 +1214,8 @@
     <string name="ts_fetch_keybox_failed">Не вдалося отримати: %s</string>
     <string name="ts_fetch_keybox_revoked_refetch">Keybox анульовано, отримання нового…</string>
     <string name="ts_fetch_keybox_same_file">Ключ вже оновлено</string>
+    <string name="ts_fetch_keybox_blocked">Ваш keybox дійсний - не потрібно завантажувати</string>
+    <string name="ts_fetch_keybox_last_fetched">Останнє завантаження: %1$s</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Стиль шпалер</string>
     <string name="wallpaper_settings_summary">Налаштувати стилі та ефекти шпалер</string>
