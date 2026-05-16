@@ -201,7 +201,7 @@
     <string name="ls_media_art_pixel_size_title">Tamanho do pixel de arte multimídia</string>
     <string name="ls_media_art_pixel_size_summary">Ajustar o tamanho do pixel de arte de mídia exibido na tela de bloqueio</string>
     <!-- AOD Media Settings -->
-    <string name="show_on_aod_title">Mostrar na tela sempre ativo</string>
+    <string name="show_on_aod_title">Mostrar na tela sempre ativa</string>
     <string name="show_on_aod_summary">Exibir arte da mídia na tela sempre ativa</string>
     <string name="aod_brightness_title">Brilho AOD</string>
     <!-- Lock screen/Now Playing -->
@@ -276,6 +276,9 @@
     <string name="keyguard_now_bar_enabled_summary">Ativar a Now bar tela de bloqueio de widgets</string>
     <string name="keyguard_now_bar_height_title">Altura da Now bar</string>
     <string name="keyguard_now_bar_height_summary">Ajuste a altura da barra Now</string>
+    <!-- Lock screen/Scrim -->
+    <string name="keyguard_scrim_transparent_title">Tela de bloqueio transparente</string>
+    <string name="keyguard_scrim_transparent_summary">Ocultar a camada de escurecimento do papel de parede da tela de bloqueio</string>
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Mostrar Google Smartspace quando disponível</string>
@@ -289,9 +292,48 @@
     <string name="depth_wallpaper_offset_x_title">Deslocamento horizontal</string>
     <string name="depth_wallpaper_offset_y_title">Deslocamento vertical</string>
     <string name="dw_footer_text">O papel de parede de profundidade sobrepõe uma imagem de assunto acima do relógio da tela de bloqueio, inspirado na segmentação de assunto do papel de parede do iOS.\n\nConfiguração:\n1. Defina um papel de parede com o fundo desejado atrás do assunto.\n2. Selecione uma imagem de assunto para sobrepor acima do relógio da tela de bloqueio.\n3. Ajuste os deslocamentos e a opacidade de acordo com sua preferência.</string>
+    <!-- Lock screen/Widgets -->
+    <string name="lockscreen_widgets_title">Widgets</string>
+    <string name="lockscreen_widgets_enabled_title">Ativar widgets na tela de bloqueio</string>
+    <string name="lockscreen_widgets_enabled_summary">Adicione widgets à tela de bloqueio</string>
+    <string name="lockscreen_display_widgets_title">Widget de informações do dispositivo</string>
+    <string name="lockscreen_display_widgets_summary">Mostre um widget de informações do dispositivo na tela de bloqueio</string>
+    <string name="large_widgets_category_title">Widgets grandes</string>
+    <string name="main_custom_widgets1">Widget grande 1</string>
+    <string name="main_custom_widgets2">Widget grande 2</string>
+    <string name="mini_widgets_category_title">Mini widgets</string>
+    <string name="custom_widgets1">Mini widget 1</string>
+    <string name="custom_widgets2">Mini widget 2</string>
+    <string name="custom_widgets3">Mini widget 3</string>
+    <string name="custom_widgets4">Mini widget 4</string>
+    <string name="camera">Câmera</string>
+    <string name="clock_timer">Relógio/Temporizador</string>
+    <string name="calculator">Calculadora</string>
+    <string name="gallery">Galeria</string>
+    <string name="media">Reprodutor de mídia</string>
+    <string name="torch">Lanterna</string>
+    <string name="controls_media_button_play">Reproduzir</string>
+    <string name="weather">Clima</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="data">Dados</string>
+    <string name="ringer">Toque</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Ponto de acesso</string>
+    <string name="wallet">Carteira</string>
+    <string name="qr_scanner">Scanner QR</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">Estilo dos widgets na tela de bloqueio</string>
+    <string name="lockscreen_widgets_style1">Material arredondado</string>
+    <string name="lockscreen_widgets_style2">Material quadrado</string>
+    <string name="lockscreen_widgets_style3">Quadrado translúcido</string>
+    <string name="lockscreen_widgets_style4">Arredondado translúcido</string>
+    <string name="lockscreen_widgets_transparency_title">Transparência no estilo translúcido</string>
+    <string name="lockscreen_widgets_transparency_summary">Configurar o nível de opacidade do widget em estilo translúcido</string>
     <!-- Status bar -->
-    <string name="status_bar_brightness_control_title">Controle de brilho</string>
-    <string name="status_bar_brightness_control_summary">Ajuste o brilho deslizando pela barra de status</string>
+    <string name="status_bar_toggle_brightness_title">Controle de brilho</string>
+    <string name="status_bar_toggle_brightness_summary">Ajuste o brilho deslizando pela barra de status</string>
+    <string name="status_bar_toggle_brightness_lockscreen_title">Controle de brilho na tela de bloqueio</string>
+    <string name="status_bar_toggle_brightness_lockscreen_summary">Permitir o controle de brilho na barra de status da tela de bloqueio</string>
     <string name="status_bar_quick_pull_down_title">Puxar rapidamente para baixo</string>
     <string name="status_bar_quick_pull_down_summary">%1$s da barra de status puxa para baixo as configurações rápidas</string>
     <string name="status_bar_quick_pull_down_off">Desativado</string>
@@ -829,7 +871,7 @@
     <string name="qs_compact_media_player_mode_title">Reprodutor de mídia compacto</string>
     <string name="qs_compact_media_player_mode_summary">Use o modo compacto para as configurações rápidas do media player</string>
     <string name="qs_show_media_player_title">Posição do reprodutor de mídia</string>
-    <string name="qs_show_media_player_hide">oculto</string>
+    <string name="qs_show_media_player_hide">Ocultar</string>
     <string name="qs_show_media_player_top">Exibir no topo</string>
     <string name="qs_show_media_player_bottom">Exibir na parte inferior</string>
     <string name="qs_tile_gradient_title">Gradiente das configurações rápidas</string>
@@ -1173,6 +1215,8 @@
     <string name="ts_fetch_keybox_failed">Falha na busca: %s</string>
     <string name="ts_fetch_keybox_revoked_refetch">A Keybox foi revogada, buscando uma mais recente…</string>
     <string name="ts_fetch_keybox_same_file">A Keybox já está atualizada</string>
+    <string name="ts_fetch_keybox_blocked">Sua caixa de chave é válida — nenhuma busca necessária</string>
+    <string name="ts_fetch_keybox_last_fetched">Última busca: %1$s</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Estilos de papel de parede</string>
     <string name="wallpaper_settings_summary">Configure estilos e efeitos de papel de parede</string>
@@ -1437,7 +1481,7 @@
     <string name="flashlight_on_call_disabled">Desativado</string>
     <string name="flashlight_on_call_ringer">Ao tocar</string>
     <string name="flashlight_on_call_no_ringer">Quando o toque está silencioso</string>
-    <string name="flashlight_on_call_silent">Quando totalmente silencioso (sem campainha ou vibração)</string>
+    <string name="flashlight_on_call_silent">Quando totalmente silencioso (sem toque ou vibração)</string>
     <string name="flashlight_on_call_always">Sempre</string>
     <string name="flashlight_on_call_ignore_dnd_title">Ignorar não perturbe</string>
     <string name="flashlight_on_call_ignore_dnd_summary">Pisque mesmo quando o Não perturbe estiver ativo</string>
@@ -1466,4 +1510,10 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Lock screen clock highlight guide -->
+    <string name="ls_clock_title">Relógios da tela de bloqueio</string>
+    <string name="ls_clock_summary">Defina o estilo do seu relógio e os widgets.</string>
+    <string name="clock_styles_disclaimer_title">Antes de continuar</string>
+    <string name="clock_styles_disclaimer_message">Para a melhor experiência com rostos de relógio e widgets, certifique-se que:\n\n• Desativar tela Smartspace da tela de bloqueio\n• Desativar clima da tela de bloqueio\n• Desativar o estilo de relógio grande\n\nVocê pode encontrar essas opções nas configurações da Tela de bloqueio.</string>
+    <string name="ls_clock_face_highlight_text">Deslize para a esquerda ou direita para visualizar os estilos de relógio</string>
 </resources>
