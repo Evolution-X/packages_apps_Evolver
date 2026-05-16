@@ -1509,4 +1509,10 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Lock screen clock highlight guide -->
+    <string name="ls_clock_title">Годинники на екрані блокування</string>
+    <string name="ls_clock_summary">Налаштуйте стиль годинника та віджети</string>
+    <string name="clock_styles_disclaimer_title">Перш ніж продовжити</string>
+    <string name="clock_styles_disclaimer_message">Для найкращого досвіду роботи з циферблатами годинника та віджетами, будь ласка, переконайтеся, що:\n\n• Вимкніть Smartspace на екрані блокування\n• Вимкніть погоду на екрані блокування\n• Вимкніть стиль великого годинника\n\nВи можете знайти ці опції у налаштуваннях екрана блокування.</string>
+    <string name="ls_clock_face_highlight_text">Проведіть вліво або вправо, щоб переглянути стиль годинника</string>
 </resources>
