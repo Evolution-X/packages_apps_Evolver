@@ -32,13 +32,11 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
-import org.evolution.settings.fragments.lockscreen.CustomClockController;
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
 import org.evolution.settings.utils.SystemUtils;
 import org.evolution.settings.utils.TelephonyUtils;
-// import org.evolution.settings.utils.ImageUtils;
 
 @SearchIndexable
 public class LockScreen extends SettingsPreferenceFragment implements
@@ -54,12 +52,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
     private static final String KEY_CARRIER_NAME = "lockscreen_show_carrier";
-    private static final String KEY_CUSTOM_CLOCK = "lockscreen_custom_clock_style";
     private static final String KEY_KEYGUARD_SCRIM = "keyguard_scrim_transparent";
-//    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
-//    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
 
-//    private Preference mCustomImagePreference;
     private Preference mRippleEffect;
     private SwitchPreferenceCompat mSmartspace;
     private SwitchPreferenceCompat mWeather;
@@ -81,17 +75,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mFpSuccessVib = findPreference(KEY_FP_SUCCESS);
         mFpErrorVib = findPreference(KEY_FP_ERROR);
         mRippleEffect = (Preference) findPreference(KEY_RIPPLE_EFFECT);
-
-//        mCustomImagePreference = findPreference(CUSTOM_IMAGE_REQUEST_CODE_KEY);
-//        int clockStyle = Settings.Secure.getIntForUser(getContext().getContentResolver(), "clock_style", 0, UserHandle.USER_CURRENT);
-//        String imagePath = Settings.System.getString(getContext().getContentResolver(), "custom_aod_image_uri");
-//        if (imagePath != null && clockStyle > 0) {
-//            mCustomImagePreference.setSummary(imagePath);
-//            mCustomImagePreference.setEnabled(true);
-//        } else if (clockStyle == 0) {
-//            mCustomImagePreference.setSummary(getContext().getString(R.string.custom_aod_image_not_supported));
-//            mCustomImagePreference.setEnabled(false);
-//        }
 
         boolean hasFingerprint = DeviceUtils.hasFingerprint(context);
         if (!hasFingerprint) {
@@ -119,7 +102,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mKeyguardScrim = (SwitchPreferenceCompat) findPreference(KEY_KEYGUARD_SCRIM);
         mKeyguardScrim.setOnPreferenceChangeListener(this);
 
-        updateCustomClockSummary();
         updateWeatherSettings();
     }
 
@@ -144,12 +126,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
         return false;
     }
 
-    private void updateCustomClockSummary() {
-        Preference pref = findPreference(KEY_CUSTOM_CLOCK);
-        if (pref == null) return;
-        pref.setSummary(new CustomClockController(getContext(), KEY_CUSTOM_CLOCK).getSummary());
-    }
-
     private void updateWeatherSettings() {
         if (mWeather == null || mSmartspace == null) return;
 
@@ -162,41 +138,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
-        updateCustomClockSummary();
         updateWeatherSettings();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
-
-//    @Override
-//    public boolean onPreferenceTreeClick(Preference preference) {
-//        if (preference == mCustomImagePreference) {
-//            try {
-//                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                intent.setType("image/*");
-//                startActivityForResult(intent, CUSTOM_IMAGE_REQUEST_CODE);
-//            } catch(Exception e) {
-//                Toast.makeText(getContext(), R.string.quick_settings_header_needs_gallery, Toast.LENGTH_LONG).show();
-//            }
-//            return true;
-//        }
-//        return super.onPreferenceTreeClick(preference);
-//    }
-
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent result) {
-//        super.onActivityResult(requestCode, resultCode, result);
-//        if (requestCode == CUSTOM_IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK && result != null) {
-//            Uri imgUri = result.getData();
-//            if (imgUri != null) {
-//                String savedImagePath = ImageUtils.saveImageToInternalStorage(getContext(), imgUri, "lockscreen_aod_image", "LOCKSCREEN_CUSTOM_AOD_IMAGE");
-//                if (savedImagePath != null) {
-//                    ContentResolver resolver = getContext().getContentResolver();
-//                    Settings.System.putStringForUser(resolver, "custom_aod_image_uri", savedImagePath, UserHandle.USER_CURRENT);
-//                    mCustomImagePreference.setSummary(savedImagePath);
-//                }
-//            }
-//        }
-//    }
 
     @Override
     public int getMetricsCategory() {

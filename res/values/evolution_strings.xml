@@ -1602,4 +1602,11 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+
+    <!-- Lock screen clock highlight guide -->
+    <string name="ls_clock_title">Lock screen clocks</string>
+    <string name="ls_clock_summary">Set your clock style and widgets</string>
+    <string name="clock_styles_disclaimer_title">Before you continue</string>
+    <string name="clock_styles_disclaimer_message">For the best experience with clock faces and widgets, please make sure to:\n\n• Disable lock screen Smartspace\n• Disable lock screen weather\n• Disable the large clock style\n\nYou can find these options in the Lock screen settings.</string>
+    <string name="ls_clock_face_highlight_text">Swipe left or right to preview clock styles</string>
 </resources>
