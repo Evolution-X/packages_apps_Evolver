@@ -1135,6 +1135,8 @@
     <string name="idle_manager_refresh_dashboard">Refresh</string>
     <string name="idle_manager_clear_stats_title">Clear stats</string>
     <string name="idle_manager_clear_stats_confirm">This will permanently delete all enforcement history. Idle Manager will continue running normally.</string>
+    <string name="idle_manager_sleep_mode_trigger_title">Trigger on Sleep Mode</string>
+    <string name="idle_manager_sleep_mode_trigger_summary">Only enforce idle rules while Sleep Mode is active</string>
 
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrity Fix</string>

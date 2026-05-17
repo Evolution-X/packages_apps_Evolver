@@ -208,6 +208,15 @@ private fun writeEnabled(ctx: Context, v: Boolean) =
         if (v) 1 else 0
     )
 
+private fun readSleepModeTrigger(ctx: Context) =
+    Settings.Secure.getInt(ctx.contentResolver,
+        Settings.Secure.IDLE_MANAGER_SLEEP_MODE_TRIGGER, 0) == 1
+
+private fun writeSleepModeTrigger(ctx: Context, v: Boolean) =
+    Settings.Secure.putInt(ctx.contentResolver,
+        Settings.Secure.IDLE_MANAGER_SLEEP_MODE_TRIGGER,
+        if (v) 1 else 0)
+
 private fun readAppConfigs(ctx: Context): LinkedHashMap<String, IdleAppConfig> {
     val result = linkedMapOf<String, IdleAppConfig>()
     val json = Settings.Secure.getString(
@@ -332,37 +341,15 @@ private fun IdleManagerRoot(ctx: Context) {
     val scope = rememberCoroutineScope()
     val haptic = LocalHapticFeedback.current
 
-    var allApps by remember {
-        mutableStateOf(listOf<IdleAppItem>()) 
-    }
-
-    var configuredApps by remember {
-        mutableStateOf(linkedMapOf<String, IdleAppConfig>()) 
-    }
-
-    var globalEnabled by remember {
-        mutableStateOf(true) 
-    }
-
-    var records by remember {
-        mutableStateOf(listOf<EnforcementRecord>()) 
-    }
-
-    var selectedTab by remember {
-        mutableIntStateOf(0) 
-    }
-
-    var showAddDialog by remember {
-        mutableStateOf(false) 
-    }
-
-    var showEditDialog by remember {
-        mutableStateOf<IdleAppConfig?>(null) 
-    }
-
-    var showClearConfirm by remember {
-        mutableStateOf(false) 
-    }
+    var allApps by remember { mutableStateOf(listOf<IdleAppItem>()) }
+    var configuredApps by remember { mutableStateOf(linkedMapOf<String, IdleAppConfig>()) }
+    var globalEnabled by remember { mutableStateOf(true) }
+    var records by remember { mutableStateOf(listOf<EnforcementRecord>()) }
+    var selectedTab by remember { mutableIntStateOf(0) }
+    var showAddDialog by remember { mutableStateOf(false) }
+    var showEditDialog by remember { mutableStateOf<IdleAppConfig?>(null) }
+    var showClearConfirm by remember { mutableStateOf(false) }
+    var sleepModeTrigger by remember { mutableStateOf(false) }
 
     fun mergeWithAppInfo(
         raw: LinkedHashMap<String, IdleAppConfig>,
@@ -387,13 +374,11 @@ private fun IdleManagerRoot(ctx: Context) {
 
     fun loadAll() {
         scope.launch {
-            val enabled = withContext(Dispatchers.IO) {
-                readEnabled(ctx)
-            }
-            val raw = withContext(Dispatchers.IO) {
-                readAppConfigs(ctx)
-            }
+            val enabled = withContext(Dispatchers.IO) { readEnabled(ctx) }
+            val raw = withContext(Dispatchers.IO) { readAppConfigs(ctx) }
+            val trigger = withContext(Dispatchers.IO) { readSleepModeTrigger(ctx) }
             globalEnabled = enabled
+            sleepModeTrigger = trigger
             configuredApps = mergeWithAppInfo(raw, allApps)
             refreshRecords()
         }
@@ -538,7 +523,17 @@ private fun IdleManagerRoot(ctx: Context) {
                         writeEnabled(ctx, v)
                     }
                 },
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp)
+            )
+
+            SleepModeTriggerCard(
+                enabled = sleepModeTrigger,
+                globalEnabled = globalEnabled,
+                onToggle = { v ->
+                    sleepModeTrigger = v
+                    scope.launch(Dispatchers.IO) { writeSleepModeTrigger(ctx, v) }
+                },
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
             )
 
             AnimatedVisibility(visible = globalEnabled) {
@@ -1996,4 +1991,61 @@ private fun formatMinutes(mins: Int): String = when {
     mins == 60 -> "1 hour"
     mins % 60 == 0 -> "${mins / 60} hours"
     else -> "${mins / 60}h ${mins % 60}m"
+}
+
+@Composable
+private fun SleepModeTriggerCard(
+    enabled: Boolean,
+    globalEnabled: Boolean,
+    onToggle: (Boolean) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    AnimatedVisibility(
+        visible = globalEnabled,
+        enter = expandVertically() + fadeIn(),
+        exit = shrinkVertically() + fadeOut()
+    ) {
+        Card(
+            modifier = modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(20.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = if (enabled)
+                    MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
+                else
+                    MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f)
+            )
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 14.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        Icons.Default.PowerSettingsNew,
+                        contentDescription = null,
+                        tint = if (enabled)
+                            MaterialTheme.colorScheme.primary
+                        else
+                            MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(22.dp)
+                    )
+                    Spacer(Modifier.width(14.dp))
+                    Column {
+                        Text(
+                            stringResource(R.string.idle_manager_sleep_mode_trigger_title),
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                        Text(
+                            stringResource(R.string.idle_manager_sleep_mode_trigger_summary),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+                Switch(checked = enabled, onCheckedChange = onToggle)
+            }
+        }
+    }
 }
