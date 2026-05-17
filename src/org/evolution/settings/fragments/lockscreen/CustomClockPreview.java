@@ -30,6 +30,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.preference.Preference;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -50,12 +51,15 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
     private static final String PREF_FIRST_TIME = "first_time_clock_face_access";
 
     private static final String KEY_CLOCK_PREVIEW = "clock_preview";
+    private static final String KEY_CLOCK_COLOR = ClockColorPickerDialogFragment.KEY_CLOCK_COLOR;
 
     private ViewPager viewPager;
     private ClockPagerAdapter pagerAdapter;
     private ExtendedFloatingActionButton applyFab;
     private View highlightGuide;
     private TextView clockNameTextView;
+
+    private Preference mClockColorPref;
 
     private int mClockPosition = 0;
 
@@ -78,6 +82,31 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setupClockPreview();
+        setupClockColorPref();
+    }
+
+    private void setupClockColorPref() {
+        mClockColorPref = findPreference(KEY_CLOCK_COLOR);
+        if (mClockColorPref == null) return;
+
+        updateClockColorSummary();
+
+        mClockColorPref.setOnPreferenceClickListener(pref -> {
+            ClockColorPickerDialogFragment dialog = ClockColorPickerDialogFragment.newInstance();
+            dialog.setOnColorAppliedListener(() -> { updateClockColorSummary(); return kotlin.Unit.INSTANCE; });
+            dialog.show(getChildFragmentManager(), ClockColorPickerDialogFragment.TAG);
+            return true;
+        });
+    }
+
+    private void updateClockColorSummary() {
+        if (mClockColorPref == null || getContext() == null) return;
+        int argb = Settings.Secure.getIntForUser(
+                getContext().getContentResolver(),
+                KEY_CLOCK_COLOR,
+                ClockColorPickerDialogFragment.DEFAULT_COLOR_ARGB,
+                UserHandle.USER_CURRENT);
+        mClockColorPref.setSummary(String.format("#%06X", argb & 0x00FFFFFF));
     }
 
     private void setupClockPreview() {
@@ -182,6 +211,13 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
                 getContext().getContentResolver(), PREF_FIRST_TIME, 0, UserHandle.USER_CURRENT);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateClockName(mClockPosition);
+        updateClockColorSummary();
+    }
+
     private class ClockPagerAdapter extends PagerAdapter {
         @NonNull
         @Override
@@ -211,12 +247,6 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        updateClockName(mClockPosition);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         updateClockName(mClockPosition);
     }
 

@@ -48,10 +48,11 @@
         settings:min="50"
         settings:units="%" />
 
-    <org.evolution.settings.preferences.colorpicker.SecureSettingColorPickerPreference
+    <Preference
         android:key="lock_screen_custom_clock_custom_color"
         android:title="@string/custom_color"
-        android:defaultValue="0xFFFFFFFF" />
+        android:summary="@string/custom_color_summary"
+        android:persistent="false" />
 
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference
         android:key="lock_screen_custom_clock_opacity"
