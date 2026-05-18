@@ -515,7 +515,7 @@
     <string name="ongoing_chip_bg_alpha_summary">Dostosuj krycie tła znacznika akcji</string>
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Pasek dynamiczny</string>
-    <string name="dynamic_bar_summary">Inteligentny wskaźnik na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, multimedia, minutniki i inne</string>
+    <string name="dynamic_bar_summary">Inteligentny wskaźnik na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, multimedia, liczniki i inne</string>
     <string name="dynamic_bar_enable">Włącz pasek dynamiczny</string>
     <string name="dynamic_bar_enable_summary">Wyświetlaj dynamiczny znacznik na pasku stanu dla wydarzeń na żywo</string>
     <string name="dynamic_bar_keyguard_enable">Pasek dynamiczny na ekranie blokady</string>
@@ -537,8 +537,8 @@
     <string name="dynamic_bar_event_notification_summary">Alerty powiadomień przychodzących</string>
     <string name="dynamic_bar_compact_notifications">Kompaktowe powiadomienia</string>
     <string name="dynamic_bar_compact_notifications_summary">Najpierw pokaż powiadomienia jako mały znacznik; dotknij, aby rozwinąć</string>
-    <string name="dynamic_bar_event_timer">Minutnik</string>
-    <string name="dynamic_bar_event_timer_summary">Odliczanie czasu z aplikacji zegara</string>
+    <string name="dynamic_bar_event_timer">Licznik</string>
+    <string name="dynamic_bar_event_timer_summary">Licznik odliczania z aplikacji zegara</string>
     <string name="dynamic_bar_event_stopwatch">Stoper</string>
     <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji zegara</string>
     <string name="dynamic_bar_event_alarm">Alarm</string>
@@ -557,8 +557,8 @@
     <string name="dynamic_bar_event_clipboard_summary">Skopiowany tekst i podgląd obrazu</string>
     <string name="dynamic_bar_event_torch">Latarka</string>
     <string name="dynamic_bar_event_torch_summary">Przełącznik i jasność latarki</string>
-    <string name="dynamic_bar_event_ongoing">Bieżące działania</string>
-    <string name="dynamic_bar_event_ongoing_summary">Nawigacja, dostawy i inne działania na żywo</string>
+    <string name="dynamic_bar_event_ongoing">Trwające aktywności</string>
+    <string name="dynamic_bar_event_ongoing_summary">Nawigacja, dostawy i inne aktywności na żywo</string>
     <string name="dynamic_bar_event_sports">Sporty</string>
     <string name="dynamic_bar_event_sports_summary">Wyniki na żywo i aktualizacje gry</string>
     <string name="dynamic_bar_event_app_switch">Przełącznik ostatnich aplikacji</string>
@@ -566,7 +566,7 @@
     <string name="dynamic_bar_event_biometric">Odblokowywanie biometryczne</string>
     <string name="dynamic_bar_event_biometric_summary">Pokaż wskaźnik przy odblokowywaniu odciskiem palca lub twarzą</string>
     <string name="dynamic_bar_guide_title">Jak używać dynamicznego paska</string>
-    <string name="dynamic_bar_guide_chip">Wydarzenia są wyświetlane na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, odtwarzanie multimediów i minutniki</string>
+    <string name="dynamic_bar_guide_chip">Wydarzenia są wyświetlane na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, odtwarzanie multimediów i liczniki</string>
     <string name="dynamic_bar_guide_swipe">Gdy aktywnych jest wiele zdarzeń, przesuń palcem w lewo lub w prawo na wskaźniku, aby je przeglądać</string>
     <string name="dynamic_bar_guide_expand">Naciśnij znacznik, aby rozwinąć go do szczegółowej karty ze sterowaniem i dodatkowymi informacjami</string>
     <string name="dynamic_bar_guide_dismiss">Przesuń rozwiniętą kartę, aby ją zamknąć. Zdarzenie będzie kontynuowane w tle</string>
@@ -1227,7 +1227,7 @@
     <string name="lock_glymps_behavior_category">Zachowanie</string>
     <string name="lock_glymps_change_on_title">Moment zmiany tapety</string>
     <string name="lock_glymps_change_on_summary">Kiedy zmienić tapetę</string>
-    <string name="lock_glymps_timer_interval_title">Odstęp czasowy</string>
+    <string name="lock_glymps_timer_interval_title">Odstęp licznika</string>
     <string name="lock_glymps_timer_interval_summary">Jak często automatycznie zmieniać tapetę</string>
     <string name="lock_glymps_footer_title">Informacja</string>
     <string name="lock_glymps_footer_text">📁 Lokalny folder: /sdcard/Glymps\n\n⚠️ Urządzenia niskiej klasy mogą odczuwać lekkie opóźnienia.\n\n🎨 Wskazówka: Użyj niestandardowego akcentu w ustawieniach motywu dynamicznego dla stabilnych kolorów.</string>
@@ -1352,7 +1352,7 @@
     <string name="about_current_maintainers_empty_summary">Nie można znaleźć aktualnie utrzymywanych wpisów z kompilacji OTA</string>
     <string name="about_current_maintainers_last_updated">Ostatnia aktualizacja %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Ostatnia aktualizacja: nieznana</string>
-    <string name="about_current_maintainers_tap_to_view">Dotknij, aby wyświetlić aktywnych opiekunów</string>
+    <string name="about_current_maintainers_tap_to_view">Naciśnij, aby wyświetlić aktywnych opiekunów</string>
     <string name="about_current_maintainers_sheet_subtitle">%1$d aktywnych opiekunów</string>
     <string name="about_current_maintainers_search_hint">Wyszukaj opiekunów lub urządzenia…</string>
     <string name="about_current_maintainers_no_results">Brak opiekunów odpowiadających twojemu wyszukiwaniu</string>
@@ -1475,4 +1475,20 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Settings UI -->
+    <string name="settings_icon_title">Styl ustawień</string>
+    <string name="settings_icon_summary">Dostosuj styl interfejsu aplikacji ustawienia</string>
+    <string name="settings_icon_style_title">Styl ikony ustawień</string>
+    <string name="settings_icon_style_expressive">Material ekspresyjny</string>
+    <string name="settings_icon_style_colored_bg">Kolorowe tło i biała ikona</string>
+    <string name="settings_icon_style_gradient_bg">Gradientowe tło i biała ikona</string>
+    <string name="settings_icon_style_accent_outline">Obrys akcentu i ikona</string>
+    <string name="settings_icon_style_colored_outline">Kolorowy obrys i ikona</string>
+    <string name="settings_icon_style_colored_icon">Tylko kolorowa ikona</string>
+    <string name="settings_icon_style_accent_icon">Tylko ikona akcentu</string>
+    <string name="settings_icon_corner_style_title">Styl narożników ikon ustawień</string>
+    <string name="settings_icon_corner_style_circle">Okrąg</string>
+    <string name="settings_icon_corner_style_rounded_square">Zaokrąglony kwadrat</string>
+    <string name="settings_icon_random_colors_title">Losowe kolory</string>
+    <string name="settings_icon_random_colors_summary">Użyj losowych kolorów dla każdej ikony</string>
 </resources>
