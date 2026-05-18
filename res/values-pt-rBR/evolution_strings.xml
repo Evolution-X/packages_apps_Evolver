@@ -1473,4 +1473,20 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Settings UI -->
+    <string name="settings_icon_title">Estilo das configurações</string>
+    <string name="settings_icon_summary">Personalizar o estilo da interface do usuário do aplicativo Configurações</string>
+    <string name="settings_icon_style_title">Estilo do ícone Configurações</string>
+    <string name="settings_icon_style_expressive">Material expressivo</string>
+    <string name="settings_icon_style_colored_bg">Fundo colorido e ícone branco</string>
+    <string name="settings_icon_style_gradient_bg">Fundo gradiente e ícone branco</string>
+    <string name="settings_icon_style_accent_outline">Detalhar contorno e ícone</string>
+    <string name="settings_icon_style_colored_outline">Ícone e contorno coloridos</string>
+    <string name="settings_icon_style_colored_icon">Ícone colorido apenas</string>
+    <string name="settings_icon_style_accent_icon">Apenas o ícone de destaque</string>
+    <string name="settings_icon_corner_style_title">Estilo dos ícones das configurações</string>
+    <string name="settings_icon_corner_style_circle">Círculo</string>
+    <string name="settings_icon_corner_style_rounded_square">Cantos arredondados</string>
+    <string name="settings_icon_random_colors_title">Cores aleatórias</string>
+    <string name="settings_icon_random_colors_summary">Usar cores aleatórias para cada ícone</string>
 </resources>
