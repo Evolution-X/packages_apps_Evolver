@@ -232,13 +232,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mCompactMediaPlayer
             || preference == mBrightnessSliderHaptic) {
-            SystemUtils.showSystemUiRestartDialog(context);
+            SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         } else if (preference == mQsShowMediaPlayer) {
-            int value = Integer.parseInt((String) newValue);
-            if (value == 0) {
-                SystemUtils.showSystemUiRestartDialog(getActivity());
-            }
+            SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         } else if (preference == mSingleQsToneEnabled) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
