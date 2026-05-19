@@ -1472,4 +1472,20 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Settings UI -->
+    <string name="settings_icon_title">Стиль налаштувань</string>
+    <string name="settings_icon_summary">Налаштувати стиль інтерфейсу програми «Налаштування»</string>
+    <string name="settings_icon_style_title">Стиль піктограми налаштувань</string>
+    <string name="settings_icon_style_expressive">Матеріальна виразність</string>
+    <string name="settings_icon_style_colored_bg">Кольоровий фон і біла іконка</string>
+    <string name="settings_icon_style_gradient_bg">Градієнт тла та біла іконка</string>
+    <string name="settings_icon_style_accent_outline">Контур та значок акценту</string>
+    <string name="settings_icon_style_colored_outline">Кольоровий контур та значок</string>
+    <string name="settings_icon_style_colored_icon">Тільки кольоровий значок</string>
+    <string name="settings_icon_style_accent_icon">Тільки значок акценту</string>
+    <string name="settings_icon_corner_style_title">Стиль кутових значків налаштувань</string>
+    <string name="settings_icon_corner_style_circle">Кільце</string>
+    <string name="settings_icon_corner_style_rounded_square">Заокруглений квадрат</string>
+    <string name="settings_icon_random_colors_title">Випадкові кольори</string>
+    <string name="settings_icon_random_colors_summary">Використання випадкових кольорів для кожного значка</string>
 </resources>
