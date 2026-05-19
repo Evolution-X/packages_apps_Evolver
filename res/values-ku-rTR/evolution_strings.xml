@@ -371,7 +371,7 @@
     <string name="battery_bar_blend_color_reverse_title">پێچەوانەکردنی ئاراستەی ڕەنگ</string>
     <string name="battery_bar_blend_color_reverse_summary_off">پڕ → خاڵی: سوور ← سەوز ← شین ← سوور</string>
     <string name="battery_bar_blend_color_reverse_summary_on">پڕ → خاڵی: سوور → سەوز → شین → سوور</string>
-    <string name="battery_bar_use_gradient_color">بەکارهێنانی ڕەنگی پلەبەندیی</string>
+    <string name="battery_bar_use_gradient_color">بەکارهێنانی ڕەنگی پلەبەپلەیی</string>
     <string name="battery_bar_gradient_color_summary">بەکارهێنانی پلەبەندییەک کە لەگەڵ ئاستی باتریدا دەگۆڕێت</string>
     <string name="battery_bar_high_color">ڕەنگی ئاستی بەرز</string>
     <string name="battery_bar_low_color">ڕەنگی ئاستی نزم</string>
@@ -410,23 +410,23 @@
     <string name="statusbar_clock_chip_title">کایەڵی پاشبنەمای کاتژمێر</string>
     <string name="solid_accent">ڕەنگی بنچینەیی تۆخ</string>
     <string name="outline">چوارچێوە (Outline)</string>
-    <string name="solid_accent_gradient">پلەبەندیی ڕەنگی بنچینەیی</string>
-    <string name="solid_gradient">پلەبەندیی تۆخ (لا تەنیشت)</string>
-    <string name="solid_gradient_corner">پلەبەندیی ڕەنگی بنچینەیی (تیژ)</string>
-    <string name="solid_gradient_void">پلەبەندیی بەتاڵ (Void)</string>
-    <string name="solid_gradient_neumorph">پلەبەندیی Neumorph</string>
-    <string name="solid_gradient_stroke">هێڵکاریی پلەبەندیی تیژ</string>
+    <string name="solid_accent_gradient">پلەبەپلەیی ڕەنگی بنچینەیی</string>
+    <string name="solid_gradient">پلەبەپلەیی تۆخ (لا تەنیشت)</string>
+    <string name="solid_gradient_corner">پلەبەپلەیی ڕەنگی بنچینەیی (تیژ)</string>
+    <string name="solid_gradient_void">پلەبەپلەیی بەتاڵ (Void)</string>
+    <string name="solid_gradient_neumorph">پلەبەپلەیی Neumorph</string>
+    <string name="solid_gradient_stroke">هێڵکاریی پلەبەپلەیی تیژ</string>
     <string name="solid_accent_transperent">ڕەنگی بنچینەیی ڕوون (Transparent)</string>
-    <string name="solid_gradient_light">پلەبەندیی ڕووناک</string>
-    <string name="solid_gradient_shape">پلەبەندیی گۆشەی تیژ</string>
-    <string name="solid_gradient_void_light">پلەبەندیی ڕووناکی بەتاڵ</string>
+    <string name="solid_gradient_light">پلەبەپلەیی ڕووناک</string>
+    <string name="solid_gradient_shape">پلەبەپلەیی گۆشەی تیژ</string>
+    <string name="solid_gradient_void_light">پلەبەپلەیی ڕووناکی بەتاڵ</string>
     <string name="clock_chip_custom_gradient">پلەی ڕەنگی دەستکرد</string>
     <string name="clock_chip_gradient_start_color_title">ڕەنگی دەستپێکی پلەبەندی</string>
-    <string name="clock_chip_gradient_start_color_summary">ئەو ڕەنگەی کە پلەبەندییەکەی لێوە دەست پێ دەکات</string>
+    <string name="clock_chip_gradient_start_color_summary">ئەو ڕەنگەی کە پلەبەپلەییەکەی لێوە دەست پێ دەکات</string>
     <string name="clock_chip_gradient_end_color_title">ڕەنگی کۆتایی پلەبەندی</string>
-    <string name="clock_chip_gradient_end_color_summary">ئەو ڕەنگەی کە پلەبەندییەکەی پێ کۆتایی دێت</string>
+    <string name="clock_chip_gradient_end_color_summary">ئەو ڕەنگەی کە پلەبەپلەییەکەی پێ کۆتایی دێت</string>
     <string name="clock_chip_gradient_angle_title">گۆشەی پلەبەندی</string>
-    <string name="clock_chip_gradient_angle_summary">ئاراستەی پلەبەندییەکە (٠° = چەپ بۆ ڕاست، ٩٠° = سەرەوە بۆ خوارەوە)</string>
+    <string name="clock_chip_gradient_angle_summary">ئاراستەی پلەبەپلەییەکە (٠° = چەپ بۆ ڕاست، ٩٠° = سەرەوە بۆ خوارەوە)</string>
     <string name="clock_chip_gradient_mask_text_title">شێوازی دەقی کاتژمێر</string>
     <string name="clock_chip_gradient_mask_text_default">بنەڕەتی</string>
     <string name="clock_chip_gradient_mask_text_mask">ڕوون (ماسک)</string>
@@ -766,7 +766,7 @@
     <string name="quick_settings_auto_brightness_icon_summary">پیشاندانی دوگمەی ڕۆشنایی گونجێنەر لە تەنیشت خلیسکێنەرەکە</string>
     <string name="quick_settings_brightness_slider_haptic_title">وەڵامدانەوەی لەرینەوە (Haptic)</string>
     <string name="quick_settings_brightness_slider_haptic_summary">لەرینەوە کاتێک ڕۆشنایی بە خلیسکێنەرەکە ڕێکدەخەیت</string>
-    <string name="qs_brightness_slider_gradient_title">پلەبەندیی خلیسکێنەری ڕۆشنایی</string>
+    <string name="qs_brightness_slider_gradient_title">شێوازی پلەبەپلەیی ڕەنگی خلیسکێنەری ڕووناکی</string>
     <string name="qs_brightness_slider_gradient_summary">چالاککردنی پاشبنەمای پلەبەندی بۆ خلیسکێنەری ڕۆشنایی</string>
     <!-- Quick settings/Animations -->
     <string name="quick_settings_animations_category">ئەنیمەیشنەکان</string>
@@ -837,7 +837,7 @@
     <string name="qs_show_media_player_hide">شاردنەوە</string>
     <string name="qs_show_media_player_top">پیشاندان لە سەرەوە</string>
     <string name="qs_show_media_player_bottom">پیشاندان لە خوارەوە</string>
-    <string name="qs_tile_gradient_title">پلەبەندیی خانەکانی QS</string>
+    <string name="qs_tile_gradient_title">پلەبەپلەیی خانەکانی QS</string>
     <string name="qs_tile_gradient_summary">چالاککردنی ڕەنگی پلەبەندی بۆ پاشبنەمای خانەکانی QS</string>
     <string name="qs_tiles_haptic_feedback_title">لەرزین لە کاتی داگرتنی خانەی QS</string>
     <string name="qs_panel_tile_haptic_intensity_title">هێزی لەرزینی خانەی QS</string>
@@ -1289,13 +1289,13 @@
     <string name="rui_style">Realme UI</string>
     <string name="aosp_style">بنەڕەتیی AOSP</string>
     <string name="double_layer_style">دوو چین</string>
-    <string name="gradient_style">پلەبەندیی ڕەنگ (Gradient)</string>
+    <string name="gradient_style">پلەبەپلەیی ڕەنگ (Gradient)</string>
     <string name="neumorph_style">نیومۆرف (Neumorph)</string>
     <string name="neumorph_outline_style">چوارچێوەی نیومۆرف</string>
     <string name="outline_style">چوارچێوە (Outline)</string>
     <string name="shaded_layer_style">چینی سێبەرکراو</string>
     <!-- Gradient styles -->
-    <string name="gradient_settings_title">تایبەتمەندکردنی پلەبەندیی ڕەنگ</string>
+    <string name="gradient_settings_title">تایبەتمەندکردنی پلەبەپلەیی ڕەنگ</string>
     <string name="gradient_settings_summary">جێبەجێکردنی ڕەنگەکانی پلەبەندی لەسەر بەشەکانی سیستەم</string>
     <string name="gradient_elements_category">بەشەکانی سیستەم</string>
     <string name="gradient_colors_category">ڕەنگەکانی پلەبەندی</string>
@@ -1473,4 +1473,20 @@
     <string name="emoji_style_samsung">سامسۆنگ</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">فەیسبووک</string>
+    <!-- Settings UI -->
+    <string name="settings_icon_title">شێوازی ڕێکخستنەکان</string>
+    <string name="settings_icon_summary">تایبەتکردنی شێوازی ڕووکاری بەرنامەی ڕێکخستنەکان</string>
+    <string name="settings_icon_style_title">شێوازی ئایکۆنی ڕێکخستنەکان</string>
+    <string name="settings_icon_style_expressive">ماتیریال ئێکسپرێسیڤ (دەربرینخواز)</string>
+    <string name="settings_icon_style_colored_bg">پاشبنەمای ڕەنگاوڕەنگ و ئایکۆنی سپی</string>
+    <string name="settings_icon_style_gradient_bg">پاشبنەمای لێڵبوو (پلەبەپلە) و ئایکۆنی سپی</string>
+    <string name="settings_icon_style_accent_outline">چوارچێوە و ئایکۆنی ڕەنگی سەرەکی</string>
+    <string name="settings_icon_style_colored_outline">چوارچێوە و ئایکۆنی ڕەنگاوڕەنگ</string>
+    <string name="settings_icon_style_colored_icon">تەنها ئایکۆنی ڕەنگاوڕەنگ</string>
+    <string name="settings_icon_style_accent_icon">تەنها ئایکۆنی ڕەنگی سەرەکی</string>
+    <string name="settings_icon_corner_style_title">شێوازی گۆشەی ئایکۆنەکانی ڕێکخستن</string>
+    <string name="settings_icon_corner_style_circle">بازنەیی</string>
+    <string name="settings_icon_corner_style_rounded_square">چوارگۆشەی خڕکراو</string>
+    <string name="settings_icon_random_colors_title">ڕەنگە هەڕەمەکییەکان</string>
+    <string name="settings_icon_random_colors_summary">بەکارهێنانی ڕەنگی هەڕەمەکی بۆ هەر ئایکۆنێک</string>
 </resources>
