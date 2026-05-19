@@ -157,9 +157,6 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
         applyFab = clockPreviewPref.findViewById(R.id.apply_extended_fab);
         highlightGuide = clockPreviewPref.findViewById(R.id.highlight_guide);
 
-        final android.widget.SeekBar seekBar = clockPreviewPref.findViewById(R.id.clock_seekbar);
-        seekBar.setMax(CLOCK_LAYOUTS.length - 1);
-
         pagerAdapter = new ClockPagerAdapter();
         viewPager.setAdapter(pagerAdapter);
         viewPager.setClipChildren(true);
@@ -173,7 +170,6 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
                     getContext().getContentResolver(), Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
         }
         viewPager.setCurrentItem(mClockPosition);
-        seekBar.setProgress(mClockPosition);
 
         applyFab.setOnClickListener(v -> {
             Context ctx = getContext();
@@ -187,37 +183,6 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
             }
         });
 
-        seekBar.setOnSeekBarChangeListener(new android.widget.SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(android.widget.SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    mClockPosition = progress;
-                    viewPager.setCurrentItem(progress, true);
-                    updateClockName(progress);
-                }
-            }
-            @Override
-            public void onStartTrackingTouch(android.widget.SeekBar seekBar) {}
-            @Override
-            public void onStopTrackingTouch(android.widget.SeekBar seekBar) {}
-        });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrollStateChanged(int state) {}
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
-            @Override
-            public void onPageSelected(int position) {
-                mClockPosition = position;
-                seekBar.setProgress(position);
-                if (viewPager != null) {
-                    viewPager.performHapticFeedback(android.view.HapticFeedbackConstants.CLOCK_TICK);
-                }
-                updateClockName(position);
-            }
-        });
-
         if (isFirstTime()) {
             highlightGuide.setVisibility(View.VISIBLE);
             highlightGuide.setOnClickListener(v -> {
@@ -227,6 +192,21 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
         } else {
             highlightGuide.setVisibility(View.GONE);
         }
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrollStateChanged(int state) {}
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+            @Override
+            public void onPageSelected(int position) {
+                mClockPosition = position;
+                if (viewPager != null) {
+                    viewPager.performHapticFeedback(android.view.HapticFeedbackConstants.CLOCK_TICK);
+                }
+                updateClockName(position);
+            }
+        });
 
         updateClockName(mClockPosition);
     }
