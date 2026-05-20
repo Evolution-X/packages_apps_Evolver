@@ -1089,6 +1089,8 @@
     <string name="idle_manager_refresh_dashboard">Оновити</string>
     <string name="idle_manager_clear_stats_title">Очистити статистику</string>
     <string name="idle_manager_clear_stats_confirm">Це назавжди видалить всю історію застосування. Idle Manager продовжить працювати у звичайному режимі.</string>
+    <string name="idle_manager_sleep_mode_trigger_title">Запуск у режимі сну</string>
+    <string name="idle_manager_sleep_mode_trigger_summary">Застосовувати лише правила бездіяльності при активному режимі сну</string>
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrity Fix</string>
     <string name="play_integrity_fix_summary">Керуйте налаштуваннями PIF і відбитками пристроїв для основної цілісності</string>
@@ -1367,6 +1369,7 @@
     <string name="wallpaper_color">Колір шпалер</string>
     <string name="rainbow_color">Веселка</string>
     <string name="custom_color">Власний колір</string>
+    <string name="custom_color_summary">Користувацький колір деяких стилів годинника</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Значення: <xliff:g id="v">%s</xliff:g></string>
     <string name="custom_seekbar_default_value">За замовчуванням</string>
@@ -1483,9 +1486,12 @@
     <string name="settings_icon_style_colored_outline">Кольоровий контур та значок</string>
     <string name="settings_icon_style_colored_icon">Тільки кольоровий значок</string>
     <string name="settings_icon_style_accent_icon">Тільки значок акценту</string>
-    <string name="settings_icon_corner_style_title">Стиль кутових значків налаштувань</string>
+    <string name="settings_icon_corner_style_title">Кутовий стиль значків налаштувань</string>
     <string name="settings_icon_corner_style_circle">Кільце</string>
     <string name="settings_icon_corner_style_rounded_square">Заокруглений квадрат</string>
     <string name="settings_icon_random_colors_title">Випадкові кольори</string>
     <string name="settings_icon_random_colors_summary">Використання випадкових кольорів для кожного значка</string>
+    <!-- QS Split Shade -->
+    <string name="qs_split_shade_title">Розділені швидкі налаштування</string>
+    <string name="qs_split_shade_summary">Проведіть вниз зліва для сповіщень та справа для швидких налаштувань</string>
 </resources>
