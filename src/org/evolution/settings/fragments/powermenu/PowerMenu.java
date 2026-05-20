@@ -5,14 +5,10 @@
 
 package org.evolution.settings.fragments.powermenu;
 
-import android.content.ContentResolver;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -30,16 +26,10 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.evolution_settings_power_menu);
-
-        final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
-        final PreferenceScreen prefScreen = getPreferenceScreen();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
         return false;
     }
 
@@ -49,5 +39,5 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.evolution_settings_power_menu);
+            new BaseSearchIndexProvider(R.xml.evolution_settings_power_menu);
 }

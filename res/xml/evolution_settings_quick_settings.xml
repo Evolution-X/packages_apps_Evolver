@@ -12,17 +12,6 @@
         android:key="quick_settings_interface_category"
         android:title="@string/quick_settings_interface_category">
 
-        <!-- QS Transparency -->
-        <!--<org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qs_transparency"
-            android:title="@string/quick_settings_transparency_title"
-            android:summary="@string/quick_settings_transparency_summary"
-            android:defaultValue="100"
-            settings:interval="1"
-            settings:units="%"
-            android:max="100"
-            android:min="1" />-->
-
         <!-- QS Header -->
         <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
             android:key="status_bar_custom_header"
@@ -50,7 +39,7 @@
             android:summary="@string/notification_bg_alternate_color_summary"
             android:defaultValue="false" />
 
-        <!-- QS Media Player  -->
+        <!-- QS Media Player -->
         <org.evolution.settings.preferences.SecureSettingListPreference
             android:key="qs_show_media_player"
             android:title="@string/qs_show_media_player_title"
@@ -71,50 +60,6 @@
             android:title="@string/qs_compact_media_player_mode_title"
             android:summary="@string/qs_compact_media_player_mode_summary"
             android:defaultValue="false" />
-
-        <!--<org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_header_clock_style"
-            android:title="@string/qs_header_clock_style_title"
-            android:entries="@array/qs_header_clock_style_entries"
-            android:entryValues="@array/qs_header_clock_style_values"
-            android:summary="%s"
-            android:defaultValue="0" />-->
-
-        <!-- Battery styles -->
-        <!--<org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_battery_style"
-            android:title="@string/status_bar_battery_style_title"
-            android:entries="@array/qs_battery_style_entries"
-            android:entryValues="@array/qs_battery_style_values"
-            android:defaultValue="-1" />-->
-
-        <!-- Battery percent -->
-        <!--<org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_show_battery_percent"
-            android:title="@string/status_bar_battery_percent_title"
-            android:entries="@array/status_bar_battery_percent_entries"
-            android:entryValues="@array/status_bar_battery_percent_values"
-            android:defaultValue="2" />-->
-
-        <!--<ListPreference
-            android:key="qs_tile_ui_style"
-            android:title="@string/quick_settings_tile_ui_style_title"
-            android:entries="@array/quick_settings_tile_ui_style_entries"
-            android:entryValues="@array/quick_settings_tile_ui_style_values"
-            android:defaultValue="0" />
-
-        <ListPreference
-            android:key="qs_panel_style"
-            android:title="@string/quick_settings_panel_style_title"
-            android:entries="@array/quick_settings_panel_style_entries"
-            android:entryValues="@array/quick_settings_panel_style_values"
-            android:defaultValue="0" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_split_shade_enabled"
-            android:title="@string/qs_split_shade_enabled_title"
-            android:summary="@string/qs_split_shade_enabled_summary"
-            android:defaultValue="false" />-->
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -129,7 +74,7 @@
             android:entryValues="@array/quick_settings_show_brightness_slider_values"
             android:defaultValue="1" />
 
-        <!-- Brightness Slider Style -->
+        <!-- Brightness slider style -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_brightness_slider_shape"
             android:title="@string/qs_brightness_slider_shape_title"
@@ -158,13 +103,6 @@
             android:title="@string/quick_settings_auto_brightness_icon_title"
             android:summary="@string/quick_settings_auto_brightness_icon_summary"
             android:defaultValue="true" />
-
-        <!-- Brightness slider percentage -->
-        <!--<lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="qs_show_brightness_percentage"
-            android:title="@string/quick_settings_show_brightness_percentage_title"
-            android:summary="@string/quick_settings_show_brightness_percentage_summary"
-            android:defaultValue="false" />-->
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -220,21 +158,6 @@
             android:entryValues="@array/qs_tile_animation_style_values"
             android:defaultValue="0" />
 
-        <!--<org.evolution.settings.preferences.SystemSettingSeekBarPreference
-            android:key="qs_tile_label_size"
-            android:title="@string/quick_settings_tile_label_size_title"
-            android:max="15"
-            settings:min="10"
-            settings:interval="1"
-            settings:units="sp"
-            android:defaultValue="14" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_vertical_layout"
-            android:title="@string/quick_settings_tile_layout_title"
-            android:summary="@string/quick_settings_tile_layout_summary"
-            android:defaultValue="false" />-->
-
         <Preference
             android:key="qs_layout_columns_rows"
             android:title="@string/quick_settings_layout_columns_rows_title"
@@ -248,8 +171,9 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
-    <PreferenceCategory 
-         android:title="@string/quick_settings_footer_category">
+    <PreferenceCategory
+        android:key="quick_settings_footer_category"
+        android:title="@string/quick_settings_footer_category">
 
         <!-- Data usage -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference

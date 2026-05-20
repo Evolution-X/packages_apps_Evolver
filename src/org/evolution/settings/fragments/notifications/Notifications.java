@@ -5,29 +5,17 @@
 
 package org.evolution.settings.fragments.notifications;
 
-import android.app.Activity;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.provider.Settings;
 
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.Utils;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
-import java.util.List;
 
 import org.evolution.settings.utils.PreferenceUtils;
 
@@ -41,17 +29,10 @@ public class Notifications extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.evolution_settings_notifications);
-
-        final Context mContext = getActivity().getApplicationContext();
-        final ContentResolver resolver = mContext.getContentResolver();
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources res = mContext.getResources();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final Context context = getContext();
-        final ContentResolver resolver = context.getContentResolver();
         return false;
     }
 
