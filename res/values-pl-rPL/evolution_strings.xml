@@ -93,7 +93,7 @@
     <string name="monet_engine_custom_bgcolor_title">Kolor tła</string>
     <string name="monet_engine_custom_bgcolor_summary">Wybierz niestandardowy kolor tła</string>
     <string name="monet_engine_color_override_title">Niestandardowy kolor</string>
-    <string name="monet_engine_luminance_factor_title">Jasność</string>
+    <string name="monet_engine_luminance_factor_title">Luminancja</string>
     <string name="monet_engine_luminance_factor_summary">Wyższe wartości dają jaśniejsze kolory</string>
     <string name="monet_engine_chroma_factor_title">Współczynnik nasycenia</string>
     <string name="monet_engine_chroma_factor_summary">Wyższe wartości tworzą mocniejsze kolory</string>
@@ -128,7 +128,7 @@
     <string name="lock_screen_fingerprint_success_vibration_title">Wibracja po udanej autoryzacji</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Wibruj po pomyślnym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Wibracja po nieudanej autoryzacji</string>
-    <string name="lock_screen_fingerprint_error_vibration_summary">Wibruj po nieudanym uwierzytelnieniu odcisku palca</string>
+    <string name="lock_screen_fingerprint_error_vibration_summary">Wibracja po nieudanym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_miscellaneous_category">Różne</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
@@ -191,7 +191,7 @@
     <string name="ls_media_art_filter_blur">Rozmycie</string>
     <string name="ls_media_art_filter_grayscale">Odcienie szarości</string>
     <string name="ls_media_art_filter_sepia">Sepia</string>
-    <string name="ls_media_art_filter_tint">Akcentowane przyciemnienie</string>
+    <string name="ls_media_art_filter_tint">Kolor akcentu</string>
     <string name="ls_media_art_filter_invert">Odwrócone</string>
     <string name="ls_media_art_filter_grayblur">Skala szarości i rozmycie</string>
     <string name="ls_media_art_fade_level_title">Poziom zanikania okładki albumu</string>
@@ -538,7 +538,7 @@
     <string name="dynamic_bar_compact_notifications">Kompaktowe powiadomienia</string>
     <string name="dynamic_bar_compact_notifications_summary">Najpierw pokaż powiadomienia jako mały znacznik; dotknij, aby rozwinąć</string>
     <string name="dynamic_bar_event_timer">Licznik</string>
-    <string name="dynamic_bar_event_timer_summary">Licznik odliczania z aplikacji zegara</string>
+    <string name="dynamic_bar_event_timer_summary">Odliczanie czasu z aplikacji zegara</string>
     <string name="dynamic_bar_event_stopwatch">Stoper</string>
     <string name="dynamic_bar_event_stopwatch_summary">Uruchamianie stopera z aplikacji zegara</string>
     <string name="dynamic_bar_event_alarm">Alarm</string>
@@ -1091,6 +1091,8 @@
     <string name="idle_manager_refresh_dashboard">Odśwież</string>
     <string name="idle_manager_clear_stats_title">Wyczyść statystyki</string>
     <string name="idle_manager_clear_stats_confirm">Spowoduje to trwałe usunięcie całej historii egzekwowania. Menedżer bezczynności będzie nadal działał normalnie.</string>
+    <string name="idle_manager_sleep_mode_trigger_title">Wyzwalacz w trybie uśpienia</string>
+    <string name="idle_manager_sleep_mode_trigger_summary">Wymuś reguły bezczynności tylko wtedy, gdy aktywny jest tryb uśpienia</string>
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Poprawka integralności Google Play</string>
     <string name="play_integrity_fix_summary">Zarządzaj konfiguracją poprawki integralności Google Play i odciskami palców urządzenia</string>
@@ -1352,7 +1354,7 @@
     <string name="about_current_maintainers_empty_summary">Nie można znaleźć aktualnie utrzymywanych wpisów z kompilacji OTA</string>
     <string name="about_current_maintainers_last_updated">Ostatnia aktualizacja %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Ostatnia aktualizacja: nieznana</string>
-    <string name="about_current_maintainers_tap_to_view">Naciśnij, aby wyświetlić aktywnych opiekunów</string>
+    <string name="about_current_maintainers_tap_to_view">Dotknij, aby wyświetlić aktywnych opiekunów</string>
     <string name="about_current_maintainers_sheet_subtitle">%1$d aktywnych opiekunów</string>
     <string name="about_current_maintainers_search_hint">Wyszukaj opiekunów lub urządzenia…</string>
     <string name="about_current_maintainers_no_results">Brak opiekunów odpowiadających twojemu wyszukiwaniu</string>
@@ -1369,6 +1371,7 @@
     <string name="wallpaper_color">Kolor tapety</string>
     <string name="rainbow_color">Tęcza</string>
     <string name="custom_color">Niestandardowy kolor</string>
+    <string name="custom_color_summary">Niestandardowy kolor niektórych stylów zegarów</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Wartość: <xliff:g id="v">%s</xliff:g>
   </string>
@@ -1404,7 +1407,7 @@
     <string name="action_reboot_now">Zrestartuj teraz</string>
     <string name="show_system_apps">Pokaż aplikacje systemowe</string>
     <string name="hide_system_apps">Ukryj aplikacje systemowe</string>
-    <string name="default_value">Domyślny</string>
+    <string name="default_value">Domyślne</string>
     <string name="top">U góry</string>
     <string name="bottom">Na dole</string>
     <string name="delete_message">Usunąć zaznaczony element?</string>
@@ -1491,4 +1494,7 @@
     <string name="settings_icon_corner_style_rounded_square">Zaokrąglony kwadrat</string>
     <string name="settings_icon_random_colors_title">Losowe kolory</string>
     <string name="settings_icon_random_colors_summary">Użyj losowych kolorów dla każdej ikony</string>
+    <!-- QS Split Shade -->
+    <string name="qs_split_shade_title">Podziel szybkie ustawienia</string>
+    <string name="qs_split_shade_summary">Przesuń w dół z lewej, aby wyświetlić powiadomienia, lub z prawej, aby wyświetlić szybkie ustawienia</string>
 </resources>
