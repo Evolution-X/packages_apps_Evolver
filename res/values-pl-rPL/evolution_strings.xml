@@ -1171,7 +1171,7 @@
     <string name="ts_revocation_valid">✓ Ważny — nie unieważniony</string>
     <string name="ts_revocation_revoked">✗ Unieważniony (%s)</string>
     <string name="ts_revocation_suspended">⚠ Zawieszony (%s)</string>
-    <string name="ts_revocation_soft_banned">Częściowo odwołany (silna integralność może nie zadziałać)</string>
+    <string name="ts_revocation_soft_banned">Częściowo unieważniony (silna integralność nie powiedzie się)</string>
     <string name="ts_revocation_network_error">Nie można nawiązać połączenia z serwerem odwołań</string>
     <string name="ts_revocation_error">Sprawdzanie nie powiodło się: %s</string>
     <string name="ts_fetch_keybox">Pobierz oficjalny zestaw kluczy</string>
@@ -1183,6 +1183,9 @@
     <string name="ts_fetch_keybox_same_file">Zestaw kluczy jest obecnie aktualny</string>
     <string name="ts_fetch_keybox_blocked">Twój zestaw kluczy jest ważny — nie trzeba go pobierać</string>
     <string name="ts_fetch_keybox_last_fetched">Ostatnie pobranie: %1$s</string>
+    <string name="ts_fetch_keybox_auto_replaced">Skrzynka na klucze automatycznie zastąpiona prawidłową</string>
+    <string name="ts_fetch_keybox_soft_banned_refetch">Skrzynka na klucze częściowo unieważniona, zachowano ją i podjęto próbę zdobycia lepszej…</string>
+    <string name="ts_fetch_keybox_no_valid_found">Nie ma jeszcze dostępnego prawidłowego zestawu kluczy, spróbuj ponownie jutro</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Style tapety</string>
     <string name="wallpaper_settings_summary">Konfiguruj style i efekty tapet</string>
@@ -1494,7 +1497,4 @@
     <string name="settings_icon_corner_style_rounded_square">Zaokrąglony kwadrat</string>
     <string name="settings_icon_random_colors_title">Losowe kolory</string>
     <string name="settings_icon_random_colors_summary">Użyj losowych kolorów dla każdej ikony</string>
-    <!-- QS Split Shade -->
-    <string name="qs_split_shade_title">Podziel szybkie ustawienia</string>
-    <string name="qs_split_shade_summary">Przesuń w dół z lewej, aby wyświetlić powiadomienia, lub z prawej, aby wyświetlić szybkie ustawienia</string>
 </resources>
