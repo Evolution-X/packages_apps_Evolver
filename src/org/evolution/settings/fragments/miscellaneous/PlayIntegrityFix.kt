@@ -43,7 +43,6 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     private var activeConfigData: Map<String, String> = emptyMap()
-    private var autoFetchDone = false
 
     private enum class PifChannel { LATEST_RELEASE, CANARY }
 
@@ -121,12 +120,28 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
     override fun onResume() {
         super.onResume()
         refreshStatus()
-        autoFetchDone = false
-        if (isPifEnabled) autoFetchIfStale()
+        if (isPifEnabled && !isAutoFetchCooldownActive()) autoFetchIfStale()
+    }
+
+    private fun isAutoFetchCooldownActive(): Boolean {
+        val last = Settings.Secure.getLong(
+            requireContext().contentResolver, LAST_AUTO_FETCH_KEY, 0L)
+        return last > 0L && System.currentTimeMillis() - last < 24 * 60 * 60 * 1000L
+    }
+
+    private fun markAutoFetchDone() {
+        Settings.Secure.putLong(
+            requireContext().contentResolver, LAST_AUTO_FETCH_KEY,
+            System.currentTimeMillis()
+        )
+    }
+
+    private fun clearAutoFetchCooldown() {
+        Settings.Secure.putLong(
+            requireContext().contentResolver, LAST_AUTO_FETCH_KEY, 0L)
     }
 
     private fun autoFetchIfStale() {
-        if (autoFetchDone) return
         if (!isPifEnabled) return
         val content = Settings.Secure.getString(
             requireContext().contentResolver, PIF_CONFIG_KEY
@@ -137,7 +152,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
 
         if (isManuallyImported) return
 
-        autoFetchDone = true
+        markAutoFetchDone()
         scope.launch {
             try {
                 val serverResult = withContext(Dispatchers.IO) { fetchFallbackPif() }
@@ -295,6 +310,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         PIF_CONFIG_KEY,
                         null
                     )
+                    clearAutoFetchCooldown()
                     toast(getString(R.string.pif_deleted, PIF_CONFIG_NAME))
                     refreshStatus()
                 } catch (e: Exception) {
@@ -462,6 +478,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val GMS_PACKAGE = "com.google.android.gms"
         private const val AUTO_FETCH_STALE_DAYS = 21L
         private const val PIF_ENABLED_KEY = "spoof_pif_enabled"
+        private const val LAST_AUTO_FETCH_KEY = "spoof_pif_last_auto_fetch"
 
         private fun parsePatchDate(patch: String): java.util.Date? = try {
             java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).parse(patch)
@@ -596,7 +613,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 .findAll(versionsHtml).map { it.groupValues[1].toInt() }.toSet().sortedDescending()
 
             val maxVersion = knownVersions.firstOrNull() ?: return emptyList()
-            val versions = listOf(maxVersion + 1) + knownVersions
+            val versions = knownVersions
 
             for (version in versions) {
                 try {
@@ -657,7 +674,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     .findAll(versionsHtml).map { it.groupValues[1].toInt() }.toSet().sortedDescending()
 
                 val maxVersion = knownVersions.firstOrNull() ?: return emptyList<PifDevice>() to null
-                val versions = listOf(maxVersion + 1) + knownVersions
+                val versions = knownVersions
 
                 val rowPattern = Regex(
                     """<tr id="([^"]+)">\s*<td[^>]*>([^<]+)</td>""",
