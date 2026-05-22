@@ -5,15 +5,23 @@
 
 package org.evolution.settings.fragments.statusbar;
 
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
+import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -30,6 +38,7 @@ import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
 import org.evolution.settings.utils.SystemUtils;
+import org.evolution.settings.utils.TelephonyUtils;
 
 @SearchIndexable
 public class StatusBar extends SettingsPreferenceFragment implements
@@ -43,6 +52,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
     private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
+    private static final String STATUS_BAR_CARRIER_KEY = "status_bar_carrier_key";
+    private static final String CARRIER_NAME = "lockscreen_show_carrier";
+    private static final String CUSTOM_CARRIER_LABEL = "lockscreen_show_custom_carrier_text";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
@@ -55,12 +67,16 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
     private SystemSettingSwitchPreference mColoredIcons;
 
+    private Preference mCustomCarrierTextPref;
+    private String mCustomCarrierText;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.evolution_settings_status_bar);
 
         final Context context = getContext();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
 
         mStatusBarClock = findPreference(STATUS_BAR_CLOCK_STYLE);
 
@@ -97,6 +113,16 @@ public class StatusBar extends SettingsPreferenceFragment implements
         }
 
         updateClockChipSummary();
+
+        if (!TelephonyUtils.isVoiceCapable(getContext())) {
+            Preference carrierCategory = findPreference(STATUS_BAR_CARRIER_KEY);
+            if (carrierCategory != null) {
+                prefScreen.removePreference(carrierCategory);
+            }
+        } else {
+            mCustomCarrierTextPref = findPreference(CUSTOM_CARRIER_LABEL);
+            updateCustomCarrierTextSummary();
+        }
     }
 
     @Override
@@ -109,6 +135,59 @@ public class StatusBar extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (CUSTOM_CARRIER_LABEL.equals(preference.getKey())) {
+            final ContentResolver resolver = getActivity().getContentResolver();
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+            alert.setTitle(R.string.custom_carrier_label_title);
+            alert.setMessage(R.string.custom_carrier_label_dialog_message);
+
+            LinearLayout container = new LinearLayout(getActivity());
+            container.setOrientation(LinearLayout.VERTICAL);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            lp.setMargins(55, 20, 55, 20);
+
+            final EditText input = new EditText(getActivity());
+            input.setText(TextUtils.isEmpty(mCustomCarrierText) ? "" : mCustomCarrierText);
+            input.setSelection(input.getText().length());
+            input.setLayoutParams(lp);
+            input.setGravity(Gravity.START | Gravity.TOP);
+            container.addView(input);
+            alert.setView(container);
+
+            alert.setPositiveButton(getString(android.R.string.ok),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String value = input.getText().toString();
+                            Settings.System.putStringForUser(resolver,
+                                    CUSTOM_CARRIER_LABEL, value, UserHandle.USER_CURRENT);
+                            updateCustomCarrierTextSummary();
+                        }
+                    });
+            alert.setNegativeButton(getString(android.R.string.cancel), null);
+            alert.show();
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+    private void updateCustomCarrierTextSummary() {
+        if (mCustomCarrierTextPref == null) return;
+        mCustomCarrierText = Settings.System.getStringForUser(
+                getActivity().getContentResolver(),
+                CUSTOM_CARRIER_LABEL, UserHandle.USER_CURRENT);
+        if (TextUtils.isEmpty(mCustomCarrierText)) {
+            mCustomCarrierTextPref.setSummary(R.string.custom_carrier_label_summary);
+        } else {
+            mCustomCarrierTextPref.setSummary(mCustomCarrierText);
+        }
     }
 
     private void updateClockChipSummary() {
@@ -163,6 +242,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
                     if (!DeviceUtils.deviceSupportsBluetooth(context)) {
                         keys.add(KEY_BLUETOOTH_BATTERY_STATUS);
+                    }
+
+                    if (!TelephonyUtils.isVoiceCapable(context)) {
+                        keys.add(CARRIER_NAME);
+                        keys.add(CUSTOM_CARRIER_LABEL);
                     }
 
                     return keys;

@@ -30,7 +30,6 @@ import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
 import org.evolution.settings.utils.SystemUtils;
-import org.evolution.settings.utils.TelephonyUtils;
 
 @SearchIndexable
 public class LockScreen extends SettingsPreferenceFragment implements
@@ -38,7 +37,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockScreen";
 
-    private static final String KEY_CARRIER_NAME = "lockscreen_show_carrier";
     private static final String KEY_CUSTOM_CLOCK = "lockscreen_custom_clock_style";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
@@ -47,7 +45,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
     private static final String KEY_WEATHER = "lockscreen_weather_enabled";
     private static final String LOCKSCREEN_GESTURES_CATEGORY = "lockscreen_gestures_category";
-    private static final String LOCKSCREEN_INTERFACE_CATEGORY = "lockscreen_interface_category";
 
     private Preference mRippleEffect;
     private SwitchPreferenceCompat mFpErrorVib;
@@ -77,11 +74,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (!hasFingerprint || !DeviceUtils.hasVibrator(context)) {
             gestCategory.removePreference(mFpSuccessVib);
             gestCategory.removePreference(mFpErrorVib);
-        }
-
-        if (!TelephonyUtils.isVoiceCapable(context)) {
-            PreferenceCategory intCategory = findPreference(LOCKSCREEN_INTERFACE_CATEGORY);
-            intCategory.removePreference(findPreference(KEY_CARRIER_NAME));
         }
 
         mSmartspace = findPreference(KEY_SMARTSPACE);
@@ -153,10 +145,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
                     if (!hasFingerprint || !DeviceUtils.hasVibrator(context)) {
                         keys.add(KEY_FP_SUCCESS);
                         keys.add(KEY_FP_ERROR);
-                    }
-
-                    if (!TelephonyUtils.isVoiceCapable(context)) {
-                        keys.add(KEY_CARRIER_NAME);
                     }
 
                     return keys;
