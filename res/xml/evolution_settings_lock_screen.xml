@@ -90,13 +90,6 @@
             android:summary="@string/lock_screen_charging_time_summary"
             android:defaultValue="true" />
 
-        <!-- Carrier name -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_show_carrier"
-            android:title="@string/status_bar_carrier_lock_screen_title"
-            android:summary="@string/status_bar_carrier_lock_screen_summary"
-            android:defaultValue="true" />
-
         <!-- Scrim -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="keyguard_scrim_transparent"
