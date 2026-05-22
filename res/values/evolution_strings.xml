@@ -337,8 +337,16 @@
     <string name="status_bar_location_privacy_indicator_summary">Display an indicator when an app accesses your location</string>
     <string name="status_bar_projection_privacy_indicator_title">Screen projection</string>
     <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
-    <string name="status_bar_carrier_lock_screen_title">Carrier name</string>
-    <string name="status_bar_carrier_lock_screen_summary">Display carrier name on the lock screen status bar</string>
+
+    <!-- Status bar/Carrier -->
+    <string name="status_bar_carrier_category_title">Carrier label</string>
+    <string name="lockscreen_show_carrier_title">Show carrier label</string>
+    <string name="carrier_show_lockscreen_only">Lockscreen only</string>
+    <string name="carrier_show_statusbar_only">Status bar only</string>
+    <string name="carrier_show_both">Lockscreen &amp; status bar</string>
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_summary">Tap to set a custom carrier label</string>
+    <string name="custom_carrier_label_dialog_message">Replace the carrier label with custom text. Leave empty to use the real carrier label.</string>
 
     <!-- Status bar/Battery -->
     <string name="status_bar_battery_category_title">Battery</string>
@@ -1498,6 +1506,7 @@
     <string name="show_system_apps">Show system apps</string>
     <string name="hide_system_apps">Hide system apps</string>
     <string name="default_value">Default</string>
+    <string name="never">Never</string>
     <string name="top">Top</string>
     <string name="bottom">Bottom</string>
     <string name="delete_message">Remove selected item?</string>
