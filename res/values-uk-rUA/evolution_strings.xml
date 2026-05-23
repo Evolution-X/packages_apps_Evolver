@@ -1022,6 +1022,10 @@
     <string name="custom_spoof_profile_model">Модель</string>
     <string name="custom_spoof_profile_fingerprint">Відбиток (необов\'язково)</string>
     <string name="custom_spoof_profile_product">Товар (необов\'язково)</string>
+    <string name="pp_target_count">Підробка %1$d програм під виглядом Pixel</string>
+    <string name="pp_spoof_as">Підробити як</string>
+    <string name="pp_empty_description">Обрані додатки повідомлять про особливість вибраного пристрою Pixel, щоб розблокувати функції ексклюзивні функції Pixel</string>
+    <string name="pp_mainline_unsupported">Цей пристрій уже є Pixel. Spoofing недоступний на континентальних пристроях Pixel.</string>
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_header_title">Блокування датчиків</string>
     <string name="sensor_block_title">Блок датчиків для кожного додатка</string>
