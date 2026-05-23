@@ -316,8 +316,15 @@
     <string name="status_bar_location_privacy_indicator_summary">Відображати індикатор коли додаток отримує доступ до місцезнаходження</string>
     <string name="status_bar_projection_privacy_indicator_title">Проекція екрану</string>
     <string name="status_bar_projection_privacy_indicator_summary">Відображати індикатор коли екран проектується</string>
-    <string name="status_bar_carrier_lock_screen_title">Назва оператора</string>
-    <string name="status_bar_carrier_lock_screen_summary">Відображати назву оператора в рядку стану екрана блокування</string>
+    <!-- Status bar/Carrier -->
+    <string name="status_bar_carrier_category_title">Ім\'я оператора</string>
+    <string name="lockscreen_show_carrier_title">Назва оператора</string>
+    <string name="carrier_show_lockscreen_only">Тільки на екрані блокування</string>
+    <string name="carrier_show_statusbar_only">Тільки рядок стану</string>
+    <string name="carrier_show_both">На екрані блокування та в статус барі</string>
+    <string name="custom_carrier_label_title">Власна назва оператора</string>
+    <string name="custom_carrier_label_summary">Торкніться, щоб встановити ім\'я оператора</string>
+    <string name="custom_carrier_label_dialog_message">Замінити мітку оператора на свій текст. Залиште порожнім, щоб використовувати реальну назву оператора.</string>
     <!-- Status bar/Battery -->
     <string name="status_bar_battery_category_title">Акумулятор</string>
     <string name="status_bar_battery_style_title">Стиль іконки батареї</string>
@@ -1172,6 +1179,9 @@
     <string name="ts_revocation_soft_banned">Програмний бан (Strong Integrity може зазнати невдачі)</string>
     <string name="ts_revocation_network_error">Не вдалося зв’язатися зі сервером відкликання</string>
     <string name="ts_revocation_error">Перевірка не вдалася: %s</string>
+    <string name="ts_revocation_last_checked">Остання перевірка: %1$s</string>
+    <string name="ts_revocation_tap_to_check">Натисніть, щоб перевірити статус відкликання</string>
+    <string name="ts_revocation_not_yet_checked">Статус ще не перевірено — натисніть, щоб перевірити</string>
     <string name="ts_fetch_keybox">Отримати офіційний ключ</string>
     <string name="ts_fetch_keybox_summary">Завантажити ключ з серверів Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Отримання keybox…</string>
@@ -1408,6 +1418,7 @@
     <string name="show_system_apps">Системні додатки</string>
     <string name="hide_system_apps">Сховати системні додатки</string>
     <string name="default_value">За замовчуванням</string>
+    <string name="never">Ніколи</string>
     <string name="top">Зверху</string>
     <string name="bottom">Знизу</string>
     <string name="delete_message">Видалити вибраний елемент?</string>
