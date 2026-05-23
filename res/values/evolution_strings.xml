@@ -1067,6 +1067,10 @@
     <string name="custom_spoof_profile_model">Model</string>
     <string name="custom_spoof_profile_fingerprint">Fingerprint (optional)</string>
     <string name="custom_spoof_profile_product">Product (optional)</string>
+    <string name="pp_target_count">Spoofing %1$d app(s) as Pixel</string>
+    <string name="pp_spoof_as">Spoof as</string>
+    <string name="pp_empty_description">Selected apps will report the chosen Pixel device identity to unlock Pixel-exclusive features</string>
+    <string name="pp_mainline_unsupported">This device is already a Pixel. Spoofing is not available on mainline Pixel devices.</string>
 
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_header_title">Sensor block</string>
