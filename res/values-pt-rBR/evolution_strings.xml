@@ -317,8 +317,15 @@
     <string name="status_bar_location_privacy_indicator_summary">Exibir um indicador quando um aplicativo acessar sua localização</string>
     <string name="status_bar_projection_privacy_indicator_title">Projeção de tela</string>
     <string name="status_bar_projection_privacy_indicator_summary">Exibir um indicador quando a tela estiver sendo projetada</string>
-    <string name="status_bar_carrier_lock_screen_title">Nome da operadora</string>
-    <string name="status_bar_carrier_lock_screen_summary">Exibir o nome da operadora na barra de status da tela de bloqueio</string>
+    <!-- Status bar/Carrier -->
+    <string name="status_bar_carrier_category_title">Nome da operadora</string>
+    <string name="lockscreen_show_carrier_title">Mostrar nome da operadora de rede</string>
+    <string name="carrier_show_lockscreen_only">Apenas na tela de bloqueio</string>
+    <string name="carrier_show_statusbar_only">Apenas na barra de status</string>
+    <string name="carrier_show_both">Tela de bloqueio e barra de status</string>
+    <string name="custom_carrier_label_title">Nome da operadora personalizado</string>
+    <string name="custom_carrier_label_summary">Toque para definir um nome personalizado da operadora</string>
+    <string name="custom_carrier_label_dialog_message">Substitua o nome da operadora por um texto personalizado. Deixe em branco para usar o nome real da operadora.</string>
     <!-- Status bar/Battery -->
     <string name="status_bar_battery_category_title">Bateria</string>
     <string name="status_bar_battery_style_title">Estilo da bateria</string>
@@ -1090,6 +1097,8 @@
     <string name="idle_manager_refresh_dashboard">Atualizar</string>
     <string name="idle_manager_clear_stats_title">Limpar estatísticas</string>
     <string name="idle_manager_clear_stats_confirm">Isso excluirá permanentemente todo o histórico de aplicação. O gerenciador inativo continuará funcionando normalmente.</string>
+    <string name="idle_manager_sleep_mode_trigger_title">Ativar no Modo de Suspensão</string>
+    <string name="idle_manager_sleep_mode_trigger_summary">Aplicar regras de ociosidade somente enquanto o Modo de Suspensão estiver ativo</string>
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Correção de Integridade do Google Play</string>
     <string name="play_integrity_fix_summary">Gerencie a configuração do PIF e as impressões digitais do dispositivo para obter integridade básica</string>
@@ -1171,6 +1180,9 @@
     <string name="ts_revocation_soft_banned">Banimento temporário (a integridade forte pode falhar)</string>
     <string name="ts_revocation_network_error">Não foi possível acessar o servidor de revogação</string>
     <string name="ts_revocation_error">Falha na verificação: %s</string>
+    <string name="ts_revocation_last_checked">Última verificação: %1$s</string>
+    <string name="ts_revocation_tap_to_check">Toque para verificar o status de revogação</string>
+    <string name="ts_revocation_not_yet_checked">Status ainda não verificado — toque para verificar</string>
     <string name="ts_fetch_keybox">Buscar keybox oficial</string>
     <string name="ts_fetch_keybox_summary">Baixe o keybox dos servidores Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Buscando keybox…</string>
@@ -1180,6 +1192,9 @@
     <string name="ts_fetch_keybox_same_file">A Keybox já está atualizada</string>
     <string name="ts_fetch_keybox_blocked">Sua caixa de chave é válida — nenhuma busca necessária</string>
     <string name="ts_fetch_keybox_last_fetched">Última busca: %1$s</string>
+    <string name="ts_fetch_keybox_auto_replaced">Keybox automaticamente substituída por uma válida</string>
+    <string name="ts_fetch_keybox_soft_banned_refetch">Keybox com banimento temporário, vou ficar com ele e tentar conseguir um melhor…</string>
+    <string name="ts_fetch_keybox_no_valid_found">Ainda não há nenhuma caixa de chaves válida disponível. Tentaremos novamente amanhã</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Estilos de papel de parede</string>
     <string name="wallpaper_settings_summary">Configure estilos e efeitos de papel de parede</string>
@@ -1368,6 +1383,7 @@
     <string name="wallpaper_color">Cor do papel de parede</string>
     <string name="rainbow_color">Arco-íris</string>
     <string name="custom_color">Cor personalizada</string>
+    <string name="custom_color_summary">Personalizar a cor de alguns estilos de relógio</string>
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Valor: <xliff:g id="v">%s</xliff:g></string>
     <string name="custom_seekbar_default_value">Padrão</string>
@@ -1403,6 +1419,7 @@
     <string name="show_system_apps">Mostrar aplicativos do sistema</string>
     <string name="hide_system_apps">Ocultar aplicativos do sistema</string>
     <string name="default_value">Padrão</string>
+    <string name="never">Nunca</string>
     <string name="top">Topo</string>
     <string name="bottom">Inferior</string>
     <string name="delete_message">Remover o item selecionado?</string>
