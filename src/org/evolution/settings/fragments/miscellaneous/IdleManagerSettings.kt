@@ -13,7 +13,6 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.expandVertically
@@ -21,7 +20,6 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
@@ -58,8 +56,6 @@ import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material.icons.filled.Warning
-import androidx.compose.material.icons.rounded.Check
-import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Badge
 import androidx.compose.material3.Button
@@ -99,18 +95,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import com.android.settings.R
 import com.android.settingslib.spa.framework.theme.SettingsTheme
@@ -175,14 +167,14 @@ private val CRITICAL_SYSTEM_PACKAGES = setOf(
 private data class IdleAppItem(
     val packageName: String,
     val label: String,
-    val icon: Drawable,
+    val icon: Drawable?,
     val isSystem: Boolean
 )
 
 private data class IdleAppConfig(
     val packageName: String,
     val label: String,
-    val icon: Drawable,
+    val icon: Drawable?,
     val isSystem: Boolean,
     val policy: IdlePolicy,
     val customTimeoutMinutes: Int,
@@ -236,7 +228,7 @@ private fun readAppConfigs(ctx: Context): LinkedHashMap<String, IdleAppConfig> {
             result[pkg] = IdleAppConfig(
                 packageName = pkg,
                 label = pkg,
-                icon = android.graphics.drawable.ColorDrawable(0),
+                icon = null,
                 isSystem = false,
                 policy = pol,
                 customTimeoutMinutes = mins,
@@ -339,7 +331,6 @@ class IdleManagerSettings : Fragment() {
 private fun IdleManagerRoot(ctx: Context) {
     val pm = ctx.packageManager
     val scope = rememberCoroutineScope()
-    val haptic = LocalHapticFeedback.current
 
     var allApps by remember { mutableStateOf(listOf<IdleAppItem>()) }
     var configuredApps by remember { mutableStateOf(linkedMapOf<String, IdleAppConfig>()) }
@@ -421,23 +412,25 @@ private fun IdleManagerRoot(ctx: Context) {
 
     LaunchedEffect(Unit) {
         allApps = withContext(Dispatchers.IO) {
+            val overlayPackages = pm.getInstalledPackages(0)
+                .filter { it.overlayTarget != null }
+                .map { it.packageName }
+                .toSet()
             pm.getInstalledPackages(PackageManager.MATCH_ANY_USER)
                 .mapNotNull { pkg ->
                     val ai = pkg.applicationInfo ?: return@mapNotNull null
+                    if (pkg.packageName in overlayPackages) return@mapNotNull null
                     IdleAppItem(
                         packageName = pkg.packageName,
                         label = ai.loadLabel(pm).toString(),
-                        icon = ai.loadIcon(pm),
+                        icon = runCatching { ai.loadIcon(pm) }.getOrNull()
+                            ?: return@mapNotNull null,
                         isSystem = (ai.flags and ApplicationInfo.FLAG_SYSTEM) != 0
                                    || (ai.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0
                     )
                 }
-                .distinctBy {
-                    it.packageName 
-                }
-                .sortedBy {
-                    it.label.lowercase(Locale.getDefault()) 
-                }
+                .distinctBy { it.packageName }
+                .sortedBy { it.label.lowercase(Locale.getDefault()) }
         }
         loadAll()
     }
@@ -511,20 +504,27 @@ private fun IdleManagerRoot(ctx: Context) {
                 .fillMaxSize()
                 .padding(padding)
         ) {
-            MasterToggleCard(
-                enabled = globalEnabled,
-                appCount = configuredApps.size,
-                onToggle = { v ->
-                    scope.launch {
-                        haptic.performHapticFeedback(HapticFeedbackType.LongPress) 
-                    }
+            SpoofingHeaderCard(
+                title = stringResource(R.string.idle_manager_title),
+                subtitle = if (globalEnabled)
+                    stringResource(R.string.idle_manager_app_count, configuredApps.size)
+                else
+                    stringResource(R.string.idle_manager_disabled),
+                checked = globalEnabled,
+                onCheckedChange = { v ->
                     globalEnabled = v
-                    scope.launch(Dispatchers.IO) {
-                        writeEnabled(ctx, v)
-                    }
+                    scope.launch(Dispatchers.IO) { writeEnabled(ctx, v) }
                 },
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp)
-            )
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp),
+            ) {
+                Icon(
+                    Icons.Default.BatteryAlert,
+                    contentDescription = null,
+                    tint = if (globalEnabled) MaterialTheme.colorScheme.onPrimary
+                           else MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(26.dp),
+                )
+            }
 
             SleepModeTriggerCard(
                 enabled = sleepModeTrigger,
@@ -536,7 +536,7 @@ private fun IdleManagerRoot(ctx: Context) {
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
             )
 
-            AnimatedVisibility(visible = globalEnabled) {
+            SpoofingAnimatedVisibility(visible = globalEnabled) {
                 Column {
                     TabRow(
                         selectedTabIndex = selectedTab,
@@ -615,74 +615,6 @@ private fun IdleManagerRoot(ctx: Context) {
     }
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
-@Composable
-private fun MasterToggleCard(
-    enabled: Boolean,
-    appCount: Int,
-    onToggle: (Boolean) -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Card(
-        modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceBright)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(20.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Box(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primary),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        Icons.Default.BatteryAlert, null,
-                        tint = MaterialTheme.colorScheme.onPrimary,
-                        modifier = Modifier.size(26.dp)
-                    )
-                }
-                Spacer(Modifier.width(16.dp))
-                Column {
-                    Text(
-                        stringResource(R.string.idle_manager_title),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Text(
-                        text = if (enabled)
-                                    stringResource(R.string.idle_manager_app_count, appCount)
-                                else
-                                    stringResource(R.string.idle_manager_disabled),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-            Switch(
-                checked = enabled,
-                onCheckedChange = onToggle,
-                thumbContent = {
-                    Crossfade(
-                        targetState = enabled,
-                        animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
-                        label = "sw"
-                    ) { on ->
-                        if (on) Icon(Icons.Rounded.Check, null, Modifier.size(16.dp))
-                        else Icon(Icons.Rounded.Close, null, Modifier.size(16.dp))
-                    }
-                }
-            )
-        }
-    }
-}
-
 @Composable
 private fun AppsTab(
     configuredApps: LinkedHashMap<String, IdleAppConfig>,
@@ -727,15 +659,13 @@ private fun AppsTab(
         Spacer(Modifier.height(16.dp))
 
         if (configuredApps.isEmpty()) {
-            EmptyAppsState()
-        } else {
-            Text(
-                stringResource(R.string.idle_manager_configured_apps),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(start = 4.dp, bottom = 8.dp)
+            SpoofingEmptyState(
+                icon = Icons.Default.PowerSettingsNew,
+                title = stringResource(R.string.idle_manager_no_apps_configured),
+                description = stringResource(R.string.idle_manager_no_apps_hint),
             )
+        } else {
+            SectionLabel(stringResource(R.string.idle_manager_configured_apps))
             configuredApps.values.forEach { cfg ->
                 AppConfigCard(
                     config = cfg,
@@ -839,13 +769,7 @@ private fun DashboardTab(
                 if (count > 0) action to count else null
             }
             if (byAction.isNotEmpty()) {
-                Text(
-                    stringResource(R.string.idle_manager_action_breakdown),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(start = 4.dp, bottom = 8.dp)
-                )
+                SectionLabel(stringResource(R.string.idle_manager_action_breakdown))
                 Row(
                     Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -863,12 +787,9 @@ private fun DashboardTab(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                stringResource(R.string.idle_manager_recent_activity),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(start = 4.dp)
+            SectionLabel(
+                text = stringResource(R.string.idle_manager_recent_activity),
+                includeBottomPadding = false,
             )
             if (records.isNotEmpty()) {
                 OutlinedButton(
@@ -896,7 +817,11 @@ private fun DashboardTab(
         Spacer(Modifier.height(8.dp))
 
         if (records.isEmpty()) {
-            EmptyDashboardState()
+            SpoofingEmptyState(
+                icon = Icons.Default.Shield,
+                title = stringResource(R.string.idle_manager_no_activity),
+                description = stringResource(R.string.idle_manager_no_activity_hint),
+            )
         } else {
             records.forEach { rec ->
                 EnforcementRecordCard(record = rec)
@@ -996,26 +921,11 @@ private fun EnforcementRecordCard(record: EnforcementRecord) {
             modifier = Modifier.fillMaxWidth().padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            if (record.icon != null) {
-                val bmp = remember(record.packageName) {
-                    record.icon.toBitmap(80, 80).asImageBitmap()
-                }
-                Image(bmp, null, Modifier.size(36.dp).clip(RoundedCornerShape(8.dp)))
-            } else {
-                Box(
-                    Modifier
-                        .size(36.dp)
-                        .clip(RoundedCornerShape(8.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        Icons.Default.Apps, null,
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
-            }
+            AppIconOrPlaceholder(
+                packageName = record.packageName,
+                icon = record.icon,
+                sizeDp = APP_ICON_SIZE_RECORD,
+            )
 
             Spacer(Modifier.width(12.dp))
 
@@ -1083,10 +993,6 @@ private fun AppConfigCard(
         mutableStateOf(false)
     }
 
-    val iconBmp = remember(config.packageName) {
-        config.icon.toBitmap(96, 96).asImageBitmap()
-    }
-
     val isCritical = config.isSystem && CRITICAL_SYSTEM_PACKAGES.contains(config.packageName)
     val policyColor = policyColor(config.policy)
     val actionColor = actionColor(config.action)
@@ -1147,21 +1053,16 @@ private fun AppConfigCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Box {
-                    Image(
-                        iconBmp,
-                        null,
-                        Modifier.size(42.dp).clip(RoundedCornerShape(10.dp))
+                    AppIconOrPlaceholder(
+                        packageName = config.packageName,
+                        icon = config.icon,
+                        sizeDp = APP_ICON_SIZE_LARGE,
                     )
                     if (config.isSystem) {
-                        Badge(
-                            Modifier.align(Alignment.BottomEnd),
-                            containerColor = if (isCritical)
-                                MaterialTheme.colorScheme.error
-                            else
-                                MaterialTheme.colorScheme.tertiary
-                        ) {
-                            Text("SYS")
-                        }
+                        SystemAppBadge(
+                            isCritical = isCritical,
+                            modifier = Modifier.align(Alignment.BottomEnd),
+                        )
                     }
                     record?.let {
                         if (it.killCount > 0) {
@@ -1408,11 +1309,11 @@ private fun AddAppDialog(
     }
 
     val filtered = allApps.filter { app ->
-        if (configuredPackages.contains(app.packageName)) 
+        if (configuredPackages.contains(app.packageName))
             return@filter false
-        if (!showSystem && app.isSystem) 
+        if (!showSystem && app.isSystem)
             return@filter false
-        if (search.isBlank()) 
+        if (search.isBlank())
             return@filter true
         app.label.contains(search, true) || app.packageName.contains(search, true)
     }
@@ -1548,9 +1449,6 @@ private fun AddAppDialog(
 @Composable
 private fun AppSelectRow(app: IdleAppItem, selected: Boolean, onClick: () -> Unit) {
     val isCritical = app.isSystem && CRITICAL_SYSTEM_PACKAGES.contains(app.packageName)
-    val iconBmp = remember(app.packageName) {
-        app.icon.toBitmap(80, 80).asImageBitmap()
-    }
 
     Row(
         modifier = Modifier
@@ -1567,17 +1465,16 @@ private fun AppSelectRow(app: IdleAppItem, selected: Boolean, onClick: () -> Uni
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box {
-            Image(iconBmp, null,
-                Modifier.size(32.dp)
-                    .clip(RoundedCornerShape(8.dp)))
+            AppIconOrPlaceholder(
+                packageName = app.packageName,
+                icon = app.icon,
+                sizeDp = APP_ICON_SIZE_LIST,
+            )
             if (app.isSystem) {
-                Badge(
-                    Modifier.align(Alignment.BottomEnd),
-                    containerColor = if (isCritical) 
-                        MaterialTheme.colorScheme.error
-                    else 
-                        MaterialTheme.colorScheme.tertiary
-                ) {}
+                SystemAppBadge(
+                    isCritical = isCritical,
+                    modifier = Modifier.align(Alignment.BottomEnd),
+                )
             }
         }
         Spacer(Modifier.width(10.dp))
@@ -1872,72 +1769,6 @@ private fun ActionOptionCard(action: IdleAction, selected: Boolean, onClick: () 
                     modifier = Modifier.size(20.dp)
                 )
             }
-        }
-    }
-}
-
-@Composable
-private fun EmptyAppsState() {
-    Card(
-        Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
-    ) {
-        Column(
-            Modifier.fillMaxWidth().padding(32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Icon(
-                Icons.Default.PowerSettingsNew, null,
-                Modifier.size(48.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
-            )
-            Spacer(Modifier.height(12.dp))
-            Text(
-                stringResource(R.string.idle_manager_no_apps_configured),
-                style = MaterialTheme.typography.titleMedium,
-                textAlign = TextAlign.Center
-            )
-            Text(
-                stringResource(R.string.idle_manager_no_apps_hint),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
-                textAlign = TextAlign.Center
-            )
-        }
-    }
-}
-
-@Composable
-private fun EmptyDashboardState() {
-    Card(
-        Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
-    ) {
-        Column(
-            Modifier.fillMaxWidth().padding(32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Icon(
-                Icons.Default.Shield, null,
-                Modifier.size(48.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
-            )
-            Spacer(Modifier.height(12.dp))
-            Text(
-                stringResource(R.string.idle_manager_no_activity),
-                style = MaterialTheme.typography.titleMedium,
-                textAlign = TextAlign.Center
-            )
-            Text(
-                stringResource(R.string.idle_manager_no_activity_hint),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
-                textAlign = TextAlign.Center
-            )
         }
     }
 }

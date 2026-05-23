@@ -1023,7 +1023,7 @@
     <string name="spoofing_identity_category">Device identity</string>
     <string name="spoofing_features_category">Hardware features</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
-    <string name="spoofing_pixel_props_summary">Report the latest Pixel device identity to a curated set of Google apps</string>
+    <string name="spoofing_pixel_props_summary">Spoof selected apps as a Pixel device to unlock Pixel-exclusive features</string>
     <string name="spoofing_app_specific_category">App-specific overrides</string>
     <string name="spoofing_photos_title">Google Photos</string>
     <string name="spoofing_photos_summary">Spoof Google Photos as a Pixel XL</string>
@@ -1067,6 +1067,10 @@
     <string name="custom_spoof_profile_model">Model</string>
     <string name="custom_spoof_profile_fingerprint">Fingerprint (optional)</string>
     <string name="custom_spoof_profile_product">Product (optional)</string>
+    <string name="pp_target_count">Spoofing %1$d app(s) as Pixel</string>
+    <string name="pp_spoof_as">Spoof as</string>
+    <string name="pp_empty_description">Selected apps will report the chosen Pixel device identity to unlock Pixel-exclusive features</string>
+    <string name="pp_mainline_unsupported">This device is already a Pixel. Spoofing is not available on mainline Pixel devices.</string>
 
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_header_title">Sensor block</string>
