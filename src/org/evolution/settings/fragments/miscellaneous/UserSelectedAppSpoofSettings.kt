@@ -7,18 +7,17 @@ package org.evolution.settings.fragments.miscellaneous
 
 import android.app.ActivityManager
 import android.content.Context
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.provider.Settings
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
@@ -51,11 +50,7 @@ import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Warning
-import androidx.compose.material.icons.rounded.Check
-import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Badge
-import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -72,7 +67,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -87,16 +81,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
-import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import com.android.settings.R
 import com.android.settingslib.spa.framework.theme.SettingsTheme
@@ -141,7 +131,7 @@ private const val CUSTOM_SPOOF_PROFILES_SETTING = Settings.Secure.CUSTOM_SPOOF_P
 private data class AppItem(
     val packageName: String,
     val label: String,
-    val icon: Drawable,
+    val icon: Drawable?,
     val isSystem: Boolean
 )
 
@@ -186,7 +176,6 @@ private fun AppSpoofingContent(context: Context) {
         }
     }
 
-    val haptic = LocalHapticFeedback.current
     val scope = rememberCoroutineScope()
 
     var allApps by remember { mutableStateOf(listOf<AppItem>()) }
@@ -255,16 +244,17 @@ private fun AppSpoofingContent(context: Context) {
     LaunchedEffect(Unit) {
         loadState()
         allApps = withContext(Dispatchers.IO) {
-            pm.getInstalledPackages(PackageManager.MATCH_ANY_USER)
-                .mapNotNull { pkg ->
-                    val ai = pkg.applicationInfo ?: return@mapNotNull null
-                    AppItem(
-                        packageName = pkg.packageName,
-                        label = ai.loadLabel(pm).toString(),
-                        icon = ai.loadIcon(pm),
-                        isSystem = ai.isSystemApp
-                    )
-                }
+                pm.getInstalledPackages(PackageManager.MATCH_ANY_USER)
+                    .mapNotNull { pkg ->
+                        val ai = pkg.applicationInfo ?: return@mapNotNull null
+                        if (pkg.overlayTarget != null) return@mapNotNull null
+                        AppItem(
+                            packageName = pkg.packageName,
+                            label = ai.loadLabel(pm).toString(),
+                            icon = runCatching { ai.loadIcon(pm) }.getOrNull(),
+                            isSystem = ai.isSystemApp
+                        )
+                    }
                 .distinctBy { it.packageName }
                 .sortedBy { it.label.lowercase(Locale.getDefault()) }
         }
@@ -459,101 +449,29 @@ private fun AppSpoofingContent(context: Context) {
         ) {
             Spacer(modifier = Modifier.height(8.dp))
 
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(24.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceBright
-                )
+            SpoofingHeaderCard(
+                title = stringResource(R.string.app_spoofing_header_title),
+                subtitle = if (spoofEnabled)
+                    stringResource(R.string.app_spoofing_configured_count, configuredMap.size)
+                else
+                    stringResource(R.string.app_spoofing_disabled),
+                checked = spoofEnabled,
+                onCheckedChange = { newValue ->
+                    setMasterEnabled(newValue)
+                },
             ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Box(
-                            modifier = Modifier
-                                .size(48.dp)
-                                .clip(CircleShape)
-                                .background(MaterialTheme.colorScheme.primary),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                Icons.Default.Apps,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.onPrimary,
-                                modifier = Modifier.size(26.dp)
-                            )
-                        }
-                        Spacer(modifier = Modifier.width(16.dp))
-                        Column {
-                            Text(
-                                text = stringResource(R.string.app_spoofing_header_title),
-                                style = MaterialTheme.typography.titleLarge,
-                                fontWeight = FontWeight.Bold
-                            )
-                            Text(
-                                text = if (spoofEnabled) {
-                                    stringResource(R.string.app_spoofing_configured_count, configuredMap.size)
-                                } else {
-                                    stringResource(R.string.app_spoofing_disabled)
-                                },
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                    }
-                    Switch(
-                        checked = spoofEnabled,
-                        onCheckedChange = { newValue ->
-                            scope.launch {
-                                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            }
-                            setMasterEnabled(newValue)
-                        },
-                        thumbContent = {
-                            Crossfade(
-                                targetState = spoofEnabled,
-                                animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
-                                label = "switch_icon"
-                            ) { isChecked ->
-                                if (isChecked) {
-                                    Icon(
-                                        imageVector = Icons.Rounded.Check,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(16.dp)
-                                    )
-                                } else {
-                                    Icon(
-                                        imageVector = Icons.Rounded.Close,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(16.dp)
-                                    )
-                                }
-                            }
-                        }
-                    )
-                }
+                Icon(
+                    Icons.Default.Apps,
+                    contentDescription = null,
+                    tint = if (spoofEnabled) MaterialTheme.colorScheme.onPrimary
+                           else MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(26.dp),
+                )
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            AnimatedVisibility(
-                visible = spoofEnabled,
-                enter = fadeIn(animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec()) +
-                        expandVertically(
-                            animationSpec = MaterialTheme.motionScheme.defaultSpatialSpec(),
-                            expandFrom = Alignment.Top
-                        ),
-                exit = fadeOut(animationSpec = MaterialTheme.motionScheme.fastEffectsSpec()) +
-                       shrinkVertically(
-                           animationSpec = MaterialTheme.motionScheme.fastSpatialSpec(),
-                           shrinkTowards = Alignment.Top
-                       )
-            ) {
+            SpoofingAnimatedVisibility(visible = spoofEnabled) {
                 Column {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -587,13 +505,7 @@ private fun AppSpoofingContent(context: Context) {
                     Spacer(modifier = Modifier.height(16.dp))
 
                     if (configuredMap.isNotEmpty()) {
-                        Text(
-                            text = stringResource(R.string.app_spoofing_configured_apps),
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(start = 4.dp, bottom = 8.dp)
-                        )
+                        SectionLabel(stringResource(R.string.app_spoofing_configured_apps))
 
                         Column {
                             configuredMap.entries.toList().forEach { (pkg, profile) ->
@@ -637,39 +549,11 @@ private fun AppSpoofingContent(context: Context) {
                             }
                         }
                     } else {
-                        Card(
-                            modifier = Modifier.fillMaxWidth(),
-                            shape = RoundedCornerShape(16.dp),
-                            colors = CardDefaults.cardColors(
-                                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
-                            )
-                        ) {
-                            Column(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(24.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Icon(
-                                    Icons.Default.Apps,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(48.dp),
-                                    tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-                                )
-                                Spacer(modifier = Modifier.height(12.dp))
-                                Text(
-                                    text = stringResource(R.string.app_spoofing_no_apps_configured),
-                                    style = MaterialTheme.typography.titleMedium
-                                )
-                                Spacer(modifier = Modifier.height(4.dp))
-                                Text(
-                                    text = stringResource(R.string.app_spoofing_empty_description),
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                                )
-                            }
-                        }
+                        SpoofingEmptyState(
+                            icon = Icons.Default.Apps,
+                            title = stringResource(R.string.app_spoofing_no_apps_configured),
+                            description = stringResource(R.string.app_spoofing_empty_description),
+                        )
                     }
                 }
             }
@@ -691,7 +575,6 @@ private fun AppConfigCard(
     onLongPress: () -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
-    val iconBitmap = remember(app.packageName) { app.icon.toBitmap(96, 96).asImageBitmap() }
     var showRemoveConfirm by remember { mutableStateOf(false) }
 
     if (showRemoveConfirm) {
@@ -743,12 +626,10 @@ private fun AppConfigCard(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    bitmap = iconBitmap,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(RoundedCornerShape(10.dp))
+                AppIconOrPlaceholder(
+                    packageName = app.packageName,
+                    icon = app.icon,
+                    sizeDp = APP_ICON_SIZE_CARD,
                 )
                 Spacer(modifier = Modifier.width(12.dp))
                 Column(modifier = Modifier.weight(1f)) {
@@ -981,7 +862,6 @@ private fun AddAppDialog(
                                 .verticalScroll(rememberScrollState())
                         ) {
                             filteredApps.forEach { app ->
-                                val icon = remember(app.packageName) { app.icon.toBitmap(96, 96).asImageBitmap() }
                                 val isSelected = selectedApp?.packageName == app.packageName
                                 Row(
                                     modifier = Modifier
@@ -996,12 +876,10 @@ private fun AddAppDialog(
                                         .padding(10.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Image(
-                                        bitmap = icon,
-                                        contentDescription = null,
-                                        modifier = Modifier
-                                            .size(30.dp)
-                                            .clip(RoundedCornerShape(8.dp))
+                                    AppIconOrPlaceholder(
+                                        packageName = app.packageName,
+                                        icon = app.icon,
+                                        sizeDp = APP_ICON_SIZE_LIST,
                                     )
                                     Spacer(modifier = Modifier.width(10.dp))
                                     Column(modifier = Modifier.weight(1f)) {
