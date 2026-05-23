@@ -317,8 +317,15 @@
     <string name="status_bar_location_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do twojej lokalizacji</string>
     <string name="status_bar_projection_privacy_indicator_title">Projekcja ekranu</string>
     <string name="status_bar_projection_privacy_indicator_summary">Wyświetlaj wskaźnik podczas projekcji ekranu</string>
-    <string name="status_bar_carrier_lock_screen_title">Nazwa operatora</string>
-    <string name="status_bar_carrier_lock_screen_summary">Wyświetlaj nazwę operatora na pasku stanu ekranu blokady</string>
+    <!-- Status bar/Carrier -->
+    <string name="status_bar_carrier_category_title">Nazwa operatora</string>
+    <string name="lockscreen_show_carrier_title">Pokazuj etykietę operatora</string>
+    <string name="carrier_show_lockscreen_only">Tylko ekran blokady</string>
+    <string name="carrier_show_statusbar_only">Tylko pasek stanu</string>
+    <string name="carrier_show_both">Na ekranie blokady i pasku stanu</string>
+    <string name="custom_carrier_label_title">Niestandardowa etykieta operatora</string>
+    <string name="custom_carrier_label_summary">Naciśnij, aby ustawić własną etykietę operatora</string>
+    <string name="custom_carrier_label_dialog_message">Zastąp etykietę operatora niestandardowym tekstem. Pozostaw pole puste, aby używać prawdziwej etykiety operatora.</string>
     <!-- Status bar/Battery -->
     <string name="status_bar_battery_category_title">Bateria</string>
     <string name="status_bar_battery_style_title">Styl ikony baterii</string>
@@ -1017,6 +1024,10 @@
     <string name="custom_spoof_profile_model">Model</string>
     <string name="custom_spoof_profile_fingerprint">Odcisk palca (opcjonalnie)</string>
     <string name="custom_spoof_profile_product">Produkt (opcjonalnie)</string>
+    <string name="pp_target_count">Sfałszuj %1$d aplikacje jako Pixel</string>
+    <string name="pp_spoof_as">Sfałszuj jako</string>
+    <string name="pp_empty_description">Wybrane aplikacje będą zgłaszać tożsamość wybranego urządzenia Pixel, aby odblokować funkcje dostępne wyłącznie dla urządzeń Pixel</string>
+    <string name="pp_mainline_unsupported">To urządzenie jest już Pixelem. Funkcja podszywania się nie jest dostępna na popularnych urządzeniach Pixel.</string>
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_header_title">Blokada czujnika</string>
     <string name="sensor_block_title">Blokada czujników dla aplikacji</string>
@@ -1052,7 +1063,7 @@
     <string name="idle_manager_no_apps_available">Brak dostępnych aplikacji</string>
     <string name="idle_manager_no_apps_found">Brak wyników dla \"%1$s”</string>
     <string name="idle_manager_back_to_apps">← Wstecz</string>
-    <string name="idle_manager_select_policy">Ustaw regułę</string>
+    <string name="idle_manager_select_policy">Ustaw zasadę</string>
     <string name="idle_manager_select_policy_count">Następnie: ustaw zasady dla %1$d aplikacji</string>
     <string name="idle_manager_edit_policy">Edytuj: %1$s</string>
     <string name="idle_manager_idle_timeout">Limit czasu bezczynności</string>
@@ -1064,7 +1075,7 @@
     <string name="idle_manager_policy_custom_desc">Ustaw własny limit czasu bezczynności.</string>
     <string name="idle_manager_timeout_minutes">Limit czasu: %1$d min</string>
     <string name="idle_manager_timeout_label">Limit czasu</string>
-    <string name="idle_manager_policy_label">Polityka</string>
+    <string name="idle_manager_policy_label">Zasada</string>
     <string name="idle_manager_enforcement_action">Działanie wymuszające</string>
     <string name="idle_action_rare_bucket">Rzadki przedział</string>
     <string name="idle_action_restricted">Ograniczone</string>
@@ -1174,6 +1185,9 @@
     <string name="ts_revocation_soft_banned">Częściowo unieważniony (silna integralność nie powiedzie się)</string>
     <string name="ts_revocation_network_error">Nie można nawiązać połączenia z serwerem odwołań</string>
     <string name="ts_revocation_error">Sprawdzanie nie powiodło się: %s</string>
+    <string name="ts_revocation_last_checked">Ostatnio sprawdzono: %1$s</string>
+    <string name="ts_revocation_tap_to_check">Naciśnij, aby sprawdzić status unieważnienia</string>
+    <string name="ts_revocation_not_yet_checked">Status jeszcze niesprawdzony — naciśnij, aby sprawdzić</string>
     <string name="ts_fetch_keybox">Pobierz oficjalny zestaw kluczy</string>
     <string name="ts_fetch_keybox_summary">Pobieranie zestawu kluczy z serwerów Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Pobieranie zestawu kluczy…</string>
@@ -1184,7 +1198,7 @@
     <string name="ts_fetch_keybox_blocked">Twój zestaw kluczy jest ważny — nie trzeba go pobierać</string>
     <string name="ts_fetch_keybox_last_fetched">Ostatnie pobranie: %1$s</string>
     <string name="ts_fetch_keybox_auto_replaced">Skrzynka na klucze automatycznie zastąpiona prawidłową</string>
-    <string name="ts_fetch_keybox_soft_banned_refetch">Skrzynka na klucze częściowo unieważniona, zachowano ją i podjęto próbę zdobycia lepszej…</string>
+    <string name="ts_fetch_keybox_soft_banned_refetch">Zestaw kluczy częściowo unieważniony, zachowano go i podjęto próbę zdobycia lepszego…</string>
     <string name="ts_fetch_keybox_no_valid_found">Nie ma jeszcze dostępnego prawidłowego zestawu kluczy, spróbuj ponownie jutro</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Style tapety</string>
@@ -1411,6 +1425,7 @@
     <string name="show_system_apps">Pokaż aplikacje systemowe</string>
     <string name="hide_system_apps">Ukryj aplikacje systemowe</string>
     <string name="default_value">Domyślne</string>
+    <string name="never">Nigdy</string>
     <string name="top">U góry</string>
     <string name="bottom">Na dole</string>
     <string name="delete_message">Usunąć zaznaczony element?</string>
