@@ -991,7 +991,6 @@
     <string name="tensor_spoof_summary">Udziel wybranym aplikacjom dostępu do funkcji AI dostępnych tylko dla Pixel Tensor</string>
     <string name="tensor_spoof_enable">Fałszowanie Tensor</string>
     <string name="tensor_spoof_enable_summary">Przyznaj wybranym aplikacjom dostęp do funkcji ekskluzywnych dla Pixel Tensor</string>
-    <string name="tensor_spoof_disabled">Fałszowanie Tensor jest wyłączone</string>
     <string name="tensor_targets_none_configured">Brak docelowych aplikacji</string>
     <string name="tensor_targets_count">%1$d aplikacji docelowych</string>
     <string name="tensor_targets_empty_description">Wybrane aplikacje będą raportować funkcje sprzętowe Tensor, aby odblokować funkcje AI i ekskluzywne funkcje Pixel</string>
@@ -1025,7 +1024,6 @@
     <string name="custom_spoof_profile_model">Model</string>
     <string name="custom_spoof_profile_fingerprint">Odcisk palca (opcjonalnie)</string>
     <string name="custom_spoof_profile_product">Produkt (opcjonalnie)</string>
-    <string name="pp_disabled">Fałszowanie właściwości Pixel jest wyłączone</string>
     <string name="pp_target_count">Sfałszuj %1$d aplikacje jako Pixel</string>
     <string name="pp_spoof_as">Sfałszuj jako</string>
     <string name="pp_empty_description">Wybrane aplikacje będą zgłaszać tożsamość wybranego urządzenia Pixel, aby odblokować funkcje dostępne wyłącznie dla urządzeń Pixel</string>
