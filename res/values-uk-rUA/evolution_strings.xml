@@ -989,6 +989,7 @@
     <string name="tensor_spoof_summary">Надати вибраним додаткам доступ до функцій Pixel Tensor-exclusive AI</string>
     <string name="tensor_spoof_enable">Тензорна підміна</string>
     <string name="tensor_spoof_enable_summary">Надати вибраним додаткам доступ до функцій Pixel Tensor-exclusive</string>
+    <string name="tensor_spoof_disabled">Тензорне спуфінг вимкнено</string>
     <string name="tensor_targets_none_configured">Немає цільових додатків</string>
     <string name="tensor_targets_count">Цільових програм %1$d</string>
     <string name="tensor_targets_empty_description">Вибрані додатки повідомлять про функціонал Tensor для розблокування функцій AI і Pixel-exclusive</string>
@@ -1022,6 +1023,7 @@
     <string name="custom_spoof_profile_model">Модель</string>
     <string name="custom_spoof_profile_fingerprint">Відбиток (необов\'язково)</string>
     <string name="custom_spoof_profile_product">Товар (необов\'язково)</string>
+    <string name="pp_disabled">Підтримка функцій Pixel вимкнена</string>
     <string name="pp_target_count">Підробка %1$d програм під виглядом Pixel</string>
     <string name="pp_spoof_as">Підробити як</string>
     <string name="pp_empty_description">Обрані додатки повідомлять про особливість вибраного пристрою Pixel, щоб розблокувати функції ексклюзивні функції Pixel</string>
