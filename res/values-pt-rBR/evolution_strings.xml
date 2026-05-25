@@ -979,7 +979,7 @@
     <string name="spoofing_identity_category">Identidade do dispositivo</string>
     <string name="spoofing_features_category">Recursos de hardware</string>
     <string name="spoofing_pixel_props_title">Propriedades do Pixel</string>
-    <string name="spoofing_pixel_props_summary">Informar a identidade mais recente do dispositivo Pixel para um conjunto selecionado de apps do Google</string>
+    <string name="spoofing_pixel_props_summary">Simule aplicativos selecionados como um dispositivo Pixel para desbloquear recursos exclusivos do Pixel</string>
     <string name="spoofing_app_specific_category">Substituições específicas do aplicativo</string>
     <string name="spoofing_photos_title">Google Fotos</string>
     <string name="spoofing_photos_summary">Mascarar o Google Fotos como um Pixel XL</string>
@@ -1023,6 +1023,10 @@
     <string name="custom_spoof_profile_model">Modelo</string>
     <string name="custom_spoof_profile_fingerprint">Impressão digital (opcional)</string>
     <string name="custom_spoof_profile_product">Produto (opcional)</string>
+    <string name="pp_target_count">Mascarando %1$d aplicativo(s) como Pixel</string>
+    <string name="pp_spoof_as">Mascarar como</string>
+    <string name="pp_empty_description">Os aplicativos selecionados irão reportar a identidade do dispositivo Pixel escolhido para desbloquear recursos exclusivos do Pixel</string>
+    <string name="pp_mainline_unsupported">Este dispositivo já é um Pixel. O mascaramento de identidade não está disponível em dispositivos Pixel convencionais.</string>
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_header_title">Bloquear sensor</string>
     <string name="sensor_block_title">Bloqueio de sensor por aplicativo</string>
