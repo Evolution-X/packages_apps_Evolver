@@ -55,4 +55,35 @@
         android:title="@string/power_menu_actions_devicecontrols_title"
         android:defaultValue="false"
         android:enabled="false" />
+
+    <PreferenceCategory
+        android:key="power_menu_restart_items"
+        android:title="@string/power_menu_restart_items_category_title">
+
+        <SwitchPreferenceCompat
+            android:key="restart_recovery"
+            android:title="@string/power_menu_actions_restart_recovery_title"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="restart_bootloader"
+            android:title="@string/power_menu_actions_restart_bootloader_title"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="restart_fastboot"
+            android:title="@string/power_menu_actions_restart_fastboot_title"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="restart_download"
+            android:title="@string/power_menu_actions_restart_download_title"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="restart_systemui"
+            android:title="@string/power_menu_actions_restart_systemui_title"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
