@@ -104,6 +104,9 @@ class TrickyStoreAppSettings : SettingsPreferenceFragment() {
             "com.google.android.gms",
             "com.android.vending",
         )
+        val DEFAULT_TARGET_MODES = mapOf(
+            "com.revolut.revolut" to TargetMode.CERT_GEN,
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -315,19 +318,22 @@ private fun TrickyStoreAppSettingsContent(
                 OutlinedButton(
                     onClick = {
                         allApps.indices.forEach { i ->
+                            val pkg = allApps[i].entry.packageName
                             allApps[i] = allApps[i].copy(
                                 entry = allApps[i].entry.copy(
-                                    isSelected = allApps[i].entry.packageName in
-                                            TrickyStoreAppSettings.DEFAULT_TARGETS,
+                                    isSelected = pkg in TrickyStoreAppSettings.DEFAULT_TARGETS ||
+                                            pkg in TrickyStoreAppSettings.DEFAULT_TARGET_MODES,
                                 ),
-                                mode = TargetMode.AUTO,
+                                mode = TrickyStoreAppSettings.DEFAULT_TARGET_MODES[pkg]
+                                    ?: TargetMode.AUTO,
                             )
                         }
                         scope.launch(Dispatchers.IO) {
                             saveTargets()
                             killPackages(
                                 activityManager,
-                                TrickyStoreAppSettings.DEFAULT_TARGETS,
+                                TrickyStoreAppSettings.DEFAULT_TARGETS +
+                                    TrickyStoreAppSettings.DEFAULT_TARGET_MODES.keys,
                             )
                         }
                     },
