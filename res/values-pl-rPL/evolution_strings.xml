@@ -940,6 +940,12 @@
     <string name="power_menu_actions_logout_title">Wyloguj</string>
     <string name="power_menu_actions_emergency_title">Tryb awaryjny</string>
     <string name="power_menu_actions_devicecontrols_title">Sterowanie urządzeniem</string>
+    <string name="power_menu_restart_items_category_title">Zaawansowane opcje restartu</string>
+    <string name="power_menu_actions_restart_recovery_title">Zrestartuj do trybu odzyskiwania</string>
+    <string name="power_menu_actions_restart_bootloader_title">Zrestartuj do bootloadera</string>
+    <string name="power_menu_actions_restart_fastboot_title">Zrestartuj do fastboota</string>
+    <string name="power_menu_actions_restart_download_title">Zrestartuj do pobierania</string>
+    <string name="power_menu_actions_restart_systemui_title">Zrestartuj interfejs systemu</string>
     <string name="power_menu_advanced_title">Zaawansowane opcje restartu</string>
     <string name="advanced_reboot_title">Zaawansowany restart</string>
     <string name="advanced_reboot_summary">Po odblokowaniu dodaj w menu zasilania opcje restartu do trybu odzyskiwania lub bootloadera</string>
