@@ -938,7 +938,15 @@
     <string name="power_menu_actions_logout_title">Вийти</string>
     <string name="power_menu_actions_emergency_title">Екстрений виклик</string>
     <string name="power_menu_actions_devicecontrols_title">Керування пристроями</string>
+    <string name="power_menu_restart_items_category_title">Розширені параметри перезапуску</string>
+    <string name="power_menu_actions_restart_recovery_title">Перезавантаження для відновлення</string>
+    <string name="power_menu_actions_restart_bootloader_title">Перезавантаження до завантажувача</string>
+    <string name="power_menu_actions_restart_fastboot_title">Перезавантаження для швидкого завантаження</string>
+    <string name="power_menu_actions_restart_download_title">Перезавантажте для завантаження</string>
+    <string name="power_menu_actions_restart_systemui_title">Перезапустити SystemUI</string>
     <string name="power_menu_advanced_title">Розширене меню перезавантаження</string>
+    <string name="restart_fastboot_locked_warning">Завантажувач пристрою заблоковано</string>
+    <string name="restart_download_locked_warning">Завантажувач пристрою заблоковано</string>
     <string name="advanced_reboot_title">Розширене перезавантаження</string>
     <string name="advanced_reboot_summary">Коли пристрій розблоковано, в меню живлення доступні варіанти перезавантаження в меню кнопки відновлення або завантажувач</string>
     <string name="advanced_reboot_secured_title">Показувати на захищеному екрані блокування</string>
