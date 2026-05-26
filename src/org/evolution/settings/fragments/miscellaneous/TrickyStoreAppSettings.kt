@@ -104,6 +104,80 @@ class TrickyStoreAppSettings : SettingsPreferenceFragment() {
             "com.google.android.gms",
             "com.android.vending",
         )
+        val DEFAULT_TARGET_MODES = mapOf(
+            "com.revolut.revolut" to TargetMode.CERT_GEN,
+        )
+
+        // Apps that should never appear in target.txt — root/integrity detectors
+        // and attestation checkers that would flag themselves if targeted.
+        // Sourced from Specter's DETECTOR_APPS + BLACKLIST_EXTRA.
+        val DETECTOR_PACKAGES = setOf(
+            // Core integrity/root detectors
+            "icu.nullptr.nativetest", "icu.nullptr.applistdetector",
+            "io.github.vvb2060.keyattestation", "io.github.vvb2060.mahoshojo",
+            "com.scottyab.rootbeer", "com.scottyab.rootbeer.sample",
+            "com.topjohnwu.magisk.detector", "com.zhenxi.hunter",
+            "com.byxiaorun.detector", "io.github.huskydg.memorydetector",
+            "com.OrangeEnvironment.Detector", "com.Longze.detector.pro2",
+            "com.lingqing.detector", "com.junge.algorithmAidePro",
+            "rikka.safetynetchecker", "com.reveny.nativechecker",
+            "com.reveny.environmentchecker", "com.reveny.rootchecker",
+            "com.guardian.detect", "com.security.environmentchecker",
+            "com.integrity.checker", "com.integrity.attestation",
+            "com.eltavine.duckdetector", "com.rem01gaming.disclosure",
+            "com.chunqiunativecheck", "me.garfieldhan.holmes",
+            "aidepro.top", "chunqiu.safe", "luna.safe.luna",
+            "io.liankong.riskdetector", "com.studio.duckdetector",
+            "com.android.nativetest", "com.byyoung.setting",
+            "com.devadvance.rootcloak", "com.fde.xposed.detector",
+            "com.zhenxi.checker", "com.example.nativelibtest",
+            "com.example.memcheck", "com.example.syscallchecker",
+            "com.jrummyapps.rootchecker", "com.kimchangyoun.magiskdetector",
+            "com.lody.virtual", "com.lody.virtual.client",
+            "com.lody.virtual.server", "com.lody.whale",
+            "com.kimchangyoun.rootbeerfresh", "com.didikee.rootcheck",
+            "com.joeykrim.rootcheck", "com.freeandroidtools.rootchecker",
+            "com.bluestacks.rootchecker", "com.moonshine.checker",
+            "com.ramdroid.appdetector", "com.smlj.rootcheck",
+            "com.devadvance.rootcloakplus", "com.formyhm.hideroot",
+            "com.example.emulatordetector", "com.vmcheck.detector",
+            "com.virtual.checker", "com.antivm.detector",
+            "com.xposed.checker", "com.google.snet.test",
+            "com.attestation.checker", "com.integrity.check",
+            "com.native.checker", "com.syscall.detector",
+            "com.memory.scan",
+            // Additional detectors
+            "com.fede047.rootdetector", "com.junkcode.androidtamperdetector",
+            "me.weishu.kernelsu", "io.github.a13e300.tricky_store",
+            "io.github.a13e300.tricky_store.debug",
+            "io.github.vvb2060.pinyomi", "io.github.duzhaokun123.yhms",
+            "com.github.quarck.rntf", "com.negusoft.greentea",
+            "com.stillnesscreative.integritycheck",
+            "com.suyash.androidupdatechecker",
+            "com.g00fy2.versioncompare",
+            "io.github.huskydg.magu",
+            "com.kgurgul.cpuinfo",
+            // Remote control apps — should not be attested
+            "com.anydesk.anydeskandroid", "com.teamviewer.teamviewer.market.mobile",
+            "com.teamviewer.quicksupport.market",
+            "com.sand.airdroid", "com.sand.airmirror",
+            "com.koushikdutta.vysor", "com.genymobile.scrcpy",
+            "com.microsoft.rdc.androidx", "com.realvnc.viewer.android",
+            "com.splashtop.remote.pad.v2", "com.dwservice.dwagent",
+            "com.carriez.flutter_hbb", "com.carriez.flutter_hbbclient",
+            "com.rustdesk.rustdesk",
+            // Modding/tool apps that shouldn't be attested
+            "bin.mt.plus", "bin.mt.plus.canary",
+            "com.omarea.vtools", "moe.shizuku.privileged.api",
+            "com.estrongs.android.pop", "com.coolapk.market",
+            "com.sevtinge.hyperceiler", "com.coderstory.toolkit",
+            // ADB/shell tools and root managers
+            "com.franco.kernel", "com.jrummyapps.busybox",
+            "com.topjohnwu.magisk",
+            // Browsers and media apps (Specter BLACKLIST_EXTRA)
+            "com.android.chrome", "com.google.android.apps.photos",
+            "com.google.android.youtube",
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -196,8 +270,12 @@ private fun TrickyStoreAppSettingsContent(
                 targeted = targeted,
                 extraFilter = { app ->
                     val isSystem = app.flags and ApplicationInfo.FLAG_SYSTEM != 0
-                    val isExcluded = EXCLUDED_SUFFIXES.any { app.packageName.contains(it) }
-                    !(isSystem && isExcluded)
+                    val isSuffixExcluded = EXCLUDED_SUFFIXES.any { app.packageName.contains(it) }
+                    // Also hide known root/integrity detector apps from the
+                    // picker entirely — they should never be in target.txt.
+                    val isDetector = app.packageName in
+                        TrickyStoreAppSettings.DETECTOR_PACKAGES
+                    !(isSystem && isSuffixExcluded) && !isDetector
                 },
             )
                 .sortedWith(targetedFirstComparator(pm, targeted))
@@ -315,19 +393,22 @@ private fun TrickyStoreAppSettingsContent(
                 OutlinedButton(
                     onClick = {
                         allApps.indices.forEach { i ->
+                            val pkg = allApps[i].entry.packageName
                             allApps[i] = allApps[i].copy(
                                 entry = allApps[i].entry.copy(
-                                    isSelected = allApps[i].entry.packageName in
-                                            TrickyStoreAppSettings.DEFAULT_TARGETS,
+                                    isSelected = pkg in TrickyStoreAppSettings.DEFAULT_TARGETS ||
+                                            pkg in TrickyStoreAppSettings.DEFAULT_TARGET_MODES,
                                 ),
-                                mode = TargetMode.AUTO,
+                                mode = TrickyStoreAppSettings.DEFAULT_TARGET_MODES[pkg]
+                                    ?: TargetMode.AUTO,
                             )
                         }
                         scope.launch(Dispatchers.IO) {
                             saveTargets()
                             killPackages(
                                 activityManager,
-                                TrickyStoreAppSettings.DEFAULT_TARGETS,
+                                TrickyStoreAppSettings.DEFAULT_TARGETS +
+                                    TrickyStoreAppSettings.DEFAULT_TARGET_MODES.keys,
                             )
                         }
                     },
@@ -336,6 +417,109 @@ private fun TrickyStoreAppSettingsContent(
                 ) {
                     Text(
                         stringResource(R.string.action_reset),
+                        style = MaterialTheme.typography.labelMedium,
+                    )
+                }
+            }
+
+            // Generate / Merge row
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                val teeBroken = remember {
+                    android.security.trickystore.TrickyStoreService
+                        .getInstance().isTeeBroken()
+                }
+                // Generate: wipe list, rebuild from all installed third-party
+                // apps, skipping detector/checker packages.
+                FilledTonalButton(
+                    onClick = {
+                        scope.launch(Dispatchers.IO) {
+                            val pm = context.packageManager
+                            val installed = pm.getInstalledApplications(0)
+                                .filter { app ->
+                                    val isSystem = app.flags and
+                                        android.content.pm.ApplicationInfo.FLAG_SYSTEM != 0
+                                    !isSystem &&
+                                        app.packageName !in
+                                            TrickyStoreAppSettings.DETECTOR_PACKAGES
+                                }
+                                .map { it.packageName }
+                                .toSet()
+
+                            val fixed = TrickyStoreAppSettings.DEFAULT_TARGETS +
+                                TrickyStoreAppSettings.DEFAULT_TARGET_MODES.keys
+
+                            withContext(Dispatchers.Main) {
+                                allApps.indices.forEach { i ->
+                                    val pkg = allApps[i].entry.packageName
+                                    val inGenerated = pkg in installed || pkg in fixed
+                                    val autoMode = when {
+                                        TrickyStoreAppSettings.DEFAULT_TARGET_MODES
+                                            .containsKey(pkg) ->
+                                            TrickyStoreAppSettings.DEFAULT_TARGET_MODES[pkg]!!
+                                        teeBroken -> TargetMode.LEAF_HACK
+                                        else -> TargetMode.AUTO
+                                    }
+                                    allApps[i] = allApps[i].copy(
+                                        entry = allApps[i].entry.copy(isSelected = inGenerated),
+                                        mode = if (inGenerated) autoMode else TargetMode.AUTO,
+                                    )
+                                }
+                            }
+                            saveTargets()
+                        }
+                    },
+                    modifier = Modifier.weight(1f),
+                    shape = RoundedCornerShape(10.dp),
+                ) {
+                    Text(
+                        stringResource(R.string.action_generate),
+                        style = MaterialTheme.typography.labelMedium,
+                    )
+                }
+
+                // Merge: only add apps not already in the list; preserve
+                // existing entries and their modes untouched.
+                OutlinedButton(
+                    onClick = {
+                        scope.launch(Dispatchers.IO) {
+                            val pm = context.packageManager
+                            val installed = pm.getInstalledApplications(0)
+                                .filter { app ->
+                                    val isSystem = app.flags and
+                                        android.content.pm.ApplicationInfo.FLAG_SYSTEM != 0
+                                    !isSystem &&
+                                        app.packageName !in
+                                            TrickyStoreAppSettings.DETECTOR_PACKAGES
+                                }
+                                .map { it.packageName }
+                                .toSet()
+
+                            withContext(Dispatchers.Main) {
+                                allApps.indices.forEach { i ->
+                                    val pkg = allApps[i].entry.packageName
+                                    if (!allApps[i].entry.isSelected && pkg in installed) {
+                                        val autoMode = when {
+                                            teeBroken -> TargetMode.LEAF_HACK
+                                            else -> TargetMode.AUTO
+                                        }
+                                        allApps[i] = allApps[i].copy(
+                                            entry = allApps[i].entry.copy(isSelected = true),
+                                            mode = autoMode,
+                                        )
+                                    }
+                                }
+                            }
+                            saveTargets()
+                        }
+                    },
+                    modifier = Modifier.weight(1f),
+                    shape = RoundedCornerShape(10.dp),
+                ) {
+                    Text(
+                        stringResource(R.string.action_merge),
                         style = MaterialTheme.typography.labelMedium,
                     )
                 }
@@ -363,8 +547,19 @@ private fun TrickyStoreAppSettingsContent(
                                 val i = allApps.indexOfFirst {
                                     it.entry.packageName == state.entry.packageName }
                                 if (i >= 0) {
+                                    val teeBroken = android.security.trickystore
+                                        .TrickyStoreService.getInstance().isTeeBroken()
+                                    // Pre-assign LEAF_HACK when TEE is broken so the
+                                    // user doesn't have to manually switch mode after toggling.
+                                    val defaultMode = when {
+                                        !nowEnabled -> allApps[i].mode
+                                        teeBroken -> TargetMode.LEAF_HACK
+                                        else -> allApps[i].mode
+                                    }
                                     allApps[i] = allApps[i].copy(
-                                        entry = allApps[i].entry.copy(isSelected = nowEnabled))
+                                        entry = allApps[i].entry.copy(isSelected = nowEnabled),
+                                        mode = defaultMode,
+                                    )
                                     scope.launch(Dispatchers.IO) { saveTargets() }
                                 }
                             },

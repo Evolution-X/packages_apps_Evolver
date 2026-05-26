@@ -77,6 +77,7 @@ class TrickyStore : SettingsPreferenceFragment() {
                     )
                     saveLastFetchedTimestamp()
                     killGms()
+                    softBannedSerialsCache = null
                     toast(getString(R.string.ts_keybox_imported))
                     currentRevocationStatus = RevocationStatus.UNKNOWN
                     Settings.Secure.putString(
@@ -634,6 +635,7 @@ class TrickyStore : SettingsPreferenceFragment() {
                         requireContext().contentResolver, KEYBOX_KEY, "")
                     Settings.Secure.putLong(
                         requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
+                    softBannedSerialsCache = null
                     toast(getString(R.string.ts_keybox_deleted))
                     currentRevocationStatus = RevocationStatus.UNKNOWN
                     Settings.Secure.putString(
@@ -696,6 +698,16 @@ class TrickyStore : SettingsPreferenceFragment() {
             am.forceStopPackage(VENDING_PACKAGE)
             am.forceStopPackage(DROIDGUARD_PACKAGE)
             am.forceStopPackage(GMS_PACKAGE)
+            am.forceStopPackage(GMS_PERSISTENT_PACKAGE)
+            am.forceStopPackage(RKPD_PACKAGE)
+            am.forceStopPackage(GSF_PACKAGE)
+            am.forceStopPackage(CONTACT_KEYS_PACKAGE)
+            am.forceStopPackage(SAFETY_CORE_PACKAGE)
+            am.forceStopPackage(VELVET_PACKAGE)
+            // Clear Play Store's cached attestation results so the new
+            // keybox/config takes effect immediately (mirrors Specter's gms.sh).
+            requireContext().packageManager.clearApplicationUserData(
+                VENDING_PACKAGE, null)
         } catch (_: Exception) {}
     }
 
@@ -712,10 +724,16 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val LAST_REVOCATION_CHECK_KEY = "spoof_trickystore_last_revocation_check"
         private const val LAST_NO_VALID_KEY         = "spoof_trickystore_last_no_valid"
         private const val LAST_REVOCATION_STATUS_KEY = "spoof_trickystore_last_revocation_status"
-        private const val VENDING_PACKAGE       = "com.android.vending"
-        private const val DROIDGUARD_PACKAGE    = "com.google.android.gms.unstable"
-        private const val GMS_PACKAGE           = "com.google.android.gms"
-        private const val REVOCATION_URL        = "https://android.googleapis.com/attestation/status"
+        private const val VENDING_PACKAGE           = "com.android.vending"
+        private const val DROIDGUARD_PACKAGE        = "com.google.android.gms.unstable"
+        private const val GMS_PACKAGE               = "com.google.android.gms"
+        private const val GMS_PERSISTENT_PACKAGE    = "com.google.android.gms.persistent"
+        private const val RKPD_PACKAGE              = "com.google.android.rkpdapp"
+        private const val GSF_PACKAGE               = "com.google.android.gsf"
+        private const val CONTACT_KEYS_PACKAGE      = "com.google.android.contactkeys"
+        private const val SAFETY_CORE_PACKAGE       = "com.google.android.safetycore"
+        private const val VELVET_PACKAGE            = "com.google.android.googlequicksearchbox"
+        private const val REVOCATION_URL        = "https://android.googleapis.com/attestation/status?encrypted=0"
         private const val OFFICIAL_KEYBOX_URL   =
             "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/keybox.xml"
         private const val TRICKYSTORE_ENABLED_KEY = "spoof_trickystore_enabled"
