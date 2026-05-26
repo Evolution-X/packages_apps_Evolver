@@ -980,7 +980,15 @@
     <string name="power_menu_actions_logout_title">Log out</string>
     <string name="power_menu_actions_emergency_title">Emergency</string>
     <string name="power_menu_actions_devicecontrols_title">Device controls</string>
+    <string name="power_menu_restart_items_category_title">Advanced restart options</string>
+    <string name="power_menu_actions_restart_recovery_title">Restart to recovery</string>
+    <string name="power_menu_actions_restart_bootloader_title">Restart to bootloader</string>
+    <string name="power_menu_actions_restart_fastboot_title">Restart to fastboot</string>
+    <string name="power_menu_actions_restart_download_title">Restart to download</string>
+    <string name="power_menu_actions_restart_systemui_title">Restart SystemUI</string>
     <string name="power_menu_advanced_title">Advanced reboot options</string>
+    <string name="restart_fastboot_locked_warning">Device bootloader is locked</string>
+    <string name="restart_download_locked_warning">Device bootloader is locked</string>
     <string name="advanced_reboot_title">Advanced restart</string>
     <string name="advanced_reboot_summary">When unlocked, include options to restart into recovery or bootloader in the power menu</string>
     <string name="advanced_reboot_secured_title">Show on secure lock screen</string>
