@@ -69,15 +69,33 @@ object ClockUtils {
         R.layout.keyguard_clock_ios12, // 56
         R.layout.keyguard_clock_ios13, // 57
         R.layout.keyguard_clock_ios14, // 58
-        R.layout.keyguard_clock_big1, // 59
-        R.layout.keyguard_clock_big2, // 60
-        R.layout.keyguard_clock_big3, // 61
-        R.layout.keyguard_clock_big4, // 62
-        R.layout.keyguard_clock_sweet, // 63
-        R.layout.keyguard_clock_pixel, // 64
-        R.layout.keyguard_clock_samurai, // 65
-        R.layout.keyguard_clock_gateway, // 66
-        R.layout.keyguard_clock_tall, // 67
+        R.layout.keyguard_clock_ios15, // 59
+        R.layout.keyguard_clock_ios16, // 60
+        R.layout.keyguard_clock_ios17, // 61
+        R.layout.keyguard_clock_ios18, // 62
+        R.layout.keyguard_clock_ios19, // 63
+        R.layout.keyguard_clock_big1, // 64
+        R.layout.keyguard_clock_big2, // 65
+        R.layout.keyguard_clock_big3, // 66
+        R.layout.keyguard_clock_big4, // 67
+        R.layout.keyguard_clock_sweet, // 68
+        R.layout.keyguard_clock_pixel, // 69
+        R.layout.keyguard_clock_samurai, // 70
+        R.layout.keyguard_clock_gateway, // 71
+        R.layout.keyguard_clock_tall, // 72
+        R.layout.keyguard_clock_gobold, // 73
+        R.layout.keyguard_clock_gobold2, // 74
+        R.layout.keyguard_clock_delirium, // 75
+        R.layout.keyguard_clock_deliriumdual, // 76
+        R.layout.keyguard_clock_skewrom, // 77
+        R.layout.keyguard_clock_skewrom2, // 78
+        R.layout.keyguard_clock_taller, // 79
+        R.layout.keyguard_clock_taller2, // 80
+        R.layout.keyguard_clock_taller3, // 81
+        R.layout.keyguard_clock_modak, // 82
+        R.layout.keyguard_clock_galada, // 83
+        R.layout.keyguard_clock_cos1, // 84
+        R.layout.keyguard_clock_cos2, // 85
     )
 
     fun getClockNames(): Array<String> {
@@ -141,6 +159,11 @@ object ClockUtils {
             "iOS 12",
             "iOS 13",
             "iOS 14",
+            "iOS 15",
+            "iOS 16",
+            "iOS 17",
+            "iOS 18",
+            "iOS 19",
             "Big 1",
             "Big 2",
             "Big 3",
@@ -150,6 +173,19 @@ object ClockUtils {
             "Samurai",
             "Gateway",
             "Tall clock",
+            "GoBold monet",
+            "GoBold",
+            "Delirium",
+            "Delirium Dual",
+            "Skewrom",
+            "Skewrom 2",
+            "Taller",
+            "Taller 2",
+            "Taller 3",
+            "Modak",
+            "Galada",
+            "COS 1",
+            "COS 2"
         )
     }
 }
