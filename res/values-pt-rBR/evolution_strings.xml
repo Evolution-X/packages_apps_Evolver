@@ -939,6 +939,12 @@
     <string name="power_menu_actions_logout_title">Registro fora</string>
     <string name="power_menu_actions_emergency_title">Emergência</string>
     <string name="power_menu_actions_devicecontrols_title">Controle do dispositivo</string>
+    <string name="power_menu_restart_items_category_title">Opções avançadas de reinicialização</string>
+    <string name="power_menu_actions_restart_recovery_title">Reiniciar para o Recovery</string>
+    <string name="power_menu_actions_restart_bootloader_title">Reiniciar para o bootloader</string>
+    <string name="power_menu_actions_restart_fastboot_title">Reiniciar para o fastboot</string>
+    <string name="power_menu_actions_restart_download_title">Reiniciar para o modo download</string>
+    <string name="power_menu_actions_restart_systemui_title">Reiniciar a interface do sistema</string>
     <string name="power_menu_advanced_title">Menu de reinicialização avançada</string>
     <string name="advanced_reboot_title">Reinicialização avançada</string>
     <string name="advanced_reboot_summary">Quando desbloqueado, inclua opções para reiniciar em recovery ou bootloader no menu de energia</string>
@@ -1420,6 +1426,8 @@
     <string name="action_select_all">Selecionar tudo</string>
     <string name="action_restart">Reiniciar</string>
     <string name="action_reboot_now">Reiniciar agora</string>
+    <string name="action_generate">Gerar</string>
+    <string name="action_merge">Mesclar</string>
     <string name="show_system_apps">Mostrar aplicativos do sistema</string>
     <string name="hide_system_apps">Ocultar aplicativos do sistema</string>
     <string name="default_value">Padrão</string>
