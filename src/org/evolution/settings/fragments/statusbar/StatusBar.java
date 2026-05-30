@@ -50,7 +50,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_CLOCK_CHIP = "statusbar_clock_chip";
     private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
-    private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
+    private static final String QUICK_PULLDOWN = "qs_quick_pulldown";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
     private static final String STATUS_BAR_CARRIER_KEY = "status_bar_carrier_key";
     private static final String CARRIER_NAME = "lockscreen_show_carrier";
@@ -59,7 +59,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
-    private static final int PULLDOWN_DIR_BOTH = 3;
+    private static final int PULLDOWN_DIR_ALWAYS = 3;
 
     private LineageSystemSettingListPreference mQuickPulldown;
     private LineageSystemSettingListPreference mStatusBarClock;
@@ -94,13 +94,15 @@ public class StatusBar extends SettingsPreferenceFragment implements
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
         }
 
-        mQuickPulldown = findPreference(KEY_QUICK_PULLDOWN);
+        mQuickPulldown =
+                (LineageSystemSettingListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
+        // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            mQuickPulldown.setEntries(R.array.status_bar_quick_pull_down_entries_rtl);
-            mQuickPulldown.setEntryValues(R.array.status_bar_quick_pull_down_values_rtl);
+            mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries_rtl);
+            mQuickPulldown.setEntryValues(R.array.status_bar_quick_qs_pulldown_values_rtl);
         }
 
         mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
@@ -128,7 +130,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mQuickPulldown) {
-            updateQuickPulldownSummary(Integer.parseInt((String) newValue));
+            int value = Integer.parseInt((String) newValue);
+            updateQuickPulldownSummary(value);
             return true;
         } else if (preference == mColoredIcons) {
             SystemUtils.showSystemUiRestartDialog(getContext());
@@ -197,25 +200,23 @@ public class StatusBar extends SettingsPreferenceFragment implements
     }
 
     private void updateQuickPulldownSummary(int value) {
-        String summary = "";
+        String summary="";
         switch (value) {
             case PULLDOWN_DIR_NONE:
                 summary = getResources().getString(
-                        R.string.status_bar_quick_pull_down_off);
+                    R.string.status_bar_quick_qs_pulldown_off);
                 break;
-            case PULLDOWN_DIR_RIGHT:
-            case PULLDOWN_DIR_LEFT:
-            case PULLDOWN_DIR_BOTH:
+            case PULLDOWN_DIR_ALWAYS:
                 summary = getResources().getString(
-                        R.string.status_bar_quick_pull_down_summary,
-                        getResources().getString(
-                                value == PULLDOWN_DIR_RIGHT
-                                        ? R.string.status_bar_quick_pull_down_right
-                                        : value == PULLDOWN_DIR_LEFT
-                                                ? R.string.status_bar_quick_pull_down_left
-                                                : R.string.status_bar_quick_pull_down_both
-                        )
-                );
+                    R.string.status_bar_quick_qs_pulldown_always);
+                break;
+            case PULLDOWN_DIR_LEFT:
+            case PULLDOWN_DIR_RIGHT:
+                summary = getResources().getString(
+                    R.string.status_bar_quick_qs_pulldown_summary,
+                    getResources().getString(value == PULLDOWN_DIR_LEFT
+                        ? R.string.status_bar_quick_qs_pulldown_summary_left
+                        : R.string.status_bar_quick_qs_pulldown_summary_right));
                 break;
         }
         mQuickPulldown.setSummary(summary);
