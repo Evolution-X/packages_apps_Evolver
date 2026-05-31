@@ -191,6 +191,10 @@
     <string name="lockscreen_custom_clock_aod_anim_title">Custom clock AOD animation</string>
     <string name="lockscreen_custom_clock_aod_anim_summary">Set AOD animation for custom clock style</string>
 
+    <!-- Lockscreen clock: album art color override -->
+    <string name="clock_album_art_color_title">Album art color clocks</string>
+    <string name="clock_album_art_color_summary">Override clock color with the album art palette when media is playing</string>
+
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Media cover art</string>
     <string name="ls_media_art_summary">Display media cover art when available</string>
