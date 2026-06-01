@@ -1428,8 +1428,7 @@
     <string name="action_select_all">Selecionar tudo</string>
     <string name="action_restart">Reiniciar</string>
     <string name="action_reboot_now">Reiniciar agora</string>
-    <string name="action_generate">Gerar</string>
-    <string name="action_merge">Mesclar</string>
+    <string name="action_add_installed">Adicionar Instalado</string>
     <string name="show_system_apps">Mostrar aplicativos do sistema</string>
     <string name="hide_system_apps">Ocultar aplicativos do sistema</string>
     <string name="default_value">Padrão</string>
@@ -1460,6 +1459,7 @@
     <string name="hardware_keys_action_play_pause_music">Reproduzir/pausar música</string>
     <string name="hardware_keys_action_torch">Ligar/desligar lanterna</string>
     <string name="hardware_keys_action_screenshot">Tirar uma captura de tela</string>
+    <string name="hardware_keys_action_partial_screenshot">Captura parcial da tela</string>
     <string name="hardware_keys_action_volume_panel">Alternar painel de volume</string>
     <string name="hardware_keys_action_clear_all_notifications">Limpar todas as notificações</string>
     <string name="hardware_keys_action_notifications_panel">Alternar painel de notificações</string>
