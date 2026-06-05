@@ -1118,8 +1118,8 @@
     <string name="pif_active_config">Configuração ativa</string>
     <string name="pif_no_config">Nenhuma configuração carregada</string>
     <string name="pif_config_loaded">Configuração carregada</string>
-    <string name="pif_fetch_pixel_beta">Buscar impressão digital do Pixel Beta</string>
-    <string name="pif_fetch_pixel_beta_summary">Baixe a impressão digital mais recente do Pixel Beta do Google</string>
+    <string name="pif_fetch_pixel_beta">Obter impressão digital Pixel Canary</string>
+    <string name="pif_fetch_pixel_beta_summary">Baixe a versão mais recente da impressão digital Pixel Canary do Google</string>
     <string name="pif_fetching">Buscando no Google\u2026</string>
     <string name="pif_fetched_model">Impressão digital obtida para %s</string>
     <string name="pif_import_config">Configuração de importação</string>
@@ -1135,10 +1135,7 @@
     <string name="pif_select_device">Selecione o dispositivo</string>
     <string name="pif_generating">Gerando configuração\u2026</string>
     <string name="pif_footer_title">Aprovando no teste de integridade básica</string>
-    <string name="pif_footer_body">1. Toque em \"Obter impressão digital do Pixel Beta\" e selecione um dispositivo na lista.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF funcional de uma fonte confiável. Arquivos de configuração não são fornecidos.\n3. Verifique novamente seu status Play Integrity.\n\nSempre exclua a configuração ativa antes de carregar uma nova. Carregando uma configuração PIF expirada fará com que a integridade forte de TrickyStore falhe, mesmo com uma caixa de chaves válida.</string>
-    <string name="pif_select_channel">Selecione o canal</string>
-    <string name="pif_channel_latest_release">Último lançamento</string>
-    <string name="pif_channel_canary_release">Lançamento Canary</string>
+    <string name="pif_footer_body">1. Toque em \"Obter impressão digital Pixel Canary\" e selecione um dispositivo da lista.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF válida de uma fonte confiável. Os arquivos de configuração não são fornecidos.\n3. Verifique novamente o status de integridade do Play.\n\nSempre exclua a configuração ativa antes de carregar uma nova. Carregar uma configuração PIF expirada fará com que a integridade forte do TrickyStore falhe, mesmo com uma caixa de chaves válida.</string>
     <string name="pif_invalid_fingerprint">Formato de fingerprint inválido</string>
     <string name="pif_no_devices_found">Nenhum dispositivo encontrado</string>
     <string name="pif_no_api_key">Falha ao extrair a chave API do Flash Tool</string>
