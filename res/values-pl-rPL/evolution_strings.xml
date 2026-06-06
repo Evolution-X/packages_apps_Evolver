@@ -1119,8 +1119,8 @@
     <string name="pif_active_config">Aktywna konfiguracja</string>
     <string name="pif_no_config">Nie załadowano konfiguracji</string>
     <string name="pif_config_loaded">Konfiguracja załadowana</string>
-    <string name="pif_fetch_pixel_beta">Pobierz odcisk palca Pixel beta</string>
-    <string name="pif_fetch_pixel_beta_summary">Pobierz najnowszy odcisk palca Pixel beta z Google</string>
+    <string name="pif_fetch_pixel_beta">Pobierz odcisk palca Pixel canary</string>
+    <string name="pif_fetch_pixel_beta_summary">Pobierz najnowszy odcisk palca Pixel canary z Google</string>
     <string name="pif_fetching">Pobieranie z Google\u2026</string>
     <string name="pif_fetched_model">Pobrano odcisk palca dla %s</string>
     <string name="pif_import_config">Importuj konfigurację</string>
@@ -1136,10 +1136,7 @@
     <string name="pif_select_device">Wybierz urządzenie</string>
     <string name="pif_generating">Generowanie konfiguracji\u2026</string>
     <string name="pif_footer_title">Przejście podstawowej integralności</string>
-    <string name="pif_footer_body">1. Naciśnij „Pobierz odcisk palca Pixel beta” i wybierz urządzenie z listy.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostępne.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed załadowaniem nowej. Załadowanie wygasłej konfiguracji poprawki integralności Google Play spowoduje niepowodzenie silnej integralności TrickyStore, nawet przy prawidłowym zestawie kluczy.</string>
-    <string name="pif_select_channel">Wybierz kanał</string>
-    <string name="pif_channel_latest_release">Najnowsze wydanie</string>
-    <string name="pif_channel_canary_release">Wydanie canary</string>
+    <string name="pif_footer_body">1. Naciśnij „Pobierz odcisk palca Pixel canary” i wybierz urządzenie z listy.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostępne.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed załadowaniem nowej. Załadowanie wygasłej konfiguracji poprawki integralności Google Play spowoduje awarię silnej integralności TrickyStore, nawet przy prawidłowym zestawie kluczy.</string>
     <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
     <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
     <string name="pif_no_api_key">Nie udało się wyodrębnić klucza API narzędzia do wgrywania</string>
