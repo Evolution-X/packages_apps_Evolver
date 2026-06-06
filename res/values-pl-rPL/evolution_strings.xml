@@ -181,6 +181,9 @@
     <string name="lockscreen_custom_clock_size_summary">Skaluj zegar ekranu blokady (50–150%)</string>
     <string name="lockscreen_custom_clock_aod_anim_title">Niestandardowy zegar animacji ekran zawsze włączony</string>
     <string name="lockscreen_custom_clock_aod_anim_summary">Ustaw animację ekran zawsze włączony dla niestandardowego stylu zegara</string>
+    <!-- Lockscreen clock: album art color override -->
+    <string name="clock_album_art_color_title">Kolorowe zegary z grafiką albumu</string>
+    <string name="clock_album_art_color_summary">Zastąp kolor zegara paletą okładek albumów podczas odtwarzania multimediów</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Okładka multimediów</string>
     <string name="ls_media_art_summary">Wyświetl okładkę multimediów, gdy jest dostępna</string>
