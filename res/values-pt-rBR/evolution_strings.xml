@@ -181,6 +181,9 @@
     <string name="lockscreen_custom_clock_size_summary">Escala do relógio da tela de bloqueio (50-150%)</string>
     <string name="lockscreen_custom_clock_aod_anim_title">Animação personalizada do relógio AOD</string>
     <string name="lockscreen_custom_clock_aod_anim_summary">Defina a animação AOD para um estilo de relógio personalizado</string>
+    <!-- Lockscreen clock: album art color override -->
+    <string name="clock_album_art_color_title">Relógios com cores da capa do álbum</string>
+    <string name="clock_album_art_color_summary">Substitua a cor do relógio pela paleta de cores da capa do álbum quando a mídia estiver sendo reproduzida</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Arte de capa da mídia</string>
     <string name="ls_media_art_summary">Exibir capa de mídia quando disponível</string>
