@@ -180,6 +180,9 @@
     <string name="lockscreen_custom_clock_size_summary">Масштабувати годинник екрана блокування (50–150%)</string>
     <string name="lockscreen_custom_clock_aod_anim_title">Користувацька анімація годинника AOD</string>
     <string name="lockscreen_custom_clock_aod_anim_summary">Встановіть анімацію AOD для власного стилю годинника</string>
+    <!-- Lockscreen clock: album art color override -->
+    <string name="clock_album_art_color_title">Кольорові годинники для обкладинок альбомів</string>
+    <string name="clock_album_art_color_summary">Перевизначити колір годинника з палітром альбому при відтворенні мультимедіа</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Обкладинка медіа</string>
     <string name="ls_media_art_summary">Увімкнути обкладинки альбомів на екрані блокування</string>
@@ -1117,8 +1120,8 @@
     <string name="pif_active_config">Активна конфігурація</string>
     <string name="pif_no_config">Жодної конфігурації не завантажено</string>
     <string name="pif_config_loaded">Конфігурацію завантажено</string>
-    <string name="pif_fetch_pixel_beta">Отримати відбитки пальців Pixel</string>
-    <string name="pif_fetch_pixel_beta_summary">Завантажте найновішу бета-версію Pixel для відбитків пальців від Google</string>
+    <string name="pif_fetch_pixel_beta">Отримання відбитка пальця Pixel Canary</string>
+    <string name="pif_fetch_pixel_beta_summary">Завантажте найновіший відбиток пальця Pixel Canary від Google</string>
     <string name="pif_fetching">Отримання з Google\u2026</string>
     <string name="pif_fetched_model">Отримано відбиток для %s</string>
     <string name="pif_import_config">Імпортувати конфігурацію</string>
@@ -1135,9 +1138,6 @@
     <string name="pif_generating">Генерування конфігурації\u2026</string>
     <string name="pif_footer_title">Проходження основної цілісності</string>
     <string name="pif_footer_body">1. Натисніть «Отримати відбиток пальця Pixel Beta» та виберіть пристрій зі списку.\n2. Якщо пристрої не знайдено, імпортуйте робочу конфігурацію PIF з надійного джерела. Файли конфігурації не надаються.\n3. Перевірте стан цілісності Play.\n\nЗавжди видаляйте активну конфігурацію перед завантаженням нової. Завантаження конфігурації PIF, термін дії якої минув, призведе до збою надійної цілісності TrickyStore, навіть якщо вона дійсна.</string>
-    <string name="pif_select_channel">Оберіть канал</string>
-    <string name="pif_channel_latest_release">Останній випуск</string>
-    <string name="pif_channel_canary_release">Канарний реліз</string>
     <string name="pif_invalid_fingerprint">Недійсний формат відбитка пальця</string>
     <string name="pif_no_devices_found">Пристроїв не знайдено</string>
     <string name="pif_no_api_key">Не вдалося видобути ключ API Flash Tool</string>
@@ -1519,4 +1519,9 @@
     <string name="settings_icon_corner_style_rounded_square">Заокруглений квадрат</string>
     <string name="settings_icon_random_colors_title">Випадкові кольори</string>
     <string name="settings_icon_random_colors_summary">Використання випадкових кольорів для кожного значка</string>
+    <!-- Volume slider -->
+    <string name="qs_show_volume_slider_title">Повзунок гучності</string>
+    <string name="qs_show_volume_slider_summary">Показати повзунок гучності біля повзунка яскравості</string>
+    <string name="qs_show_ringer_mode_title">Режим дзвінка</string>
+    <string name="qs_show_ringer_mode_summary">Показати піктограму режиму дзвінка з повзунком гучності</string>
 </resources>
