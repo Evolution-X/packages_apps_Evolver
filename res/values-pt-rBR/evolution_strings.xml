@@ -1520,4 +1520,9 @@
     <string name="settings_icon_corner_style_rounded_square">Cantos arredondados</string>
     <string name="settings_icon_random_colors_title">Cores aleatórias</string>
     <string name="settings_icon_random_colors_summary">Usar cores aleatórias para cada ícone</string>
+    <!-- Volume slider -->
+    <string name="qs_show_volume_slider_title">Controle deslizante de volume</string>
+    <string name="qs_show_volume_slider_summary">Mostrar o controle deslizante de volume ao lado do controle deslizante de brilho</string>
+    <string name="qs_show_ringer_mode_title">Modo de toque</string>
+    <string name="qs_show_ringer_mode_summary">Mostrar o ícone do modo de toque com o controle deslizante de volume</string>
 </resources>
