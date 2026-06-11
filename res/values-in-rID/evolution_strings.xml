@@ -1521,8 +1521,10 @@
     <string name="settings_icon_random_colors_title">Warna acak</string>
     <string name="settings_icon_random_colors_summary">Gunakan warna acak untuk setiap ikon</string>
     <!-- Volume slider -->
-    <string name="qs_show_volume_slider_title">Penggeser volume</string>
-    <string name="qs_show_volume_slider_summary">Tampilkan penggeser volume di sebelah penggeser kecerahan</string>
+    <string name="qs_show_volume_slider_title">Mode penggeser</string>
+    <string name="qs_show_volume_slider_hide">Hanya penggeser kecerahan</string>
+    <string name="qs_show_volume_slider_both">Penggeser kecerahan dan volume</string>
+    <string name="qs_show_volume_slider_only">Hanya penggeser volume</string>
     <string name="qs_show_ringer_mode_title">Mode dering</string>
     <string name="qs_show_ringer_mode_summary">Tampilkan ikon mode dering dengan penggeser volume</string>
 </resources>
