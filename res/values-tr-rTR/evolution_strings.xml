@@ -561,6 +561,7 @@
     <string name="dynamic_bar_event_bluetooth_summary">Cihaz bağlantı durumu</string>
     <string name="dynamic_bar_event_hotspot">Kişisel Erişim Noktası</string>
     <string name="dynamic_bar_event_hotspot_summary">Mobil erişim noktası etkinlik göstergesi</string>
+    <string name="dynamic_bar_event_ringer">Zil modu</string>
     <string name="dynamic_bar_event_ringer_summary">Sessiz, titreşim ve zil modu değişiklikleri</string>
     <string name="dynamic_bar_event_vpn">VPN</string>
     <string name="dynamic_bar_event_vpn_summary">Etkin VPN bağlantısı göstergesi</string>
@@ -852,7 +853,7 @@
     <string name="qs_tile_gradient_summary">Kutucuklarda renk geçişli arka planı aç</string>
     <string name="qs_tiles_haptic_feedback_title">Hızlı ayarlar karelerine dokunulduğunda titret</string>
     <string name="qs_panel_tile_haptic_intensity_title">Hızlı ayarlar karesi titreşim yoğunluğu</string>
-    <string name="qs_haptics_intensity_title">Qs fling haptik yoğunluğu</string>
+    <string name="qs_haptics_intensity_title">Hızlı ayarlar kaydırma şiddeti</string>
     <!-- QS widget -->
     <string name="qs_widget_panel_title">Widget\'ı Hızlı Ayarlar panelinde göster</string>
     <string name="qs_widget_panel_summary">Medya, ses ve parlaklık widget\'larını QS panelinde göster</string>
@@ -877,7 +878,7 @@
     <string name="notif_style1">Cyberpunk</string>
     <string name="notif_style2">Duoline</string>
     <string name="notif_style3">Akışkan (Şeffaf)</string>
-    <string name="notif_style4">IOS</string>
+    <string name="notif_style4">iOS</string>
     <string name="notif_style5">Katmanlar</string>
     <string name="notification_use_app_icons_title">Bildirimlerde uygulama simgelerini kullan</string>
     <string name="notification_use_app_icons_summary">Küçük bildirim simgesi yerine uygulama başlatıcı simgesini göster</string>
@@ -885,14 +886,14 @@
     <string name="notification_use_themed_app_icons_summary">Sistem renk temasını bildirim uygulaması simgelerine uygula (deneysel)</string>
     <string name="notification_bg_alternate_color_title">Alternatif bildirim arka planı</string>
     <string name="notification_bg_alternate_color_summary">Hızlı ayarlar karoları için alternatif bir arka plan rengi kullanın</string>
-    <string name="notification_row_transparency_title">Bildirim satırı saydamlığı</string>
-    <string name="notification_row_transparency_summary">Hızlı ayar bildirimlerini saydam göster</string>
-    <string name="notification_row_transparency_lockscreen_title">Kilit Ekranında Yarı-Saydam Bildirimler</string>
-    <string name="notification_row_transparency_lockscreen_summary">Kilit Ekranında Bildirimlerin Arkaplanı Yarı-Saydam Olarak Ayarlayın</string>
+    <string name="notification_row_transparency_title">Yarı saydam bildirimler</string>
+    <string name="notification_row_transparency_summary">Hızlı ayarlardaki bildirimler için yarı saydam arka plan kullan</string>
+    <string name="notification_row_transparency_lockscreen_title">Yarı saydam kilit ekranı bildirimleri</string>
+    <string name="notification_row_transparency_lockscreen_summary">Kilit ekranındaki bildirimler için yarı saydam arka plan kullan</string>
     <string name="notification_bubble_apps_title">Balon bildirimleri</string>
     <string name="notification_bubble_apps_summary">Bildirimlerine dokunurken uygulamaları yüzen bir balon içinde açın</string>
-    <string name="media_squiggle_animation_title">Squiggle animasyonu</string>
-    <string name="media_squiggle_animation_summary">Medya oynatılırken medya panelinde arama çubuğu dalgalı animasyonu göster</string>
+    <string name="media_squiggle_animation_title">Dalgalı animasyon</string>
+    <string name="media_squiggle_animation_summary">Oynatma sırasında medya panelinde ilerleme çubuğu dalgalı animasyonunu göster</string>
     <string name="small_landscape_notification_title">Küçük, yatay ekran bildirimleri</string>
     <string name="small_landscape_notification_summary">Yatay ekranda bildirim panelinde dar genişlikte küçük bildirimler göster</string>
     <string name="essential_notifications">Önemli bildirimler</string>
@@ -958,22 +959,22 @@
     <string name="powermenu_style1">Cyberpunk</string>
     <string name="powermenu_style2">Duoline</string>
     <string name="powermenu_style3">Sıvı (Şeffaf)</string>
-    <string name="powermenu_style4">IOS</string>
+    <string name="powermenu_style4">iOS</string>
     <string name="powermenu_style5">Katmanlar</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Sahte imza</string>
     <string name="miscellaneous_developer_options_category">Geliştirici seçenekleri</string>
-    <string name="miscellaneous_app_downgrade_title">Uygulamanın eski sürüme geçirilmesine izin ver</string>
-    <string name="miscellaneous_app_downgrade_summary">Sistem uygulamalarının sürümünü düşünmeye izn ver, çökme ve veri kaybı ile sonuçlanabilir</string>
+    <string name="miscellaneous_app_downgrade_title">Uygulama sürüm düşürmeye izin ver</string>
+    <string name="miscellaneous_app_downgrade_summary">Sistem uygulamalarının sürümünü düşünmeye izin ver. Çökme ve veri kaybı ile sonuçlanabilir.</string>
     <string name="miscellaneous_pairip_activity_block_title">Block PairIP lisans kontrolü</string>
-    <string name="miscellaneous_pairip_activity_block_summary">Uygulamalar Play Store üzerinden yüklenmediğinde \"Bu uygulamayı Play\'den edinin\" ekranının gösterilmesini engelle</string>
+    <string name="miscellaneous_pairip_activity_block_summary">Uygulamalar Play Store dışından yüklendiğinde \'Bu uygulamayı Play\'den edinin\' ekranını göstermelerini engelle</string>
     <string name="miscellaneous_block_wallpaper_dimming_title">Duvar kağıdı karartma isteklerini yoksay</string>
-    <string name="miscellaneous_block_wallpaper_dimming_summary">Tüm uygulamaların duvar kağıdını dim\nForces dim değerini 0 olarak ayarlamasını engeller</string>
+    <string name="miscellaneous_block_wallpaper_dimming_summary">Tüm uygulamaların duvar kağıdını karartmasını engelle ve karartma seviyesini 0\'da sabitle</string>
     <string name="miscellaneous_ignore_window_secure_title">Pencere güvenli işaretlerini yok say</string>
     <string name="miscellaneous_ignore_window_secure_summary">Tüm uygulamalar için ekran görüntüsü ve ekran kaydı kısıtlamasını kaldırın, bu potansiyel olarak mahremiyet sızıntısı riski taşır</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Sınırsız ekran kaydı</string>
-    <string name="miscellaneous_unlimit_screenrecord_summary">15GiB dosya boyutu sınırını kaldırın\nGerektiğinden daha büyük bir dosyaya neden olabilir</string>
-    <string name="disable_flash_sms_title">Flaş SMS\'leri devre dışı bırak</string>
+    <string name="miscellaneous_unlimit_screenrecord_summary">15 GiB dosya boyutu sınırını kaldır. Gereğinden büyük bir çıktı dosyasına neden olabilir</string>
+    <string name="disable_flash_sms_title">Flash SMS\'leri devre dışı bırak</string>
     <string name="disable_flash_sms_summary">Tam ekran flash mesajları standart bildirimlere dönüştürün.</string>
     <string name="common_clear_search">Aramayı temizle</string>
     <string name="common_system_badge">SYS</string>
@@ -984,13 +985,13 @@
     <string name="smart_pixels_percent">Devre dışı bırakılacak piksel yüzdesi</string>
     <!-- Miscellaneous/Spoofing -->
     <string name="spoofing_title">Sahte imza</string>
-    <string name="spoofing_summary">Bileşenleri taklit ederek uygulama kısıtlamalarını atlayın</string>
+    <string name="spoofing_summary">Play Integrity, cihaz kimliği ve özellik sahteleme</string>
     <string name="spoofing_integrity_category">Play Integrity</string>
     <string name="spoofing_identity_category">Cihaz kimliği</string>
     <string name="spoofing_features_category">Donanım özellikleri</string>
     <string name="spoofing_pixel_props_title">Pixel raçları</string>
     <string name="spoofing_pixel_props_summary">Pixel özelliklerini açmak için seçilmiş uygulamaları Pixel cihazı olarak sahte yapın</string>
-    <string name="spoofing_app_specific_category">Uygulamayaya Yönelik</string>
+    <string name="spoofing_app_specific_category">Uygulama bazlı geçersiz kılma</string>
     <string name="spoofing_photos_title">Google Fotoğraflar</string>
     <string name="spoofing_photos_summary">Google Fotoğraflar uygulamasını Pixel XL olarak taklit edin</string>
     <string name="spoofing_snap_title">Snapchat</string>
@@ -1007,7 +1008,7 @@
     <string name="user_selectable_app_spoofing_summary">Belirli uygulamalar ve oyunlar için cihaz özelliklerini taklit et</string>
     <string name="user_select_spoofing_profile_title">Sahte profili seç</string>
     <string name="app_spoofing_category_title">Uygulama başına taklit etme</string>
-    <string name="app_spoofing_header_title">Sahteleştirmeyi etkinleştir</string>
+    <string name="app_spoofing_header_title">Sahtelemeyi etkinleştir</string>
     <string name="app_spoofing_configured_count">%1$d uygulamalar ve oyunlar taklit edildi</string>
     <string name="app_spoofing_disabled">Devre dışı</string>
     <string name="app_spoofing_add_apps">Uygulama ve oyun ekle</string>
@@ -1524,5 +1525,6 @@
     <string name="qs_show_volume_slider_hide">Sadece parlaklık kaydırıcısı</string>
     <string name="qs_show_volume_slider_both">Hem parlaklık hem ses kaydırıcısı</string>
     <string name="qs_show_volume_slider_only">Sadece ses kaydırıcısı</string>
+    <string name="qs_show_ringer_mode_title">Zil modu</string>
     <string name="qs_show_ringer_mode_summary">Ses düzeyi kaydırma çubuğunun yanında zil sesi modu simgesini göster</string>
 </resources>
