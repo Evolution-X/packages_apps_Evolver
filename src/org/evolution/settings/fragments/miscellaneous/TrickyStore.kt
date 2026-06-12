@@ -428,7 +428,7 @@ class TrickyStore : SettingsPreferenceFragment() {
                 val der = Base64.decode(
                     matcher.group(1)!!.replace("\\s".toRegex(), ""), Base64.DEFAULT)
                 val cert = factory.generateCertificate(ByteArrayInputStream(der)) as X509Certificate
-                serials.add(cert.serialNumber.toString(16).uppercase())
+                serials.add(cert.serialNumber.toString(16).lowercase())
             } catch (_: Exception) {}
         }
         return serials
