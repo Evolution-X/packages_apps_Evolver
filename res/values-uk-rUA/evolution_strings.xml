@@ -508,22 +508,6 @@
     <string name="network_traffic_units_megabytes">Мегабайти в секунду (MB/s)</string>
     <string name="network_traffic_hidearrow">Приховати стрілки</string>
     <string name="network_traffic_hidearrow_summary">Приховати стрілки індикатора мережевого трафіка</string>
-    <!-- Status bar/Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Налаштування схованки в рядку стану</string>
-    <string name="ongoing_progress_settings_summary">Налаштування індикатора прогресу чіпу дій</string>
-    <string name="ongoing_action_chip_title">Увімкнути поточні дії чіпа</string>
-    <string name="ongoing_action_chip_summary">Показувати індикатор прогресу для поточних дій, таких як завантаження</string>
-    <string name="ongoing_media_progress_title">Прогрес у медіа</string>
-    <string name="ongoing_media_progress_summary">Показувати прогрес відтворення медіа у чіпі</string>
-    <string name="ongoing_progress_footer_text">Чіп дій показує стан відтворення медіафайлів та активних передач у режимі реального часу.\n\nМедіафайли: Натисніть, щоб відкрити елементи керування, двічі натисніть, щоб відтворити/призупинити, проведіть пальцем ліворуч/праворуч, щоб змінити трек, довго натисніть, щоб відкрити програму.\n\nЗавантаження/Вивантаження: Показує прогрес передачі. Натисніть, щоб відкрити відповідну програму. Автоматично приховується, коли передачі не активні.</string>
-    <string name="ongoing_compact_mode_title">Компактний індикатор</string>
-    <string name="ongoing_compact_mode_summary">Використовуйте компактний круглий індикатор для поточних дій</string>
-    <string name="ongoing_chip_color_mode_title">Фоновий колір чіпа</string>
-    <string name="ongoing_chip_color_mode_accent">Акцентний колір системи</string>
-    <string name="ongoing_chip_color_mode_icon">Колір значка додатка</string>
-    <string name="ongoing_chip_color_mode_album_art">Колір обкладинки</string>
-    <string name="ongoing_chip_bg_alpha_title">Непрозорість фону чіпа</string>
-    <string name="ongoing_chip_bg_alpha_summary">Налаштуйте непрозорість фону чіпа дії</string>
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Динамічна панель</string>
     <string name="dynamic_bar_summary">Розумний чіп в рядку стану для активних подій, таких як запис, медіа, таймери, тощо</string>
