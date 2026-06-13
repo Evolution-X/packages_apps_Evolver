@@ -538,23 +538,6 @@
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
 
-    <!-- Status bar/Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Status bar action chip</string>
-    <string name="ongoing_progress_settings_summary">Customize the action chip progress indicator</string>
-    <string name="ongoing_action_chip_title">Ongoing action chip</string>
-    <string name="ongoing_action_chip_summary">Show a progress indicator for ongoing actions such as downloads</string>
-    <string name="ongoing_media_progress_title">Media progress</string>
-    <string name="ongoing_media_progress_summary">Show media playback progress in the chip</string>
-    <string name="ongoing_progress_footer_text">The action chip shows real-time status for media playback and active transfers.\n\nMedia: Tap to open controls, double-tap to play/pause, swipe left/right to change track, long press to open the app.\n\nDownloads/Uploads: Shows transfer progress. Tap to open the responsible app. Hides automatically when no transfers are active.</string>
-    <string name="ongoing_compact_mode_title">Compact indicator</string>
-    <string name="ongoing_compact_mode_summary">Use a compact circular indicator for ongoing actions</string>
-    <string name="ongoing_chip_color_mode_title">Chip background color</string>
-    <string name="ongoing_chip_color_mode_accent">System accent color</string>
-    <string name="ongoing_chip_color_mode_icon">App icon color</string>
-    <string name="ongoing_chip_color_mode_album_art">Album art color</string>
-    <string name="ongoing_chip_bg_alpha_title">Chip background opacity</string>
-    <string name="ongoing_chip_bg_alpha_summary">Adjust the opacity of the action chip background</string>
-
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Dynamic Bar</string>
     <string name="dynamic_bar_summary">Smart status bar chip for active events like recording, media, timers, and more</string>
