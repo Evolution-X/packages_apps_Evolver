@@ -509,22 +509,6 @@
     <string name="network_traffic_units_megabytes">Megabytes por segundo (MB/s)</string>
     <string name="network_traffic_hidearrow">Ocultar setas</string>
     <string name="network_traffic_hidearrow_summary">Ocultar as setas do indicador de tráfego de rede</string>
-    <!-- Status bar/Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip de ação da barra de status</string>
-    <string name="ongoing_progress_settings_summary">Personalize o indicador de progresso do chip de ação</string>
-    <string name="ongoing_action_chip_title">Chip de ação contínua</string>
-    <string name="ongoing_action_chip_summary">Exibir um indicador de progresso para ações em andamento, como downloads</string>
-    <string name="ongoing_media_progress_title">Progresso da mídia</string>
-    <string name="ongoing_media_progress_summary">Exibir o progresso da reprodução de mídia no chip</string>
-    <string name="ongoing_progress_footer_text">O chip de ação mostra o status em tempo real da reprodução de mídia e transferências ativas.\n\nMídia: toque para abrir os controles, toque duas vezes para reproduzir/pausar, deslize para a esquerda/direita para mudar de faixa, mantenha pressionado para abrir o aplicativo.\n\nDownloads/Uploads: mostra o progresso da transferência. Toque para abrir o aplicativo responsável. Oculta automaticamente quando nenhuma transferência está ativa.</string>
-    <string name="ongoing_compact_mode_title">Indicador compacto</string>
-    <string name="ongoing_compact_mode_summary">Use um indicador circular compacto para ações em andamento</string>
-    <string name="ongoing_chip_color_mode_title">Cor de fundo do chip</string>
-    <string name="ongoing_chip_color_mode_accent">Cor de destaque do sistema</string>
-    <string name="ongoing_chip_color_mode_icon">Cor do ícone do aplicativo</string>
-    <string name="ongoing_chip_color_mode_album_art">Cor da arte do álbum</string>
-    <string name="ongoing_chip_bg_alpha_title">Opacidade do fundo do chip</string>
-    <string name="ongoing_chip_bg_alpha_summary">Ajuste a opacidade do fundo do chip de ação</string>
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Dynamic Bar</string>
     <string name="dynamic_bar_summary">Chip inteligente na barra de status para eventos ativos como gravação, mídia, temporizadores e mais</string>
