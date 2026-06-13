@@ -52,14 +52,6 @@
             android:fragment="org.evolution.settings.fragments.statusbar.DynamicBar"
             android:defaultValue="false" />
 
-        <!-- Ongoing action chip -->
-        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
-            android:key="ongoing_action_chip"
-            android:title="@string/ongoing_progress_settings_title"
-            android:summary="@string/ongoing_progress_settings_summary"
-            android:fragment="org.evolution.settings.fragments.statusbar.OngoingProgressBar"
-            android:defaultValue="false" />
-
         <!-- Cutout Progress -->
         <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
             android:key="cutout_progress_enabled"
