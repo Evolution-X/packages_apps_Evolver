@@ -509,22 +509,6 @@
     <string name="network_traffic_units_megabytes">Saniye başına megabayt (MB/sn)</string>
     <string name="network_traffic_hidearrow">Okları gizle</string>
     <string name="network_traffic_hidearrow_summary">Ağ etkinliği ok göstergelerini gizle</string>
-    <!-- Status bar/Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Durum çubuğu işlem çipi</string>
-    <string name="ongoing_progress_settings_summary">İşlem çipi ilerleme göstergesini özelleştir</string>
-    <string name="ongoing_action_chip_title">Devam eden işlem çipi</string>
-    <string name="ongoing_action_chip_summary">İndirme gibi devam eden işlemler için ilerleme göstergesini göster</string>
-    <string name="ongoing_media_progress_title">Medya ilerlemesi</string>
-    <string name="ongoing_media_progress_summary">Medya oynatma ilerlemesini göster</string>
-    <string name="ongoing_progress_footer_text">Durum çubuğu işlem çipi, hem medya oynatma hem de aktif indirme/yükleme işlemleri için gerçek zamanlı güncellemeler sağlar.\n\nMedya ilerlemesi: Medya oynatılırken müzik ve videolar için oynatma ilerlemesini gösterir, tek dokunuş oynatma kontrollerini açar, çift dokunuş oynat/duraklat yapar, sola kaydırma önceki parçaya geçer, sağa kaydırma sonraki parçaya geçer, uzun basma medya uygulamasını açar.\n\nİndirme/Yükleme ilerlemesi: Devam eden indirme ve yüklemelerin ilerlemesini gösterir, aktif aktarım olmadığında otomatik olarak gizlenir, tek dokunuş indirmeden sorumlu uygulamayı açar. İlerleme çubuğu, medya ve indirme durumları arasında dinamik olarak geçiş yaparak en ilgili bilgiyi her zaman hızlıca görmenizi sağlar.</string>
-    <string name="ongoing_compact_mode_title">Kompakt ilerleme göstergesi</string>
-    <string name="ongoing_compact_mode_summary">Devam eden işlemler için kompakt dairesel gösterge kullan</string>
-    <string name="ongoing_chip_color_mode_title">Çip arka plan rengi</string>
-    <string name="ongoing_chip_color_mode_accent">Sistem vurgu rengi</string>
-    <string name="ongoing_chip_color_mode_icon">Uygulama simgesi rengi</string>
-    <string name="ongoing_chip_color_mode_album_art">Albüm kapağı rengi</string>
-    <string name="ongoing_chip_bg_alpha_title">Çip arka plan opaklığı</string>
-    <string name="ongoing_chip_bg_alpha_summary">Aksiyon çipi arka planının opaklığını ayarlayın</string>
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Dinamik Çubuk</string>
     <string name="dynamic_bar_summary">Kayıt, medya, zamanlayıcılar ve daha fazlası gibi aktif etkinlikler için akıllı durum çubuğu çipi</string>
