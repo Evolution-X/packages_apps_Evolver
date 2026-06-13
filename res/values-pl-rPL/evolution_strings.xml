@@ -509,22 +509,6 @@
     <string name="network_traffic_units_megabytes">Megabajty na sekundę (MB/s)</string>
     <string name="network_traffic_hidearrow">Ukryj strzałki</string>
     <string name="network_traffic_hidearrow_summary">Ukryj strzałki wskaźnika ruchu sieciowego</string>
-    <!-- Status bar/Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Znacznik akcji paska stanu</string>
-    <string name="ongoing_progress_settings_summary">Dostosuj wskaźnik postępu znacznika akcji</string>
-    <string name="ongoing_action_chip_title">Znacznik trwającej akcji</string>
-    <string name="ongoing_action_chip_summary">Pokaż wskaźnik postępu dla trwających akcji, takich jak pobieranie</string>
-    <string name="ongoing_media_progress_title">Postęp multimediów</string>
-    <string name="ongoing_media_progress_summary">Pokaż postęp odtwarzania multimediów w znaczniku</string>
-    <string name="ongoing_progress_footer_text">Znacznik akcji pokazuje bieżący stan odtwarzania multimediów i aktywnych transferów.\n\nMultimedia: naciśnij, aby otworzyć sterowanie, dwukrotnie naciśnij, aby odtworzyć/wstrzymać, przesuń w lewo/prawo, aby zmienić utwór, przytrzymaj, aby otworzyć aplikację.\n\nPobieranie/Wysyłanie: pokazuje postęp transferu. Naciśnij, aby otworzyć odpowiednią aplikację. Ukrywa się automatycznie, gdy nie ma aktywnych transferów.</string>
-    <string name="ongoing_compact_mode_title">Wskaźnik kompaktowy</string>
-    <string name="ongoing_compact_mode_summary">Używaj kompaktowego, okrągłego wskaźnika dla trwających akcji</string>
-    <string name="ongoing_chip_color_mode_title">Kolor tła znacznika</string>
-    <string name="ongoing_chip_color_mode_accent">Systemowy kolor akcentu</string>
-    <string name="ongoing_chip_color_mode_icon">Kolor ikony aplikacji</string>
-    <string name="ongoing_chip_color_mode_album_art">Kolor okładki albumu</string>
-    <string name="ongoing_chip_bg_alpha_title">Krycie tła znacznika</string>
-    <string name="ongoing_chip_bg_alpha_summary">Dostosuj krycie tła znacznika akcji</string>
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Pasek dynamiczny</string>
     <string name="dynamic_bar_summary">Inteligentny wskaźnik na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, multimedia, liczniki i inne</string>
