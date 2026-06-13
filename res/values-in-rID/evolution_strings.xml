@@ -509,22 +509,6 @@
     <string name="network_traffic_units_megabytes">Megabyte per detik (MB/d)</string>
     <string name="network_traffic_hidearrow">Sembunyikan panah</string>
     <string name="network_traffic_hidearrow_summary">Sembunyikan panah indikator lalu lintas jaringan</string>
-    <!-- Status bar/Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip aksi bilah status</string>
-    <string name="ongoing_progress_settings_summary">Sesuaikan indikator kemajuan chip aksi</string>
-    <string name="ongoing_action_chip_title">Chip aksi berkelanjutan</string>
-    <string name="ongoing_action_chip_summary">Tampilkan indikator kemajuan untuk tindakan yang sedang berlangsung seperti pengunduhan</string>
-    <string name="ongoing_media_progress_title">Kemajuan media</string>
-    <string name="ongoing_media_progress_summary">Tampilkan kemajuan pemutaran media di dalam chip</string>
-    <string name="ongoing_progress_footer_text">Chip aksi menampilkan status waktu nyata untuk pemutaran media dan transfer aktif.\n\nMedia: Ketuk untuk membuka kontrol, ketuk dua kali untuk memutar/menjeda, geser ke kiri/kanan untuk mengganti trek, tekan lama untuk membuka aplikasi.\n\nUnduhan/Unggahan: Menampilkan progres transfer. Ketuk untuk membuka aplikasi yang bersangkutan. Secara otomatis disembunyikan saat tidak ada transfer aktif.</string>
-    <string name="ongoing_compact_mode_title">Indikator ringkas</string>
-    <string name="ongoing_compact_mode_summary">Gunakan indikator melingkar yang ringkas untuk tindakan yang sedang berlangsung</string>
-    <string name="ongoing_chip_color_mode_title">Warna latar belakang chip</string>
-    <string name="ongoing_chip_color_mode_accent">Warna aksen sistem</string>
-    <string name="ongoing_chip_color_mode_icon">Warna ikon aplikasi</string>
-    <string name="ongoing_chip_color_mode_album_art">Warna sampul album</string>
-    <string name="ongoing_chip_bg_alpha_title">Opasitas latar belakang chip</string>
-    <string name="ongoing_chip_bg_alpha_summary">Sesuaikan opasitas latar belakang chip aksi</string>
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Bilah Dinamis</string>
     <string name="dynamic_bar_summary">Chip bilah status pintar untuk aktivitas seperti perekaman, media, pengatur waktu, dan lainnya</string>
