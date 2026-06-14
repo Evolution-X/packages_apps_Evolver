@@ -1190,6 +1190,7 @@
     <string name="ts_fetch_keybox_auto_replaced">Keybox автоматично замінений на дійсний</string>
     <string name="ts_fetch_keybox_soft_banned_refetch">Keybox забанений, залишаю його та намагаюся знайти кращого…</string>
     <string name="ts_fetch_keybox_no_valid_found">Немає доступних keybox, повторіть спробу завтра</string>
+    <string name="ts_fetch_keybox_suspended_refetch">Keybox анульовано, отримання нового…</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Стиль шпалер</string>
     <string name="wallpaper_settings_summary">Налаштувати стилі та ефекти шпалер</string>
