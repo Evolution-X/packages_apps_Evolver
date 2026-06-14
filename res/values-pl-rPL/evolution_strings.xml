@@ -1192,6 +1192,7 @@
     <string name="ts_fetch_keybox_auto_replaced">Skrzynka na klucze automatycznie zastąpiona prawidłową</string>
     <string name="ts_fetch_keybox_soft_banned_refetch">Zestaw kluczy częściowo unieważniony, zachowano go i podjęto próbę zdobycia lepszego…</string>
     <string name="ts_fetch_keybox_no_valid_found">Nie ma jeszcze dostępnego prawidłowego zestawu kluczy, spróbuj ponownie jutro</string>
+    <string name="ts_fetch_keybox_suspended_refetch">Zestaw kluczy zawieszony, pobieram nowszy…</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_settings_title">Style tapety</string>
     <string name="wallpaper_settings_summary">Konfiguruj style i efekty tapet</string>
