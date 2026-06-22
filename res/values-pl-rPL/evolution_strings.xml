@@ -93,7 +93,7 @@
     <string name="monet_engine_custom_bgcolor_title">Kolor tła</string>
     <string name="monet_engine_custom_bgcolor_summary">Wybierz niestandardowy kolor tła</string>
     <string name="monet_engine_color_override_title">Niestandardowy kolor</string>
-    <string name="monet_engine_luminance_factor_title">Luminancja</string>
+    <string name="monet_engine_luminance_factor_title">Jasność</string>
     <string name="monet_engine_luminance_factor_summary">Wyższe wartości dają jaśniejsze kolory</string>
     <string name="monet_engine_chroma_factor_title">Współczynnik nasycenia</string>
     <string name="monet_engine_chroma_factor_summary">Wyższe wartości tworzą mocniejsze kolory</string>
@@ -128,7 +128,7 @@
     <string name="lock_screen_fingerprint_success_vibration_title">Wibracja po udanej autoryzacji</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">Wibruj po pomyślnym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Wibracja po nieudanej autoryzacji</string>
-    <string name="lock_screen_fingerprint_error_vibration_summary">Wibracja po nieudanym uwierzytelnieniu odcisku palca</string>
+    <string name="lock_screen_fingerprint_error_vibration_summary">Wibruj po nieudanym uwierzytelnieniu odcisku palca</string>
     <string name="lock_screen_miscellaneous_category">Różne</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Wizualizator Pulse</string>
@@ -155,7 +155,7 @@
     <string name="pulse_renderer_retro_vu_meter">Miernik głośności w stylu retro</string>
     <string name="pulse_renderer_minimal_wave">Minimalna fala</string>
     <string name="pulse_renderer_sparkle">Iskierki</string>
-    <string name="pulse_renderer_matrix">Matrix</string>
+    <string name="pulse_renderer_matrix">Matryca</string>
     <string name="pulse_renderer_particle">Cząsteczka</string>
     <string name="pulse_renderer_waveform">Fala</string>
     <string name="pulse_show_on_ambient_title">Pokaż na ekranie otoczenia</string>
@@ -194,7 +194,7 @@
     <string name="ls_media_art_filter_blur">Rozmycie</string>
     <string name="ls_media_art_filter_grayscale">Odcienie szarości</string>
     <string name="ls_media_art_filter_sepia">Sepia</string>
-    <string name="ls_media_art_filter_tint">Kolor akcentu</string>
+    <string name="ls_media_art_filter_tint">Akcentowane przyciemnienie</string>
     <string name="ls_media_art_filter_invert">Odwrócone</string>
     <string name="ls_media_art_filter_grayblur">Skala szarości i rozmycie</string>
     <string name="ls_media_art_fade_level_title">Poziom zanikania okładki albumu</string>
@@ -479,8 +479,8 @@
     <string name="status_bar_logo_style_robot">Robot</string>
     <string name="status_bar_logo_style_ironman">Iron Man</string>
     <string name="status_bar_logo_style_captain_america">Kapitan Ameryka</string>
-    <string name="status_bar_logo_style_flash">Flash</string>
-    <string name="status_bar_logo_style_tux">Tux</string>
+    <string name="status_bar_logo_style_flash">Błysk</string>
+    <string name="status_bar_logo_style_tux">Smoking</string>
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Among Us</string>
@@ -825,7 +825,7 @@
     <string name="qs_split_shade_enabled_summary">Włącz eksperymentalny podzielony panel szybkich ustawień w poziomie. Może powodować problemy z wyskakującymi powiadomieniami w poziomie</string>
     <string name="qs_header_clock_style_title">Styl zegara w nagłówku szybkich ustawień</string>
     <string name="qs_header_style1">Znacznik</string>
-    <string name="qs_header_style2">Oxygen</string>
+    <string name="qs_header_style2">Tlen</string>
     <string name="qs_header_style3">Analogowy</string>
     <string name="qs_header_style4">Prosty</string>
     <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimediów</string>
@@ -1440,7 +1440,7 @@
     <string name="action_add_installed">Dodaj zainstalowane</string>
     <string name="show_system_apps">Pokaż aplikacje systemowe</string>
     <string name="hide_system_apps">Ukryj aplikacje systemowe</string>
-    <string name="default_value">Domyślne</string>
+    <string name="default_value">Domyślny</string>
     <string name="never">Nigdy</string>
     <string name="top">U góry</string>
     <string name="bottom">Na dole</string>
