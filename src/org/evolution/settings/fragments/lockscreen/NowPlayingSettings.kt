@@ -30,7 +30,7 @@ import com.android.internal.util.evolution.VibrationUtils
 import org.evolution.settings.preferences.SystemSettingSwitchPreference
 
 @SearchIndexable
-class NowplayingSettings : SettingsPreferenceFragment(),
+class NowPlayingSettings : SettingsPreferenceFragment(),
     Preference.OnPreferenceChangeListener {
 
     private var compactStylePref: SystemSettingSwitchPreference? = null
@@ -77,7 +77,7 @@ class NowplayingSettings : SettingsPreferenceFragment(),
     }
 
     companion object {
-        const val TAG = "NowplayingSettings"
+        const val TAG = "NowPlayingSettings"
 
         /** For search */
         @JvmField

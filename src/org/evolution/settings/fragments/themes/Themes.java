@@ -42,17 +42,11 @@ public class Themes extends SettingsPreferenceFragment implements
 
     private static final String TAG = "Themes";
 
-    private static final String VELVET_PACKAGE = "com.google.android.googlequicksearchbox";
-    private static final String VELVET_NEW_SEARCH_CLASS = VELVET_PACKAGE + ".OneSearchAimActivity";
-    private static final String VELVET_ONESEARCH_COMPONENT = VELVET_PACKAGE + "/" + VELVET_NEW_SEARCH_CLASS;
-
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_visual_effects_category";
     private static final String KEY_BOOT_ANIMATION = "boot_animation";
     private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
     private static final String KEY_ICON_SHAPE = "android.theme.customization.adaptive_icon_shape";
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
-    private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
-    private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
     private static final String KEY_LOCK_SOUND = "lock_sound";
     private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
@@ -64,7 +58,6 @@ public class Themes extends SettingsPreferenceFragment implements
     private Preference mUdfpsIcon;
     private PreferenceCategory mAnimationsCategory;
     private PreferenceCategory mIconsCategory;
-    private PreferenceCategory mLauncherCategory;
     private SoundPickerPreference mLockSound;
     private SoundPickerPreference mUnlockSound;
     private SystemPropertyListPreference mEmojiStyle;
@@ -98,8 +91,6 @@ public class Themes extends SettingsPreferenceFragment implements
             mUnlockSound.applyConfig();
         }
 
-        mLauncherCategory = findPreference(KEY_LAUNCHER_CATEGORY);
-        mSearchBar = findPreference(KEY_LAUNCHER_SEARCH_BAR);
         mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
         mNavbarIcons = findPreference(KEY_NAVBAR_ICONS);
         mUdfpsIcon = findPreference(KEY_UDFPS_ICON);
@@ -122,22 +113,8 @@ public class Themes extends SettingsPreferenceFragment implements
             }
         }
 
-        if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
-            prefScreen.removePreference(mLauncherCategory);
-        }
-
         if (mNavbarIcons != null && isGestureNavigationEnabled(context)) {
             mIconsCategory.removePreference(mNavbarIcons);
-        }
-
-        if (mSearchBar != null) {
-            mSearchBar.setChecked(isOneSearchAimActivityEnabled(context)
-                    && SystemProperties.getBoolean(KEY_LAUNCHER_SEARCH_BAR, false));
-            mSearchBar.setOnPreferenceClickListener(pref -> {
-                DeviceUtils.setComponentEnabled(context, VELVET_ONESEARCH_COMPONENT,
-                        mSearchBar.isChecked());
-                return false;
-            });
         }
 
         if (mEmojiStyle != null) {
@@ -182,10 +159,6 @@ public class Themes extends SettingsPreferenceFragment implements
         return MetricsEvent.EVOLVER;
     }
 
-    private static boolean isOneSearchAimActivityEnabled(Context context) {
-        return DeviceUtils.isActivityEnabled(context, VELVET_ONESEARCH_COMPONENT);
-    }
-
     private static boolean isGestureNavigationEnabled(Context context) {
         return Settings.Secure.getIntForUser(context.getContentResolver(),
                 Settings.Secure.NAVIGATION_MODE, 0, UserHandle.USER_CURRENT) == 2;
@@ -200,10 +173,6 @@ public class Themes extends SettingsPreferenceFragment implements
 
                     FingerprintManager fingerprintManager = (FingerprintManager)
                             context.getSystemService(Context.FINGERPRINT_SERVICE);
-
-                    if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
-                        keys.add(KEY_LAUNCHER_CATEGORY);
-                    }
 
                     if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
                         keys.add(KEY_UDFPS_ICON);
