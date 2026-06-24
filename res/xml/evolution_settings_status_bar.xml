@@ -45,6 +45,14 @@
         android:key="status_bar_features_category"
         android:title="@string/status_bar_features_category">
 
+        <!-- Statusbar lyric -->
+        <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
+            android:key="status_bar_lyric_settings"
+            android:title="@string/status_bar_lyric_title"
+            android:summary="@string/status_bar_lyric_summary"
+            android:fragment="org.evolution.settings.fragments.statusbar.StatusbarLyricSettings"
+            android:defaultValue="false" />
+
         <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
             android:key="ax_dynamic_bar_enabled"
             android:title="@string/dynamic_bar"
@@ -112,18 +120,17 @@
             android:defaultValue="true" />
 
         <!-- Colored icons -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="statusbar_colored_icons"
             android:title="@string/status_bar_colored_icons_title"
             android:summary="@string/status_bar_colored_icons_summary"
             android:defaultValue="false" />
 
-        <!-- Notification counter -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="statusbar_notif_count"
             android:title="@string/status_bar_notif_count_title"
             android:summary="@string/status_bar_notif_count_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
     </PreferenceCategory>
 
     <!-- Status bar battery customizations -->
@@ -210,30 +217,29 @@
             android:title="@string/status_bar_logo_style_title"
             android:summary="@string/status_bar_logo_style_summary"
             android:dependency="status_bar_logo" />
+
+        <Preference
+            android:key="status_bar_logo_custom_image"
+            android:title="@string/status_bar_logo_custom_image_title"
+            android:summary="@string/status_bar_logo_custom_image_pick_summary"
+            android:dependency="status_bar_logo" />
+
+        <!-- Logo color type -->
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="status_bar_logo_color"
+            android:title="@string/status_bar_logo_color_title"
+            android:entries="@array/status_bar_logo_color_entries"
+            android:entryValues="@array/status_bar_logo_color_values"
+            android:dependency="status_bar_logo"
+            android:defaultValue="0" />
+
+        <!-- Logo custom color -->
+        <org.evolution.settings.preferences.colorpicker.ColorPickerPreference
+            android:key="status_bar_logo_color_picker"
+            android:title="@string/status_bar_logo_color_custom"
+            android:dependency="status_bar_logo"
+            settings:defaultValue="0xFFFFFFFF" />
     </PreferenceCategory>
-
-    <!--<PreferenceCategory
-        android:key="status_bar_privacy_indicators_category"
-        android:title="@string/status_bar_privacy_indicators_category">
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="enable_camera_privacy_indicator"
-            android:title="@string/status_bar_mic_camera_privacy_indicator_title"
-            android:summary="@string/status_bar_mic_camera_privacy_indicator_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="enable_location_privacy_indicator"
-            android:title="@string/status_bar_location_privacy_indicator_title"
-            android:summary="@string/status_bar_location_privacy_indicator_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="enable_projection_privacy_indicator"
-            android:title="@string/status_bar_projection_privacy_indicator_title"
-            android:summary="@string/status_bar_projection_privacy_indicator_summary"
-            android:defaultValue="true" />
-    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:title="@string/statusbar_extra_padding_category">

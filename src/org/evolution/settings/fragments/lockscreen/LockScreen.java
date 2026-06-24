@@ -5,11 +5,8 @@
 
 package org.evolution.settings.fragments.lockscreen;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.UserHandle;
-import android.provider.Settings;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
@@ -17,7 +14,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.OmniJawsClient;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
@@ -25,11 +21,8 @@ import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
 
-import org.evolution.settings.fragments.lockscreen.CustomClockController;
-import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
-import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
 public class LockScreen extends SettingsPreferenceFragment implements
@@ -37,21 +30,14 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockScreen";
 
-    private static final String KEY_CUSTOM_CLOCK = "lockscreen_custom_clock_style";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
-    private static final String KEY_KEYGUARD_SCRIM = "keyguard_scrim_transparent";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
-    private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
-    private static final String KEY_WEATHER = "lockscreen_weather_enabled";
     private static final String LOCKSCREEN_GESTURES_CATEGORY = "lockscreen_gestures_category";
 
     private Preference mRippleEffect;
     private SwitchPreferenceCompat mFpErrorVib;
     private SwitchPreferenceCompat mFpSuccessVib;
-    private SwitchPreferenceCompat mKeyguardScrim;
-    private SwitchPreferenceCompat mSmartspace;
-    private SwitchPreferenceCompat mWeather;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,53 +61,16 @@ public class LockScreen extends SettingsPreferenceFragment implements
             gestCategory.removePreference(mFpSuccessVib);
             gestCategory.removePreference(mFpErrorVib);
         }
-
-        mSmartspace = findPreference(KEY_SMARTSPACE);
-        mSmartspace.setOnPreferenceChangeListener(this);
-
-        mWeather = findPreference(KEY_WEATHER);
-        mWeather.setOnPreferenceChangeListener(this);
-
-        mKeyguardScrim = findPreference(KEY_KEYGUARD_SCRIM);
-        mKeyguardScrim.setOnPreferenceChangeListener(this);
-
-        updateCustomClockSummary();
-        updateWeatherSettings();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mSmartspace) {
-            updateWeatherSettings();
-            SystemUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        } else if (preference == mWeather
-                || preference == mKeyguardScrim) {
-            SystemUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        }
         return false;
-    }
-
-    private void updateCustomClockSummary() {
-        Preference pref = findPreference(KEY_CUSTOM_CLOCK);
-        if (pref == null) return;
-        pref.setSummary(new CustomClockController(getContext(), KEY_CUSTOM_CLOCK).getSummary());
-    }
-
-    private void updateWeatherSettings() {
-        boolean weatherEnabled = OmniJawsClient.get().isOmniJawsEnabled(getContext());
-        mWeather.setEnabled(!mSmartspace.isChecked() && weatherEnabled);
-        mWeather.setSummary(!mSmartspace.isChecked() && weatherEnabled
-                ? R.string.lockscreen_weather_summary
-                : R.string.lockscreen_weather_enabled_info);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        updateCustomClockSummary();
-        updateWeatherSettings();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
