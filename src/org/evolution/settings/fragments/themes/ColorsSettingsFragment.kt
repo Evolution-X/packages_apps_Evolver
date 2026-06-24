@@ -28,6 +28,7 @@ import com.android.settings.SettingsPreferenceFragment
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import org.json.JSONObject
 import org.evolution.settings.preferences.CustomSeekBarPreference
+import org.evolution.settings.utils.toArgb
 
 class ColorsSettingsFragment : SettingsPreferenceFragment(), 
     Preference.OnPreferenceChangeListener {
