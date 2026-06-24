@@ -45,20 +45,19 @@
         android:key="status_bar_features_category"
         android:title="@string/status_bar_features_category">
 
-        <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
+        <!--<org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
             android:key="ax_dynamic_bar_enabled"
             android:title="@string/dynamic_bar"
             android:summary="@string/dynamic_bar_enable_summary"
             android:fragment="org.evolution.settings.fragments.statusbar.DynamicBar"
             android:defaultValue="false" />
 
-        <!-- Cutout Progress -->
         <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
             android:key="cutout_progress_enabled"
             android:title="@string/cutout_progress_title"
             android:summary="@string/cutout_progress_summary"
             android:fragment="org.evolution.settings.fragments.statusbar.CutoutProgressSettingsFragment"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <!-- Network traffic -->
         <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
@@ -99,10 +98,10 @@
             android:fragment="org.evolution.settings.fragments.statusbar.Clock" />
 
         <!-- Statusbar Clock background chip -->
-        <Preference
+        <!--<Preference
             android:key="statusbar_clock_chip"
             android:title="@string/statusbar_clock_chip_title"
-            android:fragment="org.evolution.settings.fragments.statusbar.ClockChipSettings" />
+            android:fragment="org.evolution.settings.fragments.statusbar.ClockChipSettings" />-->
 
         <!-- Bluetooth battery status -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
@@ -112,18 +111,17 @@
             android:defaultValue="true" />
 
         <!-- Colored icons -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="statusbar_colored_icons"
             android:title="@string/status_bar_colored_icons_title"
             android:summary="@string/status_bar_colored_icons_summary"
             android:defaultValue="false" />
 
-        <!-- Notification counter -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="statusbar_notif_count"
             android:title="@string/status_bar_notif_count_title"
             android:summary="@string/status_bar_notif_count_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
     </PreferenceCategory>
 
     <!-- Status bar battery customizations -->
@@ -151,15 +149,14 @@
             android:key="status_bar_battery_text_charging"
             android:title="@string/status_bar_battery_text_charging_title"
             android:summary="@string/status_bar_battery_text_charging_summary"
-            android:defaultValue="true" />-->
+            android:defaultValue="true" />
 
-        <!-- Battery bar -->
         <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
             android:key="statusbar_battery_bar"
             android:title="@string/battery_bar_title"
             android:summary="@string/battery_bar_summary"
             android:fragment="org.evolution.settings.fragments.statusbar.BatteryBar"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
     </PreferenceCategory>
 
@@ -184,18 +181,16 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="status_bar_logo_category"
         android:title="@string/status_bar_logo_title">
 
-        <!-- Logo -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="status_bar_logo"
             android:title="@string/status_bar_logo_title"
             android:summary="@string/status_bar_logo_summary"
             android:defaultValue="false" />
 
-        <!-- Logo position -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="status_bar_logo_position"
             android:title="@string/status_bar_logo_position_title"
@@ -204,36 +199,12 @@
             android:defaultValue="0"
             android:dependency="status_bar_logo" />
 
-        <!-- Logo style -->
         <org.evolution.settings.preferences.StatusBarLogoStylePreference
             android:key="status_bar_logo_style"
             android:title="@string/status_bar_logo_style_title"
             android:summary="@string/status_bar_logo_style_summary"
             android:dependency="status_bar_logo" />
     </PreferenceCategory>
-
-    <!--<PreferenceCategory
-        android:key="status_bar_privacy_indicators_category"
-        android:title="@string/status_bar_privacy_indicators_category">
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="enable_camera_privacy_indicator"
-            android:title="@string/status_bar_mic_camera_privacy_indicator_title"
-            android:summary="@string/status_bar_mic_camera_privacy_indicator_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="enable_location_privacy_indicator"
-            android:title="@string/status_bar_location_privacy_indicator_title"
-            android:summary="@string/status_bar_location_privacy_indicator_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SecureSettingSwitchPreference
-            android:key="enable_projection_privacy_indicator"
-            android:title="@string/status_bar_projection_privacy_indicator_title"
-            android:summary="@string/status_bar_projection_privacy_indicator_summary"
-            android:defaultValue="true" />
-    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:title="@string/statusbar_extra_padding_category">
@@ -265,5 +236,5 @@
             android:max="30"
             settings:min="-30" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 </PreferenceScreen>
