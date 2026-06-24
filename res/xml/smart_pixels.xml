@@ -21,7 +21,8 @@
 
     <lineageos.preference.SecureSettingMainSwitchPreference
         android:key="smart_pixel_filter_enabled"
-        android:title="@string/action_enable"
+        android:title="@string/smart_pixels_title"
+        android:summary="@string/smart_pixels_summary"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference
