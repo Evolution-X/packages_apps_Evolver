@@ -55,13 +55,13 @@ public class Themes extends SettingsPreferenceFragment implements
     private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
     private static final String KEY_LOCK_SOUND = "lock_sound";
     private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
-    private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
-    private static final String KEY_UDFPS_ICON = "udfps_icon";
+//    private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
+//    private static final String KEY_UDFPS_ICON = "udfps_icon";
     private static final String KEY_UNLOCK_SOUND = "unlock_sound";
 
     private Preference mNavbarIcons;
-    private Preference mUdfpsAnimation;
-    private Preference mUdfpsIcon;
+//    private Preference mUdfpsAnimation;
+//    private Preference mUdfpsIcon;
     private PreferenceCategory mAnimationsCategory;
     private PreferenceCategory mIconsCategory;
     private PreferenceCategory mLauncherCategory;
@@ -102,25 +102,25 @@ public class Themes extends SettingsPreferenceFragment implements
         mSearchBar = findPreference(KEY_LAUNCHER_SEARCH_BAR);
         mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
         mNavbarIcons = findPreference(KEY_NAVBAR_ICONS);
-        mUdfpsIcon = findPreference(KEY_UDFPS_ICON);
+//        mUdfpsIcon = findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = findPreference(KEY_ANIMATIONS_CATEGORY);
-        mUdfpsAnimation = findPreference(KEY_UDFPS_ANIMATION);
+//        mUdfpsAnimation = findPreference(KEY_UDFPS_ANIMATION);
         mEmojiStyle = findPreference(KEY_EMOJI_STYLE);
 
-        FingerprintManager fingerprintManager = (FingerprintManager)
-                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+//        FingerprintManager fingerprintManager = (FingerprintManager)
+//                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
-        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
-            mIconsCategory.removePreference(mUdfpsIcon);
-            mAnimationsCategory.removePreference(mUdfpsAnimation);
-        } else {
-            if (!Utils.isPackageInstalled(context, "org.evolution.udfps.icons")) {
-                mIconsCategory.removePreference(mUdfpsIcon);
-            }
-            if (!Utils.isPackageInstalled(context, "org.evolution.udfps.animations")) {
-                mAnimationsCategory.removePreference(mUdfpsAnimation);
-            }
-        }
+//        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+//            mIconsCategory.removePreference(mUdfpsIcon);
+//            mAnimationsCategory.removePreference(mUdfpsAnimation);
+//        } else {
+//            if (!Utils.isPackageInstalled(context, "org.evolution.udfps.icons")) {
+//                mIconsCategory.removePreference(mUdfpsIcon);
+//            }
+//            if (!Utils.isPackageInstalled(context, "org.evolution.udfps.animations")) {
+//                mAnimationsCategory.removePreference(mUdfpsAnimation);
+//            }
+//        }
 
         if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
             prefScreen.removePreference(mLauncherCategory);
@@ -198,24 +198,24 @@ public class Themes extends SettingsPreferenceFragment implements
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
 
-                    FingerprintManager fingerprintManager = (FingerprintManager)
-                            context.getSystemService(Context.FINGERPRINT_SERVICE);
+//                    FingerprintManager fingerprintManager = (FingerprintManager)
+//                            context.getSystemService(Context.FINGERPRINT_SERVICE);
 
                     if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
                         keys.add(KEY_LAUNCHER_CATEGORY);
                     }
 
-                    if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
-                        keys.add(KEY_UDFPS_ICON);
-                        keys.add(KEY_UDFPS_ANIMATION);
-                    } else {
-                        if (!Utils.isPackageInstalled(context, "org.evolution.udfps.icons")) {
-                            keys.add(KEY_UDFPS_ICON);
-                        }
-                        if (!Utils.isPackageInstalled(context, "org.evolution.udfps.animations")) {
-                            keys.add(KEY_UDFPS_ANIMATION);
-                        }
-                    }
+//                    if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+//                        keys.add(KEY_UDFPS_ICON);
+//                        keys.add(KEY_UDFPS_ANIMATION);
+//                    } else {
+//                        if (!Utils.isPackageInstalled(context, "org.evolution.udfps.icons")) {
+//                            keys.add(KEY_UDFPS_ICON);
+//                        }
+//                        if (!Utils.isPackageInstalled(context, "org.evolution.udfps.animations")) {
+//                            keys.add(KEY_UDFPS_ANIMATION);
+//                        }
+//                    }
 
                     if (isGestureNavigationEnabled(context)) {
                         keys.add(KEY_NAVBAR_ICONS);
