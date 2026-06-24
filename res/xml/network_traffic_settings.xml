@@ -20,7 +20,8 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="network_traffic_enabled"
-        android:title="@string/action_enable"
+        android:title="@string/status_bar_network_traffic_settings_title"
+        android:summary="@string/status_bar_network_traffic_settings_summary"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingListPreference
