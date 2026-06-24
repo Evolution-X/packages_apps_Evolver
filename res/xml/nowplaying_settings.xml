@@ -45,6 +45,13 @@
         settings:units="dp" />
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="nowplaying_lyrics_mode"
+        android:title="@string/nowplaying_lyrics_mode_title"
+        android:summary="@string/nowplaying_lyrics_mode_summary"
+        android:dependency="nowplaying_enabled"
+        android:defaultValue="false" />
+
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
         android:key="nowplaying_use_compact_style"
         android:title="@string/nowplaying_compact_style_title"
         android:summary="@string/nowplaying_compact_style_summary"
@@ -58,12 +65,12 @@
         android:dependency="nowplaying_enabled"
         android:defaultValue="true" />
 
-    <org.evolution.settings.preferences.SystemSettingSwitchPreference
-        android:key="nowplaying_use_accent_color"
-        android:title="@string/nowplaying_use_accent_color_title"
-        android:summary="@string/nowplaying_use_accent_color_summary"
-        android:dependency="nowplaying_enabled"
-        android:defaultValue="false" />
+    <org.evolution.settings.preferences.SystemSettingListPreference
+        android:key="nowplaying_color_mode"
+        android:title="@string/nowplaying_color_mode_title"
+        android:entries="@array/nowplaying_color_mode_entries"
+        android:entryValues="@array/nowplaying_color_mode_values"
+        android:defaultValue="0" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="nowplaying_vertical_position"
