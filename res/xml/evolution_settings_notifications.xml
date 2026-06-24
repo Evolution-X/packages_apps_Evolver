@@ -8,7 +8,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/notifications_title">
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="notifications_general_category"
         android:title="@string/general_category_title">
 
@@ -18,7 +18,7 @@
             android:summary="@string/essential_notifications_summary"
             android:fragment="org.evolution.settings.fragments.notifications.EssentialNotificationsSettings" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="heads_up"
@@ -36,19 +36,28 @@
             android:defaultValue="false"
             android:dependency="heads_up_notifications_enabled" />
 
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="less_boring_heads_up"
+            android:title="@string/notifications_less_boring_heads_up_title"
+            android:summary="@string/notifications_less_boring_heads_up_summary"
+            android:defaultValue="false"
+            android:dependency="heads_up_notifications_enabled" />
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="heads_up_timeout"
+            android:title="@string/notification_heads_up_timeout_title"
+            android:summary="@string/notification_heads_up_timeout_summary"
+            settings:units="@string/unit_seconds"
+            android:defaultValue="5"
+            settings:min="1"
+            android:max="10"
+            android:dependency="heads_up_notifications_enabled" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="notifications_interface_category"
         android:title="@string/notifications_interface_category">
-
-        <!-- Edge light -->
-        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
-            android:key="edge_light_enabled"
-            android:title="@string/edge_light_title"
-            android:summary="@string/edge_light_summary"
-            android:fragment="org.evolution.settings.fragments.notifications.EdgeLightSettings"
-            android:defaultValue="false" />
 
         <!-- Notification row transparency -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
@@ -64,19 +73,19 @@
             android:defaultValue="true" />
 
         <!-- Notification app icon -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_use_app_icons"
             android:title="@string/notification_use_app_icons_title"
             android:summary="@string/notification_use_app_icons_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
 
         <!-- Notification themed app icon -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_use_themed_app_icons"
             android:title="@string/notification_use_themed_app_icons_title"
             android:summary="@string/notification_use_themed_app_icons_summary"
             android:defaultValue="false"
-            android:dependency="notification_use_app_icons" />
+            android:dependency="notification_use_app_icons" />-->
 
         <!-- Kill app button -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
