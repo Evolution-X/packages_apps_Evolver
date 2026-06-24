@@ -33,7 +33,7 @@ import java.util.List;
 
 import lineageos.preference.LineageSystemSettingListPreference;
 
-import org.evolution.settings.fragments.statusbar.ClockChipController;
+// import org.evolution.settings.fragments.statusbar.ClockChipController;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
@@ -47,8 +47,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String TAG = "StatusBar";
 
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
-    private static final String KEY_CLOCK_CHIP = "statusbar_clock_chip";
-    private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
+//    private static final String KEY_CLOCK_CHIP = "statusbar_clock_chip";
+//    private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
     private static final String QUICK_PULLDOWN = "qs_quick_pulldown";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
@@ -65,7 +65,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private LineageSystemSettingListPreference mStatusBarClock;
     private PreferenceCategory mIconsCategory;
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
-    private SystemSettingSwitchPreference mColoredIcons;
+//    private SystemSettingSwitchPreference mColoredIcons;
 
     private Preference mCustomCarrierTextPref;
     private String mCustomCarrierText;
@@ -107,14 +107,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
         mBluetoothBatteryStatus = findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
-        mColoredIcons = findPreference(KEY_COLORED_ICONS);
-        mColoredIcons.setOnPreferenceChangeListener(this);
+//        mColoredIcons = findPreference(KEY_COLORED_ICONS);
+//        mColoredIcons.setOnPreferenceChangeListener(this);
 
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
             mIconsCategory.removePreference(mBluetoothBatteryStatus);
         }
 
-        updateClockChipSummary();
+//        updateClockChipSummary();
 
         if (!TelephonyUtils.isVoiceCapable(getContext())) {
             Preference carrierCategory = findPreference(STATUS_BAR_CARRIER_KEY);
@@ -133,9 +133,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
             return true;
-        } else if (preference == mColoredIcons) {
-            SystemUtils.showSystemUiRestartDialog(getContext());
-            return true;
+//        } else if (preference == mColoredIcons) {
+//            SystemUtils.showSystemUiRestartDialog(getContext());
+//            return true;
         }
         return false;
     }
@@ -193,11 +193,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateClockChipSummary() {
-        Preference pref = findPreference(KEY_CLOCK_CHIP);
-        if (pref == null) return;
-        pref.setSummary(new ClockChipController(getContext(), KEY_CLOCK_CHIP).getSummary());
-    }
+//    private void updateClockChipSummary() {
+//        Preference pref = findPreference(KEY_CLOCK_CHIP);
+//        if (pref == null) return;
+//        pref.setSummary(new ClockChipController(getContext(), KEY_CLOCK_CHIP).getSummary());
+//    }
 
     private void updateQuickPulldownSummary(int value) {
         String summary="";
@@ -225,7 +225,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
-        updateClockChipSummary();
+//        updateClockChipSummary();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
