@@ -73,10 +73,6 @@ public class BootAnimationUtils {
      * checks ro.product.model and ro.soc.manufacturer.
      */
     public static boolean isPixelDevice() {
-        if (PixelPropsUtils.isCustomForkBuild()) {
-            return true;
-        }
-
         return PixelPropsUtils.isSupportedPixelDevice();
     }
 

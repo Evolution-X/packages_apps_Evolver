@@ -33,7 +33,7 @@ import java.util.List;
 
 import lineageos.preference.LineageSystemSettingListPreference;
 
-import org.evolution.settings.fragments.statusbar.ClockChipController;
+// import org.evolution.settings.fragments.statusbar.ClockChipController;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
@@ -47,25 +47,25 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String TAG = "StatusBar";
 
     private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
-    private static final String KEY_CLOCK_CHIP = "statusbar_clock_chip";
-    private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
+//    private static final String KEY_CLOCK_CHIP = "statusbar_clock_chip";
+//    private static final String KEY_COLORED_ICONS = "statusbar_colored_icons";
     private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
-    private static final String QUICK_PULLDOWN = "qs_quick_pulldown";
+//    private static final String QUICK_PULLDOWN = "qs_quick_pulldown";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
     private static final String STATUS_BAR_CARRIER_KEY = "status_bar_carrier_key";
     private static final String CARRIER_NAME = "lockscreen_show_carrier";
     private static final String CUSTOM_CARRIER_LABEL = "lockscreen_show_custom_carrier_text";
 
-    private static final int PULLDOWN_DIR_NONE = 0;
-    private static final int PULLDOWN_DIR_RIGHT = 1;
-    private static final int PULLDOWN_DIR_LEFT = 2;
-    private static final int PULLDOWN_DIR_ALWAYS = 3;
+//    private static final int PULLDOWN_DIR_NONE = 0;
+//    private static final int PULLDOWN_DIR_RIGHT = 1;
+//    private static final int PULLDOWN_DIR_LEFT = 2;
+//    private static final int PULLDOWN_DIR_ALWAYS = 3;
 
-    private LineageSystemSettingListPreference mQuickPulldown;
+//    private LineageSystemSettingListPreference mQuickPulldown;
     private LineageSystemSettingListPreference mStatusBarClock;
     private PreferenceCategory mIconsCategory;
     private SystemSettingSwitchPreference mBluetoothBatteryStatus;
-    private SystemSettingSwitchPreference mColoredIcons;
+//    private SystemSettingSwitchPreference mColoredIcons;
 
     private Preference mCustomCarrierTextPref;
     private String mCustomCarrierText;
@@ -94,27 +94,27 @@ public class StatusBar extends SettingsPreferenceFragment implements
             mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
         }
 
-        mQuickPulldown =
-                (LineageSystemSettingListPreference) findPreference(QUICK_PULLDOWN);
-        mQuickPulldown.setOnPreferenceChangeListener(this);
-        updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+//        mQuickPulldown =
+//                (LineageSystemSettingListPreference) findPreference(QUICK_PULLDOWN);
+//        mQuickPulldown.setOnPreferenceChangeListener(this);
+//        updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
         // Adjust status bar preferences for RTL
-        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries_rtl);
-            mQuickPulldown.setEntryValues(R.array.status_bar_quick_qs_pulldown_values_rtl);
-        }
+//        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+//            mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries_rtl);
+//            mQuickPulldown.setEntryValues(R.array.status_bar_quick_qs_pulldown_values_rtl);
+//        }
 
         mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
         mBluetoothBatteryStatus = findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
-        mColoredIcons = findPreference(KEY_COLORED_ICONS);
-        mColoredIcons.setOnPreferenceChangeListener(this);
+//        mColoredIcons = findPreference(KEY_COLORED_ICONS);
+//        mColoredIcons.setOnPreferenceChangeListener(this);
 
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
             mIconsCategory.removePreference(mBluetoothBatteryStatus);
         }
 
-        updateClockChipSummary();
+//        updateClockChipSummary();
 
         if (!TelephonyUtils.isVoiceCapable(getContext())) {
             Preference carrierCategory = findPreference(STATUS_BAR_CARRIER_KEY);
@@ -129,14 +129,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mQuickPulldown) {
-            int value = Integer.parseInt((String) newValue);
-            updateQuickPulldownSummary(value);
-            return true;
-        } else if (preference == mColoredIcons) {
-            SystemUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        }
+//        if (preference == mQuickPulldown) {
+//            int value = Integer.parseInt((String) newValue);
+//            updateQuickPulldownSummary(value);
+//            return true;
+//        } else if (preference == mColoredIcons) {
+//            SystemUtils.showSystemUiRestartDialog(getContext());
+//            return true;
+//        }
         return false;
     }
 
@@ -193,39 +193,39 @@ public class StatusBar extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateClockChipSummary() {
-        Preference pref = findPreference(KEY_CLOCK_CHIP);
-        if (pref == null) return;
-        pref.setSummary(new ClockChipController(getContext(), KEY_CLOCK_CHIP).getSummary());
-    }
+//    private void updateClockChipSummary() {
+//        Preference pref = findPreference(KEY_CLOCK_CHIP);
+//        if (pref == null) return;
+//        pref.setSummary(new ClockChipController(getContext(), KEY_CLOCK_CHIP).getSummary());
+//    }
 
-    private void updateQuickPulldownSummary(int value) {
-        String summary="";
-        switch (value) {
-            case PULLDOWN_DIR_NONE:
-                summary = getResources().getString(
-                    R.string.status_bar_quick_qs_pulldown_off);
-                break;
-            case PULLDOWN_DIR_ALWAYS:
-                summary = getResources().getString(
-                    R.string.status_bar_quick_qs_pulldown_always);
-                break;
-            case PULLDOWN_DIR_LEFT:
-            case PULLDOWN_DIR_RIGHT:
-                summary = getResources().getString(
-                    R.string.status_bar_quick_qs_pulldown_summary,
-                    getResources().getString(value == PULLDOWN_DIR_LEFT
-                        ? R.string.status_bar_quick_qs_pulldown_summary_left
-                        : R.string.status_bar_quick_qs_pulldown_summary_right));
-                break;
-        }
-        mQuickPulldown.setSummary(summary);
-    }
+//    private void updateQuickPulldownSummary(int value) {
+//        String summary="";
+//        switch (value) {
+//            case PULLDOWN_DIR_NONE:
+//                summary = getResources().getString(
+//                    R.string.status_bar_quick_qs_pulldown_off);
+//                break;
+//            case PULLDOWN_DIR_ALWAYS:
+//                summary = getResources().getString(
+//                    R.string.status_bar_quick_qs_pulldown_always);
+//                break;
+//            case PULLDOWN_DIR_LEFT:
+//            case PULLDOWN_DIR_RIGHT:
+//                summary = getResources().getString(
+//                    R.string.status_bar_quick_qs_pulldown_summary,
+//                    getResources().getString(value == PULLDOWN_DIR_LEFT
+//                        ? R.string.status_bar_quick_qs_pulldown_summary_left
+//                        : R.string.status_bar_quick_qs_pulldown_summary_right));
+//                break;
+//        }
+//        mQuickPulldown.setSummary(summary);
+//    }
 
     @Override
     public void onResume() {
         super.onResume();
-        updateClockChipSummary();
+//        updateClockChipSummary();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
