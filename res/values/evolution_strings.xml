@@ -336,13 +336,6 @@
     <string name="status_bar_colored_icons_summary">Use launcher icons for app notifications</string>
     <string name="status_bar_notif_count_title">Notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications on each app icon</string>
-    <string name="status_bar_privacy_indicators_category">Privacy indicators</string>
-    <string name="status_bar_mic_camera_privacy_indicator_title">Microphone &amp; camera</string>
-    <string name="status_bar_mic_camera_privacy_indicator_summary">Display an indicator when an app accesses the microphone or camera</string>
-    <string name="status_bar_location_privacy_indicator_title">Location</string>
-    <string name="status_bar_location_privacy_indicator_summary">Display an indicator when an app accesses your location</string>
-    <string name="status_bar_projection_privacy_indicator_title">Screen projection</string>
-    <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
 
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Carrier label</string>
@@ -849,7 +842,7 @@
     <string name="quick_settings_data_usage_title">Data usage</string>
     <string name="quick_settings_data_usage_summary">Display data usage in the quick settings footer</string>
     <string name="quick_settings_lock_screen_category">Lock screen</string>
-    <string name="quick_settings_secure_lock_screen_title">QS on lock screen</string>
+    <string name="quick_settings_secure_lock_screen_title">QS pull on secure lock screen</string>
     <string name="quick_settings_secure_lock_screen_summary">Allow swiping down on the lock screen to open quick settings</string>
     <string name="quick_settings_require_unlock_title">Secure tiles require unlock</string>
     <string name="quick_settings_require_unlock_summary">The following tiles require the device to be unlocked before interacting with them: Airplane, Battery saver, Bluetooth, Cellular, Data saver, Hotspot, Internet, NFC, Rotation lock, and Wi-Fi</string>

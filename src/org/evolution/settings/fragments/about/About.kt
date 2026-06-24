@@ -15,7 +15,6 @@ import android.util.Log
 import androidx.preference.Preference
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
-import com.android.internal.util.evolution.PixelPropsUtils
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.deviceinfo.DeviceNameUtils
@@ -85,11 +84,6 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.evolution_settings_about)
-
-        if (PixelPropsUtils.isCustomForkBuild()) {
-            preferenceScreen?.removeAll()
-            return
-        }
 
         mPrefs = requireContext().getSharedPreferences(PREFS_NAME, android.content.Context.MODE_PRIVATE)
         mTreeCaches = OTA_BRANCHES.associateWith { branch ->
