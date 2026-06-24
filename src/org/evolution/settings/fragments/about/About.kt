@@ -214,7 +214,6 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
     private fun setupTeamMemberPreferences(githubToPaypal: Map<String, String>) {
         val hardcodedDonate = mapOf(
             "joeyhuab"      to "https://linktr.ee/joeyhuab",
-            "anierinbliss"  to "https://www.paypal.me/AnierinB",
             "realakito"     to "https://t.me/RealAkito",
             "aidanwarner97" to "https://linktr.ee/aidanlw",
             "apelete"       to "https://www.linkedin.com/posts/apelete_evolutionx-activity-7429791532091797504-ND3i",

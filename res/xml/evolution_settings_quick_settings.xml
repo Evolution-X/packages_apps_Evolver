@@ -20,8 +20,16 @@
             android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_header_clock_style"
+            android:title="@string/qs_header_clock_style_title"
+            android:entries="@array/qs_header_clock_style_entries"
+            android:entryValues="@array/qs_header_clock_style_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
         <!-- Single Tone QS -->
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="single_qs_tone_enabled"
             android:title="@string/qs_single_tone_title"
             android:summary="@string/qs_single_tone_summary"
@@ -39,14 +47,20 @@
             android:summary="@string/notification_bg_alternate_color_summary"
             android:defaultValue="false" />
 
-        <!-- QS Media Player -->
         <org.evolution.settings.preferences.SecureSettingListPreference
             android:key="qs_show_media_player"
             android:title="@string/qs_show_media_player_title"
             android:summary="%s"
             android:entries="@array/qs_show_media_player_entries"
             android:entryValues="@array/qs_show_media_player_values"
-            android:defaultValue="2" />
+            android:defaultValue="2" />-->
+
+        <!-- Waveform seekbar -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="media_waveform_seekbar"
+            android:title="@string/media_waveform_seekbar_title"
+            android:summary="@string/media_waveform_seekbar_summary"
+            android:defaultValue="false" />
 
         <!-- Squiggle animation for media notification -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
@@ -123,7 +137,7 @@
         android:key="qs_layout_category"
         android:title="@string/quick_settings_layout_category_title">
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_widget_panel"
             android:title="@string/qs_widget_panel_title"
             android:summary="@string/qs_widget_panel_summary"
@@ -139,7 +153,7 @@
             android:key="qs_widget_slider_corner"
             android:title="@string/qs_widget_slider_corner_title"
             android:summary="@string/qs_widget_slider_corner_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_panel_style"
@@ -195,6 +209,15 @@
             android:title="@string/quick_settings_data_usage_title"
             android:summary="@string/quick_settings_data_usage_summary"
             android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_show_data_usage_window"
+            android:title="@string/quick_settings_data_usage_window_title"
+            android:entries="@array/quick_settings_data_usage_window_entries"
+            android:entryValues="@array/quick_settings_data_usage_window_values"
+            android:summary="%s"
+            android:defaultValue="0"
+            android:dependency="qs_show_data_usage" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_show_edit"
