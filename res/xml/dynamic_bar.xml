@@ -25,7 +25,8 @@
 
     <lineageos.preference.SecureSettingMainSwitchPreference
         android:key="ax_dynamic_bar_enabled"
-        android:title="@string/dynamic_bar_enable"
+        android:title="@string/dynamic_bar"
+        android:summary="@string/dynamic_bar_summary"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SecureSettingSwitchPreference

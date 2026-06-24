@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.evolution.settings.fragments.notifications
+package org.evolution.settings.fragments.lockscreen
 
 import android.content.Context
 import android.graphics.Color
