@@ -33,14 +33,34 @@
             android:entryValues="@array/hardware_keys_action_values"
             android:persistent="false" />
 
-        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="shake_gestures_enabled"
             android:title="@string/shake_gestures_enabled_title"
-            android:fragment="org.evolution.settings.fragments.miscellaneous.ShakeGestures"
+            android:summary="@string/shake_gestures_enabled_summary"
             android:defaultValue="false" />
 
-        <!-- Flashlight on call -->
         <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="shake_gestures_action"
+            android:title="@string/shake_gestures_action_title"
+            android:summary="%s"
+            android:dialogTitle="@string/shake_gestures_action_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:defaultValue="0"
+            android:dependency="shake_gestures_enabled" />
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="shake_gestures_intensity"
+            android:title="@string/shake_gestures_intensity_title"
+            android:summary="@string/shake_gestures_intensity_summary"
+            android:dependency="shake_gestures_enabled"
+            android:defaultValue="3"
+            settings:interval="1"
+            android:max="12"
+            android:min="1" />
+
+        <!-- Flashlight on call -->
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="flashlight_on_call"
             android:title="@string/flashlight_on_call_title"
             android:entries="@array/flashlight_on_call_entries"
@@ -59,7 +79,7 @@
             android:defaultValue="1"
             android:max="5"
             settings:min="1"
-            settings:units="@string/unit_hz" />
+            settings:units="@string/unit_hz" />-->
 
     </PreferenceCategory>
 
@@ -67,7 +87,7 @@
         android:key="miscellaneous_general_category"
         android:title="@string/general_category_title">
 
-        <Preference
+        <!--<Preference
             android:key="sensor_block_settings"
             android:title="@string/sensor_block_title"
             android:summary="@string/sensor_block_summary"
@@ -89,7 +109,7 @@
             android:key="disable_flash_sms"
             android:title="@string/disable_flash_sms_title"
             android:summary="@string/disable_flash_sms_summary"
-            android:defaultValue="false"/>
+            android:defaultValue="false"/>-->
 
         <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
             android:key="smart_pixel_filter_enabled"
@@ -122,7 +142,7 @@
             android:summary="@string/miscellaneous_pairip_activity_block_summary"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="block_wallpaper_dimming"
             android:title="@string/miscellaneous_block_wallpaper_dimming_title"
             android:summary="@string/miscellaneous_block_wallpaper_dimming_summary"
@@ -132,7 +152,7 @@
             android:key="unlimit_screenrecord"
             android:title="@string/miscellaneous_unlimit_screenrecord_title"
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="pm_downgrade_allowed"
