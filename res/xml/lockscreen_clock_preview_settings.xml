@@ -31,58 +31,137 @@
         android:title="@string/themes_lock_screen_clock_font_title"
         android:summary="@string/themes_lock_screen_clock_font_summary" />
 
-    <org.evolution.settings.preferences.SecureSettingSwitchPreference
-        android:key="lock_screen_custom_clock_album_art_color"
-        android:title="@string/clock_album_art_color_title"
-        android:summary="@string/clock_album_art_color_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="lock_screen_custom_clock_color_category"
+        android:title="@string/lockscreen_custom_clock_color_category_title">
 
-    <org.evolution.settings.preferences.SecureSettingListPreference
-        android:key="lock_screen_custom_clock_color_mode"
-        android:title="@string/lockscreen_custom_clock_color_mode_title"
-        android:entries="@array/lockscreen_custom_clock_color_mode_entries"
-        android:entryValues="@array/lockscreen_custom_clock_color_mode_values"
-        android:summary="%s"
-        android:defaultValue="default" />
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="lock_screen_custom_clock_album_art_color"
+            android:title="@string/clock_album_art_color_title"
+            android:summary="@string/clock_album_art_color_summary"
+            android:defaultValue="false" />
 
-    <org.evolution.settings.preferences.SecureSettingSeekBarPreference
-        android:key="lock_screen_custom_clock_size_scale"
-        android:title="@string/lockscreen_custom_clock_size_title"
-        android:summary="@string/lockscreen_custom_clock_size_summary"
-        android:defaultValue="100"
-        android:max="150"
-        settings:min="50"
-        settings:units="%" />
+        <org.evolution.settings.preferences.SecureSettingListPreference
+            android:key="lock_screen_custom_clock_color_mode"
+            android:title="@string/lockscreen_custom_clock_color_mode_title"
+            android:entries="@array/lockscreen_custom_clock_color_mode_entries"
+            android:entryValues="@array/lockscreen_custom_clock_color_mode_values"
+            android:summary="%s"
+            android:defaultValue="default" />
 
-    <Preference
-        android:key="lock_screen_custom_clock_custom_color"
-        android:title="@string/custom_color"
-        android:summary="@string/custom_color_summary"
-        android:persistent="false" />
+        <Preference
+            android:key="lock_screen_custom_clock_custom_color"
+            android:title="@string/custom_color"
+            android:summary="@string/custom_color_summary"
+            android:persistent="false" />
 
-    <org.evolution.settings.preferences.SecureSettingSeekBarPreference
-        android:key="lock_screen_custom_clock_opacity"
-        android:title="@string/lockscreen_custom_clock_opacity_title"
-        android:summary="@string/lockscreen_custom_clock_opacity_summary"
-        android:defaultValue="100"
-        android:max="100"
-        settings:min="0"
-        settings:units="%" />
+    </PreferenceCategory>
 
-    <org.evolution.settings.preferences.SecureSettingSwitchPreference
-        android:key="lock_screen_custom_clock_aod_anim"
-        android:title="@string/lockscreen_custom_clock_aod_anim_title"
-        android:summary="@string/lockscreen_custom_clock_aod_anim_summary"
-        android:defaultValue="true" />
+    <PreferenceCategory
+        android:key="lock_screen_custom_clock_gradient_category"
+        android:title="@string/lockscreen_custom_clock_gradient_category_title">
 
-    <org.evolution.settings.preferences.SecureSettingSeekBarPreference
-        android:key="lock_screen_custom_clock_margin_top"
-        android:title="@string/lockscreen_custom_clock_frame_margin_top_title"
-        android:summary="@string/lockscreen_custom_clock_frame_margin_top_summary"
-        android:defaultValue="15"
-        android:max="100"
-        settings:min="0" 
-        settings:units="@string/unit_pixels" />
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="lock_screen_custom_clock_gradient_enabled"
+            android:title="@string/lockscreen_custom_clock_gradient_enabled_title"
+            android:summary="@string/lockscreen_custom_clock_gradient_enabled_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="lock_screen_custom_clock_gradient_color_start"
+            android:title="@string/lockscreen_custom_clock_gradient_start_title"
+            android:summary="@string/custom_color_summary"
+            android:persistent="false"
+            android:dependency="lock_screen_custom_clock_gradient_enabled" />
+
+        <Preference
+            android:key="lock_screen_custom_clock_gradient_color_end"
+            android:title="@string/lockscreen_custom_clock_gradient_end_title"
+            android:summary="@string/custom_color_summary"
+            android:persistent="false"
+            android:dependency="lock_screen_custom_clock_gradient_enabled" />
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="lock_screen_custom_clock_gradient_anchor_y"
+            android:title="@string/lockscreen_custom_clock_gradient_anchor_y_title"
+            android:summary="@string/lockscreen_custom_clock_gradient_anchor_y_summary"
+            android:defaultValue="50"
+            android:max="100"
+            settings:min="0"
+            settings:units="%"
+            android:dependency="lock_screen_custom_clock_gradient_enabled" />
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="lock_screen_custom_clock_gradient_radius"
+            android:title="@string/lockscreen_custom_clock_gradient_radius_title"
+            android:summary="@string/lockscreen_custom_clock_gradient_radius_summary"
+            android:defaultValue="100"
+            android:max="200"
+            settings:min="25"
+            settings:units="%"
+            android:dependency="lock_screen_custom_clock_gradient_enabled" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lock_screen_custom_clock_layout_category"
+        android:title="@string/lockscreen_custom_clock_layout_category_title">
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="lock_screen_custom_clock_size_scale"
+            android:title="@string/lockscreen_custom_clock_size_title"
+            android:summary="@string/lockscreen_custom_clock_size_summary"
+            android:defaultValue="100"
+            android:max="150"
+            settings:min="50"
+            settings:units="%" />
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="lock_screen_custom_clock_opacity"
+            android:title="@string/lockscreen_custom_clock_opacity_title"
+            android:summary="@string/lockscreen_custom_clock_opacity_summary"
+            android:defaultValue="100"
+            android:max="100"
+            settings:min="10"
+            settings:units="%" />
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="lock_screen_custom_clock_margin_top"
+            android:title="@string/lockscreen_custom_clock_frame_margin_top_title"
+            android:summary="@string/lockscreen_custom_clock_frame_margin_top_summary"
+            android:defaultValue="15"
+            android:max="100"
+            settings:min="0" 
+            settings:units="@string/unit_pixels" />
+
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="lock_screen_custom_clock_margin_start"
+            android:title="@string/lockscreen_custom_clock_frame_margin_start_title"
+            android:summary="@string/lockscreen_custom_clock_frame_margin_start_summary"
+            android:defaultValue="0"
+            android:max="200"
+            settings:min="-200"
+            settings:units="@string/unit_pixels" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lock_screen_custom_clock_animation_category"
+        android:title="@string/lockscreen_custom_clock_animation_category_title">
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="lock_screen_custom_clock_wobble_on_charge"
+            android:title="@string/lock_screen_custom_clock_wobble_on_charge_title"
+            android:summary="@string/lock_screen_custom_clock_wobble_on_charge_summary"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="lock_screen_custom_clock_aod_anim"
+            android:title="@string/lockscreen_custom_clock_aod_anim_title"
+            android:summary="@string/lockscreen_custom_clock_aod_anim_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 
     <com.android.settingslib.widget.FooterPreference
         android:key="custom_clock_style_info"

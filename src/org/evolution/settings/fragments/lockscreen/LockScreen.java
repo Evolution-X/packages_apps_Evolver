@@ -17,7 +17,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.OmniJawsClient;
+import com.android.internal.util.android.OmniJawsClient;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
@@ -40,7 +40,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String KEY_CUSTOM_CLOCK = "lockscreen_custom_clock_style";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
-    private static final String KEY_KEYGUARD_SCRIM = "keyguard_scrim_transparent";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
     private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
     private static final String KEY_WEATHER = "lockscreen_weather_enabled";
@@ -49,7 +48,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private Preference mRippleEffect;
     private SwitchPreferenceCompat mFpErrorVib;
     private SwitchPreferenceCompat mFpSuccessVib;
-    private SwitchPreferenceCompat mKeyguardScrim;
     private SwitchPreferenceCompat mSmartspace;
     private SwitchPreferenceCompat mWeather;
 
@@ -82,9 +80,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mWeather = findPreference(KEY_WEATHER);
         mWeather.setOnPreferenceChangeListener(this);
 
-        mKeyguardScrim = findPreference(KEY_KEYGUARD_SCRIM);
-        mKeyguardScrim.setOnPreferenceChangeListener(this);
-
         updateCustomClockSummary();
         updateWeatherSettings();
     }
@@ -95,8 +90,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
             updateWeatherSettings();
             SystemUtils.showSystemUiRestartDialog(getContext());
             return true;
-        } else if (preference == mWeather
-                || preference == mKeyguardScrim) {
+        } else if (preference == mWeather) {
             SystemUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
