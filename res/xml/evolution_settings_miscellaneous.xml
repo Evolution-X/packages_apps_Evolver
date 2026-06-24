@@ -20,11 +20,10 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="miscellaneous_gestures_category"
         android:title="@string/gestures_category_title">
 
-        <!-- Three fingers swipe action -->
         <ListPreference
             android:key="three_fingers_swipe"
             android:dialogTitle="@string/three_fingers_swipe_title"
@@ -39,7 +38,6 @@
             android:fragment="org.evolution.settings.fragments.miscellaneous.ShakeGestures"
             android:defaultValue="false" />
 
-        <!-- Flashlight on call -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="flashlight_on_call"
             android:title="@string/flashlight_on_call_title"
@@ -98,7 +96,7 @@
             android:fragment="org.evolution.settings.fragments.miscellaneous.SmartPixels"
             android:defaultValue="false" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="miscellaneous_developer_options_category"
@@ -110,11 +108,11 @@
             android:summary="@string/usb_default_config_summary"
             android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
 
-        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="no_storage_restrict"
             android:title="@string/no_storage_restrict_title"
             android:summary="@string/no_storage_restrict_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pairip.activity.block"
@@ -122,7 +120,7 @@
             android:summary="@string/miscellaneous_pairip_activity_block_summary"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="block_wallpaper_dimming"
             android:title="@string/miscellaneous_block_wallpaper_dimming_title"
             android:summary="@string/miscellaneous_block_wallpaper_dimming_summary"
@@ -132,7 +130,7 @@
             android:key="unlimit_screenrecord"
             android:title="@string/miscellaneous_unlimit_screenrecord_title"
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="pm_downgrade_allowed"
