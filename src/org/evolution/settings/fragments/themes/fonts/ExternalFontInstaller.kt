@@ -31,6 +31,7 @@ import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
 import com.android.internal.statusbar.IStatusBarService
+import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -46,6 +47,7 @@ class ExternalFontInstaller(private val context: Context) {
         private const val CUSTOM_FONT_FILE = "cust_font.ttf"
         private const val TEMP_PREVIEW_FONT = "preview_font.ttf"
         private const val OVERLAY_CATEGORY_FONT = "android.theme.customization.font"
+        private const val DEFAULT_FONT_PACKAGE = "android"
         const val DEFAULT_FONT_FAMILY = "google-sans-flex"
         private const val DEFAULT_FONT_OVERLAY = "com.android.theme.font.googlesansflex"
 
@@ -183,6 +185,9 @@ class ExternalFontInstaller(private val context: Context) {
 
     fun resetFontUpdates() {
         fontManager.clearUpdates()
+        ThemeUtils.getInstance(context).setOverlayEnabled(
+            OVERLAY_CATEGORY_FONT, DEFAULT_FONT_PACKAGE, DEFAULT_FONT_PACKAGE
+        )
         cleanupPreviewFont()
     }
 

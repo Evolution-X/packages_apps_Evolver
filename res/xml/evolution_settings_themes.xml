@@ -33,19 +33,19 @@
         android:key="themes_monet_colors_category"
         android:title="@string/themes_monet_colors_category">
 
-        <!-- Monet engine -->
+        <!-- Monet settings -->
         <Preference
-            android:key="monet_engine"
+            android:key="monet_settings"
             android:title="@string/themes_monet_title"
             android:summary="@string/themes_monet_summary"
             android:fragment="org.evolution.settings.fragments.themes.ColorsSettingsFragment" />
 
         <!-- Gradient Customization -->
-        <Preference
+        <!--<Preference
             android:key="gradient_settings"
             android:title="@string/gradient_settings_title"
             android:summary="@string/gradient_settings_summary"
-            android:fragment="org.evolution.settings.fragments.themes.GradientSettings" />
+            android:fragment="org.evolution.settings.fragments.themes.GradientSettings" />-->
 
     </PreferenceCategory>
 
@@ -54,7 +54,7 @@
         android:title="@string/themes_icons_category">
 
         <!-- Themes -->
-        <Preference
+        <!--<Preference
             android:key="custom_system_theme"
             android:title="@string/custom_system_theme_title"
             android:summary="@string/custom_system_theme_summary">
@@ -64,12 +64,11 @@
                 android:targetClass="com.android.axion.axthemestore.MainActivity" />
         </Preference>
 
-        <!-- Settings icon -->
         <Preference
             android:key="settings_icon"
             android:title="@string/settings_icon_title"
             android:summary="@string/settings_icon_summary"
-            android:fragment="org.evolution.settings.fragments.themes.SettingsIcon" />
+            android:fragment="org.evolution.settings.fragments.themes.SettingsIcon" />-->
 
         <!-- Icon shape -->
         <Preference
@@ -85,11 +84,11 @@
             android:fragment="org.evolution.settings.fragments.themes.NavigationBarIcons"/>
 
         <!-- Udfps icon -->
-        <Preference
+        <!--<Preference
             android:key="udfps_icon"
             android:title="@string/themes_udfps_icon_title"
             android:summary="@string/themes_udfps_icon_summary"
-            android:fragment="org.evolution.settings.fragments.themes.UdfpsIconPicker" />
+            android:fragment="org.evolution.settings.fragments.themes.UdfpsIconPicker" />-->
 
     </PreferenceCategory>
 
@@ -131,11 +130,11 @@
             android:summary="@string/themes_launcher_more_themed_icons_summary"
             android:defaultValue="true" />
 
-        <org.evolution.settings.preferences.SystemPropertySwitchPreference
+        <!--<org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.velvet.force_onesearch"
             android:title="@string/themes_launcher_force_new_search_bar"
             android:summary="@string/themes_launcher_force_new_search_bar_summary"
-            android:defaultValue="true" />
+            android:defaultValue="true" />-->
 
     </PreferenceCategory>
 
@@ -143,7 +142,7 @@
         android:key="video_wallpaper_category"
         android:title="@string/video_wallpaper_category">
 
-        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
             android:key="lock_glymps_enabled"
             android:title="@string/lock_glymps_title"
             android:summary="@string/lock_glymps_enable_summary"
@@ -154,7 +153,7 @@
             android:key="video_wallpaper"
             android:title="@string/video_wallpaper_category_title"
             android:summary="@string/video_wallpaper_category_summary"
-            android:fragment="org.evolution.settings.fragments.themes.VideoWallpaperFragment" />
+            android:fragment="org.evolution.settings.fragments.themes.VideoWallpaperFragment" />-->
 
         <Preference
             android:key="wallpaper_settings"

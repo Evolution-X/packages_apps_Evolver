@@ -92,7 +92,24 @@
     <string name="boot_animation_no_preview">No preview available</string>
     <string name="boot_animation_style_unknown">Unknown</string>
 
-    <!-- Themes/Monet Engine -->
+    <!-- Themes/Monet Settings -->
+    <string name="monet_settings_title">Color Customization</string>
+    <string name="monet_settings_summary">Customize theme colors and style</string>
+    <string name="color_settings_category">Color Settings</string>
+    <string name="advanced_settings_category">Advanced Settings</string>
+    <string name="use_wallpaper_colors_title">Use Wallpaper Colors</string>
+    <string name="use_wallpaper_colors_desc">Extract colors from your wallpaper</string>
+    <string name="custom_seed_color_title">Custom Seed Color</string>
+    <string name="theme_style_title">Theme Style</string>
+    <string name="theme_style_desc">Select color palette style</string>
+    <string name="fidelity_title">Color Fidelity</string>
+    <string name="fidelity_desc">Preserve the original seed color more accurately</string>
+    <string name="contrast_level_title">Contrast Level</string>
+    <string name="chroma_boost_title">Chroma Boost</string>
+    <string name="about_color_customization_title">About Color Customization</string>
+    <string name="about_color_customization_desc">Color changes apply system-wide to all apps that support Material You theming.\nAdjusting these colors may affect the appearance of apps across your device.</string>
+    <string name="wallpaper_seed_color_title">Pick from Wallpaper</string>
+    <string name="wallpaper_seed_color_desc">Extract color from your current wallpaper</string>
     <string name="monet_engine_custom_color_title">Accent color</string>
     <string name="monet_engine_custom_color_summary">Choose a custom accent color</string>
     <string name="monet_engine_custom_bgcolor_title">Background color</string>
@@ -201,6 +218,21 @@
     <string name="pulse_height_multiplier_title">Pulse height</string>
     <string name="pulse_height_multiplier_summary">Adjust the visualization height</string>
 
+    <!-- Lockscreen Clock Highlight Guide -->
+    <string name="ls_clock_title">Lockscreen Clocks</string>
+    <string name="ls_clock_summary">Set your clock style and widgets</string>
+    <string name="clock_styles_disclaimer_title">Before you continue</string>
+    <string name="clock_styles_disclaimer_message">For the best experience with clock faces and widgets, please make sure to:\n\n• Disable lockscreen Smartspace\n• Disable lockscreen weather\n• Disable the large clock style\n\nYou can find these options in the Lockscreen settings.</string>
+    <string name="ls_clock_face_highlight_text">Swipe left or right to preview clock styles</string>
+
+    <!-- Lockscreen Clock Accent Color -->
+    <string name="clock_text_accent_color_title">Use accent color for clock</string>
+    <string name="clock_text_accent_color_summary">Use system accent color instead of white for clock text</string>
+
+    <!-- Lockscreen Clock Opacity -->
+    <string name="clock_text_opacity_title">Clock text opacity</string>
+    <string name="clock_text_opacity_summary">Adjust the transparency of the clock text</string>
+
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">Selected clock does not support custom fonts</string>
     <string name="lockscreen_clock_category_title">Clock</string>
@@ -210,17 +242,20 @@
 
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Custom clock style</string>
+    <string name="lockscreen_custom_clock_style_summary">Configure lock screen clock styles</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Swipe left or right to preview clock styles</string>
-    <string name="lockscreen_custom_clock_style_info">Custom clock style replaces AOSP clock styles. Smartspace will be disabled. You can enable custom weather instead.</string>
-    <string name="lockscreen_custom_clock_opacity_title">Clock opacity</string>
-    <string name="lockscreen_custom_clock_opacity_summary">Adjust the transparency of the custom clock</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Clock height</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_summary">Adjust the vertical position of the custom clock</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Clock color mode</string>
-    <string name="lockscreen_custom_clock_size_title">Clock size</string>
-    <string name="lockscreen_custom_clock_size_summary">Scale the lock screen clock (50–150%)</string>
+    <string name="lockscreen_custom_clock_style_info">Custom clock style replaces AOSP clock styles with custom clocks. Smartspace will be disabled. You can enable and use custom weather instead.</string>
+    <string name="lockscreen_custom_clock_opacity_title">Custom clock opacity</string>
+    <string name="lockscreen_custom_clock_opacity_summary">Adjust the transparency of custom clock style</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Custom clock height</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Adjust the height of custom clock style</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Custom clock color mode</string>
     <string name="lockscreen_custom_clock_aod_anim_title">Custom clock AOD animation</string>
     <string name="lockscreen_custom_clock_aod_anim_summary">Set AOD animation for custom clock style</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_title">Wobble charging effect</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_summary">Show wobble effect on clock when connected to charger</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Custom clock width</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Adjust the width of custom clock style</string>
     <string name="lockscreen_custom_clock_gradient_enabled_title">Gradient text</string>
     <string name="lockscreen_custom_clock_gradient_enabled_summary">Apply a two-color gradient to clock text instead of a flat color. Override other color mode</string>
     <string name="lockscreen_custom_clock_gradient_start_title">Gradient start color</string>
@@ -229,11 +264,65 @@
     <string name="lockscreen_custom_clock_gradient_anchor_y_summary">Control where the gradient is vertically centered</string>
     <string name="lockscreen_custom_clock_gradient_radius_title">Gradient spread</string>
     <string name="lockscreen_custom_clock_gradient_radius_summary">Control how far the gradient spreads from its anchor point</string>
+    <string name="lockscreen_custom_clock_color_category_title">Color</string>
+    <string name="lockscreen_custom_clock_gradient_category_title">Gradient</string>
+    <string name="lockscreen_custom_clock_layout_category_title">Size &amp; position</string>
+    <string name="lockscreen_custom_clock_animation_category_title">Animation</string>
     <string name="unit_degrees">°</string>
+
+    <!-- Lockscreen Clock Size -->
+    <string name="clock_size_title">Clock size</string>
+    <string name="clock_size_summary">Scale the lockscreen clock (50–150%)</string>
 
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">Album art color clocks</string>
     <string name="clock_album_art_color_summary">Override clock color with the album art palette when media is playing</string>
+
+    <!-- Lockscreen widgets -->
+    <string name="lockscreen_widgets_title">Widgets</string>
+    <string name="lockscreen_widgets_enabled_title">Enable Lockscreen Widgets</string>
+    <string name="lockscreen_widgets_enabled_summary">Add widgets to lockscreen</string>
+    <string name="lockscreen_display_widgets_title">Device info Widget</string>
+    <string name="lockscreen_widgets_color_mode_title">Info Widget color mode</string>
+    <string name="lockscreen_display_widgets_summary">Show device info widget on lockscreen</string>
+    <string name="large_widgets_category_title">Big widgets</string>
+    <string name="main_custom_widgets1">Big widget 1</string>
+    <string name="main_custom_widgets2">Big widget 2</string>
+    <string name="mini_widgets_category_title">Mini widgets</string>
+    <string name="custom_widgets1">Mini widget 1</string>
+    <string name="custom_widgets2">Mini widget 2</string>
+    <string name="custom_widgets3">Mini widget 3</string>
+    <string name="custom_widgets4">Mini widget 4</string>
+    <string name="camera">Camera</string>
+    <string name="clock_timer">Clock/Timer</string>
+    <string name="calculator">Calculator</string>
+    <string name="gallery">Gallery</string>
+    <string name="media">Media Player</string>
+    <string name="torch">Torch</string>
+    <string name="controls_media_button_play">Play</string>
+    <string name="weather">Weather</string>
+    <string name="wifi">Wifi</string>
+    <string name="data">Data</string>
+    <string name="ringer">Ringer</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Hotspot</string>
+    <string name="wallet">Wallet</string>
+    <string name="qr_scanner">QR Scanner</string>
+
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">Lockscreen widgets style</string>
+    <string name="lockscreen_widgets_style1">Material Rounded</string>
+    <string name="lockscreen_widgets_style2">Material Square</string>
+    <string name="lockscreen_widgets_style3">Square Translucent</string>
+    <string name="lockscreen_widgets_style4">Rounded Translucent</string>
+    <string name="lockscreen_widgets_style5">Square blur</string>
+    <string name="lockscreen_widgets_style6">Rounded blur</string>
+    <string name="lockscreen_widgets_transparency_title">Translucent style transparency</string>
+    <string name="lockscreen_widgets_transparency_summary">Configure translucent style widget opacity level</string>
+
+    <!-- Lockscreen Weather -->
+    <string name="custom_clock_weather_title">Lockscreen weather</string>
+    <string name="custom_clock_weather_summary">Show weather on custom lockscreen clock</string>
 
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Media cover art</string>
@@ -264,8 +353,7 @@
     <string name="nowplaying_title">Now Playing</string>
     <string name="nowplaying_summary">Show currently playing music info on the lock screen and AOD</string>
     <string name="nowplaying_appearance_title">Appearance</string>
-    <string name="nowplaying_use_accent_color_title">Use accent color</string>
-    <string name="nowplaying_use_accent_color_summary">Use the system accent color instead of white</string>
+    <string name="nowplaying_color_mode_title">Text color mode</string>
     <string name="nowplaying_vertical_position_title">Vertical position</string>
     <string name="nowplaying_vertical_position_summary">Adjust position from top to bottom of the screen</string>
     <string name="nowplaying_track_text_size_title">Track title size</string>
@@ -286,6 +374,8 @@
     <string name="nowplaying_info_summary">Now Playing shows the current track and artist on the lock screen and always-on display. It appears automatically when music is playing and hides when stopped. Position is adjustable from top to bottom of the screen.</string>
     <string name="nowplaying_expand_dialog">Expand dialog</string>
     <string name="nowplaying_expand_dialog_summary">Expand the Now Playing dialog</string>
+    <string name="nowplaying_lyrics_mode_title">Lyrics mode</string>
+    <string name="nowplaying_lyrics_mode_summary">Show synced lyrics instead of track title and icon</string>
 
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Weather settings</string>
@@ -376,13 +466,8 @@
     <string name="status_bar_colored_icons_summary">Use launcher icons for app notifications</string>
     <string name="status_bar_notif_count_title">Notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications on each app icon</string>
-    <string name="status_bar_privacy_indicators_category">Privacy indicators</string>
-    <string name="status_bar_mic_camera_privacy_indicator_title">Microphone &amp; camera</string>
-    <string name="status_bar_mic_camera_privacy_indicator_summary">Display an indicator when an app accesses the microphone or camera</string>
-    <string name="status_bar_location_privacy_indicator_title">Location</string>
-    <string name="status_bar_location_privacy_indicator_summary">Display an indicator when an app accesses your location</string>
-    <string name="status_bar_projection_privacy_indicator_title">Screen projection</string>
-    <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
+    <string name="status_bar_lyric_title">Status bar lyrics</string>
+    <string name="status_bar_lyric_summary">Show lyrics in status bar</string>
 
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Carrier label</string>
@@ -549,6 +634,20 @@
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Amogus</string>
+    <string name="status_bar_logo_style_custom">Custom image</string>
+
+    <!-- Custom image logo style -->
+    <string name="status_bar_logo_style_custom_image">Custom image</string>
+    <string name="status_bar_logo_custom_image_title">Select custom logo image</string>
+    <string name="status_bar_logo_custom_image_summary">Tap to pick an image from gallery</string>
+    <string name="status_bar_logo_custom_image_pick_summary">Choose an image from gallery</string>
+
+    <!-- Statusbar logo color -->
+    <string name="default_string">Default</string>
+    <string name="status_bar_logo_color_title">Color</string>
+    <string name="status_bar_logo_color_default">Default (White)</string>
+    <string name="status_bar_logo_color_accent">Accent</string>
+    <string name="status_bar_logo_color_custom">Custom</string>
 
     <!-- Status bar/Network traffic -->
     <string name="status_bar_network_traffic_settings_title">Network traffic monitor</string>
@@ -594,8 +693,6 @@
     <string name="dynamic_bar_events">Events</string>
     <string name="dynamic_bar_event_audio_recording">Audio recording</string>
     <string name="dynamic_bar_event_audio_recording_summary">Voice recorder and audio capture</string>
-    <string name="dynamic_bar_event_call">Ongoing call</string>
-    <string name="dynamic_bar_event_call_summary">Incoming and active calls</string>
     <string name="dynamic_bar_event_media">Media playback</string>
     <string name="dynamic_bar_event_media_summary">Now playing music and audio controls</string>
     <string name="dynamic_bar_event_notification">Notifications</string>
@@ -748,6 +845,8 @@
     <string name="qs_tile_alternate_color_title">Alternate QS tile color</string>
     <string name="qs_tile_alternate_color_summary">Use an alternative background color for QS tiles</string>
     <string name="qs_brightness_slider_shape_title">Brightness slider shape</string>
+    <string name="media_waveform_seekbar_title">Waveform seekbar</string>
+    <string name="media_waveform_seekbar_summary">Show an animated waveform effect for media playback progress</string>
     <string name="floating_rotation_button_title">Floating rotate button</string>
     <string name="floating_rotation_button_summary">Show a floating button to rotate when the device orientation changes</string>
 
@@ -866,6 +965,7 @@
     <!-- Quick settings/Header image -->
     <string name="quick_settings_header_image_title">Header image</string>
     <string name="quick_settings_header_image_summary">Select a background image for quick settings</string>
+    <string name="quick_settings_header_image_error">Failed to save header image</string>
     <string name="quick_settings_header_daylight_pack_title">Image collection</string>
     <string name="quick_settings_header_shadow_title">Header image shadow</string>
     <string name="quick_settings_header_shadow_summary">Improve visibility on bright images</string>
@@ -889,7 +989,7 @@
     <string name="quick_settings_data_usage_title">Data usage</string>
     <string name="quick_settings_data_usage_summary">Display data usage in the quick settings footer</string>
     <string name="quick_settings_lock_screen_category">Lock screen</string>
-    <string name="quick_settings_secure_lock_screen_title">QS on lock screen</string>
+    <string name="quick_settings_secure_lock_screen_title">QS pull on secure lock screen</string>
     <string name="quick_settings_secure_lock_screen_summary">Allow swiping down on the lock screen to open quick settings</string>
     <string name="quick_settings_require_unlock_title">Secure tiles require unlock</string>
     <string name="quick_settings_require_unlock_summary">The following tiles require the device to be unlocked before interacting with them: Airplane, Battery saver, Bluetooth, Cellular, Data saver, Hotspot, Internet, NFC, Rotation lock, and Wi-Fi</string>
@@ -989,6 +1089,10 @@
     <string name="edge_light_animation_effect_sparkle">Sparkle</string>
     <string name="edge_light_animation_effect_chase">Chase</string>
     <string name="edge_light_animation_effect_comet">Comet</string>
+    <string name="edge_light_spread_title">Glow spread</string>
+    <string name="edge_light_spread_summary">How far inward the glow extends from the edge</string>
+    <string name="edge_light_intensity_title">Glow intensity</string>
+    <string name="edge_light_intensity_summary">Peak brightness of the glow effect</string>
 
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interface</string>
