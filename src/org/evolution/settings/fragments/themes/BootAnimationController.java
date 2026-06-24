@@ -20,8 +20,6 @@ public class BootAnimationController extends BasePreferenceController {
 
     @Override
     public int getAvailabilityStatus() {
-        // Custom fork builds spoof Pixel props, so check this first
-        // to avoid incorrectly hiding the preference on non-Pixel fork devices.
         if (BootAnimationUtils.isBootAnimationSelectorDisabled()) {
             return UNSUPPORTED_ON_DEVICE;
         }

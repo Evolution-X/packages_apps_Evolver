@@ -240,10 +240,6 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
 
     private void updateClockOverlays(int clockStyle) {
         mThemeUtils.setOverlayEnabled(
-                "android.theme.customization.hideclock",
-                clockStyle != 0 ? "com.android.systemui.clocks.hideclock" : "android",
-                "android");
-        mThemeUtils.setOverlayEnabled(
                 "android.theme.customization.smartspace",
                 clockStyle != 0 ? "com.android.systemui.hide.smartspace" : "com.android.systemui",
                 "com.android.systemui");

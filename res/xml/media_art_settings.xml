@@ -22,7 +22,8 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="ls_media_art_enabled"
-        android:title="@string/action_enable"
+        android:title="@string/ls_media_art_title"
+        android:summary="@string/ls_media_art_summary"
         android:defaultValue="false" />
 
     <!-- AOD Toggle -->

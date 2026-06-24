@@ -142,11 +142,6 @@ class ClockPickerFragment : Fragment() {
 
     private fun updateClockOverlays(clockStyle: Int) {
         themeUtils.setOverlayEnabled(
-            "android.theme.customization.hideclock",
-            if (clockStyle != 0) "com.android.systemui.clocks.hideclock" else "android",
-            "android"
-        )
-        themeUtils.setOverlayEnabled(
             "android.theme.customization.smartspace",
             if (clockStyle != 0) "com.android.systemui.hide.smartspace" else "com.android.systemui",
             "com.android.systemui"

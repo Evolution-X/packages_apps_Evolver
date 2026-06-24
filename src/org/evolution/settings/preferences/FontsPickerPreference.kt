@@ -316,12 +316,14 @@ class FontsPickerPreference @JvmOverloads constructor(
                                     if (old == CUSTOM_PKG_KEY) getApplied(themeUtils) else old,
                                     pkg
                                 ) {
+                                    if (old == CUSTOM_PKG_KEY) clearCustomFontState()
                                     updateSummary()
                                     SystemUtils.restartSystemUI(ctx)
                                 }
                             },
                             onLater = {
                                 mainHandler.post {
+                                    if (old == CUSTOM_PKG_KEY) clearCustomFontState()
                                     themeUtils.setOverlayEnabled(CATEGORY,
                                         if (old == CUSTOM_PKG_KEY) getApplied(themeUtils) else old, old)
                                     themeUtils.setOverlayEnabled(CATEGORY, pkg, "android")
@@ -336,6 +338,14 @@ class FontsPickerPreference @JvmOverloads constructor(
 
         override fun getItemCount(): Int =
             pkgs.size + (if (hasCustomFont) 1 else 0) + 1
+
+        private fun clearCustomFontState() {
+            customFontName = ""
+            hasCustomFont = false
+            this@FontsPickerPreference.customFontName = ""
+            this@FontsPickerPreference.hasCustomFont = false
+            Settings.Secure.putString(ctx.contentResolver, "custom_font_name", "")
+        }
 
         private fun getItemTypeForPosition(position: Int): Int {
             if (hasCustomFont && position == 0) return ITEM_TYPE_CUSTOM_ACTIVE
