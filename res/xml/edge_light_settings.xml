@@ -17,7 +17,8 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="edge_light_enabled"
-        android:title="@string/action_enable"
+        android:title="@string/edge_light_title"
+        android:summary="@string/edge_light_summary"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
@@ -40,6 +41,28 @@
         settings:min="2"
         settings:interval="2"
         settings:units="dp"
+        android:dependency="edge_light_enabled" />
+
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="edge_light_spread"
+        android:title="@string/edge_light_spread_title"
+        android:summary="@string/edge_light_spread_summary"
+        android:defaultValue="0"
+        android:max="60"
+        settings:min="0"
+        settings:interval="1"
+        settings:units="%"
+        android:dependency="edge_light_enabled" />
+
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="edge_light_intensity"
+        android:title="@string/edge_light_intensity_title"
+        android:summary="@string/edge_light_intensity_summary"
+        android:defaultValue="0"
+        android:max="100"
+        settings:min="0"
+        settings:interval="1"
+        settings:units="%"
         android:dependency="edge_light_enabled" />
 
     <org.evolution.settings.preferences.SystemSettingListPreference
