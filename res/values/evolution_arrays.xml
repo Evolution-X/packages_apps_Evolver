@@ -352,6 +352,7 @@
         <item>@string/status_bar_logo_style_ubuntu</item>
         <item>@string/status_bar_logo_style_mint</item>
         <item>@string/status_bar_logo_style_amogus</item>
+        <item>@string/status_bar_logo_style_custom</item>
     </string-array>
 
     <string-array name="statusbar_logo_drawables" translatable="false">
@@ -389,6 +390,20 @@
         <item>ic_ubuntu_logo</item>
         <item>ic_mint_logo</item>
         <item>ic_amogus</item>
+        <item>custom_image</item>
+    </string-array>
+
+    <!-- Statusbar logo color -->
+    <string-array name="status_bar_logo_color_entries" translatable="false">
+        <item>@string/status_bar_logo_color_default</item>
+        <item>@string/status_bar_logo_color_accent</item>
+        <item>@string/status_bar_logo_color_custom</item>
+    </string-array>
+    
+    <string-array name="status_bar_logo_color_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
     <!-- Status bar - Battery -->
@@ -1142,6 +1157,19 @@
     </string-array>
 
     <string-array name="nowplaying_icon_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- nowplaying color -->
+    <string-array name="nowplaying_color_mode_entries" translatable="false">
+        <item>White</item>
+        <item>Accent color</item>
+        <item>Album art</item>
+    </string-array>
+
+    <string-array name="nowplaying_color_mode_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
