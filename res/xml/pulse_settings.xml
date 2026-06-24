@@ -23,7 +23,8 @@
 
     <lineageos.preference.SecureSettingMainSwitchPreference
         android:key="lockscreen_pulse_enabled"
-        android:title="@string/action_enable"
+        android:title="@string/pulse_settings_title"
+        android:summary="@string/pulse_settings_summary"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SecureSettingSwitchPreference
