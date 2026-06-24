@@ -40,7 +40,7 @@
             android:defaultValue="false" />
 
         <!-- Flashlight on call -->
-        <org.evolution.settings.preferences.SystemSettingListPreference
+        <!--<org.evolution.settings.preferences.SystemSettingListPreference
             android:key="flashlight_on_call"
             android:title="@string/flashlight_on_call_title"
             android:entries="@array/flashlight_on_call_entries"
@@ -59,7 +59,7 @@
             android:defaultValue="1"
             android:max="5"
             settings:min="1"
-            settings:units="@string/unit_hz" />
+            settings:units="@string/unit_hz" />-->
 
     </PreferenceCategory>
 
@@ -67,7 +67,7 @@
         android:key="miscellaneous_general_category"
         android:title="@string/general_category_title">
 
-        <Preference
+        <!--<Preference
             android:key="sensor_block_settings"
             android:title="@string/sensor_block_title"
             android:summary="@string/sensor_block_summary"
@@ -89,7 +89,7 @@
             android:key="disable_flash_sms"
             android:title="@string/disable_flash_sms_title"
             android:summary="@string/disable_flash_sms_summary"
-            android:defaultValue="false"/>
+            android:defaultValue="false"/>-->
 
         <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
             android:key="smart_pixel_filter_enabled"
@@ -110,11 +110,11 @@
             android:summary="@string/usb_default_config_summary"
             android:fragment="com.android.settings.connecteddevice.usb.UsbDefaultFragment" />
 
-        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="no_storage_restrict"
             android:title="@string/no_storage_restrict_title"
             android:summary="@string/no_storage_restrict_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <org.evolution.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pairip.activity.block"
@@ -122,7 +122,7 @@
             android:summary="@string/miscellaneous_pairip_activity_block_summary"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="block_wallpaper_dimming"
             android:title="@string/miscellaneous_block_wallpaper_dimming_title"
             android:summary="@string/miscellaneous_block_wallpaper_dimming_summary"
@@ -132,7 +132,7 @@
             android:key="unlimit_screenrecord"
             android:title="@string/miscellaneous_unlimit_screenrecord_title"
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
             android:key="pm_downgrade_allowed"
