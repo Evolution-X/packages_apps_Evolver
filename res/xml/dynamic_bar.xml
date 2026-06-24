@@ -25,7 +25,8 @@
 
     <lineageos.preference.SecureSettingMainSwitchPreference
         android:key="ax_dynamic_bar_enabled"
-        android:title="@string/dynamic_bar_enable"
+        android:title="@string/dynamic_bar"
+        android:summary="@string/dynamic_bar_summary"
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SecureSettingSwitchPreference
@@ -60,13 +61,6 @@
             android:title="@string/dynamic_bar_event_media"
             android:summary="@string/dynamic_bar_event_media_summary"
             android:icon="@drawable/ic_music_note"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
-            android:key="event_call"
-            android:title="@string/dynamic_bar_event_call"
-            android:summary="@string/dynamic_bar_event_call_summary"
-            android:icon="@drawable/ic_call_ring"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat

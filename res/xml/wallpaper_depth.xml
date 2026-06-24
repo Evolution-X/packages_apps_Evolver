@@ -21,7 +21,8 @@
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="depth_wallpaper_enabled"
-        android:title="@string/action_enable"
+        android:title="@string/dw_wallpaper_enabled_title"
+        android:summary="@string/dw_wallpaper_enabled_summary"
         android:defaultValue="false" />
 
     <Preference
