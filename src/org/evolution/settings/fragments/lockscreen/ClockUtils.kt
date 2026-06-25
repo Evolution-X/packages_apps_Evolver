@@ -96,6 +96,10 @@ object ClockUtils {
         R.layout.keyguard_clock_galada, // 83
         R.layout.keyguard_clock_cos1, // 84
         R.layout.keyguard_clock_cos2, // 85
+        R.layout.keyguard_clock_neu, // 86
+        R.layout.keyguard_clock_neu2, // 87
+        R.layout.keyguard_clock_neu3, // 88
+        R.layout.keyguard_clock_badeen, // 89
     )
 
     fun getClockNames(): Array<String> {
@@ -185,7 +189,11 @@ object ClockUtils {
             "Modak",
             "Galada",
             "COS 1",
-            "COS 2"
+            "COS 2",
+            "Neu",
+            "Neu2",
+            "Neu3",
+            "Badeen"
         )
     }
 }
