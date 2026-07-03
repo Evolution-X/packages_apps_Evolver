@@ -37,7 +37,7 @@
     <string name="notifications_flashlight_category">Lanterna</string>
     <string name="status_bar_features_category">Recursos</string>
     <!-- Themes -->
-    <string name="themes_monet_category">Monet</string>
+    <string name="themes_monet_category">Tema Monet</string>
     <string name="themes_monet_title">Configurações do tema Monet</string>
     <string name="themes_monet_summary">Personalize o mecanismo de tema integrado do Android</string>
     <string name="themes_audio_category">Áudio</string>
@@ -283,7 +283,7 @@
     <string name="keyguard_scrim_transparent_title">Tela de bloqueio transparente</string>
     <string name="keyguard_scrim_transparent_summary">Ocultar a camada de escurecimento do papel de parede da tela de bloqueio</string>
     <!-- Lock screen/Smartspace -->
-    <string name="lockscreen_smartspace_title">Smartspace</string>
+    <string name="lockscreen_smartspace_title">Espaço inteligente</string>
     <string name="lockscreen_smartspace_summary">Mostrar Google Smartspace quando disponível</string>
     <!-- Lock screen/Depth wallpaper -->
     <string name="dw_wallpaper_enabled_title">Papel de parede de profundidade</string>
@@ -1101,7 +1101,7 @@
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Correção de Integridade do Google Play</string>
     <string name="play_integrity_fix_summary">Gerencie a configuração do PIF e as impressões digitais do dispositivo para obter integridade básica</string>
-    <string name="pif_status">Status</string>
+    <string name="pif_status">Estado</string>
     <string name="pif_active_config">Configuração ativa</string>
     <string name="pif_no_config">Nenhuma configuração carregada</string>
     <string name="pif_config_loaded">Configuração carregada</string>
