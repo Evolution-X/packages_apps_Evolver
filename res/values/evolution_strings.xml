@@ -582,6 +582,10 @@
     <string name="status_bar_clock_date_position">Date position</string>
     <string name="status_bar_clock_date_right">Right of time</string>
     <string name="status_bar_clock_date_left">Left of time</string>
+    <string name="status_bar_clock_period_separator_title">Period separator</string>
+    <string name="status_bar_clock_period_separator_summary">Show the time with a period instead of a colon (10.45 instead of 10:45)</string>
+    <string name="status_bar_clock_bold_title">Bold clock</string>
+    <string name="status_bar_clock_bold_summary">Show the status bar clock in bold text</string>
     <string name="statusbar_clock_chip_title">Clock background chip</string>
     <string name="solid_accent">Solid accent</string>
     <string name="outline">Outline</string>
