@@ -882,13 +882,50 @@ class TrickyStore : SettingsPreferenceFragment() {
             .show()
     }
 
+    /**
+     * Returns true if [value] is valid security_patch.txt content.
+     * Accepts:
+     *   - A single YYYY-MM-DD date
+     *   - A YYYY-MM-<DD> template (e.g. "YYYY-MM-05")
+     *   - Multi-line per-package block format:
+     *       [com.package.name]
+     *       system=no
+     *       all=2026-07-05
+     */
+    private fun isValidPatchContent(value: String): Boolean {
+        val dateRe    = Regex("""\d{4}-\d{2}-\d{2}""")
+        val templateRe = Regex("""YYYY-MM-\d{2}""")
+        if (dateRe.matches(value.trim())) return true
+        if (templateRe.matches(value.trim())) return true
+        return value.lines()
+            .filter { it.isNotBlank() && !it.trim().startsWith("#") }
+            .all { line ->
+                val t = line.trim()
+                when {
+                    t.startsWith("[") && t.endsWith("]") -> true  // section header
+                    t.contains("=") -> {
+                        val v = t.substringAfter("=").trim()
+                        dateRe.matches(v) ||
+                        templateRe.matches(v) ||
+                        v.equals("no", ignoreCase = true) ||
+                        v.equals("prop", ignoreCase = true)
+                    }
+                    else -> false
+                }
+            }
+    }
+
     private fun showPatchDateDialog() {
-        val current =
-            Settings.Secure.getString(requireContext().contentResolver, PATCH_KEY) ?: ""
+        val current = Settings.Secure.getString(
+            requireContext().contentResolver, PATCH_KEY) ?: ""
         val input = android.widget.EditText(requireContext()).apply {
             setText(current)
             hint = getString(R.string.ts_patch_date_hint)
-            inputType = android.text.InputType.TYPE_CLASS_TEXT
+            inputType = android.text.InputType.TYPE_CLASS_TEXT or
+                android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE
+            minLines = 3
+            maxLines = 10
+            setHorizontallyScrolling(false)
             setPadding(48, 24, 48, 24)
         }
         val dialog = AlertDialog.Builder(requireContext())
@@ -905,7 +942,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         dialog.setOnShowListener {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 val value = input.text.toString().trim()
-                if (value.isNotEmpty() && !value.matches(Regex("""\d{4}-\d{2}-\d{2}"""))) {
+                if (value.isNotEmpty() && !isValidPatchContent(value)) {
                     toast(getString(R.string.ts_invalid_patch_date))
                     return@setOnClickListener
                 }
@@ -914,9 +951,7 @@ class TrickyStore : SettingsPreferenceFragment() {
                 refreshStatus()
                 dialog.dismiss()
             }
-            if (current.isEmpty()) {
-                dialog.getButton(AlertDialog.BUTTON_NEUTRAL).isEnabled = false
-            }
+            dialog.getButton(AlertDialog.BUTTON_NEUTRAL).isEnabled = current.isNotEmpty()
         }
         dialog.show()
     }
