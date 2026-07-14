@@ -114,15 +114,25 @@ class TrickyStoreAppSettings : SettingsPreferenceFragment() {
             "com.google.android.apps.nbu.paisa.user",
         )
         val DEFAULT_TARGET_MODES = mapOf(
-            // Revolut — your original default, sourced from your own target.txt
-            "com.revolut.revolut"             to TargetMode.CERT_GEN,
-            // Specter FIXED_TARGETS with explicit LEAF_HACK suffix
-            "io.github.qwq233.keyattestation" to TargetMode.LEAF_HACK,
-            "com.eltavine.duckdetector"       to TargetMode.LEAF_HACK,
-            "com.rem01gaming.disclosure"      to TargetMode.LEAF_HACK,
-            "wu.keyChain.test"                to TargetMode.LEAF_HACK,
-            "com.kikyps.crackme"              to TargetMode.LEAF_HACK,
-            "com.chunqiunativecheck"          to TargetMode.LEAF_HACK,
+            // Revolut — cert gen (original EvoX default)
+            "com.revolut.revolut"               to TargetMode.CERT_GEN,
+            // Key attestation checkers — leaf hack
+            "io.github.qwq233.keyattestation"   to TargetMode.LEAF_HACK,
+            "io.github.vvb2060.keyattestation"  to TargetMode.LEAF_HACK,
+            // TEE-SIM bundled target.txt defaults
+            "io.github.vvb2060.mahoshojo"       to TargetMode.LEAF_HACK,
+            "icu.nullptr.nativetest"            to TargetMode.LEAF_HACK,
+            "com.reveny.nativecheck"            to TargetMode.LEAF_HACK,
+            "com.zhenxi.hunter"                 to TargetMode.LEAF_HACK,
+            "com.android.nativetest"            to TargetMode.LEAF_HACK,
+            "io.liankong.riskdetector"          to TargetMode.LEAF_HACK,
+            "luna.safe.luna"                    to TargetMode.LEAF_HACK,
+            // Specter FIXED_TARGETS
+            "com.eltavine.duckdetector"         to TargetMode.LEAF_HACK,
+            "com.rem01gaming.disclosure"        to TargetMode.LEAF_HACK,
+            "wu.keyChain.test"                  to TargetMode.LEAF_HACK,
+            "com.kikyps.crackme"                to TargetMode.LEAF_HACK,
+            "com.chunqiunativecheck"            to TargetMode.LEAF_HACK,
         )
     }
 
