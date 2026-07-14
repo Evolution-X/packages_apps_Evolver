@@ -102,6 +102,7 @@ object ClockUtils {
         R.layout.keyguard_clock_badeen, // 89
         R.layout.keyguard_clock_space_age, // 90
         R.layout.keyguard_clock_polyline, // 91
+        R.layout.keyguard_clock_oppo, // 92
     )
 
     fun getClockNames(): Array<String> {
@@ -197,7 +198,8 @@ object ClockUtils {
             "Neu3",
             "Badeen",
             "Space age",
-            "Poly line"
+            "Poly line",
+            "Big clock"
         )
     }
 }
