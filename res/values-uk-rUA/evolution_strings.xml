@@ -1066,7 +1066,7 @@
     <string name="idle_manager_policy_balanced_desc">Реагуйте на програми, які не використовувалися протягом 60 хвилин.</string>
     <string name="idle_manager_policy_aggressive_desc">Виконуйте дії з програмами, які не працюють протягом 15 хвилин. Рекомендовано для економії заряду батареї.</string>
     <string name="idle_manager_policy_custom_desc">Встановіть свій час бездіяльності.</string>
-    <string name="idle_manager_timeout_minutes">Timeout: %1$d min</string>
+    <string name="idle_manager_timeout_minutes">Тайм-аут: %1$d хв</string>
     <string name="idle_manager_timeout_label">Час очікування</string>
     <string name="idle_manager_policy_label">Правила</string>
     <string name="idle_manager_enforcement_action">Дії примусового захисту</string>
