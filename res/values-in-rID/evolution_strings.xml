@@ -71,7 +71,7 @@
     <string name="themes_udfps_animation_summary">Setel gaya animasi Sidik Jari Dalam Layar</string>
     <string name="themes_launcher_category">Pixel Launcher</string>
     <string name="themes_launcher_background_blur_title">Latar belakang blur</string>
-    <string name="themes_launcher_background_blur_summary">Aktifkan Efek Buram Latar Belakang Terkini</string>
+    <string name="themes_launcher_background_blur_summary">Aktifkan Efek Blur Latar Belakang Terkini</string>
     <string name="themes_launcher_more_themed_icons_title">Lebih banyak ikon bertema</string>
     <string name="themes_launcher_more_themed_icons_summary">Memperluas dukungan untuk ikon bertema warna dinamis untuk aplikasi yang terpasang</string>
     <string name="themes_launcher_force_new_search_bar">Bilah pencarian yang diperbarui</string>
@@ -250,7 +250,7 @@
     <string name="lockscreen_weather_humidity_info_summary">Tampilkan persentase kelembapan saat ini</string>
     <!-- Lock screen/AOD -->
     <string name="aod_display_category_title">Tampilan selalu aktif (AOD)</string>
-    <string name="aod_pulse_category_title">Pulse/Doze</string>
+    <string name="aod_pulse_category_title">Denyut/Doze</string>
     <string name="lockscreen_custom_image_enabled_title">Gambar AOD</string>
     <string name="lockscreen_custom_image_title">Pilih gambar AOD</string>
     <string name="lockscreen_custom_image_summary">Atur gambar kustom untuk tampilan selalu aktif</string>
@@ -348,7 +348,7 @@
     <string name="status_bar_battery_style_icon_landscape_style_b">Mendatar kiri Gaya B</string>
     <string name="status_bar_battery_style_icon_landscape_ios15">Gaya iOS 15</string>
     <string name="status_bar_battery_style_icon_landscape_ios16">Gaya iOS 16</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">Landscape Origami</string>
+    <string name="status_bar_battery_style_icon_landscape_origami">Lanskap Origami</string>
     <string name="status_bar_battery_style_icon_landscape_oneui7">Landskap OneUI 7</string>
     <string name="status_bar_battery_style_circle">Lingkaran</string>
     <string name="status_bar_battery_style_dotted_circle">Lingkaran putus-putus</string>
@@ -690,7 +690,7 @@
     <string name="quick_settings_panel_style_color_pop">Warna mencolok</string>
     <string name="quick_settings_panel_style_shaded">Berbayang</string>
     <string name="quick_settings_panel_style_cyberpunk">Cyberpunk</string>
-    <string name="quick_settings_panel_style_neumorph">Neumorph</string>
+    <string name="quick_settings_panel_style_neumorph">Neumorfisme</string>
     <string name="quick_settings_panel_style_reflected">Terpantul</string>
     <string name="quick_settings_panel_style_surround">Mengelilingi</string>
     <string name="quick_settings_panel_style_thin">Garis tipis</string>
@@ -973,7 +973,7 @@
     <string name="spoofing_integrity_category">Integritas Play</string>
     <string name="spoofing_identity_category">Identitas Perangkat</string>
     <string name="spoofing_features_category">Fitur Perangkat Keras</string>
-    <string name="spoofing_pixel_props_title">Pixel props</string>
+    <string name="spoofing_pixel_props_title">Properti Pixel</string>
     <string name="spoofing_pixel_props_summary">Lakukan pemalsuan pada aplikasi tertentu seolah-olah perangkat Pixel untuk membuka fitur eksklusif Pixel</string>
     <string name="spoofing_app_specific_category">Penggantian khusus aplikasi</string>
     <string name="spoofing_photos_title">Pemalsuan Google Foto</string>
@@ -1224,8 +1224,8 @@
     <string name="wallpaper_effect_target_title">Terapkan efek ke</string>
     <string name="wallpaper_dim_title">Efek redup</string>
     <string name="wallpaper_dim_level_title">Tingkat redup</string>
-    <string name="glass_blur">Glass blur</string>
-    <string name="frosted_blur">Frosted blur</string>
+    <string name="glass_blur">Blur kaca</string>
+    <string name="frosted_blur">Blur beku</string>
     <string name="wallpaper_dim_level_summary">Konfigurasikan tingkat redup wallpaper</string>
     <string name="wallpaper_styles_footer">Agar gaya wallpaper berfungsi efektif, atur wallpaper layar kunci dan layar beranda secara terpisah. Menggunakan gambar yang sama tidak masalah, tetapi hindari menerapkannya ke keduanya secara bersamaan. Ini tidak diperlukan saat menggunakan opsi \"Keduanya\" untuk gaya buram atau redup.</string>
     <string name="wallpaper_performance_warning">⚠ Pemberitahuan kinerja: Efek ini membutuhkan banyak sumber daya dan dapat memengaruhi kinerja pada perangkat kelas bawah. Efek ini dapat menyebabkan lag, boros baterai, atau tersendat pada ponsel lama.</string>
@@ -1324,7 +1324,7 @@
     <string name="aosp_style">AOSP default</string>
     <string name="double_layer_style">Lapis Ganda</string>
     <string name="gradient_style">Gradasi</string>
-    <string name="neumorph_style">Neumorph</string>
+    <string name="neumorph_style">Neumorfisme</string>
     <string name="neumorph_outline_style">Garis Luar Neumorph</string>
     <string name="outline_style">Garis luar</string>
     <string name="shaded_layer_style">Lapisan berbayang</string>
