@@ -155,7 +155,7 @@
     <string name="pulse_renderer_retro_vu_meter">Miernik głośności w stylu retro</string>
     <string name="pulse_renderer_minimal_wave">Minimalna fala</string>
     <string name="pulse_renderer_sparkle">Iskierki</string>
-    <string name="pulse_renderer_matrix">Matryca</string>
+    <string name="pulse_renderer_matrix">Matrix</string>
     <string name="pulse_renderer_particle">Cząsteczka</string>
     <string name="pulse_renderer_waveform">Fala</string>
     <string name="pulse_show_on_ambient_title">Pokaż na ekranie otoczenia</string>
@@ -480,7 +480,7 @@
     <string name="status_bar_logo_style_ironman">Iron Man</string>
     <string name="status_bar_logo_style_captain_america">Kapitan Ameryka</string>
     <string name="status_bar_logo_style_flash">Błysk</string>
-    <string name="status_bar_logo_style_tux">Smoking</string>
+    <string name="status_bar_logo_style_tux">Tux</string>
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Among Us</string>
@@ -825,7 +825,7 @@
     <string name="qs_split_shade_enabled_summary">Włącz eksperymentalny podzielony panel szybkich ustawień w poziomie. Może powodować problemy z wyskakującymi powiadomieniami w poziomie</string>
     <string name="qs_header_clock_style_title">Styl zegara w nagłówku szybkich ustawień</string>
     <string name="qs_header_style1">Znacznik</string>
-    <string name="qs_header_style2">Tlen</string>
+    <string name="qs_header_style2">Oxygen</string>
     <string name="qs_header_style3">Analogowy</string>
     <string name="qs_header_style4">Prosty</string>
     <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimediów</string>
@@ -1386,7 +1386,7 @@
     <string name="about_current_maintainers_empty_summary">Nie można znaleźć aktualnie utrzymywanych wpisów z kompilacji OTA</string>
     <string name="about_current_maintainers_last_updated">Ostatnia aktualizacja %1$s</string>
     <string name="about_current_maintainers_last_updated_unknown">Ostatnia aktualizacja: nieznana</string>
-    <string name="about_current_maintainers_tap_to_view">Dotknij, aby wyświetlić aktywnych opiekunów</string>
+    <string name="about_current_maintainers_tap_to_view">Naciśnij, aby wyświetlić aktywnych opiekunów</string>
     <string name="about_current_maintainers_sheet_subtitle">%1$d aktywnych opiekunów</string>
     <string name="about_current_maintainers_search_hint">Wyszukaj opiekunów lub urządzenia…</string>
     <string name="about_current_maintainers_no_results">Brak opiekunów odpowiadających twojemu wyszukiwaniu</string>
