@@ -52,6 +52,9 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
 
     private static final String KEY_CLOCK_PREVIEW = "clock_preview";
     private static final String KEY_CLOCK_COLOR = ClockColorPickerDialogFragment.KEY_CLOCK_COLOR;
+    private static final String KEY_GRADIENT_ENABLED = "lock_screen_custom_clock_gradient_enabled";
+    private static final String KEY_GRADIENT_COLOR_START = "lock_screen_custom_clock_gradient_color_start";
+    private static final String KEY_GRADIENT_COLOR_END = "lock_screen_custom_clock_gradient_color_end";
 
     private ViewPager viewPager;
     private ClockPagerAdapter pagerAdapter;
@@ -60,6 +63,8 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
     private TextView clockNameTextView;
 
     private Preference mClockColorPref;
+    private Preference mGradientColorStartPref;
+    private Preference mGradientColorEndPref;
 
     private int mClockPosition = 0;
 
@@ -83,6 +88,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
         super.onViewCreated(view, savedInstanceState);
         setupClockPreview();
         setupClockColorPref();
+        setupGradientPrefs();
     }
 
     private void setupClockColorPref() {
@@ -97,6 +103,48 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
             dialog.show(getChildFragmentManager(), ClockColorPickerDialogFragment.TAG);
             return true;
         });
+    }
+
+    private void setupGradientPrefs() {
+        mGradientColorStartPref = findPreference(KEY_GRADIENT_COLOR_START);
+        mGradientColorEndPref = findPreference(KEY_GRADIENT_COLOR_END);
+
+        updateGradientColorSummary(mGradientColorStartPref, KEY_GRADIENT_COLOR_START, 0xFF00E5FF);
+        updateGradientColorSummary(mGradientColorEndPref, KEY_GRADIENT_COLOR_END, 0xFFFF2DAA);
+
+        if (mGradientColorStartPref != null) {
+            mGradientColorStartPref.setOnPreferenceClickListener(pref -> {
+                showGradientColorDialog(KEY_GRADIENT_COLOR_START, 0xFF00E5FF,
+                        getString(R.string.lockscreen_custom_clock_gradient_start_title),
+                        mGradientColorStartPref);
+                return true;
+            });
+        }
+        if (mGradientColorEndPref != null) {
+            mGradientColorEndPref.setOnPreferenceClickListener(pref -> {
+                showGradientColorDialog(KEY_GRADIENT_COLOR_END, 0xFFFF2DAA,
+                        getString(R.string.lockscreen_custom_clock_gradient_end_title),
+                        mGradientColorEndPref);
+                return true;
+            });
+        }
+    }
+
+    private void showGradientColorDialog(String key, int defaultArgb, String title, Preference target) {
+        ClockColorPickerDialogFragment dialog =
+                ClockColorPickerDialogFragment.newInstance(key, defaultArgb, title);
+        dialog.setOnColorAppliedListener(() -> {
+            updateGradientColorSummary(target, key, defaultArgb);
+            return kotlin.Unit.INSTANCE;
+        });
+        dialog.show(getChildFragmentManager(), ClockColorPickerDialogFragment.TAG);
+    }
+
+    private void updateGradientColorSummary(Preference pref, String key, int defaultArgb) {
+        if (pref == null || getContext() == null) return;
+        int argb = Settings.Secure.getIntForUser(
+                getContext().getContentResolver(), key, defaultArgb, UserHandle.USER_CURRENT);
+        pref.setSummary(String.format("#%06X", argb & 0x00FFFFFF));
     }
 
     private void updateClockColorSummary() {
@@ -216,6 +264,8 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
         super.onResume();
         updateClockName(mClockPosition);
         updateClockColorSummary();
+        updateGradientColorSummary(mGradientColorStartPref, KEY_GRADIENT_COLOR_START, 0xFF00E5FF);
+        updateGradientColorSummary(mGradientColorEndPref, KEY_GRADIENT_COLOR_END, 0xFFFF2DAA);
     }
 
     private class ClockPagerAdapter extends PagerAdapter {
