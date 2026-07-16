@@ -118,6 +118,12 @@
             android:fragment="org.evolution.settings.fragments.miscellaneous.SmartPixels"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="screenshot_clipboard_only"
+            android:title="@string/screenshot_clipboard_only_title"
+            android:summary="@string/screenshot_clipboard_only_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
