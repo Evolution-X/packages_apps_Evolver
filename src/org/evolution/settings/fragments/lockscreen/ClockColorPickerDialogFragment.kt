@@ -33,10 +33,18 @@ import org.evolution.settings.utils.ClockColorPickerDialog
 class ClockColorPickerDialogFragment : DialogFragment() {
 
     private var onColorApplied: (() -> Unit)? = null
+    private var targetKey: String = KEY_CLOCK_COLOR
+    private var defaultArgb: Int = DEFAULT_COLOR_ARGB
+    private var dialogTitle: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, android.R.style.Theme_Material_Dialog_NoActionBar)
+        arguments?.let { args ->
+            targetKey = args.getString(ARG_KEY, KEY_CLOCK_COLOR)
+            defaultArgb = args.getInt(ARG_DEFAULT_ARGB, DEFAULT_COLOR_ARGB)
+            dialogTitle = args.getString(ARG_TITLE)
+        }
     }
 
     override fun onCreateView(
@@ -46,8 +54,8 @@ class ClockColorPickerDialogFragment : DialogFragment() {
     ): View {
         val storedArgb = Settings.Secure.getIntForUser(
             requireContext().contentResolver,
-            KEY_CLOCK_COLOR,
-            DEFAULT_COLOR_ARGB,
+            targetKey,
+            defaultArgb,
             UserHandle.USER_CURRENT
         )
         val initialHex = String.format("%06X", storedArgb and 0x00FFFFFF)
@@ -58,6 +66,7 @@ class ClockColorPickerDialogFragment : DialogFragment() {
                 SettingsTheme {
                     ClockColorPickerDialog(
                         initialColor = initialHex,
+                        title = dialogTitle,
                         onDismiss = { dismiss() },
                         onColorSelected = { color ->
                             persistColor(color)
@@ -74,7 +83,7 @@ class ClockColorPickerDialogFragment : DialogFragment() {
         val argb = (color.toArgb() and 0x00FFFFFF) or 0xFF000000.toInt()
         Settings.Secure.putIntForUser(
             requireContext().contentResolver,
-            KEY_CLOCK_COLOR,
+            targetKey,
             argb,
             UserHandle.USER_CURRENT
         )
@@ -91,7 +100,24 @@ class ClockColorPickerDialogFragment : DialogFragment() {
 
         const val DEFAULT_COLOR_ARGB = 0xFFFFFFFF.toInt()
 
+        private const val ARG_KEY = "arg_key"
+        private const val ARG_DEFAULT_ARGB = "arg_default_argb"
+        private const val ARG_TITLE = "arg_title"
+
         @JvmStatic
         fun newInstance(): ClockColorPickerDialogFragment = ClockColorPickerDialogFragment()
+
+        @JvmStatic
+        fun newInstance(
+            key: String,
+            defaultArgb: Int = DEFAULT_COLOR_ARGB,
+            title: String? = null,
+        ): ClockColorPickerDialogFragment = ClockColorPickerDialogFragment().apply {
+            arguments = Bundle().apply {
+                putString(ARG_KEY, key)
+                putInt(ARG_DEFAULT_ARGB, defaultArgb)
+                title?.let { putString(ARG_TITLE, it) }
+            }
+        }
     }
 }
