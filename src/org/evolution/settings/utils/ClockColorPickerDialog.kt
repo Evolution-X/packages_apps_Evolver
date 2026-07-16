@@ -74,6 +74,7 @@ private enum class ClockColorTab { PRESET, WALLPAPER, CUSTOM }
 @Composable
 fun ClockColorPickerDialog(
     initialColor: String = "FFFFFF",
+    title: String? = null,
     onDismiss: () -> Unit,
     onColorSelected: (Color) -> Unit
 ) {
@@ -137,7 +138,7 @@ fun ClockColorPickerDialog(
                     .width(340.dp)
             ) {
                 Text(
-                    text = "Clock Color",
+                    text = title ?: "Clock Color",
                     style = MaterialTheme.typography.headlineSmall,
                     modifier = Modifier.padding(bottom = 12.dp)
                 )
