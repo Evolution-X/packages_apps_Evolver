@@ -221,6 +221,15 @@
     <string name="lockscreen_custom_clock_size_summary">Scale the lock screen clock (50–150%)</string>
     <string name="lockscreen_custom_clock_aod_anim_title">Custom clock AOD animation</string>
     <string name="lockscreen_custom_clock_aod_anim_summary">Set AOD animation for custom clock style</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_title">Gradient text</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Apply a two-color gradient to clock text instead of a flat color. Override other color mode</string>
+    <string name="lockscreen_custom_clock_gradient_start_title">Gradient start color</string>
+    <string name="lockscreen_custom_clock_gradient_end_title">Gradient end color</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_title">Gradient anchor</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_summary">Control where the gradient is vertically centered</string>
+    <string name="lockscreen_custom_clock_gradient_radius_title">Gradient spread</string>
+    <string name="lockscreen_custom_clock_gradient_radius_summary">Control how far the gradient spreads from its anchor point</string>
+    <string name="unit_degrees">°</string>
 
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">Album art color clocks</string>
