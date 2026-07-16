@@ -1809,4 +1809,8 @@
     <string name="global_actions_use_compose_dialog_summary">Use the new power menu with a customizable, draggable tile layout. Disable to use the classic power menu.</string>
     <string name="global_actions_advanced_reboot_title">Enable Advanced Reboot</string>
     <string name="global_actions_advanced_reboot_summary">Unlocks a new dialog that allows advanced rebooting</string>
+
+    <!-- Screenshots to clipboard -->
+    <string name="screenshot_clipboard_only_title">Copy to clipboard only</string>
+    <string name="screenshot_clipboard_only_summary">Copy screenshot to clipboard instead of saving in storage</string>
 </resources>
