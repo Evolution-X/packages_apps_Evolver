@@ -60,6 +60,46 @@
         android:summary="@string/custom_color_summary"
         android:persistent="false" />
 
+    <org.evolution.settings.preferences.SecureSettingSwitchPreference
+        android:key="lock_screen_custom_clock_gradient_enabled"
+        android:title="@string/lockscreen_custom_clock_gradient_enabled_title"
+        android:summary="@string/lockscreen_custom_clock_gradient_enabled_summary"
+        android:defaultValue="false" />
+
+    <Preference
+        android:key="lock_screen_custom_clock_gradient_color_start"
+        android:title="@string/lockscreen_custom_clock_gradient_start_title"
+        android:summary="@string/custom_color_summary"
+        android:persistent="false"
+        android:dependency="lock_screen_custom_clock_gradient_enabled" />
+
+    <Preference
+        android:key="lock_screen_custom_clock_gradient_color_end"
+        android:title="@string/lockscreen_custom_clock_gradient_end_title"
+        android:summary="@string/custom_color_summary"
+        android:persistent="false"
+        android:dependency="lock_screen_custom_clock_gradient_enabled" />
+
+    <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+        android:key="lock_screen_custom_clock_gradient_anchor_y"
+        android:title="@string/lockscreen_custom_clock_gradient_anchor_y_title"
+        android:summary="@string/lockscreen_custom_clock_gradient_anchor_y_summary"
+        android:defaultValue="50"
+        android:max="100"
+        settings:min="0"
+        settings:units="%"
+        android:dependency="lock_screen_custom_clock_gradient_enabled" />
+
+    <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+        android:key="lock_screen_custom_clock_gradient_radius"
+        android:title="@string/lockscreen_custom_clock_gradient_radius_title"
+        android:summary="@string/lockscreen_custom_clock_gradient_radius_summary"
+        android:defaultValue="100"
+        android:max="200"
+        settings:min="25"
+        settings:units="%"
+        android:dependency="lock_screen_custom_clock_gradient_enabled" />
+
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference
         android:key="lock_screen_custom_clock_opacity"
         android:title="@string/lockscreen_custom_clock_opacity_title"
