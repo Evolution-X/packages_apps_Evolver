@@ -7,8 +7,9 @@ package org.evolution.settings.fragments.about;
 import android.annotation.Nullable;
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Bundle;
 import android.graphics.Typeface;
+import android.os.Build;
+import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -25,8 +26,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -34,7 +35,9 @@ public class ChangelogFragment extends SettingsPreferenceFragment {
 
     TextView textView;
 
-    private static final String CHANGELOG_PATH = "https://raw.githubusercontent.com/Evolution-X/changelog/refs/heads/bka/changelogs/LATEST.txt";
+    private static final String[] BRANCH_PRIORITY = {"cnb", "bka", "vic", "udc"};
+    private static final String CHANGELOG_URL_TEMPLATE =
+            "https://raw.githubusercontent.com/Evolution-X/OTA/%s/changelogs/%s.txt";
 
     private int getThemeColor(Context context, int attr) {
         TypedValue typedValue = new TypedValue();
@@ -56,42 +59,37 @@ public class ChangelogFragment extends SettingsPreferenceFragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-	final Context context = view.getContext();
+        final Context context = view.getContext();
+        final String device = Build.DEVICE;
 
         textView = view.findViewById(R.id.changelog_text);
 
         new Thread(() -> {
-            InputStreamReader inputReader = null;
-            StringBuilder data = new StringBuilder();
+            String data = null;
+
+            for (String branch : BRANCH_PRIORITY) {
+                final String url = String.format(CHANGELOG_URL_TEMPLATE, branch, device);
+                data = fetchChangelog(url);
+                if (data != null) {
+                    break;
+                }
+            }
+
+            if (data == null) {
+                textView.post(() -> textView.setText(R.string.changelog_error));
+                return;
+            }
 
             Pattern date = Pattern.compile("(={20}|\\d{4}-\\d{2}-\\d{2})");
             Pattern commit = Pattern.compile("([a-f0-9]{7})");
             Pattern committer = Pattern.compile("\\[(\\D.*?)]");
             Pattern title = Pattern.compile("(\\R\\s+[\\*]\\s.*)");
-	    Pattern notableRomChanges = Pattern.compile("(?m)^Notable ROM changes.*$");
-
-            try {
-                char tmp[] = new char[2048];
-                int numRead;
-                inputReader = new InputStreamReader(new URL(CHANGELOG_PATH).openStream());
-                while ((numRead = inputReader.read(tmp)) >= 0) {
-                    data.append(tmp, 0, numRead);
-                }
-            } catch (IOException e) {
-                textView.post(() -> textView.setText(R.string.changelog_error));
-                return;
-            } finally {
-                try {
-                    if (inputReader != null) inputReader.close();
-                } catch (IOException e) {}
-            }
+            Pattern notableRomChanges = Pattern.compile("(?m)^Notable ROM changes.*$");
 
             SpannableStringBuilder sb = new SpannableStringBuilder(data);
 
-            Resources.Theme theme = context.getTheme();
-
- 	    final int color = getThemeColor(context, android.R.attr.colorAccent);
-     		final int textColor = getThemeColor(context, android.R.attr.textColorPrimary);
+            final int color = getThemeColor(context, android.R.attr.colorAccent);
+            final int textColor = getThemeColor(context, android.R.attr.textColorPrimary);
 
             sb.setSpan(new ForegroundColorSpan(textColor), 0, sb.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
@@ -126,6 +124,27 @@ public class ChangelogFragment extends SettingsPreferenceFragment {
             final SpannableStringBuilder result = sb;
             textView.post(() -> textView.setText(result));
         }).start();
+    }
+
+    @Nullable
+    private String fetchChangelog(String urlString) {
+        InputStreamReader inputReader = null;
+        StringBuilder data = new StringBuilder();
+        try {
+            char[] tmp = new char[2048];
+            int numRead;
+            inputReader = new InputStreamReader(new URL(urlString).openStream());
+            while ((numRead = inputReader.read(tmp)) >= 0) {
+                data.append(tmp, 0, numRead);
+            }
+            return data.toString();
+        } catch (IOException e) {
+            return null;
+        } finally {
+            try {
+                if (inputReader != null) inputReader.close();
+            } catch (IOException e) {}
+        }
     }
 
     @Override
