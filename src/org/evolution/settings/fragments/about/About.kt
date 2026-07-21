@@ -43,16 +43,23 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
         private const val KEY_CURRENT_MAINTAINERS = "current_maintainers"
 
-        private const val OTA_TREE_API =
-            "https://api.github.com/repos/Evolution-X/OTA/git/trees/bka?recursive=1"
-        private const val OTA_RAW_BASE =
-            "https://raw.githubusercontent.com/Evolution-X/OTA/bka/"
+        private const val OTA_TREE_API_TEMPLATE =
+            "https://api.github.com/repos/Evolution-X/OTA/git/trees/%s?recursive=1"
+        private const val OTA_RAW_BASE_TEMPLATE =
+            "https://raw.githubusercontent.com/Evolution-X/OTA/%s/"
+
+        // Branch lookup order for OTA maintainer resolution. CNB (Android 17) is
+        // tried first; bka (Android 16) and vic (Android 15) are legacy fallbacks
+        // for maintainers who don't yet have a published CNB entry. A maintainer
+        // who already has a CNB entry is never shadowed by a bka/vic entry for the
+        // same key, even if that lower-priority entry covers different devices.
+        private val OTA_BRANCHES = listOf("cnb", "bka", "vic")
 
         private const val PREFS_NAME = "about_ota_maintainers_cache"
         private const val PREF_ENTRIES_JSON = "entries_json"
         private const val PREF_LAST_UPDATED = "last_updated"
         private const val PREF_PAYPAL_JSON = "paypal_json"
-        private const val CACHE_KEY_TREE = "ota_tree"
+        private const val CACHE_KEY_TREE_PREFIX = "ota_tree_"
 
         @JvmField
         val SEARCH_INDEX_DATA_PROVIDER =
@@ -64,7 +71,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
     private lateinit var mAvatarLoader: GithubAvatarLoader
     private lateinit var mPrefs: SharedPreferences
-    private lateinit var mTreeCache: HttpCachePrefs
+    private lateinit var mTreeCaches: Map<String, HttpCachePrefs>
 
     @Volatile private var mDestroyed = false
 
@@ -85,7 +92,9 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         }
 
         mPrefs = requireContext().getSharedPreferences(PREFS_NAME, android.content.Context.MODE_PRIVATE)
-        mTreeCache = HttpCachePrefs(mPrefs, CACHE_KEY_TREE)
+        mTreeCaches = OTA_BRANCHES.associateWith { branch ->
+            HttpCachePrefs(mPrefs, CACHE_KEY_TREE_PREFIX + branch)
+        }
         mAvatarLoader = GithubAvatarLoader.getInstance()
 
         val avatarMap = linkedMapOf(
@@ -135,7 +144,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
             isLoading = mCachedMaintainerList.isEmpty()
         }
         sheet.show(parentFragmentManager, CurrentMaintainersSheet.TAG)
-        mTreeCache.invalidate()
+        mTreeCaches.values.forEach { it.invalidate() }
         loadCurrentMaintainers(notifySheet = true)
     }
 
@@ -153,16 +162,17 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         }
 
         val hasCache = cached.isNotEmpty()
-        if (hasCache && !mTreeCache.isStale && !notifySheet) return
+        val anyStale = mTreeCaches.values.any { it.isStale }
+        if (hasCache && !anyStale && !notifySheet) return
 
         mExecutor.execute {
             val result = fetchMaintainersFromOtaWithConditionalTree()
             if (result == null) {
-                mTreeCache.touchLastCheck()
+                mTreeCaches.values.forEach { it.touchLastCheck() }
                 return@execute
             }
             if (result.notModified) {
-                mTreeCache.touchLastCheck()
+                mTreeCaches.values.forEach { it.touchLastCheck() }
                 if (notifySheet) {
                     mMainHandler.post { refreshOpenSheet(mCachedMaintainerList) }
                 }
@@ -171,7 +181,10 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
             val updatedAt = System.currentTimeMillis()
             writeMaintainersCache(result.maintainers, result.githubToPaypal, updatedAt)
-            mTreeCache.write(result.treeEtag, result.treeLastModified)
+            for ((branch, etag) in result.branchEtags) {
+                val lastModified = result.branchLastModified[branch] ?: ""
+                mTreeCaches[branch]?.write(etag, lastModified)
+            }
 
             val finalMaintainers = result.maintainers
             val finalGithubToPaypal = result.githubToPaypal
@@ -277,29 +290,99 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
     // OTA fetch
     // -------------------------------------------------------------------------
 
+    /**
+     * Resolves the full current-maintainers list by walking OTA_BRANCHES in
+     * priority order (cnb, then bka, then vic). Each branch's device tree is
+     * fetched and aggregated independently, then merged: a maintainer key
+     * (maintainer + github, case-insensitive) already satisfied by a
+     * higher-priority branch is skipped entirely in lower-priority branches,
+     * even if that lower-priority branch would have contributed different
+     * devices for the same maintainer. Maintainers with no cnb entry at all
+     * still fall through to bka/vic normally.
+     */
     private fun fetchMaintainersFromOtaWithConditionalTree(): FetchResult? {
+        val branchEtags = LinkedHashMap<String, String>()
+        val branchLastModified = LinkedHashMap<String, String>()
+        val mergedMaintainers = LinkedHashMap<String, AggregatedMaintainer>()
+        val githubToPaypal = LinkedHashMap<String, String>()
+        var anyBranchSucceeded = false
+        var allBranchesNotModified = true
+
+        for (branch in OTA_BRANCHES) {
+            val branchCache = mTreeCaches.getValue(branch)
+            val branchResult = fetchBranchTree(branch, branchCache) ?: continue
+
+            anyBranchSucceeded = true
+            branchEtags[branch] = branchResult.treeEtag
+            branchLastModified[branch] = branchResult.treeLastModified
+
+            if (branchResult.notModified) continue
+            allBranchesNotModified = false
+
+            for ((key, aggregated) in branchResult.aggregate) {
+                if (mergedMaintainers.containsKey(key)) continue
+                mergedMaintainers[key] = aggregated
+                if (aggregated.github.isNotEmpty() && UrlUtils.isValidHttpUrl(aggregated.paypal)) {
+                    githubToPaypal[aggregated.github.lowercase(Locale.ROOT)] = aggregated.paypal
+                }
+            }
+        }
+
+        if (!anyBranchSucceeded) return null
+        if (allBranchesNotModified) return FetchResult.notModified()
+
+        val result = mutableListOf<MaintainerInfo>()
+        for (m in mergedMaintainers.values) {
+            val sortedEntries = m.deviceEntries.sortedWith(
+                compareBy(String.CASE_INSENSITIVE_ORDER) { it.label }
+            )
+            val summary   = sortedEntries.joinToString(", ") { it.label }
+            val donateUrl = if (UrlUtils.isValidHttpUrl(m.paypal)) m.paypal else null
+            val clickUrl  = donateUrl ?: UrlUtils.buildGithubUrl(m.github)
+            val forumUrls = sortedEntries
+                .filter { it.forumUrl != null }
+                .map { it.label to it.forumUrl!! }
+            result.add(MaintainerInfo(m.maintainer, summary, m.github, donateUrl, clickUrl, forumUrls))
+        }
+        result.sortWith(Comparator.comparing { it.maintainer.lowercase(Locale.ROOT) })
+
+        return FetchResult(result, githubToPaypal, branchEtags, branchLastModified)
+    }
+
+    /**
+     * Fetches and aggregates the maintainer tree for a single branch. Returns
+     * null only on hard failure (network/parse error, non-2xx); a branch with
+     * an empty or all-unmaintained tree still returns a (possibly empty)
+     * successful result so its ETag is recorded and it isn't retried every load.
+     */
+    private fun fetchBranchTree(branch: String, branchCache: HttpCachePrefs): BranchFetchResult? {
         return try {
+            val treeApi = String.format(OTA_TREE_API_TEMPLATE, branch)
+            val rawBase = String.format(OTA_RAW_BASE_TEMPLATE, branch)
+
             val r = NetworkUtils.fetchWithStatus(
-                OTA_TREE_API,
-                mTreeCache.buildHeaders("application/vnd.github+json")
+                treeApi,
+                branchCache.buildHeaders("application/vnd.github+json")
             )
 
-            if (r.isNotModified) return FetchResult.notModified()
+            if (r.isNotModified) {
+                return BranchFetchResult(emptyMap(), r.etag, r.lastModified, notModified = true)
+            }
             if (!r.isOk || r.bytes == null) {
-                Log.w(TAG, "Tree API failed: HTTP ${r.statusCode}")
+                Log.w(TAG, "Tree API failed for $branch: HTTP ${r.statusCode}")
                 return null
             }
 
             val treeJson = r.bodyAsString()
             if (treeJson.isNullOrEmpty()) {
-                Log.w(TAG, "Empty OTA tree response")
+                Log.w(TAG, "Empty OTA tree response for $branch")
                 return null
             }
 
             val root = JSONObject(treeJson)
             val tree = root.optJSONArray("tree")
             if (tree == null || tree.length() == 0) {
-                return FetchResult(emptyList(), emptyMap(), r.etag, r.lastModified)
+                return BranchFetchResult(emptyMap(), r.etag, r.lastModified)
             }
 
             val aggregate = LinkedHashMap<String, AggregatedMaintainer>()
@@ -311,7 +394,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                 if (type != "blob") continue
                 if (!path.startsWith("builds/") || !path.endsWith(".json")) continue
 
-                val rawUrl = OTA_RAW_BASE + path
+                val rawUrl = rawBase + path
                 try {
                     val deviceJson = NetworkUtils.fetchString(rawUrl, null)
                     if (deviceJson.isNullOrEmpty()) continue
@@ -347,36 +430,14 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                     bucket.deviceEntries.add(DeviceEntry(deviceLabel, forumLink))
 
                 } catch (e: Exception) {
-                    Log.d(TAG, "Failed parsing OTA JSON: $path", e)
+                    Log.d(TAG, "Failed parsing OTA JSON: $branch/$path", e)
                 }
             }
 
-            val result = mutableListOf<MaintainerInfo>()
-            for (m in aggregate.values) {
-                val sortedEntries = m.deviceEntries.sortedWith(
-                    compareBy(String.CASE_INSENSITIVE_ORDER) { it.label }
-                )
-                val summary   = sortedEntries.joinToString(", ") { it.label }
-                val donateUrl = if (UrlUtils.isValidHttpUrl(m.paypal)) m.paypal else null
-                val clickUrl  = donateUrl ?: UrlUtils.buildGithubUrl(m.github)
-                val forumUrls = sortedEntries
-                    .filter { it.forumUrl != null }
-                    .map { it.label to it.forumUrl!! }
-                result.add(MaintainerInfo(m.maintainer, summary, m.github, donateUrl, clickUrl, forumUrls))
-            }
-            result.sortWith(Comparator.comparing { it.maintainer.lowercase(Locale.ROOT) })
-
-            val githubToPaypal = LinkedHashMap<String, String>()
-            for (m in aggregate.values) {
-                if (m.github.isNotEmpty() && UrlUtils.isValidHttpUrl(m.paypal)) {
-                    githubToPaypal[m.github.lowercase(Locale.ROOT)] = m.paypal
-                }
-            }
-
-            FetchResult(result, githubToPaypal, r.etag, r.lastModified)
+            BranchFetchResult(aggregate, r.etag, r.lastModified)
 
         } catch (e: Exception) {
-            Log.e(TAG, "Failed loading OTA maintainers", e)
+            Log.e(TAG, "Failed loading OTA maintainers for $branch", e)
             null
         }
     }
@@ -530,20 +591,27 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         val forumUrls: List<Pair<String, String>>,
     )
 
+    private data class BranchFetchResult(
+        val aggregate: Map<String, AggregatedMaintainer>,
+        val treeEtag: String,
+        val treeLastModified: String,
+        val notModified: Boolean = false,
+    )
+
     private data class FetchResult(
         val maintainers: List<MaintainerInfo>,
         val githubToPaypal: Map<String, String>,
-        val treeEtag: String,
-        val treeLastModified: String,
+        val branchEtags: Map<String, String>,
+        val branchLastModified: Map<String, String>,
         val notModified: Boolean = false,
     ) {
         companion object {
             fun notModified() = FetchResult(
-                maintainers      = emptyList(),
-                githubToPaypal   = emptyMap(),
-                treeEtag         = "",
-                treeLastModified = "",
-                notModified      = true,
+                maintainers        = emptyList(),
+                githubToPaypal     = emptyMap(),
+                branchEtags        = emptyMap(),
+                branchLastModified = emptyMap(),
+                notModified        = true,
             )
         }
     }
