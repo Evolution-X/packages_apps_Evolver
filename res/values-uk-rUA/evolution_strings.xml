@@ -314,13 +314,6 @@
     <string name="status_bar_colored_icons_summary">Використовувати піктограми лаунчера для сповіщень програм</string>
     <string name="status_bar_notif_count_title">Лічильник сповіщень</string>
     <string name="status_bar_notif_count_summary">Відображати кількість сповіщень, що очікують на розгляд, на кожному значку програми</string>
-    <string name="status_bar_privacy_indicators_category">Індикатори конфіденційності</string>
-    <string name="status_bar_mic_camera_privacy_indicator_title">Мікрофон &amp; камера</string>
-    <string name="status_bar_mic_camera_privacy_indicator_summary">Відображати індикатор при доступі до мікрофона чи камери</string>
-    <string name="status_bar_location_privacy_indicator_title">Місцезнаходження</string>
-    <string name="status_bar_location_privacy_indicator_summary">Відображати індикатор коли додаток отримує доступ до місцезнаходження</string>
-    <string name="status_bar_projection_privacy_indicator_title">Проекція екрану</string>
-    <string name="status_bar_projection_privacy_indicator_summary">Відображати індикатор коли екран проектується</string>
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Ім\'я оператора</string>
     <string name="lockscreen_show_carrier_title">Назва оператора</string>
