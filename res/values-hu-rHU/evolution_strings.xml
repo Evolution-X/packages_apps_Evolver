@@ -320,13 +320,6 @@ Beállítás:
     <string name="status_bar_colored_icons_summary">Használja a Launcher-ikonokat az alkalmazásértesítésekhez</string>
     <string name="status_bar_notif_count_title">Értesítés-számláló</string>
     <string name="status_bar_notif_count_summary">A függőben lévő értesítések számának megjelenítése az alkalmazásikonokon</string>
-    <string name="status_bar_privacy_indicators_category">Adatvédelmi kijelzők</string>
-    <string name="status_bar_mic_camera_privacy_indicator_title">Mikrofon és Kamera</string>
-    <string name="status_bar_mic_camera_privacy_indicator_summary">Kijelzi, ha egy alkalmazás hozzáfér a mikrofonhoz vagy a kamerához</string>
-    <string name="status_bar_location_privacy_indicator_title">Helymeghatározás</string>
-    <string name="status_bar_location_privacy_indicator_summary">Kijelzi, ha egy alkalmazás a helymeghatározást használja</string>
-    <string name="status_bar_projection_privacy_indicator_title">Képernyő-kivetítés</string>
-    <string name="status_bar_projection_privacy_indicator_summary">Kijelzi, ha a kijező épp kivetítésre kerül</string>
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Szolgáltatói felirat</string>
     <string name="lockscreen_show_carrier_title">Szolgáltatónév megjelenítése</string>
