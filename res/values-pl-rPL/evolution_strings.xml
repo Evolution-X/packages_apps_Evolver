@@ -315,13 +315,6 @@
     <string name="status_bar_colored_icons_summary">Użyj ikon launchera dla powiadomień aplikacji</string>
     <string name="status_bar_notif_count_title">Licznik powiadomień</string>
     <string name="status_bar_notif_count_summary">Wyświetl liczbę oczekujących powiadomień na każdej ikonie aplikacji</string>
-    <string name="status_bar_privacy_indicators_category">Wskaźniki prywatności</string>
-    <string name="status_bar_mic_camera_privacy_indicator_title">Mikrofon i aparat</string>
-    <string name="status_bar_mic_camera_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do mikrofonu lub aparatu</string>
-    <string name="status_bar_location_privacy_indicator_title">Lokalizacja</string>
-    <string name="status_bar_location_privacy_indicator_summary">Wyświetlaj wskaźnik, gdy aplikacja ma dostęp do twojej lokalizacji</string>
-    <string name="status_bar_projection_privacy_indicator_title">Projekcja ekranu</string>
-    <string name="status_bar_projection_privacy_indicator_summary">Wyświetlaj wskaźnik podczas projekcji ekranu</string>
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Nazwa operatora</string>
     <string name="lockscreen_show_carrier_title">Pokazuj etykietę operatora</string>
