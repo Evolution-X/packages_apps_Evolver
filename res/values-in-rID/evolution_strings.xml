@@ -805,7 +805,7 @@
     <string name="quick_settings_data_usage_title">Penggunaan data</string>
     <string name="quick_settings_data_usage_summary">Tampilkan penggunaan data di bagian bawah Setelan Cepat</string>
     <string name="quick_settings_lock_screen_category">Layar Kunci</string>
-    <string name="quick_settings_secure_lock_screen_title">Sembunyikan pada layar kunci</string>
+    <string name="quick_settings_secure_lock_screen_title">Nonaktifkan tarikan Setelan Cepat pada layar kunci aman</string>
     <string name="quick_settings_secure_lock_screen_summary">Izinkan menggeser ke bawah pada layar kunci untuk membuka Setelan Cepat</string>
     <string name="quick_settings_require_unlock_title">Ubin Setelan Cepat yang aman memerlukan pembukaan kunci</string>
     <string name="quick_settings_require_unlock_summary">Ubin-ubin berikut memerlukan perangkat untuk dibuka kuncinya sebelum dapat diinteraksi: Pesawat, Penghemat baterai, Bluetooth, Seluler, Penghemat data, Hotspot, Internet, NFC, Kunci rotasi, dan Wi-Fi</string>
@@ -1385,7 +1385,7 @@
     <string name="maintainer_link_forum">Forum</string>
     <!-- Changelog -->
     <string name="changelog_title">Catatan perubahan</string>
-    <string name="changelog_summary">Lihat perubahan pada kode sumber ROM</string>
+    <string name="changelog_summary">Lihat perubahan pada ROM</string>
     <string name="changelog_error">Tidak dapat memuat daftar perubahan</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Pemilih warna</string>
