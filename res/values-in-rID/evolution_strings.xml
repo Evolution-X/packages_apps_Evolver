@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">The Evolver</string>
-    <string name="evolver_dashboard_summary">Mengembangkan perangkat sesuai keinginanmu</string>
+    <string name="evolver_dashboard_summary">Kembangkan perangkatmu, sesuai keinginanmu</string>
     <!-- Categories -->
     <string name="themes_title">Tema</string>
     <string name="themes_summary">Mesin Monet, font, ikon, animasi</string>
@@ -17,15 +17,15 @@
     <string name="quick_settings_title">Setelan Cepat</string>
     <string name="quick_settings_summary">Antarmuka, penggeser kecerahan, tata letak</string>
     <string name="notifications_title">Notifikasi</string>
-    <string name="notifications_summary">Peringatan, cahaya tepi, suara</string>
+    <string name="notifications_summary">Perhatian, cahaya tepi, suara</string>
     <string name="power_menu_title">Menu daya</string>
     <string name="power_menu_summary">Tindakan, layar kunci</string>
     <string name="buttons_title">Tombol</string>
     <string name="buttons_summary">Tombol daya, tombol volume</string>
     <string name="miscellaneous_title">Lain-lain</string>
-    <string name="miscellaneous_summary">Opsi pengembang, pemalsuan</string>
+    <string name="miscellaneous_summary">Pemalsuan, opsi pengembang</string>
     <string name="about_title">Evolution X</string>
-    <string name="about_summary">Tentang Evolution X</string>
+    <string name="about_summary">Tentang ROM kami</string>
     <string name="general_category_title">Umum</string>
     <string name="gestures_category_title">Gestur</string>
     <!-- Reorganized categories -->
@@ -70,7 +70,7 @@
     <string name="themes_udfps_animation_title">Animasi Sidik Jari</string>
     <string name="themes_udfps_animation_summary">Setel gaya animasi Sidik Jari Dalam Layar</string>
     <string name="themes_launcher_category">Pixel Launcher</string>
-    <string name="themes_launcher_background_blur_title">Latar belakang blur</string>
+    <string name="themes_launcher_background_blur_title">Blur latar belakang</string>
     <string name="themes_launcher_background_blur_summary">Aktifkan Efek Blur Latar Belakang Terkini</string>
     <string name="themes_launcher_more_themed_icons_title">Lebih banyak ikon bertema</string>
     <string name="themes_launcher_more_themed_icons_summary">Memperluas dukungan untuk ikon bertema warna dinamis untuk aplikasi yang terpasang</string>
