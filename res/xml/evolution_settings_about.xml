@@ -85,10 +85,10 @@
             android:summary="@string/about_founder_1_summary" />
 
         <!-- Founder 2 -->
-        <Preference
+        <!--<Preference
             android:key="about_founder_2"
             android:title="@string/about_founder_2_title"
-            android:summary="@string/about_founder_2_summary" />
+            android:summary="@string/about_founder_2_summary" />-->
 
         <!-- Founder 3 -->
         <Preference
@@ -116,10 +116,10 @@
             android:title="@string/about_member_3_title"
             android:summary="@string/about_member_3_summary" />
 
-        <Preference
+        <!--<Preference
             android:key="about_member_4"
             android:title="@string/about_member_4_title"
-            android:summary="@string/about_member_4_summary" />
+            android:summary="@string/about_member_4_summary" />-->
     </PreferenceCategory>
 
     <PreferenceCategory

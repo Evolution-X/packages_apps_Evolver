@@ -99,12 +99,10 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
         val avatarMap = linkedMapOf(
             "about_founder_1" to "joeyhuab",
-            "about_founder_2" to "AnierinBliss",
             "about_founder_3" to "RealAkito",
             "about_member_1"  to "TechPanelGM",
             "about_member_2"  to "AidanWarner97",
             "about_member_3"  to "Onelots",
-            "about_member_4"  to "manidweep",
             "about_member_5"  to "apelete",
         )
         for ((key, username) in avatarMap) {
@@ -216,18 +214,15 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
             "anierinbliss"  to "https://www.paypal.me/AnierinB",
             "realakito"     to "https://t.me/RealAkito",
             "aidanwarner97" to "https://linktr.ee/aidanlw",
-            "manidweep"     to "https://paypal.me/manidreddy1",
             "apelete"       to "https://www.linkedin.com/posts/apelete_evolutionx-activity-7429791532091797504-ND3i",
         )
 
         val teamGithubMap = linkedMapOf(
             "about_founder_1" to "joeyhuab",
-            "about_founder_2" to "AnierinBliss",
             "about_founder_3" to "RealAkito",
             "about_member_1"  to "TechPanelGM",
             "about_member_2"  to "AidanWarner97",
             "about_member_3"  to "Onelots",
-            "about_member_4"  to "manidweep",
             "about_member_5"  to "apelete",
         )
 
