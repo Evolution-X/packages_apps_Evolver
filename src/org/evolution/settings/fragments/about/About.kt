@@ -90,10 +90,8 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
         val avatarMap = linkedMapOf(
             "about_founder_1" to "joeyhuab",
-            "about_founder_2" to "AnierinBliss",
             "about_founder_3" to "RealAkito",
             "about_member_1"  to "TechPanelGM",
-            "about_member_2"  to "AidanWarner97",
             "about_member_3"  to "Onelots",
             "about_member_4"  to "manidweep",
             "about_member_5"  to "apelete",
@@ -209,10 +207,8 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
         val teamGithubMap = linkedMapOf(
             "about_founder_1" to "joeyhuab",
-            "about_founder_2" to "AnierinBliss",
             "about_founder_3" to "RealAkito",
             "about_member_1"  to "TechPanelGM",
-            "about_member_2"  to "AidanWarner97",
             "about_member_3"  to "Onelots",
             "about_member_4"  to "manidweep",
             "about_member_5"  to "apelete",
