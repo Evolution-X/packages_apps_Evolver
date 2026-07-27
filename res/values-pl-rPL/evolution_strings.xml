@@ -806,7 +806,7 @@
     <string name="quick_settings_data_usage_title">Wykorzystanie danych</string>
     <string name="quick_settings_data_usage_summary">Wyświetl użycie danych w stopce szybkich ustawień</string>
     <string name="quick_settings_lock_screen_category">Ekran blokady</string>
-    <string name="quick_settings_secure_lock_screen_title">Wyłącz rozwijanie szybkich ustawień na zabezpieczonym ekranie blokady</string>
+    <string name="quick_settings_secure_lock_screen_title">Rozwijanie szybkich ustawień na zabezpieczonym ekranie blokady</string>
     <string name="quick_settings_secure_lock_screen_summary">Pozwól przesuwać palcem w dół na ekranie blokady aby otworzyć szybkie ustawienia</string>
     <string name="quick_settings_require_unlock_title">Zabezpieczone kafelki wymagają odblokowania</string>
     <string name="quick_settings_require_unlock_summary">W przypadku następujących kafelków konieczne jest odblokowanie urządzenia przed interakcją z nimi: Tryb samolotowy, Oszczędzanie baterii, Bluetooth, Dane mobilne, Oszczędzanie danych, Punkt dostępu, Internet, NFC, Blokada obracania i Wi-Fi</string>
@@ -1388,6 +1388,7 @@
     <string name="changelog_title">Dziennik zmian</string>
     <string name="changelog_summary">Wyświetl zmiany w źródle ROM</string>
     <string name="changelog_error">Nie można załadować dziennika zmian</string>
+    <string name="changelog_error_no_official">Brak oficjalnego rejestru zmian dla tego urządzenia lub kompilacji. Więcej informacji znajdziesz na stronie %1$s.</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Wybór koloru</string>
     <string name="press_color_to_apply">Naciśnij kolor poniżej, aby zastosować</string>
