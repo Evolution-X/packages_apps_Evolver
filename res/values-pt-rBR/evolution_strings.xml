@@ -805,7 +805,7 @@
     <string name="quick_settings_data_usage_title">Uso de dados</string>
     <string name="quick_settings_data_usage_summary">Exibir o uso de dados no rodapé das configurações rápidas</string>
     <string name="quick_settings_lock_screen_category">Tela de bloqueio</string>
-    <string name="quick_settings_secure_lock_screen_title">Configurações Rápidas na tela de bloqueio</string>
+    <string name="quick_settings_secure_lock_screen_title">Puxar Configurações Rápidas na tela de bloqueio segura</string>
     <string name="quick_settings_secure_lock_screen_summary">Permitir deslizar para baixo na tela de bloqueio para abrir configurações rápidas</string>
     <string name="quick_settings_require_unlock_title">Blocos seguros exigem desbloqueio</string>
     <string name="quick_settings_require_unlock_summary">Os blocos a seguir exigem que o dispositivo seja desbloqueado antes de interagir com eles: Avião, Economia de bateria, Bluetooth, Celular, Economia de dados, Hotspot, Internet, NFC, Bloqueio de rotação e Wi-Fi</string>
@@ -1385,8 +1385,9 @@
     <string name="maintainer_link_forum">Fórum</string>
     <!-- Changelog -->
     <string name="changelog_title">Registro de alterações</string>
-    <string name="changelog_summary">Ver alterações na fonte da ROM</string>
+    <string name="changelog_summary">Ver alterações na ROM</string>
     <string name="changelog_error">Não foi possível carregar o changelog</string>
+    <string name="changelog_error_no_official">Nenhum registro de mudanças está disponível para este dispositivo ou compilação. Visite %1$s para obter mais informações.</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Seletor de cores</string>
     <string name="press_color_to_apply">Toque em uma cor abaixo para aplicar</string>
