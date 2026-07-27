@@ -63,13 +63,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
         final ContentResolver resolver = context.getContentResolver();
         mHandler = new Handler(Looper.getMainLooper());
 
-        if (PixelPropsUtils.isCustomForkBuild()) {
-            if (getPreferenceScreen() != null) {
-                getPreferenceScreen().removeAll();
-            }
-            return;
-        }
-
         mFeaturesCategory = (PreferenceCategory) findPreference(KEY_FEATURES_CATEGORY);
         mAppSpecificCategory = (PreferenceCategory) findPreference(KEY_APP_SPECIFIC_CATEGORY);
         mPhotosSpoof = (SwitchPreferenceCompat) findPreference(PI_PHOTOS_SPOOF);
