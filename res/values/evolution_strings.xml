@@ -1810,7 +1810,9 @@
     <string name="global_actions_advanced_reboot_title">Enable Advanced Reboot</string>
     <string name="global_actions_advanced_reboot_summary">Unlocks a new dialog that allows advanced rebooting</string>
 
-    <!-- Screenshots to clipboard -->
+    <!-- Screenshots -->
     <string name="screenshot_clipboard_only_title">Copy to clipboard only</string>
     <string name="screenshot_clipboard_only_summary">Copy screenshot to clipboard instead of saving in storage</string>
+    <string name="hide_status_bar_in_screenshot_title">Hide status bar in screenshots</string>
+    <string name="hide_status_bar_in_screenshot_summary">Crop the status bar area out of full screenshots</string>
 </resources>
