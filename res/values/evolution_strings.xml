@@ -1472,4 +1472,25 @@
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Hide screen capture status</string>
     <string name="hide_screen_capture_status_summary">Hide screen capture/record status from apps. Useful but may risk privacy. Restart apps to apply.</string>
+
+    <!-- Dynamic island -->
+    <string name="status_bar_dynamic_island_title">Dynamic island</string>
+    <string name="status_bar_dynamic_island_summary">Configure the island and choose which features can appear</string>
+    <string name="dynamic_island_footer_title">About Dynamic Island</string>
+    <string name="dynamic_island_intro">Turn on Dynamic island and choose the features you want in the centered chip.</string>
+    <string name="dynamic_island_features_title">Features</string>
+    <string name="dynamic_island_media_controls_title">Media controls</string>
+    <string name="dynamic_island_media_controls_summary">Show playback controls and artwork in the island</string>
+    <string name="dynamic_island_screen_recording_title">Screen recording</string>
+    <string name="dynamic_island_screen_recording_summary">Show the recording timer and controls in the island</string>
+    <string name="dynamic_island_alarms_title">Alarms</string>
+    <string name="dynamic_island_alarms_summary">Show your next alarm or active alarm notification in the island</string>
+    <string name="dynamic_island_flashlight_title">Flashlight</string>
+    <string name="dynamic_island_flashlight_summary">Show flashlight status in the island when it is enabled</string>
+    <string name="dynamic_island_stopwatch_title">Stopwatch</string>
+    <string name="dynamic_island_stopwatch_summary">Show stopwatch progress and controls in the island</string>
+    <string name="dynamic_island_live_scores_title">Live scores</string>
+    <string name="dynamic_island_live_scores_summary">Show live scores for sports in the island for apps that give live score notification.</string>
+    <string name="dynamic_island_lyrics_title">Show lyrics</string>
+    <string name="dynamic_island_lyrics_summary">Show lyrics for supported apps in a card below the music card in the island</string>
 </resources>
