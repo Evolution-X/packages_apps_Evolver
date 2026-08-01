@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-FileCopyrightText: Lunaris AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="dynamic_island_settings"
+    android:title="@string/status_bar_dynamic_island_title">
+
+    <lineageos.preference.SystemSettingMainSwitchPreference
+        android:key="status_bar_show_dynamic_island"
+        android:title="@string/status_bar_dynamic_island_title"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="dynamic_island_features_category"
+        android:title="@string/dynamic_island_features_title">
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_dynamic_island_media_controls"
+            android:title="@string/dynamic_island_media_controls_title"
+            android:summary="@string/dynamic_island_media_controls_summary"
+            android:dependency="status_bar_show_dynamic_island"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_dynamic_island_screen_recording"
+            android:title="@string/dynamic_island_screen_recording_title"
+            android:summary="@string/dynamic_island_screen_recording_summary"
+            android:dependency="status_bar_show_dynamic_island"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_dynamic_island_alarms"
+            android:title="@string/dynamic_island_alarms_title"
+            android:summary="@string/dynamic_island_alarms_summary"
+            android:dependency="status_bar_show_dynamic_island"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_dynamic_island_flashlight"
+            android:title="@string/dynamic_island_flashlight_title"
+            android:summary="@string/dynamic_island_flashlight_summary"
+            android:dependency="status_bar_show_dynamic_island"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_dynamic_island_stopwatch"
+            android:title="@string/dynamic_island_stopwatch_title"
+            android:summary="@string/dynamic_island_stopwatch_summary"
+            android:dependency="status_bar_show_dynamic_island"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_dynamic_island_live_scores"
+            android:title="@string/dynamic_island_live_scores_title"
+            android:summary="@string/dynamic_island_live_scores_summary"
+            android:dependency="status_bar_show_dynamic_island"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_dynamic_island_lyrics"
+            android:title="@string/dynamic_island_lyrics_title"
+            android:summary="@string/dynamic_island_lyrics_summary"
+            android:dependency="status_bar_show_dynamic_island"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="dynamic_island_footer_category"
+        android:title="@string/dynamic_island_footer_title">
+
+        <com.android.settingslib.widget.FooterPreference
+            android:key="dynamic_island_footer"
+            android:title="@string/dynamic_island_intro"
+            android:icon="@drawable/ic_info"
+            android:selectable="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
