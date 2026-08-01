@@ -66,6 +66,13 @@
             android:fragment="org.evolution.settings.fragments.statusbar.DynamicBar"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
+            android:key="status_bar_show_dynamic_island"
+            android:title="@string/status_bar_dynamic_island_title"
+            android:summary="@string/status_bar_dynamic_island_summary"
+            android:fragment="org.evolution.settings.fragments.statusbar.DynamicIslandSettings"
+            android:defaultValue="false" />
+
         <!-- Cutout Progress -->
         <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
             android:key="cutout_progress_enabled"
