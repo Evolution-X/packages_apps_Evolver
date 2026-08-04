@@ -522,20 +522,22 @@ private fun PixelPropsContent(context: android.content.Context) {
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    if (isLoading) {
-                        SpoofingLoadingBox(modifier = Modifier.weight(1f))
-                    } else if (filteredApps.isEmpty()) {
-                        SpoofingEmptyState(
-                            icon = Icons.Default.Android,
-                            title = stringResource(R.string.ts_no_targets),
-                            description = stringResource(R.string.pp_empty_description),
-                            modifier = Modifier.weight(1f),
-                        )
-                    } else {
+                    AppListAnimatedContent(
+                        isLoading = isLoading,
+                        isEmpty = filteredApps.isEmpty(),
+                        hasSearchQuery = searchQuery.isNotEmpty(),
+                        modifier = Modifier.weight(1f),
+                        emptyContent = {
+                            SpoofingEmptyState(
+                                icon = Icons.Default.Android,
+                                title = stringResource(R.string.ts_no_targets),
+                                description = stringResource(R.string.pp_empty_description),
+                                modifier = Modifier.fillMaxSize(),
+                            )
+                        },
+                    ) {
                         LazyColumn(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .weight(1f),
+                            modifier = Modifier.fillMaxWidth(),
                             verticalArrangement = Arrangement.spacedBy(6.dp),
                         ) {
                             items(filteredApps, key = { it.packageName }) { app ->
