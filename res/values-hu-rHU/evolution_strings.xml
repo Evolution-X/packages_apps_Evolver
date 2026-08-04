@@ -812,7 +812,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="quick_settings_data_usage_title">Adathasználat</string>
     <string name="quick_settings_data_usage_summary">Adathasználat megjelenítése a gyorsbeállítások láblécében</string>
     <string name="quick_settings_lock_screen_category">Záróképernyő</string>
-    <string name="quick_settings_secure_lock_screen_title">A gyorsbeállítások letiltása a képernyőzáron</string>
+    <string name="quick_settings_secure_lock_screen_title">Gyorsbeállítások lefelé húzása a biztonságos záróképernyőn</string>
     <string name="quick_settings_secure_lock_screen_summary">A gyorsbeállítások megnyitásának engedélyezése a záróképernyő lehúzásával</string>
     <string name="quick_settings_require_unlock_title">A biztonságos csempék feloldást igényelnek</string>
     <string name="quick_settings_require_unlock_summary">A következő csempék használata előtt fel kell oldani az eszközt: Repülőgép mód, Akkumulátorkímélő, Bluetooth, Mobilhálózat, Adatforgalom-csökkentő, Hotspot, Internet, NFC, Elforgatás zárolása és Wi-Fi</string>
@@ -1167,6 +1167,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="ts_mode_auto">Automatikus</string>
     <string name="ts_mode_leaf">Leaf (külső héj)</string>
     <string name="ts_mode_cert">Cert (teljes)</string>
+    <string name="ts_mode_skip">Kihagyás</string>
     <string name="ts_verification_mode">Ellenőrzési mód</string>
     <string name="ts_verification_mode_auto">Automatikus</string>
     <string name="ts_verification_mode_cert">Cert (teljes)</string>
@@ -1398,6 +1399,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="changelog_title">Változáslista</string>
     <string name="changelog_summary">A ROM változásainak megtekintése</string>
     <string name="changelog_error">A változási listát nem lehet betölteni</string>
+    <string name="changelog_error_no_official">Nincs hivatalos változáslista ehhez a készülékhez vagy kiadáshoz. További infóért látogasson el ide: %1$s</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Színválasztó</string>
     <string name="press_color_to_apply">Koppintson egy lenti színre az alkalmazásához</string>
