@@ -466,13 +466,22 @@ private fun TrickyStoreAppSettingsContent(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            if (isLoading) {
-                SpoofingLoadingBox(modifier = Modifier.weight(1f))
-            } else {
+            AppListAnimatedContent(
+                isLoading = isLoading,
+                isEmpty = filteredApps.isEmpty(),
+                hasSearchQuery = searchQuery.isNotEmpty(),
+                modifier = Modifier.weight(1f),
+                emptyContent = {
+                    SpoofingEmptyState(
+                        icon = Icons.Default.Shield,
+                        title = stringResource(R.string.ts_no_targets),
+                        description = stringResource(R.string.ts_target_apps_empty_description),
+                        modifier = Modifier.fillMaxSize(),
+                    )
+                },
+            ) {
                 LazyColumn(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f),
+                    modifier = Modifier.fillMaxWidth(),
                     verticalArrangement = Arrangement.spacedBy(6.dp),
                 ) {
                     items(filteredApps, key = { it.entry.packageName }) { state ->

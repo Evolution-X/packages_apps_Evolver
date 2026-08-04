@@ -1198,6 +1198,7 @@
     <string name="ts_manage_target_apps">Manage target apps</string>
     <string name="ts_no_targets">No target apps configured</string>
     <string name="ts_target_apps_count">%d apps configured</string>
+    <string name="ts_target_apps_empty_description">No apps match your search or configuration</string>
     <string name="ts_import_target_list">Import target list</string>
     <string name="ts_import_target_list_summary">Import target.txt from a file</string>
     <string name="ts_invalid_patch_date">Invalid date format. Use YYYY-MM-DD</string>
