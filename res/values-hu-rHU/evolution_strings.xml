@@ -1151,6 +1151,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="ts_manage_target_apps">Célalkalmazások kezelése</string>
     <string name="ts_no_targets">Nincs beállított célalkalmazás</string>
     <string name="ts_target_apps_count">%d alkalmazás beállítva</string>
+    <string name="ts_target_apps_empty_description">Nincs alkalmazás ami megfelelne a keresésnek vagy a konfigurációnak</string>
     <string name="ts_import_target_list">Céllista importálása</string>
     <string name="ts_import_target_list_summary">A target.txt importálása fájlból</string>
     <string name="ts_invalid_patch_date">Hibás dátumformátum. YYYY-MM-DD a helyes.</string>
