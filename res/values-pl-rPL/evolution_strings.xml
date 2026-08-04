@@ -1145,6 +1145,7 @@
     <string name="ts_manage_target_apps">Zarządzaj aplikacjami docelowymi</string>
     <string name="ts_no_targets">Nie skonfigurowano aplikacji docelowych</string>
     <string name="ts_target_apps_count">%d skonfigurowanych aplikacji</string>
+    <string name="ts_target_apps_empty_description">Brak aplikacji odpowiadających twojemu wyszukiwaniu lub konfiguracji</string>
     <string name="ts_import_target_list">Importuj listę docelową</string>
     <string name="ts_import_target_list_summary">Importuj target.txt z pliku</string>
     <string name="ts_invalid_patch_date">Nieprawidłowy format daty. Użyj RRRR-MM-DD</string>
@@ -1161,6 +1162,7 @@
     <string name="ts_mode_auto">Tryb automatyczny</string>
     <string name="ts_mode_leaf">Podmiana certyfikatu </string>
     <string name="ts_mode_cert">Generowanie certyfikatu</string>
+    <string name="ts_mode_skip">Pomiń</string>
     <string name="ts_verification_mode">Tryb weryfikacji</string>
     <string name="ts_verification_mode_auto">Tryb automatyczny</string>
     <string name="ts_verification_mode_cert">Generowanie certyfikatu</string>
