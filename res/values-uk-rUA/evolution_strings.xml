@@ -804,7 +804,7 @@
     <string name="quick_settings_data_usage_title">Використання даних</string>
     <string name="quick_settings_data_usage_summary">Відображення використання даних у нижньому колонтитулі швидких налаштувань</string>
     <string name="quick_settings_lock_screen_category">Екран блокування</string>
-    <string name="quick_settings_secure_lock_screen_title">Показати на екрані блокування</string>
+    <string name="quick_settings_secure_lock_screen_title">Показ плиток QS на екран блокування</string>
     <string name="quick_settings_secure_lock_screen_summary">Дозволити відкриття швидких налаштувань, проводячи пальцем униз по екрану блокування</string>
     <string name="quick_settings_require_unlock_title">Захищені плитки потребують розблокування</string>
     <string name="quick_settings_require_unlock_summary">Для використання таких плиток пристрій потрібно розблокувати: «У літаку», «Економія заряду», «Bluetooth», «Стільниковий зв’язок», «Економія даних», «Точка доступу», «Інтернет», «NFC», «Блокування обертання» та «Wi-Fi»</string>
@@ -1143,6 +1143,7 @@
     <string name="ts_manage_target_apps">Керувати цільовими програмами</string>
     <string name="ts_no_targets">Немає налаштованих цільових додатків</string>
     <string name="ts_target_apps_count">%d додатків налаштовано</string>
+    <string name="ts_target_apps_empty_description">Жодна програма не відповідає вашому пошуку чи конфігурації</string>
     <string name="ts_import_target_list">Список цілей імпорту</string>
     <string name="ts_import_target_list_summary">Імпортувати цільовий список з файлу</string>
     <string name="ts_invalid_patch_date">Невірний формат дати. Використовуйте РРРР-ММ-ДД</string>
@@ -1159,6 +1160,7 @@
     <string name="ts_mode_auto">Автоматично</string>
     <string name="ts_mode_leaf">Лист</string>
     <string name="ts_mode_cert">Сертифікат</string>
+    <string name="ts_mode_skip">Пропустити</string>
     <string name="ts_verification_mode">Режим перевірки</string>
     <string name="ts_verification_mode_auto">Автоматично</string>
     <string name="ts_verification_mode_cert">Сертифікат</string>
@@ -1386,6 +1388,7 @@
     <string name="changelog_title">Список змін</string>
     <string name="changelog_summary">Переглянути зміни в джерелі прошивки</string>
     <string name="changelog_error">Помилка завантаження списку змін</string>
+    <string name="changelog_error_no_official">Немає офіційного списку змін для цього пристрою чи збірки. Відвідайте %1$s для отримання додаткової інформації.</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Палітра кольорів</string>
     <string name="press_color_to_apply">Натисніть колір нижче, щоб застосувати</string>
