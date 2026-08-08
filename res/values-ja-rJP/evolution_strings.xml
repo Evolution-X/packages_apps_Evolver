@@ -537,6 +537,7 @@
     <string name="dynamic_bar_event_bluetooth_summary">デバイスの接続状態</string>
     <string name="dynamic_bar_event_hotspot">ホットスポット</string>
     <string name="dynamic_bar_event_hotspot_summary">モバイルホットスポットアクティブ表示</string>
+    <string name="dynamic_bar_event_ringer">着信モード</string>
     <string name="dynamic_bar_event_ringer_summary">サイレント、バイブレーション、着信音モードの変更</string>
     <string name="dynamic_bar_event_vpn">VPN</string>
     <string name="dynamic_bar_event_vpn_summary">有効な VPN 接続インジケーター</string>
@@ -1005,6 +1006,7 @@
     <string name="custom_spoof_profile_name">プロファイル名</string>
     <string name="custom_spoof_profile_brand">ブランド（メーカー）</string>
     <string name="custom_spoof_profile_manufacturer">メーカー</string>
+    <string name="custom_spoof_profile_device">デバイス</string>
     <string name="custom_spoof_profile_model">モデル</string>
     <string name="custom_spoof_profile_fingerprint">指紋認証（任意）</string>
     <string name="custom_spoof_profile_product">製品 (オプション)</string>
@@ -1525,5 +1527,6 @@
     <string name="qs_show_volume_slider_hide">明るさスライダーを表示</string>
     <string name="qs_show_volume_slider_both">明るさスライダーと音量スライダー</string>
     <string name="qs_show_volume_slider_only">音量スライダーのみ</string>
+    <string name="qs_show_ringer_mode_title">着信モード</string>
     <string name="qs_show_ringer_mode_summary">音量スライダーに着信モードアイコンを表示</string>
 </resources>
