@@ -138,6 +138,7 @@
     <string name="pulse_bass_haptics_none">Відсутність ледь помітної вібрації на різких басових піках</string>
     <string name="pulse_bass_haptics_running">Тільки коли відображається пульс</string>
     <string name="pulse_bass_haptics_always">Щоразу, коли активне відтворення медіафайлів</string>
+    <string name="pulse_bass_haptics_disabled_amplitude">Недоступно в режимі захоплення амплітуди</string>
     <string name="pulse_rounded_bars_title">Закруглені панелі</string>
     <string name="pulse_rounded_bars_summary">Показати панель візуалізації за допомогою закруглених кутів</string>
     <string name="pulse_color">Колір візуалізації</string>
@@ -157,6 +158,9 @@
     <string name="pulse_renderer_matrix">Матриця</string>
     <string name="pulse_renderer_particle">Частинка</string>
     <string name="pulse_renderer_waveform">Форма хвилі</string>
+    <string name="pulse_capture_mode_title">Режим захоплення звуку</string>
+    <string name="pulse_capture_mode_fft">FFT (частота)</string>
+    <string name="pulse_capture_mode_amplitude">Амплітуда (Waveform)</string>
     <string name="pulse_show_on_ambient_title">Показувати на Ambient дисплеї</string>
     <string name="pulse_show_on_ambient_summary">Візуалізатор на постійному екрані і Ambient режим. Вимкніть тільки на екрані блокування.</string>
     <string name="pulse_height_multiplier_title">Висота Імпульсу</string>
