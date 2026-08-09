@@ -139,6 +139,7 @@
     <string name="pulse_bass_haptics_none">Nincs rezgés az éles basszushangoknál</string>
     <string name="pulse_bass_haptics_running">Csak akkor, ha a pulzálás látható</string>
     <string name="pulse_bass_haptics_always">Mindig amikor a médialejátszás aktív</string>
+    <string name="pulse_bass_haptics_disabled_amplitude">Ebben a módban a kért funkció nem érhető el</string>
     <string name="pulse_rounded_bars_title">Lekerekített sávok</string>
     <string name="pulse_rounded_bars_summary">A vizualizáció sávjai lekerekítetten jelennek meg</string>
     <string name="pulse_color">A vizualizáció színe</string>
@@ -158,6 +159,9 @@
     <string name="pulse_renderer_matrix">Mátrix</string>
     <string name="pulse_renderer_particle">Részekre bontott</string>
     <string name="pulse_renderer_waveform">Hullámokra bontott</string>
+    <string name="pulse_capture_mode_title">Hangfelvétel-mód</string>
+    <string name="pulse_capture_mode_fft">FFT (Frekvencia)</string>
+    <string name="pulse_capture_mode_amplitude">Amplitúdó (Hullámforma)</string>
     <string name="pulse_show_on_ambient_title">Megjelenítés a \'Környezeti kijelző\'-n</string>
     <string name="pulse_show_on_ambient_summary">A vizualizáció megjelenítése \'Mindig bekapcsolva\' és \'Környezeti kijelző\' módokban. Csak lezárt képernyőn nem.</string>
     <string name="pulse_height_multiplier_title">A pulzálás magassága</string>
@@ -1151,6 +1155,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="ts_manage_target_apps">Célalkalmazások kezelése</string>
     <string name="ts_no_targets">Nincs beállított célalkalmazás</string>
     <string name="ts_target_apps_count">%d alkalmazás beállítva</string>
+    <string name="ts_target_apps_empty_description">Nincs alkalmazás ami megfelelne a keresésnek vagy a konfigurációnak</string>
     <string name="ts_import_target_list">Céllista importálása</string>
     <string name="ts_import_target_list_summary">A target.txt importálása fájlból</string>
     <string name="ts_invalid_patch_date">Hibás dátumformátum. YYYY-MM-DD a helyes.</string>
