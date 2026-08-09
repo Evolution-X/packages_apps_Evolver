@@ -710,6 +710,16 @@
         <item>waveform</item>
     </string-array>
 
+    <string-array name="pulse_capture_mode_entries" translatable="false">
+        <item>@string/pulse_capture_mode_fft</item>
+        <item>@string/pulse_capture_mode_amplitude</item>
+    </string-array>
+
+    <string-array name="pulse_capture_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
     <string-array name="pulse_bass_haptics_entries" translatable="false">
         <item>@string/pulse_bass_haptics_none</item>
         <item>@string/pulse_bass_haptics_running</item>
