@@ -53,6 +53,16 @@
         android:defaultValue="solid"
         android:dependency="lockscreen_pulse_enabled" />
 
+    <org.evolution.settings.preferences.SecureSettingListPreference
+        android:key="pulse_capture_mode"
+        android:title="@string/pulse_capture_mode_title"
+        android:summary="%s"
+        android:dialogTitle="@string/pulse_capture_mode_title"
+        android:entries="@array/pulse_capture_mode_entries"
+        android:entryValues="@array/pulse_capture_mode_values"
+        android:defaultValue="0"
+        android:dependency="lockscreen_pulse_enabled" />
+
     <org.evolution.settings.preferences.SecureSettingSwitchPreference
         android:key="pulse_rounded_bars"
         android:title="@string/pulse_rounded_bars_title"
