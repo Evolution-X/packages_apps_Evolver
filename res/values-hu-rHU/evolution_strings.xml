@@ -325,6 +325,8 @@ Beállítás:
     <string name="status_bar_colored_icons_summary">Használja a Launcher-ikonokat az alkalmazásértesítésekhez</string>
     <string name="status_bar_notif_count_title">Értesítés-számláló</string>
     <string name="status_bar_notif_count_summary">A függőben lévő értesítések számának megjelenítése az alkalmazásikonokon</string>
+    <string name="status_bar_lyric_title">Dalszöveg az állapotsoron</string>
+    <string name="status_bar_lyric_summary">Megjelenik a dalszöveg az állapotsoron</string>
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Szolgáltatói felirat</string>
     <string name="lockscreen_show_carrier_title">Szolgáltatónév megjelenítése</string>
@@ -487,6 +489,7 @@ Beállítás:
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Amogus</string>
+    <string name="status_bar_logo_style_custom">Egyéni kép</string>
     <!-- Custom image logo style -->
     <string name="status_bar_logo_style_custom_image">Egyéni kép</string>
     <string name="status_bar_logo_custom_image_title">Egyéni logó kiválasztása</string>
@@ -1562,9 +1565,4 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="qs_show_volume_slider_only">Csak a Hangerőcsúszka</string>
     <string name="qs_show_ringer_mode_title">Csengési mód</string>
     <string name="qs_show_ringer_mode_summary">A hangerőcsúszka mellett a csengési mód ikonja is megjelenik</string>
-    <!-- Statusbar lyric -->
-    <string name="status_bar_lyric_title">Dalszöveg az állapotsávon</string>
-    <string name="status_bar_lyric_summary">Ha az alkalmazás támogatja megjelenik a dalszöveg</string>
-    <string name="status_bar_show_lyric_title">Dalszöveg engedélyezése az értesítési sávon</string>
-    <string name="status_bar_lyric_options_title">Lehetőségek</string>
 </resources>
