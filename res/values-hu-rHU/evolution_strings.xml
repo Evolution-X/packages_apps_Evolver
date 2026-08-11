@@ -215,8 +215,7 @@
     <string name="nowplaying_title">\'Most hallható\'</string>
     <string name="nowplaying_summary">Az aktuálisan lejátszott zene adatainak megjelenítése lezárt képernyőn és a „Mindig bekapcsolva\" módban</string>
     <string name="nowplaying_appearance_title">Megjelenés</string>
-    <string name="nowplaying_use_accent_color_title">Kiemelőszín használata</string>
-    <string name="nowplaying_use_accent_color_summary">A fehér helyett a rendszer kiemelőszínét használja</string>
+    <string name="nowplaying_color_mode_title">A szöveg színmódja</string>
     <string name="nowplaying_vertical_position_title">Függőleges helyzet</string>
     <string name="nowplaying_vertical_position_summary">A képernyő tetejétől az aljáig való pozíció beállítása</string>
     <string name="nowplaying_track_text_size_title">A számcím mérete</string>
@@ -237,6 +236,8 @@
     <string name="nowplaying_info_summary">A „Most hallható” funkció a lezárási képernyőn és az AOD-kijelzőn mutatja az aktuális számcímet és az előadót. Zenelejátszás közben automatikusan megjelenik, leállításkor pedig eltűnik. Pozíciója a képernyő tetejétől az aljáig állítható.</string>
     <string name="nowplaying_expand_dialog">Bővebb információ</string>
     <string name="nowplaying_expand_dialog_summary">Nagyobbra nyitja a \'Most hallható\' paneljét</string>
+    <string name="nowplaying_lyrics_mode_title">Dalszöveg-mód</string>
+    <string name="nowplaying_lyrics_mode_summary">A szinkronba hozott dalszöveg megjelenítése a szám címe és ikonja helyett</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Időjárás-beállítások</string>
     <string name="weather_settings_summary">Ikoncsomag és időjárási szolgáltatás beállítása</string>
@@ -486,6 +487,17 @@ Beállítás:
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Amogus</string>
+    <!-- Custom image logo style -->
+    <string name="status_bar_logo_style_custom_image">Egyéni kép</string>
+    <string name="status_bar_logo_custom_image_title">Egyéni logó kiválasztása</string>
+    <string name="status_bar_logo_custom_image_summary">Kiválasztáshoz kattintson egy képre a galériában</string>
+    <string name="status_bar_logo_custom_image_pick_summary">Kép kiválasztása a galériából</string>
+    <!-- Statusbar logo color -->
+    <string name="default_string">Alapértelmezett</string>
+    <string name="status_bar_logo_color_title">Szín</string>
+    <string name="status_bar_logo_color_default">Alapértelmezett (fehér)</string>
+    <string name="status_bar_logo_color_accent">Kiemelés</string>
+    <string name="status_bar_logo_color_custom">Egyéni</string>
     <!-- Status bar/Network traffic -->
     <string name="status_bar_network_traffic_settings_title">Hálózati forgalom-figyelő</string>
     <string name="status_bar_network_traffic_settings_summary">A Hálózatiforgalom-figyelő megjelenítése, és testreszabása</string>
@@ -527,8 +539,6 @@ Beállítás:
     <string name="dynamic_bar_events">Események</string>
     <string name="dynamic_bar_event_audio_recording">Hangfelvétel</string>
     <string name="dynamic_bar_event_audio_recording_summary">Hangfelvétel és audiómentés</string>
-    <string name="dynamic_bar_event_call">Épp zajló hívás</string>
-    <string name="dynamic_bar_event_call_summary">Bejövő és aktív hívások</string>
     <string name="dynamic_bar_event_media">Médialejátszás</string>
     <string name="dynamic_bar_event_media_summary">\'Most hallható\' zene és hangvezérlők</string>
     <string name="dynamic_bar_event_notification">Értesítések</string>
@@ -680,6 +690,8 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="qs_tile_alternate_color_title">Alternatív Gyorsbeállítás-csempe szín</string>
     <string name="qs_tile_alternate_color_summary">Egyéni háttérszíneket használhat a csempékhez</string>
     <string name="qs_brightness_slider_shape_title">A Fényerőcsúszka alakja</string>
+    <string name="media_waveform_seekbar_title">Hullám formájú folyamatsáv</string>
+    <string name="media_waveform_seekbar_summary">Bekapcsol egy hullám formájú animációt a médialejátszáshoz</string>
     <string name="floating_rotation_button_title">\'Lebegő elforgatás\'-gomb</string>
     <string name="floating_rotation_button_summary">Lebegő forgatógomb megjelenítése az eszköz tájolásának változásakor</string>
     <!-- Quick settings -->
@@ -913,6 +925,10 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="edge_light_animation_effect_sparkle">Csillogó</string>
     <string name="edge_light_animation_effect_chase">Rovátkás</string>
     <string name="edge_light_animation_effect_comet">Hullócsillag</string>
+    <string name="edge_light_spread_title">Fényszóró</string>
+    <string name="edge_light_spread_summary">Milyen messzire terjed a fény befelé a szélekről</string>
+    <string name="edge_light_intensity_title">A szórás erőssége</string>
+    <string name="edge_light_intensity_summary">A szórási effekt csúcsfényessége</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Kezelőfelület</string>
     <string name="power_menu_actions_title">Kikapcsolási-menüfunkciók</string>
@@ -1545,4 +1561,9 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="qs_show_volume_slider_only">Csak a Hangerőcsúszka</string>
     <string name="qs_show_ringer_mode_title">Csengési mód</string>
     <string name="qs_show_ringer_mode_summary">A hangerőcsúszka mellett a csengési mód ikonja is megjelenik</string>
+    <!-- Statusbar lyric -->
+    <string name="status_bar_lyric_title">Dalszöveg az állapotsávon</string>
+    <string name="status_bar_lyric_summary">Ha az alkalmazás támogatja megjelenik a dalszöveg</string>
+    <string name="status_bar_show_lyric_title">Dalszöveg engedélyezése az értesítési sávon</string>
+    <string name="status_bar_lyric_options_title">Lehetőségek</string>
 </resources>
