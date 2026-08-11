@@ -806,6 +806,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <!-- Quick settings/Header image -->
     <string name="quick_settings_header_image_title">Fejléckép</string>
     <string name="quick_settings_header_image_summary">Háttérkép kiválasztása a gyorsbeállításokhoz</string>
+    <string name="quick_settings_header_image_error">A fejléckép mentése meghiúsult</string>
     <string name="quick_settings_header_daylight_pack_title">Képgyűjtemény</string>
     <string name="quick_settings_header_shadow_title">A fejléc-kép árnyéka</string>
     <string name="quick_settings_header_shadow_summary">Láthatóság javítása világos képeken</string>
