@@ -1002,6 +1002,10 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Block all apps from dimming the wallpaper, forcing dim level to 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignore secure window flags</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remove screenshot and screen recording restrictions for all apps. May expose private content</string>
+    <string name="miscellaneous_block_screenshot_detection_title">Block screenshot detection</string>
+    <string name="miscellaneous_block_screenshot_detection_summary">Prevent apps from knowing when their content has been screenshot</string>
+    <string name="miscellaneous_block_screenrecord_detection_title">Block screen recording detection</string>
+    <string name="miscellaneous_block_screenrecord_detection_summary">Prevent apps from knowing when their content is being screen recorded</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Unlimited screen record</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remove the 15 GiB file size limit. May result in a larger output file than needed</string>
     <string name="disable_flash_sms_title">Disable flash SMS</string>
