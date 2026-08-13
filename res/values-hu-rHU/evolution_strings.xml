@@ -980,6 +980,10 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="miscellaneous_block_wallpaper_dimming_summary">A háttérkép elsötétítésének blokkolása minden alkalmazásnál, az elsötétítési szint 0-ra kényszerítésével</string>
     <string name="miscellaneous_ignore_window_secure_title">Biztonságos ablakjelzők figyelmen kívül hagyása</string>
     <string name="miscellaneous_ignore_window_secure_summary">A képernyőkép- és képernyőfelvétel-korlátozások eltávolítása minden alkalmazásnál. Személyes tartalmat tehet láthatóvá</string>
+    <string name="miscellaneous_block_screenshot_detection_title">Képernyőmentés titkosítása</string>
+    <string name="miscellaneous_block_screenshot_detection_summary">Az alkalmazások megakadályozása abban, hogy tudják, mikor készült képernyőkép a tartalmukról</string>
+    <string name="miscellaneous_block_screenrecord_detection_title">Képernyőrögzítés titkosítása</string>
+    <string name="miscellaneous_block_screenrecord_detection_summary">Az alkalmazások megakadályozása abban, hogy tudják, mikor készült képernyőrögzítés a tartalmukról</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Korlátlan képernyőfelvétel</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">A 15 GiB-os fájlméretkorlát eltávolítása. A szükségesnél nagyobb kimeneti fájlt eredményezhet</string>
     <string name="disable_flash_sms_title">Flash SMS letiltása</string>
