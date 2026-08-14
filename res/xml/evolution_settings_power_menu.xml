@@ -8,6 +8,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/power_menu_title">
 
+    <org.evolution.settings.preferences.SecureSettingSwitchPreference
+        android:key="global_actions_use_compose_dialog"
+        android:title="@string/global_actions_use_compose_dialog_title"
+        android:summary="@string/global_actions_use_compose_dialog_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="power_menu_interface_category"
         android:title="@string/power_menu_interface_category">
