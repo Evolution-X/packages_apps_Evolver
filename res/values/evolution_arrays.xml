@@ -713,6 +713,7 @@
         <item>@string/pulse_renderer_matrix</item>
         <item>@string/pulse_renderer_particle</item>
         <item>@string/pulse_renderer_waveform</item>
+        <item>@string/pulse_renderer_dot_wave</item>
     </string-array>
 
     <string-array name="pulse_renderer_values" translatable="false">
@@ -725,6 +726,7 @@
         <item>matrix</item>
         <item>particle</item>
         <item>waveform</item>
+        <item>dotwave</item>
     </string-array>
 
     <string-array name="pulse_capture_mode_entries" translatable="false">
