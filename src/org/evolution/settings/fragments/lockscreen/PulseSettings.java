@@ -123,7 +123,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                     supportsRounding = true;
                     supportsColoring = true;
                 }
-                case "fading", "matrix", "neon", "particle", "sparkle", "waveform" -> {
+                case "fading", "matrix", "neon", "particle", 
+                "sparkle", "waveform", "dotwave" -> {
                     supportsColoring = true;
                 }
             }
