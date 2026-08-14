@@ -159,6 +159,7 @@
     <string name="pulse_renderer_matrix">Mátrix</string>
     <string name="pulse_renderer_particle">Részekre bontott</string>
     <string name="pulse_renderer_waveform">Hullámokra bontott</string>
+    <string name="pulse_renderer_dot_wave">Pont hullám</string>
     <string name="pulse_capture_mode_title">Hangfelvétel-mód</string>
     <string name="pulse_capture_mode_fft">FFT (Frekvencia)</string>
     <string name="pulse_capture_mode_amplitude">Amplitúdó (Hullámforma)</string>
@@ -1507,6 +1508,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="hardware_keys_action_notifications_panel">Értesítési panel be- és kikapcsolása</string>
     <string name="hardware_keys_action_expand_qs_panel">Gyorsbeállítások kibontása</string>
     <string name="hardware_keys_action_ringer_modes">Csengésmód-változtatás</string>
+    <string name="hardware_keys_action_ambient_display">A Környezeti kijelző kapcsolója</string>
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Háromujjas húzás</string>
     <string name="shake_gestures_enabled_title">Rázási mozdulatok</string>
