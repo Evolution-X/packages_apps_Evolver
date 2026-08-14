@@ -46,12 +46,14 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String KEY_PULSE_COLOR = "pulse_color";
     private static final String KEY_PULSE_CUSTOM_COLOR = "pulse_custom_color";
     private static final String KEY_PULSE_CAPTURE_MODE = "pulse_capture_mode";
+    private static final String KEY_PULSE_ROUND_OUTPUT = "pulse_rounded_bars";
 
     private SecureSettingListPreference mPulseRenderer;
     private SecureSettingListPreference mPulseColor;
     private SecureSettingListPreference mPulseBassHaptics;
     private SecureSettingListPreference mPulseCaptureMode;
     private SecureSettingColorPickerPreference mPulseCustomColor;
+    private SwitchPreferenceCompat mPulseRoundOutput;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mPulseCustomColor = (SecureSettingColorPickerPreference) findPreference(KEY_PULSE_CUSTOM_COLOR);
         mPulseCaptureMode = (SecureSettingListPreference) findPreference(KEY_PULSE_CAPTURE_MODE);
         mPulseBassHaptics = (SecureSettingListPreference) findPreference(KEY_PULSE_BASS_HAPTICS);
+        mPulseRoundOutput = (SwitchPreferenceCompat) findPreference(KEY_PULSE_ROUND_OUTPUT);
 
         if (mPulseRenderer != null) {
             mPulseRenderer.setOnPreferenceChangeListener(this);
@@ -111,11 +114,22 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         if (captureModeValue != null) {
             setBassHapticPreference(!captureModeValue.equals("1"));  
         }
-        if (mPulseColor != null && mPulseCustomColor != null) {
-            boolean isMatrix = "matrix".equals(rendererValue);
-            boolean isCustomColor = "custom".equals(colorValue);
-            mPulseColor.setVisible(!isMatrix);
-            mPulseCustomColor.setVisible(!isMatrix && isCustomColor);
+
+        if (rendererValue != null) {
+            boolean supportsColoring = false;
+            boolean supportsRounding = false;
+            switch (rendererValue) {
+                case "minimal", "solid" -> {
+                    supportsRounding = true;
+                    supportsColoring = true;
+                }
+                case "fading", "matrix", "neon", "particle", "sparkle", "waveform" -> {
+                    supportsColoring = true;
+                }
+            }
+            mPulseRoundOutput.setVisible(supportsRounding);
+            mPulseColor.setVisible(supportsColoring);
+            mPulseCustomColor.setVisible(supportsColoring && "custom".equals(colorValue));
         }
     }
 
