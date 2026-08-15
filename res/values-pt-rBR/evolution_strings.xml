@@ -87,7 +87,24 @@
     <string name="boot_animation_preview_title">Visualização da animação de inicialização</string>
     <string name="boot_animation_no_preview">Nenhuma visualização disponível</string>
     <string name="boot_animation_style_unknown">Desconhecido</string>
-    <!-- Themes/Monet Engine -->
+    <!-- Themes/Monet Settings -->
+    <string name="monet_settings_title">Personalização de cores</string>
+    <string name="monet_settings_summary">Personalize cores e estilo do tema</string>
+    <string name="color_settings_category">Configurações de cores</string>
+    <string name="advanced_settings_category">Configurações avançadas</string>
+    <string name="use_wallpaper_colors_title">Use cores de papel de parede</string>
+    <string name="use_wallpaper_colors_desc">Extraia cores do seu papel de parede</string>
+    <string name="custom_seed_color_title">Cor de origem personalizada</string>
+    <string name="theme_style_title">Estilo de tema</string>
+    <string name="theme_style_desc">Selecione o estilo da paleta de cores</string>
+    <string name="fidelity_title">Fidelidade de cores</string>
+    <string name="fidelity_desc">Preservar a cor de origem da semente com mais precisão</string>
+    <string name="contrast_level_title">Nível de contraste</string>
+    <string name="chroma_boost_title">Aumento de croma</string>
+    <string name="about_color_customization_title">Sobre personalização de cores</string>
+    <string name="about_color_customization_desc">As alterações de cores são aplicadas em todo o sistema a todos os apps que suportam o tema Material You.\nO ajuste dessas cores pode afetar a aparência dos apps no seu dispositivo.</string>
+    <string name="wallpaper_seed_color_title">Escolha no papel de parede</string>
+    <string name="wallpaper_seed_color_desc">Extraia a cor do seu papel de parede atual</string>
     <string name="monet_engine_custom_color_title">Cor de destaque</string>
     <string name="monet_engine_custom_color_summary">Escolha uma cor de destaque personalizada</string>
     <string name="monet_engine_custom_bgcolor_title">Cor de fundo</string>
@@ -115,6 +132,27 @@
     <string name="monet_engine_color_source_home">Papel de parede tela inicial</string>
     <string name="monet_engine_color_source_lock">Papel de parede tela de bloqueio</string>
     <string name="monet_engine_color_source_preset">Predefinido</string>
+    <!-- Per-palette chroma override -->
+    <string name="chroma_accent1_title">Croma primário</string>
+    <string name="chroma_accent2_title">Croma secundário</string>
+    <string name="chroma_accent3_title">Croma terciário</string>
+    <string name="chroma_neutral1_title">Croma neutro</string>
+    <string name="chroma_neutral2_title">Croma variante neutra</string>
+    <!-- Hue / tone category -->
+    <string name="hue_tone_settings_category">Tonalidade e leveza</string>
+    <!-- Hue rotation -->
+    <string name="hue_shift_title">Rotação de tonalidade</string>
+    <string name="hue_shift_desc">Rotacionar a tonalidade da cor de origem. Produz tons adjacentes harmoniosos sem alterar manualmente a cor da semente.</string>
+    <!-- Tone shifts -->
+    <string name="tone_shift_light_title">Viés de luminosidade (modo claro)</string>
+    <string name="tone_shift_light_desc">Muda todas as cores do modo de luz para mais claras (+) ou mais escuras (-), independentemente do contraste.</string>
+    <string name="tone_shift_dark_title">Viés de luminosidade (modo escuro)</string>
+    <string name="tone_shift_dark_desc">Mude todas as cores do modo escuro para mais claro (+) ou mais escuro (-) independentemente do contraste.</string>
+    <!-- Secondary seed -->
+    <string name="secondary_seed_category">Cor secundária</string>
+    <string name="use_secondary_seed_title">Ativar cor secundária</string>
+    <string name="use_secondary_seed_desc">Direcione paletas secundárias e terciárias a partir de uma cor inicial separada para temas de dois tons.</string>
+    <string name="secondary_seed_color_title">Cor secundária</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
     <string name="lock_screen_charging_category">Carregando</string>
@@ -139,6 +177,7 @@
     <string name="pulse_bass_haptics_none">Sem vibração suave em picos de grave intenso</string>
     <string name="pulse_bass_haptics_running">Somente quando o pulso está mostrando</string>
     <string name="pulse_bass_haptics_always">Sempre que a reprodução de mídia estiver ativa</string>
+    <string name="pulse_bass_haptics_disabled_amplitude">Indisponível no modo de captura de amplitude</string>
     <string name="pulse_rounded_bars_title">Barras arredondadas</string>
     <string name="pulse_rounded_bars_summary">Exibir barras do visualizador com cantos arredondados</string>
     <string name="pulse_color">Cor do visualizador</string>
@@ -158,10 +197,26 @@
     <string name="pulse_renderer_matrix">Matriz</string>
     <string name="pulse_renderer_particle">Partícula</string>
     <string name="pulse_renderer_waveform">Forma de onda</string>
+    <string name="pulse_renderer_dot_wave">Onda pontual</string>
+    <string name="pulse_capture_mode_title">Modo de captura de áudio</string>
+    <string name="pulse_capture_mode_fft">FFT (Frequência)</string>
+    <string name="pulse_capture_mode_amplitude">Amplitude (forma de onda)</string>
     <string name="pulse_show_on_ambient_title">Mostrar na tela ambiente</string>
     <string name="pulse_show_on_ambient_summary">Exibe visualizador na tela sempre ativa e no modo ambiente. Desative para mostrar apenas na tela de bloqueio.</string>
     <string name="pulse_height_multiplier_title">Altura do pulso</string>
     <string name="pulse_height_multiplier_summary">Ajustar a altura da visualização</string>
+    <!-- Lockscreen Clock Highlight Guide -->
+    <string name="ls_clock_title">Relógios de tela de bloqueio</string>
+    <string name="ls_clock_summary">Defina o estilo do seu relógio e widgets</string>
+    <string name="clock_styles_disclaimer_title">Antes de continuar</string>
+    <string name="clock_styles_disclaimer_message">Para obter a melhor experiência com mostradores de relógio e widgets, certifique-se de:\n\n• Desativar a tela de bloqueio do Smartspace\n• Desativar o clima da tela de bloqueio\n• Desativar o estilo de relógio grande\n\nVocê pode encontrar essas opções nas configurações da tela de bloqueio.</string>
+    <string name="ls_clock_face_highlight_text">Deslize para a esquerda ou direita para visualizar os estilos de relógio</string>
+    <!-- Lockscreen Clock Accent Color -->
+    <string name="clock_text_accent_color_title">Use cor de destaque para o relógio</string>
+    <string name="clock_text_accent_color_summary">Use a cor de destaque do sistema em vez de branco para o texto do relógio</string>
+    <!-- Lockscreen Clock Opacity -->
+    <string name="clock_text_opacity_title">Opacidade do texto do relógio</string>
+    <string name="clock_text_opacity_summary">Ajuste a transparência do texto do relógio</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">O relógio selecionado não suporta fontes personalizadas</string>
     <string name="lockscreen_clock_category_title">Relógio</string>
@@ -170,20 +225,82 @@
     <string name="theme_customization_lock_clock_face_summary">Modificar aparência do relógio na tela de bloqueio</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Estilo de relógio personalizado</string>
+    <string name="lockscreen_custom_clock_style_summary">Configurar estilos de relógio da tela de bloqueio</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Deslize para a esquerda ou direita para visualizar os estilos de relógio</string>
-    <string name="lockscreen_custom_clock_style_info">O estilo de relógio personalizado substitui os estilos de relógio AOSP. O Smartspace estará desativado. Você pode ativar o clima personalizado.</string>
-    <string name="lockscreen_custom_clock_opacity_title">Opacidade do relógio</string>
-    <string name="lockscreen_custom_clock_opacity_summary">Ajuste a transparência do relógio personalizado</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Altura do relógio</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_summary">Ajuste a posição vertical do relógio personalizado</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Modo de cor do relógio</string>
-    <string name="lockscreen_custom_clock_size_title">Tamanho do relógio</string>
-    <string name="lockscreen_custom_clock_size_summary">Escala do relógio da tela de bloqueio (50-150%)</string>
+    <string name="lockscreen_custom_clock_style_info">O estilo de relógio personalizado substitui os estilos de relógio AOSP por relógios personalizados. O Smartspace estará desativado. Você pode ativar e usar o clima personalizado.</string>
+    <string name="lockscreen_custom_clock_opacity_title">Opacidade do relógio personalizada</string>
+    <string name="lockscreen_custom_clock_opacity_summary">Ajuste a transparência do estilo de relógio personalizado</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Altura do relógio personalizada</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Ajuste a altura do estilo do relógio personalizado</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Modo de cor do relógio personalizado</string>
     <string name="lockscreen_custom_clock_aod_anim_title">Animação personalizada do relógio AOD</string>
     <string name="lockscreen_custom_clock_aod_anim_summary">Defina a animação AOD para um estilo de relógio personalizado</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_title">Efeito de carregamento oscilante</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_summary">Exibir efeito de oscilação no relógio quando conectado ao carregador</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Largura do relógio personalizada</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Ajuste a largura do estilo de relógio personalizado</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_title">Texto gradiente</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Aplique um gradiente de duas cores ao texto do relógio em vez de uma cor plana. Substituir outro modo de cor</string>
+    <string name="lockscreen_custom_clock_gradient_start_title">Cor inicial do gradiente</string>
+    <string name="lockscreen_custom_clock_gradient_end_title">Cor final do gradiente</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_title">Âncora gradiente</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_summary">Controlar onde o gradiente é centralizado verticalmente</string>
+    <string name="lockscreen_custom_clock_gradient_radius_title">Propagação gradiente</string>
+    <string name="lockscreen_custom_clock_gradient_radius_summary">Controle a distância que o gradiente se espalha a partir do ponto de ancoragem</string>
+    <string name="lockscreen_custom_clock_color_category_title">Cor</string>
+    <string name="lockscreen_custom_clock_gradient_category_title">Gradiente</string>
+    <string name="lockscreen_custom_clock_layout_category_title">Tamanho e tamanho posição</string>
+    <string name="lockscreen_custom_clock_animation_category_title">Animação</string>
+    <string name="unit_degrees">°</string>
+    <!-- Lockscreen Clock Size -->
+    <string name="clock_size_title">Tamanho do relógio</string>
+    <string name="clock_size_summary">Dimensione o relógio da tela de bloqueio (50–150%)</string>
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">Relógios com cores da capa do álbum</string>
     <string name="clock_album_art_color_summary">Substitua a cor do relógio pela paleta de cores da capa do álbum quando a mídia estiver sendo reproduzida</string>
+    <!-- Lockscreen widgets -->
+    <string name="lockscreen_widgets_title">Widgets</string>
+    <string name="lockscreen_widgets_enabled_title">Ativar o widgets de tela de bloqueio</string>
+    <string name="lockscreen_widgets_enabled_summary">Adicione widgets à tela de bloqueio</string>
+    <string name="lockscreen_display_widgets_title">Widget de dispositivo de informação</string>
+    <string name="lockscreen_widgets_color_mode_title">Informação Modo de cores do widget</string>
+    <string name="lockscreen_display_widgets_summary">Exibir widget de informações do dispositivo na tela de bloqueio</string>
+    <string name="large_widgets_category_title">Grandes widgets</string>
+    <string name="main_custom_widgets1">Grande widget 1</string>
+    <string name="main_custom_widgets2">Grande widget 2</string>
+    <string name="mini_widgets_category_title">Mini-widgets</string>
+    <string name="custom_widgets1">Miniwidget 1</string>
+    <string name="custom_widgets2">Miniwidget 2</string>
+    <string name="custom_widgets3">Mini-widget 3</string>
+    <string name="custom_widgets4">Miniwidget 4</string>
+    <string name="camera">Câmera</string>
+    <string name="clock_timer">Relógio/Temporizador</string>
+    <string name="calculator">Calculadora</string>
+    <string name="gallery">Galeria</string>
+    <string name="media">Reprodutor de mídia</string>
+    <string name="torch">Tocha</string>
+    <string name="controls_media_button_play">Jogar</string>
+    <string name="weather">Clima</string>
+    <string name="wifi">Wi-fi</string>
+    <string name="data">Dados</string>
+    <string name="ringer">Campainha</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Ponto de acesso</string>
+    <string name="wallet">Carteira</string>
+    <string name="qr_scanner">Leitor QR</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">Estilo de widgets de tela de bloqueio</string>
+    <string name="lockscreen_widgets_style1">Material arredondado</string>
+    <string name="lockscreen_widgets_style2">Quadrado de Materiais</string>
+    <string name="lockscreen_widgets_style3">Quadrado Translúcido</string>
+    <string name="lockscreen_widgets_style4">Arredondado Translúcido</string>
+    <string name="lockscreen_widgets_style5">Desfoque quadrado</string>
+    <string name="lockscreen_widgets_style6">Desfoque arredondado</string>
+    <string name="lockscreen_widgets_transparency_title">Transparência de estilo translúcido</string>
+    <string name="lockscreen_widgets_transparency_summary">Configurar o nível de opacidade do widget de estilo translúcido</string>
+    <!-- Lockscreen Weather -->
+    <string name="custom_clock_weather_title">Clima na tela de bloqueio</string>
+    <string name="custom_clock_weather_summary">Exibir o clima no relógio da tela de bloqueio personalizado</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Arte de capa da mídia</string>
     <string name="ls_media_art_summary">Exibir capa de mídia quando disponível</string>
@@ -211,8 +328,7 @@
     <string name="nowplaying_title">Now playing</string>
     <string name="nowplaying_summary">Exibir informações de música atualmente reproduzidas na tela de bloqueio e AOD</string>
     <string name="nowplaying_appearance_title">Aparência</string>
-    <string name="nowplaying_use_accent_color_title">Usar cor de destaque</string>
-    <string name="nowplaying_use_accent_color_summary">Use a cor de destaque do sistema em vez de branco</string>
+    <string name="nowplaying_color_mode_title">Modo de cor do texto</string>
     <string name="nowplaying_vertical_position_title">Posição vertical</string>
     <string name="nowplaying_vertical_position_summary">Ajuste a posição de cima para baixo da tela</string>
     <string name="nowplaying_track_text_size_title">Tamanho do título da faixa</string>
@@ -233,6 +349,8 @@
     <string name="nowplaying_info_summary">Now Playing mostra a faixa e o artista atuais na tela de bloqueio e na tela sempre ativa. Ele aparece automaticamente quando a música está tocando e oculta quando parado. A posição é ajustável de cima para baixo da tela.</string>
     <string name="nowplaying_expand_dialog">Expandir caixa de diálogo</string>
     <string name="nowplaying_expand_dialog_summary">Expanda a caixa de diálogo Now Playing</string>
+    <string name="nowplaying_lyrics_mode_title">Modo de letras</string>
+    <string name="nowplaying_lyrics_mode_summary">Exibir letras sincronizadas em vez do título e ícone da faixa</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Configurações de Clima</string>
     <string name="weather_settings_summary">Configure o pacote de ícones e o serviço meteorológico</string>
@@ -315,6 +433,8 @@
     <string name="status_bar_colored_icons_summary">Usar ícones do launcher para notificações de aplicativos</string>
     <string name="status_bar_notif_count_title">Contador de notificações</string>
     <string name="status_bar_notif_count_summary">Exibir o número de notificações pendentes em cada ícone do aplicativo</string>
+    <string name="status_bar_lyric_title">Letras da barra de status</string>
+    <string name="status_bar_lyric_summary">Exibir letras na barra de status</string>
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Nome da operadora</string>
     <string name="lockscreen_show_carrier_title">Mostrar nome da operadora de rede</string>
@@ -477,6 +597,18 @@
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Amogus</string>
+    <string name="status_bar_logo_style_custom">Imagem personalizada</string>
+    <!-- Custom image logo style -->
+    <string name="status_bar_logo_style_custom_image">Imagem personalizada</string>
+    <string name="status_bar_logo_custom_image_title">Selecione a imagem do logotipo personalizado</string>
+    <string name="status_bar_logo_custom_image_summary">Toque para escolher uma imagem da galeria</string>
+    <string name="status_bar_logo_custom_image_pick_summary">Escolha uma imagem da galeria</string>
+    <!-- Statusbar logo color -->
+    <string name="default_string">Padrão</string>
+    <string name="status_bar_logo_color_title">Cor</string>
+    <string name="status_bar_logo_color_default">Padrão (branco)</string>
+    <string name="status_bar_logo_color_accent">Cor de destaque</string>
+    <string name="status_bar_logo_color_custom">Personalizado</string>
     <!-- Status bar/Network traffic -->
     <string name="status_bar_network_traffic_settings_title">Monitor de tráfego de rede</string>
     <string name="status_bar_network_traffic_settings_summary">Exibir e personalizar os níveis atuais de tráfego de rede</string>
@@ -518,8 +650,6 @@
     <string name="dynamic_bar_events">Eventos</string>
     <string name="dynamic_bar_event_audio_recording">Gravação de áudio</string>
     <string name="dynamic_bar_event_audio_recording_summary">Gravador de voz e captura de áudio</string>
-    <string name="dynamic_bar_event_call">Chamada em andamento</string>
-    <string name="dynamic_bar_event_call_summary">Chamadas recebidas e ativas</string>
     <string name="dynamic_bar_event_media">Reprodução de mídia</string>
     <string name="dynamic_bar_event_media_summary">Controles de música e áudio do Now playing</string>
     <string name="dynamic_bar_event_notification">Notificações</string>
@@ -669,6 +799,8 @@
     <string name="qs_tile_alternate_color_title">Cor alternativa do bloco nas configurações rápidas</string>
     <string name="qs_tile_alternate_color_summary">Usar uma cor de fundo alternativa para blocos nas configurações rápidas</string>
     <string name="qs_brightness_slider_shape_title">Forma do controle deslizante de brilho</string>
+    <string name="media_waveform_seekbar_title">Barra de busca de forma de onda</string>
+    <string name="media_waveform_seekbar_summary">Exibir um efeito de forma de onda animado para o progresso da reprodução de mídia</string>
     <string name="floating_rotation_button_title">Botão de rotação flutuante</string>
     <string name="floating_rotation_button_summary">Exibir um botão flutuante para girar quando a orientação do dispositivo mudar</string>
     <!-- Quick settings -->
@@ -783,6 +915,7 @@
     <!-- Quick settings/Header image -->
     <string name="quick_settings_header_image_title">Imagem do cabeçalho</string>
     <string name="quick_settings_header_image_summary">Selecione uma imagem de fundo para configurações rápidas</string>
+    <string name="quick_settings_header_image_error">Falha ao salvar a imagem do cabeçalho</string>
     <string name="quick_settings_header_daylight_pack_title">Coleção de imagens</string>
     <string name="quick_settings_header_shadow_title">Sombra da imagem do cabeçalho</string>
     <string name="quick_settings_header_shadow_summary">Melhore a visibilidade em imagens brilhantes</string>
@@ -902,6 +1035,10 @@
     <string name="edge_light_animation_effect_sparkle">Brilho</string>
     <string name="edge_light_animation_effect_chase">Perseguir</string>
     <string name="edge_light_animation_effect_comet">Cometa</string>
+    <string name="edge_light_spread_title">Propagação de brilho</string>
+    <string name="edge_light_spread_summary">Até que ponto o brilho se estende da borda para dentro</string>
+    <string name="edge_light_intensity_title">Intensidade de brilho</string>
+    <string name="edge_light_intensity_summary">Brilho máximo do efeito de brilho</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interface</string>
     <string name="power_menu_actions_title">Opções do menu de energia</string>
@@ -949,6 +1086,10 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Impedir que todos os aplicativos escureçam o papel de parede, forçando o nível de escurecimento para 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignorar sinalizadores de janela segura</string>
     <string name="miscellaneous_ignore_window_secure_summary">Removedor de captura de tela e restrições de gravação de tela para todos os aplicativos. Pode expor conteúdo privado</string>
+    <string name="miscellaneous_block_screenshot_detection_title">Bloquear detecção de captura de tela</string>
+    <string name="miscellaneous_block_screenshot_detection_summary">Impedir que os aplicativos saibam quando seu conteúdo foi capturado</string>
+    <string name="miscellaneous_block_screenrecord_detection_title">Bloquear detecção de gravação de tela</string>
+    <string name="miscellaneous_block_screenrecord_detection_summary">Impedir que os aplicativos saibam quando seu conteúdo está sendo gravado na tela</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela ilimitada</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remove o limite de tamanho de arquivo de 15 GiB. Pode resultar em um arquivo de saída maior do que o necessário</string>
     <string name="disable_flash_sms_title">Desativar o SMS flash</string>
@@ -1144,6 +1285,7 @@
     <string name="ts_manage_target_apps">Gerenciar aplicativos de alvo</string>
     <string name="ts_no_targets">Nenhum aplicativo alvo configurado</string>
     <string name="ts_target_apps_count">%d aplicativos configurados</string>
+    <string name="ts_target_apps_empty_description">Nenhum aplicativo corresponde à sua pesquisa ou configuração</string>
     <string name="ts_import_target_list">Importar lista de alvos</string>
     <string name="ts_import_target_list_summary">Importar target.txt de um arquivo</string>
     <string name="ts_invalid_patch_date">Formato de data inválido. Use AAAA-MM-DD</string>
@@ -1160,6 +1302,7 @@
     <string name="ts_mode_auto">Automático</string>
     <string name="ts_mode_leaf">Leaf</string>
     <string name="ts_mode_cert">Certificado</string>
+    <string name="ts_mode_skip">Pular</string>
     <string name="ts_verification_mode">Modo de verificação</string>
     <string name="ts_verification_mode_auto">Automático</string>
     <string name="ts_verification_mode_cert">Certificado</string>
@@ -1528,4 +1671,7 @@
     <string name="qs_show_volume_slider_only">Apenas o controle deslizante de volume</string>
     <string name="qs_show_ringer_mode_title">Modo de toque</string>
     <string name="qs_show_ringer_mode_summary">Mostrar o ícone do modo de toque com o controle deslizante de volume</string>
+    <!-- Custom power menu style -->
+    <string name="global_actions_use_compose_dialog_title">Menu de energia redesenhado</string>
+    <string name="global_actions_use_compose_dialog_summary">Use o novo menu avançado com um layout de blocos personalizável e arrastável. Desativar o para usar o menu de energia clássico.</string>
 </resources>
