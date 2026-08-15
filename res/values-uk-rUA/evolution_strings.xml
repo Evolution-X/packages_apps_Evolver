@@ -86,7 +86,24 @@
     <string name="boot_animation_preview_summary">Відображає попередній перегляд поточної анімації завантаження</string>
     <string name="boot_animation_preview_title">Попередній перегляд анімації завантаження</string>
     <string name="boot_animation_no_preview">Попередній перегляд недоступний</string>
-    <!-- Themes/Monet Engine -->
+    <!-- Themes/Monet Settings -->
+    <string name="monet_settings_title">Налаштування кольору</string>
+    <string name="monet_settings_summary">Налаштування кольору теми і стилю</string>
+    <string name="color_settings_category">Налаштування кольорів</string>
+    <string name="advanced_settings_category">Додаткові параметри</string>
+    <string name="use_wallpaper_colors_title">Використовувати кольори шпалер</string>
+    <string name="use_wallpaper_colors_desc">Видобувати кольори з ваших шпалер</string>
+    <string name="custom_seed_color_title">Колір, який встановлюється користувачем</string>
+    <string name="theme_style_title">Стиль теми</string>
+    <string name="theme_style_desc">Вибрати стиль палітри кольорів</string>
+    <string name="fidelity_title">Фіделіті кольору</string>
+    <string name="fidelity_desc">Точніше збереження оригінального кольору насіння</string>
+    <string name="contrast_level_title">Рівень контрастності</string>
+    <string name="chroma_boost_title">Підсилення насиченості</string>
+    <string name="about_color_customization_title">Про персоналізацію кольорів</string>
+    <string name="about_color_customization_desc">Зміни кольорів застосовуються до всіх програм, що підтримують тему Material You, на рівні всієї системи.\nНалаштування цих кольорів може вплинути на зовнішній вигляд програм на вашому пристрої.</string>
+    <string name="wallpaper_seed_color_title">Вибрати зі шпалер</string>
+    <string name="wallpaper_seed_color_desc">Отримання кольору з ваших поточних шпалер</string>
     <string name="monet_engine_custom_color_title">Колір акценту</string>
     <string name="monet_engine_custom_color_summary">Виберіть користувацький колір акцентів</string>
     <string name="monet_engine_custom_bgcolor_title">Колір фону</string>
@@ -114,6 +131,27 @@
     <string name="monet_engine_color_source_home">Шпалери теми</string>
     <string name="monet_engine_color_source_lock">Шпалери екрану блокування</string>
     <string name="monet_engine_color_source_preset">Попередньо встановлене</string>
+    <!-- Per-palette chroma override -->
+    <string name="chroma_accent1_title">Основні хроми</string>
+    <string name="chroma_accent2_title">Вторинні хроми</string>
+    <string name="chroma_accent3_title">Третинні хроми</string>
+    <string name="chroma_neutral1_title">Нейтральна хрома</string>
+    <string name="chroma_neutral2_title">Нейтральний різновид хрома</string>
+    <!-- Hue / tone category -->
+    <string name="hue_tone_settings_category">Відтінок і яскравість</string>
+    <!-- Hue rotation -->
+    <string name="hue_shift_title">Обертання відтінку</string>
+    <string name="hue_shift_desc">Обертайте початковий колір. Виробляє гармонійні якості, не змінюючи початкового кольору вручну.</string>
+    <!-- Tone shifts -->
+    <string name="tone_shift_light_title">Упередження світла (світлий режим)</string>
+    <string name="tone_shift_light_desc">Зміщує всі кольори світлого режиму на світліший (+) або темніший (−) рівень незалежно від контрастності.</string>
+    <string name="tone_shift_dark_title">Упередження світла (темний режим)</string>
+    <string name="tone_shift_dark_desc">Зміщує всі кольори темного режиму на світліший (+) або темніший (−) рівень незалежно від контрастності.</string>
+    <!-- Secondary seed -->
+    <string name="secondary_seed_category">Додатковий колір фрази-паролю (seed)</string>
+    <string name="use_secondary_seed_title">Увімкнути друге насіння</string>
+    <string name="use_secondary_seed_desc">Вторинна і третинна палітра від окремого кольору насіння для двотонної теми.</string>
+    <string name="secondary_seed_color_title">Додатковий колір фрази-паролю (seed)</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Інтерфейс</string>
     <string name="lock_screen_charging_category">Заряджається</string>
@@ -158,6 +196,7 @@
     <string name="pulse_renderer_matrix">Матриця</string>
     <string name="pulse_renderer_particle">Частинка</string>
     <string name="pulse_renderer_waveform">Форма хвилі</string>
+    <string name="pulse_renderer_dot_wave">Зубці</string>
     <string name="pulse_capture_mode_title">Режим захоплення звуку</string>
     <string name="pulse_capture_mode_fft">FFT (частота)</string>
     <string name="pulse_capture_mode_amplitude">Амплітуда (Waveform)</string>
@@ -165,6 +204,18 @@
     <string name="pulse_show_on_ambient_summary">Візуалізатор на постійному екрані і Ambient режим. Вимкніть тільки на екрані блокування.</string>
     <string name="pulse_height_multiplier_title">Висота Імпульсу</string>
     <string name="pulse_height_multiplier_summary">Налаштуйте висоту візуалізації</string>
+    <!-- Lockscreen Clock Highlight Guide -->
+    <string name="ls_clock_title">Годинник на екрані блокування</string>
+    <string name="ls_clock_summary">Налаштуйте стиль годинника та віджети</string>
+    <string name="clock_styles_disclaimer_title">Перш ніж продовжити</string>
+    <string name="clock_styles_disclaimer_message">Для найкращого досвіду роботи з циферблатами годинника та віджетами, будь ласка, переконайтеся, що:\n\n• Вимкніть розумний простір на екрані блокування\n• Вимкніть погоду на екрані блокування\n• Вимкніть стиль великого годинника\n\nВи можете знайти ці опції у налаштуваннях екрана блокування.</string>
+    <string name="ls_clock_face_highlight_text">Проведіть вліво або вправо, щоб переглянути стиль годинника</string>
+    <!-- Lockscreen Clock Accent Color -->
+    <string name="clock_text_accent_color_title">Використовувати колір акценту для годинника</string>
+    <string name="clock_text_accent_color_summary">Використовувати системний колір акценту замість білого для тексту годинника</string>
+    <!-- Lockscreen Clock Opacity -->
+    <string name="clock_text_opacity_title">Прозорість тексту годинника</string>
+    <string name="clock_text_opacity_summary">Налаштування прозорості тексту годинника</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">Вибраний годинник не підтримує користувацькі шрифти</string>
     <string name="lockscreen_clock_category_title">Годинник</string>
@@ -173,20 +224,82 @@
     <string name="theme_customization_lock_clock_face_summary">Зміна зовнішнього вигляду годинника на екрані блокування</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Користувацький стиль годинника</string>
+    <string name="lockscreen_custom_clock_style_summary">Налаштування стилів годинника на екрані блокування</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Проведіть вліво або вправо, щоб переглянути стиль годинника</string>
-    <string name="lockscreen_custom_clock_style_info">Користувацький стиль годинника замінює стилі годинника AOSP. Smartspace буде вимкнено. Замість цього ви можете увімкнути погоду.</string>
-    <string name="lockscreen_custom_clock_opacity_title">Прозорість годинника</string>
-    <string name="lockscreen_custom_clock_opacity_summary">Налаштування прозорості користувальницького годинника</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Висота годинника</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_summary">Налаштуйте вертикальне положення власного годинника</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Режим кольору годинника</string>
-    <string name="lockscreen_custom_clock_size_title">Розмір годинника</string>
-    <string name="lockscreen_custom_clock_size_summary">Масштабувати годинник екрана блокування (50–150%)</string>
+    <string name="lockscreen_custom_clock_style_info">Користувацький стиль годинника замінює стилі годинника AOSP на користувальницькі clocks. Smartspace буде вимкнено. Ви можете включити і використовувати користувальницькі погоду.</string>
+    <string name="lockscreen_custom_clock_opacity_title">Налаштування непрозорості годинника</string>
+    <string name="lockscreen_custom_clock_opacity_summary">Налаштування прозорості стилю годинника</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Користувацька висота годинника</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Регулювати висоту стилю годинника</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Користувацький режим кольору годинника</string>
     <string name="lockscreen_custom_clock_aod_anim_title">Користувацька анімація годинника AOD</string>
     <string name="lockscreen_custom_clock_aod_anim_summary">Встановіть анімацію AOD для власного стилю годинника</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_title">Ефект зарядки Wobble</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_summary">Показувати тремтіння екрану на годиннику, коли він під\'єднаний до зарядного пристрою</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Користувацька ширина годинника</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Налаштування ширини стилю годинника</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_title">Градієнт тексту</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Застосувати двоколірний градієнт до годинника замість плаского кольору. Замінювати інший режим кольору</string>
+    <string name="lockscreen_custom_clock_gradient_start_title">Градієнт початкового кольору</string>
+    <string name="lockscreen_custom_clock_gradient_end_title">Градієнт кінцевого кольору</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_title">Градієнтний якір</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_summary">Контроль де градієнт центровано по вертикалі</string>
+    <string name="lockscreen_custom_clock_gradient_radius_title">Залити градієнтом</string>
+    <string name="lockscreen_custom_clock_gradient_radius_summary">Контролювати, як далеко градієнт знаходиться зі своєї точки прив’язки</string>
+    <string name="lockscreen_custom_clock_color_category_title">Колір</string>
+    <string name="lockscreen_custom_clock_gradient_category_title">Градієнт</string>
+    <string name="lockscreen_custom_clock_layout_category_title">Розмір &amp; позиції</string>
+    <string name="lockscreen_custom_clock_animation_category_title">Анімація</string>
+    <string name="unit_degrees">°</string>
+    <!-- Lockscreen Clock Size -->
+    <string name="clock_size_title">Розмір годинника</string>
+    <string name="clock_size_summary">Масштабувати годинник екрана блокування (50–150%)</string>
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">Кольорові годинники для обкладинок альбомів</string>
     <string name="clock_album_art_color_summary">Перевизначити колір годинника з палітром альбому при відтворенні мультимедіа</string>
+    <!-- Lockscreen widgets -->
+    <string name="lockscreen_widgets_title">Віджети</string>
+    <string name="lockscreen_widgets_enabled_title">Увімкнути віджети Заблокованого екрана</string>
+    <string name="lockscreen_widgets_enabled_summary">Додати віджети на Заблокований екран</string>
+    <string name="lockscreen_display_widgets_title">Віджет із інформацією про пристрій</string>
+    <string name="lockscreen_widgets_color_mode_title">Режим кольору віджета</string>
+    <string name="lockscreen_display_widgets_summary">Відображати віджет інформації про пристрій на екрані блокування</string>
+    <string name="large_widgets_category_title">Великі віджети</string>
+    <string name="main_custom_widgets1">Великий віджет 1</string>
+    <string name="main_custom_widgets2">Великий віджет 2</string>
+    <string name="mini_widgets_category_title">Міні-віджети</string>
+    <string name="custom_widgets1">Міні-віджет 1</string>
+    <string name="custom_widgets2">Міні-віджет 2</string>
+    <string name="custom_widgets3">Міні-віджет 3</string>
+    <string name="custom_widgets4">Міні-віджет 4</string>
+    <string name="camera">Камера</string>
+    <string name="clock_timer">Годинник / Таймер</string>
+    <string name="calculator">Калькулятор</string>
+    <string name="gallery">Галерея</string>
+    <string name="media">Медіа-плеєр</string>
+    <string name="torch">Ліхтарик</string>
+    <string name="controls_media_button_play">Грати</string>
+    <string name="weather">Погода</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="data">Мобільний інтернет</string>
+    <string name="ringer">Дзвінок</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Точка доступу</string>
+    <string name="wallet">Гаманець</string>
+    <string name="qr_scanner">QR-сканер</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">Стиль віджетів на Заблокованому екрані</string>
+    <string name="lockscreen_widgets_style1">Матеріал Округлений</string>
+    <string name="lockscreen_widgets_style2">Матеріал Square</string>
+    <string name="lockscreen_widgets_style3">Квадратний прозорий</string>
+    <string name="lockscreen_widgets_style4">Округлені напівпрозорі</string>
+    <string name="lockscreen_widgets_style5">Квадратне розмиття</string>
+    <string name="lockscreen_widgets_style6">Закруглене розмиття</string>
+    <string name="lockscreen_widgets_transparency_title">Прозорість стилю</string>
+    <string name="lockscreen_widgets_transparency_summary">Налаштування непрозорості віджета напівпрозорого стилю</string>
+    <!-- Lockscreen Weather -->
+    <string name="custom_clock_weather_title">Погода на екрані блокування</string>
+    <string name="custom_clock_weather_summary">Показувати погоду на годиннику екрану блокування</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Обкладинка медіа</string>
     <string name="ls_media_art_summary">Увімкнути обкладинки альбомів на екрані блокування</string>
@@ -972,6 +1085,10 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Заблокувати всі програми від затемнення шпалер, примусово встановивши рівень затемнення на 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ігнорувати прапорці безпечного вікна</string>
     <string name="miscellaneous_ignore_window_secure_summary">Видаляти обмеження на запис з екрану та екрану для всіх програм. Може розкрити приватний вміст</string>
+    <string name="miscellaneous_block_screenshot_detection_title">Блокування визначення знімків екрану</string>
+    <string name="miscellaneous_block_screenshot_detection_summary">Заборонити додаткам знати, коли знімок екрану було створено</string>
+    <string name="miscellaneous_block_screenrecord_detection_title">Блокувати виявлення запису екрана</string>
+    <string name="miscellaneous_block_screenrecord_detection_summary">Заборонити програмам знати, коли їхній вміст записується з екрана</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Необмежений запис екрану</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Видаліть обмеження розміру файлу 15 ГіБ. Це може призвести до отримання більшого вихідного файлу, ніж потрібно</string>
     <string name="disable_flash_sms_title">Вимкнути Flash SMS</string>
@@ -1553,4 +1670,7 @@
     <string name="qs_show_volume_slider_only">Тільки повзунок гучності</string>
     <string name="qs_show_ringer_mode_title">Режим дзвінка</string>
     <string name="qs_show_ringer_mode_summary">Показати піктограму режиму дзвінка з повзунком гучності</string>
+    <!-- Custom power menu style -->
+    <string name="global_actions_use_compose_dialog_title">Перероблене меню кнопки живлення</string>
+    <string name="global_actions_use_compose_dialog_summary">Використовуйте нове меню живлення з настроюваним, перетягуваною плиткою. Вимкніть для використання класичного меню живлення.</string>
 </resources>
