@@ -230,7 +230,7 @@
     <string name="clock_text_accent_color_summary">Use system accent color instead of white for clock text</string>
 
     <!-- Lockscreen Clock Opacity -->
-    <string name="clock_text_opacity_title">Clock text opacity</string>
+    <string name="clock_text_opacity_title">Opacity</string>
     <string name="clock_text_opacity_summary">Adjust the transparency of the clock text</string>
 
     <!-- Lock screen/Clock -->
@@ -245,19 +245,19 @@
     <string name="lockscreen_custom_clock_style_summary">Configure lock screen clock styles</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Swipe left or right to preview clock styles</string>
     <string name="lockscreen_custom_clock_style_info">Custom clock style replaces AOSP clock styles with custom clocks. Smartspace will be disabled. You can enable and use custom weather instead.</string>
-    <string name="lockscreen_custom_clock_opacity_title">Custom clock opacity</string>
+    <string name="lockscreen_custom_clock_opacity_title">Clock opacity</string>
     <string name="lockscreen_custom_clock_opacity_summary">Adjust the transparency of custom clock style</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Custom clock height</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Top margin</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Adjust the height of custom clock style</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Custom clock color mode</string>
-    <string name="lockscreen_custom_clock_aod_anim_title">Custom clock AOD animation</string>
-    <string name="lockscreen_custom_clock_aod_anim_summary">Set AOD animation for custom clock style</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Color mode</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">AOD animation</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">Enable AOD animation for custom clock style</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_title">Wobble charging effect</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_summary">Show wobble effect on clock when connected to charger</string>
-    <string name="lockscreen_custom_clock_frame_margin_start_title">Custom clock width</string>
-    <string name="lockscreen_custom_clock_frame_margin_start_summary">Adjust the width of custom clock style</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Horizontal offset</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Left/Right positioning</string>
     <string name="lockscreen_custom_clock_gradient_enabled_title">Gradient text</string>
-    <string name="lockscreen_custom_clock_gradient_enabled_summary">Apply a two-color gradient to clock text instead of a flat color. Override other color mode</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Apply a two-color gradient to clock text instead of a solid color. Overrides other color modes</string>
     <string name="lockscreen_custom_clock_gradient_start_title">Gradient start color</string>
     <string name="lockscreen_custom_clock_gradient_end_title">Gradient end color</string>
     <string name="lockscreen_custom_clock_gradient_anchor_y_title">Gradient anchor</string>
@@ -271,19 +271,19 @@
     <string name="unit_degrees">°</string>
 
     <!-- Lockscreen Clock Size -->
-    <string name="clock_size_title">Clock size</string>
+    <string name="clock_size_title">Size</string>
     <string name="clock_size_summary">Scale the lockscreen clock (50–150%)</string>
 
     <!-- Lockscreen clock: album art color override -->
-    <string name="clock_album_art_color_title">Album art color clocks</string>
+    <string name="clock_album_art_color_title">Follow album art color</string>
     <string name="clock_album_art_color_summary">Override clock color with the album art palette when media is playing</string>
 
     <!-- Lockscreen widgets -->
     <string name="lockscreen_widgets_title">Widgets</string>
     <string name="lockscreen_widgets_enabled_title">Enable Lockscreen Widgets</string>
     <string name="lockscreen_widgets_enabled_summary">Add widgets to lockscreen</string>
-    <string name="lockscreen_display_widgets_title">Device info Widget</string>
-    <string name="lockscreen_widgets_color_mode_title">Info Widget color mode</string>
+    <string name="lockscreen_display_widgets_title">Device info widget</string>
+    <string name="lockscreen_widgets_color_mode_title">Info widget color mode</string>
     <string name="lockscreen_display_widgets_summary">Show device info widget on lockscreen</string>
     <string name="large_widgets_category_title">Big widgets</string>
     <string name="main_custom_widgets1">Big widget 1</string>
