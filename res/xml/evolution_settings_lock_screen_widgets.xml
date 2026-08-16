@@ -47,72 +47,80 @@
         android:defaultValue="0xFFFFFFFF" 
         android:dependency="lockscreen_info_widgets_enabled" />
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:key="lockscreen_widgets_style"
-        android:dependency="lockscreen_widgets_enabled"
-        android:title="@string/lockscreen_widgets_style_title"
-        android:entries="@array/lockscreen_widgets_style_entries"
-        android:entryValues="@array/lockscreen_widgets_style_values"
-        android:defaultValue="0"
-        android:summary="%s" />
+    <PreferenceCategory>
 
-    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-        android:key="lockscreen_widgets_transparency"
-        android:title="@string/lockscreen_widgets_transparency_title"
-        android:summary="@string/lockscreen_widgets_transparency_summary"
-        android:defaultValue="100"
-        settings:interval="1"
-        settings:units="%"
-        android:max="100"
-        android:min="0" />
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lockscreen_widgets_style"
+            android:dependency="lockscreen_widgets_enabled"
+            android:title="@string/lockscreen_widgets_style_title"
+            android:entries="@array/lockscreen_widgets_style_entries"
+            android:entryValues="@array/lockscreen_widgets_style_values"
+            android:defaultValue="0"
+            android:summary="%s" />
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:entries="@array/widget_entries"
-        android:dependency="lockscreen_widgets_enabled"
-        android:title="@string/main_custom_widgets1"
-        android:key="main_custom_widgets1"
-        android:entryValues="@array/widget_values"
-        android:summary="%s" />
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="lockscreen_widgets_transparency"
+            android:title="@string/lockscreen_widgets_transparency_title"
+            android:summary="@string/lockscreen_widgets_transparency_summary"
+            android:defaultValue="100"
+            settings:interval="1"
+            settings:units="%"
+            android:max="100"
+            android:min="0" />
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:entries="@array/widget_entries"
-        android:dependency="lockscreen_widgets_enabled"
-        android:title="@string/main_custom_widgets2"
-        android:key="main_custom_widgets2"
-        android:entryValues="@array/widget_values"
-        android:summary="%s" />
+    </PreferenceCategory>
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:entries="@array/widget_entries"
-        android:dependency="lockscreen_widgets_enabled"
-        android:title="@string/custom_widgets1"
-        android:key="custom_widgets1"
-        android:entryValues="@array/widget_values"
-        android:summary="%s" />
+    <PreferenceCategory>
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:entries="@array/widget_entries"
-        android:dependency="lockscreen_widgets_enabled"
-        android:title="@string/custom_widgets2"
-        android:key="custom_widgets2"
-        android:entryValues="@array/widget_values"
-        android:summary="%s" />
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:dependency="lockscreen_widgets_enabled"
+            android:title="@string/main_custom_widgets1"
+            android:key="main_custom_widgets1"
+            android:entryValues="@array/widget_values"
+            android:summary="%s" />
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:entries="@array/widget_entries"
-        android:dependency="lockscreen_widgets_enabled"
-        android:title="@string/custom_widgets3"
-        android:key="custom_widgets3"
-        android:entryValues="@array/widget_values"
-        android:summary="%s" />
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:dependency="lockscreen_widgets_enabled"
+            android:title="@string/main_custom_widgets2"
+            android:key="main_custom_widgets2"
+            android:entryValues="@array/widget_values"
+            android:summary="%s" />
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
-        android:entries="@array/widget_entries"
-        android:dependency="lockscreen_widgets_enabled"
-        android:title="@string/custom_widgets4"
-        android:key="custom_widgets4"
-        android:entryValues="@array/widget_values"
-        android:summary="%s" />
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:dependency="lockscreen_widgets_enabled"
+            android:title="@string/custom_widgets1"
+            android:key="custom_widgets1"
+            android:entryValues="@array/widget_values"
+            android:summary="%s" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:dependency="lockscreen_widgets_enabled"
+            android:title="@string/custom_widgets2"
+            android:key="custom_widgets2"
+            android:entryValues="@array/widget_values"
+            android:summary="%s" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:dependency="lockscreen_widgets_enabled"
+            android:title="@string/custom_widgets3"
+            android:key="custom_widgets3"
+            android:entryValues="@array/widget_values"
+            android:summary="%s" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:dependency="lockscreen_widgets_enabled"
+            android:title="@string/custom_widgets4"
+            android:key="custom_widgets4"
+            android:entryValues="@array/widget_values"
+            android:summary="%s" />
+    
+    </PreferenceCategory>
 
     <com.android.settingslib.widget.LayoutPreference
         android:key="apply_change_button"
