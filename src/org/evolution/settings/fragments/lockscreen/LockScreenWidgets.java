@@ -45,6 +45,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.LayoutPreference;
 
+import lineageos.preference.SystemSettingMainSwitchPreference;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -75,7 +77,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
     private Preference mExtraWidget4;
     private Button mApplyChange;
     
-    private SwitchPreferenceCompat mLockScreenWidgetsEnabledPref;
+    private SystemSettingMainSwitchPreference mLockScreenWidgetsEnabledPref;
     private List<Preference> mWidgetPreferences;
     
     private Map<Preference, String> widgetKeysMap = new HashMap<>();
