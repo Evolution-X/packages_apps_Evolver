@@ -36,8 +36,6 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.android.internal.util.evolution.VibrationUtils;
-
 @SearchIndexable
 public class MediaArtSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -130,9 +128,6 @@ public class MediaArtSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference != null && preference.getKey() != null) {
-            VibrationUtils.triggerVibration(getContext(), 3);
-        }
         return super.onPreferenceTreeClick(preference);
     }
 
