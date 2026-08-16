@@ -149,6 +149,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         for (Preference widgetPref : mWidgetPreferences) {
             widgetPref.setVisible(isEnabled);
         }
+        mApplyChange.setVisibility(isEnabled ? View.VISIBLE : View.INVISIBLE);
     }
 
     private void loadInitialPreferences() {
