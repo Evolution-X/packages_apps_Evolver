@@ -28,8 +28,6 @@ import android.widget.Toast
 
 import androidx.preference.Preference
 
-import com.android.internal.util.evolution.VibrationUtils
-
 import com.android.settings.R
 import com.android.settings.preferences.BasePreferenceFragment
 
@@ -60,9 +58,6 @@ class ClockStyles : BasePreferenceFragment(R.xml.clock_styles),
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        if (preference.key != null) {
-            VibrationUtils.triggerVibration(context, 3)
-        }
         if (preference.key == KEY_CUSTOM_AOD_IMAGE) {
             try {
                 val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
