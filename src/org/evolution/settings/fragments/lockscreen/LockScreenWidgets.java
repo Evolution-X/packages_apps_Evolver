@@ -47,6 +47,8 @@ import com.android.settingslib.widget.LayoutPreference;
 
 import lineageos.preference.SystemSettingMainSwitchPreference;
 
+import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +70,8 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
 
     private static final String LOCKSCREEN_WIDGETS_KEY = "lockscreen_widgets";
     private static final String LOCKSCREEN_WIDGETS_EXTRAS_KEY = "lockscreen_widgets_extras";
+    private static final String LOCKSCREEN_WIDGETS_STYLE_KEY = "lockscreen_widgets_style";
+    private static final String LOCKSCREEN_WIDGETS_TRANSPARENCY_KEY = "lockscreen_widgets_transparency";
 
     private Preference mMainWidget1;
     private Preference mMainWidget2;
@@ -78,6 +82,8 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
     private Button mApplyChange;
     
     private SystemSettingMainSwitchPreference mLockScreenWidgetsEnabledPref;
+    private ListPreference mLockScreenWidgetsStylePref;
+    private SystemSettingSeekBarPreference mLockScreenWidgetsTransparencyPref;
     private List<Preference> mWidgetPreferences;
     
     private Map<Preference, String> widgetKeysMap = new HashMap<>();
@@ -100,6 +106,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         
         mLockScreenWidgetsEnabledPref.setChecked(isLsWidgetsEnabled);
         showWidgetPreferences(isLsWidgetsEnabled);
+        updateTransparencyPref(mLockScreenWidgetsStylePref.getValue());
 
         loadInitialPreferences();
         saveInitialPreferences();
@@ -124,6 +131,9 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
 
         mLockScreenWidgetsEnabledPref = findPreference("lockscreen_widgets_enabled");
 
+        mLockScreenWidgetsStylePref = findPreference(LOCKSCREEN_WIDGETS_STYLE_KEY);
+        mLockScreenWidgetsTransparencyPref = findPreference(LOCKSCREEN_WIDGETS_TRANSPARENCY_KEY);
+
         LayoutPreference layoutPreference = findPreference(KEY_APPLY_CHANGE_BUTTON);
         mApplyChange = layoutPreference.findViewById(R.id.apply_change);
     }
@@ -134,6 +144,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
             widgetKeysMap.put(widgetPref, "");
         }
         mLockScreenWidgetsEnabledPref.setOnPreferenceChangeListener(this);
+        mLockScreenWidgetsStylePref.setOnPreferenceChangeListener(this);
 
         mApplyChange.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,8 +197,17 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
             showWidgetPreferences(isEnabled);
             mLockScreenWidgetsEnabledPref.setChecked(isEnabled);
             return true;
+        } else if (preference == mLockScreenWidgetsStylePref) {
+            updateTransparencyPref((String) newValue);
+            return true;
         }
         return false;
+    }
+
+    private void updateTransparencyPref(String prefValue) {
+        Integer intVal = prefValue != null ? Integer.parseInt(prefValue) : null;
+        boolean shouldShowSlider = (intVal != null && intVal == 2 || intVal == 3);
+        mLockScreenWidgetsTransparencyPref.setVisible(shouldShowSlider);
     }
 
     private void updateWidgetPreferences() {
