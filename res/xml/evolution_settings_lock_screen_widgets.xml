@@ -63,6 +63,7 @@
             android:key="lockscreen_widgets_transparency"
             android:title="@string/lockscreen_widgets_transparency_title"
             android:summary="@string/lockscreen_widgets_transparency_summary"
+            android:dependency="lockscreen_info_widgets_enabled"
             android:defaultValue="100"
             settings:interval="1"
             settings:units="%"
