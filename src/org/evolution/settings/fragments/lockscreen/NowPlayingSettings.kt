@@ -25,7 +25,6 @@ import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.search.SearchIndexable
-import com.android.internal.util.evolution.VibrationUtils
 
 import org.evolution.settings.preferences.SystemSettingSwitchPreference
 
@@ -49,9 +48,6 @@ class NowPlayingSettings : SettingsPreferenceFragment(),
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        if (preference.key != null) {
-            VibrationUtils.triggerVibration(context, 3)
-        }
         return super.onPreferenceTreeClick(preference)
     }
 
