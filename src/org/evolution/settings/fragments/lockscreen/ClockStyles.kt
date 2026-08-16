@@ -32,6 +32,7 @@ import com.android.settings.R
 import com.android.settings.preferences.BasePreferenceFragment
 
 import org.evolution.settings.utils.ImageUtils
+import org.evolution.settings.utils.PreferenceUtils
 
 class ClockStyles : BasePreferenceFragment(R.xml.clock_styles),
     Preference.OnPreferenceChangeListener {
@@ -54,6 +55,7 @@ class ClockStyles : BasePreferenceFragment(R.xml.clock_styles),
 
     override fun onResume() {
         super.onResume()
+        PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen())
         updateCustomImagePreference()
     }
 
