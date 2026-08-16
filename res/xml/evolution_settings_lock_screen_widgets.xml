@@ -44,7 +44,8 @@
     <org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference
         android:key="lockscreen_widgets_custom_color"
         android:title="@string/custom_color"
-        android:defaultValue="0xFFFFFFFF" 
+        android:defaultValue="0xFFFFFFFF"
+        alphaSlider="true" 
         android:dependency="lockscreen_info_widgets_enabled" />
 
     <PreferenceCategory>
