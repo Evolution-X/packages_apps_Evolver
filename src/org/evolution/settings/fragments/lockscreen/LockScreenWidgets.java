@@ -47,6 +47,7 @@ import com.android.settingslib.widget.LayoutPreference;
 
 import lineageos.preference.SystemSettingMainSwitchPreference;
 
+import org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference;
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
 
 import java.util.Arrays;
@@ -70,6 +71,8 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
 
     private static final String LOCKSCREEN_WIDGETS_KEY = "lockscreen_widgets";
     private static final String LOCKSCREEN_WIDGETS_EXTRAS_KEY = "lockscreen_widgets_extras";
+    private static final String LOCKSCREEN_WIDGETS_COLOR_MODE_KEY = "lockscreen_widgets_color_mode";
+    private static final String LOCKSCREEN_WIDGETS_COLOR_KEY = "lockscreen_widgets_custom_color";
     private static final String LOCKSCREEN_WIDGETS_STYLE_KEY = "lockscreen_widgets_style";
     private static final String LOCKSCREEN_WIDGETS_TRANSPARENCY_KEY = "lockscreen_widgets_transparency";
 
@@ -81,6 +84,8 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
     private Preference mExtraWidget4;
     private Button mApplyChange;
     
+    private ListPreference mLockScreenWidgetsColorModePref;
+    private SystemSettingColorPickerPreference mLockScreenWidgetsColorPref;
     private SystemSettingMainSwitchPreference mLockScreenWidgetsEnabledPref;
     private ListPreference mLockScreenWidgetsStylePref;
     private SystemSettingSeekBarPreference mLockScreenWidgetsTransparencyPref;
@@ -107,6 +112,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         mLockScreenWidgetsEnabledPref.setChecked(isLsWidgetsEnabled);
         showWidgetPreferences(isLsWidgetsEnabled);
         updateTransparencyPref(mLockScreenWidgetsStylePref.getValue());
+        updateCustomColorPref(mLockScreenWidgetsColorModePref.getValue());
 
         loadInitialPreferences();
         saveInitialPreferences();
@@ -131,6 +137,8 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
 
         mLockScreenWidgetsEnabledPref = findPreference("lockscreen_widgets_enabled");
 
+        mLockScreenWidgetsColorModePref = findPreference(LOCKSCREEN_WIDGETS_COLOR_MODE_KEY);
+        mLockScreenWidgetsColorPref = findPreference(LOCKSCREEN_WIDGETS_COLOR_KEY);
         mLockScreenWidgetsStylePref = findPreference(LOCKSCREEN_WIDGETS_STYLE_KEY);
         mLockScreenWidgetsTransparencyPref = findPreference(LOCKSCREEN_WIDGETS_TRANSPARENCY_KEY);
 
@@ -145,6 +153,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         }
         mLockScreenWidgetsEnabledPref.setOnPreferenceChangeListener(this);
         mLockScreenWidgetsStylePref.setOnPreferenceChangeListener(this);
+        mLockScreenWidgetsColorModePref.setOnPreferenceChangeListener(this);
 
         mApplyChange.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,6 +209,9 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         } else if (preference == mLockScreenWidgetsStylePref) {
             updateTransparencyPref((String) newValue);
             return true;
+        } else if (preference == mLockScreenWidgetsColorModePref) {
+            updateCustomColorPref((String) newValue);
+            return true;
         }
         return false;
     }
@@ -208,6 +220,11 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         Integer intVal = prefValue != null ? Integer.parseInt(prefValue) : null;
         boolean shouldShowSlider = (intVal != null && intVal == 2 || intVal == 3);
         mLockScreenWidgetsTransparencyPref.setVisible(shouldShowSlider);
+    }
+
+    private void updateCustomColorPref(String value) {
+        boolean shouldShow = (value != null && "custom".equals(value));
+        mLockScreenWidgetsColorPref.setVisible(shouldShow);
     }
 
     private void updateWidgetPreferences() {
