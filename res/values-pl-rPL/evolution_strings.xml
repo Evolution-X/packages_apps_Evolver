@@ -87,7 +87,24 @@
     <string name="boot_animation_preview_title">Podgląd animacji startowej</string>
     <string name="boot_animation_no_preview">Brak dostępnego podglądu</string>
     <string name="boot_animation_style_unknown">Nieznany</string>
-    <!-- Themes/Monet Engine -->
+    <!-- Themes/Monet Settings -->
+    <string name="monet_settings_title">Dostosowanie koloru</string>
+    <string name="monet_settings_summary">Dostosuj kolory i styl motywu</string>
+    <string name="color_settings_category">Ustawienia koloru</string>
+    <string name="advanced_settings_category">Ustawienia zaawansowane</string>
+    <string name="use_wallpaper_colors_title">Użyj kolorów tapety</string>
+    <string name="use_wallpaper_colors_desc">Wyodrębnij kolory z tapety</string>
+    <string name="custom_seed_color_title">Niestandardowy kolor bazowy</string>
+    <string name="theme_style_title">Styl motywu</string>
+    <string name="theme_style_desc">Wybierz styl palety kolorów</string>
+    <string name="fidelity_title">Wierność kolorów</string>
+    <string name="fidelity_desc">Dokładniej zachowuj oryginalny kolor bazowy</string>
+    <string name="contrast_level_title">Poziom kontrastu</string>
+    <string name="chroma_boost_title">Wzmocnij nasycenie</string>
+    <string name="about_color_customization_title">O dostosowywaniu kolorów</string>
+    <string name="about_color_customization_desc">Zmiany kolorów są stosowane w całym systemie do wszystkich aplikacji obsługujących motywy dynamiczne.\nDostosowanie tych kolorów może wpłynąć na wygląd aplikacji na twoim urządzeniu.</string>
+    <string name="wallpaper_seed_color_title">Wybierz z tapety</string>
+    <string name="wallpaper_seed_color_desc">Wyodrębnij kolor z bieżącej tapety</string>
     <string name="monet_engine_custom_color_title">Kolor akcentu</string>
     <string name="monet_engine_custom_color_summary">Wybierz niestandardowy kolor akcentu</string>
     <string name="monet_engine_custom_bgcolor_title">Kolor tła</string>
@@ -115,6 +132,27 @@
     <string name="monet_engine_color_source_home">Tapeta ekranu głównego</string>
     <string name="monet_engine_color_source_lock">Tapeta ekranu blokady</string>
     <string name="monet_engine_color_source_preset">Ustawienie wstępne</string>
+    <!-- Per-palette chroma override -->
+    <string name="chroma_accent1_title">Podstawowe nasycenie</string>
+    <string name="chroma_accent2_title">Drugorzędne nasycenie</string>
+    <string name="chroma_accent3_title">Trzeciorzędne nasycenie</string>
+    <string name="chroma_neutral1_title">Neutralne nasycenie</string>
+    <string name="chroma_neutral2_title">Neutralny wariant nasycenia</string>
+    <!-- Hue / tone category -->
+    <string name="hue_tone_settings_category">Odcień i jasność</string>
+    <!-- Hue rotation -->
+    <string name="hue_shift_title">Rotacja odcieni</string>
+    <string name="hue_shift_desc">Obróć odcień koloru bazowego. Tworzy harmonijne sąsiednie odcienie bez ręcznej zmiany koloru bazowego.</string>
+    <!-- Tone shifts -->
+    <string name="tone_shift_light_title">Przesunięcie jasności (tryb jasny)</string>
+    <string name="tone_shift_light_desc">Przesuwa wszystkie kolory trybu jasnego w kierunku jaśniejszym (+) lub ciemniejszym (−), niezależnie od kontrastu.</string>
+    <string name="tone_shift_dark_title">Przesunięcie jasności (tryb ciemny)</string>
+    <string name="tone_shift_dark_desc">Przesuwa wszystkie kolory trybu ciemnego w kierunku jaśniejszym (+) lub ciemniejszym (−), niezależnie od kontrastu.</string>
+    <!-- Secondary seed -->
+    <string name="secondary_seed_category">Kolor drugorzędny</string>
+    <string name="use_secondary_seed_title">Włącz kolor drugorzędny</string>
+    <string name="use_secondary_seed_desc">Steruj paletami drugorzędnymi i trzeciorzędnymi z osobnego koloru źródłowego w przypadku motywów dwukolorowych.</string>
+    <string name="secondary_seed_color_title">Kolor drugorzędny</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interfejs</string>
     <string name="lock_screen_charging_category">Ładowanie</string>
@@ -159,6 +197,7 @@
     <string name="pulse_renderer_matrix">Matrix</string>
     <string name="pulse_renderer_particle">Cząsteczka</string>
     <string name="pulse_renderer_waveform">Fala</string>
+    <string name="pulse_renderer_dot_wave">Fala kropkowa</string>
     <string name="pulse_capture_mode_title">Tryb przechwytywania dźwięku</string>
     <string name="pulse_capture_mode_fft">FFT (Częstotliwość)</string>
     <string name="pulse_capture_mode_amplitude">Amplituda (Fala)</string>
@@ -166,6 +205,18 @@
     <string name="pulse_show_on_ambient_summary">Wyświetlaj wizualizator na zawsze włączonym ekranie i trybie otoczenia. Wyłącz, aby wyświetlić tylko na ekranie blokady.</string>
     <string name="pulse_height_multiplier_title">Wysokość impulsu</string>
     <string name="pulse_height_multiplier_summary">Dostosuj wysokość wizualizacji</string>
+    <!-- Lockscreen Clock Highlight Guide -->
+    <string name="ls_clock_title">Zegary na ekranie blokady</string>
+    <string name="ls_clock_summary">Ustaw styl zegara i widżety</string>
+    <string name="clock_styles_disclaimer_title">Zanim przejdziesz dalej</string>
+    <string name="clock_styles_disclaimer_message">Aby uzyskać najlepsze działanie tarcz zegara i widżetów, upewnij się, że:\n\n• Wyłącz szybki podgląd, na ekranie blokady\n• Wyłącz pogodę na ekranie blokady\n• Wyłącz styl dużego zegara\n\nOpcje te znajdziesz w ustawieniach ekranu blokady.</string>
+    <string name="ls_clock_face_highlight_text">Przesuń w lewo lub w prawo, aby wyświetlić podgląd stylów zegara</string>
+    <!-- Lockscreen Clock Accent Color -->
+    <string name="clock_text_accent_color_title">Użyj koloru akcentu dla zegara</string>
+    <string name="clock_text_accent_color_summary">Użyj koloru akcentu systemu zamiast białego tekstu zegara</string>
+    <!-- Lockscreen Clock Opacity -->
+    <string name="clock_text_opacity_title">Krycie</string>
+    <string name="clock_text_opacity_summary">Dostosuj przezroczystość tekstu zegara</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">Wybrany zegar nie wspiera niestandardowych czcionek</string>
     <string name="lockscreen_clock_category_title">Zegar</string>
@@ -174,20 +225,82 @@
     <string name="theme_customization_lock_clock_face_summary">Zmodyfikuj wygląd zegara na ekranie blokady</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Niestandardowy styl zegara</string>
+    <string name="lockscreen_custom_clock_style_summary">Konfiguruj style zegara na ekranie blokady</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Przesuń w lewo lub w prawo, aby wyświetlić podgląd stylów zegara</string>
-    <string name="lockscreen_custom_clock_style_info">Niestandardowy styl zegara zastępuje styl zegara AOSP - inteligentna przestrzeń zostanie wyłączona. Zamiast tego możesz włączyć niestandardową pogodę.</string>
+    <string name="lockscreen_custom_clock_style_info">Niestandardowy styl zegara zastępuje style zegara AOSP niestandardowymi zegarami. Inteligentna przestrzeń zostanie wyłączona. Możesz, zamiast tego włączyć i używać niestandardowej pogody.</string>
     <string name="lockscreen_custom_clock_opacity_title">Krycie zegara</string>
-    <string name="lockscreen_custom_clock_opacity_summary">Dostosuj przezroczystość niestandardowego zegara</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Wysokość zegara</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_summary">Dostosuj pionową pozycję niestandardowego zegara</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Tryb koloru zegara</string>
-    <string name="lockscreen_custom_clock_size_title">Rozmiar zegara</string>
-    <string name="lockscreen_custom_clock_size_summary">Skaluj zegar ekranu blokady (50–150%)</string>
-    <string name="lockscreen_custom_clock_aod_anim_title">Niestandardowy zegar animacji ekran zawsze włączony</string>
-    <string name="lockscreen_custom_clock_aod_anim_summary">Ustaw animację ekran zawsze włączony dla niestandardowego stylu zegara</string>
+    <string name="lockscreen_custom_clock_opacity_summary">Dostosuj przezroczystość niestandardowego stylu zegara</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Górny margines</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Dostosuj wysokość niestandardowego stylu zegara</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Tryb koloru</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">Animacja ekran zawsze włączony</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">Włącz animację ekran zawsze włączony dla niestandardowego stylu zegara</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_title">Ładowanie z efektem kołysania</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_summary">Pokazuje efekt kołysania na zegarze po podłączeniu do ładowarki</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Przesunięcie poziome</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Pozycjonowanie lewo/prawo</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_title">Gradientowy tekst</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Zastosuj dwukolorowy gradient do tekstu zegara zamiast jednolitego koloru. Zastępuje inne tryby kolorów.</string>
+    <string name="lockscreen_custom_clock_gradient_start_title">Kolor początkowy gradientu</string>
+    <string name="lockscreen_custom_clock_gradient_end_title">Kolor końca gradientu</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_title">Gradient kotwicy</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_summary">Kontroluj, gdzie gradient jest wyśrodkowany pionowo</string>
+    <string name="lockscreen_custom_clock_gradient_radius_title">Rozprzestrzenianie się gradientu</string>
+    <string name="lockscreen_custom_clock_gradient_radius_summary">Kontroluj, jak daleko gradient rozprzestrzenia się od punktu zakotwiczenia</string>
+    <string name="lockscreen_custom_clock_color_category_title">Kolor</string>
+    <string name="lockscreen_custom_clock_gradient_category_title">Gradientowy</string>
+    <string name="lockscreen_custom_clock_layout_category_title">Rozmiar i pozycja</string>
+    <string name="lockscreen_custom_clock_animation_category_title">Animacja</string>
+    <string name="unit_degrees">°</string>
+    <!-- Lockscreen Clock Size -->
+    <string name="clock_size_title">Rozmiar</string>
+    <string name="clock_size_summary">Skaluj zegar ekranu blokady (50–150%)</string>
     <!-- Lockscreen clock: album art color override -->
-    <string name="clock_album_art_color_title">Kolorowe zegary z grafiką albumu</string>
+    <string name="clock_album_art_color_title">Zgodnie z kolorem okładki albumu</string>
     <string name="clock_album_art_color_summary">Zastąp kolor zegara paletą okładek albumów podczas odtwarzania multimediów</string>
+    <!-- Lockscreen widgets -->
+    <string name="lockscreen_widgets_title">Widżety</string>
+    <string name="lockscreen_widgets_enabled_title">Włącz widżety ekranu blokady</string>
+    <string name="lockscreen_widgets_enabled_summary">Dodaj widżety na ekranie blokady</string>
+    <string name="lockscreen_display_widgets_title">Widżet informacji o urządzeniu</string>
+    <string name="lockscreen_widgets_color_mode_title">Tryb kolorów widżetu informacyjnego</string>
+    <string name="lockscreen_display_widgets_summary">Pokaż widżet informacji o urządzeniu na ekranie blokady</string>
+    <string name="large_widgets_category_title">Duże widżety</string>
+    <string name="main_custom_widgets1">Duży widżet 1</string>
+    <string name="main_custom_widgets2">Duży widżet 2</string>
+    <string name="mini_widgets_category_title">Mini widżety</string>
+    <string name="custom_widgets1">Mini widżet 1</string>
+    <string name="custom_widgets2">Mini widżet 2</string>
+    <string name="custom_widgets3">Mini widżet 3</string>
+    <string name="custom_widgets4">Mini widżet 4</string>
+    <string name="camera">Aparat</string>
+    <string name="clock_timer">Zegar/Minutnik</string>
+    <string name="calculator">Kalkulator</string>
+    <string name="gallery">Galeria</string>
+    <string name="media">Odtwarzacz multimedialny</string>
+    <string name="torch">Latarka</string>
+    <string name="controls_media_button_play">Odtwórz</string>
+    <string name="weather">Pogoda</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="data">Dane</string>
+    <string name="ringer">Dzwonek</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Punkt dostępu</string>
+    <string name="wallet">Portfel</string>
+    <string name="qr_scanner">Skaner QR</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">Styl widżetów ekranu blokady</string>
+    <string name="lockscreen_widgets_style1">Zaokrąglony styl dynamiczny</string>
+    <string name="lockscreen_widgets_style2">Kwadratowy styl dynamiczny</string>
+    <string name="lockscreen_widgets_style3">Kwadratowy półprzezroczysty</string>
+    <string name="lockscreen_widgets_style4">Zaokrąglony półprzezroczysty</string>
+    <string name="lockscreen_widgets_style5">Rozmycie kwadratowe</string>
+    <string name="lockscreen_widgets_style6">Zaokrąglone rozmycie</string>
+    <string name="lockscreen_widgets_transparency_title">Przezroczystość stylu półprzezroczystego</string>
+    <string name="lockscreen_widgets_transparency_summary">Konfiguracja poziomu krycia widżetu w stylu półprzezroczystym</string>
+    <!-- Lockscreen Weather -->
+    <string name="custom_clock_weather_title">Pogoda na ekranie blokady</string>
+    <string name="custom_clock_weather_summary">Pokaż pogodę na niestandardowym zegarze na ekranie blokady</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Okładka multimediów</string>
     <string name="ls_media_art_summary">Wyświetl okładkę multimediów, gdy jest dostępna</string>
@@ -491,7 +604,6 @@
     <string name="status_bar_logo_custom_image_summary">Naciśnij, aby wybrać obraz z galerii</string>
     <string name="status_bar_logo_custom_image_pick_summary">Wybierz obraz z galerii</string>
     <!-- Statusbar logo color -->
-    <string name="default_string">Domyślny</string>
     <string name="status_bar_logo_color_title">Kolor</string>
     <string name="status_bar_logo_color_default">Domyślne (białe)</string>
     <string name="status_bar_logo_color_accent">Akcent</string>
@@ -524,7 +636,6 @@
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Pasek dynamiczny</string>
     <string name="dynamic_bar_summary">Inteligentny wskaźnik na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, multimedia, liczniki i inne</string>
-    <string name="dynamic_bar_enable">Włącz pasek dynamiczny</string>
     <string name="dynamic_bar_enable_summary">Wyświetlaj dynamiczny znacznik na pasku stanu dla wydarzeń na żywo</string>
     <string name="dynamic_bar_keyguard_enable">Pasek dynamiczny na ekranie blokady</string>
     <string name="dynamic_bar_keyguard_enable_summary">Zastąp wskaźnik blokady znacznikiem paska dynamicznego na ekranie blokady</string>
@@ -588,7 +699,6 @@
     <!-- Status bar/Cutout progress ring -->
     <string name="cutout_progress_title">Pierścień postępu wokół wycięcia</string>
     <string name="cutout_progress_summary">Pokaż pierścień postępu wokół wycięcia aparatu</string>
-    <string name="cutout_progress_enabled_summary">Pokaż pierścień postępu wokół wycięcia aparatu podczas pobierania</string>
     <string name="cutout_progress_cat_appearance">Wygląd</string>
     <string name="cutout_progress_cat_behaviour">Zachowanie</string>
     <string name="cutout_progress_cat_bg_ring">Tło pierścienia</string>
@@ -974,6 +1084,10 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Zablokuj wszystkim aplikacjom możliwość przyciemniania tapety, wymuszając poziom przyciemnienia na 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj flagi zabezpieczonego okna</string>
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji. Może to spowodować ujawnienie prywatnych treści</string>
+    <string name="miscellaneous_block_screenshot_detection_title">Blokuj wykrywanie zrzutu ekranu</string>
+    <string name="miscellaneous_block_screenshot_detection_summary">Uniemożliwiaj aplikacjom wykrywanie wykonywania zrzutów ekranu ich zawartości</string>
+    <string name="miscellaneous_block_screenrecord_detection_title">Blokuj wykrywanie nagrywania ekranu</string>
+    <string name="miscellaneous_block_screenrecord_detection_summary">Uniemożliwiaj aplikacjom wykrywanie, że ich zawartość jest nagrywana</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nieograniczone nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15 GB. Może to spowodować, że plik wyjściowy będzie większy niż potrzeba</string>
     <string name="disable_flash_sms_title">Wyłącz błyskawicznie SMS-y</string>
@@ -1134,6 +1248,9 @@
     <string name="pif_delete_config_summary">Usuń aktualnie aktywny plik konfiguracyjny</string>
     <string name="pif_delete_title">Usunąć %s?</string>
     <string name="pif_delete_message">Ten plik konfiguracyjny zostanie trwale usunięty.</string>
+    <string name="pif_wipe_playstore_title">Wyczyścić dane Sklepu Google Play?</string>
+    <string name="pif_wipe_playstore_message">Zastosowanie tego odcisku palca działa najlepiej po rozpoczęciu nowej sesji w Sklepie Google Play. Wyczyścić dane aplikacji w Sklepie Google Play? Spowoduje to wylogowanie i wyczyszczenie lokalnej pamięci podręcznej oraz kolejki pobierania.</string>
+    <string name="pif_wipe_confirm">Wyczyść dane</string>
     <string name="pif_deleted">Usunięto %s</string>
     <string name="pif_config_details">Szczegóły konfiguracji</string>
     <string name="pif_failed">Niepowodzenie: %s</string>
@@ -1144,7 +1261,6 @@
     <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
     <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
     <string name="pif_no_api_key">Nie udało się wyodrębnić klucza API narzędzia do wgrywania</string>
-    <string name="pif_master_switch_title">Włącz poprawkę integralności Google Play</string>
     <string name="pif_advanced_settings">Zaawansowane fałszowanie</string>
     <string name="pif_spoof_vending_finger_title">Fałszowanie odcisku palca Sklepu Google Play</string>
     <string name="pif_spoof_vending_finger_summary">Kontroluje, który odcisk palca jest prezentowany w procesie Sklepu Google Play</string>
@@ -1154,7 +1270,6 @@
     <string name="pif_vending_finger_same">Tak samo jak odcisk palca DroidGuard</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Zarządzaj zestawem kluczy i aplikacjami docelowymi dla poświadczenia silnej integralności</string>
-    <string name="ts_master_switch_title">Włącz fałszowanie TrickyStore</string>
     <string name="ts_keybox_management">Zarządzanie zestawem kluczy</string>
     <string name="ts_import_keybox">Importuj zestaw kluczy</string>
     <string name="ts_no_keybox">Nie zainstalowano zestawu kluczy</string>
@@ -1497,6 +1612,7 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Przesunięcie trzema palcami</string>
     <string name="shake_gestures_enabled_title">Gesty potrząsania</string>
+    <string name="shake_gestures_enabled_summary">Potrząśnij urządzeniem, aby wykonać akcje</string>
     <string name="shake_gestures_action_title">Akcja gestu potrząsania</string>
     <string name="shake_gestures_intensity_title">Czułość potrząsania</string>
     <string name="shake_gestures_intensity_summary">Dostosuj czułość wykrywania potrząsania</string>
@@ -1556,4 +1672,7 @@
     <string name="qs_show_volume_slider_only">Tylko suwak głośności</string>
     <string name="qs_show_ringer_mode_title">Tryb dzwonka</string>
     <string name="qs_show_ringer_mode_summary">Pokaż ikonę trybu dzwonka z suwakiem głośności</string>
+    <!-- Custom power menu style -->
+    <string name="global_actions_use_compose_dialog_title">Przeprojektowane menu zasilania</string>
+    <string name="global_actions_use_compose_dialog_summary">Użyj nowego menu zasilania z konfigurowalnym, przeciąganym układem kafelków. Wyłącz, aby korzystać z klasycznego menu zasilania.</string>
 </resources>
