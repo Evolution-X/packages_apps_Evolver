@@ -73,39 +73,8 @@ private const val PP_TARGETS_KEY = "pi_pp_targets"
 private const val PP_MODEL_KEY   = "pi_pp_model"
 private const val PP_ENABLED_KEY = "pi_pp_spoof"
 
-private val DEFAULT_PP_TARGETS = setOf(
-    "com.amazon.avod.thirdpartyclient",
-    "com.android.chrome",
-    "com.breel.wallpapers20",
-    "com.disney.disneyplus",
-    "com.google.android.aicore",
-    "com.google.android.apps.accessibility.magnifier",
-    "com.google.android.apps.aiwallpapers",
-    "com.google.android.apps.bard",
-    "com.google.android.apps.customization.pixel",
-    "com.google.android.apps.emojiwallpaper",
-    "com.google.android.apps.pixel.agent",
-    "com.google.android.apps.pixel.creativeassistant",
-    "com.google.android.apps.pixel.nowplaying",
-    "com.google.android.apps.pixel.psi",
-    "com.google.android.apps.pixel.subzero",
-    "com.google.android.apps.pixel.support",
-    "com.google.android.apps.privacy.wildlife",
-    "com.google.android.apps.subscriptions.red",
-    "com.google.android.apps.wallpaper",
-    "com.google.android.apps.wallpaper.pixel",
-    "com.google.android.apps.weather",
-    "com.google.android.googlequicksearchbox",
-    "com.google.android.pcs",
-    "com.google.android.wallpaper.effects",
-    "com.google.pixel.livewallpaper",
-    "com.microsoft.android.smsorganizer",
-    "com.nhs.online.nhsonline",
-    "com.nothing.smartcenter",
-    "com.realme.link",
-    "in.startv.hotstar",
-    "jp.id_credit_sp2.android",
-)
+// DEFAULT_PP_TARGETS now lives in PixelDeviceRepository.DEFAULT_PP_TARGETS (Java Set<String>),
+// shared with PixelPropsUtils rather than kept as a separate Kotlin copy.
 
 // PpAppEntry kept for external references; internally we use AppListEntry
 data class PpAppEntry(
@@ -205,7 +174,7 @@ private fun PixelPropsContent(context: android.content.Context) {
     var selectedCodename by remember {
         mutableStateOf(
             Settings.Secure.getString(context.contentResolver, PP_MODEL_KEY)
-                ?: if (isTablet) "tangorpro" else "mustang",
+                ?: if (isTablet) "tangorpro" else PixelDeviceRepository.getDefaultPhoneCodename(),
         )
     }
     var showModelDropdown by remember { mutableStateOf(false) }
@@ -216,7 +185,7 @@ private fun PixelPropsContent(context: android.content.Context) {
 
     fun readTargetsSet(): Set<String> {
         val raw = Settings.Secure.getString(context.contentResolver, PP_TARGETS_KEY)
-        if (raw.isNullOrBlank()) return DEFAULT_PP_TARGETS
+        if (raw.isNullOrBlank()) return PixelDeviceRepository.DEFAULT_PP_TARGETS
         return raw.split(",").filter { it.isNotBlank() }.toSet()
     }
 
@@ -236,7 +205,8 @@ private fun PixelPropsContent(context: android.content.Context) {
             withContext(Dispatchers.Main) {
                 profiles = resolved
                 if (resolved.none { it.codename == selectedCodename }) {
-                    val defaultCodename = if (isTablet) "tangorpro" else "mustang"
+                    val defaultCodename = if (isTablet) "tangorpro"
+                        else PixelDeviceRepository.getDefaultPhoneCodename(resolved)
                     selectedCodename = defaultCodename
                     Settings.Secure.putString(
                         context.contentResolver, PP_MODEL_KEY, defaultCodename)
@@ -288,15 +258,7 @@ private fun PixelPropsContent(context: android.content.Context) {
         }
     }
 
-    val displayProfiles = remember(profiles) {
-        profiles.filter {
-            it.codename in setOf(
-                "tokay", "caiman", "komodo", "comet", "tegu",
-                "frankel", "blazer", "mustang", "rango", "stallion",
-                "tangorpro",
-            )
-        }
-    }
+    val displayProfiles = remember(profiles) { profiles }
 
     val activeCount = allApps.count { it.isSelected }
     val selectedProfile = profiles.find { it.codename == selectedCodename }
@@ -485,28 +447,29 @@ private fun PixelPropsContent(context: android.content.Context) {
                             onClick = {
                                 allApps.indices.forEach { i ->
                                     allApps[i] = allApps[i].copy(
-                                        isSelected = allApps[i].packageName in DEFAULT_PP_TARGETS,
+                                        isSelected = allApps[i].packageName in PixelDeviceRepository.DEFAULT_PP_TARGETS,
                                     )
                                 }
-                                val defaultCodename = if (isTablet) "tangorpro" else "mustang"
-                                selectedCodename = defaultCodename
                                 scope.launch(Dispatchers.IO) {
                                     Settings.Secure.putString(
                                         context.contentResolver,
                                         PixelDeviceRepository.CACHE_KEY,
                                         "",
                                     )
+                                    writeTargetsSet(PixelDeviceRepository.DEFAULT_PP_TARGETS)
+                                    killPackages(activityManager, PixelDeviceRepository.DEFAULT_PP_TARGETS)
+                                    val fresh = PixelDeviceRepository.getProfiles(context, false)
+                                    val resolved = fresh.ifEmpty { PixelDeviceRepository.FALLBACK_PROFILES }
+                                    val defaultCodename = if (isTablet) "tangorpro"
+                                        else PixelDeviceRepository.getDefaultPhoneCodename(resolved)
                                     Settings.Secure.putString(
                                         context.contentResolver,
                                         PP_MODEL_KEY,
                                         defaultCodename,
                                     )
-                                    writeTargetsSet(DEFAULT_PP_TARGETS)
-                                    killPackages(activityManager, DEFAULT_PP_TARGETS)
-                                    val fresh = PixelDeviceRepository.getProfiles(context, true)
-                                    val resolved = fresh.ifEmpty { PixelDeviceRepository.FALLBACK_PROFILES }
                                     withContext(Dispatchers.Main) {
                                         profiles = resolved
+                                        selectedCodename = defaultCodename
                                     }
                                 }
                             },

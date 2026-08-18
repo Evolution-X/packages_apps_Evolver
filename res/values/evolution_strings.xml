@@ -1167,6 +1167,9 @@
     <string name="pif_delete_config_summary">Remove the currently active configuration file</string>
     <string name="pif_delete_title">Delete %s?</string>
     <string name="pif_delete_message">This configuration file will be permanently removed.</string>
+    <string name="pif_wipe_playstore_title">Clear Play Store data?</string>
+    <string name="pif_wipe_playstore_message">Applying this fingerprint works best with a fresh Play Store session. Clear Play Store app data now? This will sign you out and clear its local cache and download queue.</string>
+    <string name="pif_wipe_confirm">Clear data</string>
     <string name="pif_deleted">Deleted %s</string>
     <string name="pif_config_details">Configuration details</string>
     <string name="pif_failed">Failed: %s</string>
