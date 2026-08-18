@@ -12,6 +12,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Base64
+import android.util.Xml
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -23,6 +24,7 @@ import com.android.settings.SettingsPreferenceFragment
 import java.io.BufferedReader
 import java.io.ByteArrayInputStream
 import java.io.InputStreamReader
+import java.io.StringReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.StandardCharsets
@@ -34,9 +36,11 @@ import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.xmlpull.v1.XmlPullParser
 import org.json.JSONObject
 
 class TrickyStore : SettingsPreferenceFragment() {
@@ -58,22 +62,27 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- Trust anchors (SHA-256 of DER-encoded cert) ------------------------
 
     companion object {
-        // Google Hardware Attestation Root (RSA-4096)
-        // Original issuance 2019, serial d50ff25ba3f2d6b3, valid until 2034
-        private const val GOOGLE_ROOT_RSA_2019_SHA256 =
+        private const val TAG = "TrickyStore"
+
+        // Fallback trust anchors, used only if the live roots fetch fails and
+        // no cached copy exists yet. Google may add/rotate roots at any time;
+        // the live fetch from ROOTS_URL is the source of truth, this list
+        // exists purely so first-run/offline behaviour degrades safely
+        // instead of trusting nothing.
+        // Google Hardware Attestation Root (RSA-4096), original 2019 issuance
+        private const val FALLBACK_ROOT_RSA_2019_SHA256 =
             "1EF1A04B8BA58AB94589AC498C8982A783F24EA7307E0159A0C3A73B377D87CC"
-
-        // Google Hardware Attestation Root (RSA-4096)
-        // Reissued 2022, serial f1c172a699eaf51d, valid until 2042
-        // Same public key as 2019 root, different cert (currently served by /attestation/root)
-        private const val GOOGLE_ROOT_RSA_2022_SHA256 =
+        // Google Hardware Attestation Root (RSA-4096), reissued 2022
+        private const val FALLBACK_ROOT_RSA_2022_SHA256 =
             "CEDB1CB6DC896AE5EC797348BCE9286753C2B38EE71CE0FBE34A9A1248800DFC"
+        // Google Hardware Attestation Root (EC P-384) "Key Attestation CA1", 2025
+        private const val FALLBACK_ROOT_EC_2025_SHA256 =
+            "6D9DB4CE6C5C0B293166D08986E05774A8776CEB525D9E4329520DE12BA4BCC0"
 
-        // Google Hardware Attestation Root (EC P-384) "Key Attestation CA1"
-        // Issued 2025, serial 84a9d0297b0eb58ae7ff0e80de760605, valid until 2035
-        // RKP devices use this root exclusively from April 2026 onward
-        private const val GOOGLE_ROOT_EC_2025_SHA256 =
-            "C6E5DC76BD81307046A3CCC979F0FAC6BDDEF46CC9B533B2134EB0E99F67550E"
+        private const val ROOTS_URL = "https://android.googleapis.com/attestation/root"
+        private const val ROOTS_CACHE_KEY       = "spoof_trickystore_cached_roots"
+        private const val ROOTS_CACHED_AT_KEY   = "spoof_trickystore_roots_cached_at"
+        private val ROOTS_CACHE_TTL_MS = TimeUnit.DAYS.toMillis(30)
 
         // Keys & setting names
         private const val KEYBOX_KEY                 = "spoof_trickystore_keybox"
@@ -87,6 +96,10 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val LAST_NO_VALID_KEY          = "spoof_trickystore_last_no_valid"
         private const val LAST_REVOCATION_STATUS_KEY = "spoof_trickystore_last_revocation_status"
         private const val LAST_REVOCATION_REASON_KEY = "spoof_trickystore_last_revocation_reason"
+
+        private const val CACHED_REVOKED_SERIALS_KEY = "spoof_trickystore_cached_revoked_serials"
+        private const val CACHED_REVOKED_AT_KEY       = "spoof_trickystore_cached_revoked_at"
+        private val CACHE_TRUST_WINDOW_MS = TimeUnit.DAYS.toMillis(7)
 
         private const val TRICKYSTORE_ENABLED_KEY    = "spoof_trickystore_enabled"
 
@@ -103,10 +116,35 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val REVOCATION_URL     =
             "https://android.googleapis.com/attestation/status?encrypted=0"
         private const val OFFICIAL_KEYBOX_URL =
-            "https://v15.next.forgejo.org/EvolutionX/keybox/raw/branch/main/keybox.xml"
+            "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/keybox.xml"
 
         /** Warn user when the leaf cert expires within this window. */
         private val EXPIRY_WARN_MS = TimeUnit.DAYS.toMillis(14)
+
+        /**
+         * Puts the spoofing settings back to a fresh-install state: the PIF
+         * config, patch level and GameProps config are cleared and the
+         * TrickyStore target list is reseeded with the defaults. The keybox is
+         * kept, since it may be the user's own and the official one is kept
+         * current by AxSpoofManager anyway. Mirrors AlwaysStrong's
+         * reset_defaults.sh, which also keeps the keybox.
+         *
+         * Nothing is fetched here. AxSpoofManager watches the PIF config and,
+         * a few seconds after it goes empty, refreshes the fingerprint and patch
+         * level itself (from the built-in profiles when offline). Order matters
+         * for that: the fetch cooldown is zeroed first and the PIF config is
+         * cleared last, so the refresh sees a fully reset state.
+         */
+        @JvmStatic
+        fun resetAllSpoofDefaults(context: Context) {
+            val resolver = context.contentResolver
+            Settings.Secure.putLong(resolver, PlayIntegrityFix.LAST_AUTO_FETCH_KEY, 0L)
+            Settings.Secure.putString(
+                resolver, TARGET_KEY, TrickyStoreAppSettings.buildDefaultTargetSeed())
+            Settings.Secure.putString(resolver, PATCH_KEY, "")
+            Settings.Secure.putString(resolver, Settings.Secure.SPOOF_GAMEPROPS_CONFIG, "")
+            Settings.Secure.putString(resolver, PlayIntegrityFix.PIF_CONFIG_KEY, "")
+        }
     }
 
     // ---- Properties ---------------------------------------------------------
@@ -126,6 +164,13 @@ class TrickyStore : SettingsPreferenceFragment() {
             try {
                 val bytes = requireContext().contentResolver.openInputStream(uri)
                     ?.use { it.readBytes() } ?: ByteArray(0)
+                // The framework rejects a keybox that fails these checks, so refuse it here
+                // instead of storing something that silently never takes effect.
+                val problem = keyboxProblem(bytes.toString(Charsets.UTF_8))
+                if (problem != null) {
+                    toast(getString(R.string.ts_fetch_keybox_failed, problem))
+                    return@registerForActivityResult
+                }
                 val encoded = Base64.encodeToString(bytes, Base64.NO_WRAP)
                 Settings.Secure.putString(
                     requireContext().contentResolver, KEYBOX_KEY, encoded)
@@ -265,8 +310,15 @@ class TrickyStore : SettingsPreferenceFragment() {
 
         val patchDate = Settings.Secure.getString(requireContext().contentResolver, PATCH_KEY)
         findPreference<Preference>("ts_security_patch")?.summary =
-            if (!patchDate.isNullOrEmpty()) patchDate
-            else getString(R.string.ts_no_patch)
+            if (!patchDate.isNullOrEmpty()) {
+                if (isPatchDateStale(patchDate)) {
+                    getString(R.string.ts_patch_stale_warning, patchDate)
+                } else {
+                    patchDate
+                }
+            } else {
+                getString(R.string.ts_no_patch)
+            }
 
         findPreference<Preference>("ts_verification_mode")?.summary = buildVerificationSummary()
 
@@ -484,7 +536,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         // 5. Fetch Google's revocation JSON
         val serials = certs.map { it.serialNumber.toString(16).lowercase() }
         val revJson = fetchRevocationJson()
-            ?: return Pair(RevocationStatus.UNKNOWN, "")
+            ?: return checkCachedRevocation(serials)
 
         // 6. Check each serial against the revocation list
         val entries = revJson.optJSONObject("entries")
@@ -494,11 +546,20 @@ class TrickyStore : SettingsPreferenceFragment() {
                 val status = entry.optString("status", "").uppercase()
                 val reason = entry.optString("reason", "").uppercase()
                 when (status) {
-                    "REVOKED"   -> return Pair(RevocationStatus.REVOKED, reason)
-                    "SUSPENDED" -> return Pair(RevocationStatus.SUSPENDED, reason)
+                    "REVOKED"   -> {
+                        cacheRevokedSerial(serial)
+                        return Pair(RevocationStatus.REVOKED, reason)
+                    }
+                    "SUSPENDED" -> {
+                        cacheRevokedSerial(serial)
+                        return Pair(RevocationStatus.SUSPENDED, reason)
+                    }
                 }
             }
         }
+        // Live check passed cleanly — clear any stale cached bad-serial entry
+        // for this keybox so a future offline fallback doesn't misfire.
+        clearCachedRevokedSerials()
 
         // 7. If the cert is expiring soon, surface that now (it passed all other checks)
         if (expiringStatus != null) {
@@ -567,14 +628,26 @@ class TrickyStore : SettingsPreferenceFragment() {
             return "ROOT_NOT_SELF_SIGNED"
         }
 
-        // Root public-key must match a known Google attestation root
+        // Root must match a live-fetched Google attestation root, or (if the
+        // live/cached fetch is unavailable) one of the fallback fingerprints.
+        // Compared by SHA-256 fingerprint rather than raw DER equality, since
+        // a keybox-embedded root can be a re-encoding of the same logical
+        // cert (e.g. different ASN.1 length form) and still be legitimate.
+        val trustAnchors = getTrustAnchors()
         val rootFingerprint = sha256Hex(root.encoded)
-        val knownRoots = setOf(
-            normalise(GOOGLE_ROOT_RSA_2019_SHA256),
-            normalise(GOOGLE_ROOT_RSA_2022_SHA256),
-            normalise(GOOGLE_ROOT_EC_2025_SHA256),
-        )
-        if (rootFingerprint !in knownRoots) {
+        val trusted = if (trustAnchors.isNotEmpty()) {
+            trustAnchors.any { sha256Hex(it.encoded) == rootFingerprint }
+        } else {
+            val fallbackRoots = setOf(
+                normalise(FALLBACK_ROOT_RSA_2019_SHA256),
+                normalise(FALLBACK_ROOT_RSA_2022_SHA256),
+                normalise(FALLBACK_ROOT_EC_2025_SHA256),
+            )
+            rootFingerprint in fallbackRoots
+        }
+        if (!trusted) {
+            Log.w(TAG, "untrusted root: fingerprint=$rootFingerprint " +
+                "liveAnchors=${trustAnchors.size}")
             return "UNTRUSTED_ROOT"
         }
 
@@ -583,14 +656,160 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Network helpers ----------------------------------------------------
 
-    private fun fetchRevocationJson(): JSONObject? = try {
-        val conn = URL(REVOCATION_URL).openConnection() as HttpURLConnection
+    private fun fetchRevocationJson(): JSONObject? {
+        var conn: HttpURLConnection? = null
+        return try {
+            conn = openFreshConnection(REVOCATION_URL)
+            if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+                JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
+            } else {
+                null
+            }
+        } catch (_: Exception) {
+            null
+        } finally {
+            conn?.disconnect()
+        }
+    }
+
+    /**
+     * Opens a connection with cache-busting so a stale CDN-cached 200 isn't
+     * mistaken for a fresh answer. The android.googleapis.com/attestation
+     * endpoints sit behind a CDN that can serve outdated data even past
+     * their Cache-Control max-age.
+     */
+    private fun openFreshConnection(url: String): HttpURLConnection {
+        val busted = url + (if ('?' in url) "&" else "?") + "_=${System.nanoTime()}"
+        val conn = URL(busted).openConnection() as HttpURLConnection
         conn.connectTimeout = 10_000
         conn.readTimeout = 10_000
-        if (conn.responseCode == HttpURLConnection.HTTP_OK)
-            JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
-        else null
+        conn.setRequestProperty("Cache-Control", "max-age=0")
+        conn.setRequestProperty("Accept-Encoding", "identity")
+        return conn
+    }
+
+    /**
+     * Returns the current set of Google attestation root certificates.
+     * Tries a live fetch from ROOTS_URL first; falls back to a cached copy
+     * (however old) if the fetch fails; returns empty if there is no cache
+     * at all, in which case the caller falls back to the hardcoded
+     * FALLBACK_ROOT_*_SHA256 fingerprints.
+     */
+    private fun getTrustAnchors(): Set<X509Certificate> {
+        val resolver = requireContext().contentResolver
+        val cached = Settings.Secure.getString(resolver, ROOTS_CACHE_KEY)
+        val cachedAt = Settings.Secure.getLong(resolver, ROOTS_CACHED_AT_KEY, 0L)
+        val now = System.currentTimeMillis()
+        val cacheIsFresh = !cached.isNullOrEmpty() &&
+            cachedAt > 0L &&
+            cachedAt <= now &&
+            now - cachedAt <= ROOTS_CACHE_TTL_MS
+
+        if (cacheIsFresh) {
+            parseRootsJson(cached!!)?.let { return it }
+        }
+
+        val live = fetchTrustAnchorsLive()
+        if (live != null) {
+            cacheTrustAnchors(live.second)
+            return live.first
+        }
+
+        if (!cached.isNullOrEmpty()) {
+            parseRootsJson(cached)?.let { return it }
+        }
+        return emptySet()
+    }
+
+    /** Returns (parsed certs, raw json) on success, null on any failure. */
+    private fun fetchTrustAnchorsLive(): Pair<Set<X509Certificate>, String>? {
+        var conn: HttpURLConnection? = null
+        return try {
+            conn = openFreshConnection(ROOTS_URL)
+            if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+                val raw = BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() }
+                val certs = parseRootsJson(raw)
+                if (certs != null) {
+                    Log.d(TAG, "fetched ${certs.size} live attestation root(s)")
+                    Pair(certs, raw)
+                } else {
+                    Log.w(TAG, "roots fetch: response parsed to zero valid certs")
+                    null
+                }
+            } else {
+                Log.w(TAG, "roots fetch failed: HTTP ${conn.responseCode}")
+                null
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "roots fetch failed", e)
+            null
+        } finally {
+            conn?.disconnect()
+        }
+    }
+
+    private fun parseRootsJson(raw: String): Set<X509Certificate>? = try {
+        val array = org.json.JSONArray(raw)
+        val factory = CertificateFactory.getInstance("X.509")
+        (0 until array.length()).mapNotNull { i ->
+            try {
+                val pem = array.getString(i)
+                factory.generateCertificate(
+                    ByteArrayInputStream(pem.toByteArray(Charsets.UTF_8))
+                ) as X509Certificate
+            } catch (_: Exception) { null }
+        }.toSet().ifEmpty { null }
     } catch (_: Exception) { null }
+
+    private fun cacheTrustAnchors(raw: String) {
+        Settings.Secure.putString(requireContext().contentResolver, ROOTS_CACHE_KEY, raw)
+        Settings.Secure.putLong(
+            requireContext().contentResolver, ROOTS_CACHED_AT_KEY, System.currentTimeMillis())
+    }
+
+    // ---- Offline revocation cache --------------------------------------------
+
+    /**
+     * Records that [serial] was seen as revoked/suspended on a successful live
+     * check, so a later fetch failure can still flag it. Downgrade-only: this
+     * cache is never consulted to assert VALID, only REVOKED/SUSPENDED.
+     */
+    private fun cacheRevokedSerial(serial: String) {
+        Settings.Secure.putString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY, serial)
+        Settings.Secure.putLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY,
+            System.currentTimeMillis())
+    }
+
+    private fun clearCachedRevokedSerials() {
+        Settings.Secure.putString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY, "")
+        Settings.Secure.putLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY, 0L)
+    }
+
+    /**
+     * Fallback used when the live revocation fetch fails. Only ever returns
+     * REVOKED/SUSPENDED (if a cached serial for this keybox is still within
+     * the trust window) or UNKNOWN — never VALID, since we cannot confirm
+     * that today without a successful live check.
+     */
+    private fun checkCachedRevocation(serials: List<String>): Pair<RevocationStatus, String> {
+        val cachedAt = Settings.Secure.getLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY, 0L)
+        if (cachedAt == 0L ||
+            System.currentTimeMillis() - cachedAt > CACHE_TRUST_WINDOW_MS) {
+            return Pair(RevocationStatus.UNKNOWN, "")
+        }
+        val cachedSerial = Settings.Secure.getString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY)
+        return if (!cachedSerial.isNullOrEmpty() && serials.contains(cachedSerial)) {
+            Pair(RevocationStatus.SUSPENDED, "CACHED_OFFLINE")
+        } else {
+            Pair(RevocationStatus.UNKNOWN, "")
+        }
+    }
 
     // ---- Auto-fetch ---------------------------------------------------------
 
@@ -625,12 +844,16 @@ class TrickyStore : SettingsPreferenceFragment() {
             val result = withContext(Dispatchers.IO) {
                 runCatching {
                     val conn = URL(OFFICIAL_KEYBOX_URL).openConnection() as HttpURLConnection
-                    conn.connectTimeout = 10_000
-                    conn.readTimeout = 10_000
-                    check(conn.responseCode == HttpURLConnection.HTTP_OK) {
-                        "HTTP ${conn.responseCode}"
+                    try {
+                        conn.connectTimeout = 10_000
+                        conn.readTimeout = 10_000
+                        check(conn.responseCode == HttpURLConnection.HTTP_OK) {
+                            "HTTP ${conn.responseCode}"
+                        }
+                        conn.inputStream.use { it.readBytes().toString(Charsets.UTF_8) }
+                    } finally {
+                        conn.disconnect()
                     }
-                    conn.inputStream.use { it.readBytes().toString(Charsets.UTF_8) }
                 }
             }
 
@@ -648,6 +871,12 @@ class TrickyStore : SettingsPreferenceFragment() {
                             decodeKeyboxXml(existing) else null
                         if (existingXml != null && existingXml.trim() == xml.trim()) {
                             if (!silent) toast(getString(R.string.ts_fetch_keybox_same_file))
+                            return@fold
+                        }
+
+                        keyboxProblem(xml)?.let { reason ->
+                            if (!silent) toast(getString(R.string.ts_fetch_keybox_failed, reason))
+                            markNoValidKeyboxFound()
                             return@fold
                         }
 
@@ -971,8 +1200,111 @@ class TrickyStore : SettingsPreferenceFragment() {
                 GMS_PERSISTENT_PACKAGE, RKPD_PACKAGE, GSF_PACKAGE,
                 CONTACT_KEYS_PACKAGE, SAFETY_CORE_PACKAGE, VELVET_PACKAGE
             ).forEach { am.forceStopPackage(it) }
-            requireContext().packageManager.clearApplicationUserData(VENDING_PACKAGE, null)
+            // Force-stop only, like AxSpoofManager.killGmsFamily(). Clearing Play Store data
+            // on every keybox import/fetch (including the silent auto-replace) signed users out.
         } catch (_: Exception) {}
+    }
+
+    /**
+     * Same acceptance rules as the framework: TrickyStoreService.isValidKeyboxXml() plus
+     * KeyBoxManager's check that NumberOfKeyboxes matches either the number of <Keybox>
+     * elements or the number of <Key> elements holding a complete key (algorithm + private
+     * key + certificate). Returns null when the keybox is acceptable, otherwise a short
+     * reason.
+     */
+    private fun keyboxProblem(rawXml: String): String? {
+        // isValidKeyboxXml() looks at the raw text, KeyBoxManager parses the sanitized one.
+        if (!rawXml.contains("<Key algorithm=\"ecdsa\">") && !rawXml.contains("<Key algorithm=\"rsa\">")) {
+            return "No ECDSA or RSA key block"
+        }
+        if (!rawXml.contains("<serial>") && !rawXml.contains("DeviceID")) {
+            return "No serial or DeviceID"
+        }
+        val xml = sanitizeKeyboxXml(rawXml)
+        var declared: Int? = null
+        var parsedBoxes = 0
+        var parsedKeys = 0
+        var sawKeyboxTag = false
+        var boxHasKey = false
+        try {
+            val p = Xml.newPullParser()
+            p.setInput(StringReader(xml))
+            var inKey = false
+            var algorithm: String? = null
+            var hasPrivateKey = false
+            var certs = 0
+            var text: StringBuilder? = null
+            var event = p.eventType
+            while (event != XmlPullParser.END_DOCUMENT) {
+                when (event) {
+                    XmlPullParser.START_TAG -> {
+                        when (p.name) {
+                            "Keybox" -> {
+                                sawKeyboxTag = true
+                                boxHasKey = false
+                            }
+                            "Key" -> {
+                                inKey = true
+                                algorithm = p.getAttributeValue(null, "algorithm")
+                                hasPrivateKey = false
+                                certs = 0
+                            }
+                            "PrivateKey", "Certificate" -> if (inKey) text = StringBuilder()
+                            "NumberOfKeyboxes" -> if (!inKey) text = StringBuilder()
+                        }
+                    }
+                    XmlPullParser.TEXT -> text?.append(p.text)
+                    XmlPullParser.END_TAG -> {
+                        when (p.name) {
+                            "PrivateKey" -> {
+                                if (text?.isNotBlank() == true) hasPrivateKey = true
+                                text = null
+                            }
+                            "Certificate" -> {
+                                if (text?.isNotBlank() == true) certs++
+                                text = null
+                            }
+                            "NumberOfKeyboxes" -> {
+                                declared = text?.toString()?.trim()?.toIntOrNull()
+                                text = null
+                            }
+                            "Key" -> {
+                                inKey = false
+                                if (algorithm != null && hasPrivateKey && certs > 0) {
+                                    parsedKeys++
+                                    boxHasKey = true
+                                }
+                            }
+                            "Keybox" -> {
+                                if (boxHasKey) parsedBoxes++
+                                boxHasKey = false
+                            }
+                        }
+                    }
+                }
+                event = p.next()
+            }
+        } catch (_: Exception) {
+            return "Not a valid keybox XML"
+        }
+        // A document without <Keybox> wrappers holds a single implicit box.
+        if (!sawKeyboxTag && parsedKeys > 0) parsedBoxes = 1
+        val count = declared
+        // Generators disagree on whether NumberOfKeyboxes counts <Keybox> or <Key> elements,
+        // and KeyBoxManager accepts either. Only a document matching neither is incomplete.
+        if (count != null && count != parsedBoxes && count != parsedKeys) {
+            return "Declares $count keybox(es) but $parsedBoxes box(es) / $parsedKeys key(s) parsed"
+        }
+        return null
+    }
+
+    /** KeyBoxManager.sanitizeXml(): trim, strip a leading BOM, strip XML comments. */
+    private fun sanitizeKeyboxXml(content: String): String {
+        var s = content.trim()
+        for (bom in listOf("\uFEFF", "\uFFFE", "\u0000\uFEFF")) {
+            if (s.startsWith(bom)) s = s.substring(bom.length)
+        }
+        return s.replace(Regex("<!--.*?-->", RegexOption.DOT_MATCHES_ALL), "").trim()
     }
 
     // ---- Crypto helpers -----------------------------------------------------
@@ -986,6 +1318,24 @@ class TrickyStore : SettingsPreferenceFragment() {
     /** Strip colons/spaces and uppercase for consistent comparison. */
     private fun normalise(fingerprint: String) =
         fingerprint.replace(":", "").replace(" ", "").uppercase()
+
+    /**
+     * Returns true if [patchDate] (a single YYYY-MM-DD value, not the
+     * multi-line per-package block format) is more than 12 months old.
+     * Unparsable input returns false — we don't warn on values we can't read.
+     */
+    private fun isPatchDateStale(patchDate: String): Boolean {
+        val dateRe = Regex("""\d{4}-\d{2}-\d{2}""")
+        val trimmed = patchDate.trim()
+        if (!dateRe.matches(trimmed)) return false
+        return try {
+            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US).apply { isLenient = false }
+            val patchMs = sdf.parse(trimmed)?.time ?: return false
+            System.currentTimeMillis() - patchMs > TimeUnit.DAYS.toMillis(365)
+        } catch (_: Exception) {
+            false
+        }
+    }
 
     // ---- Misc ---------------------------------------------------------------
 

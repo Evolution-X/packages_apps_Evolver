@@ -68,6 +68,35 @@
             android:summary="@string/pif_spoof_vending_sdk_summary"
             android:defaultValue="false" />
 
+        <SwitchPreferenceCompat
+            android:key="pif_spoof_build"
+            android:title="@string/pif_spoof_build_title"
+            android:summary="@string/pif_spoof_build_summary"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pif_spoof_props"
+            android:title="@string/pif_spoof_props_title"
+            android:summary="@string/pif_spoof_props_summary"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="pif_spoof_provider"
+            android:title="@string/pif_spoof_provider_title"
+            android:summary="@string/pif_spoof_provider_summary"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="pif_spoof_signature"
+            android:title="@string/pif_spoof_signature_title"
+            android:summary="@string/pif_spoof_signature_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="pif_reset_advanced"
+            android:title="@string/pif_reset_advanced_title"
+            android:summary="@string/pif_reset_advanced_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
