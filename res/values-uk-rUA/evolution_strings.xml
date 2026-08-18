@@ -214,7 +214,7 @@
     <string name="clock_text_accent_color_title">Використовувати колір акценту для годинника</string>
     <string name="clock_text_accent_color_summary">Використовувати системний колір акценту замість білого для тексту годинника</string>
     <!-- Lockscreen Clock Opacity -->
-    <string name="clock_text_opacity_title">Прозорість тексту годинника</string>
+    <string name="clock_text_opacity_title">Прозорість</string>
     <string name="clock_text_opacity_summary">Налаштування прозорості тексту годинника</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">Вибраний годинник не підтримує користувацькі шрифти</string>
@@ -227,19 +227,19 @@
     <string name="lockscreen_custom_clock_style_summary">Налаштування стилів годинника на екрані блокування</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Проведіть вліво або вправо, щоб переглянути стиль годинника</string>
     <string name="lockscreen_custom_clock_style_info">Користувацький стиль годинника замінює стилі годинника AOSP на користувальницькі clocks. Smartspace буде вимкнено. Ви можете включити і використовувати користувальницькі погоду.</string>
-    <string name="lockscreen_custom_clock_opacity_title">Налаштування непрозорості годинника</string>
+    <string name="lockscreen_custom_clock_opacity_title">Прозорість годинника</string>
     <string name="lockscreen_custom_clock_opacity_summary">Налаштування прозорості стилю годинника</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Користувацька висота годинника</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Верхній відступ</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Регулювати висоту стилю годинника</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Користувацький режим кольору годинника</string>
-    <string name="lockscreen_custom_clock_aod_anim_title">Користувацька анімація годинника AOD</string>
-    <string name="lockscreen_custom_clock_aod_anim_summary">Встановіть анімацію AOD для власного стилю годинника</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Режим кольору</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">AOD анімація</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">Увімкнути анімацію AOD для користувацького стилі годинника</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_title">Ефект зарядки Wobble</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_summary">Показувати тремтіння екрану на годиннику, коли він під\'єднаний до зарядного пристрою</string>
-    <string name="lockscreen_custom_clock_frame_margin_start_title">Користувацька ширина годинника</string>
-    <string name="lockscreen_custom_clock_frame_margin_start_summary">Налаштування ширини стилю годинника</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Горизонтальне зміщення</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Розташування вліво/вправо</string>
     <string name="lockscreen_custom_clock_gradient_enabled_title">Градієнт тексту</string>
-    <string name="lockscreen_custom_clock_gradient_enabled_summary">Застосувати двоколірний градієнт до годинника замість плаского кольору. Замінювати інший режим кольору</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Застосувати двоколірний градієнт до годинника замість суцільного кольору. Замінює інші режими кольору</string>
     <string name="lockscreen_custom_clock_gradient_start_title">Градієнт початкового кольору</string>
     <string name="lockscreen_custom_clock_gradient_end_title">Градієнт кінцевого кольору</string>
     <string name="lockscreen_custom_clock_gradient_anchor_y_title">Градієнтний якір</string>
@@ -252,17 +252,17 @@
     <string name="lockscreen_custom_clock_animation_category_title">Анімація</string>
     <string name="unit_degrees">°</string>
     <!-- Lockscreen Clock Size -->
-    <string name="clock_size_title">Розмір годинника</string>
+    <string name="clock_size_title">Розмір</string>
     <string name="clock_size_summary">Масштабувати годинник екрана блокування (50–150%)</string>
     <!-- Lockscreen clock: album art color override -->
-    <string name="clock_album_art_color_title">Кольорові годинники для обкладинок альбомів</string>
+    <string name="clock_album_art_color_title">Колір обкладинки альбому</string>
     <string name="clock_album_art_color_summary">Перевизначити колір годинника з палітром альбому при відтворенні мультимедіа</string>
     <!-- Lockscreen widgets -->
     <string name="lockscreen_widgets_title">Віджети</string>
     <string name="lockscreen_widgets_enabled_title">Увімкнути віджети Заблокованого екрана</string>
     <string name="lockscreen_widgets_enabled_summary">Додати віджети на Заблокований екран</string>
     <string name="lockscreen_display_widgets_title">Віджет із інформацією про пристрій</string>
-    <string name="lockscreen_widgets_color_mode_title">Режим кольору віджета</string>
+    <string name="lockscreen_widgets_color_mode_title">Кольоровий режим віджета інформації про дані</string>
     <string name="lockscreen_display_widgets_summary">Відображати віджет інформації про пристрій на екрані блокування</string>
     <string name="large_widgets_category_title">Великі віджети</string>
     <string name="main_custom_widgets1">Великий віджет 1</string>
@@ -603,7 +603,6 @@
     <string name="status_bar_logo_custom_image_summary">Натисніть щоб обрати зображення з галереї</string>
     <string name="status_bar_logo_custom_image_pick_summary">Вибрати зображення з галереї</string>
     <!-- Statusbar logo color -->
-    <string name="default_string">За замовчуванням</string>
     <string name="status_bar_logo_color_title">Колір</string>
     <string name="status_bar_logo_color_default">Стандартний (білий)</string>
     <string name="status_bar_logo_color_accent">Відтінок</string>
@@ -636,7 +635,6 @@
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Динамічна панель</string>
     <string name="dynamic_bar_summary">Розумний чіп в рядку стану для активних подій, таких як запис, медіа, таймери, тощо</string>
-    <string name="dynamic_bar_enable">Увімкнути динамічну панель</string>
     <string name="dynamic_bar_enable_summary">Показувати динамічний чіп у рядку стану для подій у прямому ефірі</string>
     <string name="dynamic_bar_keyguard_enable">Динамічна панель на екрані блокування</string>
     <string name="dynamic_bar_keyguard_enable_summary">Замініть індикацію блокування клавіатури на динамічну панель на екрані блокування</string>
@@ -699,7 +697,6 @@
     <!-- Status bar/Cutout progress ring -->
     <string name="cutout_progress_title">Вирізане кільце прогресу</string>
     <string name="cutout_progress_summary">Показати кільце прогресу навколо вирізу камери</string>
-    <string name="cutout_progress_enabled_summary">Показувати кільце прогресу навколо вирізу камери під час завантаження</string>
     <string name="cutout_progress_cat_appearance">Зовнішній вигляд</string>
     <string name="cutout_progress_cat_behaviour">Поведінка</string>
     <string name="cutout_progress_cat_bg_ring">Фонове кільце</string>
@@ -1249,6 +1246,9 @@
     <string name="pif_delete_config_summary">Видалити поточний активний файл конфігурації</string>
     <string name="pif_delete_title">Видалити %s?</string>
     <string name="pif_delete_message">Цей файл конфігурації буде остаточно видалено.</string>
+    <string name="pif_wipe_playstore_title">Очистити дані Play Store?</string>
+    <string name="pif_wipe_playstore_message">Застосування цього відбитку пальця найкраще працює з новим сеансом Play Store. Очистити дані додатку Play Store зараз? Це вийде і очистить локальний кеш і завантажить чергу завантаження.</string>
+    <string name="pif_wipe_confirm">Очистити дані</string>
     <string name="pif_deleted">Видалено %s</string>
     <string name="pif_config_details">Подробиці налаштування</string>
     <string name="pif_failed">Не вдалося: %s</string>
@@ -1259,7 +1259,6 @@
     <string name="pif_invalid_fingerprint">Недійсний формат відбитка пальця</string>
     <string name="pif_no_devices_found">Пристроїв не знайдено</string>
     <string name="pif_no_api_key">Не вдалося видобути ключ API Flash Tool</string>
-    <string name="pif_master_switch_title">Увімкнути Play Integrity Fix</string>
     <string name="pif_advanced_settings">Розширений спуфінг</string>
     <string name="pif_spoof_vending_finger_title">Підробка відбитків пальців у Play Store</string>
     <string name="pif_spoof_vending_finger_summary">Контролює, який ВІДБИТОК ПАЛЬЦЯ відображається в процесі Play Store</string>
@@ -1269,7 +1268,6 @@
     <string name="pif_vending_finger_same">Такий самий як відбиток DroidGuard</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Керування сховищем ключів та цільовими програмами для strong integrity attestation</string>
-    <string name="ts_master_switch_title">Увімкнути властивості TrickyStore</string>
     <string name="ts_keybox_management">Керування ключами</string>
     <string name="ts_import_keybox">Імпортувати Keybox</string>
     <string name="ts_no_keybox">Не встановлено жодного набору ключів</string>
@@ -1611,6 +1609,7 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Свайп трьома пальцями</string>
     <string name="shake_gestures_enabled_title">Жести струшування</string>
+    <string name="shake_gestures_enabled_summary">Струсіть ваш пристрій, щоб виконати дії</string>
     <string name="shake_gestures_action_title">Дія при струшуванні</string>
     <string name="shake_gestures_intensity_title">Чутривість до струшування</string>
     <string name="shake_gestures_intensity_summary">Налаштуйте чутливість виявлення струшування</string>
