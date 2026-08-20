@@ -25,8 +25,8 @@
     <!-- Depth wallpaper -->
     <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
         android:key="depth_wallpaper_enabled"
-        android:title="@string/dw_wallpaper_enabled_title"
-        android:summary="@string/dw_wallpaper_enabled_summary"
+        android:title="@string/depthwall_wallpaper_enabled_title"
+        android:summary="@string/depthwall_wallpaper_enabled_summary"
         android:fragment="org.evolution.settings.fragments.lockscreen.WallpaperDepth"
         android:defaultValue="false" />
 
