@@ -17,30 +17,77 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/dw_wallpaper_enabled_title">
+    xmlns:lineage="http://schemas.android.com/apk/res-auto"
+    android:title="@string/depthwall_wallpaper_enabled_title">
 
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="depth_wallpaper_enabled"
-        android:title="@string/dw_wallpaper_enabled_title"
-        android:summary="@string/dw_wallpaper_enabled_summary"
+        android:title="@string/depthwall_wallpaper_enabled_title"
+        android:summary="@string/depthwall_wallpaper_enabled_summary"
+        android:defaultValue="false" />
+
+    <Preference
+        android:key="depth_wallpaper_extract_now"
+        android:dependency="depth_wallpaper_enabled"
+        android:title="@string/depthwall_extract_now_title"
+        android:summary="@string/depthwall_extract_now_summary"
+        android:persistent="false" />
+
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="depth_wallpaper_auto_subject"
+        android:dependency="depth_wallpaper_enabled"
+        android:title="@string/depthwall_auto_subject_title"
+        android:summary="@string/depthwall_auto_subject_summary"
         android:defaultValue="false" />
 
     <Preference
         android:key="depth_wallpaper_subject_image_uri"
         android:dependency="depth_wallpaper_enabled"
-        android:title="@string/dw_file_header_select_title"
-        android:summary="@string/dw_file_header_select_summary"
+        android:title="@string/depthwall_file_header_select_title"
+        android:summary="@string/depthwall_file_header_select_summary"
+        android:persistent="false" />
+
+    <Preference
+        android:key="depth_wallpaper_clear_subject"
+        android:dependency="depth_wallpaper_enabled"
+        android:title="@string/depthwall_clear_subject_title"
+        android:summary="@string/depthwall_clear_subject_summary"
         android:persistent="false" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="depth_wallpaper_opacity"
-        android:dependency="depth_wallpaper_enabled"
-        android:title="@string/dw_wallpaper_opacity_title"
+        android:title="@string/depthwall_wallpaper_opacity_title"
         android:max="100"
         settings:min="1"
         settings:interval="1"
         settings:units="%"
         android:defaultValue="100" />
+
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="depth_wallpaper_bottom_fade"
+        android:title="@string/depth_wallpaper_bottom_fade_title"
+        android:summary="@string/depth_wallpaper_bottom_fade_summary"
+        android:max="600"
+        settings:min="0"
+        android:defaultValue="100" />
+
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="depth_wallpaper_fade_curve"
+        android:title="@string/depth_wallpaper_fade_curve_title"
+        android:summary="@string/depth_wallpaper_fade_curve_summary"
+        android:max="100"
+        settings:min="0"
+        settings:units="%"
+        android:defaultValue="50" />
+    
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="depth_wallpaper_bottom_inset"
+        android:title="@string/depth_wallpaper_bottom_inset_title"
+        android:summary="@string/depth_wallpaper_bottom_inset_summary"
+        android:max="400"
+        settings:min="0"
+        settings:units="dp"
+        android:defaultValue="180" />
         
     <com.android.settingslib.widget.FooterPreference
         android:key="depthwall_footer"
