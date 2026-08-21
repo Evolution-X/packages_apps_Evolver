@@ -196,7 +196,7 @@
             android:title="@string/quick_settings_brightness_slider_haptic_title"
             android:summary="@string/quick_settings_tile_haptic_summary"
             android:defaultValue="true" />
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="quick_settings_footer_category"
@@ -208,7 +208,16 @@
             android:summary="@string/quick_settings_data_usage_summary"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_show_data_usage_window"
+            android:title="@string/quick_settings_data_usage_window_title"
+            android:entries="@array/quick_settings_data_usage_window_entries"
+            android:entryValues="@array/quick_settings_data_usage_window_values"
+            android:summary="%s"
+            android:defaultValue="0"
+            android:dependency="qs_show_data_usage" />
+
+        <!-- <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_show_edit"
             android:title="@string/quick_settings_footer_edit_icon_title"
             android:defaultValue="true" />
@@ -221,8 +230,8 @@
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_footer_show_settings"
             android:title="@string/quick_settings_footer_settings_icon_title"
-            android:defaultValue="true" />
-    </PreferenceCategory>-->
+            android:defaultValue="true" /> -->
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="quick_settings_lock_screen_category"

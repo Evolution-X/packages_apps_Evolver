@@ -1774,4 +1774,15 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <!-- Quick settings data usage  -->
+    <string-array name="quick_settings_data_usage_window_entries">
+        <item>Daily</item>
+        <item>Weekly</item>
+    </string-array>
+
+    <string-array name="quick_settings_data_usage_window_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>
