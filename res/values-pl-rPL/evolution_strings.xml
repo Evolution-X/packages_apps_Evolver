@@ -404,14 +404,29 @@
     <string name="lockscreen_smartspace_title">Inteligentna przestrzeń</string>
     <string name="lockscreen_smartspace_summary">Pokaż inteligentną przestrzeń Google, jeśli jest dostępna</string>
     <!-- Lock screen/Depth wallpaper -->
-    <string name="dw_wallpaper_enabled_title">Tapeta z efektem głębi</string>
-    <string name="dw_wallpaper_enabled_summary_tile">Zastosuj efekt głębi\ndo tapety</string>
-    <string name="dw_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu</string>
-    <string name="dw_file_header_select_title">Wybierz obraz obiektu</string>
-    <string name="dw_file_header_select_summary">Wybierz obraz obiektu z pamięci, którego chcesz użyć do uzyskania efektu głębi</string>
-    <string name="dw_wallpaper_opacity_title">Krycie obiektu</string>
-    <string name="depth_wallpaper_offset_x_title">Przesunięcie poziome</string>
-    <string name="depth_wallpaper_offset_y_title">Przesunięcie pionowe</string>
+    <string name="depthwall_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
+    <string name="depthwall_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
+    <string name="depthwall_wallpaper_enabled_title">Tapeta z efektem głębi</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Zastosuj efekt głębi \n do tapety</string>
+    <string name="depthwall_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu.</string>
+    <string name="depthwall_wallpaper_opacity_title">Krycie tapety z głębią</string>
+    <string name="depth_wallpaper_bottom_fade_title">Zanikanie u dołu</string>
+    <string name="depth_wallpaper_bottom_fade_summary">Zanikanie tapety na dole</string>
+    <string name="depth_wallpaper_fade_curve_title">Krzywa zanikania</string>
+    <string name="depth_wallpaper_fade_curve_summary">Dostosuj krzywą zanikania tapety</string>
+    <string name="depth_wallpaper_bottom_inset_title">Dolna wstawka</string>
+    <string name="depth_wallpaper_bottom_inset_summary">Dostosuj wstawkę tapety na dole</string>
+    <string name="depthwall_auto_subject_title">Automatyczny obiekt tapety z efektem głębi</string>
+    <string name="depthwall_auto_subject_summary">Automatyczne wyodrębnianie obiektu z tapety w celu uzyskania efektu głębi</string>
+    <string name="depthwall_extract_now_title">Wyodrębnij obiekt teraz</string>
+    <string name="depthwall_extract_now_summary">Natychmiastowe wyzwolenie wyodrębnienia obiektu z tapety (ustaw tapetę osobno dla ekranu blokady)</string>
+    <string name="depthwall_extracting_toast">Wyodrębnianie obiektu z tapety…</string>
+    <string name="depthwall_extraction_complete_toast">Wyodrębnianie obiektu ukończone!</string>
+    <string name="depthwall_storage_permission_denied">Aby automatycznie wyodrębnić obiekty z tapet, wymagane jest uprawnienie dostępu do pamięci wewnętrznej.</string>
+    <string name="depthwall_clear_subject_title">Wyczyść obiekt obrazu</string>
+    <string name="depthwall_clear_subject_summary">Usuń aktualnie wyodrębniony lub ręcznie ustawiony obiekt</string>
+    <string name="depthwall_clear_subject_confirm_message">Spowoduje to usunięcie aktualnego obrazu głębi tapety. Kontynuować?</string>
+    <string name="depthwall_clear_subject_done_toast">Obraz obiektu został wyczyszczony</string>
     <string name="dw_footer_text">Tapeta z efektem głębi nakłada obraz obiektu nad zegarem ekranu blokady, inspirowana segmentacją obiektu tapety iOS.\n\nKonfiguracja:\n1. Ustaw tapetę z tłem, które ma być za obiektem.\n2. Wybierz obraz obiektu do nałożenia nad zegarem ekranu blokady.\n3. Dostosuj przesunięcia i przezroczystość według preferencji.</string>
     <!-- Status bar -->
     <string name="status_bar_toggle_brightness_title">Kontrola jasności</string>
