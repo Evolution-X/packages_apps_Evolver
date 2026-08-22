@@ -26,11 +26,25 @@
         android:title="@string/lock_screen_media_category">
 
         <!-- Now Playing -->
-        <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
-            android:key="nowplaying_enabled"
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="now_playing_enabled"
             android:title="@string/nowplaying_title"
             android:summary="@string/nowplaying_summary"
-            android:fragment="org.evolution.settings.fragments.lockscreen.NowPlayingSettings"
+            android:defaultValue="false" />
+
+        <!-- Now Playing on-demand shortcut -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="now_playing_on_demand"
+            android:title="@string/nowplaying_on_demand_title"
+            android:summary="@string/nowplaying_on_demand_summary"
+            android:defaultValue="false"
+            android:dependency="now_playing_enabled" />
+
+        <!-- Now Playing lyrics mode -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="now_playing_lyrics_mode"
+            android:title="@string/nowplaying_lyrics_mode_title"
+            android:summary="@string/nowplaying_lyrics_mode_summary"
             android:defaultValue="false" />
 
         <!-- Edge light -->
