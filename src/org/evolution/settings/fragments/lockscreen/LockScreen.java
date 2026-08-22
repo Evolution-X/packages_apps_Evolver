@@ -27,6 +27,7 @@ import java.util.List;
 
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
+import org.evolution.settings.utils.PixelAmbientIndicationDetector;
 import org.evolution.settings.utils.PreferenceUtils;
 import org.evolution.settings.utils.SystemUtils;
 
@@ -36,6 +37,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String TAG = "LockScreen";
 
+    private static final String KEY_NOW_PLAYING = "now_playing_enabled";
+    private static final String KEY_NOW_PLAYING_ON_DEMAND = "now_playing_on_demand";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
     private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
@@ -70,6 +73,15 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (!hasFingerprint || !DeviceUtils.hasVibrator(context)) {
             gestCategory.removePreference(mFpSuccessVib);
             gestCategory.removePreference(mFpErrorVib);
+        }
+
+        // Pixels with Android System Intelligence provide Now Playing natively
+        if (PixelAmbientIndicationDetector.INSTANCE.shouldUseNativeAmbientIndication(context)) {
+            final Preference nowPlaying = findPreference(KEY_NOW_PLAYING);
+            final Preference onDemand = findPreference(KEY_NOW_PLAYING_ON_DEMAND);
+            nowPlaying.setEnabled(false);
+            nowPlaying.setSummary(R.string.nowplaying_pixel_native_summary);
+            onDemand.setEnabled(false);
         }
 
         mSmartspace = findPreference(KEY_SMARTSPACE);
@@ -120,6 +132,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+
+                    if (PixelAmbientIndicationDetector.INSTANCE
+                            .shouldUseNativeAmbientIndication(context)) {
+                        keys.add(KEY_NOW_PLAYING);
+                        keys.add(KEY_NOW_PLAYING_ON_DEMAND);
+                    }
 
                     boolean hasFingerprint = DeviceUtils.hasFingerprint(context);
                     if (!hasFingerprint) {
