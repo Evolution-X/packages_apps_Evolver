@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2024-2025 Lunaris AOSP
+     Copyright (C) 2024-2026 Lunaris AOSP
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -53,13 +53,6 @@
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSwitchPreference
-        android:key="nowplaying_use_compact_style"
-        android:title="@string/nowplaying_compact_style_title"
-        android:summary="@string/nowplaying_compact_style_summary"
-        android:dependency="nowplaying_enabled"
-        android:defaultValue="false" />
-
-    <org.evolution.settings.preferences.SystemSettingSwitchPreference
         android:key="nowplaying_tap_to_expand"
         android:title="@string/nowplaying_expand_dialog"
         android:summary="@string/nowplaying_expand_dialog_summary"
@@ -72,17 +65,6 @@
         android:entries="@array/nowplaying_color_mode_entries"
         android:entryValues="@array/nowplaying_color_mode_values"
         android:defaultValue="0" />
-
-    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
-        android:key="nowplaying_vertical_position"
-        android:title="@string/nowplaying_vertical_position_title"
-        android:summary="@string/nowplaying_vertical_position_summary"
-        android:dependency="nowplaying_enabled"
-        android:max="100"
-        android:min="10"
-        android:defaultValue="98"
-        settings:interval="1"
-        settings:units="%" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="nowplaying_track_text_size"
