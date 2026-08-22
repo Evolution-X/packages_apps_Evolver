@@ -376,6 +376,7 @@
     <string name="nowplaying_expand_dialog_summary">Expand the Now Playing dialog</string>
     <string name="nowplaying_lyrics_mode_title">Lyrics mode</string>
     <string name="nowplaying_lyrics_mode_summary">Show synced lyrics instead of track title and icon</string>
+    <string name="nowplaying_pixel_native_footer">This device already provides Now Playing natively through Pixel\'s ambient indication. These settings are unavailable while the built-in version is active.</string>
 
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Weather settings</string>
