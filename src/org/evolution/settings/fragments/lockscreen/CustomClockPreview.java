@@ -28,6 +28,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.preference.Preference.OnPreferenceChangeListener;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
@@ -41,11 +43,12 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.widget.LayoutPreference;
 
 import com.android.settings.core.SubSettingLauncher;
+import org.evolution.settings.preferences.SecureSettingListPreference;
 import org.evolution.settings.utils.SystemUtils;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
-public class CustomClockPreview extends SettingsPreferenceFragment {
+public class CustomClockPreview extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "CustomClockPreview";
     private static final String PREF_FIRST_TIME = "first_time_clock_face_access";
@@ -56,6 +59,8 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
     private static final String KEY_GRADIENT_COLOR_START = "lock_screen_custom_clock_gradient_color_start";
     private static final String KEY_GRADIENT_COLOR_END = "lock_screen_custom_clock_gradient_color_end";
 
+    private static final String KEY_CLOCK_COLOR_MODE = "lock_screen_custom_clock_color_mode";
+
     private ViewPager viewPager;
     private ClockPagerAdapter pagerAdapter;
     private ExtendedFloatingActionButton applyFab;
@@ -63,6 +68,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
     private TextView clockNameTextView;
 
     private Preference mClockColorPref;
+    private SecureSettingListPreference mClockColorModePref;
     private Preference mGradientColorStartPref;
     private Preference mGradientColorEndPref;
 
@@ -79,8 +85,28 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
 
         getActivity().setTitle(getString(R.string.lockscreen_custom_clock_style_title));
         mThemeUtils = ThemeUtils.getInstance(getActivity());
+    }
 
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.lockscreen_clock_preview_settings);
+
+        mClockColorPref = findPreference(KEY_CLOCK_COLOR);
+        mClockColorModePref = findPreference(KEY_CLOCK_COLOR_MODE);
+
+        if (mClockColorModePref != null) {
+            mClockColorModePref.setOnPreferenceChangeListener(this);
+            updateClockPrefs(mClockColorModePref, mClockColorModePref.getValue());
+        }
+
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mClockColorModePref) {
+            updateClockPrefs(mClockColorModePref, newValue);
+        }
+        return true;
     }
 
     @Override
@@ -91,8 +117,23 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
         setupGradientPrefs();
     }
 
+    private void updateClockPrefs(Preference pref, Object value) {
+        switch (pref) {
+            case SecureSettingListPreference p -> {
+                if (p == mClockColorModePref && mClockColorModePref != null) {
+                    boolean isCustomColor = value != null && ((String) value).equals("custom");
+                    mClockColorPref.setVisible(isCustomColor);
+                }
+            }
+            default -> {}
+        }
+    }
+
+    private void updateClockPrefs(Preference pref) {
+        updateClockPrefs(pref, null);
+    }
+
     private void setupClockColorPref() {
-        mClockColorPref = findPreference(KEY_CLOCK_COLOR);
         if (mClockColorPref == null) return;
 
         updateClockColorSummary();
