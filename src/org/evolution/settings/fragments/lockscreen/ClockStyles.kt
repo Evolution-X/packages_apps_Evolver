@@ -43,6 +43,8 @@ class ClockStyles : BasePreferenceFragment(R.xml.clock_styles),
     }
 
     private var mCustomImagePreference: Preference? = null
+    private val firstLaunch: Boolean 
+        get() = Settings.System.getInt(requireContext().contentResolver, "custom_clock_disclaimer_dismissed", 0) == 0
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
@@ -50,7 +52,7 @@ class ClockStyles : BasePreferenceFragment(R.xml.clock_styles),
         mCustomImagePreference = findPreference(KEY_CUSTOM_AOD_IMAGE)
 
         updateCustomImagePreference()
-        showDisclaimer()
+        if (firstLaunch) showDisclaimer()
     }
 
     override fun onResume() {
@@ -115,6 +117,12 @@ class ClockStyles : BasePreferenceFragment(R.xml.clock_styles),
             .setMessage(ctx.getString(R.string.clock_styles_disclaimer_message))
             .setPositiveButton(android.R.string.ok) { dialog, _ ->
                 dialog.dismiss()
+                Settings.System.putIntForUser(
+                    ctx.contentResolver,
+                    "custom_clock_disclaimer_dismissed",
+                    1,
+                    UserHandle.USER_CURRENT
+                    )
             }
             .setCancelable(false)
             .show()
