@@ -44,7 +44,12 @@ import com.android.settingslib.widget.LayoutPreference;
 
 import com.android.settings.core.SubSettingLauncher;
 import org.evolution.settings.preferences.SecureSettingListPreference;
+import org.evolution.settings.utils.PreferenceUtils;
 import org.evolution.settings.utils.SystemUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -58,6 +63,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
     private static final String KEY_GRADIENT_ENABLED = "lock_screen_custom_clock_gradient_enabled";
     private static final String KEY_GRADIENT_COLOR_START = "lock_screen_custom_clock_gradient_color_start";
     private static final String KEY_GRADIENT_COLOR_END = "lock_screen_custom_clock_gradient_color_end";
+    private static final String KEY_CLOCK_FONT = "lock_clock_font";
 
     private static final String KEY_CLOCK_COLOR_MODE = "lock_screen_custom_clock_color_mode";
 
@@ -67,10 +73,15 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
     private View highlightGuide;
     private TextView clockNameTextView;
 
+    private LayoutPreference clockPreviewPref;
+    private Preference mClockFontPref;
     private Preference mClockColorPref;
     private SecureSettingListPreference mClockColorModePref;
     private Preference mGradientColorStartPref;
     private Preference mGradientColorEndPref;
+
+    List<Preference> persistentPrefs = new ArrayList<>();
+    List<Preference> customOnlyPrefs = new ArrayList<>();
 
     private int mClockPosition = 0;
 
@@ -91,13 +102,23 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.lockscreen_clock_preview_settings);
 
+        clockPreviewPref = findPreference(KEY_CLOCK_PREVIEW);
+        mClockFontPref = findPreference(KEY_CLOCK_FONT);
         mClockColorPref = findPreference(KEY_CLOCK_COLOR);
         mClockColorModePref = findPreference(KEY_CLOCK_COLOR_MODE);
+
+        persistentPrefs.add(clockPreviewPref);
+        persistentPrefs.add(mClockFontPref);
+
+        customOnlyPrefs.addAll(PreferenceUtils.getAllPreferences(getPreferenceScreen()));
+        customOnlyPrefs.removeIf(persistentPrefs::contains);
 
         if (mClockColorModePref != null) {
             mClockColorModePref.setOnPreferenceChangeListener(this);
             updateClockPrefs(mClockColorModePref, mClockColorModePref.getValue());
         }
+
+        updateClockPrefs(clockPreviewPref);
 
     }
 
@@ -123,6 +144,24 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
                 if (p == mClockColorModePref && mClockColorModePref != null) {
                     boolean isCustomColor = value != null && ((String) value).equals("custom");
                     mClockColorPref.setVisible(isCustomColor);
+                }
+            }
+            case LayoutPreference lp -> {
+                if (lp == clockPreviewPref) {
+                    boolean isDefault = (mClockPosition == 0);
+                    if (isDefault) {
+                        for (Preference p : customOnlyPrefs) {
+                            p.setVisible(false);
+                        }
+                    } else {
+                        for (Preference p : customOnlyPrefs) {
+                            if (p == mClockColorPref) {
+                                p.setVisible(mClockColorModePref.getValue().equals("custom"));
+                            } else {
+                                p.setVisible(true);
+                            }
+                        }
+                    }
                 }
             }
             default -> {}
@@ -199,7 +238,6 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
     }
 
     private void setupClockPreview() {
-        LayoutPreference clockPreviewPref = findPreference(KEY_CLOCK_PREVIEW);
         if (clockPreviewPref == null) return;
 
         clockNameTextView = clockPreviewPref.findViewById(R.id.clock_name);
@@ -266,6 +304,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
                     viewPager.performHapticFeedback(android.view.HapticFeedbackConstants.CLOCK_TICK);
                 }
                 updateClockName(position);
+                updateClockPrefs(clockPreviewPref);
             }
         });
 
