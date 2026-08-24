@@ -214,7 +214,7 @@
     <string name="clock_text_accent_color_title">Usa il colore primario per l\'orologio</string>
     <string name="clock_text_accent_color_summary">Usa il colore primario di sistema al posto del bianco per il testo dell\'orologio</string>
     <!-- Lockscreen Clock Opacity -->
-    <string name="clock_text_opacity_title">Opacità del testo dell\'orologio</string>
+    <string name="clock_text_opacity_title">Opacità</string>
     <string name="clock_text_opacity_summary">Regola la trasparenza del testo dell\'orologio</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">L\'orologio selezionato non supporta caratteri personalizzati</string>
@@ -229,17 +229,17 @@
     <string name="lockscreen_custom_clock_style_info">Lo stile dell\'orologio personalizzato sostituisce gli stili dell\'orologio AOSP. Smartspace verrà disabilitato. In alternativa puoi abilitare il meteo personalizzato.</string>
     <string name="lockscreen_custom_clock_opacity_title">Opacità orologio</string>
     <string name="lockscreen_custom_clock_opacity_summary">Regola la trasparenza dell\'orologio personalizzato</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Altezza dell\'orologio</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Margine superiore</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Regola la posizione verticale dell\'orologio personalizzato</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Modalità colore dell\'orologio</string>
-    <string name="lockscreen_custom_clock_aod_anim_title">Animazione AOD dell\'orologio personalizzato</string>
-    <string name="lockscreen_custom_clock_aod_anim_summary">Imposta l\'animazione AOD per lo stile dell\'orologio personalizzato</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Modalità colore</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">Animazione AOD</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">Abilita l\'animazione AOD per lo stile dell\'orologio personalizzato</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_title">Effetto oscillazione durante la ricarica</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_summary">Mostra un effetto di oscillazione sull\'orologio quando il caricabatterie è collegato</string>
-    <string name="lockscreen_custom_clock_frame_margin_start_title">Larghezza dell\'orologio personalizzato</string>
-    <string name="lockscreen_custom_clock_frame_margin_start_summary">Regola la larghezza dello stile dell\'orologio personalizzato</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Offset orizzontale</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Posizionamento sinistro/destro</string>
     <string name="lockscreen_custom_clock_gradient_enabled_title">Testo sfumato</string>
-    <string name="lockscreen_custom_clock_gradient_enabled_summary">Applica un gradiente a due colori al testo dell\'orologio invece di un colore pieno. Sostituisce le altre modalità di colore.</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Applica un gradiente a due colori al testo dell\'orologio invece di un colore solido. Sostituisce altre modalità di colore</string>
     <string name="lockscreen_custom_clock_gradient_start_title">Colore iniziale del gradiente</string>
     <string name="lockscreen_custom_clock_gradient_end_title">Colore finale del gradiente</string>
     <string name="lockscreen_custom_clock_gradient_anchor_y_title">Centro del gradiente</string>
@@ -252,10 +252,10 @@
     <string name="lockscreen_custom_clock_animation_category_title">Animazione</string>
     <string name="unit_degrees">°</string>
     <!-- Lockscreen Clock Size -->
-    <string name="clock_size_title">Dimensione dell\'orologio</string>
+    <string name="clock_size_title">Dimensione</string>
     <string name="clock_size_summary">Ridimensiona l\'orologio della schermata di blocco (50–150%)</string>
     <!-- Lockscreen clock: album art color override -->
-    <string name="clock_album_art_color_title">Orologio con i colori della copertina dell\'album</string>
+    <string name="clock_album_art_color_title">Segui il colore dell\'album</string>
     <string name="clock_album_art_color_summary">Sostituisci il colore dell\'orologio con la tavolozza della copertina dell\'album durante la riproduzione multimediale</string>
     <!-- Lockscreen widgets -->
     <string name="lockscreen_widgets_title">Widget</string>
@@ -350,6 +350,7 @@
     <string name="nowplaying_expand_dialog_summary">Espandi la finestra In riproduzione</string>
     <string name="nowplaying_lyrics_mode_title">Modalità testi</string>
     <string name="nowplaying_lyrics_mode_summary">Mostra i testi sincronizzati al posto del titolo della traccia e dell\'icona</string>
+    <string name="nowplaying_pixel_native_footer">Questo dispositivo fornisce già Now Playing nativamente attraverso l\'indicazione ambientale del pixel. Queste impostazioni non sono disponibili mentre la versione integrata è attiva.</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Impostazioni meteo</string>
     <string name="weather_settings_summary">Configura pacchetto icone e servizio meteo</string>
@@ -403,14 +404,29 @@
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Mostra Google Smartspace quando disponibile</string>
     <!-- Lock screen/Depth wallpaper -->
-    <string name="dw_wallpaper_enabled_title">Profondità dello sfondo</string>
-    <string name="dw_wallpaper_enabled_summary_tile">Applica l\'effetto profondità\nallo sfondo</string>
-    <string name="dw_wallpaper_enabled_summary">Abilita la profondità dello sfondo ispirata a iOS. Richiede un\'immagine del soggetto.</string>
-    <string name="dw_file_header_select_title">Seleziona il soggetto per la profondità dello sfondo</string>
-    <string name="dw_file_header_select_summary">Seleziona dalla memoria il soggetto per la profondità dello sfondo.</string>
-    <string name="dw_wallpaper_opacity_title">Opacità della profondità dello sfondo</string>
-    <string name="depth_wallpaper_offset_x_title">Spostamento orizzontale della profondità dello sfondo</string>
-    <string name="depth_wallpaper_offset_y_title">Spostamento verticale della profondità dello sfondo</string>
+    <string name="depthwall_file_header_select_title">Seleziona soggetto profondità sfondo</string>
+    <string name="depthwall_file_header_select_summary">Seleziona l\'immagine del soggetto per lo sfondo con effetto profondità dalla memoria.</string>
+    <string name="depthwall_wallpaper_enabled_title">Profondità dello sfondo</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Applica l\'effetto profondità\nallo sfondo</string>
+    <string name="depthwall_wallpaper_enabled_summary">Abilita la profondità dello sfondo ispirata a iOS. Richiede un\'immagine del soggetto.</string>
+    <string name="depthwall_wallpaper_opacity_title">Opacità profondità sfondo</string>
+    <string name="depth_wallpaper_bottom_fade_title">Dissolvenza inferiore</string>
+    <string name="depth_wallpaper_bottom_fade_summary">Dissolvenza dello sfondo in basso</string>
+    <string name="depth_wallpaper_fade_curve_title">Curva della dissolvenza</string>
+    <string name="depth_wallpaper_fade_curve_summary">Regola la curva di dissolvenza dello sfondo</string>
+    <string name="depth_wallpaper_bottom_inset_title">Spaziatura interna dal basso</string>
+    <string name="depth_wallpaper_bottom_inset_summary">Regola il rientro dello sfondo nella parte inferiore</string>
+    <string name="depthwall_auto_subject_title">Soggetto automatico per profondità sfondo</string>
+    <string name="depthwall_auto_subject_summary">Estrae automaticamente il soggetto dallo sfondo per l\'effetto profondità</string>
+    <string name="depthwall_extract_now_title">Estrai soggetto ora</string>
+    <string name="depthwall_extract_now_summary">Attiva immediatamente l\'estrazione del soggetto dallo sfondo (Imposta lo sfondo separatamente per la schermata di blocco)</string>
+    <string name="depthwall_extracting_toast">Estrazione soggetto dallo sfondo…</string>
+    <string name="depthwall_extraction_complete_toast">Estrazione soggetto completata!</string>
+    <string name="depthwall_storage_permission_denied">È richiesto il permesso di archiviazione per estrarre automaticamente i soggetti dagli sfondi.</string>
+    <string name="depthwall_clear_subject_title">Cancella immagine soggetto</string>
+    <string name="depthwall_clear_subject_summary">Rimuove il soggetto corrente estratto o impostato manualmente</string>
+    <string name="depthwall_clear_subject_confirm_message">Questo rimuoverà l\'immagine corrente del soggetto dello sfondo profondo. Continuare?</string>
+    <string name="depthwall_clear_subject_done_toast">Immagine soggetto cancellata</string>
     <string name="dw_footer_text">        La funzione di profondità dello sfondo, ispirata alla segmentazione dei soggetti degli sfondi iOS, consente di sovrapporre un soggetto all\'orologio della schermata di blocco per creare un effetto di profondità.\n\nPer impostare la funzione di profondità dello sfondo:\n1. Imposta uno sfondo con un soggetto o uno sfondo sul quale desideri sovrapporre il soggetto.\n2. Seleziona un\'immagine del soggetto da ritagliare; questa immagine verrà sovrapposta all\'orologio della schermata di blocco.\n3. Regola gli spostamenti e l\'opacità in base alle tue esigenze.
     </string>
     <!-- Status bar -->
@@ -604,7 +620,6 @@
     <string name="status_bar_logo_custom_image_summary">Tocca per scegliere un\'immagine dalla galleria</string>
     <string name="status_bar_logo_custom_image_pick_summary">Scegli un\'immagine dalla galleria</string>
     <!-- Statusbar logo color -->
-    <string name="default_string">Predefinito</string>
     <string name="status_bar_logo_color_title">Colore barra batteria</string>
     <string name="status_bar_logo_color_default">Predefinito (bianco)</string>
     <string name="status_bar_logo_color_accent">Colore primario</string>
@@ -637,7 +652,6 @@
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Dynamic Bar</string>
     <string name="dynamic_bar_summary">Chip intelligente nella barra di stato per eventi attivi come registrazioni, contenuti multimediali, timer e altro</string>
-    <string name="dynamic_bar_enable">Abilita Dynamic Bar</string>
     <string name="dynamic_bar_enable_summary">Mostra un chip dinamico nella barra di stato per gli eventi in corso</string>
     <string name="dynamic_bar_keyguard_enable">Dynamic Bar sulla schermata di blocco</string>
     <string name="dynamic_bar_keyguard_enable_summary">Sostituisci l\'indicatore del keyguard con un chip Dynamic Bar sulla schermata di blocco</string>
@@ -699,7 +713,6 @@
     <!-- Status bar/Cutout progress ring -->
     <string name="cutout_progress_title">Anello di avanzamento del foro della fotocamera</string>
     <string name="cutout_progress_summary">Mostra un anello di avanzamento attorno al foro della fotocamera</string>
-    <string name="cutout_progress_enabled_summary">Mostra un anello di avanzamento attorno al foro della fotocamera durante i download</string>
     <string name="cutout_progress_cat_appearance">Aspetto</string>
     <string name="cutout_progress_cat_behaviour">Comportamento</string>
     <string name="cutout_progress_cat_bg_ring">Anello di sfondo</string>
@@ -936,6 +949,7 @@
     <string name="quick_settings_transparency_summary">Imposta il livello di trasparenza dello sfondo dei QS</string>
     <string name="quick_settings_data_usage_title">Consumo dati</string>
     <string name="quick_settings_data_usage_summary">Mostra i dati utilizzati nella tendina delle impostazioni rapide</string>
+    <string name="quick_settings_data_usage_window_title">Periodo di utilizzo dati</string>
     <string name="quick_settings_lock_screen_category">Schermata di blocco</string>
     <string name="quick_settings_secure_lock_screen_title">Nascondi sulla schermata di blocco sicura</string>
     <string name="quick_settings_secure_lock_screen_summary">Nascondi tutte le impostazioni rapide nella barra delle notifiche mentre il dispositivo è bloccato</string>
@@ -1248,6 +1262,9 @@
     <string name="pif_delete_config_summary">Rimuove il file di configurazione attualmente attivo</string>
     <string name="pif_delete_title">Eliminare %s?</string>
     <string name="pif_delete_message">Questo file di configurazione verrà rimosso definitivamente.</string>
+    <string name="pif_wipe_playstore_title">Cancellare i dati del Play Store?</string>
+    <string name="pif_wipe_playstore_message">L\'applicazione di questa impronta digitale funziona meglio con una nuova sessione di Play Store. Eliminare ora i dati dell\'app Play Store? Questo ti disconnetterà e cancellerà la cache locale e scaricherà la coda di download.</string>
+    <string name="pif_wipe_confirm">Elimina i dati</string>
     <string name="pif_deleted">%s eliminato</string>
     <string name="pif_config_details">Dettagli della configurazione</string>
     <string name="pif_failed">Operazione non riuscita: %s</string>
@@ -1258,7 +1275,6 @@
     <string name="pif_invalid_fingerprint">Formato fingerprint non valido</string>
     <string name="pif_no_devices_found">Nessun dispositivo trovato</string>
     <string name="pif_no_api_key">Impossibile estrarre la chiave API di Flash Tool</string>
-    <string name="pif_master_switch_title">Abilita Play Integrity Fix</string>
     <string name="pif_advanced_settings">Falsificazione avanzata</string>
     <string name="pif_spoof_vending_finger_title">Falsificazione fingerprint del Play Store</string>
     <string name="pif_spoof_vending_finger_summary">Controlla quale FINGERPRINT viene presentato al processo del Play Store</string>
@@ -1268,7 +1284,6 @@
     <string name="pif_vending_finger_same">Uguale al fingerprint di DroidGuard</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Gestisci il keybox e le app di destinazione per l\'attestazione di integrità forte</string>
-    <string name="ts_master_switch_title">Abilita falsificazione TrickyStore</string>
     <string name="ts_keybox_management">Gestione keybox</string>
     <string name="ts_import_keybox">Importa keybox</string>
     <string name="ts_no_keybox">Nessun keybox installato</string>
@@ -1611,6 +1626,7 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Scorrimento con tre dita</string>
     <string name="shake_gestures_enabled_title">Gesti di scuotimento</string>
+    <string name="shake_gestures_enabled_summary">Scuoti il dispositivo per eseguire azioni</string>
     <string name="shake_gestures_action_title">Azione del gesto di scuotimento</string>
     <string name="shake_gestures_intensity_title">Sensibilità allo scuotimento</string>
     <string name="shake_gestures_intensity_summary">Regola la sensibilità del rilevamento dello scuotimento</string>
