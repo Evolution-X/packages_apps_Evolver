@@ -682,6 +682,7 @@
     <string name="dynamic_bar_event_bluetooth_summary">Stato della connessione del dispositivo</string>
     <string name="dynamic_bar_event_hotspot">Hotspot</string>
     <string name="dynamic_bar_event_hotspot_summary">Indicatore di hotspot mobile attivo</string>
+    <string name="dynamic_bar_event_ringer">Modalità suoneria</string>
     <string name="dynamic_bar_event_ringer_summary">Cambiamenti delle modalità silenziosa, vibrazione e suoneria</string>
     <string name="dynamic_bar_event_vpn">VPN</string>
     <string name="dynamic_bar_event_vpn_summary">Indicatore di connessione VPN attiva</string>
@@ -1161,6 +1162,7 @@
     <string name="custom_spoof_profile_name">Nome profilo</string>
     <string name="custom_spoof_profile_brand">Marca</string>
     <string name="custom_spoof_profile_manufacturer">Produttore</string>
+    <string name="custom_spoof_profile_device">Dispositivo</string>
     <string name="custom_spoof_profile_model">Modello</string>
     <string name="custom_spoof_profile_fingerprint">Fingerprint (facoltativo)</string>
     <string name="custom_spoof_profile_product">Prodotto (facoltativo)</string>
@@ -1684,6 +1686,7 @@
     <string name="qs_show_volume_slider_hide">Solo cursore luminosità</string>
     <string name="qs_show_volume_slider_both">Cursori luminosità e volume</string>
     <string name="qs_show_volume_slider_only">Solo cursore volume</string>
+    <string name="qs_show_ringer_mode_title">Modalità suoneria</string>
     <string name="qs_show_ringer_mode_summary">Mostra l\'icona della modalità suoneria con il cursore del volume</string>
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Menù di alimentazione ridisegnato</string>
