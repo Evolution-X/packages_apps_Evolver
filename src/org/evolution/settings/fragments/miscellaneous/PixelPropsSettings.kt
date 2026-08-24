@@ -197,10 +197,11 @@ private fun PixelPropsContent(context: android.content.Context) {
         )
     }
 
-    // Fetch profiles in the background
+    // Fetch profiles in the background — stable-only, since prop spoofing
+    // should never present as a canary/beta build.
     LaunchedEffect(Unit) {
         scope.launch(Dispatchers.IO) {
-            val fresh = PixelDeviceRepository.getProfiles(context)
+            val fresh = PixelDeviceRepository.getStableProfiles(context)
             val resolved = fresh.ifEmpty { PixelDeviceRepository.FALLBACK_PROFILES }
             withContext(Dispatchers.Main) {
                 profiles = resolved
@@ -453,12 +454,12 @@ private fun PixelPropsContent(context: android.content.Context) {
                                 scope.launch(Dispatchers.IO) {
                                     Settings.Secure.putString(
                                         context.contentResolver,
-                                        PixelDeviceRepository.CACHE_KEY,
+                                        PixelDeviceRepository.STABLE_CACHE_KEY,
                                         "",
                                     )
                                     writeTargetsSet(PixelDeviceRepository.DEFAULT_PP_TARGETS)
                                     killPackages(activityManager, PixelDeviceRepository.DEFAULT_PP_TARGETS)
-                                    val fresh = PixelDeviceRepository.getProfiles(context, false)
+                                    val fresh = PixelDeviceRepository.getStableProfiles(context, true)
                                     val resolved = fresh.ifEmpty { PixelDeviceRepository.FALLBACK_PROFILES }
                                     val defaultCodename = if (isTablet) "tangorpro"
                                         else PixelDeviceRepository.getDefaultPhoneCodename(resolved)

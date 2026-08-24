@@ -221,8 +221,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     put("FINGERPRINT", matched.fingerprint)
                     put("SECURITY_PATCH", matched.securityPatch)
                     put("DEVICE_INITIAL_SDK_INT", "32")
-                    if (canaryMonth.length == 7) put("_canary_month", canaryMonth)
-                    matched.releaseDate?.let { put("_canary_release_date", it) }
+                    if (matched.isCanary && canaryMonth.length == 7) put("_canary_month", canaryMonth)
+                    if (matched.isCanary) matched.releaseDate?.let { put("_canary_release_date", it) }
                     put("manually_imported", false)
                 }
                 Settings.Secure.putString(
@@ -429,8 +429,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     put("FINGERPRINT", profile.fingerprint)
                     put("SECURITY_PATCH", profile.securityPatch)
                     put("DEVICE_INITIAL_SDK_INT", "32")
-                    if (canaryMonth.length == 7) put("_canary_month", canaryMonth)
-                    profile.releaseDate?.let { put("_canary_release_date", it) }
+                    if (profile.isCanary && canaryMonth.length == 7) put("_canary_month", canaryMonth)
+                    if (profile.isCanary) profile.releaseDate?.let { put("_canary_release_date", it) }
                     put("manually_imported", false)
                 }
                 withContext(Dispatchers.IO) {
