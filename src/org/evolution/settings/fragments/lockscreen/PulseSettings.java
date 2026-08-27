@@ -34,6 +34,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 import org.evolution.settings.preferences.SecureSettingListPreference;
+import org.evolution.settings.preferences.SecureSettingSeekBarPreference;
 import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.preferences.colorpicker.SecureSettingColorPickerPreference;
 import org.evolution.settings.utils.DeviceUtils;
@@ -44,12 +45,14 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_PULSE_SHOW_ON_MEDIA_PLAYER = Settings.Secure.PULSE_SHOW_ON_MEDIA_PLAYER;
     private static final String KEY_PULSE_SHOW_ON_AMBIENT = Settings.Secure.PULSE_SHOW_ON_AMBIENT;
-    private static final String KEY_PULSE_BASS_HAPTICS = "pulse_bass_haptics";
-    private static final String KEY_PULSE_RENDERER = "pulse_renderer";
-    private static final String KEY_PULSE_COLOR = "pulse_color";
-    private static final String KEY_PULSE_CUSTOM_COLOR = "pulse_custom_color";
-    private static final String KEY_PULSE_CAPTURE_MODE = "pulse_capture_mode";
-    private static final String KEY_PULSE_ROUND_OUTPUT = "pulse_rounded_bars";
+    private static final String KEY_PULSE_BASS_HAPTICS = Settings.Secure.PULSE_BASS_HAPTICS;
+    private static final String KEY_PULSE_RENDERER = Settings.Secure.PULSE_RENDERER;
+    private static final String KEY_PULSE_COLOR = Settings.Secure.PULSE_COLOR;
+    private static final String KEY_PULSE_CUSTOM_COLOR = Settings.Secure.PULSE_CUSTOM_COLOR;
+    private static final String KEY_PULSE_CAPTURE_MODE = Settings.Secure.PULSE_CAPTURE_MODE;
+    private static final String KEY_PULSE_ROUND_OUTPUT = Settings.Secure.PULSE_ROUNDED_BARS;
+    private static final String KEY_PULSE_HEIGHT = Settings.Secure.PULSE_HEIGHT_MULTIPLIER;
+    private static final String KEY_PULSE_BAR_COUNT = Settings.Secure.PULSE_BAR_COUNT;
 
     private SecureSettingSwitchPreference mPulseShowOnMediaPlayer;
     private SecureSettingSwitchPreference mPulseShowOnAmbient;
@@ -59,6 +62,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private SecureSettingListPreference mPulseCaptureMode;
     private SecureSettingColorPickerPreference mPulseCustomColor;
     private SwitchPreferenceCompat mPulseRoundOutput;
+    private SecureSettingSeekBarPreference mPulseHeight;
+    private SecureSettingSeekBarPreference mPulseBarCount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,26 +73,24 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         mPulseShowOnMediaPlayer = findPreference(KEY_PULSE_SHOW_ON_MEDIA_PLAYER);
         mPulseShowOnAmbient = findPreference(KEY_PULSE_SHOW_ON_AMBIENT);
-        mPulseRenderer = (SecureSettingListPreference) findPreference(KEY_PULSE_RENDERER);
-        mPulseColor = (SecureSettingListPreference) findPreference(KEY_PULSE_COLOR);
-        mPulseCustomColor = (SecureSettingColorPickerPreference) findPreference(KEY_PULSE_CUSTOM_COLOR);
-        mPulseCaptureMode = (SecureSettingListPreference) findPreference(KEY_PULSE_CAPTURE_MODE);
-        mPulseBassHaptics = (SecureSettingListPreference) findPreference(KEY_PULSE_BASS_HAPTICS);
-        mPulseRoundOutput = (SwitchPreferenceCompat) findPreference(KEY_PULSE_ROUND_OUTPUT);
+        mPulseRenderer = findPreference(KEY_PULSE_RENDERER);
+        mPulseColor = findPreference(KEY_PULSE_COLOR);
+        mPulseCustomColor =  findPreference(KEY_PULSE_CUSTOM_COLOR);
+        mPulseCaptureMode = findPreference(KEY_PULSE_CAPTURE_MODE);
+        mPulseBassHaptics = findPreference(KEY_PULSE_BASS_HAPTICS);
+        mPulseRoundOutput = findPreference(KEY_PULSE_ROUND_OUTPUT);
+        mPulseHeight = findPreference(KEY_PULSE_HEIGHT);
+        mPulseBarCount = findPreference(KEY_PULSE_BAR_COUNT);
 
         if (mPulseRenderer != null) {
             mPulseRenderer.setOnPreferenceChangeListener(this);
-            String currentRenderer = Settings.Secure.getStringForUser(
-                    getContentResolver(),
-                    Settings.Secure.PULSE_RENDERER,
-                    UserHandle.USER_CURRENT);
-            updatePreferenceVisibility(currentRenderer, getCurrentColorMode(), getCurrentCaptureMode());
         }
 
         if (mPulseColor != null) {
             mPulseColor.setOnPreferenceChangeListener(this);
-            updatePreferenceVisibility(getCurrentRenderer(), getCurrentColorMode(), getCurrentCaptureMode());
         }
+
+        updatePreferenceVisibility();
 
         boolean hapticAvailable = DeviceUtils.hasVibrator(getContext());
         if (!hapticAvailable) {
@@ -100,11 +103,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         if (mPulseShowOnMediaPlayer != null) mPulseShowOnMediaPlayer.setOnPreferenceChangeListener(this);
         if (mPulseShowOnAmbient != null) {
-            boolean mediaPlayerEnabled = Settings.Secure.getIntForUser(
-                    getContentResolver(),
-                    Settings.Secure.PULSE_SHOW_ON_MEDIA_PLAYER,
-                    UserHandle.USER_CURRENT, 0) == 1;
-            updateAmbientPreference(!mediaPlayerEnabled);
+            updateAmbientPreference(!willShowOnMediaPlayer());
         }
     }
 
@@ -112,19 +111,40 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mPulseRenderer) {
             String value = (String) newValue;
-            updatePreferenceVisibility(value, getCurrentColorMode(), getCurrentCaptureMode());
+            updatePreferenceVisibility(
+                value, 
+                getCurrentColorMode(), 
+                getCurrentCaptureMode(), 
+                willShowOnMediaPlayer()
+            );
             return true;
         } else if (preference == mPulseColor) {
             String value = (String) newValue;
-            updatePreferenceVisibility(getCurrentRenderer(), value, getCurrentCaptureMode());
+            updatePreferenceVisibility(
+                getCurrentRenderer(), 
+                value, 
+                getCurrentCaptureMode(),
+                willShowOnMediaPlayer()
+            );
             return true;
         } else if (preference == mPulseCaptureMode) {
             String value = (String) newValue; 
-            updatePreferenceVisibility(getCurrentRenderer(), getCurrentColorMode(), value);
+            updatePreferenceVisibility(
+                getCurrentRenderer(), 
+                getCurrentColorMode(), 
+                value, 
+                willShowOnMediaPlayer()
+            );
             return true;
         } else if (preference == mPulseShowOnMediaPlayer) {
             boolean mediaPlayerState = (Boolean) newValue;
             updateAmbientPreference(!mediaPlayerState);
+            updatePreferenceVisibility(
+                getCurrentRenderer(), 
+                getCurrentColorMode(), 
+                getCurrentCaptureMode(), 
+                mediaPlayerState
+            );
             return true;
         }
         return false;
@@ -135,7 +155,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mPulseShowOnAmbient.setSummary(state ? R.string.pulse_show_on_ambient_summary : R.string.pulse_show_on_ambient_disabled_player);
     }
 
-    private void updatePreferenceVisibility(String rendererValue, String colorValue, String captureModeValue) {
+    private void updatePreferenceVisibility(String rendererValue, String colorValue, 
+                                            String captureModeValue, boolean showOnMediaPlayerEnabled) {
         if (captureModeValue != null) {
             setBassHapticPreference(!captureModeValue.equals("1"));  
         }
@@ -143,42 +164,68 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         if (rendererValue != null) {
             boolean supportsColoring = false;
             boolean supportsRounding = false;
+            boolean heightFixed = false;
+            boolean samplesFixed = false;
             switch (rendererValue) {
                 case "minimal", "solid" -> {
                     supportsRounding = true;
                     supportsColoring = true;
                 }
-                case "fading", "matrix", "neon", "particle", 
+                case "fading", "matrix", "neon", 
                 "sparkle", "waveform", "dotwave" -> {
                     supportsColoring = true;
                 }
+                case "particle" -> {
+                    heightFixed = true;
+                    samplesFixed = true;
+                    supportsColoring = true;
+                }
             }
+            mPulseHeight.setVisible(!showOnMediaPlayerEnabled && !heightFixed);
+            mPulseBarCount.setVisible(!samplesFixed);
             mPulseRoundOutput.setVisible(supportsRounding);
             mPulseColor.setVisible(supportsColoring);
             mPulseCustomColor.setVisible(supportsColoring && "custom".equals(colorValue));
         }
     }
 
+    private void updatePreferenceVisibility() {
+        updatePreferenceVisibility(
+            getCurrentRenderer(),
+            getCurrentColorMode(),
+            getCurrentCaptureMode(),
+            willShowOnMediaPlayer()
+        );
+    }
+
     private String getCurrentRenderer() {
         return Settings.Secure.getStringForUser(
                 getContentResolver(),
-                Settings.Secure.PULSE_RENDERER,
+                KEY_PULSE_RENDERER,
                 UserHandle.USER_CURRENT);
     }
 
     private String getCurrentColorMode() {
         return Settings.Secure.getStringForUser(
                 getContentResolver(),
-                Settings.Secure.PULSE_COLOR,
+                KEY_PULSE_COLOR,
                 UserHandle.USER_CURRENT);
     }
 
     private String getCurrentCaptureMode() {
         return Settings.Secure.getStringForUser(
                 getContentResolver(),
-                Settings.Secure.PULSE_CAPTURE_MODE,
+                KEY_PULSE_CAPTURE_MODE,
                 UserHandle.USER_CURRENT);
     }
+
+    private boolean willShowOnMediaPlayer() {
+        return Settings.Secure.getIntForUser(
+                getContentResolver(),
+                KEY_PULSE_SHOW_ON_MEDIA_PLAYER,
+                UserHandle.USER_CURRENT, 0) == 1;
+    }
+
 
     private void setBassHapticPreference(boolean enabled) {
         mPulseBassHaptics.setEnabled(enabled);
