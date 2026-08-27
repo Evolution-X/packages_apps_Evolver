@@ -1159,6 +1159,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Block all apps from dimming the wallpaper, forcing dim level to 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignore secure window flags</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remove screenshot and screen recording restrictions for all apps. May expose private content</string>
+    <string name="miscellaneous_screenshot_flash_title">Show screenshot flash</string>
+    <string name="miscellaneous_screenshot_flash_summary">Briefly flash the screen when a screenshot is taken</string>
     <string name="miscellaneous_block_screenshot_detection_title">Block screenshot detection</string>
     <string name="miscellaneous_block_screenshot_detection_summary">Prevent apps from knowing when their content has been screenshot</string>
     <string name="miscellaneous_block_screenrecord_detection_title">Block screen recording detection</string>
