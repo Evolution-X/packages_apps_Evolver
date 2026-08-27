@@ -28,6 +28,13 @@
         android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SecureSettingSwitchPreference
+        android:key="media_player_pulse_enabled"
+        android:title="@string/pulse_show_on_media_player_title"
+        android:summary="@string/pulse_show_on_media_player_summary"
+        android:defaultValue="false"
+        android:dependency="lockscreen_pulse_enabled" />
+
+    <org.evolution.settings.preferences.SecureSettingSwitchPreference
         android:key="pulse_show_on_ambient"
         android:title="@string/pulse_show_on_ambient_title"
         android:summary="@string/pulse_show_on_ambient_summary"
