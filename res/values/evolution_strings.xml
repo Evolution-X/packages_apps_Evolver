@@ -215,6 +215,9 @@
     <string name="pulse_capture_mode_amplitude">Amplitude (Waveform)</string>
     <string name="pulse_show_on_ambient_title">Show on ambient display</string>
     <string name="pulse_show_on_ambient_summary">Display visualizer on always-on display and ambient mode. Disable to show only on lock screen.</string>
+    <string name="pulse_show_on_ambient_disabled_player">Visualizer is not available for ambient display when media player background is enabled</string>
+    <string name="pulse_show_on_media_player_title">Show on media player background</string>
+    <string name="pulse_show_on_media_player_summary">Display visualizer on media player background for lockscreen and quick settings</string>
     <string name="pulse_height_multiplier_title">Pulse height</string>
     <string name="pulse_height_multiplier_summary">Adjust the visualization height</string>
 
