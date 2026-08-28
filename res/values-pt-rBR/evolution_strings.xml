@@ -203,6 +203,9 @@
     <string name="pulse_capture_mode_amplitude">Amplitude (forma de onda)</string>
     <string name="pulse_show_on_ambient_title">Mostrar na tela ambiente</string>
     <string name="pulse_show_on_ambient_summary">Exibe visualizador na tela sempre ativa e no modo ambiente. Desative para mostrar apenas na tela de bloqueio.</string>
+    <string name="pulse_show_on_ambient_disabled_player">O visualizador não está disponível para a tela ambiente quando o plano de fundo do reprodutor de mídia está ativado</string>
+    <string name="pulse_show_on_media_player_title">Mostrar no plano de fundo do reprodutor de mídia</string>
+    <string name="pulse_show_on_media_player_summary">Exibir visualizador no fundo do reprodutor de mídia na tela de bloqueio e nas configurações rápidas</string>
     <string name="pulse_height_multiplier_title">Altura do pulso</string>
     <string name="pulse_height_multiplier_summary">Ajustar a altura da visualização</string>
     <!-- Lockscreen Clock Highlight Guide -->
@@ -1690,4 +1693,6 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Menu de energia redesenhado</string>
     <string name="global_actions_use_compose_dialog_summary">Use o novo menu avançado com um layout de blocos personalizável e arrastável. Desativar o para usar o menu de energia clássico.</string>
+    <string name="global_actions_advanced_reboot_title">Ativar Reinicialização Avançada</string>
+    <string name="global_actions_advanced_reboot_summary">Desbloqueia uma nova caixa de diálogo que permite opções avançadas de reinicialização</string>
 </resources>
