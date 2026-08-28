@@ -1804,4 +1804,6 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Redesigned power menu</string>
     <string name="global_actions_use_compose_dialog_summary">Use the new power menu with a customizable, draggable tile layout. Disable to use the classic power menu.</string>
+    <string name="global_actions_advanced_reboot_title">Enable Advanced Reboot</string>
+    <string name="global_actions_advanced_reboot_summary">Unlocks a new dialog that allows advanced rebooting</string>
 </resources>
