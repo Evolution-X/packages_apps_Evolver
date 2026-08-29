@@ -203,6 +203,9 @@
     <string name="pulse_capture_mode_amplitude">Amplituda (Fala)</string>
     <string name="pulse_show_on_ambient_title">Pokaż na ekranie otoczenia</string>
     <string name="pulse_show_on_ambient_summary">Wyświetlaj wizualizator na zawsze włączonym ekranie i trybie otoczenia. Wyłącz, aby wyświetlić tylko na ekranie blokady.</string>
+    <string name="pulse_show_on_ambient_disabled_player">Wizualizator nie jest dostępny dla ekranu otoczenia, gdy włączone jest tło odtwarzacza multimedialnego</string>
+    <string name="pulse_show_on_media_player_title">Pokaż na tle odtwarzacza multimedialnego</string>
+    <string name="pulse_show_on_media_player_summary">Wyświetl wizualizator na tle odtwarzacza multimedialnego dla ekranu blokady i szybkich ustawień</string>
     <string name="pulse_height_multiplier_title">Wysokość impulsu</string>
     <string name="pulse_height_multiplier_summary">Dostosuj wysokość wizualizacji</string>
     <!-- Lockscreen Clock Highlight Guide -->
@@ -307,7 +310,7 @@
     <string name="ambient_media_art_title">Okładka multimediów na ekranie otoczenia</string>
     <string name="ambient_media_art_summary">Wyświetlaj okładkę multimediów na ekranie otoczenia, gdy jest dostępny</string>
     <string name="ls_media_art_filter_title">Filtr okładek albumu</string>
-    <string name="ls_media_art_filter_none">Żaden</string>
+    <string name="ls_media_art_filter_none">Brak</string>
     <string name="ls_media_art_filter_blur">Rozmycie</string>
     <string name="ls_media_art_filter_grayscale">Odcienie szarości</string>
     <string name="ls_media_art_filter_sepia">Sepia</string>
@@ -351,6 +354,7 @@
     <string name="nowplaying_expand_dialog_summary">Rozwiń okno dialogowe Co jest grane</string>
     <string name="nowplaying_lyrics_mode_title">Tryb tekstów</string>
     <string name="nowplaying_lyrics_mode_summary">Pokaż zsynchronizowane teksty zamiast tytułu utworu i ikony</string>
+    <string name="nowplaying_pixel_native_footer">To urządzenie oferuje już natywną funkcję Co jest grane, poprzez wskaźnik otoczenia w Pixelu. Ustawienia te są niedostępne, gdy wbudowana wersja jest aktywna.</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Ustawienia pogody</string>
     <string name="weather_settings_summary">Skonfiguruj zestaw ikon i usługę pogody</string>
@@ -404,14 +408,29 @@
     <string name="lockscreen_smartspace_title">Inteligentna przestrzeń</string>
     <string name="lockscreen_smartspace_summary">Pokaż inteligentną przestrzeń Google, jeśli jest dostępna</string>
     <!-- Lock screen/Depth wallpaper -->
-    <string name="dw_wallpaper_enabled_title">Tapeta z efektem głębi</string>
-    <string name="dw_wallpaper_enabled_summary_tile">Zastosuj efekt głębi\ndo tapety</string>
-    <string name="dw_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu</string>
-    <string name="dw_file_header_select_title">Wybierz obraz obiektu</string>
-    <string name="dw_file_header_select_summary">Wybierz obraz obiektu z pamięci, którego chcesz użyć do uzyskania efektu głębi</string>
-    <string name="dw_wallpaper_opacity_title">Krycie obiektu</string>
-    <string name="depth_wallpaper_offset_x_title">Przesunięcie poziome</string>
-    <string name="depth_wallpaper_offset_y_title">Przesunięcie pionowe</string>
+    <string name="depthwall_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
+    <string name="depthwall_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
+    <string name="depthwall_wallpaper_enabled_title">Tapeta z efektem głębi</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Zastosuj efekt głębi \n do tapety</string>
+    <string name="depthwall_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu.</string>
+    <string name="depthwall_wallpaper_opacity_title">Krycie tapety z głębią</string>
+    <string name="depth_wallpaper_bottom_fade_title">Zanikanie u dołu</string>
+    <string name="depth_wallpaper_bottom_fade_summary">Zanikanie tapety na dole</string>
+    <string name="depth_wallpaper_fade_curve_title">Krzywa zanikania</string>
+    <string name="depth_wallpaper_fade_curve_summary">Dostosuj krzywą zanikania tapety</string>
+    <string name="depth_wallpaper_bottom_inset_title">Dolna wstawka</string>
+    <string name="depth_wallpaper_bottom_inset_summary">Dostosuj wstawkę tapety na dole</string>
+    <string name="depthwall_auto_subject_title">Automatyczny obiekt tapety z efektem głębi</string>
+    <string name="depthwall_auto_subject_summary">Automatyczne wyodrębnianie obiektu z tapety w celu uzyskania efektu głębi</string>
+    <string name="depthwall_extract_now_title">Wyodrębnij obiekt teraz</string>
+    <string name="depthwall_extract_now_summary">Natychmiastowe wyzwolenie wyodrębnienia obiektu z tapety (ustaw tapetę osobno dla ekranu blokady)</string>
+    <string name="depthwall_extracting_toast">Wyodrębnianie obiektu z tapety…</string>
+    <string name="depthwall_extraction_complete_toast">Wyodrębnianie obiektu ukończone!</string>
+    <string name="depthwall_storage_permission_denied">Aby automatycznie wyodrębnić obiekty z tapet, wymagane jest uprawnienie dostępu do pamięci wewnętrznej.</string>
+    <string name="depthwall_clear_subject_title">Wyczyść obiekt obrazu</string>
+    <string name="depthwall_clear_subject_summary">Usuń aktualnie wyodrębniony lub ręcznie ustawiony obiekt</string>
+    <string name="depthwall_clear_subject_confirm_message">Spowoduje to usunięcie aktualnego obrazu głębi tapety. Kontynuować?</string>
+    <string name="depthwall_clear_subject_done_toast">Obraz obiektu został wyczyszczony</string>
     <string name="dw_footer_text">Tapeta z efektem głębi nakłada obraz obiektu nad zegarem ekranu blokady, inspirowana segmentacją obiektu tapety iOS.\n\nKonfiguracja:\n1. Ustaw tapetę z tłem, które ma być za obiektem.\n2. Wybierz obraz obiektu do nałożenia nad zegarem ekranu blokady.\n3. Dostosuj przesunięcia i przezroczystość według preferencji.</string>
     <!-- Status bar -->
     <string name="status_bar_toggle_brightness_title">Kontrola jasności</string>
@@ -607,7 +626,7 @@
     <string name="status_bar_logo_color_title">Kolor</string>
     <string name="status_bar_logo_color_default">Domyślne (białe)</string>
     <string name="status_bar_logo_color_accent">Akcent</string>
-    <string name="status_bar_logo_color_custom">Własny</string>
+    <string name="status_bar_logo_color_custom">Niestandardowy</string>
     <!-- Status bar/Network traffic -->
     <string name="status_bar_network_traffic_settings_title">Monitor ruchu sieciowego</string>
     <string name="status_bar_network_traffic_settings_summary">Wyświetl i dostosuj wskaźnik ruchu sieci</string>
@@ -759,7 +778,7 @@
     <string name="cutout_progress_color_picker_title">Wybierz kolor</string>
     <string name="cutout_progress_ring_color_mode_accent">Akcent</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Tęcza</string>
-    <string name="cutout_progress_ring_color_mode_custom">Własny</string>
+    <string name="cutout_progress_ring_color_mode_custom">Niestandardowy</string>
     <string name="cutout_progress_glow_enabled_title">Efekt blasku</string>
     <string name="cutout_progress_glow_enabled_summary">Dodaj aureolę wokół pierścienia postępu</string>
     <string name="cutout_progress_glow_radius_title">Promień blasku</string>
@@ -1085,6 +1104,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Zablokuj wszystkim aplikacjom możliwość przyciemniania tapety, wymuszając poziom przyciemnienia na 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj flagi zabezpieczonego okna</string>
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji. Może to spowodować ujawnienie prywatnych treści</string>
+    <string name="miscellaneous_screenshot_flash_title">Pokaż podświetlenie zrzutu ekranu</string>
+    <string name="miscellaneous_screenshot_flash_summary">Krótko podświetl ekran podczas robienia zrzutu ekranu</string>
     <string name="miscellaneous_block_screenshot_detection_title">Blokuj wykrywanie zrzutu ekranu</string>
     <string name="miscellaneous_block_screenshot_detection_summary">Uniemożliwiaj aplikacjom wykrywanie wykonywania zrzutów ekranu ich zawartości</string>
     <string name="miscellaneous_block_screenrecord_detection_title">Blokuj wykrywanie nagrywania ekranu</string>
@@ -1196,7 +1217,7 @@
     <string name="idle_manager_idle_timeout">Limit czasu bezczynności</string>
     <string name="idle_manager_policy_balanced">Zbalansowany</string>
     <string name="idle_manager_policy_aggressive">Agresywny</string>
-    <string name="idle_manager_policy_custom">Własny</string>
+    <string name="idle_manager_policy_custom">Niestandardowy</string>
     <string name="idle_manager_policy_balanced_desc">Działaj na aplikacjach bezczynnych przez 60 minut.</string>
     <string name="idle_manager_policy_aggressive_desc">Działaj na aplikacjach bezczynnych przez 15 minut. Zalecane dla oszczędzania baterii.</string>
     <string name="idle_manager_policy_custom_desc">Ustaw własny limit czasu bezczynności.</string>
@@ -1294,6 +1315,7 @@
     <string name="ts_failed">Niepowodzenie: %s</string>
     <string name="ts_footer_title">Przejście silnej integralności</string>
     <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Status unieważnienia jest sprawdzany co 24 godziny, a nowy zestaw kluczy jest pobierany z oficjalnego źródła, jeśli obecny został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij „Pobierz oficjalny zestaw kluczy”, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na \"Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw tryb Automatyczny.\n4. Sprawdź ponownie status integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden ważny oficjalny zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
+    <string name="ts_patch_stale_warning">%1$s (nieaktualne, starsze niż 12 miesięcy)</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używane domyślne ustawienia urządzenia)</string>
     <string name="ts_select_target_apps">Wybierz aplikacje docelowe</string>
@@ -1473,7 +1495,7 @@
     <string name="volume_slider_gradient_summary">Włącz gradientowe tło dla suwaka głośności</string>
     <string name="custom_gradient_color_mode_title">Tryb koloru gradientu</string>
     <string name="custom_gradient_color_mode_auto">Tryb automatyczny</string>
-    <string name="custom_gradient_color_mode_custom">Własny</string>
+    <string name="custom_gradient_color_mode_custom">Niestandardowy</string>
     <string name="custom_gradient_start_color_title">Kolor początkowy</string>
     <string name="custom_gradient_end_color_title">Kolor końcowy</string>
     <!-- Progress bar styles -->
@@ -1676,4 +1698,11 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Przeprojektowane menu zasilania</string>
     <string name="global_actions_use_compose_dialog_summary">Użyj nowego menu zasilania z konfigurowalnym, przeciąganym układem kafelków. Wyłącz, aby korzystać z klasycznego menu zasilania.</string>
+    <string name="global_actions_advanced_reboot_title">Włącz zaawansowany restart</string>
+    <string name="global_actions_advanced_reboot_summary">Odblokowuje nowe okno dialogowe umożliwiające zaawansowany restart</string>
+    <!-- Screenshots -->
+    <string name="screenshot_clipboard_only_title">Kopiuj tylko do schowka</string>
+    <string name="screenshot_clipboard_only_summary">Kopiuj zrzut ekranu do schowka, zamiast zapisywać go w pamięci</string>
+    <string name="hide_status_bar_in_screenshot_title">Ukryj pasek stanu na zrzutach ekranu</string>
+    <string name="hide_status_bar_in_screenshot_summary">Wytnij obszar paska stanu z pełnych zrzutów ekranu</string>
 </resources>
