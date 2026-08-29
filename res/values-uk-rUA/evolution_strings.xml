@@ -202,6 +202,9 @@
     <string name="pulse_capture_mode_amplitude">Амплітуда (Waveform)</string>
     <string name="pulse_show_on_ambient_title">Показувати на Ambient дисплеї</string>
     <string name="pulse_show_on_ambient_summary">Візуалізатор на постійному екрані і Ambient режим. Вимкніть тільки на екрані блокування.</string>
+    <string name="pulse_show_on_ambient_disabled_player">Візуалізатор недоступний для Ambient дисплея, коли фон медіа-плеєра увімкнено</string>
+    <string name="pulse_show_on_media_player_title">Показувати на тлі медіа-програвача</string>
+    <string name="pulse_show_on_media_player_summary">Показувати візуалізацію на тлі мультиплеєра для екрану блокування та швидких налаштувань</string>
     <string name="pulse_height_multiplier_title">Висота Імпульсу</string>
     <string name="pulse_height_multiplier_summary">Налаштуйте висоту візуалізації</string>
     <!-- Lockscreen Clock Highlight Guide -->
@@ -350,6 +353,7 @@
     <string name="nowplaying_expand_dialog_summary">Розгорнути діалог «Зараз грає»</string>
     <string name="nowplaying_lyrics_mode_title">Режим текстів</string>
     <string name="nowplaying_lyrics_mode_summary">Показати тексти пісень замість назви та значка</string>
+    <string name="nowplaying_pixel_native_footer">Цей пристрій вже надає налаштування відтворення зараз через Ambient Display Pixel. Ці параметри недоступні при активній вбудованій версії.</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Налаштування погоди</string>
     <string name="weather_settings_summary">Налаштуйте пакет значків та службу погоди</string>
@@ -403,14 +407,29 @@
     <string name="lockscreen_smartspace_title">Розумне місце (Smartspace)</string>
     <string name="lockscreen_smartspace_summary">Показувати Google Smartspace за наявності</string>
     <!-- Lock screen/Depth wallpaper -->
-    <string name="dw_wallpaper_enabled_title">Шпалери з ефектом глибини</string>
-    <string name="dw_wallpaper_enabled_summary_tile">Застосування ефекту глибини\nдо шпалер</string>
-    <string name="dw_wallpaper_enabled_summary">Увімкнути шпалери з ефектом глибини як в iOS. Потребує зображення-основу</string>
-    <string name="dw_file_header_select_title">Виберіть зображення теми</string>
-    <string name="dw_file_header_select_summary">Виберіть тему зображення зі сховища, яке буде використовувати для глибини</string>
-    <string name="dw_wallpaper_opacity_title">Непрозорість теми</string>
-    <string name="depth_wallpaper_offset_x_title">Горизонтальне зміщення</string>
-    <string name="depth_wallpaper_offset_y_title">Вертикальне зміщення</string>
+    <string name="depthwall_file_header_select_title">Вибрати шпалери з ефектом глибини</string>
+    <string name="depthwall_file_header_select_summary">Вибрати зображення для шпалер з ефектом глибини зі сховища.</string>
+    <string name="depthwall_wallpaper_enabled_title">Шпалери з ефектом глибини</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Застосувати глибинний ефект\nна шпалери</string>
+    <string name="depthwall_wallpaper_enabled_summary">Увімкнути шпалери з ефектом глибини як в iOS. Потребує зображення-основу.</string>
+    <string name="depthwall_wallpaper_opacity_title">Прозорість шпалер з ефектом глибини</string>
+    <string name="depth_wallpaper_bottom_fade_title">Нижнє затухання</string>
+    <string name="depth_wallpaper_bottom_fade_summary">Затухання фону знизу</string>
+    <string name="depth_wallpaper_fade_curve_title">Затемнити криву</string>
+    <string name="depth_wallpaper_fade_curve_summary">Налаштування кривої затемнення</string>
+    <string name="depth_wallpaper_bottom_inset_title">Нижній набір</string>
+    <string name="depth_wallpaper_bottom_inset_summary">Відрегулюйте набір фонового малюнка внизу</string>
+    <string name="depthwall_auto_subject_title">Автоматична тема верхніх шпалер</string>
+    <string name="depthwall_auto_subject_summary">Для глибини витягування теми з шпалер</string>
+    <string name="depthwall_extract_now_title">Видобути тему зараз</string>
+    <string name="depthwall_extract_now_summary">Негайно видалити тему з шпалер (встановлюйте шпалери окремо для блокування екрану)</string>
+    <string name="depthwall_extracting_toast">Вилучення теми з шпалер…</string>
+    <string name="depthwall_extraction_complete_toast">Витягування предмета завершено!</string>
+    <string name="depthwall_storage_permission_denied">Дозвіл на зберігання потрібен для автоматичного вилучення тем зі шпалер.</string>
+    <string name="depthwall_clear_subject_title">Очистити зображення теми</string>
+    <string name="depthwall_clear_subject_summary">Видалити поточну тему видобутого або набору вручну</string>
+    <string name="depthwall_clear_subject_confirm_message">Будуть видалені глибинні шпалери даного зображення. Продовжити?</string>
+    <string name="depthwall_clear_subject_done_toast">Тематичне зображення очищене</string>
     <string name="dw_footer_text">Шпалери глибини накладають зображення об\'єкта над годинником на екрані блокування, натхненні сегментацією за темами шпалер iOS.\n\nНалаштування:\n1. Встановіть шпалери з потрібним фоном позаду об\'єкта.\n2. Виберіть зображення об’єкта, яке потрібно накласти на годинник на екрані блокування.\n3. Налаштуйте зміщення та непрозорість на свій смак.</string>
     <!-- Status bar -->
     <string name="status_bar_toggle_brightness_title">Керування яскравістю</string>
@@ -933,6 +952,7 @@
     <string name="quick_settings_transparency_summary">Встановити рівень прозорості для фону QS</string>
     <string name="quick_settings_data_usage_title">Використання даних</string>
     <string name="quick_settings_data_usage_summary">Відображення використання даних у нижньому колонтитулі швидких налаштувань</string>
+    <string name="quick_settings_data_usage_window_title">Період використання даних</string>
     <string name="quick_settings_lock_screen_category">Екран блокування</string>
     <string name="quick_settings_secure_lock_screen_title">Показ плиток QS на екран блокування</string>
     <string name="quick_settings_secure_lock_screen_summary">Дозволити відкриття швидких налаштувань, проводячи пальцем униз по екрану блокування</string>
@@ -1672,4 +1692,6 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Перероблене меню кнопки живлення</string>
     <string name="global_actions_use_compose_dialog_summary">Використовуйте нове меню живлення з настроюваним, перетягуваною плиткою. Вимкніть для використання класичного меню живлення.</string>
+    <string name="global_actions_advanced_reboot_title">Увімкнути розширене перезавантаження</string>
+    <string name="global_actions_advanced_reboot_summary">Розблокує нове діалогове вікно, яке дозволяє просунуте перезавантаження</string>
 </resources>
