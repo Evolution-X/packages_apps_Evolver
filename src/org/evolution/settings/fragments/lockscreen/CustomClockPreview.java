@@ -118,8 +118,6 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
             updateClockPrefs(mClockColorModePref, mClockColorModePref.getValue());
         }
 
-        updateClockPrefs(clockPreviewPref);
-
     }
 
     @Override
@@ -309,6 +307,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
         });
 
         updateClockName(mClockPosition);
+        updateClockPrefs(clockPreviewPref);
     }
 
     private void updateClockName(int position) {
@@ -339,6 +338,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
     public void onResume() {
         super.onResume();
         updateClockName(mClockPosition);
+        updateClockPrefs(clockPreviewPref);
         updateClockColorSummary();
         updateGradientColorSummary(mGradientColorStartPref, KEY_GRADIENT_COLOR_START, 0xFF00E5FF);
         updateGradientColorSummary(mGradientColorEndPref, KEY_GRADIENT_COLOR_END, 0xFFFF2DAA);
