@@ -203,6 +203,9 @@
     <string name="pulse_capture_mode_amplitude">Amplituda (Fala)</string>
     <string name="pulse_show_on_ambient_title">Pokaż na ekranie otoczenia</string>
     <string name="pulse_show_on_ambient_summary">Wyświetlaj wizualizator na zawsze włączonym ekranie i trybie otoczenia. Wyłącz, aby wyświetlić tylko na ekranie blokady.</string>
+    <string name="pulse_show_on_ambient_disabled_player">Wizualizator nie jest dostępny dla ekranu otoczenia, gdy włączone jest tło odtwarzacza multimedialnego</string>
+    <string name="pulse_show_on_media_player_title">Pokaż na tle odtwarzacza multimedialnego</string>
+    <string name="pulse_show_on_media_player_summary">Wyświetl wizualizator na tle odtwarzacza multimedialnego dla ekranu blokady i szybkich ustawień</string>
     <string name="pulse_height_multiplier_title">Wysokość impulsu</string>
     <string name="pulse_height_multiplier_summary">Dostosuj wysokość wizualizacji</string>
     <!-- Lockscreen Clock Highlight Guide -->
@@ -351,6 +354,7 @@
     <string name="nowplaying_expand_dialog_summary">Rozwiń okno dialogowe Co jest grane</string>
     <string name="nowplaying_lyrics_mode_title">Tryb tekstów</string>
     <string name="nowplaying_lyrics_mode_summary">Pokaż zsynchronizowane teksty zamiast tytułu utworu i ikony</string>
+    <string name="nowplaying_pixel_native_footer">To urządzenie oferuje już natywną funkcję Co jest grane, poprzez wskaźnik otoczenia w Pixelu. Ustawienia te są niedostępne, gdy wbudowana wersja jest aktywna.</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Ustawienia pogody</string>
     <string name="weather_settings_summary">Skonfiguruj zestaw ikon i usługę pogody</string>
@@ -404,14 +408,29 @@
     <string name="lockscreen_smartspace_title">Inteligentna przestrzeń</string>
     <string name="lockscreen_smartspace_summary">Pokaż inteligentną przestrzeń Google, jeśli jest dostępna</string>
     <!-- Lock screen/Depth wallpaper -->
-    <string name="dw_wallpaper_enabled_title">Tapeta z efektem głębi</string>
-    <string name="dw_wallpaper_enabled_summary_tile">Zastosuj efekt głębi\ndo tapety</string>
-    <string name="dw_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu</string>
-    <string name="dw_file_header_select_title">Wybierz obraz obiektu</string>
-    <string name="dw_file_header_select_summary">Wybierz obraz obiektu z pamięci, którego chcesz użyć do uzyskania efektu głębi</string>
-    <string name="dw_wallpaper_opacity_title">Krycie obiektu</string>
-    <string name="depth_wallpaper_offset_x_title">Przesunięcie poziome</string>
-    <string name="depth_wallpaper_offset_y_title">Przesunięcie pionowe</string>
+    <string name="depthwall_file_header_select_title">Wybierz obiekt tapety z efektem głębi</string>
+    <string name="depthwall_file_header_select_summary">Wybierz obraz obiektu tapety z efektem głębi z pamięci urządzenia.</string>
+    <string name="depthwall_wallpaper_enabled_title">Tapeta z efektem głębi</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Zastosuj efekt głębi \n do tapety</string>
+    <string name="depthwall_wallpaper_enabled_summary">Włącz tapetę z efektem głębi inspirowaną systemem iOS. Wymagany obraz obiektu.</string>
+    <string name="depthwall_wallpaper_opacity_title">Krycie tapety z głębią</string>
+    <string name="depth_wallpaper_bottom_fade_title">Zanikanie u dołu</string>
+    <string name="depth_wallpaper_bottom_fade_summary">Zanikanie tapety na dole</string>
+    <string name="depth_wallpaper_fade_curve_title">Krzywa zanikania</string>
+    <string name="depth_wallpaper_fade_curve_summary">Dostosuj krzywą zanikania tapety</string>
+    <string name="depth_wallpaper_bottom_inset_title">Dolna wstawka</string>
+    <string name="depth_wallpaper_bottom_inset_summary">Dostosuj wstawkę tapety na dole</string>
+    <string name="depthwall_auto_subject_title">Automatyczny obiekt tapety z efektem głębi</string>
+    <string name="depthwall_auto_subject_summary">Automatyczne wyodrębnianie obiektu z tapety w celu uzyskania efektu głębi</string>
+    <string name="depthwall_extract_now_title">Wyodrębnij obiekt teraz</string>
+    <string name="depthwall_extract_now_summary">Natychmiastowe wyzwolenie wyodrębnienia obiektu z tapety (ustaw tapetę osobno dla ekranu blokady)</string>
+    <string name="depthwall_extracting_toast">Wyodrębnianie obiektu z tapety…</string>
+    <string name="depthwall_extraction_complete_toast">Wyodrębnianie obiektu ukończone!</string>
+    <string name="depthwall_storage_permission_denied">Aby automatycznie wyodrębnić obiekty z tapet, wymagane jest uprawnienie dostępu do pamięci wewnętrznej.</string>
+    <string name="depthwall_clear_subject_title">Wyczyść obiekt obrazu</string>
+    <string name="depthwall_clear_subject_summary">Usuń aktualnie wyodrębniony lub ręcznie ustawiony obiekt</string>
+    <string name="depthwall_clear_subject_confirm_message">Spowoduje to usunięcie aktualnego obrazu głębi tapety. Kontynuować?</string>
+    <string name="depthwall_clear_subject_done_toast">Obraz obiektu został wyczyszczony</string>
     <string name="dw_footer_text">Tapeta z efektem głębi nakłada obraz obiektu nad zegarem ekranu blokady, inspirowana segmentacją obiektu tapety iOS.\n\nKonfiguracja:\n1. Ustaw tapetę z tłem, które ma być za obiektem.\n2. Wybierz obraz obiektu do nałożenia nad zegarem ekranu blokady.\n3. Dostosuj przesunięcia i przezroczystość według preferencji.</string>
     <!-- Status bar -->
     <string name="status_bar_toggle_brightness_title">Kontrola jasności</string>
@@ -1085,6 +1104,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Zablokuj wszystkim aplikacjom możliwość przyciemniania tapety, wymuszając poziom przyciemnienia na 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj flagi zabezpieczonego okna</string>
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji. Może to spowodować ujawnienie prywatnych treści</string>
+    <string name="miscellaneous_screenshot_flash_title">Pokaż podświetlenie zrzutu ekranu</string>
+    <string name="miscellaneous_screenshot_flash_summary">Krótko podświetl ekran podczas robienia zrzutu ekranu</string>
     <string name="miscellaneous_block_screenshot_detection_title">Blokuj wykrywanie zrzutu ekranu</string>
     <string name="miscellaneous_block_screenshot_detection_summary">Uniemożliwiaj aplikacjom wykrywanie wykonywania zrzutów ekranu ich zawartości</string>
     <string name="miscellaneous_block_screenrecord_detection_title">Blokuj wykrywanie nagrywania ekranu</string>
@@ -1676,4 +1697,6 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Przeprojektowane menu zasilania</string>
     <string name="global_actions_use_compose_dialog_summary">Użyj nowego menu zasilania z konfigurowalnym, przeciąganym układem kafelków. Wyłącz, aby korzystać z klasycznego menu zasilania.</string>
+    <string name="global_actions_advanced_reboot_title">Włącz zaawansowany restart</string>
+    <string name="global_actions_advanced_reboot_summary">Odblokowuje nowe okno dialogowe umożliwiające zaawansowany restart</string>
 </resources>
