@@ -350,6 +350,7 @@
     <string name="nowplaying_expand_dialog_summary">Now Playingのダイアログを展開する</string>
     <string name="nowplaying_lyrics_mode_title">歌詞モード</string>
     <string name="nowplaying_lyrics_mode_summary">曲のタイトルとアイコンの代わりに、曲の歌詞を表示する</string>
+    <string name="nowplaying_pixel_native_footer">このデバイスでは、Pixelの「Now Playing」機能による表示がすでに標準で提供されています。組み込み機能が有効な間、これらの設定は利用できません。</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">天気の設定</string>
     <string name="weather_settings_summary">アイコンパックと天気サービスを設定する</string>
@@ -403,14 +404,29 @@
     <string name="lockscreen_smartspace_title">スマートスペース</string>
     <string name="lockscreen_smartspace_summary">利用可能な場合に Google スマートスペースを表示する</string>
     <!-- Lock screen/Depth wallpaper -->
-    <string name="dw_wallpaper_enabled_title">奥行きのある壁紙</string>
-    <string name="dw_wallpaper_enabled_summary_tile">壁紙に奥行き\n効果を適用</string>
-    <string name="dw_wallpaper_enabled_summary">iOS を ̶パ̶ク̶リスペクトした奥行きのある壁紙を有効化します</string>
-    <string name="dw_file_header_select_title">被写体画像を選択</string>
-    <string name="dw_file_header_select_summary">奥行き効果に使用する被写体画像をストレージから選択する</string>
-    <string name="dw_wallpaper_opacity_title">被写体の不透明度</string>
-    <string name="depth_wallpaper_offset_x_title">水平オフセット</string>
-    <string name="depth_wallpaper_offset_y_title">垂直オフセット</string>
+    <string name="depthwall_file_header_select_title">深度壁紙のを選択</string>
+    <string name="depthwall_file_header_select_summary">ストレージから深度壁紙画像を選択します。</string>
+    <string name="depthwall_wallpaper_enabled_title">深度エフェクト壁紙</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">壁紙に奥行き効果\nを適用する</string>
+    <string name="depthwall_wallpaper_enabled_summary">iOS をインスパイアした奥行きのある壁紙を有効化します。被写体の画像が必要です。</string>
+    <string name="depthwall_wallpaper_opacity_title">奥行きのある壁紙の透明度</string>
+    <string name="depth_wallpaper_bottom_fade_title">下部にフェード</string>
+    <string name="depth_wallpaper_bottom_fade_summary">下部の壁紙をフェードアウトします</string>
+    <string name="depth_wallpaper_fade_curve_title">フェードカーブ</string>
+    <string name="depth_wallpaper_fade_curve_summary">壁紙のフェードカーブを調整する</string>
+    <string name="depth_wallpaper_bottom_inset_title">下部インセット</string>
+    <string name="depth_wallpaper_bottom_inset_summary">下部の壁紙のインセットを調整する</string>
+    <string name="depthwall_auto_subject_title">被写体深度を活かした自動壁紙</string>
+    <string name="depthwall_auto_subject_summary">壁紙から被写体を自動的に抽出し、奥行き効果を適用します</string>
+    <string name="depthwall_extract_now_title">今すぐ被写体を抽出</string>
+    <string name="depthwall_extract_now_summary">壁紙からすぐに被写体を抽出（ロック画面には壁紙を個別に設定）</string>
+    <string name="depthwall_extracting_toast">壁紙から被写体を抽出しています…</string>
+    <string name="depthwall_extraction_complete_toast">被写体の抽出が完了しました！</string>
+    <string name="depthwall_storage_permission_denied">壁紙から自動で被写体を抽出するには、ストレージのアクセス許可が必要です。</string>
+    <string name="depthwall_clear_subject_title">被写体画像を選択</string>
+    <string name="depthwall_clear_subject_summary">現在抽出されている、または手動で設定された被写体を削除します。</string>
+    <string name="depthwall_clear_subject_confirm_message">現在の深度壁紙の被写体画像が削除されます。続行しますか？</string>
+    <string name="depthwall_clear_subject_done_toast">被写体の画像を消去しました</string>
     <string name="dw_footer_text">奥行きのある壁紙は、iOS の壁紙の被写体切り抜きからインスピレーションを得て、ロック画面の時計の上に被写体画像を重ねます。\n\n設定方法:\n1. 被写体の後ろに配置したい背景で壁紙を設定します。\n2. ロック画面の時計の上に重ねる被写体画像を選択します。\n3. オフセットと不透明度を好みに合わせて調整します。</string>
     <!-- Status bar -->
     <string name="status_bar_toggle_brightness_title">明るさコントロール</string>
@@ -933,6 +949,7 @@
     <string name="quick_settings_transparency_summary">クイック設定の背景の透明度を設定する</string>
     <string name="quick_settings_data_usage_title">データ使用量</string>
     <string name="quick_settings_data_usage_summary">クイック設定のフッターにデータ使用量を表示する</string>
+    <string name="quick_settings_data_usage_window_title">データ使用期間</string>
     <string name="quick_settings_lock_screen_category">ロック画面</string>
     <string name="quick_settings_secure_lock_screen_title">保護されたロック画面に表示</string>
     <string name="quick_settings_secure_lock_screen_summary">ロック画面で下にスワイプしてクイック設定を開くことを許可する</string>
@@ -1084,7 +1101,7 @@
     <string name="miscellaneous_ignore_window_secure_summary">すべてのアプリに対してスクリーンショットや画面録画の制限を解除します。個人情報が露出する可能性があります。</string>
     <string name="miscellaneous_block_screenshot_detection_title">スクリーンショットの検出をブロック</string>
     <string name="miscellaneous_block_screenshot_detection_summary">スクリーンショットを撮影したことがアプリが把握できないようにします</string>
-    <string name="miscellaneous_block_screenrecord_detection_title">スクリーンショットの検出をブロック</string>
+    <string name="miscellaneous_block_screenrecord_detection_title">画面録画の検出をブロック</string>
     <string name="miscellaneous_block_screenrecord_detection_summary">アプリのコンテンツがいつ画面に表示されるかがわからないようにします</string>
     <string name="miscellaneous_unlimit_screenrecord_title">画面録画の制限を解除</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">15 GiB のファイルサイズ制限を解除します。出力ファイルが大きくなる可能性があります</string>
@@ -1260,7 +1277,7 @@
     <string name="pif_no_devices_found">デバイスが見つかりません</string>
     <string name="pif_no_api_key">Flash Tool API キーの抽出に失敗しました</string>
     <string name="pif_advanced_settings">高度な設定</string>
-    <string name="pif_spoof_vending_finger_title">Playストアのフィンガーープリントの偽装</string>
+    <string name="pif_spoof_vending_finger_title">Playストアのフィンガープリントの偽装</string>
     <string name="pif_spoof_vending_finger_summary">FINGERPRINTがPlayストアのプロセスに表示されるかを制御します</string>
     <string name="pif_spoof_vending_sdk_title">DroidGuard に SDK を偽装する</string>
     <string name="pif_spoof_vending_sdk_summary">DroidGuard用のSDK_INTを上書きして、レガシー &lt;A13認証パスを強制する</string>
@@ -1396,7 +1413,7 @@
     <string name="lock_glymps_timer_interval_title">タイマーの間隔</string>
     <string name="lock_glymps_timer_interval_summary">壁紙を自動的に変更する頻度</string>
     <string name="lock_glymps_footer_title">情報</string>
-    <string name="lock_glymps_footer_text">📁 ローカルフォルダ: /sdcard/Glymps\n\n⚠ 低スペックのデバイスでは、わずかなラグが発生する場合があります。\n\n🎨 ヒント: 色を安定させるには、Monet 設定でカスタムアクセントを使用してください。</string>
+    <string name="lock_glymps_footer_text">ローカルフォルダ: /sdcard/Glymps\n\n 低スペックのデバイスでは、わずかなラグが発生する場合があります。\n\nヒント: 色を安定させるには、Monet 設定でカスタムアクセントを使用してください。</string>
     <string name="lock_glymps_preview_category">現在の壁紙</string>
     <string name="lock_glymps_preview_title">壁紙のプレビュー</string>
     <string name="lock_glymps_preview_summary">現在のロック画面とホーム画面の壁紙</string>
