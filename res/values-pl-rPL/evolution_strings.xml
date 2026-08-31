@@ -1104,6 +1104,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Zablokuj wszystkim aplikacjom możliwość przyciemniania tapety, wymuszając poziom przyciemnienia na 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj flagi zabezpieczonego okna</string>
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji. Może to spowodować ujawnienie prywatnych treści</string>
+    <string name="miscellaneous_screenshot_flash_title">Pokaż podświetlenie zrzutu ekranu</string>
+    <string name="miscellaneous_screenshot_flash_summary">Krótko podświetl ekran podczas robienia zrzutu ekranu</string>
     <string name="miscellaneous_block_screenshot_detection_title">Blokuj wykrywanie zrzutu ekranu</string>
     <string name="miscellaneous_block_screenshot_detection_summary">Uniemożliwiaj aplikacjom wykrywanie wykonywania zrzutów ekranu ich zawartości</string>
     <string name="miscellaneous_block_screenrecord_detection_title">Blokuj wykrywanie nagrywania ekranu</string>
