@@ -202,6 +202,9 @@
     <string name="pulse_capture_mode_amplitude">振幅（波形）</string>
     <string name="pulse_show_on_ambient_title">アンビエントで表示</string>
     <string name="pulse_show_on_ambient_summary">常に画面を ON にしている際やアンビエントモードでビジュアライザーを表示する。無効にするとロック画面のみ表示されます。</string>
+    <string name="pulse_show_on_ambient_disabled_player">メディアプレーヤーの背景が有効な場合、ビジュアライザーはアンビエント表示では使用できません</string>
+    <string name="pulse_show_on_media_player_title">メディアプレーヤーの背景に表示</string>
+    <string name="pulse_show_on_media_player_summary">ロック画面とクイック設定のメディアプレーヤーの背景にビジュアライザーを表示する</string>
     <string name="pulse_height_multiplier_title">Pulse の高さ</string>
     <string name="pulse_height_multiplier_summary">ビジュアライザーの高さを調整する</string>
     <!-- Lockscreen Clock Highlight Guide -->
@@ -1099,6 +1102,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">すべてのアプリによる壁紙の減光をブロックし、減光レベルを強制的に 0 にします</string>
     <string name="miscellaneous_ignore_window_secure_title">安全なウィンドウフラグを無視</string>
     <string name="miscellaneous_ignore_window_secure_summary">すべてのアプリに対してスクリーンショットや画面録画の制限を解除します。個人情報が露出する可能性があります。</string>
+    <string name="miscellaneous_screenshot_flash_title">スクリーンショットのフラッシュを表示</string>
+    <string name="miscellaneous_screenshot_flash_summary">スクリーンショットを撮影したときに画面をフラッシュ</string>
     <string name="miscellaneous_block_screenshot_detection_title">スクリーンショットの検出をブロック</string>
     <string name="miscellaneous_block_screenshot_detection_summary">スクリーンショットを撮影したことがアプリが把握できないようにします</string>
     <string name="miscellaneous_block_screenrecord_detection_title">画面録画の検出をブロック</string>
@@ -1689,4 +1694,6 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">電源メニューの変更</string>
     <string name="global_actions_use_compose_dialog_summary">カスタマイズ可能なドラッグ可能なタイルレイアウトで新しい電源メニューを使用します。無効にすると、クラシックな電源メニューを使用します。</string>
+    <string name="global_actions_advanced_reboot_title">高度な再起動を有効にする</string>
+    <string name="global_actions_advanced_reboot_summary">高度な再起動を可能にする新しいダイアログを表示します</string>
 </resources>
