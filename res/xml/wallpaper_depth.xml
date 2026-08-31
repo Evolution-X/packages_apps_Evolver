@@ -47,6 +47,24 @@
         android:summary="@string/depthwall_file_header_select_summary"
         android:persistent="false" />
 
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="depth_wallpaper_spatial_effect"
+        android:dependency="depth_wallpaper_enabled"
+        android:title="@string/depthwall_spatial_effect_title"
+        android:summary="@string/depthwall_spatial_effect_summary"
+        android:defaultValue="false" />
+
+    <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+        android:key="depth_wallpaper_spatial_sensitivity"
+        android:dependency="depth_wallpaper_spatial_effect"
+        android:title="@string/depthwall_spatial_sensitivity_title"
+        android:summary="@string/depthwall_spatial_sensitivity_summary"
+        android:max="100"
+        settings:min="0"
+        settings:interval="1"
+        settings:units="%"
+        android:defaultValue="100" />
+
     <Preference
         android:key="depth_wallpaper_clear_subject"
         android:dependency="depth_wallpaper_enabled"
