@@ -1315,6 +1315,7 @@
     <string name="ts_failed">Niepowodzenie: %s</string>
     <string name="ts_footer_title">Przejście silnej integralności</string>
     <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Status unieważnienia jest sprawdzany co 24 godziny, a nowy zestaw kluczy jest pobierany z oficjalnego źródła, jeśli obecny został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij „Pobierz oficjalny zestaw kluczy”, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na \"Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw tryb Automatyczny.\n4. Sprawdź ponownie status integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden ważny oficjalny zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
+    <string name="ts_patch_stale_warning">%1$s (nieaktualne, starsze niż 12 miesięcy)</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używane domyślne ustawienia urządzenia)</string>
     <string name="ts_select_target_apps">Wybierz aplikacje docelowe</string>
