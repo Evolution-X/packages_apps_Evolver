@@ -265,8 +265,15 @@ class TrickyStore : SettingsPreferenceFragment() {
 
         val patchDate = Settings.Secure.getString(requireContext().contentResolver, PATCH_KEY)
         findPreference<Preference>("ts_security_patch")?.summary =
-            if (!patchDate.isNullOrEmpty()) patchDate
-            else getString(R.string.ts_no_patch)
+            if (!patchDate.isNullOrEmpty()) {
+                if (isPatchDateStale(patchDate)) {
+                    getString(R.string.ts_patch_stale_warning, patchDate)
+                } else {
+                    patchDate
+                }
+            } else {
+                getString(R.string.ts_no_patch)
+            }
 
         findPreference<Preference>("ts_verification_mode")?.summary = buildVerificationSummary()
 
@@ -986,6 +993,24 @@ class TrickyStore : SettingsPreferenceFragment() {
     /** Strip colons/spaces and uppercase for consistent comparison. */
     private fun normalise(fingerprint: String) =
         fingerprint.replace(":", "").replace(" ", "").uppercase()
+
+    /**
+     * Returns true if [patchDate] (a single YYYY-MM-DD value, not the
+     * multi-line per-package block format) is more than 12 months old.
+     * Unparsable input returns false — we don't warn on values we can't read.
+     */
+    private fun isPatchDateStale(patchDate: String): Boolean {
+        val dateRe = Regex("""\d{4}-\d{2}-\d{2}""")
+        val trimmed = patchDate.trim()
+        if (!dateRe.matches(trimmed)) return false
+        return try {
+            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US).apply { isLenient = false }
+            val patchMs = sdf.parse(trimmed)?.time ?: return false
+            System.currentTimeMillis() - patchMs > TimeUnit.DAYS.toMillis(365)
+        } catch (_: Exception) {
+            false
+        }
+    }
 
     // ---- Misc ---------------------------------------------------------------
 

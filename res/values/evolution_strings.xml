@@ -1376,6 +1376,7 @@
     <string name="ts_footer_title">Passing strong integrity</string>
     <string name="ts_footer_body">A keybox is fetched and kept valid automatically. The revocation status is checked every 24 hours, and a new keybox is fetched from the official source if the current one is revoked or suspended.\n\nFor manual setup:\n1. Tap \"Fetch official keybox\" to download one automatically, or import your own from a trusted source.\n2. Open \"Manage target apps\" and select the apps that require integrity checks.\n3. Set target mode to \"Leaf\" if your device has a working TEE; otherwise leave it as Auto.\n4. Recheck your Play Integrity status.\n\nNote: If no valid official keybox is available, auto-fetch is paused for 24 hours before retrying. Always delete the existing keybox before importing a new one.</string>
     <string name="ts_patch_date_hint" translatable="false">e.g. 2026-07-05, YYYY-MM-05, or per-package blocks</string>
+    <string name="ts_patch_stale_warning">%1$s (stale, 12+ months old)</string>
     <string name="ts_security_patch">Security patch date</string>
     <string name="ts_no_patch">Not set (using device default)</string>
     <string name="ts_select_target_apps">Select target apps</string>
