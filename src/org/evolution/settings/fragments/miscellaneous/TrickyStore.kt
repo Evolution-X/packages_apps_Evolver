@@ -58,22 +58,25 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- Trust anchors (SHA-256 of DER-encoded cert) ------------------------
 
     companion object {
-        // Google Hardware Attestation Root (RSA-4096)
-        // Original issuance 2019, serial d50ff25ba3f2d6b3, valid until 2034
-        private const val GOOGLE_ROOT_RSA_2019_SHA256 =
+        // Fallback trust anchors, used only if the live roots fetch fails and
+        // no cached copy exists yet. Google may add/rotate roots at any time;
+        // the live fetch from ROOTS_URL is the source of truth, this list
+        // exists purely so first-run/offline behaviour degrades safely
+        // instead of trusting nothing.
+        // Google Hardware Attestation Root (RSA-4096), original 2019 issuance
+        private const val FALLBACK_ROOT_RSA_2019_SHA256 =
             "1EF1A04B8BA58AB94589AC498C8982A783F24EA7307E0159A0C3A73B377D87CC"
-
-        // Google Hardware Attestation Root (RSA-4096)
-        // Reissued 2022, serial f1c172a699eaf51d, valid until 2042
-        // Same public key as 2019 root, different cert (currently served by /attestation/root)
-        private const val GOOGLE_ROOT_RSA_2022_SHA256 =
+        // Google Hardware Attestation Root (RSA-4096), reissued 2022
+        private const val FALLBACK_ROOT_RSA_2022_SHA256 =
             "CEDB1CB6DC896AE5EC797348BCE9286753C2B38EE71CE0FBE34A9A1248800DFC"
-
-        // Google Hardware Attestation Root (EC P-384) "Key Attestation CA1"
-        // Issued 2025, serial 84a9d0297b0eb58ae7ff0e80de760605, valid until 2035
-        // RKP devices use this root exclusively from April 2026 onward
-        private const val GOOGLE_ROOT_EC_2025_SHA256 =
+        // Google Hardware Attestation Root (EC P-384) "Key Attestation CA1", 2025
+        private const val FALLBACK_ROOT_EC_2025_SHA256 =
             "C6E5DC76BD81307046A3CCC979F0FAC6BDDEF46CC9B533B2134EB0E99F67550E"
+
+        private const val ROOTS_URL = "https://android.googleapis.com/attestation/root"
+        private const val ROOTS_CACHE_KEY       = "spoof_trickystore_cached_roots"
+        private const val ROOTS_CACHED_AT_KEY   = "spoof_trickystore_roots_cached_at"
+        private val ROOTS_CACHE_TTL_MS = TimeUnit.DAYS.toMillis(30)
 
         // Keys & setting names
         private const val KEYBOX_KEY                 = "spoof_trickystore_keybox"
@@ -87,6 +90,10 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val LAST_NO_VALID_KEY          = "spoof_trickystore_last_no_valid"
         private const val LAST_REVOCATION_STATUS_KEY = "spoof_trickystore_last_revocation_status"
         private const val LAST_REVOCATION_REASON_KEY = "spoof_trickystore_last_revocation_reason"
+
+        private const val CACHED_REVOKED_SERIALS_KEY = "spoof_trickystore_cached_revoked_serials"
+        private const val CACHED_REVOKED_AT_KEY       = "spoof_trickystore_cached_revoked_at"
+        private val CACHE_TRUST_WINDOW_MS = TimeUnit.DAYS.toMillis(7)
 
         private const val TRICKYSTORE_ENABLED_KEY    = "spoof_trickystore_enabled"
 
@@ -103,10 +110,41 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val REVOCATION_URL     =
             "https://android.googleapis.com/attestation/status?encrypted=0"
         private const val OFFICIAL_KEYBOX_URL =
-            "https://v15.next.forgejo.org/EvolutionX/keybox/raw/branch/main/keybox.xml"
+            "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/keybox.xml"
 
         /** Warn user when the leaf cert expires within this window. */
         private val EXPIRY_WARN_MS = TimeUnit.DAYS.toMillis(14)
+
+        /**
+         * Puts the spoofing settings back to a fresh-install state: the PIF
+         * config, patch level and GameProps config are cleared and the
+         * TrickyStore target list is reseeded with the defaults. The keybox is
+         * kept, since it may be the user's own and the official one is kept
+         * current by AxSpoofManager anyway. Mirrors AlwaysStrong's
+         * reset_defaults.sh, which also keeps the keybox.
+         *
+         * Nothing is fetched here. AxSpoofManager watches the PIF config and,
+         * a few seconds after it goes empty, refreshes the fingerprint and patch
+         * level itself (from the built-in profiles when offline). Order matters
+         * for that: the fetch cooldown is zeroed first and the PIF config is
+         * cleared last, so the refresh sees a fully reset state.
+         */
+        @JvmStatic
+        fun resetAllSpoofDefaults(context: Context) {
+            val resolver = context.contentResolver
+            Settings.Secure.putLong(resolver, LAST_AUTO_FETCH_KEY_COMPAT, 0L)
+            Settings.Secure.putString(
+                resolver, TARGET_KEY, TrickyStoreAppSettings.buildDefaultTargetSeed())
+            Settings.Secure.putString(resolver, PATCH_KEY, "")
+            Settings.Secure.putString(resolver, Settings.Secure.SPOOF_GAMEPROPS_CONFIG, "")
+            Settings.Secure.putString(resolver, PlayIntegrityFix.PIF_CONFIG_KEY, "")
+        }
+
+        // PlayIntegrityFix owns the real LAST_AUTO_FETCH_KEY constant; this local
+        // copy exists only so resetAllSpoofDefaults doesn't need a second
+        // visibility change on top of PIF_CONFIG_KEY. Keep the string in sync if
+        // that constant's value ever changes.
+        private const val LAST_AUTO_FETCH_KEY_COMPAT = "spoof_pif_last_auto_fetch"
     }
 
     // ---- Properties ---------------------------------------------------------
@@ -491,7 +529,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         // 5. Fetch Google's revocation JSON
         val serials = certs.map { it.serialNumber.toString(16).lowercase() }
         val revJson = fetchRevocationJson()
-            ?: return Pair(RevocationStatus.UNKNOWN, "")
+            ?: return checkCachedRevocation(serials)
 
         // 6. Check each serial against the revocation list
         val entries = revJson.optJSONObject("entries")
@@ -501,11 +539,20 @@ class TrickyStore : SettingsPreferenceFragment() {
                 val status = entry.optString("status", "").uppercase()
                 val reason = entry.optString("reason", "").uppercase()
                 when (status) {
-                    "REVOKED"   -> return Pair(RevocationStatus.REVOKED, reason)
-                    "SUSPENDED" -> return Pair(RevocationStatus.SUSPENDED, reason)
+                    "REVOKED"   -> {
+                        cacheRevokedSerial(serial)
+                        return Pair(RevocationStatus.REVOKED, reason)
+                    }
+                    "SUSPENDED" -> {
+                        cacheRevokedSerial(serial)
+                        return Pair(RevocationStatus.SUSPENDED, reason)
+                    }
                 }
             }
         }
+        // Live check passed cleanly — clear any stale cached bad-serial entry
+        // for this keybox so a future offline fallback doesn't misfire.
+        clearCachedRevokedSerials()
 
         // 7. If the cert is expiring soon, surface that now (it passed all other checks)
         if (expiringStatus != null) {
@@ -574,14 +621,21 @@ class TrickyStore : SettingsPreferenceFragment() {
             return "ROOT_NOT_SELF_SIGNED"
         }
 
-        // Root public-key must match a known Google attestation root
-        val rootFingerprint = sha256Hex(root.encoded)
-        val knownRoots = setOf(
-            normalise(GOOGLE_ROOT_RSA_2019_SHA256),
-            normalise(GOOGLE_ROOT_RSA_2022_SHA256),
-            normalise(GOOGLE_ROOT_EC_2025_SHA256),
-        )
-        if (rootFingerprint !in knownRoots) {
+        // Root must match a live-fetched Google attestation root, or (if the
+        // live/cached fetch is unavailable) one of the fallback fingerprints.
+        val trustAnchors = getTrustAnchors()
+        val trusted = if (trustAnchors.isNotEmpty()) {
+            trustAnchors.any { it.encoded.contentEquals(root.encoded) }
+        } else {
+            val rootFingerprint = sha256Hex(root.encoded)
+            val fallbackRoots = setOf(
+                normalise(FALLBACK_ROOT_RSA_2019_SHA256),
+                normalise(FALLBACK_ROOT_RSA_2022_SHA256),
+                normalise(FALLBACK_ROOT_EC_2025_SHA256),
+            )
+            rootFingerprint in fallbackRoots
+        }
+        if (!trusted) {
             return "UNTRUSTED_ROOT"
         }
 
@@ -591,13 +645,120 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- Network helpers ----------------------------------------------------
 
     private fun fetchRevocationJson(): JSONObject? = try {
-        val conn = URL(REVOCATION_URL).openConnection() as HttpURLConnection
-        conn.connectTimeout = 10_000
-        conn.readTimeout = 10_000
+        val conn = openFreshConnection(REVOCATION_URL)
         if (conn.responseCode == HttpURLConnection.HTTP_OK)
             JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
         else null
     } catch (_: Exception) { null }
+
+    /**
+     * Opens a connection with cache-busting so a stale CDN-cached 200 isn't
+     * mistaken for a fresh answer. The android.googleapis.com/attestation
+     * endpoints sit behind a CDN that can serve outdated data even past
+     * their Cache-Control max-age.
+     */
+    private fun openFreshConnection(url: String): HttpURLConnection {
+        val busted = url + (if ('?' in url) "&" else "?") + "_=${System.nanoTime()}"
+        val conn = URL(busted).openConnection() as HttpURLConnection
+        conn.connectTimeout = 10_000
+        conn.readTimeout = 10_000
+        conn.setRequestProperty("Cache-Control", "max-age=0")
+        conn.setRequestProperty("Accept-Encoding", "identity")
+        return conn
+    }
+
+    /**
+     * Returns the current set of Google attestation root certificates.
+     * Tries a live fetch from ROOTS_URL first; falls back to a cached copy
+     * (however old) if the fetch fails; returns empty if there is no cache
+     * at all, in which case the caller falls back to the hardcoded
+     * FALLBACK_ROOT_*_SHA256 fingerprints.
+     */
+    private fun getTrustAnchors(): Set<X509Certificate> {
+        val live = fetchTrustAnchorsLive()
+        if (live != null) {
+            cacheTrustAnchors(live.second)
+            return live.first
+        }
+        val cached = Settings.Secure.getString(
+            requireContext().contentResolver, ROOTS_CACHE_KEY)
+        if (!cached.isNullOrEmpty()) {
+            parseRootsJson(cached)?.let { return it }
+        }
+        return emptySet()
+    }
+
+    /** Returns (parsed certs, raw json) on success, null on any failure. */
+    private fun fetchTrustAnchorsLive(): Pair<Set<X509Certificate>, String>? = try {
+        val conn = openFreshConnection(ROOTS_URL)
+        if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+            val raw = BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() }
+            parseRootsJson(raw)?.let { Pair(it, raw) }
+        } else null
+    } catch (_: Exception) { null }
+
+    private fun parseRootsJson(raw: String): Set<X509Certificate>? = try {
+        val array = org.json.JSONArray(raw)
+        val factory = CertificateFactory.getInstance("X.509")
+        (0 until array.length()).mapNotNull { i ->
+            try {
+                val pem = array.getString(i)
+                factory.generateCertificate(
+                    ByteArrayInputStream(pem.toByteArray(Charsets.UTF_8))
+                ) as X509Certificate
+            } catch (_: Exception) { null }
+        }.toSet().ifEmpty { null }
+    } catch (_: Exception) { null }
+
+    private fun cacheTrustAnchors(raw: String) {
+        Settings.Secure.putString(requireContext().contentResolver, ROOTS_CACHE_KEY, raw)
+        Settings.Secure.putLong(
+            requireContext().contentResolver, ROOTS_CACHED_AT_KEY, System.currentTimeMillis())
+    }
+
+    // ---- Offline revocation cache --------------------------------------------
+
+    /**
+     * Records that [serial] was seen as revoked/suspended on a successful live
+     * check, so a later fetch failure can still flag it. Downgrade-only: this
+     * cache is never consulted to assert VALID, only REVOKED/SUSPENDED.
+     */
+    private fun cacheRevokedSerial(serial: String) {
+        Settings.Secure.putString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY, serial)
+        Settings.Secure.putLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY,
+            System.currentTimeMillis())
+    }
+
+    private fun clearCachedRevokedSerials() {
+        Settings.Secure.putString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY, "")
+        Settings.Secure.putLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY, 0L)
+    }
+
+    /**
+     * Fallback used when the live revocation fetch fails. Only ever returns
+     * REVOKED/SUSPENDED (if a cached serial for this keybox is still within
+     * the trust window) or UNKNOWN — never VALID, since we cannot confirm
+     * that today without a successful live check.
+     */
+    private fun checkCachedRevocation(serials: List<String>): Pair<RevocationStatus, String> {
+        val cachedAt = Settings.Secure.getLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY, 0L)
+        if (cachedAt == 0L ||
+            System.currentTimeMillis() - cachedAt > CACHE_TRUST_WINDOW_MS) {
+            return Pair(RevocationStatus.UNKNOWN, "")
+        }
+        val cachedSerial = Settings.Secure.getString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY)
+        return if (!cachedSerial.isNullOrEmpty() && serials.contains(cachedSerial)) {
+            Pair(RevocationStatus.SUSPENDED, "CACHED_OFFLINE")
+        } else {
+            Pair(RevocationStatus.UNKNOWN, "")
+        }
+    }
 
     // ---- Auto-fetch ---------------------------------------------------------
 

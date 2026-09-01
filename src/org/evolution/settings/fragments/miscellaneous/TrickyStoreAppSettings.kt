@@ -135,6 +135,12 @@ class TrickyStoreAppSettings : SettingsPreferenceFragment() {
             "com.kikyps.crackme"                to TargetMode.LEAF_HACK,
             "com.chunqiunativecheck"            to TargetMode.LEAF_HACK,
         )
+
+        /** The default target list: one "package" or "package<mode symbol>" per line. */
+        fun buildDefaultTargetSeed(): String =
+            (DEFAULT_TARGETS.toList() +
+                DEFAULT_TARGET_MODES.map { (pkg, mode) -> pkg + mode.symbol })
+                .joinToString("\n")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -223,13 +229,10 @@ private fun TrickyStoreAppSettingsContent(
             val existing = Settings.Secure.getString(
                 context.contentResolver, TrickyStoreAppSettings.TARGET_KEY)
             if (existing.isNullOrEmpty()) {
-                val seed = TrickyStoreAppSettings.DEFAULT_TARGETS.map { it } +
-                    TrickyStoreAppSettings.DEFAULT_TARGET_MODES.map { (pkg, mode) ->
-                        pkg + mode.symbol }
                 Settings.Secure.putString(
                     context.contentResolver,
                     TrickyStoreAppSettings.TARGET_KEY,
-                    seed.joinToString("\n"),
+                    TrickyStoreAppSettings.buildDefaultTargetSeed(),
                 )
             }
 

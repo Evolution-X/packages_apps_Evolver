@@ -1029,6 +1029,12 @@
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
     <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
+    <string name="spoofing_reset_defaults_title">Reset to defaults</string>
+    <string name="spoofing_reset_defaults_summary">Restore Play Integrity, target list, patch level and GameProps to defaults. Your keybox is kept</string>
+    <string name="spoofing_reset_defaults_dialog_title">Reset spoofing settings?</string>
+    <string name="spoofing_reset_defaults_dialog_message">This clears the Play Integrity config, security patch override and GameProps config, and restores the default TrickyStore target list. Your keybox is kept. Play Integrity and the patch level are fetched again shortly afterwards. Enable toggles are not changed.</string>
+    <string name="spoofing_reset_defaults_confirm">Reset</string>
+    <string name="spoofing_reset_defaults_done">Spoofing settings reset</string>
     <string name="tensor_spoof_title">Tensor feature targets</string>
     <string name="tensor_spoof_summary">Grant selected apps access to Pixel Tensor-exclusive AI features</string>
     <string name="tensor_spoof_enable">Tensor spoofing</string>
@@ -1174,6 +1180,7 @@
     <string name="pif_config_details">Configuration details</string>
     <string name="pif_failed">Failed: %s</string>
     <string name="pif_select_device">Select device</string>
+    <string name="pif_recommended_suffix">Recommended</string>
     <string name="pif_generating">Generating configuration\u2026</string>
     <string name="pif_footer_title">Passing basic integrity</string>
     <string name="pif_footer_body">A Canary fingerprint is fetched and refreshed automatically every 21 days. Canary configs expire roughly 6 weeks from their release date — the expiry is shown in the active config summary.\n\nFor manual setup:\n1. Tap "Fetch Pixel Canary fingerprint" and select a device.\n2. If no devices are found, import a working PIF config from a trusted source. Config files are not provided.\n3. Recheck your Play Integrity status.\n\nAlways delete the active configuration before importing a new one. Loading an expired PIF config will cause TrickyStore strong integrity to fail even with a valid keybox.\n\nAdvanced spoofing:\n• Play Store fingerprint spoof — leave disabled unless advised otherwise. Spoofing FINGERPRINT to Play Store is rarely needed and may cause issues.\n• Spoof SDK to DroidGuard — forces the legacy pre-Android 13 attestation path. Only enable this if basic integrity is failing and your config targets an older SDK.</string>
