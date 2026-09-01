@@ -88,6 +88,10 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val LAST_REVOCATION_STATUS_KEY = "spoof_trickystore_last_revocation_status"
         private const val LAST_REVOCATION_REASON_KEY = "spoof_trickystore_last_revocation_reason"
 
+        private const val CACHED_REVOKED_SERIALS_KEY = "spoof_trickystore_cached_revoked_serials"
+        private const val CACHED_REVOKED_AT_KEY       = "spoof_trickystore_cached_revoked_at"
+        private val CACHE_TRUST_WINDOW_MS = TimeUnit.DAYS.toMillis(7)
+
         private const val TRICKYSTORE_ENABLED_KEY    = "spoof_trickystore_enabled"
 
         private const val VENDING_PACKAGE            = "com.android.vending"
@@ -491,7 +495,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         // 5. Fetch Google's revocation JSON
         val serials = certs.map { it.serialNumber.toString(16).lowercase() }
         val revJson = fetchRevocationJson()
-            ?: return Pair(RevocationStatus.UNKNOWN, "")
+            ?: return checkCachedRevocation(serials)
 
         // 6. Check each serial against the revocation list
         val entries = revJson.optJSONObject("entries")
@@ -501,11 +505,20 @@ class TrickyStore : SettingsPreferenceFragment() {
                 val status = entry.optString("status", "").uppercase()
                 val reason = entry.optString("reason", "").uppercase()
                 when (status) {
-                    "REVOKED"   -> return Pair(RevocationStatus.REVOKED, reason)
-                    "SUSPENDED" -> return Pair(RevocationStatus.SUSPENDED, reason)
+                    "REVOKED"   -> {
+                        cacheRevokedSerial(serial)
+                        return Pair(RevocationStatus.REVOKED, reason)
+                    }
+                    "SUSPENDED" -> {
+                        cacheRevokedSerial(serial)
+                        return Pair(RevocationStatus.SUSPENDED, reason)
+                    }
                 }
             }
         }
+        // Live check passed cleanly — clear any stale cached bad-serial entry
+        // for this keybox so a future offline fallback doesn't misfire.
+        clearCachedRevokedSerials()
 
         // 7. If the cert is expiring soon, surface that now (it passed all other checks)
         if (expiringStatus != null) {
@@ -598,6 +611,50 @@ class TrickyStore : SettingsPreferenceFragment() {
             JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
         else null
     } catch (_: Exception) { null }
+
+    // ---- Offline revocation cache --------------------------------------------
+
+    /**
+     * Records that [serial] was seen as revoked/suspended on a successful live
+     * check, so a later fetch failure can still flag it. Downgrade-only: this
+     * cache is never consulted to assert VALID, only REVOKED/SUSPENDED.
+     */
+    private fun cacheRevokedSerial(serial: String) {
+        Settings.Secure.putString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY, serial)
+        Settings.Secure.putLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY,
+            System.currentTimeMillis())
+    }
+
+    private fun clearCachedRevokedSerials() {
+        Settings.Secure.putString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY, "")
+        Settings.Secure.putLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY, 0L)
+    }
+
+    /**
+     * Fallback used when the live revocation fetch fails. Only ever returns
+     * REVOKED/SUSPENDED (if a cached serial for this keybox is still within
+     * the trust window) or UNKNOWN — never VALID, since we cannot confirm
+     * that today without a successful live check.
+     */
+    private fun checkCachedRevocation(serials: List<String>): Pair<RevocationStatus, String> {
+        val cachedAt = Settings.Secure.getLong(
+            requireContext().contentResolver, CACHED_REVOKED_AT_KEY, 0L)
+        if (cachedAt == 0L ||
+            System.currentTimeMillis() - cachedAt > CACHE_TRUST_WINDOW_MS) {
+            return Pair(RevocationStatus.UNKNOWN, "")
+        }
+        val cachedSerial = Settings.Secure.getString(
+            requireContext().contentResolver, CACHED_REVOKED_SERIALS_KEY)
+        return if (!cachedSerial.isNullOrEmpty() && serials.contains(cachedSerial)) {
+            Pair(RevocationStatus.SUSPENDED, "CACHED_OFFLINE")
+        } else {
+            Pair(RevocationStatus.UNKNOWN, "")
+        }
+    }
 
     // ---- Auto-fetch ---------------------------------------------------------
 
