@@ -1102,6 +1102,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Заблокувати всі програми від затемнення шпалер, примусово встановивши рівень затемнення на 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ігнорувати прапорці безпечного вікна</string>
     <string name="miscellaneous_ignore_window_secure_summary">Видаляти обмеження на запис з екрану та екрану для всіх програм. Може розкрити приватний вміст</string>
+    <string name="miscellaneous_screenshot_flash_title">Показувати знімки екрану</string>
+    <string name="miscellaneous_screenshot_flash_summary">Коротко блимає екран при знятті знімку екрану</string>
     <string name="miscellaneous_block_screenshot_detection_title">Блокування визначення знімків екрану</string>
     <string name="miscellaneous_block_screenshot_detection_summary">Заборонити додаткам знати, коли знімок екрану було створено</string>
     <string name="miscellaneous_block_screenrecord_detection_title">Блокувати виявлення запису екрана</string>
@@ -1311,6 +1313,7 @@
     <string name="ts_failed">Не вдалося: %s</string>
     <string name="ts_footer_title">Проходження основної цілісності</string>
     <string name="ts_footer_body">Скринька ключів отримується та залишається дійсною автоматично. Статус відкликання перевіряється кожні 24 години, а нова скринька ключів отримується з офіційного джерела, якщо поточну скасовано або призупинено.\n\nДля ручного налаштування:\n1. Натисніть «Отримати офіційну скриньку ключів», щоб завантажити її автоматично, або імпортуйте свою власну з надійного джерела.\n2. Відкрийте «Керування цільовими програмами» та виберіть програми, які потребують перевірки цілісності.\n3. Встановіть цільовий режим на «Лист», якщо на вашому пристрої є робоча скринька ключів; інакше залиште його на «Автоматично».\n4. Перевірте стан цілісності Play.\n\nПримітка. Якщо дійсна офіційна скринька ключів недоступна, автоматичне отримання призупиняється на 24 години перед повторною спробою. Завжди видаляйте існуючу скриньку ключів перед імпортом нової.</string>
+    <string name="ts_patch_stale_warning">%1$s (несвіжий, більше 12 місяців)</string>
     <string name="ts_security_patch">Дата виправлення системи безпеки</string>
     <string name="ts_no_patch">Не встановлено (використовується типовим пристроєм)</string>
     <string name="ts_select_target_apps">Вибрати цільові додатки</string>
