@@ -1313,6 +1313,7 @@
     <string name="ts_failed">失敗: %s</string>
     <string name="ts_footer_title">基本的な整合性のパス方法</string>
     <string name="ts_footer_body">キーボックスは自動的に取得され、有効な状態が維持されます。失効されいるかの状況は24時間ごとに確認され、現在のキーボックスが失効または停止されている場合は、公式ソースから新しいキーボックスが取得されます。\n\n手動で設定する場合：\n1. 「公式Keyboxを取得」をタップして自動的にダウンロードするか、信頼できるソースから独自のキーボックスをインポートします。\n2. 「対象アプリの管理」を開き、整合性チェックが必要なアプリを選択します。\n3. デバイスでTEEが機能している場合はターゲットモードを「Leaf」に設定し、そうでない場合は「自動」のままにします。\n4. Play Integrityのステータスを再確認します。\n5. \n注：有効な公式キーボックスが利用できない場合、自動取得は24時間停止され、その後再試行されます。また、新しいキーボックスをインポートする前に、必ず既存のキーボックスを削除してください。</string>
+    <string name="ts_patch_stale_warning">%1$s (古い、12ヶ月以上)</string>
     <string name="ts_security_patch">セキュリティパッチの日付</string>
     <string name="ts_no_patch">未設定 (デバイスの既定を使用)</string>
     <string name="ts_select_target_apps">ターゲットアプリを選択</string>
@@ -1696,4 +1697,9 @@
     <string name="global_actions_use_compose_dialog_summary">カスタマイズ可能なドラッグ可能なタイルレイアウトで新しい電源メニューを使用します。無効にすると、クラシックな電源メニューを使用します。</string>
     <string name="global_actions_advanced_reboot_title">高度な再起動を有効にする</string>
     <string name="global_actions_advanced_reboot_summary">高度な再起動を可能にする新しいダイアログを表示します</string>
+    <!-- Screenshots -->
+    <string name="screenshot_clipboard_only_title">クリップボードにのみコピー</string>
+    <string name="screenshot_clipboard_only_summary">ストレージ内に保存する代わりにクリップボードにスクリーンショットをコピー</string>
+    <string name="hide_status_bar_in_screenshot_title">スクリーンショット内のステータスバーを隠す</string>
+    <string name="hide_status_bar_in_screenshot_summary">全画面表示からステータスバーの領域をトリミングする</string>
 </resources>
