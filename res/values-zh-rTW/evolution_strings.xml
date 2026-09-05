@@ -1105,6 +1105,8 @@
     <string name="miscellaneous_ignore_window_secure_title">忽略應用程式禁止使用者擷取螢幕的保護</string>
     <string name="miscellaneous_ignore_window_secure_summary">移除所有應用程式的螢幕截圖和螢幕錄影限制，在某些情境下能帶來便利性，但可能引發隱私洩漏之虞。
 您可能需要重新啟動應用程式才能使變更生效。</string>
+    <string name="miscellaneous_screenshot_flash_title">顯示截圖閃爍</string>
+    <string name="miscellaneous_screenshot_flash_summary">擷取螢幕畫面時短暫閃爍螢幕</string>
     <string name="miscellaneous_block_screenshot_detection_title">封鎖螢幕擷圖偵測</string>
     <string name="miscellaneous_block_screenshot_detection_summary">防止應用程式偵知其內容已被擷取螢幕畫面</string>
     <string name="miscellaneous_block_screenrecord_detection_title">封鎖螢幕錄製偵測</string>
@@ -1314,6 +1316,7 @@
     <string name="ts_failed">失敗：%s</string>
     <string name="ts_footer_title">正在通過嚴格完整性</string>
     <string name="ts_footer_body">金鑰匣會自動擷取並保持有效。系統每 24 小時檢查一次撤銷狀態，若目前的金鑰匣遭撤銷或停用，會自動從官方來源擷取新的金鑰匣。\n\n手動設定步驟：\n1. 輕觸「擷取官方金鑰匣」自動下載，或從可信來源匯入你自己的金鑰匣。\n2. 開啟「管理目標應用程式」，選取需要完整性檢查的應用程式。\n3. 若你的裝置 TEE 正常運作，將目標模式設為「Leaf」；否則保持「自動」。\n4. 重新檢查你的 Play Integrity 狀態。\n\n注意：若暫時沒有有效的官方金鑰匣，自動擷取會暫停 24 小時後再重試。匯入新金鑰匣前，請務必先刪除現有的金鑰匣。</string>
+    <string name="ts_patch_stale_warning">%1$s（已過期，超過 12 個月）</string>
     <string name="ts_security_patch">安全性修補程式日期</string>
     <string name="ts_no_patch">未設定（使用裝置預設值）</string>
     <string name="ts_select_target_apps">選擇目標應用程式</string>
@@ -1697,4 +1700,9 @@
     <string name="global_actions_use_compose_dialog_summary">使用可自訂、可拖曳圖塊版面配置的新電源選單。停用後將使用傳統電源選單。</string>
     <string name="global_actions_advanced_reboot_title">啟用進階重新啟動</string>
     <string name="global_actions_advanced_reboot_summary">解鎖可執行進階重新啟動的新對話框</string>
+    <!-- Screenshots -->
+    <string name="screenshot_clipboard_only_title">僅複製至剪貼簿</string>
+    <string name="screenshot_clipboard_only_summary">將螢幕截圖複製至剪貼簿，而不儲存至儲存空間</string>
+    <string name="hide_status_bar_in_screenshot_title">螢幕截圖中隱藏狀態列</string>
+    <string name="hide_status_bar_in_screenshot_summary">從全螢幕截圖中裁切掉狀態列區域</string>
 </resources>
