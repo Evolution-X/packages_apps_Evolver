@@ -1103,6 +1103,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Impedir que todos os aplicativos escureçam o papel de parede, forçando o nível de escurecimento para 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignorar sinalizadores de janela segura</string>
     <string name="miscellaneous_ignore_window_secure_summary">Removedor de captura de tela e restrições de gravação de tela para todos os aplicativos. Pode expor conteúdo privado</string>
+    <string name="miscellaneous_screenshot_flash_title">Mostrar flash de captura</string>
+    <string name="miscellaneous_screenshot_flash_summary">Piscar ligeiramente a tela quando uma captura de tela for capturada</string>
     <string name="miscellaneous_block_screenshot_detection_title">Bloquear detecção de captura de tela</string>
     <string name="miscellaneous_block_screenshot_detection_summary">Impedir que os aplicativos saibam quando seu conteúdo foi capturado</string>
     <string name="miscellaneous_block_screenrecord_detection_title">Bloquear detecção de gravação de tela</string>
@@ -1312,6 +1314,7 @@
     <string name="ts_failed">Falha: %s</string>
     <string name="ts_footer_title">Aprovando no teste de integridade forte</string>
     <string name="ts_footer_body">Uma keybox é obtida e mantida válida automaticamente. O status de revogação é verificado a cada 24 horas e uma nova keybox é obtida da fonte oficial se a atual for revogada ou suspensa.\n\nPara configuração manual:\n1. Toque em \"Obter keybox oficial\" para baixar uma automaticamente ou importe a sua própria de uma fonte confiável.\n2. Abra \"Gerenciar apps de destino\" e selecione os apps que exigem verificações de integridade.\n3. Defina o modo de destino como \"Leaf\" se o seu dispositivo tiver um TEE funcionando; caso contrário, deixe como \"Automático\".\n4. Verifique novamente o status de integridade do Play.\n\nObservação: se nenhuma keybox oficial válida estiver disponível, a busca automática será pausada por 24 horas antes de tentar novamente. Sempre exclua a keybox existente antes de importar uma nova.</string>
+    <string name="ts_patch_stale_warning">%1$s (obsoleto, com mais de 12 meses)</string>
     <string name="ts_security_patch">Data do patch de segurança</string>
     <string name="ts_no_patch">Não definido (usando o padrão do dispositivo)</string>
     <string name="ts_select_target_apps">Selecione aplicativos alvo</string>
@@ -1695,4 +1698,9 @@
     <string name="global_actions_use_compose_dialog_summary">Use o novo menu avançado com um layout de blocos personalizável e arrastável. Desativar o para usar o menu de energia clássico.</string>
     <string name="global_actions_advanced_reboot_title">Ativar Reinicialização Avançada</string>
     <string name="global_actions_advanced_reboot_summary">Desbloqueia uma nova caixa de diálogo que permite opções avançadas de reinicialização</string>
+    <!-- Screenshots -->
+    <string name="screenshot_clipboard_only_title">Copiar apenas para área de transferência</string>
+    <string name="screenshot_clipboard_only_summary">Copiar captura de tela para área de transferência em vez de salvar no armazenamento</string>
+    <string name="hide_status_bar_in_screenshot_title">Ocultar barra de status nas capturas de tela</string>
+    <string name="hide_status_bar_in_screenshot_summary">Cortar a área da barra de status fora de capturas de tela inteira</string>
 </resources>
