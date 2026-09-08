@@ -16,9 +16,6 @@
 
 package org.evolution.settings.preferences;
 
-import static android.os.UserHandle.CURRENT;
-import static android.os.UserHandle.USER_CURRENT;
-
 import android.content.Context;
 import android.content.om.OverlayManager;
 import android.content.om.OverlayManagerTransaction;
@@ -45,12 +42,16 @@ public class OverlaySwitchPreference extends SelfRemovingSwitchPreference {
 
     private final String mDisableKey;
     private final boolean mDKeyNightOnly;
+    private final int mUserId;
+    private final UserHandle mUserHandle;
     private final OverlayManager mOverlayManager;
 
     public OverlaySwitchPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mDisableKey = attrs.getAttributeValue(SETTINGSNS, DKEY);
         mDKeyNightOnly = attrs.getAttributeBooleanValue(SETTINGSNS, DKEY_NIGHT_ONLY, false);
+        mUserId = UserHandle.myUserId();
+        mUserHandle = UserHandle.of(mUserId);
         mOverlayManager = context.getSystemService(OverlayManager.class);
     }
 
@@ -58,6 +59,8 @@ public class OverlaySwitchPreference extends SelfRemovingSwitchPreference {
         super(context, attrs);
         mDisableKey = attrs.getAttributeValue(SETTINGSNS, DKEY);
         mDKeyNightOnly = attrs.getAttributeBooleanValue(SETTINGSNS, DKEY_NIGHT_ONLY, false);
+        mUserId = UserHandle.myUserId();
+        mUserHandle = UserHandle.of(mUserId);
         mOverlayManager = context.getSystemService(OverlayManager.class);
     }
 
@@ -74,7 +77,7 @@ public class OverlaySwitchPreference extends SelfRemovingSwitchPreference {
     protected boolean getBoolean(String key, boolean defaultValue) {
         if (mOverlayManager == null) return false;
         OverlayInfo info = null;
-        info = mOverlayManager.getOverlayInfo(getOverlayID(getKey()), CURRENT);
+        info = mOverlayManager.getOverlayInfo(getOverlayID(getKey()), mUserHandle);
         if (info != null) return info.isEnabled();
         return false;
     }
@@ -83,17 +86,17 @@ public class OverlaySwitchPreference extends SelfRemovingSwitchPreference {
     protected void putBoolean(String key, boolean value) {
         if (mOverlayManager == null) return;
         OverlayManagerTransaction.Builder transaction = new OverlayManagerTransaction.Builder();
-        transaction.setEnabled(getOverlayID(getKey()), value, USER_CURRENT);
+        transaction.setEnabled(getOverlayID(getKey()), value, mUserId);
         if (mDisableKey != null && !mDisableKey.isEmpty()) {
             if (mDKeyNightOnly) {
                 final boolean isNight = (getContext().getResources().getConfiguration().uiMode
                     & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
                 if (isNight)
-                    transaction.setEnabled(getOverlayID(mDisableKey), !value, USER_CURRENT);
+                    transaction.setEnabled(getOverlayID(mDisableKey), !value, mUserId);
                 else // always enabled in day
-                    transaction.setEnabled(getOverlayID(mDisableKey), true, USER_CURRENT);
+                    transaction.setEnabled(getOverlayID(mDisableKey), true, mUserId);
             } else {
-                transaction.setEnabled(getOverlayID(mDisableKey), !value, USER_CURRENT);
+                transaction.setEnabled(getOverlayID(mDisableKey), !value, mUserId);
             }
         }
         try {
@@ -114,7 +117,7 @@ public class OverlaySwitchPreference extends SelfRemovingSwitchPreference {
                 final String pkgName = value[0];
                 final String overlayName = value[1];
                 final List<OverlayInfo> infos =
-                        mOverlayManager.getOverlayInfosForTarget(pkgName, CURRENT);
+                        mOverlayManager.getOverlayInfosForTarget(pkgName, mUserHandle);
                 for (OverlayInfo info : infos) {
                     if (overlayName.equals(info.getOverlayName()))
                         return info.getOverlayIdentifier();
@@ -123,7 +126,7 @@ public class OverlaySwitchPreference extends SelfRemovingSwitchPreference {
                 return null;
             }
             // package with only one overlay
-            OverlayInfo info = mOverlayManager.getOverlayInfo(name, CURRENT);
+            OverlayInfo info = mOverlayManager.getOverlayInfo(name, mUserHandle);
             if (info != null) {
                 return info.getOverlayIdentifier();
             } else {
