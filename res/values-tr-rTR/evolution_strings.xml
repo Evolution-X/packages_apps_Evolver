@@ -1314,6 +1314,7 @@
     <string name="ts_failed">%s başarısız oldu</string>
     <string name="ts_footer_title">Strong integrity geçiyor</string>
     <string name="ts_footer_body">1. Güvenilir bir kaynaktan geçerli bir keybox XML dosyası edinin. Keybox\'lar hazır olarak sağlanmaz; kendiniz bulmalısınız.\n2. \"Keybox içe aktar\" seçeneğine dokunun ve dosyayı yükleyin.\n3. \"Hedef uygulamaları yönet\" bölümünü açın; Google Play Hizmetleri ve Google Play Store\'u seçin.\n4. Cihazınızda çalışan bir TEE (Güvenli Yürütme Ortamı) varsa hedef modu \"Leaf\" olarak ayarlayın; aksi takdirde \"Otomatik\" olarak bırakın.\n5. Play Integrity durumunuzu yeniden kontrol edin.\n\nYeni bir keybox içe aktarmadan önce daima mevcut olanı silin. Google bir keybox\'ı iptal ederse (kara listeye alırsa), güçlü bütünlük (strong integrity) başarısız olsa bile cihaz bütünlüğünün (device integrity) geçilmesine hâlâ izin verebilir.</string>
+    <string name="ts_patch_stale_warning">Eski (%1$s, 12+ aylık)</string>
     <string name="ts_security_patch">Güvenlik yaması tarihi</string>
     <string name="ts_no_patch">Ayarlanmadı (cihaz varsayılanı kullanılıyor)</string>
     <string name="ts_select_target_apps">Hedef uygulamayı seçin</string>
@@ -1697,4 +1698,9 @@
     <string name="global_actions_use_compose_dialog_summary">Özelleştirilebilir ve sürüklenebilir döşeme düzenine sahip yeni güç menüsünü kullanın. Klasik güç menüsünü kullanmak için devre dışı bırakın.</string>
     <string name="global_actions_advanced_reboot_title">Gelişmiş yeniden başlatmayı etkinleştir</string>
     <string name="global_actions_advanced_reboot_summary">Gelişmiş yeniden başlatmaya olanak tanıyan yeni bir pencere açar</string>
+    <!-- Screenshots -->
+    <string name="screenshot_clipboard_only_title">Yalnızca panoya kopyala</string>
+    <string name="screenshot_clipboard_only_summary">Depolamak yerine ekran görüntüsünü panoya kopyala</string>
+    <string name="hide_status_bar_in_screenshot_title">Ekran görüntülerinde durum çubuğunu gizle</string>
+    <string name="hide_status_bar_in_screenshot_summary">Tam ekran görüntülerinden durum çubuğu alanını kırp</string>
 </resources>
