@@ -40,7 +40,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.evolution.settings.fragments.themes.fonts.ExternalFontInstaller
 import org.evolution.settings.utils.SystemUtils
-import java.util.concurrent.Executors
 import kotlin.math.min
 
 class FontsPickerPreference @JvmOverloads constructor(
@@ -257,7 +256,6 @@ class FontsPickerPreference @JvmOverloads constructor(
         private val CUSTOM_PKG_KEY = "__custom_font__"
 
         private var selectedPkg: String = if (hasCustomFont) CUSTOM_PKG_KEY else getApplied(themeUtils)
-        private val overlayExecutor = Executors.newSingleThreadExecutor()
         private val mainHandler = Handler(Looper.getMainLooper())
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FontViewHolder {
@@ -363,14 +361,15 @@ class FontsPickerPreference @JvmOverloads constructor(
             newPkg: String,
             onDone: () -> Unit
         ) {
-            overlayExecutor.execute {
+            Thread({
                 try {
                     themeUtils.setOverlayEnabled(CATEGORY, oldPkg, oldPkg)
                     themeUtils.setOverlayEnabled(CATEGORY, newPkg, "android")
-                } finally {
                     mainHandler.post { onDone() }
+                } catch (e: Exception) {
+                    Log.e(TAG, "Failed to apply font overlay", e)
                 }
-            }
+            }, "FontOverlay").start()
         }
 
         private fun showSystemUiRestartDialogWithAction(

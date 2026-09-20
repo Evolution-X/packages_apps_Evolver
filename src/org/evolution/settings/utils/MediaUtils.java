@@ -18,7 +18,6 @@ package org.evolution.settings.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Environment;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
@@ -41,75 +40,79 @@ public class MediaUtils {
     private static final long MAX_FILE_SIZE = 50 * 1024 * 1024;
     private static final String PREFS_NAME = "video_wallpaper_prefs";
     private static final String KEY_WALLPAPER_PATH = "current_wallpaper_path";
-    
+    private static final String STORAGE_ROOT = "/sdcard/Evolution-X";
+    private static final String LEGACY_STORAGE_ROOT = "/sdcard/Lunaris-OS";
+
     private static final List<String> SUPPORTED_VIDEO_FORMATS = Arrays.asList("mp4");
     private static final List<String> SUPPORTED_IMAGE_FORMATS = Arrays.asList("gif", "webp");
-    
+
     public static String saveMediaToWallpaperStorage(Context context, Uri mediaUri) {
         return saveMediaToExternalStorage(context, mediaUri, "Wallpapers", "wallpaper");
     }
-    
-    public static String saveMediaToExternalStorage(Context context, Uri mediaUri, 
-                                                    String featurePath, String filePrefix) {
-        InputStream inputStream = null;
-        FileOutputStream outputStream = null;
-        
+
+    public static String saveMediaToExternalStorage(
+            Context context, Uri mediaUri, String featurePath, String filePrefix) {
+        if (context == null || mediaUri == null || featurePath == null || filePrefix == null) {
+            Log.e(TAG, "Invalid media import arguments");
+            return null;
+        }
+
+        File outputFile = null;
         try {
-            if (mediaUri == null) {
-                Log.e(TAG, "Media URI is null");
-                return null;
-            }
-            inputStream = getInputStreamFromUri(context, mediaUri);
-            if (inputStream == null) {
-                Log.e(TAG, "Failed to get input stream from URI");
-                return null;
-            }
             String extension = getFileExtension(context, mediaUri);
             if (!isValidWallpaperFormat(extension)) {
                 Log.e(TAG, "Unsupported file format: " + extension);
                 return null;
             }
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
+
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS", Locale.US)
+                    .format(new Date());
             String fileName = filePrefix + "_" + timeStamp + extension;
-            File directory = new File("/sdcard/Lunaris-OS/" + featurePath);
+            File directory = new File(STORAGE_ROOT, featurePath);
             if (!directory.exists() && !directory.mkdirs()) {
                 Log.e(TAG, "Failed to create directory: " + directory.getAbsolutePath());
                 return null;
             }
-            deleteOldFiles(directory, filePrefix);
-            File outputFile = new File(directory, fileName);
-            outputStream = new FileOutputStream(outputFile);
-            long bytesCopied = copyStreamWithLimit(inputStream, outputStream, MAX_FILE_SIZE);
-            
-            if (bytesCopied < 0) {
+
+            outputFile = new File(directory, fileName);
+            long bytesCopied;
+            try (InputStream inputStream = getInputStreamFromUri(context, mediaUri)) {
+                if (inputStream == null) {
+                    Log.e(TAG, "Failed to get input stream from URI");
+                    return null;
+                }
+                try (FileOutputStream outputStream = new FileOutputStream(outputFile)) {
+                    bytesCopied = copyStreamWithLimit(
+                            inputStream, outputStream, MAX_FILE_SIZE);
+                }
+            }
+
+            if (bytesCopied < 0L) {
                 Log.e(TAG, "File size exceeds maximum allowed size");
                 outputFile.delete();
                 return null;
             }
 
+            deleteOldFiles(directory, filePrefix, outputFile);
             String absolutePath = outputFile.getAbsolutePath();
-            
             saveWallpaperPath(context, absolutePath);
 
-            Log.d(TAG, "Media saved successfully: " + absolutePath + " (" + bytesCopied + " bytes)");
+            Log.d(TAG, "Media saved successfully: " + absolutePath
+                    + " (" + bytesCopied + " bytes)");
             return absolutePath;
-            
+
         } catch (FileNotFoundException e) {
             Log.e(TAG, "File not found: " + e.getMessage());
-            return null;
         } catch (IOException e) {
             Log.e(TAG, "IO error: " + e.getMessage());
-            return null;
-        } catch (OutOfMemoryError e) {
-            Log.e(TAG, "Out of memory: " + e.getMessage());
-            return null;
         } catch (Exception e) {
             Log.e(TAG, "Unexpected error: " + e.getMessage(), e);
-            return null;
-        } finally {
-            closeQuietly(inputStream);
-            closeQuietly(outputStream);
         }
+
+        if (outputFile != null && outputFile.exists() && !outputFile.delete()) {
+            Log.w(TAG, "Failed to delete incomplete media: " + outputFile.getAbsolutePath());
+        }
+        return null;
     }
 
     private static void saveWallpaperPath(Context context, String path) {
@@ -144,27 +147,36 @@ public class MediaUtils {
             }
         }
 
-        File directory = new File("/sdcard/Lunaris-OS/Wallpapers");
-        if (!directory.exists()) {
-            Log.d(TAG, "Wallpaper directory does not exist");
-            return null;
+        File wallpaper = findNewestWallpaper(new File(STORAGE_ROOT, "Wallpapers"));
+        if (wallpaper == null) {
+            // Keep compatibility with files saved by older builds that still
+            // used the upstream Lunaris directory name.
+            wallpaper = findNewestWallpaper(new File(LEGACY_STORAGE_ROOT, "Wallpapers"));
         }
 
-        File[] files = directory.listFiles((dir, name) -> {
-            String lower = name.toLowerCase(Locale.ROOT);
-            return name.startsWith("wallpaper") && 
-                   (lower.endsWith(".mp4") || lower.endsWith(".gif") || lower.endsWith(".webp"));
-        });
-
-        if (files != null && files.length > 0) {
-            Arrays.sort(files, (f1, f2) -> Long.compare(f2.lastModified(), f1.lastModified()));
-            Log.d(TAG, "Found wallpaper from directory scan: " + files[0].getAbsolutePath());
-            saveWallpaperPath(context, files[0].getAbsolutePath());
-            return files[0];
+        if (wallpaper != null) {
+            Log.d(TAG, "Found wallpaper from directory scan: " + wallpaper.getAbsolutePath());
+            saveWallpaperPath(context, wallpaper.getAbsolutePath());
+            return wallpaper;
         }
 
         Log.d(TAG, "No wallpaper file found");
         return null;
+    }
+
+    private static File findNewestWallpaper(File directory) {
+        if (!directory.exists()) return null;
+
+        File[] files = directory.listFiles((dir, name) -> {
+            String lower = name.toLowerCase(Locale.ROOT);
+            return name.startsWith("wallpaper") &&
+                    (lower.endsWith(".mp4") || lower.endsWith(".gif") || lower.endsWith(".webp"));
+        });
+        if (files == null || files.length == 0) return null;
+
+        Arrays.sort(files, (first, second) ->
+                Long.compare(second.lastModified(), first.lastModified()));
+        return files[0];
     }
 
     public static boolean deleteCurrentWallpaper(Context context) {
@@ -214,12 +226,12 @@ public class MediaUtils {
         }
     }
 
-    private static long copyStreamWithLimit(InputStream input, FileOutputStream output, 
+    private static long copyStreamWithLimit(InputStream input, FileOutputStream output,
                                            long maxSize) throws IOException {
         byte[] buffer = new byte[BUFFER_SIZE];
         int bytesRead;
         long totalBytes = 0;
-        
+
         while ((bytesRead = input.read(buffer)) != -1) {
             totalBytes += bytesRead;
             if (totalBytes > maxSize) {
@@ -231,21 +243,19 @@ public class MediaUtils {
         return totalBytes;
     }
 
-    private static void deleteOldFiles(File directory, String filePrefix) {
+    private static void deleteOldFiles(File directory, String filePrefix, File keep) {
         try {
             File[] files = directory.listFiles((dir, name) -> {
                 String lower = name.toLowerCase(Locale.ROOT);
-                return name.startsWith(filePrefix) && 
-                       (lower.endsWith(".mp4") || lower.endsWith(".gif") || 
+                return name.startsWith(filePrefix) &&
+                       (lower.endsWith(".mp4") || lower.endsWith(".gif") ||
                         lower.endsWith(".webp"));
             });
-            
+
             if (files != null) {
                 for (File file : files) {
-                    if (!file.delete()) {
+                    if (!file.equals(keep) && !file.delete()) {
                         Log.w(TAG, "Failed to delete old file: " + file.getName());
-                    } else {
-                        Log.d(TAG, "Deleted old file: " + file.getName());
                     }
                 }
             }
@@ -268,12 +278,12 @@ public class MediaUtils {
             extension = getExtensionFromPath(uri.getPath());
         }
 
-        return extension != null ? extension : ".mp4";
+        return extension;
     }
 
     private static String getExtensionFromMimeType(String mimeType) {
         if (mimeType == null) return null;
-        
+
         String lower = mimeType.toLowerCase(Locale.ROOT);
         if (lower.contains("mp4") || lower.equals("video/mp4")) {
             return ".mp4";
@@ -282,18 +292,18 @@ public class MediaUtils {
         } else if (lower.contains("webp") || lower.equals("image/webp")) {
             return ".webp";
         }
-        
+
         String extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType);
         if (extension != null) {
             return "." + extension;
         }
-        
+
         return null;
     }
 
     private static String getExtensionFromPath(String path) {
         if (path == null) return null;
-        
+
         String lowerPath = path.toLowerCase(Locale.ROOT);
         if (lowerPath.endsWith(".mp4")) {
             return ".mp4";
@@ -302,16 +312,8 @@ public class MediaUtils {
         } else if (lowerPath.endsWith(".webp")) {
             return ".webp";
         }
-        
+
         return null;
     }
 
-    private static void closeQuietly(java.io.Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e) {
-            }
-        }
-    }
 }
