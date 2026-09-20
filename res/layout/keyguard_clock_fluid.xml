@@ -45,7 +45,7 @@
                 android:format24Hour="ss"
                 android:textSize="50.0dip"
                 android:letterSpacing="0.02"
-                android:paddingLeft="2dp"
+                android:paddingStart="2dp"
                 android:paddingBottom="10dp"
                 android:textColor="@android:color/system_accent1_400" />
         </LinearLayout>
