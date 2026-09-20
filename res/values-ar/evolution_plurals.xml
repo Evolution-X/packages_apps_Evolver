@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="ts_added_installed_count">
+        <item quantity="zero">لم تتم إضافة أي تطبيقات إلى الأهداف</item>
+        <item quantity="one">تمت إضافة تطبيق واحد إلى الأهداف</item>
+        <item quantity="two">تمت إضافة تطبيقين إلى الأهداف</item>
+        <item quantity="few">تمت إضافة %d تطبيقات إلى الأهداف</item>
+        <item quantity="many">تمت إضافة %d تطبيقًا إلى الأهداف</item>
+        <item quantity="other">تمت إضافة %d تطبيق إلى الأهداف</item>
+    </plurals>
+</resources>
