@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="themes_lock_unlock_sounds_entries">
+        <item>افتراضي</item><item>Amazon Fire</item><item>Asus Zenfone Max</item><item>Essential PH-1</item>
+        <item>HTC M8</item><item>Huawei</item><item>Hyper OS</item><item>Iqoo</item><item>LG G3</item>
+        <item>باب Minecraft</item><item>MIUI 10</item><item>MIUI 11</item><item>Nextbit</item><item>Nokia X</item>
+        <item>iOS قديم</item><item>One UI</item><item>OOS 14</item><item>Razer Phone</item><item>Soong</item>
+        <item>جهاز Windows</item><item>خطأ Windows</item>
+    </string-array>
+
+    <string-array name="themes_boot_animation_entries">
+        <item>Evolution X</item><item>Evolution X (كشف)</item><item>AOKP</item><item>CyanogenMod</item>
+        <item>ctOS</item><item>Cyberpunk</item><item>Dirty Unicorns</item><item>Google</item>
+        <item>Google (Monet)</item><item>PAC-ROM</item><item>Resurrection Remix</item><item>SlimRoms</item>
+        <item>Valorant</item><item>مخصص</item>
+    </string-array>
+
+    <string-array name="wallpaper_effect_entries">
+        <item>بلا</item><item>تمويه محبب</item><item>انحراف لوني</item><item>تظليل طرفي</item>
+        <item>بكسلة</item><item>تشبع</item><item>بني داكن</item><item>زيادة الحدة</item>
+        <item>تدرج رمادي</item><item>ألوان سالبة</item><item>تمويه شعاعي</item><item>تقليل الألوان</item>
+    </string-array>
+
+    <string-array name="clock_style_entries">
+        <item>افتراضي</item><item>ساعة OOS</item><item>ساعة iOS</item><item>ساعة COS</item>
+        <item>ساعة مخصصة</item><item>ساعة مخصصة 1</item><item>ساعة مخصصة 2</item><item>ساعة مخصصة 3</item>
+        <item>ساعة MIUI</item><item>ساعة IDE</item><item>ساعة Lottie</item><item>ساعة Lottie2</item>
+        <item>ساعة Fluid</item><item>ساعة Dualtone</item><item>ساعة Dualtone2</item><item>ساعة أنيقة</item>
+        <item>ساعة جانبية</item><item>ساعة بسيطة</item><item>ساعة بسيطة 2</item><item>ساعة بسيطة 3</item>
+    </string-array>
+
+    <string-array name="nowplaying_icon_style_entries">
+        <item>معطل</item><item>أيقونة التطبيق</item><item>أيقونة نوتة موسيقية</item>
+    </string-array>
+
+    <string-array name="nowplaying_color_mode_entries">
+        <item>أبيض</item><item>لون التمييز</item><item>غلاف الألبوم</item>
+    </string-array>
+
+    <string-array name="charging_animation_style_entries">
+        <item>تيار فقاعات</item><item>رذاذ توهج نيون</item><item>تأثيرات شعاعية</item><item>تأثير بلازما</item>
+        <item>شرارات كمومية</item><item>انتشار سديمي</item><item>مصفوفة رقمية</item><item>تدفق هندسي</item>
+    </string-array>
+
+    <string-array name="charging_color_mode_entries">
+        <item>الأخضر الافتراضي</item><item>لون التمييز</item><item>قوس قزح</item>
+    </string-array>
+
+    <string-array name="perapp_spoof_profile_labels">
+        <item>Black Shark 4 (الصين)</item><item>Poco F5</item><item>Samsung Galaxy S25 Ultra</item>
+        <item>Samsung Galaxy Z Fold 5</item><item>Honor Magic V2 RSR</item><item>Lenovo Legion Y700</item>
+        <item>Xiaomi 11T Pro</item><item>Xiaomi 13</item><item>Xiaomi 13 Pro</item><item>Xiaomi 14 Pro</item>
+        <item>OnePlus 12</item><item>OnePlus 13</item><item>Pixel 11 Pro XL</item><item>REDMAGIC 9 Pro</item>
+        <item>REDMAGIC 10 Pro</item><item>Realme 15 Pro 5G</item><item>ROG Phone 9 Pro</item><item>بدون</item>
+    </string-array>
+
+    <string-array name="cutout_progress_finish_style_entries">
+        <item>انبثاق</item><item>تتابع مقسّم</item><item>فوري</item>
+    </string-array>
+
+    <string-array name="cutout_progress_easing_entries">
+        <item>خطي</item><item>تسارع</item><item>تباطؤ</item><item>تسارع وتباطؤ سلس</item>
+    </string-array>
+
+    <string-array name="cutout_progress_position_entries">
+        <item>يمين</item><item>يسار</item><item>أعلى</item><item>أسفل</item>
+        <item>أعلى اليمين</item><item>أعلى اليسار</item><item>أسفل اليمين</item><item>أسفل اليسار</item>
+    </string-array>
+
+    <string-array name="cutout_progress_truncate_entries">
+        <item>المنتصف</item><item>البداية</item><item>النهاية</item>
+    </string-array>
+
+    <string-array name="lock_glymps_source_entries">
+        <item>خلفيات عشوائية (Picsum)</item><item>قائمة روابط مخصصة</item><item>مجلد محلي</item>
+    </string-array>
+
+    <string-array name="lock_glymps_cache_size_entries">
+        <item>3 خلفيات (حوالي 30 MB)</item><item>5 خلفيات (حوالي 50 MB)</item><item>10 خلفيات (حوالي 100 MB)</item>
+    </string-array>
+
+    <string-array name="lock_glymps_change_on_entries">
+        <item>تشغيل الشاشة</item><item>إطفاء الشاشة (موصى به)</item><item>حسب المؤقت</item>
+    </string-array>
+
+    <string-array name="lock_glymps_timer_entries">
+        <item>5 دقائق</item><item>10 دقائق</item><item>15 دقيقة</item><item>30 دقيقة</item>
+        <item>ساعة واحدة</item><item>ساعتان</item><item>3 ساعات</item><item>6 ساعات</item>
+        <item>12 ساعة</item><item>24 ساعة</item>
+    </string-array>
+
+    <string-array name="playback_speed_entries">
+        <item>0.25x (بطيء جدًا)</item><item>0.5x (بطيء)</item><item>0.75x (أبطأ قليلًا)</item>
+        <item>1.0x (عادي)</item><item>1.25x (أسرع قليلًا)</item><item>1.5x (سريع)</item><item>2.0x (سريع جدًا)</item>
+    </string-array>
+
+    <string-array name="quick_settings_data_usage_window_entries">
+        <item>يومي</item><item>أسبوعي</item>
+    </string-array>
+</resources>
