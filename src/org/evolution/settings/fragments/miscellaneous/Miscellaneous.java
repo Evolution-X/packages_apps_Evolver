@@ -103,11 +103,25 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         return list;
     }
 
-    private void handleListChange(ListPreference pref, Object newValue, String setting) {
+    private boolean handleListChange(ListPreference pref, Object newValue, String setting) {
+        if (!(newValue instanceof String)) {
+            return false;
+        }
         String value = (String) newValue;
         int index = pref.findIndexOfValue(value);
+        if (index < 0) {
+            return false;
+        }
+        final int intValue;
+        try {
+            intValue = Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            return false;
+        }
         pref.setSummary(pref.getEntries()[index]);
-        LineageSettings.System.putIntForUser(getContentResolver(), setting, Integer.valueOf(value), UserHandle.USER_CURRENT);
+        LineageSettings.System.putIntForUser(
+                getContentResolver(), setting, intValue, UserHandle.USER_CURRENT);
+        return true;
     }
 
     @Override
@@ -115,9 +129,8 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
         if (preference == mThreeFingersSwipeAction) {
-            handleListChange((ListPreference) preference, newValue,
+            return handleListChange((ListPreference) preference, newValue,
                     LineageSettings.System.KEY_THREE_FINGERS_SWIPE_ACTION);
-            return true;
         } else if (preference == mFlashOnCall) {
             int value = Integer.parseInt((String) newValue);
             mFlashOnCallIgnoreDND.setEnabled(value > 1);
