@@ -639,12 +639,21 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Network helpers ----------------------------------------------------
 
-    private fun fetchRevocationJson(): JSONObject? = try {
-        val conn = openFreshConnection(REVOCATION_URL)
-        if (conn.responseCode == HttpURLConnection.HTTP_OK)
-            JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
-        else null
-    } catch (_: Exception) { null }
+    private fun fetchRevocationJson(): JSONObject? {
+        var conn: HttpURLConnection? = null
+        return try {
+            conn = openFreshConnection(REVOCATION_URL)
+            if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+                JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
+            } else {
+                null
+            }
+        } catch (_: Exception) {
+            null
+        } finally {
+            conn?.disconnect()
+        }
+    }
 
     /**
      * Opens a connection with cache-busting so a stale CDN-cached 200 isn't
@@ -670,13 +679,25 @@ class TrickyStore : SettingsPreferenceFragment() {
      * FALLBACK_ROOT_*_SHA256 fingerprints.
      */
     private fun getTrustAnchors(): Set<X509Certificate> {
+        val resolver = requireContext().contentResolver
+        val cached = Settings.Secure.getString(resolver, ROOTS_CACHE_KEY)
+        val cachedAt = Settings.Secure.getLong(resolver, ROOTS_CACHED_AT_KEY, 0L)
+        val now = System.currentTimeMillis()
+        val cacheIsFresh = !cached.isNullOrEmpty() &&
+            cachedAt > 0L &&
+            cachedAt <= now &&
+            now - cachedAt <= ROOTS_CACHE_TTL_MS
+
+        if (cacheIsFresh) {
+            parseRootsJson(cached!!)?.let { return it }
+        }
+
         val live = fetchTrustAnchorsLive()
         if (live != null) {
             cacheTrustAnchors(live.second)
             return live.first
         }
-        val cached = Settings.Secure.getString(
-            requireContext().contentResolver, ROOTS_CACHE_KEY)
+
         if (!cached.isNullOrEmpty()) {
             parseRootsJson(cached)?.let { return it }
         }
@@ -684,13 +705,22 @@ class TrickyStore : SettingsPreferenceFragment() {
     }
 
     /** Returns (parsed certs, raw json) on success, null on any failure. */
-    private fun fetchTrustAnchorsLive(): Pair<Set<X509Certificate>, String>? = try {
-        val conn = openFreshConnection(ROOTS_URL)
-        if (conn.responseCode == HttpURLConnection.HTTP_OK) {
-            val raw = BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() }
-            parseRootsJson(raw)?.let { Pair(it, raw) }
-        } else null
-    } catch (_: Exception) { null }
+    private fun fetchTrustAnchorsLive(): Pair<Set<X509Certificate>, String>? {
+        var conn: HttpURLConnection? = null
+        return try {
+            conn = openFreshConnection(ROOTS_URL)
+            if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+                val raw = BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() }
+                parseRootsJson(raw)?.let { Pair(it, raw) }
+            } else {
+                null
+            }
+        } catch (_: Exception) {
+            null
+        } finally {
+            conn?.disconnect()
+        }
+    }
 
     private fun parseRootsJson(raw: String): Set<X509Certificate>? = try {
         val array = org.json.JSONArray(raw)
@@ -788,12 +818,16 @@ class TrickyStore : SettingsPreferenceFragment() {
             val result = withContext(Dispatchers.IO) {
                 runCatching {
                     val conn = URL(OFFICIAL_KEYBOX_URL).openConnection() as HttpURLConnection
-                    conn.connectTimeout = 10_000
-                    conn.readTimeout = 10_000
-                    check(conn.responseCode == HttpURLConnection.HTTP_OK) {
-                        "HTTP ${conn.responseCode}"
+                    try {
+                        conn.connectTimeout = 10_000
+                        conn.readTimeout = 10_000
+                        check(conn.responseCode == HttpURLConnection.HTTP_OK) {
+                            "HTTP ${conn.responseCode}"
+                        }
+                        conn.inputStream.use { it.readBytes().toString(Charsets.UTF_8) }
+                    } finally {
+                        conn.disconnect()
                     }
-                    conn.inputStream.use { it.readBytes().toString(Charsets.UTF_8) }
                 }
             }
 
