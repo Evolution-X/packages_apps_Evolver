@@ -10,6 +10,7 @@ import android.content.Context;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
@@ -46,10 +47,12 @@ public class ClockStyle extends RelativeLayout {
 
 	private Context mContext;
 	private View[] clockViews;
+    private final MyContentObserver mContentObserver;
 
 	public ClockStyle(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mContext = context;
+        mContentObserver = new MyContentObserver(new Handler(Looper.getMainLooper()));
 	}
 
 	@Override
@@ -63,8 +66,20 @@ public class ClockStyle extends RelativeLayout {
                 clockViews[i] = null;
             }
         }
-        new MyContentObserver(new Handler()).observe();
         updateClockView();
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        mContentObserver.observe();
+        updateClockView();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        mContentObserver.unobserve();
+        super.onDetachedFromWindow();
     }
 
     private void updateClockView() {
@@ -78,19 +93,30 @@ public class ClockStyle extends RelativeLayout {
         }
     }
 
-	class MyContentObserver extends ContentObserver {
-		public MyContentObserver(Handler h) {
-			super(h);
-		}
+    private class MyContentObserver extends ContentObserver {
+        private boolean mRegistered;
 
-		public void observe() {
-			ContentResolver cr = mContext.getContentResolver();
-			cr.registerContentObserver(Settings.System.getUriFor("clock_style"), false, this);
-		}
+        MyContentObserver(Handler handler) {
+            super(handler);
+        }
 
-		@Override
-		public void onChange(boolean selfChange) {
-			updateClockView();
-		}
+        void observe() {
+            if (mRegistered) return;
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(CLOCK_STYLE_KEY), false, this);
+            mRegistered = true;
+        }
+
+        void unobserve() {
+            if (!mRegistered) return;
+            mContext.getContentResolver().unregisterContentObserver(this);
+            mRegistered = false;
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateClockView();
+        }
     }
 }
