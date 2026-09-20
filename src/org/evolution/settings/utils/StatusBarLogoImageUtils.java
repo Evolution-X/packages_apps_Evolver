@@ -61,51 +61,50 @@ public class StatusBarLogoImageUtils {
      * saves it as a PNG and returns the absolute path, or {@code null} on failure.
      */
     public static String saveLogoImage(Context context, Uri imgUri) {
-        InputStream inputStream = null;
-        FileOutputStream outputStream = null;
+        Bitmap source = null;
+        Bitmap scaled = null;
 
         try {
-            inputStream = openInputStream(context, imgUri);
-            if (inputStream == null) {
-                Log.e(TAG, "Could not open input stream for " + imgUri);
-                return null;
-            }
-
-            // Decode full bitmap (logo images are typically small picks from gallery)
-            Bitmap source = BitmapFactory.decodeStream(inputStream);
+            source = decodeSampledBitmap(context, imgUri, TARGET_SIZE, TARGET_SIZE);
             if (source == null) {
                 Log.e(TAG, "BitmapFactory failed to decode stream");
                 return null;
             }
 
-            // Scale down to TARGET_SIZE × TARGET_SIZE
-            Bitmap scaled = Bitmap.createScaledBitmap(source, TARGET_SIZE, TARGET_SIZE, true);
-            source.recycle();
+            final float scale = Math.min(
+                    TARGET_SIZE / (float) source.getWidth(),
+                    TARGET_SIZE / (float) source.getHeight());
+            final int width = Math.max(1, Math.round(source.getWidth() * scale));
+            final int height = Math.max(1, Math.round(source.getHeight() * scale));
+            scaled = (width == source.getWidth() && height == source.getHeight())
+                    ? source
+                    : Bitmap.createScaledBitmap(source, width, height, true);
 
-            // Prepare output directory
             File directory = new File("/sdcard/Evolution-X/" + FEATURE_PATH);
             if (!directory.exists() && !directory.mkdirs()) {
                 Log.e(TAG, "Failed to create directory: " + directory.getAbsolutePath());
-                scaled.recycle();
                 return null;
             }
 
-            // Remove stale copies first
-            deleteOldFiles(directory);
-
-            // Build unique filename
-            String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
+            String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS", Locale.US)
+                    .format(new Date());
             File outFile = new File(directory, FILE_PREFIX + "_" + timestamp + ".png");
 
-            // Write PNG
-            outputStream = new FileOutputStream(outFile);
-            if (!scaled.compress(Bitmap.CompressFormat.PNG, 100, outputStream)) {
+            boolean compressed;
+            try (FileOutputStream outputStream = new FileOutputStream(outFile)) {
+                compressed = scaled.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+                outputStream.flush();
+            }
+
+            if (!compressed) {
                 Log.e(TAG, "Failed to compress bitmap to PNG");
-                scaled.recycle();
+                if (!outFile.delete()) {
+                    Log.w(TAG, "Could not delete incomplete logo file: " + outFile.getName());
+                }
                 return null;
             }
-            scaled.recycle();
 
+            deleteOldFiles(directory, outFile);
             Log.d(TAG, "Status bar logo saved: " + outFile.getAbsolutePath());
             return outFile.getAbsolutePath();
 
@@ -118,8 +117,12 @@ public class StatusBarLogoImageUtils {
         } catch (Exception e) {
             Log.e(TAG, "Unexpected error: " + e.getMessage(), e);
         } finally {
-            closeQuietly(inputStream);
-            closeQuietly(outputStream);
+            if (scaled != null && scaled != source && !scaled.isRecycled()) {
+                scaled.recycle();
+            }
+            if (source != null && !source.isRecycled()) {
+                source.recycle();
+            }
         }
 
         return null;
@@ -128,6 +131,31 @@ public class StatusBarLogoImageUtils {
     // -------------------------------------------------------------------------
     // Private helpers
     // -------------------------------------------------------------------------
+
+    private static Bitmap decodeSampledBitmap(
+            Context context, Uri uri, int reqWidth, int reqHeight) throws IOException {
+        BitmapFactory.Options bounds = new BitmapFactory.Options();
+        bounds.inJustDecodeBounds = true;
+        try (InputStream input = openInputStream(context, uri)) {
+            if (input == null) return null;
+            BitmapFactory.decodeStream(input, null, bounds);
+        }
+        if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null;
+
+        int sampleSize = 1;
+        while (bounds.outWidth / (sampleSize * 2) >= reqWidth
+                && bounds.outHeight / (sampleSize * 2) >= reqHeight) {
+            sampleSize *= 2;
+        }
+
+        BitmapFactory.Options decode = new BitmapFactory.Options();
+        decode.inSampleSize = sampleSize;
+        decode.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        try (InputStream input = openInputStream(context, uri)) {
+            if (input == null) return null;
+            return BitmapFactory.decodeStream(input, null, decode);
+        }
+    }
 
     /** Handles the Google Photos content URI quirk, same pattern as ImageUtils. */
     private static InputStream openInputStream(Context context, Uri uri) throws IOException {
@@ -143,26 +171,20 @@ public class StatusBarLogoImageUtils {
         return context.getContentResolver().openInputStream(uri);
     }
 
-    /** Deletes any previously saved logo PNG files from the folder. */
-    private static void deleteOldFiles(File directory) {
+    /** Deletes previously saved logo PNG files while preserving the new one. */
+    private static void deleteOldFiles(File directory, File keep) {
         try {
             File[] files = directory.listFiles(
                     (dir, name) -> name.startsWith(FILE_PREFIX) && name.endsWith(".png"));
             if (files != null) {
-                for (File f : files) {
-                    if (!f.delete()) {
-                        Log.w(TAG, "Could not delete: " + f.getName());
+                for (File file : files) {
+                    if (!file.equals(keep) && !file.delete()) {
+                        Log.w(TAG, "Could not delete: " + file.getName());
                     }
                 }
             }
         } catch (Exception e) {
             Log.w(TAG, "Error cleaning up old logo files: " + e.getMessage());
-        }
-    }
-
-    private static void closeQuietly(java.io.Closeable c) {
-        if (c != null) {
-            try { c.close(); } catch (IOException ignored) {}
         }
     }
 }
