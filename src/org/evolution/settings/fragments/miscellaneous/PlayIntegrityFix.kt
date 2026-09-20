@@ -381,19 +381,31 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 }
 
                 val currentDevice = android.os.SystemProperties.get(MATCH_DEVICE_PROP, "")
+                val preferredASeries = PixelDeviceRepository.getPreferredASeriesCodename(profiles)
                 val sortedProfiles = profiles.sortedWith(
                     compareByDescending<PixelDeviceRepository.PixelProfile> {
                         it.device == currentDevice
+                    }.thenByDescending {
+                        PixelDeviceRepository.A_SERIES_ORDER.contains(it.codename)
                     }.thenByDescending {
                         PixelDeviceRepository.GENERATION_ORDER.indexOf(it.codename)
                             .let { idx -> if (idx < 0) -1 else PixelDeviceRepository.GENERATION_ORDER.size - idx }
                     }
                 )
-                val modelNames = sortedProfiles.map { it.model }.toTypedArray()
+                val modelNames = sortedProfiles.map {
+                    if (PixelDeviceRepository.A_SERIES_ORDER.contains(it.codename)) {
+                        "${it.model} — ${getString(R.string.pif_recommended_suffix)}"
+                    } else {
+                        it.model
+                    }
+                }.toTypedArray()
+                val preselectedIndex = sortedProfiles.indexOfFirst { it.codename == preferredASeries }
+                    .let { if (it < 0) 0 else it }
 
                 AlertDialog.Builder(requireContext())
                     .setTitle(R.string.pif_select_device)
-                    .setItems(modelNames) { _, which ->
+                    .setSingleChoiceItems(modelNames, preselectedIndex) { dialog, which ->
+                        dialog.dismiss()
                         saveProfileAsPif(sortedProfiles[which])
                     }
                     .setNegativeButton(android.R.string.cancel, null)
