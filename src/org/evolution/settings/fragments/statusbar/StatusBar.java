@@ -254,12 +254,21 @@ public class StatusBar extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mQuickPulldown) {
-            int value = Integer.parseInt((String) newValue);
+            Integer value = parseIntegerValue(newValue);
+            if (value == null) {
+                return false;
+            }
             updateQuickPulldownSummary(value);
             return true;
         } else if (preference == mLogoColor) {
-            int logoColor = Integer.valueOf((String) newValue);
+            Integer logoColor = parseIntegerValue(newValue);
+            if (logoColor == null || !(newValue instanceof String)) {
+                return false;
+            }
             int index = mLogoColor.findIndexOfValue((String) newValue);
+            if (index < 0) {
+                return false;
+            }
             Settings.System.putIntForUser(resolver,
                     Settings.System.STATUS_BAR_LOGO_COLOR, logoColor, UserHandle.USER_CURRENT);
             mLogoColor.setSummary(mLogoColor.getEntries()[index]);
@@ -267,7 +276,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
             return true;
         } else if (preference.getKey() != null
                 && preference.getKey().equals(LOGO_CUSTOM_STYLE)) {
-            updateCustomImagePrefVisibility();
+            if (!(newValue instanceof Integer)) {
+                return false;
+            }
+            updateCustomImagePrefVisibility((Integer) newValue);
             return true;
         } else if (preference == mLogoColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -286,9 +298,12 @@ public class StatusBar extends SettingsPreferenceFragment implements
             updateLogoPrefsVisibility(enabled);
             return true;
         } else if (preference == mClockChip) {
-            int style = (int) newValue;
+            if (!(newValue instanceof Integer)) {
+                return false;
+            }
+            int style = (Integer) newValue;
             updateClockChipGradientPrefsVisibility(style);
-            updateClockChipSummary();
+            updateClockChipSummary(style);
             return true;
         } else if (preference == mClockChipGradientStartColor) {
             int color = (int) newValue;
@@ -317,7 +332,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mClockChipGradientMaskText) {
-            int value = Integer.parseInt((String) newValue);
+            Integer value = parseIntegerValue(newValue);
+            if (value == null) {
+                return false;
+            }
             Settings.System.putIntForUser(
                     resolver,
                     KEY_CLOCK_CHIP_GRADIENT_MASK_TEXT,
@@ -325,7 +343,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mCarrierMode) {
-            int value = Integer.parseInt((String) newValue);
+            Integer value = parseIntegerValue(newValue);
+            if (value == null) {
+                return false;
+            }
             updateCustomCarrierTextPrefVisibility(value);
             return true;
 //        } else if (preference == mColoredIcons) {
@@ -370,20 +391,24 @@ public class StatusBar extends SettingsPreferenceFragment implements
     }
 
     private void updateCustomImagePrefVisibility() {
+        int currentStyle = Settings.System.getIntForUser(
+                requireContext().getContentResolver(),
+                Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+        updateCustomImagePrefVisibility(currentStyle);
+    }
+
+    private void updateCustomImagePrefVisibility(int currentStyle) {
         if (mLogoCustomImage == null) return;
         if (mLogo != null && !mLogo.isChecked()) {
             mLogoCustomImage.setVisible(false);
             return;
         }
-        int currentStyle = Settings.System.getIntForUser(
-                getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_LOGO_STYLE, 0,
-                UserHandle.USER_CURRENT);
         boolean isCustom = currentStyle == getCustomLogoStyleIndex();
         mLogoCustomImage.setVisible(isCustom);
         if (isCustom) {
             String path = Settings.System.getStringForUser(
-                    getActivity().getContentResolver(),
+                    requireContext().getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO_CUSTOM_IMAGE_URI,
                     UserHandle.USER_CURRENT);
             updateCustomImagePrefSummary(path);
@@ -409,8 +434,19 @@ public class StatusBar extends SettingsPreferenceFragment implements
     }
 
     private void updateColorPrefs(int logoColor) {
-        if (mLogoColor != null) {
+        if (mLogoColorPicker != null) {
             mLogoColorPicker.setEnabled(logoColor == 2);
+        }
+    }
+
+    private static Integer parseIntegerValue(Object value) {
+        if (value == null) {
+            return null;
+        }
+        try {
+            return Integer.valueOf(String.valueOf(value));
+        } catch (NumberFormatException e) {
+            return null;
         }
     }
 
@@ -436,17 +472,21 @@ public class StatusBar extends SettingsPreferenceFragment implements
     }
 
     private void updateClockChipSummary() {
-        if (mClockChip == null) return;
         int index = Settings.System.getIntForUser(
-                getActivity().getContentResolver(),
+                requireContext().getContentResolver(),
                 Settings.System.STATUSBAR_CLOCK_CHIP,
                 0, UserHandle.USER_CURRENT);
+        updateClockChipSummary(index);
+    }
+
+    private void updateClockChipSummary(int index) {
+        if (mClockChip == null) return;
         String[] labels = getResources().getStringArray(R.array.statusbar_clock_chip_labels);
-        if (index == 0) {
+        if (index == 0 || labels.length == 0) {
             mClockChip.setSummary(R.string.gesture_setting_off);
             return;
         }
-        String label = (index < labels.length) ? labels[index] : labels[0];
+        String label = (index >= 0 && index < labels.length) ? labels[index] : labels[0];
         mClockChip.setSummary(getString(R.string.gesture_setting_on) + " / " + label);
     }
 
