@@ -43,6 +43,8 @@ class LockscreenWallpaperView @JvmOverloads constructor(
     private val scope = CoroutineScope(Dispatchers.Main + Job())
 
     private var lastWallpaperId: Int = -1
+    private var lastTargetWidth: Int = -1
+    private var lastTargetHeight: Int = -1
     private var pendingJob: Job? = null
 
     private val wallpaperChecker = object : Runnable {
@@ -52,10 +54,19 @@ class LockscreenWallpaperView @JvmOverloads constructor(
         }
     }
 
-    init {
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        handler.removeCallbacks(wallpaperChecker)
         post {
             updateLockscreenWallpaper()
             handler.postDelayed(wallpaperChecker, 2000)
+        }
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        if (w > 0 && h > 0 && (w != oldw || h != oldh) && isAttachedToWindow) {
+            post { updateLockscreenWallpaper() }
         }
     }
 
@@ -70,18 +81,25 @@ class LockscreenWallpaperView @JvmOverloads constructor(
             -1
         }
 
-        if (wallpaperId == lastWallpaperId && wallpaperId != -1) return
-
         val targetW = width
         val targetH = height
+        if (wallpaperId == lastWallpaperId &&
+            wallpaperId != -1 &&
+            targetW == lastTargetWidth &&
+            targetH == lastTargetHeight
+        ) {
+            return
+        }
 
         pendingJob?.cancel()
         pendingJob = scope.launch {
             val drawable = withContext(Dispatchers.IO) {
                 decodeSampledWallpaper(wallpaperManager, targetW, targetH)
             }
-            if (drawable != null) {
+            if (drawable != null && isAttachedToWindow) {
                 lastWallpaperId = wallpaperId
+                lastTargetWidth = targetW
+                lastTargetHeight = targetH
                 setImageDrawable(drawable)
             }
         }
@@ -150,8 +168,9 @@ class LockscreenWallpaperView @JvmOverloads constructor(
     }
 
     override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
         handler.removeCallbacks(wallpaperChecker)
         pendingJob?.cancel()
+        pendingJob = null
+        super.onDetachedFromWindow()
     }
 }
