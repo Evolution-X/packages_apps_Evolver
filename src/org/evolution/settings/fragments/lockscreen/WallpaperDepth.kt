@@ -205,7 +205,11 @@ class WallpaperDepth : OptimizedSettingsFragment(), Preference.OnPreferenceChang
             val dir = File(Environment.getExternalStorageDirectory(), SAVE_DIR)
             if (dir.exists()) {
                 val files = dir.listFiles { _, name ->
-                    name.startsWith(FILE_PREFIX) && name.endsWith(".png")
+                    if (!name.startsWith(FILE_PREFIX)) return@listFiles false
+                    when (name.substringAfterLast('.', "").lowercase()) {
+                        "png", "jpg", "jpeg", "gif", "webp" -> true
+                        else -> false
+                    }
                 }
                 files?.forEach { it.delete() }
             }
