@@ -37,7 +37,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class WallpaperPreviewPreference extends Preference {
-    
+
     private ImageView mLockPreview;
     private ImageView mHomePreview;
     private TextView mLockLabel;
@@ -45,14 +45,15 @@ public class WallpaperPreviewPreference extends Preference {
     private MaterialButton mApplyButton;
     private MaterialCardView mLockCard;
     private MaterialCardView mHomeCard;
-    
+
     private ExecutorService mExecutor;
     private Handler mHandler;
     private WallpaperManager mWallpaperManager;
-    
+
     private Bitmap mLockWallpaper;
     private Bitmap mHomeWallpaper;
-    
+    private boolean mAttached;
+
     public WallpaperPreviewPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setLayoutResource(R.layout.preference_wallpaper_preview);
@@ -60,11 +61,17 @@ public class WallpaperPreviewPreference extends Preference {
         mHandler = new Handler(Looper.getMainLooper());
         mWallpaperManager = WallpaperManager.getInstance(context);
     }
-    
+
+    @Override
+    public void onAttached() {
+        super.onAttached();
+        mAttached = true;
+    }
+
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
-        
+
         mLockCard = (MaterialCardView) holder.findViewById(R.id.lock_wallpaper_card);
         mHomeCard = (MaterialCardView) holder.findViewById(R.id.home_wallpaper_card);
         mLockPreview = (ImageView) holder.findViewById(R.id.lock_wallpaper_preview);
@@ -72,19 +79,20 @@ public class WallpaperPreviewPreference extends Preference {
         mLockLabel = (TextView) holder.findViewById(R.id.lock_wallpaper_label);
         mHomeLabel = (TextView) holder.findViewById(R.id.home_wallpaper_label);
         mApplyButton = (MaterialButton) holder.findViewById(R.id.apply_now_button);
-        
+
         if (mApplyButton != null) {
             mApplyButton.setOnClickListener(v -> applyNewWallpaper());
         }
-        
+
         loadWallpaperPreviews();
     }
-    
+
     private void loadWallpaperPreviews() {
+        if (!mAttached) return;
         if (mExecutor == null || mExecutor.isShutdown()) {
             mExecutor = Executors.newSingleThreadExecutor();
         }
-        
+
         mExecutor.execute(() -> {
             try {
                 Drawable lockDrawable = mWallpaperManager.getDrawable(WallpaperManager.FLAG_LOCK);
@@ -96,47 +104,51 @@ public class WallpaperPreviewPreference extends Preference {
                         mLockWallpaper = ((BitmapDrawable) systemDrawable).getBitmap();
                     }
                 }
-                
+
                 Drawable homeDrawable = mWallpaperManager.getDrawable();
                 if (homeDrawable instanceof BitmapDrawable) {
                     mHomeWallpaper = ((BitmapDrawable) homeDrawable).getBitmap();
                 }
-                
-                mHandler.post(() -> updatePreviewImages());
-                
+
+                mHandler.post(() -> {
+                    if (mAttached) {
+                        updatePreviewImages();
+                    }
+                });
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
     }
-    
+
     private void updatePreviewImages() {
         if (mLockPreview != null && mLockWallpaper != null) {
             mLockPreview.setImageBitmap(mLockWallpaper);
             mLockPreview.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
-        
+
         if (mHomePreview != null && mHomeWallpaper != null) {
             mHomePreview.setImageBitmap(mHomeWallpaper);
             mHomePreview.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
     }
-    
+
     private void applyNewWallpaper() {
         Context context = getContext();
         if (context == null) return;
-        
+
         if (mApplyButton != null) {
             mApplyButton.setEnabled(false);
             mApplyButton.setText(R.string.lock_glymps_applying);
         }
-        
+
         Intent intent = new Intent();
         intent.setClassName("com.android.systemui",
             "com.android.systemui.lockglymps.LockGlympsService");
         intent.setAction("APPLY_NOW");
         context.startService(intent);
-        
+
         mHandler.postDelayed(() -> {
             if (mApplyButton != null) {
                 mApplyButton.setEnabled(true);
@@ -145,23 +157,30 @@ public class WallpaperPreviewPreference extends Preference {
             mHandler.postDelayed(this::loadWallpaperPreviews, 1000);
         }, 2000);
     }
-    
+
     public void refreshPreviews() {
         loadWallpaperPreviews();
     }
-    
+
     @Override
     public void onDetached() {
-        super.onDetached();
+        mAttached = false;
+        mHandler.removeCallbacksAndMessages(null);
         if (mExecutor != null && !mExecutor.isShutdown()) {
-            mExecutor.shutdown();
-            mExecutor = null;
+            mExecutor.shutdownNow();
         }
-        if (mLockWallpaper != null && !mLockWallpaper.isRecycled()) {
-            mLockWallpaper = null;
-        }
-        if (mHomeWallpaper != null && !mHomeWallpaper.isRecycled()) {
-            mHomeWallpaper = null;
-        }
+        mExecutor = null;
+
+        mLockPreview = null;
+        mHomePreview = null;
+        mLockLabel = null;
+        mHomeLabel = null;
+        mApplyButton = null;
+        mLockCard = null;
+        mHomeCard = null;
+        mLockWallpaper = null;
+        mHomeWallpaper = null;
+
+        super.onDetached();
     }
 }
