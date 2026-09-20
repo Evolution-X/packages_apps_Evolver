@@ -94,7 +94,6 @@ import kotlinx.coroutines.withContext
 import org.evolution.settings.utils.BootAnimationUtils
 import java.io.File
 import java.io.FileOutputStream
-import java.io.InputStream
 import java.nio.ByteBuffer
 import java.util.Enumeration
 import java.util.regex.Pattern
@@ -107,6 +106,7 @@ private const val BOOTANIMATION_STYLE_KEY = "persist.sys.bootanimation_style"
 private const val ACTION_BOOTANIM_STYLE_CHANGED =
     "org.evolution.intent.action.BOOTANIM_STYLE_CHANGED"
 private const val CUSTOM_BOOTANIMATION_FILE = "/data/misc/bootanim/bootanimation.zip"
+private const val MAX_CUSTOM_BOOTANIMATION_BYTES = 128L * 1024L * 1024L
 
 // ---------------------------------------------------------------------------
 // Fragment
@@ -187,22 +187,64 @@ private fun BootAnimationScreen(context: android.content.Context) {
 
     fun handleCustomPick(uri: Uri) {
         scope.launch(Dispatchers.IO) {
+            val dest = File(CUSTOM_BOOTANIMATION_FILE).also { it.parentFile?.mkdirs() }
+            val temp = File(dest.parentFile, "${dest.name}.tmp")
+            val backup = File(dest.parentFile, "${dest.name}.bak")
             try {
-                val input: InputStream = context.contentResolver.openInputStream(uri)
-                    ?: run { Log.e(TAG, "Could not open stream for $uri"); return@launch }
-                val dest = File(CUSTOM_BOOTANIMATION_FILE).also { it.parentFile?.mkdirs() }
-                FileOutputStream(dest).use { input.copyTo(it) }
-                input.close()
+                temp.delete()
+                context.contentResolver.openInputStream(uri)?.use { input ->
+                    FileOutputStream(temp).use { output ->
+                        val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+                        var total = 0L
+                        while (true) {
+                            val read = input.read(buffer)
+                            if (read < 0) break
+                            total += read
+                            if (total > MAX_CUSTOM_BOOTANIMATION_BYTES) {
+                                throw IllegalArgumentException("Custom boot animation exceeds size limit")
+                            }
+                            output.write(buffer, 0, read)
+                        }
+                        output.flush()
+                    }
+                } ?: throw IllegalArgumentException("Could not open stream for $uri")
+
+                val valid = runCatching {
+                    ZipFile(temp).use { zip ->
+                        val desc = zip.getEntry("desc.txt")
+                        desc != null && !desc.isDirectory
+                    }
+                }.getOrDefault(false)
+                if (!valid) {
+                    throw IllegalArgumentException("Invalid boot animation ZIP: missing desc.txt")
+                }
+
+                backup.delete()
+                if (dest.exists() && !dest.renameTo(backup)) {
+                    throw IllegalStateException("Could not preserve existing boot animation")
+                }
+                if (!temp.renameTo(dest)) {
+                    if (backup.exists()) backup.renameTo(dest)
+                    throw IllegalStateException("Could not install custom boot animation")
+                }
+                backup.delete()
                 dest.setReadable(true, false)
+
                 withContext(Dispatchers.Main) {
                     applyStyle(BootAnimationUtils.STYLE_CUSTOM)
                     Toast.makeText(context, R.string.boot_animation_applied, Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Error copying custom boot animation", e)
+                if (!dest.exists() && backup.exists()) {
+                    backup.renameTo(dest)
+                }
                 withContext(Dispatchers.Main) {
                     Toast.makeText(context, R.string.boot_animation_applied_error, Toast.LENGTH_SHORT).show()
                 }
+            } finally {
+                temp.delete()
+                if (dest.exists()) backup.delete()
             }
         }
     }
