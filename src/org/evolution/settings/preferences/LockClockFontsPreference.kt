@@ -28,7 +28,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
 import org.evolution.settings.utils.SystemUtils
-import java.util.concurrent.Executors
 import kotlin.math.min
 
 class LockClockFontsPreference @JvmOverloads constructor(
@@ -160,7 +159,6 @@ class LockClockFontsPreference @JvmOverloads constructor(
         private var selectedPkg: String = getApplied(themeUtils)
         private val appliedPkg: String = selectedPkg
 
-        private val overlayExecutor = Executors.newSingleThreadExecutor()
         private val mainHandler = Handler(Looper.getMainLooper())
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FontsViewHolder {
@@ -220,14 +218,15 @@ class LockClockFontsPreference @JvmOverloads constructor(
             newPkg: String,
             onDone: () -> Unit
         ) {
-            overlayExecutor.execute {
+            Thread({
                 try {
                     themeUtils.setOverlayEnabled(CATEGORY, oldPkg, oldPkg)
                     themeUtils.setOverlayEnabled(CATEGORY, newPkg, "android")
-                } finally {
                     mainHandler.post { onDone() }
+                } catch (e: Exception) {
+                    Log.e(TAG, "Failed to apply lock clock font overlay", e)
                 }
-            }
+            }, "LockClockFontOverlay").start()
         }
 
         private fun showSystemUiRestartDialogWithAction(
