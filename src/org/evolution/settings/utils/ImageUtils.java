@@ -36,24 +36,25 @@ import java.util.Locale;
 public class ImageUtils {
     private static final String TAG = "ImageUtils";
     private static final int BUFFER_SIZE = 8192;
-    
-    public static String saveImageToInternalStorage(Context context, Uri imgUri, String featurePath, String filePrefix) {
-        InputStream inputStream = null;
-        FileOutputStream outputStream = null;
-        
+    private static final long MAX_ANIMATED_IMAGE_BYTES = 50L * 1024L * 1024L;
+    private static final int MAX_STATIC_DIMENSION = 4096;
+
+    public static String saveImageToInternalStorage(
+            Context context, Uri imgUri, String featurePath, String filePrefix) {
+        if (context == null || imgUri == null || featurePath == null || filePrefix == null) {
+            return null;
+        }
+
+        File outputFile = null;
         try {
-            inputStream = getInputStreamFromUri(context, imgUri);
-            if (inputStream == null) {
-                Log.e(TAG, "Failed to get input stream from URI");
-                return null;
-            }
+            String sourceExtension = getFileExtension(context, imgUri);
+            boolean isGif = ".gif".equalsIgnoreCase(sourceExtension);
+            boolean isWebp = ".webp".equalsIgnoreCase(sourceExtension);
+            String outputExtension = (isGif || isWebp) ? sourceExtension : ".png";
 
-            String extension = getFileExtension(context, imgUri);
-            boolean isGif = extension.equalsIgnoreCase(".gif");
-            boolean isWebp = extension.equalsIgnoreCase(".webp");
-
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
-            String imageFileName = filePrefix + "_" + timeStamp + extension;
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS", Locale.US)
+                    .format(new Date());
+            String imageFileName = filePrefix + "_" + timeStamp + outputExtension;
 
             File directory = new File("/sdcard/Evolution-X/" + featurePath);
             if (!directory.exists() && !directory.mkdirs()) {
@@ -61,52 +62,88 @@ public class ImageUtils {
                 return null;
             }
 
-            deleteOldFiles(directory, filePrefix);
-
-            File outputFile = new File(directory, imageFileName);
-
+            outputFile = new File(directory, imageFileName);
             if (isGif || isWebp) {
-                outputStream = new FileOutputStream(outputFile);
-                copyStream(inputStream, outputStream);
-            } else {
-                Bitmap bitmap = null;
-                try {
-                    bitmap = BitmapFactory.decodeStream(inputStream);
-                    if (bitmap == null) {
-                        Log.e(TAG, "Failed to decode bitmap from stream");
+                try (InputStream input = getInputStreamFromUri(context, imgUri);
+                     FileOutputStream output = new FileOutputStream(outputFile)) {
+                    if (input == null) {
+                        Log.e(TAG, "Failed to get input stream from URI");
+                        outputFile.delete();
                         return null;
                     }
-                    
-                    outputStream = new FileOutputStream(outputFile);
-                    if (!bitmap.compress(Bitmap.CompressFormat.PNG, 90, outputStream)) {
-                        Log.e(TAG, "Failed to compress bitmap");
+                    long copied = copyStreamWithLimit(
+                            input, output, MAX_ANIMATED_IMAGE_BYTES);
+                    if (copied < 0L) {
+                        Log.e(TAG, "Animated image exceeds size limit");
+                        outputFile.delete();
                         return null;
+                    }
+                }
+            } else {
+                Bitmap bitmap = decodeSampledBitmap(
+                        context, imgUri, MAX_STATIC_DIMENSION, MAX_STATIC_DIMENSION);
+                if (bitmap == null) {
+                    Log.e(TAG, "Failed to decode bitmap from stream");
+                    return null;
+                }
+                try {
+                    try (FileOutputStream output = new FileOutputStream(outputFile)) {
+                        if (!bitmap.compress(Bitmap.CompressFormat.PNG, 100, output)) {
+                            Log.e(TAG, "Failed to compress bitmap");
+                            outputFile.delete();
+                            return null;
+                        }
+                        output.flush();
                     }
                 } finally {
-                    if (bitmap != null && !bitmap.isRecycled()) {
+                    if (!bitmap.isRecycled()) {
                         bitmap.recycle();
                     }
                 }
             }
 
+            deleteOldFiles(directory, filePrefix, outputFile);
             Log.d(TAG, "Image saved successfully: " + outputFile.getAbsolutePath());
             return outputFile.getAbsolutePath();
-            
+
         } catch (FileNotFoundException e) {
             Log.e(TAG, "File not found: " + e.getMessage());
-            return null;
         } catch (IOException e) {
             Log.e(TAG, "IO error: " + e.getMessage());
-            return null;
         } catch (OutOfMemoryError e) {
             Log.e(TAG, "Out of memory: " + e.getMessage());
-            return null;
         } catch (Exception e) {
             Log.e(TAG, "Unexpected error: " + e.getMessage(), e);
-            return null;
-        } finally {
-            closeQuietly(inputStream);
-            closeQuietly(outputStream);
+        }
+
+        if (outputFile != null && outputFile.exists() && !outputFile.delete()) {
+            Log.w(TAG, "Failed to delete incomplete image: " + outputFile.getAbsolutePath());
+        }
+        return null;
+    }
+
+    private static Bitmap decodeSampledBitmap(
+            Context context, Uri uri, int reqWidth, int reqHeight) throws IOException {
+        BitmapFactory.Options bounds = new BitmapFactory.Options();
+        bounds.inJustDecodeBounds = true;
+        try (InputStream input = getInputStreamFromUri(context, uri)) {
+            if (input == null) return null;
+            BitmapFactory.decodeStream(input, null, bounds);
+        }
+        if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null;
+
+        int sampleSize = 1;
+        while (bounds.outWidth / sampleSize > reqWidth
+                || bounds.outHeight / sampleSize > reqHeight) {
+            sampleSize *= 2;
+        }
+
+        BitmapFactory.Options decode = new BitmapFactory.Options();
+        decode.inSampleSize = sampleSize;
+        decode.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        try (InputStream input = getInputStreamFromUri(context, uri)) {
+            if (input == null) return null;
+            return BitmapFactory.decodeStream(input, null, decode);
         }
     }
 
@@ -125,26 +162,35 @@ public class ImageUtils {
         }
     }
 
-    private static void copyStream(InputStream input, FileOutputStream output) throws IOException {
+    private static long copyStreamWithLimit(
+            InputStream input, FileOutputStream output, long maxBytes) throws IOException {
         byte[] buffer = new byte[BUFFER_SIZE];
         int bytesRead;
+        long total = 0L;
         while ((bytesRead = input.read(buffer)) != -1) {
+            total += bytesRead;
+            if (total > maxBytes) {
+                return -1L;
+            }
             output.write(buffer, 0, bytesRead);
         }
         output.flush();
+        return total;
     }
 
-    private static void deleteOldFiles(File directory, String filePrefix) {
+    private static void deleteOldFiles(File directory, String filePrefix, File keep) {
         try {
-            File[] files = directory.listFiles((dir, name) -> 
-                    name.startsWith(filePrefix) && 
-                    (name.endsWith(".png") || name.endsWith(".gif") || 
-                     name.endsWith(".jpg") || name.endsWith(".jpeg") || 
-                     name.endsWith(".webp")));
-            
+            File[] files = directory.listFiles((dir, name) -> {
+                String lower = name.toLowerCase(Locale.ROOT);
+                return name.startsWith(filePrefix) &&
+                        (lower.endsWith(".png") || lower.endsWith(".gif") ||
+                         lower.endsWith(".jpg") || lower.endsWith(".jpeg") ||
+                         lower.endsWith(".webp"));
+            });
+
             if (files != null) {
                 for (File file : files) {
-                    if (!file.delete()) {
+                    if (!file.equals(keep) && !file.delete()) {
                         Log.w(TAG, "Failed to delete old file: " + file.getName());
                     }
                 }
@@ -199,12 +245,4 @@ public class ImageUtils {
         return ".png";
     }
 
-    private static void closeQuietly(java.io.Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e) {
-            }
-        }
-    }
 }
