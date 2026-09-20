@@ -1,0 +1,36 @@
+name: Evolver validation
+
+on:
+  push:
+    branches:
+      - cnb
+  pull_request:
+    branches:
+      - cnb
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Cutout Progress integration checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Validate Evolver and staged SystemUI integration
+        run: python3 tools/validate_cutout_progress.py
+
+      - name: Validate Arabic localization and RTL
+        run: python3 tools/validate_arabic_localization.py
