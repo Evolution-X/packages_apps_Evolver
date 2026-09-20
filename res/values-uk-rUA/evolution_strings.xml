@@ -1133,6 +1133,12 @@
     <string name="spoofing_snap_title">Підробка Snapchat</string>
     <string name="spoofing_snap_summary">Імітувати Pixel XL для Snapchat для вирішення можливих проблем чату</string>
     <string name="spoofing_applying_changes">Застосування spoof змін\u2026</string>
+    <string name="spoofing_reset_defaults_title">Скинути до значень за замовчуванням</string>
+    <string name="spoofing_reset_defaults_summary">Очистити цілісність відтворення, вибір з клавіш, цільового списку, рівень патчу та налаштування GameProps</string>
+    <string name="spoofing_reset_defaults_dialog_title">Скинути параметри Spoofs?</string>
+    <string name="spoofing_reset_defaults_dialog_message">Це очищує файл конфігурації Play Цілісності, keybox, цільовий список TrickyStore, перевизначити патч і файл GameProps в налаштуваннях. Вони заповнені наступного разу під час автоматичного оновлення. Активація перемикачів не змінюється.</string>
+    <string name="spoofing_reset_defaults_confirm">Скинути</string>
+    <string name="spoofing_reset_defaults_done">Налаштування Spoofing скинуто</string>
     <string name="tensor_spoof_title">Цільові об\'єкти тензора</string>
     <string name="tensor_spoof_summary">Надати вибраним додаткам доступ до функцій Pixel Tensor-exclusive AI</string>
     <string name="tensor_spoof_enable">Тензорна підміна</string>
