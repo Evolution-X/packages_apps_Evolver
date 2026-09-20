@@ -25,16 +25,17 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import org.evolution.settings.utils.NetworkUtils;
+
 public class ChangelogFragment extends SettingsPreferenceFragment {
 
-    TextView textView;
+    private TextView textView;
+    private volatile boolean mViewDestroyed;
 
     // Branch lookup order for changelog resolution. CNB (Android 17) is tried
     // first, bka (Android 16) is the legacy fallback, and vic (Android 15) is
@@ -46,8 +47,12 @@ public class ChangelogFragment extends SettingsPreferenceFragment {
 
     private int getThemeColor(Context context, int attr) {
         TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(attr, typedValue, true);
-        return context.getColor(typedValue.resourceId);
+        if (!context.getTheme().resolveAttribute(attr, typedValue, true)) {
+            return 0;
+        }
+        return typedValue.resourceId != 0
+                ? context.getColor(typedValue.resourceId)
+                : typedValue.data;
     }
 
     private void setSpan(SpannableStringBuilder sb, Object span, int start, int end) {
@@ -68,6 +73,8 @@ public class ChangelogFragment extends SettingsPreferenceFragment {
         final String device = Build.DEVICE;
 
         textView = view.findViewById(R.id.changelog_text);
+        mViewDestroyed = false;
+        final TextView targetView = textView;
 
         new Thread(() -> {
             String data = null;
@@ -83,7 +90,11 @@ public class ChangelogFragment extends SettingsPreferenceFragment {
             if (data == null) {
                 final String fallbackText = context.getString(
                         R.string.changelog_error_no_official, EVOLUTION_X_ORG_URL);
-                textView.post(() -> textView.setText(fallbackText));
+                targetView.post(() -> {
+                    if (!mViewDestroyed && textView == targetView) {
+                        targetView.setText(fallbackText);
+                    }
+                });
                 return;
             }
 
@@ -129,29 +140,29 @@ public class ChangelogFragment extends SettingsPreferenceFragment {
             }
 
             final SpannableStringBuilder result = sb;
-            textView.post(() -> textView.setText(result));
+            targetView.post(() -> {
+                if (!mViewDestroyed && textView == targetView) {
+                    targetView.setText(result);
+                }
+            });
         }).start();
     }
 
     @Nullable
     private String fetchChangelog(String urlString) {
-        InputStreamReader inputReader = null;
-        StringBuilder data = new StringBuilder();
         try {
-            char[] tmp = new char[2048];
-            int numRead;
-            inputReader = new InputStreamReader(new URL(urlString).openStream());
-            while ((numRead = inputReader.read(tmp)) >= 0) {
-                data.append(tmp, 0, numRead);
-            }
-            return data.toString();
+            String data = NetworkUtils.fetchString(urlString, null);
+            return data.isEmpty() ? null : data;
         } catch (IOException e) {
             return null;
-        } finally {
-            try {
-                if (inputReader != null) inputReader.close();
-            } catch (IOException e) {}
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        mViewDestroyed = true;
+        textView = null;
+        super.onDestroyView();
     }
 
     @Override
