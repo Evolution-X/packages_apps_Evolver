@@ -126,20 +126,27 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
         switch (preference.getKey()) {
             case DAYLIGHT_HEADER_PACK:
                 String dhvalue = (String) newValue;
+                int dhvalueIndex = mDaylightHeaderPack.findIndexOfValue(dhvalue);
+                if (dhvalueIndex < 0) {
+                    return false;
+                }
                 Settings.System.putString(resolver,
                         Settings.System.STATUS_BAR_DAYLIGHT_HEADER_PACK, dhvalue);
-                int dhvalueIndex = mDaylightHeaderPack.findIndexOfValue(dhvalue);
                 mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntries()[dhvalueIndex]);
                 return true;
 
             case CUSTOM_HEADER_PROVIDER:
                 String value = (String) newValue;
+                int valueIndex = mHeaderProvider.findIndexOfValue(value);
+                if (valueIndex < 0) {
+                    return false;
+                }
                 Settings.System.putString(resolver,
                         Settings.System.STATUS_BAR_CUSTOM_HEADER_PROVIDER, value);
-                int valueIndex = mHeaderProvider.findIndexOfValue(value);
                 mHeaderProvider.setSummary(mHeaderProvider.getEntries()[valueIndex]);
                 mDaylightHeaderPack.setEnabled(value.equals(mDaylightHeaderProvider));
-                mHeaderBrowse.setEnabled(!value.equals(mFileHeaderProvider));
+                mHeaderBrowse.setEnabled(
+                        isBrowseHeaderAvailable() && !value.equals(mFileHeaderProvider));
                 mHeaderBrowse.setTitle(valueIndex == 0 ? R.string.quick_settings_header_browse_title : R.string.quick_settings_header_pick_title);
                 mHeaderBrowse.setSummary(valueIndex == 0 ? R.string.quick_settings_header_browse_summary : R.string.quick_settings_header_pick_summary);
                 mFileHeader.setEnabled(value.equals(mFileHeaderProvider));
@@ -282,7 +289,10 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
             try (InputStream in = cr.openInputStream(inUri);
                  OutputStream out = cr.openOutputStream(outUri, "wt")) {
 
-                if (in == null || out == null) return null;
+                if (in == null || out == null) {
+                    try { cr.delete(outUri, null, null); } catch (Exception ignored) {}
+                    return null;
+                }
 
                 byte[] buf = new byte[8192];
                 int len;
