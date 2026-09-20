@@ -17,6 +17,7 @@ import android.util.Log;
 import android.widget.Toast;
 import android.provider.Settings;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.SwitchPreferenceCompat;
@@ -41,6 +42,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String PI_PHOTOS_SPOOF = "pi_photos_spoof";
     private static final String PI_SNAPCHAT_SPOOF = "pi_snapchat_spoof";
     private static final String KEY_TENSOR_TARGETS = "tensor_targets_settings";
+    private static final String KEY_RESET_DEFAULTS = "spoofing_reset_defaults";
 
     private static final String PHOTOS_PACKAGE = "com.google.android.apps.photos";
     private static final String SNAPCHAT_PACKAGE = "com.snapchat.android";
@@ -75,6 +77,31 @@ public class Spoofing extends SettingsPreferenceFragment implements
         }
         mPhotosSpoof = initAppSpoof(mPhotosSpoof, PHOTOS_PACKAGE);
         mSnapchatSpoof = initAppSpoof(mSnapchatSpoof, SNAPCHAT_PACKAGE);
+
+        final Preference resetDefaults = findPreference(KEY_RESET_DEFAULTS);
+        if (resetDefaults != null) {
+            resetDefaults.setOnPreferenceClickListener(pref -> {
+                showResetDefaultsDialog();
+                return true;
+            });
+        }
+    }
+
+    private void showResetDefaultsDialog() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.spoofing_reset_defaults_dialog_title)
+                .setMessage(R.string.spoofing_reset_defaults_dialog_message)
+                .setPositiveButton(R.string.spoofing_reset_defaults_confirm, (dialog, which) -> {
+                    try {
+                        TrickyStore.resetAllSpoofDefaults(requireContext());
+                        Toast.makeText(requireContext(),
+                                R.string.spoofing_reset_defaults_done, Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Log.e(TAG, "Failed to reset spoof defaults", e);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     /**

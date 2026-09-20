@@ -1029,6 +1029,12 @@
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
     <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
+    <string name="spoofing_reset_defaults_title">Reset to defaults</string>
+    <string name="spoofing_reset_defaults_summary">Clear Play Integrity, keybox, target list, patch level and GameProps configuration</string>
+    <string name="spoofing_reset_defaults_dialog_title">Reset spoofing settings?</string>
+    <string name="spoofing_reset_defaults_dialog_message">This clears the Play Integrity config, keybox, TrickyStore target list, security patch override and GameProps config. They are repopulated the next time auto-refresh runs. Enable toggles are not changed.</string>
+    <string name="spoofing_reset_defaults_confirm">Reset</string>
+    <string name="spoofing_reset_defaults_done">Spoofing settings reset</string>
     <string name="tensor_spoof_title">Tensor feature targets</string>
     <string name="tensor_spoof_summary">Grant selected apps access to Pixel Tensor-exclusive AI features</string>
     <string name="tensor_spoof_enable">Tensor spoofing</string>

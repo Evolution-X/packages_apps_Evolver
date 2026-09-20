@@ -114,6 +114,32 @@ class TrickyStore : SettingsPreferenceFragment() {
 
         /** Warn user when the leaf cert expires within this window. */
         private val EXPIRY_WARN_MS = TimeUnit.DAYS.toMillis(14)
+
+        /**
+         * Clears PIF config, keybox, TrickyStore target list, patch level and
+         * GameProps config back to fresh-install state, then lets the normal
+         * auto-refresh paths (AxSpoofManager's hourly job, or the next manual
+         * Action) repopulate them. Mirrors AlwaysStrong's reset_defaults.sh —
+         * deliberately deletion-only, nothing is re-fetched inline here so a
+         * dead network at reset time doesn't leave the device stuck.
+         */
+        @JvmStatic
+        fun resetAllSpoofDefaults(context: Context) {
+            val resolver = context.contentResolver
+            Settings.Secure.putString(resolver, PlayIntegrityFix.PIF_CONFIG_KEY, "")
+            Settings.Secure.putString(resolver, KEYBOX_KEY, "")
+            Settings.Secure.putString(resolver, KEYBOX_SOURCE_KEY, "")
+            Settings.Secure.putString(resolver, TARGET_KEY, "")
+            Settings.Secure.putString(resolver, PATCH_KEY, "")
+            Settings.Secure.putString(resolver, Settings.Secure.SPOOF_GAMEPROPS_CONFIG, "")
+            Settings.Secure.putLong(resolver, LAST_AUTO_FETCH_KEY_COMPAT, 0L)
+        }
+
+        // PlayIntegrityFix owns the real LAST_AUTO_FETCH_KEY constant; this local
+        // copy exists only so resetAllSpoofDefaults doesn't need a second
+        // visibility change on top of PIF_CONFIG_KEY. Keep the string in sync if
+        // that constant's value ever changes.
+        private const val LAST_AUTO_FETCH_KEY_COMPAT = "spoof_pif_last_auto_fetch"
     }
 
     // ---- Properties ---------------------------------------------------------

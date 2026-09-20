@@ -480,6 +480,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 PIF_CONFIG_KEY,
                 json.toString(2)
             )
+            stopGmsPackages()
             refreshStatus()
         } catch (e: Exception) {
             toast(getString(R.string.pif_failed, e.message ?: ""))
@@ -537,7 +538,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
 
     companion object {
         private const val TAG = "PlayIntegrityFix"
-        private const val PIF_CONFIG_KEY = "spoof_pif_config"
+        internal const val PIF_CONFIG_KEY = "spoof_pif_config"
         private const val PIF_CONFIG_NAME = "pif.json"
         private const val GOOGLE_URL = "https://developer.android.com"
         private const val FLASH_URL = "https://flash.android.com"
