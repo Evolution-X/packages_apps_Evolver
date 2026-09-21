@@ -13,6 +13,7 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.provider.Settings
+import android.security.trickystore.TrickyStoreService
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -102,45 +103,35 @@ class TrickyStoreAppSettings : SettingsPreferenceFragment() {
 
     companion object {
         const val TARGET_KEY = "spoof_trickystore_target"
-        val DEFAULT_TARGETS = setOf(
-            "android",
-            // GMS — AUTO mode, same as Specter (no special mode assigned)
-            "com.android.vending",
-            "com.google.android.gsf",
-            "com.google.android.gms",
-            "com.google.android.contactkeys",
-            "com.google.android.ims",
-            "com.google.android.safetycore",
-            "com.google.android.apps.walletnfcrel",
-            "com.google.android.apps.nbu.paisa.user",
-        )
-        val DEFAULT_TARGET_MODES = mapOf(
-            // Revolut — cert gen (original EvoX default)
-            "com.revolut.revolut"               to TargetMode.CERT_GEN,
-            // Key attestation checkers — leaf hack
-            "io.github.qwq233.keyattestation"   to TargetMode.LEAF_HACK,
-            "io.github.vvb2060.keyattestation"  to TargetMode.LEAF_HACK,
-            // TEE-SIM bundled target.txt defaults
-            "io.github.vvb2060.mahoshojo"       to TargetMode.LEAF_HACK,
-            "icu.nullptr.nativetest"            to TargetMode.LEAF_HACK,
-            "com.reveny.nativecheck"            to TargetMode.LEAF_HACK,
-            "com.zhenxi.hunter"                 to TargetMode.LEAF_HACK,
-            "com.android.nativetest"            to TargetMode.LEAF_HACK,
-            "io.liankong.riskdetector"          to TargetMode.LEAF_HACK,
-            "luna.safe.luna"                    to TargetMode.LEAF_HACK,
-            // Specter FIXED_TARGETS
-            "com.eltavine.duckdetector"         to TargetMode.LEAF_HACK,
-            "com.rem01gaming.disclosure"        to TargetMode.LEAF_HACK,
-            "wu.keyChain.test"                  to TargetMode.LEAF_HACK,
-            "com.kikyps.crackme"                to TargetMode.LEAF_HACK,
-            "com.chunqiunativecheck"            to TargetMode.LEAF_HACK,
-        )
+        // The default target list lives in the framework
+        // (TrickyStoreService.DEFAULT_TARGET_LIST), where AxSpoofManager seeds it
+        // at boot. Split it here into the plain AUTO packages and the packages
+        // with a mode, so the app picker keeps working with both.
+        private val defaultTargetEntries: List<Pair<String, TargetMode>> =
+            TrickyStoreService.DEFAULT_TARGET_LIST
+                .lines()
+                .map { it.trim() }
+                .filter { it.isNotEmpty() }
+                .map { line ->
+                    when {
+                        line.endsWith("!") -> line.dropLast(1) to TargetMode.CERT_GEN
+                        line.endsWith("?") -> line.dropLast(1) to TargetMode.LEAF_HACK
+                        line.endsWith("-") -> line.dropLast(1) to TargetMode.SKIP
+                        else -> line to TargetMode.AUTO
+                    }
+                }
 
-        /** The default target list: one "package" or "package<mode symbol>" per line. */
-        fun buildDefaultTargetSeed(): String =
-            (DEFAULT_TARGETS.toList() +
-                DEFAULT_TARGET_MODES.map { (pkg, mode) -> pkg + mode.symbol })
-                .joinToString("\n")
+        val DEFAULT_TARGETS: Set<String> = defaultTargetEntries
+            .filter { it.second == TargetMode.AUTO }
+            .map { it.first }
+            .toSet()
+
+        val DEFAULT_TARGET_MODES: Map<String, TargetMode> = defaultTargetEntries
+            .filter { it.second != TargetMode.AUTO }
+            .toMap()
+
+        /** The default target list, as written to SPOOF_TRICKYSTORE_TARGET. */
+        fun buildDefaultTargetSeed(): String = TrickyStoreService.DEFAULT_TARGET_LIST
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
