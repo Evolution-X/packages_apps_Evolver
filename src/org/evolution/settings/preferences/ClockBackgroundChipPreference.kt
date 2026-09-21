@@ -7,25 +7,27 @@ package org.evolution.settings.preferences
 
 import android.content.Context
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.content.res.Resources
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.UserHandle
 import android.provider.Settings
 import android.util.AttributeSet
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.preference.Preference
 import androidx.preference.PreferenceManager
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.android.settings.R
-import kotlin.math.min
 
 class ClockBackgroundChipPreference @JvmOverloads constructor(
     context: Context,
@@ -33,8 +35,7 @@ class ClockBackgroundChipPreference @JvmOverloads constructor(
     defStyleAttr: Int = androidx.preference.R.attr.preferenceStyle
 ) : Preference(context, attrs, defStyleAttr) {
 
-    private var dialog: AlertDialog? = null
-    private var recyclerView: RecyclerView? = null
+    private var dialog: ComposeDialogHandle? = null
 
     private val pm: PackageManager = context.packageManager
     private val sysUiRes: Resources? = try {
@@ -59,71 +60,40 @@ class ClockBackgroundChipPreference @JvmOverloads constructor(
     override fun onDetached() {
         dialog?.dismiss()
         dialog = null
-        recyclerView = null
         super.onDetached()
     }
 
     override fun onClick() {
-        val ctx = context
-        val content = LayoutInflater.from(ctx).inflate(R.layout.picker_dialog, null)
+        dialog?.dismiss()
 
-        recyclerView = content.findViewById<RecyclerView>(R.id.recycler_view).apply {
-            setHasFixedSize(true)
-
-            val isLandscape = ctx.resources.configuration.orientation ==
-                    Configuration.ORIENTATION_LANDSCAPE
-            val span = if (isLandscape) 2 else 1
-            layoutManager = GridLayoutManager(ctx, span)
-            adapter = IconAdapter(getCurrentValue())
-
-            post {
-                val fraction = if (isLandscape) 0.75f else 0.6f
-                val maxHeight = (ctx.resources.displayMetrics.heightPixels * fraction).toInt()
-                layoutParams.height = maxHeight
-                requestLayout()
+        val selectedIndex = getCurrentValue().let { if (it in chipDrawables.indices) it else 0 }
+        val time = pickerClockText(context)
+        val options = chipLabels.indices.map { index ->
+            val chip = getChipDrawable(index)
+            val textColor = chipTextColor(index)
+            PickerOption(labelForIndex(index).orEmpty()) {
+                ClockChipPreview(time, chip, textColor)
             }
         }
 
-        dialog = AlertDialog.Builder(ctx)
-            .setTitle(title)
-            .setView(content)
-            .setNegativeButton(android.R.string.cancel, null)
-            .create()
-            .also { dlg ->
-                dlg.setOnDismissListener {
-                    dialog = null
-                    recyclerView = null
-                }
-                dlg.show()
-                applyDialogWidth(dlg)
+        dialog = context.showPickerDialog(
+            title = title,
+            options = options,
+            selectedIndex = selectedIndex,
+            onClosed = { dialog = null },
+        ) { position ->
+            if (position != selectedIndex) {
+                if (!callChangeListener(position)) return@showPickerDialog false
+                Settings.System.putIntForUser(
+                    context.contentResolver,
+                    SETTING_KEY,
+                    position,
+                    UserHandle.USER_CURRENT
+                )
+                summary = labelForIndex(position).orEmpty()
             }
-    }
-
-    private fun applyDialogWidth(dlg: AlertDialog) {
-        val w = dlg.window ?: return
-        val ctx = context
-
-        val wm = ctx.getSystemService(WindowManager::class.java)
-
-        val boundsWidthPx = try {
-            wm.currentWindowMetrics.bounds.width()
-        } catch (_: Throwable) {
-            ctx.resources.displayMetrics.widthPixels
+            true
         }
-
-        val density = ctx.resources.displayMetrics.density
-
-        val maxDp = if (ctx.resources.configuration.orientation ==
-                Configuration.ORIENTATION_LANDSCAPE) {
-            DIALOG_MAX_WIDTH_DP_LANDSCAPE
-        } else {
-            DIALOG_MAX_WIDTH_DP
-        }
-        val maxWidthPx = (maxDp * density + 0.5f).toInt()
-
-        val targetPx = (boundsWidthPx * 0.90f).toInt()
-        w.setLayout(min(maxWidthPx, targetPx), WindowManager.LayoutParams.WRAP_CONTENT)
-        w.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
     private fun getCurrentValue(): Int {
@@ -160,77 +130,11 @@ class ClockBackgroundChipPreference @JvmOverloads constructor(
         }
     }
 
-    private inner class IconAdapter(applied: Int) :
-        RecyclerView.Adapter<IconAdapter.IconViewHolder>() {
-
-        private var selectedIndex: Int = clampIndex(applied)
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconViewHolder {
-            val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.clock_option, parent, false)
-            return IconViewHolder(v)
-        }
-
-        override fun onBindViewHolder(holder: IconViewHolder, position: Int) {
-            val styleIndex = position
-
-            holder.clock.background = getChipDrawable(styleIndex)
-            holder.clock.setPadding(8, 2, 8, 2)
-            holder.clock.textAlignment = View.TEXT_ALIGNMENT_CENTER
-
-            when (styleIndex) {
-                0, 2, 8 -> holder.clock.setTextColor(
-                    holder.clock.context.getColorStateList(R.color.picker_option_text)
-                )
-                in LIGHT_CHIP_STYLES -> holder.clock.setTextColor(CHIP_TEXT_DARK)
-                else -> holder.clock.setTextColor(Color.WHITE)
-            }
-
-            holder.name.visibility = View.VISIBLE
-            holder.name.text = labelForIndex(styleIndex).orEmpty()
-
-            holder.itemView.isActivated = (styleIndex == selectedIndex)
-
-            holder.itemView.setOnClickListener {
-                if (styleIndex == selectedIndex) {
-                    dialog?.dismiss()
-                    return@setOnClickListener
-                }
-                if (!this@ClockBackgroundChipPreference.callChangeListener(styleIndex)) {
-                    return@setOnClickListener
-                }
-
-                val old = selectedIndex
-                selectedIndex = styleIndex
-
-                Settings.System.putIntForUser(
-                    context.contentResolver,
-                    SETTING_KEY,
-                    styleIndex,
-                    UserHandle.USER_CURRENT
-                )
-
-                summary = labelForIndex(styleIndex).orEmpty()
-
-                notifyItemChanged(old)
-                notifyItemChanged(selectedIndex)
-
-                dialog?.dismiss()
-            }
-        }
-
-        override fun getItemCount(): Int = chipDrawables.size
-
-        private fun clampIndex(idx: Int): Int {
-            if (idx < 0) return 0
-            if (idx >= chipDrawables.size) return 0
-            return idx
-        }
-
-        inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val clock: TextView = itemView.findViewById(R.id.option_clock)
-            val name: TextView = itemView.findViewById(R.id.option_label)
-        }
+    /** Null keeps the row's own content colour. */
+    private fun chipTextColor(styleIndex: Int): Color? = when (styleIndex) {
+        0, 2, 8 -> null
+        in LIGHT_CHIP_STYLES -> CHIP_TEXT_DARK
+        else -> Color.White
     }
 
     companion object {
@@ -240,8 +144,27 @@ class ClockBackgroundChipPreference @JvmOverloads constructor(
         // Chip styles with a light/near-white center that need dark clock text.
         // Keep in sync with SystemUI's HomeStatusBarViewBinder.
         private val LIGHT_CHIP_STYLES = setOf(5)
-        private const val CHIP_TEXT_DARK = 0xFF1B1B1F.toInt()
-        private const val DIALOG_MAX_WIDTH_DP = 360
-        private const val DIALOG_MAX_WIDTH_DP_LANDSCAPE = 640
+        private val CHIP_TEXT_DARK = Color(0xFF1B1B1F)
     }
+}
+
+/** The clock as it looks on a status bar chip: [chip] drawn behind the time. */
+@Composable
+private fun ClockChipPreview(time: String, chip: Drawable?, textColor: Color?) {
+    Text(
+        text = time,
+        style = MaterialTheme.typography.titleMedium,
+        color = textColor ?: LocalContentColor.current,
+        textAlign = TextAlign.Center,
+        maxLines = 1,
+        modifier = Modifier
+            .width(84.dp)
+            .drawBehind {
+                chip?.let { drawable ->
+                    drawable.setBounds(0, 0, size.width.toInt(), size.height.toInt())
+                    drawIntoCanvas { drawable.draw(it.nativeCanvas) }
+                }
+            }
+            .padding(horizontal = 8.dp, vertical = 4.dp),
+    )
 }

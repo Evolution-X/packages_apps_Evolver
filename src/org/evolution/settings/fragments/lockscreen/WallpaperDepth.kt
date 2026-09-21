@@ -17,7 +17,6 @@ package org.evolution.settings.fragments.lockscreen
 
 import android.Manifest
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -36,17 +35,18 @@ import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 
 import com.android.settings.R
+import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.search.SearchIndexable
 
 import java.io.File
 
-import org.evolution.settings.fragments.OptimizedSettingsFragment
+import org.evolution.settings.preferences.showConfirmDialog
 import org.evolution.settings.utils.ImageUtils
 import org.evolution.settings.utils.WallpaperSubjectExtractorService
 
 @SearchIndexable
-class WallpaperDepth : OptimizedSettingsFragment(), Preference.OnPreferenceChangeListener {
+class WallpaperDepth : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
 
     private var mDepthWallpaperCustomImagePicker: Preference? = null
     private var mExtractNowPref: Preference? = null
@@ -183,12 +183,14 @@ class WallpaperDepth : OptimizedSettingsFragment(), Preference.OnPreferenceChang
     private fun confirmClearSubject() {
         val ctx = context ?: return
 
-        AlertDialog.Builder(ctx)
-            .setTitle(R.string.depthwall_clear_subject_title)
-            .setMessage(R.string.depthwall_clear_subject_confirm_message)
-            .setPositiveButton(android.R.string.ok) { _, _ -> clearSubject() }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
+        showConfirmDialog(
+            context = ctx,
+            title = ctx.getString(R.string.depthwall_clear_subject_title),
+            message = ctx.getString(R.string.depthwall_clear_subject_confirm_message),
+            confirmText = ctx.getString(android.R.string.ok),
+            dismissText = ctx.getString(android.R.string.cancel),
+            onConfirm = { clearSubject() },
+        )
     }
 
     private fun clearSubject() {
