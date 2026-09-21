@@ -14,17 +14,33 @@ import android.provider.Settings
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
+import androidx.preference.ListPreference
+import androidx.preference.Preference
 
 class EdgeLightSettings : SettingsPreferenceFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.edge_light_settings)
+
+        val colorModePref = findPreference<ListPreference>(KEY_COLOR_MODE)!!
+        val customColorPref = findPreference<Preference>(KEY_CUSTOM_COLOR)!!
+
+        // Only show the custom color while the custom color mode is selected.
+        customColorPref.isVisible = colorModePref.value == COLOR_MODE_CUSTOM
+        colorModePref.setOnPreferenceChangeListener { _, newValue ->
+            customColorPref.isVisible = newValue == COLOR_MODE_CUSTOM
+            true
+        }
     }
 
     override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.EVOLVER
 
     companion object {
+        private const val KEY_COLOR_MODE = "edge_light_color_mode"
+        private const val KEY_CUSTOM_COLOR = "edge_light_custom_color"
+        private const val COLOR_MODE_CUSTOM = "custom"
+
         @JvmStatic
         fun reset(context: Context) {
             val resolver = context.contentResolver
