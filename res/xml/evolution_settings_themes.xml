@@ -19,13 +19,9 @@
             android:summary="@string/font_styles_summary" />
 
         <!-- Emoji style -->
-        <org.evolution.settings.preferences.SystemPropertyListPreference
+        <org.evolution.settings.preferences.EmojiStylePickerPreference
             android:key="persist.sys.ax_emoji_style"
-            android:title="@string/emoji_style_title"
-            android:summary="%s"
-            android:entries="@array/emoji_style_entries"
-            android:entryValues="@array/emoji_style_values"
-            android:defaultValue="android" />
+            android:title="@string/emoji_style_title" />
 
     </PreferenceCategory>
 
@@ -145,7 +141,7 @@
 
         <Preference
             android:key="wallpaper_settings"
-            android:title="@string/wallpaper_settings_title"
+            android:title="@string/wallpaper_styles_title"
             android:summary="@string/wallpaper_settings_summary"
             android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
 

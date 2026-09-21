@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 import android.provider.Settings;
 
 public class SystemSettingListPreference extends ListPreference {
+    private ComposeDialogHandle mPickerDialog;
 
     private boolean mAutoSummary = false;
 
@@ -59,5 +60,19 @@ public class SystemSettingListPreference extends ListPreference {
 
     public int getIntValue(int defValue) {
         return getValue() == null ? defValue : Integer.valueOf(getValue());
+    }
+
+    @Override
+    protected void onClick() {
+        mPickerDialog = ListPreferencePicker.openListPicker(this, mPickerDialog);
+    }
+
+    @Override
+    public void onDetached() {
+        if (mPickerDialog != null) {
+            mPickerDialog.dismiss();
+            mPickerDialog = null;
+        }
+        super.onDetached();
     }
 }

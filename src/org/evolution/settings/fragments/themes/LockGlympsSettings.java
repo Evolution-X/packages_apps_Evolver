@@ -38,6 +38,7 @@ import lineageos.preference.SystemSettingMainSwitchPreference;
 
 import java.io.File;
 
+import org.evolution.settings.preferences.ExpressiveDialogs;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.preferences.WallpaperPreviewPreference;
@@ -275,28 +276,28 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         if (context == null) return;
 
         File storageDir = new File(Environment.getExternalStorageDirectory(), STORAGE_FOLDER);
-
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
-        builder.setTitle("Local Wallpaper Folder");
+        String title = getString(R.string.lock_glymps_folder_dialog_title);
 
         if (!storageDir.exists()) {
-            builder.setMessage("Folder does not exist yet.\n\nLocation: " + storageDir.getPath() +
-                "\n\nWould you like to create it?");
-
-            builder.setPositiveButton("Create Folder", (dialog, which) -> {
-                if (storageDir.mkdirs()) {
-                    android.widget.Toast.makeText(context,
-                        "Folder created: " + storageDir.getPath(),
-                        android.widget.Toast.LENGTH_LONG).show();
-                    updateFolderInfo();
-                } else {
-                    android.widget.Toast.makeText(context,
-                        "Failed to create folder",
-                        android.widget.Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            builder.setNegativeButton("Cancel", null);
+            ExpressiveDialogs.showConfirmDialog(
+                context,
+                title,
+                getString(R.string.lock_glymps_folder_missing_message, storageDir.getPath()),
+                getString(R.string.lock_glymps_folder_create),
+                getString(R.string.menu_cancel),
+                true,
+                () -> {
+                    if (storageDir.mkdirs()) {
+                        android.widget.Toast.makeText(context,
+                            getString(R.string.lock_glymps_folder_created, storageDir.getPath()),
+                            android.widget.Toast.LENGTH_LONG).show();
+                        updateFolderInfo();
+                    } else {
+                        android.widget.Toast.makeText(context,
+                            R.string.lock_glymps_folder_create_failed,
+                            android.widget.Toast.LENGTH_SHORT).show();
+                    }
+                });
         } else {
             File[] files = storageDir.listFiles((dir, name) -> {
                 String lower = name.toLowerCase();
@@ -306,15 +307,15 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
             int count = (files != null) ? files.length : 0;
 
-            builder.setMessage("Folder location: " + storageDir.getPath() +
-                "\n\nWallpapers found: " + count +
-                "\n\nSupported formats: JPG, PNG, WEBP" +
-                "\n\nPlace your wallpaper images in this folder and they will be used randomly.");
-
-            builder.setPositiveButton("OK", null);
+            ExpressiveDialogs.showConfirmDialog(
+                context,
+                title,
+                getString(R.string.lock_glymps_folder_info_message, storageDir.getPath(), count),
+                getString(android.R.string.ok),
+                null,
+                true,
+                null);
         }
-
-        builder.show();
     }
 
     private void notifyServiceToRefresh(Context context) {
@@ -332,72 +333,64 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         String urls = Settings.System.getString(context.getContentResolver(),
             "lock_glymps_custom_urls");
 
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
-        builder.setTitle("Custom Wallpaper URLs");
-        builder.setMessage("Enter direct image URLs, one per line");
+        ExpressiveDialogs.showTextInputDialog(
+            context,
+            getString(R.string.lock_glymps_custom_urls_dialog_title),
+            getString(R.string.lock_glymps_custom_urls_dialog_message),
+            urls != null ? urls.replace(",", "\n") : "",
+            getString(R.string.menu_save),
+            getString(R.string.menu_cancel),
+            true,
+            false,
+            5,
+            10,
+            getString(R.string.lock_glymps_custom_urls_hint),
+            inputText -> {
+                StringBuilder sb = new StringBuilder();
 
-        final android.widget.EditText input = new android.widget.EditText(context);
-        input.setText(urls != null ? urls.replace(",", "\n") : "");
-        input.setMinLines(5);
-        input.setMaxLines(10);
-        input.setHint("https://example.com/image1.jpg\nhttps://example.com/image2.png");
-
-        int padding = (int) (16 * context.getResources().getDisplayMetrics().density);
-        input.setPadding(padding, padding, padding, padding);
-
-        builder.setView(input);
-
-        builder.setPositiveButton("Save", (dialog, which) -> {
-            String inputText = input.getText().toString();
-            String[] lines = inputText.split("\n");
-            StringBuilder sb = new StringBuilder();
-
-            for (String line : lines) {
-                String trimmed = line.trim();
-                if (!trimmed.isEmpty()) {
-                    if (sb.length() > 0) sb.append(",");
-                    sb.append(trimmed);
+                for (String line : inputText.split("\n")) {
+                    String trimmed = line.trim();
+                    if (!trimmed.isEmpty()) {
+                        if (sb.length() > 0) sb.append(",");
+                        sb.append(trimmed);
+                    }
                 }
-            }
 
-            Settings.System.putString(context.getContentResolver(),
-                "lock_glymps_custom_urls", sb.toString());
+                Settings.System.putString(context.getContentResolver(),
+                    "lock_glymps_custom_urls", sb.toString());
 
-            notifyServiceToRefresh(context);
+                notifyServiceToRefresh(context);
 
-            android.widget.Toast.makeText(context,
-                "Custom URLs saved",
-                android.widget.Toast.LENGTH_SHORT).show();
-        });
-
-        builder.setNegativeButton("Cancel", null);
-        builder.show();
+                android.widget.Toast.makeText(context,
+                    R.string.lock_glymps_custom_urls_saved,
+                    android.widget.Toast.LENGTH_SHORT).show();
+            });
     }
 
     private void clearCache() {
         Context context = getActivity();
         if (context == null) return;
 
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
-        builder.setTitle("Clear Cache");
-        builder.setMessage("This will delete all cached wallpapers and they will be re-downloaded. Continue?");
+        ExpressiveDialogs.showConfirmDialog(
+            context,
+            getString(R.string.lock_glymps_clear_cache_dialog_title),
+            getString(R.string.lock_glymps_clear_cache_dialog_message),
+            getString(R.string.lock_glymps_clear_cache_confirm),
+            getString(R.string.menu_cancel),
+            true,
+            () -> {
+                Intent intent = new Intent();
+                intent.setClassName("com.android.systemui",
+                    "com.android.systemui.lockglymps.LockGlympsService");
+                intent.setAction("CLEAR_CACHE");
+                context.startService(intent);
 
-        builder.setPositiveButton("Clear", (dialog, which) -> {
-            Intent intent = new Intent();
-            intent.setClassName("com.android.systemui",
-                "com.android.systemui.lockglymps.LockGlympsService");
-            intent.setAction("CLEAR_CACHE");
-            context.startService(intent);
+                android.widget.Toast.makeText(context,
+                    R.string.lock_glymps_cache_cleared,
+                    android.widget.Toast.LENGTH_SHORT).show();
 
-            android.widget.Toast.makeText(context,
-                "Cache cleared. New wallpapers will be downloaded.",
-                android.widget.Toast.LENGTH_SHORT).show();
-            
-            SystemUtils.showSystemUiRestartDialog(context);
-        });
-
-        builder.setNegativeButton("Cancel", null);
-        builder.show();
+                SystemUtils.showSystemUiRestartDialog(context);
+            });
     }
 
     @Override
