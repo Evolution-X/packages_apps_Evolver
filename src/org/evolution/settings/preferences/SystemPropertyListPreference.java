@@ -25,6 +25,7 @@ import com.android.settingslib.development.SystemPropPoker;
 import lineageos.preference.SelfRemovingListPreference;
 
 public class SystemPropertyListPreference extends SelfRemovingListPreference {
+    private ComposeDialogHandle mPickerDialog;
 
     public SystemPropertyListPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -52,5 +53,19 @@ public class SystemPropertyListPreference extends SelfRemovingListPreference {
     @Override
     protected String getString(String key, String defaultValue) {
         return SystemProperties.get(key, defaultValue);
+    }
+
+    @Override
+    protected void onClick() {
+        mPickerDialog = ListPreferencePicker.openListPicker(this, mPickerDialog);
+    }
+
+    @Override
+    public void onDetached() {
+        if (mPickerDialog != null) {
+            mPickerDialog.dismiss();
+            mPickerDialog = null;
+        }
+        super.onDetached();
     }
 }

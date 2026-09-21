@@ -25,7 +25,7 @@
         android:title="@string/gestures_category_title">
 
         <!-- Three fingers swipe action -->
-        <ListPreference
+        <org.evolution.settings.preferences.PickerListPreference
             android:key="three_fingers_swipe"
             android:dialogTitle="@string/three_fingers_swipe_title"
             android:title="@string/three_fingers_swipe_title"
@@ -39,7 +39,7 @@
             android:summary="@string/shake_gestures_enabled_summary"
             android:defaultValue="false" />
 
-        <lineageos.preference.LineageSystemSettingListPreference
+        <org.evolution.settings.preferences.LineageSystemSettingPickerListPreference
             android:key="shake_gestures_action"
             android:title="@string/shake_gestures_action_title"
             android:summary="%s"

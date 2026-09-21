@@ -13,9 +13,11 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.RectF
 import android.graphics.Typeface
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.LinearInterpolator
+import com.android.settings.R
 
 class DynamicBarExpandedDemoView @JvmOverloads constructor(
     context: Context,
@@ -39,6 +41,12 @@ class DynamicBarExpandedDemoView @JvmOverloads constructor(
     private val outlineColor: Int
     private val primaryColor: Int
     private val onPrimaryColor: Int
+
+    // Localized labels, resolved once instead of on every draw
+    private val timerLabel = context.getString(R.string.dynamic_bar_event_timer)
+    private val runningLabel = context.getString(R.string.dynamic_bar_demo_running)
+    private val addMinuteLabel = context.getString(R.string.dynamic_bar_demo_add_minute)
+    private val cancelLabel = context.getString(android.R.string.cancel)
 
     init {
         surfaceColor = resolveThemeColor(android.R.attr.colorBackgroundFloating, Color.WHITE)
@@ -138,7 +146,7 @@ class DynamicBarExpandedDemoView @JvmOverloads constructor(
         textPaint.color = Color.parseColor("#8E8E93")
         textPaint.textSize = dpToPx(10f)
         textPaint.typeface = Typeface.DEFAULT
-        canvas.drawText("Timer", textX, headerCy - dpToPx(10f), textPaint)
+        canvas.drawText(timerLabel, textX, headerCy - dpToPx(10f), textPaint)
 
         // Time text
         val mins = (timerProgress * 25).toInt()
@@ -164,9 +172,10 @@ class DynamicBarExpandedDemoView @JvmOverloads constructor(
         textPaint.color = COLOR_BLUE
         textPaint.textSize = dpToPx(9f)
         textPaint.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-        val runningW = textPaint.measureText("Running")
+        val running = fitText(runningLabel, chipW2 - dpToPx(8f))
+        val runningW = textPaint.measureText(running)
         val textY = chipTop2 + chipH2 / 2f - (textPaint.descent() + textPaint.ascent()) / 2f
-        canvas.drawText("Running", chipLeft2 + (chipW2 - runningW) / 2f, textY, textPaint)
+        canvas.drawText(running, chipLeft2 + (chipW2 - runningW) / 2f, textY, textPaint)
 
         // Action buttons
         val btnY = cardTop + headerPad + headerH + dpToPx(10f)
@@ -185,9 +194,10 @@ class DynamicBarExpandedDemoView @JvmOverloads constructor(
         textPaint.color = onPrimaryColor
         textPaint.textSize = dpToPx(10f)
         textPaint.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-        val btn1W = textPaint.measureText("+1 min")
+        val addMinute = fitText(addMinuteLabel, btnW - dpToPx(8f))
+        val btn1W = textPaint.measureText(addMinute)
         val btn1Y = btnY + btnH / 2f - (textPaint.descent() + textPaint.ascent()) / 2f
-        canvas.drawText("+1 min", btnLeft + (btnW - btn1W) / 2f, btn1Y, textPaint)
+        canvas.drawText(addMinute, btnLeft + (btnW - btn1W) / 2f, btn1Y, textPaint)
 
         // Button 2: Cancel
         val btn2Left = btnLeft + btnW + btnGap
@@ -196,9 +206,15 @@ class DynamicBarExpandedDemoView @JvmOverloads constructor(
         chipPath.addRoundRect(chipRect, btnH / 2f, btnH / 2f, Path.Direction.CW)
         canvas.drawPath(chipPath, cardPaint)
 
-        val btn2W = textPaint.measureText("Cancel")
-        canvas.drawText("Cancel", btn2Left + (btnW - btn2W) / 2f, btn1Y, textPaint)
+        val cancel = fitText(cancelLabel, btnW - dpToPx(8f))
+        val btn2W = textPaint.measureText(cancel)
+        canvas.drawText(cancel, btn2Left + (btnW - btn2W) / 2f, btn1Y, textPaint)
     }
+
+    /** Ellipsizes [text] to [maxWidth] using the current [textPaint] settings. */
+    private fun fitText(text: String, maxWidth: Float): String =
+        TextUtils.ellipsize(text, android.text.TextPaint(textPaint), maxWidth,
+            TextUtils.TruncateAt.END).toString()
 
     private fun resolveThemeColor(attr: Int, fallback: Int): Int {
         val typedArray = context.obtainStyledAttributes(intArrayOf(attr))
