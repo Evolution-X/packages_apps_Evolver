@@ -16,7 +16,7 @@ import android.widget.FrameLayout
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,7 +32,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
@@ -65,6 +65,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Velocity
@@ -77,8 +79,11 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
+import com.android.settings.widget.scrollbar
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 import kotlin.math.roundToInt
+import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
+import org.evolution.settings.fragments.miscellaneous.insetFocusRing
 import org.evolution.settings.utils.SystemUtils
 
 class ClockPickerFragment : Fragment() {
@@ -182,7 +187,9 @@ fun ClockPickerScreen(
     val hasSelectionChange = selectedClock != initialClock
 
     Box(modifier = Modifier.fillMaxSize()) {
+        val gridState = rememberLazyGridState()
         LazyVerticalGrid(
+            state = gridState,
             columns = GridCells.Fixed(3),
             contentPadding = PaddingValues(
                 start = 12.dp,
@@ -195,6 +202,7 @@ fun ClockPickerScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .nestedScroll(nestedScrollInterop)
+                .scrollbar(gridState.scrollIndicatorState, Orientation.Vertical)
         ) {
             items(
                 count = clockLayouts.size,
@@ -236,11 +244,13 @@ private fun ClockItem(
     onClick: () -> Unit
 ) {
     Card(
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .height(220.dp)
-            .clickable(onClick = onClick),
-        shape = RoundedCornerShape(18.dp),
+            .insetFocusRing(ExpressiveCorners.single)
+            .semantics { selected = isSelected },
+        shape = ExpressiveCorners.single,
         border = if (isSelected) {
             BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
         } else null,
