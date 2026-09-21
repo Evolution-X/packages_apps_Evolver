@@ -91,7 +91,7 @@
     <org.evolution.settings.preferences.colorpicker.SecureSettingColorPickerPreference
         android:key="pulse_custom_color"
         android:title="@string/custom_color"
-        android:defaultValue="#FFFFFF"
+        android:defaultValue="0xFFFFFFFF"
         android:dependency="lockscreen_pulse_enabled" />
 
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference

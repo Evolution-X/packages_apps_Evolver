@@ -27,7 +27,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
-import com.android.settingslib.spa.framework.theme.SettingsTheme
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTheme
 import org.evolution.settings.utils.ClockColorPickerDialog
 
 class ClockColorPickerDialogFragment : DialogFragment() {
@@ -63,7 +63,7 @@ class ClockColorPickerDialogFragment : DialogFragment() {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                SettingsTheme {
+                ExpressiveTheme {
                     ClockColorPickerDialog(
                         initialColor = initialHex,
                         title = dialogTitle,

@@ -6,10 +6,8 @@
 package org.evolution.settings.fragments.statusbar;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,10 +15,7 @@ import android.os.UserHandle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.preference.Preference;
@@ -39,9 +34,9 @@ import java.util.List;
 import lineageos.preference.LineageSystemSettingListPreference;
 
 import org.evolution.settings.preferences.SystemSettingListPreference;
+import org.evolution.settings.preferences.ExpressiveDialogs;
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
-import org.evolution.settings.preferences.colorpicker.ColorPickerPreference;
 import org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
@@ -80,9 +75,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             "statusbar_clock_chip_gradient_mask_text";
 
     private static final int CLOCK_CHIP_STYLE_CUSTOM_GRADIENT = 13;
-
-    private static final int DEFAULT_CLOCK_CHIP_GRADIENT_START_COLOR = 0xFFFF6B6B;
-    private static final int DEFAULT_CLOCK_CHIP_GRADIENT_END_COLOR = 0xFF4ECDC4;
+    private static final int LOGO_COLOR_MODE_CUSTOM = 2;
 
     private static final int CARRIER_MODE_NEVER = 0;
 
@@ -100,7 +93,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mLogo;
     private Preference mLogoPosition;
     private SystemSettingListPreference mLogoColor;
-    private ColorPickerPreference mLogoColorPicker;
+    private SystemSettingColorPickerPreference mLogoColorPicker;
+    private int mLogoColorMode;
     private Preference mLogoCustomImage;
     private Preference mLogoStyle;
 
@@ -162,25 +156,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         mClockChipGradientStartColor = (SystemSettingColorPickerPreference)
                 findPreference(KEY_CLOCK_CHIP_GRADIENT_START_COLOR);
-        int chipStartColor = Settings.System.getIntForUser(
-                resolver,
-                Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_START_COLOR,
-                DEFAULT_CLOCK_CHIP_GRADIENT_START_COLOR,
-                UserHandle.USER_CURRENT);
-        mClockChipGradientStartColor.setNewPreviewColor(chipStartColor);
-        mClockChipGradientStartColor.setSummary(colorToHexSummary(chipStartColor));
-        mClockChipGradientStartColor.setOnPreferenceChangeListener(this);
-
         mClockChipGradientEndColor = (SystemSettingColorPickerPreference)
                 findPreference(KEY_CLOCK_CHIP_GRADIENT_END_COLOR);
-        int chipEndColor = Settings.System.getIntForUser(
-                resolver,
-                Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_END_COLOR,
-                DEFAULT_CLOCK_CHIP_GRADIENT_END_COLOR,
-                UserHandle.USER_CURRENT);
-        mClockChipGradientEndColor.setNewPreviewColor(chipEndColor);
-        mClockChipGradientEndColor.setSummary(colorToHexSummary(chipEndColor));
-        mClockChipGradientEndColor.setOnPreferenceChangeListener(this);
 
         mClockChipGradientAngle = (SystemSettingSeekBarPreference)
                 findPreference(KEY_CLOCK_CHIP_GRADIENT_ANGLE);
@@ -223,17 +200,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mLogoColor.setValue(String.valueOf(logoColor));
         mLogoColor.setSummary(mLogoColor.getEntry());
         mLogoColor.setOnPreferenceChangeListener(this);
-        mLogoColorPicker = (ColorPickerPreference) findPreference(LOGO_COLOR_PICKER);
-        int logoColorPicker = Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_LOGO_COLOR_PICKER, 0xFFFFFFFF);
-        mLogoColorPicker.setNewPreviewColor(logoColorPicker);
-        String logoColorPickerHex = String.format("#%08x", (0xFFFFFFFF & logoColorPicker));
-        if (logoColorPickerHex.equals("#ffffffff")) {
-            mLogoColorPicker.setSummary(R.string.default_value);
-        } else {
-            mLogoColorPicker.setSummary(logoColorPickerHex);
-        }
-        mLogoColorPicker.setOnPreferenceChangeListener(this);
+        mLogoColorPicker = (SystemSettingColorPickerPreference) findPreference(LOGO_COLOR_PICKER);
         updateColorPrefs(logoColor);
 
         mLogoStyle = findPreference(LOGO_CUSTOM_STYLE);
@@ -277,18 +244,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
             }
             updateCustomImagePrefVisibility((Integer) newValue);
             return true;
-        } else if (preference == mLogoColorPicker) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            if (hex.equals("#ffffffff")) {
-                preference.setSummary(R.string.default_value);
-            } else {
-                preference.setSummary(hex);
-            }
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(resolver,
-                    Settings.System.STATUS_BAR_LOGO_COLOR_PICKER, intHex);
-            return true;
         } else if (preference == mLogo) {
             boolean enabled = (boolean) newValue;
             updateLogoPrefsVisibility(enabled);
@@ -300,24 +255,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int style = (Integer) newValue;
             updateClockChipGradientPrefsVisibility(style);
             updateClockChipSummary(style);
-            return true;
-        } else if (preference == mClockChipGradientStartColor) {
-            int color = (int) newValue;
-            Settings.System.putIntForUser(
-                    resolver,
-                    Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_START_COLOR,
-                    color,
-                    UserHandle.USER_CURRENT);
-            mClockChipGradientStartColor.setSummary(colorToHexSummary(color));
-            return true;
-        } else if (preference == mClockChipGradientEndColor) {
-            int color = (int) newValue;
-            Settings.System.putIntForUser(
-                    resolver,
-                    Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_END_COLOR,
-                    color,
-                    UserHandle.USER_CURRENT);
-            mClockChipGradientEndColor.setSummary(colorToHexSummary(color));
             return true;
         } else if (preference == mClockChipGradientAngle) {
             int angle = (int) newValue;
@@ -379,7 +316,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
         if (mLogoPosition != null) mLogoPosition.setVisible(enabled);
         if (mLogoStyle != null) mLogoStyle.setVisible(enabled);
         if (mLogoColor != null) mLogoColor.setVisible(enabled);
-        if (mLogoColorPicker != null) mLogoColorPicker.setVisible(enabled);
+        if (mLogoColorPicker != null) {
+            mLogoColorPicker.setVisible(enabled && mLogoColorMode == LOGO_COLOR_MODE_CUSTOM);
+        }
         updateCustomImagePrefVisibility();
     }
 
@@ -427,8 +366,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
     }
 
     private void updateColorPrefs(int logoColor) {
+        mLogoColorMode = logoColor;
+        // Only show the custom color while the custom logo color mode is selected.
         if (mLogoColorPicker != null) {
-            mLogoColorPicker.setEnabled(logoColor == 2);
+            mLogoColorPicker.setVisible(
+                    mLogo != null && mLogo.isChecked() && logoColor == LOGO_COLOR_MODE_CUSTOM);
         }
     }
 
@@ -457,11 +399,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         if (mClockChipGradientMaskText != null) {
             mClockChipGradientMaskText.setVisible(isGradient);
         }
-    }
-
-    private static String colorToHexSummary(int color) {
-        String hex = String.format("#%08x", (0xFFFFFFFFL & color));
-        return hex.equalsIgnoreCase("#ffffffff") ? "" : hex;
     }
 
     private void updateClockChipSummary() {
@@ -494,37 +431,19 @@ public class StatusBar extends SettingsPreferenceFragment implements
         if (CUSTOM_CARRIER_LABEL.equals(preference.getKey())) {
             final ContentResolver resolver = getActivity().getContentResolver();
 
-            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-            alert.setTitle(R.string.custom_carrier_label_title);
-            alert.setMessage(R.string.custom_carrier_label_dialog_message);
-
-            LinearLayout container = new LinearLayout(getActivity());
-            container.setOrientation(LinearLayout.VERTICAL);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(55, 20, 55, 20);
-
-            final EditText input = new EditText(getActivity());
-            input.setText(TextUtils.isEmpty(mCustomCarrierText) ? "" : mCustomCarrierText);
-            input.setSelection(input.getText().length());
-            input.setLayoutParams(lp);
-            input.setGravity(Gravity.START | Gravity.TOP);
-            container.addView(input);
-            alert.setView(container);
-
-            alert.setPositiveButton(getString(android.R.string.ok),
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String value = input.getText().toString();
-                            Settings.System.putStringForUser(resolver,
-                                    CUSTOM_CARRIER_LABEL, value, UserHandle.USER_CURRENT);
-                            updateCustomCarrierTextSummary();
-                        }
+            ExpressiveDialogs.showTextInputDialog(
+                    getActivity(),
+                    getString(R.string.custom_carrier_label_title),
+                    getString(R.string.custom_carrier_label_dialog_message),
+                    TextUtils.isEmpty(mCustomCarrierText) ? "" : mCustomCarrierText,
+                    getString(android.R.string.ok),
+                    getString(android.R.string.cancel),
+                    true,
+                    value -> {
+                        Settings.System.putStringForUser(resolver,
+                                CUSTOM_CARRIER_LABEL, value, UserHandle.USER_CURRENT);
+                        updateCustomCarrierTextSummary();
                     });
-            alert.setNegativeButton(getString(android.R.string.cancel), null);
-            alert.show();
             return true;
         }
         if (preference == mLogoCustomImage) {

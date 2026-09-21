@@ -35,25 +35,22 @@
         android:defaultValue="0"
         android:dependency="cutout_progress_enabled" />
 
-    <Preference
+    <org.evolution.settings.preferences.colorpicker.SecureSettingColorPickerPreference
         android:key="cutout_progress_ring_color"
         android:title="@string/cutout_progress_ring_color_title"
-        android:summary="#2196F3"
-        android:persistent="false"
+        android:defaultValue="0xFF2196F3"
         android:dependency="cutout_progress_enabled" />
 
-    <Preference
+    <org.evolution.settings.preferences.colorpicker.SecureSettingColorPickerPreference
         android:key="cutout_progress_error_color"
         android:title="@string/cutout_progress_error_color_title"
-        android:summary="#F44336"
-        android:persistent="false"
+        android:defaultValue="0xFFF44336"
         android:dependency="cutout_progress_enabled" />
 
-    <Preference
+    <org.evolution.settings.preferences.colorpicker.SecureSettingColorPickerPreference
         android:key="cutout_progress_finish_flash_color"
         android:title="@string/cutout_progress_finish_flash_color_title"
-        android:summary="#FFFFFF"
-        android:persistent="false"
+        android:defaultValue="0xFFFFFFFF"
         android:dependency="cutout_progress_enabled" />
 
     <org.evolution.settings.preferences.SecureSettingSeekBarPreference
@@ -132,11 +129,10 @@
             android:defaultValue="0"
             android:dependency="cutout_progress_music_enabled" />
 
-        <Preference
+        <org.evolution.settings.preferences.colorpicker.SecureSettingColorPickerPreference
             android:key="cutout_progress_music_custom_color"
             android:title="@string/cutout_progress_music_custom_color_title"
-            android:summary="#9C27B0"
-            android:persistent="false"
+            android:defaultValue="0xFF9C27B0"
             android:dependency="cutout_progress_music_enabled" />
 
         <org.evolution.settings.preferences.SecureSettingSeekBarPreference
@@ -215,11 +211,10 @@
             android:summary="@string/cutout_progress_bg_ring_enabled_summary"
             android:defaultValue="true" />
 
-        <Preference
+        <org.evolution.settings.preferences.colorpicker.SecureSettingColorPickerPreference
             android:key="cutout_progress_bg_ring_color"
             android:title="@string/cutout_progress_bg_ring_color_title"
-            android:summary="#808080"
-            android:persistent="false"
+            android:defaultValue="0xFF808080"
             android:dependency="cutout_progress_bg_ring_enabled" />
 
         <org.evolution.settings.preferences.SecureSettingSeekBarPreference

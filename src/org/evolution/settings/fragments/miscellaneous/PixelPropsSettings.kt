@@ -5,6 +5,12 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.lazy.rememberLazyListState
+import com.android.settings.widget.scrollbar
+import com.android.settingslib.spa.framework.theme.SettingsShape
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.WindowInsets
 import android.app.ActivityManager
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -23,25 +29,23 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Android
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuGroup
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.DropdownMenuPopup
+import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.FilledTonalButton
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -63,8 +67,8 @@ import com.android.internal.logging.nano.MetricsProto
 import com.android.internal.util.evolution.PixelDeviceRepository
 import com.android.internal.util.evolution.PixelPropsUtils
 import com.android.settings.R
+import com.android.settingslib.spa.framework.theme.SettingsSpace
 import com.android.settings.SettingsPreferenceFragment
-import com.android.settingslib.spa.framework.theme.SettingsTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -103,7 +107,7 @@ class PixelPropsSettings : SettingsPreferenceFragment() {
     ): View = ComposeView(requireContext()).apply {
         setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
         setContent {
-            SettingsTheme {
+            ExpressiveTheme {
                 PixelPropsContent(context = requireContext())
             }
         }
@@ -127,38 +131,14 @@ private fun PixelPropsContent(context: android.content.Context) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(SettingsSpace.small1),
             contentAlignment = Alignment.Center,
         ) {
-            Card(
-                shape = RoundedCornerShape(24.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceBright),
-            ) {
-                Column(
-                    modifier = Modifier.padding(24.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Icon(
-                        Icons.Default.Android,
-                        contentDescription = null,
-                        modifier = Modifier.size(40.dp),
-                        tint = MaterialTheme.colorScheme.primary,
-                    )
-                    Text(
-                        text = stringResource(R.string.spoofing_pixel_props_title),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        text = stringResource(R.string.pp_mainline_unsupported),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center,
-                    )
-                }
-            }
+            ExpressiveEmptyState(
+                icon = Icons.Default.Android,
+                title = stringResource(R.string.spoofing_pixel_props_title),
+                description = stringResource(R.string.pp_mainline_unsupported),
+            )
         }
         return
     }
@@ -264,16 +244,19 @@ private fun PixelPropsContent(context: android.content.Context) {
     val activeCount = allApps.count { it.isSelected }
     val selectedProfile = profiles.find { it.codename == selectedCodename }
 
-    Scaffold(containerColor = Color.Transparent) { innerPadding ->
+    Scaffold(
+        containerColor = Color.Transparent,
+        contentWindowInsets = WindowInsets.navigationBars,
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = SettingsSpace.small1),
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
-            SpoofingHeaderCard(
+            ExpressiveHeaderCard(
                 title = stringResource(R.string.spoofing_pixel_props_title),
                 subtitle = when {
                     !globalEnabled -> stringResource(R.string.app_spoofing_disabled)
@@ -300,94 +283,84 @@ private fun PixelPropsContent(context: android.content.Context) {
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall6))
 
-            SpoofingAnimatedVisibility(visible = globalEnabled) {
+            ExpressiveAnimatedVisibility(visible = globalEnabled) {
                 Column {
-                    // Model selector card
-                    Card(
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(
-                                alpha = 0.5f)),
+                    // Model selector
+                    ExpressiveGroup(
+                        title = "",
+                        horizontalInset = 0.dp,
                     ) {
-                        Column(modifier = Modifier.padding(16.dp)) {
-                            Text(
-                                text = stringResource(R.string.pp_spoof_as),
-                                style = MaterialTheme.typography.labelMedium,
-                                color = MaterialTheme.colorScheme.primary,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(modifier = Modifier.height(8.dp))
+                        item {
                             Box {
-                                OutlinedButton(
+                                ExpressiveRow(
+                                    title = selectedProfile?.model
+                                        ?: PixelDeviceRepository.DEVICE_MODEL_MAP[selectedCodename]
+                                        ?: selectedCodename,
+                                    summary = selectedProfile?.fingerprint,
                                     onClick = { showModelDropdown = true },
-                                    modifier = Modifier.fillMaxWidth(),
-                                    shape = RoundedCornerShape(10.dp),
-                                ) {
-                                    Text(
-                                        text = selectedProfile?.model
-                                            ?: PixelDeviceRepository.DEVICE_MODEL_MAP[selectedCodename]
-                                            ?: selectedCodename,
-                                        modifier = Modifier.weight(1f),
-                                    )
-                                }
-                                DropdownMenu(
+                                    trailing = {
+                                        Icon(
+                                            Icons.Default.ArrowDropDown,
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        )
+                                    },
+                                )
+                                DropdownMenuPopup(
                                     expanded = showModelDropdown,
                                     onDismissRequest = { showModelDropdown = false },
-                                    modifier = Modifier.heightIn(max = 320.dp),
                                 ) {
-                                    displayProfiles.forEach { profile ->
-                                        DropdownMenuItem(
-                                            text = {
-                                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                                    Text(
-                                                        text = profile.model,
-                                                        modifier = Modifier.weight(1f),
-                                                    )
-                                                    if (profile.codename == selectedCodename) {
+                                    DropdownMenuGroup(
+                                        shapes = expressiveMenuGroupShapes(),
+                                        modifier = Modifier
+                                            .heightIn(max = 320.dp)
+                                            .expressiveVerticalScroll(),
+                                    ) {
+                                        displayProfiles.forEachIndexed { index, profile ->
+                                            val isSelected = profile.codename == selectedCodename
+                                            DropdownMenuItem(
+                                                selected = isSelected,
+                                                text = { Text(text = profile.model) },
+                                                shapes = MenuDefaults.itemShape(
+                                                    index = index,
+                                                    count = displayProfiles.size,
+                                                ),
+                                                trailingIcon = if (isSelected) {
+                                                    {
                                                         Icon(
                                                             Icons.Default.Check,
                                                             contentDescription = null,
-                                                            tint = MaterialTheme.colorScheme.primary,
-                                                            modifier = Modifier.size(18.dp),
+                                                            modifier = Modifier.size(MenuDefaults.TrailingIconSize),
                                                         )
                                                     }
-                                                }
-                                            },
-                                            onClick = {
-                                                selectedCodename = profile.codename
-                                                Settings.Secure.putString(
-                                                    context.contentResolver,
-                                                    PP_MODEL_KEY,
-                                                    profile.codename,
-                                                )
-                                                showModelDropdown = false
-                                                scope.launch(Dispatchers.IO) {
-                                                    killPackages(
-                                                        activityManager,
-                                                        allApps.filter { it.isSelected }
-                                                            .map { it.packageName }.toSet(),
+                                                } else null,
+                                                onClick = {
+                                                    selectedCodename = profile.codename
+                                                    Settings.Secure.putString(
+                                                        context.contentResolver,
+                                                        PP_MODEL_KEY,
+                                                        profile.codename,
                                                     )
-                                                }
-                                            },
-                                        )
+                                                    showModelDropdown = false
+                                                    scope.launch(Dispatchers.IO) {
+                                                        killPackages(
+                                                            activityManager,
+                                                            allApps.filter { it.isSelected }
+                                                                .map { it.packageName }.toSet(),
+                                                        )
+                                                    }
+                                                },
+                                            )
+                                        }
                                     }
                                 }
-                            }
-                            if (selectedProfile != null) {
-                                Spacer(modifier = Modifier.height(4.dp))
-                                Text(
-                                    text = selectedProfile.fingerprint,
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                )
                             }
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(12.dp))
+                    Spacer(modifier = Modifier.height(SettingsSpace.extraSmall6))
 
                     AppPickerSearchField(
                         query = searchQuery,
@@ -395,96 +368,55 @@ private fun PixelPropsContent(context: android.content.Context) {
                         enabled = globalEnabled,
                     )
 
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        FilterChip(
-                            selected = showSystemApps,
-                            onClick = { showSystemApps = !showSystemApps },
-                            label = { Text(stringResource(R.string.show_system_apps)) },
-                            leadingIcon = if (showSystemApps) {
-                                {
-                                    Icon(
-                                        Icons.Default.Check,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(18.dp),
-                                    )
+                    AppPickerActions(
+                        showSystemApps = showSystemApps,
+                        onToggleSystemApps = { showSystemApps = !showSystemApps },
+                        onSelectAll = {
+                            filteredApps.forEach { f ->
+                                val i = allApps.indexOfFirst { it.packageName == f.packageName }
+                                if (i >= 0 && !allApps[i].isSelected)
+                                    allApps[i] = allApps[i].copy(isSelected = true)
+                            }
+                            scope.launch(Dispatchers.IO) {
+                                val current = allApps.filter { it.isSelected }
+                                    .map { it.packageName }.toSet()
+                                writeTargetsSet(current)
+                            }
+                        },
+                        onReset = {
+                            allApps.indices.forEach { i ->
+                                allApps[i] = allApps[i].copy(
+                                    isSelected = allApps[i].packageName in PixelDeviceRepository.DEFAULT_PP_TARGETS,
+                                )
+                            }
+                            scope.launch(Dispatchers.IO) {
+                                Settings.Secure.putString(
+                                    context.contentResolver,
+                                    PixelDeviceRepository.STABLE_CACHE_KEY,
+                                    "",
+                                )
+                                writeTargetsSet(PixelDeviceRepository.DEFAULT_PP_TARGETS)
+                                killPackages(activityManager, PixelDeviceRepository.DEFAULT_PP_TARGETS)
+                                val fresh = PixelDeviceRepository.getStableProfiles(context, true)
+                                val resolved = fresh.ifEmpty { PixelDeviceRepository.FALLBACK_PROFILES }
+                                val defaultCodename = if (isTablet) "tangorpro"
+                                    else PixelDeviceRepository.getDefaultPhoneCodename(resolved)
+                                Settings.Secure.putString(
+                                    context.contentResolver,
+                                    PP_MODEL_KEY,
+                                    defaultCodename,
+                                )
+                                withContext(Dispatchers.Main) {
+                                    profiles = resolved
+                                    selectedCodename = defaultCodename
                                 }
-                            } else null,
-                        )
-                    }
+                            }
+                        },
+                    )
 
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        FilledTonalButton(
-                            onClick = {
-                                filteredApps.forEach { f ->
-                                    val i = allApps.indexOfFirst { it.packageName == f.packageName }
-                                    if (i >= 0 && !allApps[i].isSelected)
-                                        allApps[i] = allApps[i].copy(isSelected = true)
-                                }
-                                scope.launch(Dispatchers.IO) {
-                                    val current = allApps.filter { it.isSelected }
-                                        .map { it.packageName }.toSet()
-                                    writeTargetsSet(current)
-                                }
-                            },
-                            modifier = Modifier.weight(1f),
-                            shape = RoundedCornerShape(10.dp),
-                        ) {
-                            Text(
-                                stringResource(R.string.action_select_all),
-                                style = MaterialTheme.typography.labelMedium,
-                            )
-                        }
-
-                        OutlinedButton(
-                            onClick = {
-                                allApps.indices.forEach { i ->
-                                    allApps[i] = allApps[i].copy(
-                                        isSelected = allApps[i].packageName in PixelDeviceRepository.DEFAULT_PP_TARGETS,
-                                    )
-                                }
-                                scope.launch(Dispatchers.IO) {
-                                    Settings.Secure.putString(
-                                        context.contentResolver,
-                                        PixelDeviceRepository.STABLE_CACHE_KEY,
-                                        "",
-                                    )
-                                    writeTargetsSet(PixelDeviceRepository.DEFAULT_PP_TARGETS)
-                                    killPackages(activityManager, PixelDeviceRepository.DEFAULT_PP_TARGETS)
-                                    val fresh = PixelDeviceRepository.getStableProfiles(context, true)
-                                    val resolved = fresh.ifEmpty { PixelDeviceRepository.FALLBACK_PROFILES }
-                                    val defaultCodename = if (isTablet) "tangorpro"
-                                        else PixelDeviceRepository.getDefaultPhoneCodename(resolved)
-                                    Settings.Secure.putString(
-                                        context.contentResolver,
-                                        PP_MODEL_KEY,
-                                        defaultCodename,
-                                    )
-                                    withContext(Dispatchers.Main) {
-                                        profiles = resolved
-                                        selectedCodename = defaultCodename
-                                    }
-                                }
-                            },
-                            modifier = Modifier.weight(1f),
-                            shape = RoundedCornerShape(10.dp),
-                        ) {
-                            Text(
-                                stringResource(R.string.action_reset),
-                                style = MaterialTheme.typography.labelMedium,
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
                     AppListAnimatedContent(
                         isLoading = isLoading,
@@ -492,7 +424,7 @@ private fun PixelPropsContent(context: android.content.Context) {
                         hasSearchQuery = searchQuery.isNotEmpty(),
                         modifier = Modifier.weight(1f),
                         emptyContent = {
-                            SpoofingEmptyState(
+                            ExpressiveEmptyState(
                                 icon = Icons.Default.Android,
                                 title = stringResource(R.string.ts_no_targets),
                                 description = stringResource(R.string.pp_empty_description),
@@ -500,17 +432,22 @@ private fun PixelPropsContent(context: android.content.Context) {
                             )
                         },
                     ) {
+                        val listState = rememberLazyListState()
                         LazyColumn(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalArrangement = Arrangement.spacedBy(6.dp),
+                            state = listState,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .scrollbar(listState.scrollIndicatorState, Orientation.Vertical),
+                            verticalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall1),
                         ) {
-                            items(filteredApps, key = { it.packageName }) { app ->
+                            itemsIndexed(filteredApps, key = { _, app -> app.packageName }) { index, app ->
                                 AppPickerItem(
                                     packageName = app.packageName,
                                     label = app.label,
                                     icon = app.icon,
                                     isSystem = app.isSystem,
                                     checked = app.isSelected,
+                                    shapes = ListItemDefaults.segmentedShapes(index = index, count = filteredApps.size),
                                     onToggle = { nowTargeted ->
                                         if (isLoading) return@AppPickerItem
                                         val index = allApps.indexOfFirst {
