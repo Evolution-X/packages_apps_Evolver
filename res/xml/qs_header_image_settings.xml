@@ -25,7 +25,7 @@
         android:summary="@string/quick_settings_header_image_summary"
         android:defaultValue="false" />
 
-    <ListPreference
+    <org.evolution.settings.preferences.PickerListPreference
         android:key="qs_header_provider"
         android:title="@string/quick_settings_header_provider_title"
         android:persistent="false"
@@ -33,7 +33,7 @@
         android:entryValues="@array/qs_header_provider_values"
         android:dependency="status_bar_custom_header" />
 
-    <ListPreference
+    <org.evolution.settings.preferences.PickerListPreference
         android:key="daylight_header_pack"
         android:title="@string/quick_settings_header_daylight_pack_title"
         android:persistent="false"
