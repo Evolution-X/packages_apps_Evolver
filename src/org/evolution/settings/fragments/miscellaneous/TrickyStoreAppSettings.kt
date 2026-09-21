@@ -7,6 +7,9 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.WindowInsets
 import android.app.ActivityManager
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -24,6 +27,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,24 +36,25 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.FilledTonalButton
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SegmentedButton
-import androidx.compose.material3.SegmentedButtonDefaults
-import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonGroupDefaults
+import androidx.compose.material3.ToggleButton
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -67,8 +72,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
+import com.android.settings.widget.scrollbar
+import com.android.settingslib.spa.framework.theme.SettingsSpace
 import com.android.settings.SettingsPreferenceFragment
-import com.android.settingslib.spa.framework.theme.SettingsTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -150,7 +156,7 @@ class TrickyStoreAppSettings : SettingsPreferenceFragment() {
     ): View = ComposeView(requireContext()).apply {
         setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
         setContent {
-            SettingsTheme {
+            ExpressiveTheme {
                 TrickyStoreAppSettingsContent(context = requireContext())
             }
         }
@@ -293,17 +299,20 @@ private fun TrickyStoreAppSettingsContent(
 
     val activeCount = allApps.count { it.entry.isSelected }
 
-    Scaffold(containerColor = Color.Transparent) { innerPadding ->
+    Scaffold(
+        containerColor = Color.Transparent,
+        contentWindowInsets = WindowInsets.navigationBars,
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = SettingsSpace.small1),
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
             // No switch — TrickyStore is always active
-            SpoofingHeaderCard(
+            ExpressiveHeaderCard(
                 title = stringResource(R.string.ts_manage_target_apps),
                 subtitle = if (activeCount == 0)
                     stringResource(R.string.ts_no_targets)
@@ -318,150 +327,117 @@ private fun TrickyStoreAppSettingsContent(
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall6))
 
             AppPickerSearchField(
                 query = searchQuery,
                 onQueryChange = { searchQuery = it },
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                FilterChip(
-                    selected = showSystemApps,
-                    onClick = { showSystemApps = !showSystemApps },
-                    label = { Text(stringResource(R.string.show_system_apps)) },
-                    leadingIcon = if (showSystemApps) {
-                        {
-                            Icon(
-                                Icons.Default.Check,
-                                contentDescription = null,
-                                modifier = Modifier.size(18.dp),
-                            )
-                        }
-                    } else null,
-                )
-                TextButton(
-                    onClick = {
-                        val previouslySelected = allApps
-                            .filter { it.entry.isSelected }
-                            .map { it.entry.packageName }
-                            .toSet()
-
-                        allApps.indices.forEach { i ->
-                            val pkg = allApps[i].entry.packageName
+            AppPickerActions(
+                showSystemApps = showSystemApps,
+                onToggleSystemApps = { showSystemApps = !showSystemApps },
+                onSelectAll = {
+                    filteredApps.forEach { s ->
+                        val i = allApps.indexOfFirst {
+                            it.entry.packageName == s.entry.packageName }
+                        if (i >= 0 && !allApps[i].entry.isSelected)
                             allApps[i] = allApps[i].copy(
-                                entry = allApps[i].entry.copy(
-                                    isSelected = pkg in TrickyStoreAppSettings.DEFAULT_TARGETS ||
-                                            pkg in TrickyStoreAppSettings.DEFAULT_TARGET_MODES,
-                                ),
-                                mode = TrickyStoreAppSettings.DEFAULT_TARGET_MODES[pkg]
-                                    ?: TargetMode.AUTO,
-                            )
-                        }
+                                entry = allApps[i].entry.copy(isSelected = true))
+                    }
+                    scope.launch(Dispatchers.IO) { saveTargets() }
+                },
+                onReset = {
+                    val previouslySelected = allApps
+                        .filter { it.entry.isSelected }
+                        .map { it.entry.packageName }
+                        .toSet()
 
-                        val newSelected = allApps
-                            .filter { it.entry.isSelected }
-                            .map { it.entry.packageName }
-                            .toSet()
+                    allApps.indices.forEach { i ->
+                        val pkg = allApps[i].entry.packageName
+                        allApps[i] = allApps[i].copy(
+                            entry = allApps[i].entry.copy(
+                                isSelected = pkg in TrickyStoreAppSettings.DEFAULT_TARGETS ||
+                                        pkg in TrickyStoreAppSettings.DEFAULT_TARGET_MODES,
+                            ),
+                            mode = TrickyStoreAppSettings.DEFAULT_TARGET_MODES[pkg]
+                                ?: TargetMode.AUTO,
+                        )
+                    }
 
-                        // Kill anything that was added or removed by the reset
-                        val toKill = (previouslySelected + newSelected) -
-                            previouslySelected.intersect(newSelected)
+                    val newSelected = allApps
+                        .filter { it.entry.isSelected }
+                        .map { it.entry.packageName }
+                        .toSet()
 
+                    // Kill anything that was added or removed by the reset
+                    val toKill = (previouslySelected + newSelected) -
+                        previouslySelected.intersect(newSelected)
+
+                    scope.launch(Dispatchers.IO) {
+                        saveTargets()
+                        killPackages(activityManager, toKill)
+                    }
+                },
+            )
+
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
+
+            ExpressiveActionRow(
+                actions = listOf(
+                    ExpressiveAction(
+                        text = stringResource(R.string.action_add_installed),
+                        icon = Icons.Rounded.Add,
+                        onClick = {
                         scope.launch(Dispatchers.IO) {
-                            saveTargets()
-                            killPackages(activityManager, toKill)
-                        }
-                    },
-                ) {
-                    Text(stringResource(R.string.action_reset))
-                }
-            }
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                FilledTonalButton(
-                    onClick = {
-                        filteredApps.forEach { s ->
-                            val i = allApps.indexOfFirst {
-                                it.entry.packageName == s.entry.packageName }
-                            if (i >= 0 && !allApps[i].entry.isSelected)
-                                allApps[i] = allApps[i].copy(
-                                    entry = allApps[i].entry.copy(isSelected = true))
-                        }
-                        scope.launch(Dispatchers.IO) { saveTargets() }
-                    },
-                    modifier = Modifier.weight(1f),
-                    shape = RoundedCornerShape(10.dp),
-                ) {
-                    Text(
-                        stringResource(R.string.action_select_all),
-                        style = MaterialTheme.typography.labelMedium,
-                    )
-                }
-
-                OutlinedButton(
-                    onClick = {
-                        scope.launch(Dispatchers.IO) {
-                            // Re-use the already-loaded allApps list: non-system apps
-                            // are those whose isSystem flag is false. No redundant PM
-                            // query needed.
-                            val teeBroken = runCatching {
-                                android.security.trickystore
-                                    .TrickyStoreService.getInstance().isTeeBroken()
-                            }.getOrDefault(false)
-
-                            var addedCount = 0
-                            withContext(Dispatchers.Main) {
-                                allApps.indices.forEach { i ->
-                                    val state = allApps[i]
-                                    if (!state.entry.isSelected && !state.entry.isSystem) {
-                                        val mode = when {
-                                            TrickyStoreAppSettings.DEFAULT_TARGET_MODES
-                                                .containsKey(state.entry.packageName) ->
-                                                TrickyStoreAppSettings.DEFAULT_TARGET_MODES[state.entry.packageName]!!
-                                            teeBroken -> TargetMode.LEAF_HACK
-                                            else -> TargetMode.AUTO
+                                // Re-use the already-loaded allApps list: non-system apps
+                                // are those whose isSystem flag is false. No redundant PM
+                                // query needed.
+                                val teeBroken = runCatching {
+                                    android.security.trickystore
+                                        .TrickyStoreService.getInstance().isTeeBroken()
+                                }.getOrDefault(false)
+    
+                                var addedCount = 0
+                                withContext(Dispatchers.Main) {
+                                    allApps.indices.forEach { i ->
+                                        val state = allApps[i]
+                                        if (!state.entry.isSelected && !state.entry.isSystem) {
+                                            val mode = when {
+                                                TrickyStoreAppSettings.DEFAULT_TARGET_MODES
+                                                    .containsKey(state.entry.packageName) ->
+                                                    TrickyStoreAppSettings.DEFAULT_TARGET_MODES[state.entry.packageName]!!
+                                                teeBroken -> TargetMode.LEAF_HACK
+                                                else -> TargetMode.AUTO
+                                            }
+                                            allApps[i] = state.copy(
+                                                entry = state.entry.copy(isSelected = true),
+                                                mode = mode,
+                                            )
+                                            addedCount++
                                         }
-                                        allApps[i] = state.copy(
-                                            entry = state.entry.copy(isSelected = true),
-                                            mode = mode,
-                                        )
-                                        addedCount++
                                     }
                                 }
+                                saveTargets()
+                                withContext(Dispatchers.Main) {
+                                    val msg = context.resources.getQuantityString(
+                                        R.plurals.ts_added_installed_count,
+                                        addedCount,
+                                        addedCount,
+                                    )
+                                    android.widget.Toast.makeText(
+                                        context, msg, android.widget.Toast.LENGTH_SHORT).show()
+                                }
                             }
-                            saveTargets()
-                            withContext(Dispatchers.Main) {
-                                val msg = context.resources.getQuantityString(
-                                    R.plurals.ts_added_installed_count,
-                                    addedCount,
-                                    addedCount,
-                                )
-                                android.widget.Toast.makeText(
-                                    context, msg, android.widget.Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                    },
-                    modifier = Modifier.weight(1f),
-                    shape = RoundedCornerShape(10.dp),
-                ) {
-                    Text(
-                        stringResource(R.string.action_add_installed),
-                        style = MaterialTheme.typography.labelMedium,
-                    )
-                }
-            }
+                        },
+                    ),
+                ),
+                inset = false,
+            )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
             AppListAnimatedContent(
                 isLoading = isLoading,
@@ -469,7 +445,7 @@ private fun TrickyStoreAppSettingsContent(
                 hasSearchQuery = searchQuery.isNotEmpty(),
                 modifier = Modifier.weight(1f),
                 emptyContent = {
-                    SpoofingEmptyState(
+                    ExpressiveEmptyState(
                         icon = Icons.Default.Shield,
                         title = stringResource(R.string.ts_no_targets),
                         description = stringResource(R.string.ts_target_apps_empty_description),
@@ -477,17 +453,22 @@ private fun TrickyStoreAppSettingsContent(
                     )
                 },
             ) {
+                val listState = rememberLazyListState()
                 LazyColumn(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                    state = listState,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .scrollbar(listState.scrollIndicatorState, Orientation.Vertical),
+                    verticalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall1),
                 ) {
-                    items(filteredApps, key = { it.entry.packageName }) { state ->
+                    itemsIndexed(filteredApps, key = { _, state -> state.entry.packageName }) { index, state ->
                         AppPickerItem(
                             packageName = state.entry.packageName,
                             label = state.entry.label,
                             icon = state.entry.icon,
                             isSystem = state.entry.isSystem,
                             checked = state.entry.isSelected,
+                            shapes = ListItemDefaults.segmentedShapes(index = index, count = filteredApps.size),
                             onToggle = { nowEnabled ->
                                 val i = allApps.indexOfFirst {
                                     it.entry.packageName == state.entry.packageName }
@@ -530,13 +511,26 @@ private fun TrickyStoreAppSettingsContent(
                                                    MaterialTheme.motionScheme.fastSpatialSpec()),
                                     ) {
                                         Column {
-                                            Spacer(modifier = Modifier.height(8.dp))
-                                            SingleChoiceSegmentedButtonRow(
-                                                modifier = Modifier.fillMaxWidth()) {
-                                                TargetMode.entries.forEachIndexed { index, mode ->
-                                                    SegmentedButton(
-                                                        selected = state.mode == mode,
-                                                        onClick = {
+                                            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
+                                            Row(
+                                                modifier = Modifier.fillMaxWidth(),
+                                                horizontalArrangement = Arrangement.spacedBy(
+                                                    ButtonGroupDefaults.ConnectedSpaceBetween),
+                                            ) {
+                                                val modes = TargetMode.entries
+                                                modes.forEachIndexed { modeIndex, mode ->
+                                                    val modeShapes = when (modeIndex) {
+                                                        0 -> ButtonGroupDefaults
+                                                            .connectedLeadingButtonShapes()
+                                                        modes.lastIndex -> ButtonGroupDefaults
+                                                            .connectedTrailingButtonShapes()
+                                                        else -> ButtonGroupDefaults
+                                                            .connectedMiddleButtonShapes()
+                                                    }
+                                                    val modeChecked = state.mode == mode
+                                                    ToggleButton(
+                                                        checked = state.mode == mode,
+                                                        onCheckedChange = {
                                                             val i = allApps.indexOfFirst {
                                                                 it.entry.packageName ==
                                                                     state.entry.packageName }
@@ -547,31 +541,38 @@ private fun TrickyStoreAppSettingsContent(
                                                                     saveTargets() }
                                                             }
                                                         },
-                                                        shape = SegmentedButtonDefaults.itemShape(
-                                                            index = index,
-                                                            count = TargetMode.entries.size,
-                                                        ),
-                                                        label = {
-                                                            Text(
-                                                                text = when (mode) {
-                                                                    TargetMode.AUTO ->
-                                                                        stringResource(
-                                                                            R.string.ts_mode_auto)
-                                                                    TargetMode.LEAF_HACK ->
-                                                                        stringResource(
-                                                                            R.string.ts_mode_leaf)
-                                                                    TargetMode.CERT_GEN ->
-                                                                        stringResource(
-                                                                            R.string.ts_mode_cert)
-                                                                    TargetMode.SKIP ->
-                                                                        stringResource(
-                                                                            R.string.ts_mode_skip)
-                                                                },
-                                                                style = MaterialTheme.typography
-                                                                    .labelSmall,
+                                                        modifier = Modifier
+                                                            .weight(1f)
+                                                            .insetFocusRing(
+                                                                if (modeChecked) modeShapes.checkedShape
+                                                                else modeShapes.shape,
+                                                                ringHeight = ButtonDefaults.MinHeight,
                                                             )
-                                                        },
-                                                    )
+                                                            .semantics { role = Role.RadioButton },
+                                                        shapes = modeShapes,
+                                                        contentPadding = PaddingValues(
+                                                            horizontal = SettingsSpace.extraSmall2),
+                                                    ) {
+                                                        Text(
+                                                            text = when (mode) {
+                                                                TargetMode.AUTO ->
+                                                                    stringResource(
+                                                                        R.string.ts_mode_auto)
+                                                                TargetMode.LEAF_HACK ->
+                                                                    stringResource(
+                                                                        R.string.ts_mode_leaf)
+                                                                TargetMode.CERT_GEN ->
+                                                                    stringResource(
+                                                                        R.string.ts_mode_cert)
+                                                                TargetMode.SKIP ->
+                                                                    stringResource(
+                                                                        R.string.ts_mode_skip)
+                                                            },
+                                                            style = MaterialTheme.typography
+                                                                .labelSmall,
+                                                            maxLines = 1,
+                                                        )
+                                                    }
                                                 }
                                             }
                                         }
