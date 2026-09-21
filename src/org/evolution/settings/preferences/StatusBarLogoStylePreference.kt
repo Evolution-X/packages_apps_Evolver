@@ -6,27 +6,27 @@
 package org.evolution.settings.preferences
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.UserHandle
+import android.provider.MediaStore
 import android.provider.Settings
 import android.util.AttributeSet
-import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceManager
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.android.settings.R
-import kotlin.math.min
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.evolution.settings.utils.StatusBarLogoImageUtils
 
 class StatusBarLogoStylePreference @JvmOverloads constructor(
     context: Context,
@@ -34,8 +34,8 @@ class StatusBarLogoStylePreference @JvmOverloads constructor(
     defStyleAttr: Int = androidx.preference.R.attr.preferenceStyle
 ) : Preference(context, attrs, defStyleAttr) {
 
-    private var dialog: AlertDialog? = null
-    private var recyclerView: RecyclerView? = null
+    private var dialog: ComposeDialogHandle? = null
+    private var logoPickerLauncher: ActivityResultLauncher<Intent>? = null
 
     private val pm: PackageManager = context.packageManager
     private val sysUiRes: Resources? = try {
@@ -55,90 +55,102 @@ class StatusBarLogoStylePreference @JvmOverloads constructor(
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
         super.onAttachedToHierarchy(preferenceManager)
         updateSummary()
+
+        val activity = context as? FragmentActivity ?: return
+        logoPickerLauncher = activity.activityResultRegistry.register(
+            "logo_picker_${key}",
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            result.data?.data?.let { handleLogoUriSelected(it, activity) }
+        }
     }
 
     override fun onDetached() {
         dialog?.dismiss()
         dialog = null
-        recyclerView = null
+        logoPickerLauncher?.unregister()
+        logoPickerLauncher = null
         super.onDetached()
     }
 
     override fun onClick() {
-        val ctx = context
-        val content = LayoutInflater.from(ctx).inflate(R.layout.selector_item_view, null)
+        dialog?.dismiss()
 
-        recyclerView = content.findViewById<RecyclerView>(R.id.recycler_view).apply {
-            setHasFixedSize(true)
-
-            val isLandscape = ctx.resources.configuration.orientation ==
-                    Configuration.ORIENTATION_LANDSCAPE
-            val span = if (isLandscape) 2 else 1
-            layoutManager = GridLayoutManager(ctx, span)
-            adapter = IconAdapter(getCurrentValue())
-
-            post {
-                val fraction = if (isLandscape) 0.75f else 0.6f
-                val maxHeight = (ctx.resources.displayMetrics.heightPixels * fraction).toInt()
-                layoutParams.height = maxHeight
-                requestLayout()
-            }
+        val current = getCurrentValue()
+        val selectedIndex = if (current in logoDrawables.indices) current else 0
+        val options = logoDrawables.indices.map { index ->
+            val icon = getIconDrawable(index)
+            PickerOption(labelForIndex(index).orEmpty()) { PickerDrawableIcon(icon) }
         }
 
-        dialog = AlertDialog.Builder(ctx)
-            .setTitle(title)
-            .setView(content)
-            .setNegativeButton(android.R.string.cancel, null)
-            .create()
-            .also { dlg ->
-                dlg.setOnDismissListener {
-                    dialog = null
-                    recyclerView = null
-                }
-                dlg.show()
-                applyDialogWidth(dlg)
-                tintDialogAccent(dlg)
-            }
-    }
-
-    private fun applyDialogWidth(dlg: AlertDialog) {
-        val w = dlg.window ?: return
-        val ctx = context
-
-        val wm = ctx.getSystemService(WindowManager::class.java)
-
-        val boundsWidthPx = try {
-            wm.currentWindowMetrics.bounds.width()
-        } catch (_: Throwable) {
-            ctx.resources.displayMetrics.widthPixels
-        }
-
-        val density = ctx.resources.displayMetrics.density
-
-        val maxDp = if (ctx.resources.configuration.orientation ==
-                Configuration.ORIENTATION_LANDSCAPE) {
-            DIALOG_MAX_WIDTH_DP_LANDSCAPE
+        // "Add logo" sits next to Cancel, like "Add font" in the font picker.
+        val customIndex = logoDrawables.indexOf(CUSTOM_IMAGE_DRAWABLE)
+        val addLogo = if (customIndex >= 0 && logoPickerLauncher != null) {
+            PickerAction(context.getString(R.string.status_bar_logo_add)) { launchLogoPicker() }
         } else {
-            DIALOG_MAX_WIDTH_DP
+            null
         }
-        val maxWidthPx = (maxDp * density + 0.5f).toInt()
 
-        val targetPx = (boundsWidthPx * 0.90f).toInt()
-        w.setLayout(min(maxWidthPx, targetPx), WindowManager.LayoutParams.WRAP_CONTENT)
-        w.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        dialog = context.showPickerDialog(
+            title = title,
+            options = options,
+            selectedIndex = selectedIndex,
+            action = addLogo,
+            onClosed = { dialog = null },
+        ) { position ->
+            if (position != selectedIndex) {
+                if (!callChangeListener(position)) return@showPickerDialog false
+                Settings.System.putIntForUser(
+                    context.contentResolver,
+                    SETTING_KEY,
+                    position,
+                    UserHandle.USER_CURRENT
+                )
+                summary = labelForIndex(position).orEmpty()
+            }
+            true
+        }
     }
 
-    private fun getThemeIconColor(): Int {
-        val tv = TypedValue()
-        val theme = context.theme
+    private fun launchLogoPicker() {
+        try {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            intent.type = "image/*"
+            logoPickerLauncher?.launch(intent)
+        } catch (_: Exception) {
+            Toast.makeText(context, R.string.quick_settings_header_needs_gallery, Toast.LENGTH_LONG)
+                .show()
+        }
+    }
 
-        if (theme.resolveAttribute(android.R.attr.colorControlNormal, tv, true)) {
-            return if (tv.resourceId != 0) context.getColor(tv.resourceId) else tv.data
+    /** Saves the picked image as the custom logo and switches to the custom logo style. */
+    private fun handleLogoUriSelected(uri: Uri, activity: FragmentActivity) {
+        activity.lifecycleScope.launch {
+            val savedPath = withContext(Dispatchers.IO) {
+                StatusBarLogoImageUtils.saveLogoImage(context, uri)
+            }
+            if (savedPath == null) {
+                Toast.makeText(context, R.string.quick_settings_header_image_error, Toast.LENGTH_SHORT)
+                    .show()
+                return@launch
+            }
+            Settings.System.putStringForUser(
+                context.contentResolver,
+                Settings.System.STATUS_BAR_LOGO_CUSTOM_IMAGE_URI,
+                savedPath,
+                UserHandle.USER_CURRENT
+            )
+            val customIndex = logoDrawables.indexOf(CUSTOM_IMAGE_DRAWABLE)
+            if (customIndex >= 0 && callChangeListener(customIndex)) {
+                Settings.System.putIntForUser(
+                    context.contentResolver,
+                    SETTING_KEY,
+                    customIndex,
+                    UserHandle.USER_CURRENT
+                )
+                summary = labelForIndex(customIndex).orEmpty()
+            }
         }
-        if (theme.resolveAttribute(android.R.attr.textColorPrimary, tv, true)) {
-            return if (tv.resourceId != 0) context.getColor(tv.resourceId) else tv.data
-        }
-        return 0xff000000.toInt()
     }
 
     private fun getIconDrawable(styleIndex: Int): Drawable? {
@@ -150,8 +162,7 @@ class StatusBarLogoStylePreference @JvmOverloads constructor(
         if (id == 0) return null
 
         return try {
-            val d = res.getDrawable(id, context.theme) ?: return null
-            d.mutate().apply { setTint(getThemeIconColor()) }
+            res.getDrawable(id, context.theme)
         } catch (_: Throwable) {
             null
         }
@@ -176,91 +187,9 @@ class StatusBarLogoStylePreference @JvmOverloads constructor(
         return logoLabels[index]
     }
 
-    private fun tintDialogAccent(dlg: AlertDialog) {
-        val tv = TypedValue()
-        val theme = context.theme
-        if (!theme.resolveAttribute(android.R.attr.colorAccent, tv, true)) return
-
-        val accent = if (tv.resourceId != 0) context.getColor(tv.resourceId) else tv.data
-        if (accent == 0) return
-
-        val w = dlg.window
-        if (w != null) {
-            val titleId = context.resources.getIdentifier("alertTitle", "id", "android")
-            val titleView = if (titleId != 0) w.decorView.findViewById<TextView>(titleId) else null
-            titleView?.setTextColor(accent)
-        }
-
-        dlg.getButton(AlertDialog.BUTTON_NEGATIVE)?.setTextColor(accent)
-    }
-
-    private inner class IconAdapter(applied: Int) :
-        RecyclerView.Adapter<IconAdapter.IconViewHolder>() {
-
-        private var selectedIndex: Int = clampIndex(applied)
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconViewHolder {
-            val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.logo_option, parent, false)
-            return IconViewHolder(v)
-        }
-
-        override fun onBindViewHolder(holder: IconViewHolder, position: Int) {
-            val styleIndex = position
-
-            holder.image.setImageDrawable(getIconDrawable(styleIndex))
-            holder.image.setPadding(2, 2, 2, 2)
-            holder.name.visibility = View.VISIBLE
-            holder.name.text = labelForIndex(styleIndex).orEmpty()
-
-            holder.itemView.isActivated = (styleIndex == selectedIndex)
-
-            holder.itemView.setOnClickListener {
-                if (styleIndex == selectedIndex) {
-                    dialog?.dismiss()
-                    return@setOnClickListener
-                }
-                if (!this@StatusBarLogoStylePreference.callChangeListener(styleIndex)) {
-                    return@setOnClickListener
-                }
-
-                val old = selectedIndex
-                selectedIndex = styleIndex
-
-                Settings.System.putIntForUser(
-                    context.contentResolver,
-                    SETTING_KEY,
-                    styleIndex,
-                    UserHandle.USER_CURRENT
-                )
-
-                summary = labelForIndex(styleIndex).orEmpty()
-
-                notifyItemChanged(old)
-                notifyItemChanged(selectedIndex)
-
-                dialog?.dismiss()
-            }
-        }
-
-        override fun getItemCount(): Int = logoDrawables.size
-
-        private fun clampIndex(idx: Int): Int {
-            if (idx < 0) return 0
-            if (idx >= logoDrawables.size) return 0
-            return idx
-        }
-
-        inner class IconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val name: TextView = itemView.findViewById(R.id.option_label)
-            val image: ImageView = itemView.findViewById(R.id.option_thumbnail)
-        }
-    }
-
     companion object {
         private const val SETTING_KEY = "status_bar_logo_style"
+        private const val CUSTOM_IMAGE_DRAWABLE = "custom_image"
         private const val SYSTEMUI_PACKAGE = "com.android.systemui"
-        private const val DIALOG_MAX_WIDTH_DP = 360
-        private const val DIALOG_MAX_WIDTH_DP_LANDSCAPE = 640
     }
 }
