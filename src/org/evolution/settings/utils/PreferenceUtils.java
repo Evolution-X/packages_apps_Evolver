@@ -8,7 +8,6 @@ package org.evolution.settings.utils;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceGroup;
 
-import org.evolution.settings.preferences.GlobalSettingPrimarySwitchPreference;
 import org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference;
 import org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference;
 
@@ -26,7 +25,6 @@ public class PreferenceUtils {
             switch (p) {
                 case SecureSettingPrimarySwitchPreference psp -> psp.loadValue();
                 case SystemSettingPrimarySwitchPreference psp -> psp.loadValue();
-                case GlobalSettingPrimarySwitchPreference psp -> psp.loadValue();
                 default -> {}
             }
         }
