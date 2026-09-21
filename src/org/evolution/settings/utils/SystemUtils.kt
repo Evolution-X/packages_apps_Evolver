@@ -22,7 +22,6 @@ package org.evolution.settings.utils
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import android.provider.Settings
 import android.widget.Toast
 
 import androidx.appcompat.app.AlertDialog
@@ -30,10 +29,23 @@ import androidx.appcompat.app.AlertDialog
 import com.android.settings.R
 import com.android.internal.util.evolution.Utils
 
+import org.evolution.settings.preferences.showChoiceDialog
+
 object SystemUtils {
 
     @JvmStatic
     fun showSystemUiRestartDialog(context: Context) {
+        val shown = context.showChoiceDialog(
+            title = context.getString(R.string.systemui_restart_title),
+            message = context.getString(R.string.systemui_restart_message),
+            confirmText = context.getString(R.string.action_yes),
+            laterText = context.getString(R.string.systemui_restart_not_now),
+            onConfirm = { restartSystemUI(context) },
+            onLater = {},
+        )
+        if (shown != null) return
+
+        // No activity behind the context, so there is no window to host the Compose dialog.
         AlertDialog.Builder(context)
             .setTitle(R.string.systemui_restart_title)
             .setMessage(R.string.systemui_restart_message)
@@ -55,12 +67,5 @@ object SystemUtils {
         Handler(Looper.getMainLooper()).postDelayed({
             Utils.restartSystemUI()
         }, 2000) // 2-second delay
-    }
-
-    @JvmStatic
-    fun reloadSystemUI(context: Context) {
-        val resolver = context.contentResolver
-        val currentValue = Settings.System.getInt(resolver, "system_ui_reload", 0)
-        Settings.System.putInt(resolver, "system_ui_reload", if (currentValue == 0) 1 else 0)
     }
 }

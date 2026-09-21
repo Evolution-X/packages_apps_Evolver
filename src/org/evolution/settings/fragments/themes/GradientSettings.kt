@@ -57,9 +57,10 @@ class GradientSettings : SettingsPreferenceFragment() {
         updateCustomColorPrefs(mode == 1)
     }
 
+    // Hide (rather than disable) the custom colors unless custom mode is active.
     private fun updateCustomColorPrefs(enabled: Boolean) {
-        startColorPref.isEnabled = enabled
-        endColorPref.isEnabled = enabled
+        startColorPref.isVisible = enabled
+        endColorPref.isVisible = enabled
     }
 
     override fun getMetricsCategory(): Int {
@@ -70,6 +71,10 @@ class GradientSettings : SettingsPreferenceFragment() {
         private const val KEY_CUSTOM_GRADIENT_COLOR_MODE = "custom_gradient_color_mode"
         private const val KEY_CUSTOM_GRADIENT_START_COLOR = "custom_gradient_start_color"
         private const val KEY_CUSTOM_GRADIENT_END_COLOR = "custom_gradient_end_color"
+
+        // Keep in sync with android:defaultValue in gradient_settings.xml.
+        private const val DEFAULT_START_COLOR = 0xFFFF0000.toInt()
+        private const val DEFAULT_END_COLOR = 0xFFFF0000.toInt()
 
         @JvmStatic
         fun reset(context: Context) {
@@ -91,11 +96,11 @@ class GradientSettings : SettingsPreferenceFragment() {
                 UserHandle.USER_CURRENT
             )
             Settings.System.putIntForUser(
-                resolver, Settings.System.CUSTOM_GRADIENT_START_COLOR, 0,
+                resolver, Settings.System.CUSTOM_GRADIENT_START_COLOR, DEFAULT_START_COLOR,
                 UserHandle.USER_CURRENT
             )
             Settings.System.putIntForUser(
-                resolver, Settings.System.CUSTOM_GRADIENT_END_COLOR, 0,
+                resolver, Settings.System.CUSTOM_GRADIENT_END_COLOR, DEFAULT_END_COLOR,
                 UserHandle.USER_CURRENT
             )
         }
