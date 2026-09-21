@@ -3,6 +3,8 @@
      SPDX-FileCopyrightText: Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
+<!-- The Spoofing screen is drawn with Compose (Spoofing.kt); this file is only the Settings
+     search index source and must keep the keys/titles of the entries shown there. -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"

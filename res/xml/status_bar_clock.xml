@@ -43,7 +43,7 @@
         android:summary="@string/status_bar_clock_bold_summary"
         android:defaultValue="false" />
 
-    <lineageos.preference.LineageSystemSettingListPreference
+    <org.evolution.settings.preferences.LineageSystemSettingPickerListPreference
         android:key="status_bar_am_pm"
         android:title="@string/status_bar_am_pm_title"
         android:summary="%s"
@@ -73,7 +73,7 @@
         android:entryValues="@array/status_bar_date_style_values"
         android:defaultValue="0" />
 
-    <ListPreference
+    <org.evolution.settings.preferences.PickerListPreference
         android:key="status_bar_clock_date_format"
         android:title="@string/status_bar_date_format_title"
         android:entries="@array/status_bar_date_format_entries_values"

@@ -20,14 +20,6 @@
             android:fragment="org.evolution.settings.fragments.quicksettings.QsHeaderImageSettings"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="qs_header_clock_style"
-            android:title="@string/qs_header_clock_style_title"
-            android:entries="@array/qs_header_clock_style_entries"
-            android:entryValues="@array/qs_header_clock_style_values"
-            android:summary="%s"
-            android:defaultValue="0" />
-
         <!-- Single Tone QS -->
         <!--<org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="single_qs_tone_enabled"
@@ -81,7 +73,7 @@
         android:title="@string/quick_settings_brightness_slider_category">
 
         <!-- Brightness slider -->
-        <lineageos.preference.LineageSecureSettingListPreference
+        <org.evolution.settings.preferences.LineageSecureSettingPickerListPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/quick_settings_show_brightness_slider_title"
             android:entries="@array/quick_settings_show_brightness_slider_entries"
@@ -105,7 +97,7 @@
             android:defaultValue="0" />
 
         <!-- Brightness slider position -->
-        <lineageos.preference.LineageSecureSettingListPreference
+        <org.evolution.settings.preferences.LineageSecureSettingPickerListPreference
             android:key="qs_brightness_slider_position"
             android:title="@string/quick_settings_brightness_slider_position_title"
             android:entries="@array/quick_settings_brightness_slider_position_entries"
