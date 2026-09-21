@@ -5,36 +5,37 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
+import com.android.settingslib.spa.framework.theme.SettingsShape
 import com.android.settings.R
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun AppPickerSearchField(
     query: String,
     onQueryChange: (String) -> Unit,
     enabled: Boolean = true,
+    placeholder: String = stringResource(R.string.action_search_apps),
 ) {
-    OutlinedTextField(
+    ExpressiveTextField(
         value = query,
         onValueChange = onQueryChange,
-        modifier = Modifier.fillMaxWidth(),
-        placeholder = { Text(stringResource(R.string.action_search_apps)) },
+        placeholder = placeholder,
+        enabled = enabled,
         leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
         trailingIcon = {
             if (query.isNotEmpty()) {
-                IconButton(onClick = { onQueryChange("") }) {
+                IconButton(shapes = IconButtonDefaults.shapes(), modifier = Modifier.iconButtonFocusRing(), onClick = { onQueryChange("") }) {
                     Icon(
                         Icons.Default.Close,
                         contentDescription = stringResource(R.string.common_clear_search),
@@ -42,8 +43,7 @@ fun AppPickerSearchField(
                 }
             }
         },
-        singleLine = true,
-        shape = RoundedCornerShape(12.dp),
-        enabled = enabled,
+        shape = SettingsShape.CornerFull,
+        containerColor = MaterialTheme.colorScheme.surfaceBright,
     )
 }
