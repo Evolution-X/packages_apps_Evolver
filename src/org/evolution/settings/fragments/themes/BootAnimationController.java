@@ -7,7 +7,6 @@ package org.evolution.settings.fragments.themes;
 
 import android.content.Context;
 
-import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
 import org.evolution.settings.utils.BootAnimationUtils;
@@ -32,12 +31,6 @@ public class BootAnimationController extends BasePreferenceController {
 
     @Override
     public CharSequence getSummary() {
-        int index = BootAnimationUtils.getBootAnimStyle();
-        String[] entries = mContext.getResources().getStringArray(
-                R.array.themes_boot_animation_entries);
-        if (index >= 0 && index < entries.length) {
-            return entries[index];
-        }
-        return mContext.getString(R.string.boot_animation_style_unknown);
+        return BootAnimationUtils.getLabel(mContext, BootAnimationUtils.getEffectiveName());
     }
 }

@@ -5,17 +5,6 @@
 
 package org.evolution.settings.preferences
 
-import android.graphics.Matrix
-import android.util.PathParser
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Outline
-import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.asAndroidPath
-import androidx.compose.ui.graphics.asComposePath
-import androidx.compose.ui.unit.Density
-import androidx.compose.ui.unit.LayoutDirection
-
 object QSTileIconShapes {
 
     const val DEFAULT_KEY = "circle"
@@ -192,39 +181,8 @@ object QSTileIconShapes {
 
     val ALL_KEYS: List<String> = PATH_BY_KEY.keys.toList()
 
-    private val shapeCache = LinkedHashMap<String, Shape>()
-
     fun isKnownKey(key: String): Boolean = PATH_BY_KEY.containsKey(key)
 
     fun pathForKey(key: String): String =
         PATH_BY_KEY[key] ?: PATH_BY_KEY[DEFAULT_KEY]!!
-
-    fun shapeForKey(key: String): Shape {
-        shapeCache[key]?.let { return it }
-
-        val pathData = pathForKey(key)
-        val shape = PathShape(pathData)
-        shapeCache[key] = shape
-        return shape
-    }
-
-    private class PathShape(pathData: String) : Shape {
-        private val basePath: android.graphics.Path = try {
-            PathParser.createPathFromPathData(pathData)
-        } catch (_: RuntimeException) {
-            PathParser.createPathFromPathData(PATH_BY_KEY[DEFAULT_KEY]!!)
-        }
-
-        override fun createOutline(
-            size: Size,
-            layoutDirection: LayoutDirection,
-            density: Density,
-        ): Outline {
-            val scaled = android.graphics.Path(basePath)
-            val matrix = Matrix()
-            matrix.setScale(size.width / 100f, size.height / 100f)
-            scaled.transform(matrix)
-            return Outline.Generic(scaled.asComposePath())
-        }
-    }
 }
