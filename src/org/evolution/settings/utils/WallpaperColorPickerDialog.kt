@@ -25,7 +25,6 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material3.*
@@ -35,13 +34,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
+import com.android.settings.R
 import com.github.skydoves.colorpicker.compose.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
+import org.evolution.settings.fragments.miscellaneous.ExpressiveDialog
+import org.evolution.settings.fragments.miscellaneous.ExpressivePrimaryAction
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTextButton
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTextField
+import org.evolution.settings.fragments.miscellaneous.expressiveVerticalScroll
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun WallpaperColorPickerDialog(
     onDismiss: () -> Unit,
@@ -142,34 +149,25 @@ fun WallpaperColorPickerDialog(
         }
     }
 
-    Dialog(onDismissRequest = onDismiss) {
-        Surface(
-            shape = RoundedCornerShape(28.dp),
-            color = MaterialTheme.colorScheme.surface,
-            tonalElevation = 6.dp
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(24.dp)
-                    .width(340.dp)
-            ) {
-                Text(
-                    text = if (useCustomImage) "Pick Color from Image" else "Pick Color from Wallpaper",
-                    style = MaterialTheme.typography.headlineSmall,
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
-                OutlinedButton(
+    ExpressiveDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(
+                text = stringResource(
+                    if (useCustomImage) R.string.color_picker_title_image
+                    else R.string.color_picker_title_wallpaper
+                ),
+                style = MaterialTheme.typography.headlineSmall
+            )
+        },
+        text = {
+            Column(modifier = Modifier.expressiveVerticalScroll()) {
+                ExpressivePrimaryAction(
+                    text = stringResource(R.string.color_picker_import_gallery),
+                    icon = Icons.Default.Image,
                     onClick = { imagePickerLauncher.launch("image/*") },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Image,
-                        contentDescription = null,
-                        modifier = Modifier.size(20.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text("Import Image from Gallery")
-                }
+                    inset = false
+                )
                 Spacer(modifier = Modifier.height(16.dp))
                 if (isLoading) {
                     Box(
@@ -178,7 +176,7 @@ fun WallpaperColorPickerDialog(
                             .height(300.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        CircularProgressIndicator()
+                        LoadingIndicator()
                     }
                 } else if (wallpaperBitmap != null) {
                     Box(
@@ -187,19 +185,17 @@ fun WallpaperColorPickerDialog(
                             .height(60.dp)
                             .background(
                                 color = selectedColor,
-                                shape = RoundedCornerShape(12.dp)
+                                shape = ExpressiveCorners.picker
                             )
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
-                    OutlinedTextField(
+                    ExpressiveTextField(
                         value = hexInput,
                         onValueChange = { },
-                        label = { Text("Selected Color") },
-                        prefix = { Text("#") },
+                        label = stringResource(R.string.color_picker_selected_color),
+                        prefix = "#",
                         readOnly = true,
-                        singleLine = true,
-                        modifier = Modifier.fillMaxWidth()
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Box(
@@ -208,7 +204,7 @@ fun WallpaperColorPickerDialog(
                             .height(250.dp)
                             .background(
                                 color = MaterialTheme.colorScheme.surfaceVariant,
-                                shape = RoundedCornerShape(16.dp)
+                                shape = ExpressiveCorners.preview
                             )
                     ) {
                         ImageColorPicker(
@@ -226,7 +222,10 @@ fun WallpaperColorPickerDialog(
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "Tap on the ${if (useCustomImage) "image" else "wallpaper"} to pick a color",
+                        text = stringResource(
+                            if (useCustomImage) R.string.color_picker_hint_image
+                            else R.string.color_picker_hint_wallpaper
+                        ),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(start = 4.dp)
@@ -243,45 +242,37 @@ fun WallpaperColorPickerDialog(
                             verticalArrangement = Arrangement.spacedBy(16.dp)
                         ) {
                             Text(
-                                text = "Unable to load wallpaper",
+                                text = stringResource(R.string.color_picker_wallpaper_error),
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = MaterialTheme.colorScheme.error
                             )
-                            Button(onClick = { imagePickerLauncher.launch("image/*") }) {
-                                Icon(
-                                    imageVector = Icons.Default.Image,
-                                    contentDescription = null,
-                                    modifier = Modifier.size(20.dp)
-                                )
-                                Spacer(modifier = Modifier.width(8.dp))
-                                Text("Import Image")
-                            }
+                            ExpressivePrimaryAction(
+                                text = stringResource(R.string.color_picker_import_image),
+                                icon = Icons.Default.Image,
+                                onClick = { imagePickerLauncher.launch("image/*") },
+                                inset = false
+                            )
                         }
                     }
                 }
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    TextButton(onClick = onDismiss) {
-                        Text("Cancel")
-                    }
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Button(
-                        onClick = {
-                            if (selectedColor != Color.Transparent) {
-                                onColorSelected(selectedColor)
-                            }
-                        },
-                        enabled = !isLoading && selectedColor != Color.Transparent
-                    ) {
-                        Text("Apply")
-                    }
-                }
             }
-        }
-    }
+        },
+        confirmButton = {
+            ExpressiveTextButton(
+                onClick = {
+                    if (selectedColor != Color.Transparent) {
+                        onColorSelected(selectedColor)
+                    }
+                },
+                enabled = !isLoading && selectedColor != Color.Transparent
+            ) {
+                Text(stringResource(R.string.color_picker_apply))
+            }
+        },
+        dismissButton = {
+            ExpressiveTextButton(onClick = onDismiss) {
+                Text(stringResource(android.R.string.cancel))
+            }
+        },
+    )
 }

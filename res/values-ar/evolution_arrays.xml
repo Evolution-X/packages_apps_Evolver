@@ -21,14 +21,6 @@
         <item>تدرج رمادي</item><item>ألوان سالبة</item><item>تمويه شعاعي</item><item>تقليل الألوان</item>
     </string-array>
 
-    <string-array name="clock_style_entries">
-        <item>افتراضي</item><item>ساعة OOS</item><item>ساعة iOS</item><item>ساعة COS</item>
-        <item>ساعة مخصصة</item><item>ساعة مخصصة 1</item><item>ساعة مخصصة 2</item><item>ساعة مخصصة 3</item>
-        <item>ساعة MIUI</item><item>ساعة IDE</item><item>ساعة Lottie</item><item>ساعة Lottie2</item>
-        <item>ساعة Fluid</item><item>ساعة Dualtone</item><item>ساعة Dualtone2</item><item>ساعة أنيقة</item>
-        <item>ساعة جانبية</item><item>ساعة بسيطة</item><item>ساعة بسيطة 2</item><item>ساعة بسيطة 3</item>
-    </string-array>
-
     <string-array name="nowplaying_icon_style_entries">
         <item>معطل</item><item>أيقونة التطبيق</item><item>أيقونة نوتة موسيقية</item>
     </string-array>
@@ -87,11 +79,6 @@
         <item>5 دقائق</item><item>10 دقائق</item><item>15 دقيقة</item><item>30 دقيقة</item>
         <item>ساعة واحدة</item><item>ساعتان</item><item>3 ساعات</item><item>6 ساعات</item>
         <item>12 ساعة</item><item>24 ساعة</item>
-    </string-array>
-
-    <string-array name="playback_speed_entries">
-        <item>0.25x (بطيء جدًا)</item><item>0.5x (بطيء)</item><item>0.75x (أبطأ قليلًا)</item>
-        <item>1.0x (عادي)</item><item>1.25x (أسرع قليلًا)</item><item>1.5x (سريع)</item><item>2.0x (سريع جدًا)</item>
     </string-array>
 
     <string-array name="quick_settings_data_usage_window_entries">
