@@ -959,7 +959,7 @@
     <string name="quick_settings_secure_lock_screen_title">在安全鎖定畫面下拉快速設定</string>
     <string name="quick_settings_secure_lock_screen_summary">在裝置鎖定時停用快速設定</string>
     <string name="quick_settings_require_unlock_title">需解鎖裝置才允許使用部分快速設定圖塊按鈕</string>
-    <string name="quick_settings_require_unlock_summary">以下快速設定圖塊圖塊按鈕需要先解鎖裝置才能進行操作：\n飛航模式、省電模式、藍牙、行動網路、數據節省、個人熱點、網際網路、NFC、旋轉鎖定和Wi-Fi。</string>
+    <string name="quick_settings_require_unlock_summary">以下圖塊需要先解鎖裝置才能操作：飛航模式、省電模式、Bluetooth、省資料、熱點、網際網路、NFC 和螢幕旋轉鎖定</string>
     <string name="quick_settings_footer_category">頁尾</string>
     <string name="quick_settings_footer_edit_icon_title">編輯圖塊圖示</string>
     <string name="quick_settings_footer_show_power_menu_title">電源選單捷徑</string>
@@ -1136,6 +1136,12 @@
     <string name="spoofing_snap_title">Snapchat 偽裝</string>
     <string name="spoofing_snap_summary">針對 Snapchat 偽裝成 Pixel XL 以解決可能的聊天問題</string>
     <string name="spoofing_applying_changes">套用偽裝變更中\u2026</string>
+    <string name="spoofing_reset_defaults_title">重設為預設值</string>
+    <string name="spoofing_reset_defaults_summary">將 Play Integrity、目標清單、修補層級與 GameProps 還原為預設值。你的金鑰匣會保留</string>
+    <string name="spoofing_reset_defaults_dialog_title">重設偽裝設定？</string>
+    <string name="spoofing_reset_defaults_dialog_message">這會清除 Play Integrity 設定、安全性修補程式覆寫與 GameProps 設定，並還原預設的 TrickyStore 目標清單。你的金鑰匣會保留。Play Integrity 與修補層級隨後將再次擷取。各項啟用開關不會變動。</string>
+    <string name="spoofing_reset_defaults_confirm">重置</string>
+    <string name="spoofing_reset_defaults_done">偽裝設定已重設</string>
     <string name="tensor_spoof_title">偽裝 tensor 功能</string>
     <string name="tensor_spoof_summary">解鎖 tensor/pixel 功能</string>
     <string name="tensor_spoof_enable">Tensor 偽裝</string>
@@ -1278,6 +1284,7 @@
     <string name="pif_config_details">設定詳細資訊</string>
     <string name="pif_failed">失敗：%s</string>
     <string name="pif_select_device">選擇裝置</string>
+    <string name="pif_recommended_suffix">建議</string>
     <string name="pif_generating">正在產生設定\u2026</string>
     <string name="pif_footer_title">正在通過基本完整性</string>
     <string name="pif_footer_body">Canary 指紋會自動擷取，並每 21 天自動更新一次。Canary 設定自發布日起約 6 週後到期，到期日會顯示在目前設定的摘要中。\n\n手動設定步驟：\n1. 輕觸「擷取 Pixel Canary 指紋」並選擇一部裝置。\n2. 若找不到裝置，請從可信來源匯入可用的 PIF 設定。本功能不提供設定檔。\n3. 重新檢查你的 Play Integrity 狀態。\n\n匯入新設定前，請務必先刪除目前的設定。載入過期的 PIF 設定會導致 TrickyStore 的嚴格完整性驗證失敗，即使金鑰匣有效也一樣。\n\n進階偽裝：\n• Play 商店指紋偽裝——除非他人特別建議，否則請保持停用。對 Play 商店偽裝 FINGERPRINT 的需求極少，且可能造成問題。\n• 對 DroidGuard 偽裝 SDK——強制改用 Android 13 之前的舊版認證路徑。僅在基本完整性驗證失敗，且你的設定針對較舊 SDK 時才啟用。</string>
