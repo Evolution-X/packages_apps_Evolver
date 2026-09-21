@@ -66,7 +66,7 @@
         <!-- Ambient Wallpaper -->
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="doze_always_on_wallpaper_enabled"
-            android:title="@string/doze_always_on_wallpaper_title"
+            android:title="@string/ambient_wallpaper_title"
             android:summary="@string/doze_always_on_wallpaper_summary"
             android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
 

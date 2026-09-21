@@ -26,12 +26,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Image
@@ -43,12 +44,19 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
+import com.android.settings.R
+import com.android.settings.widget.scrollbar
 import com.github.skydoves.colorpicker.compose.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
+import org.evolution.settings.fragments.miscellaneous.ExpressiveDialog
+import org.evolution.settings.fragments.miscellaneous.ExpressivePrimaryAction
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTextButton
+import org.evolution.settings.fragments.miscellaneous.expressiveVerticalScroll
 
 private val CLOCK_COLOR_PRESETS = listOf(
     Color.White,
@@ -126,32 +134,26 @@ fun ClockColorPickerDialog(
 
     val customController = rememberColorPickerController()
 
-    Dialog(onDismissRequest = onDismiss) {
-        Surface(
-            shape = RoundedCornerShape(28.dp),
-            color = MaterialTheme.colorScheme.surface,
-            tonalElevation = 6.dp
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(24.dp)
-                    .width(340.dp)
-            ) {
-                Text(
-                    text = title ?: "Clock Color",
-                    style = MaterialTheme.typography.headlineSmall,
-                    modifier = Modifier.padding(bottom = 12.dp)
-                )
+    ExpressiveDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(
+                text = title ?: stringResource(R.string.color_picker_clock_title),
+                style = MaterialTheme.typography.headlineSmall
+            )
+        },
+        text = {
+            Column(modifier = Modifier.expressiveVerticalScroll()) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(48.dp)
-                        .clip(RoundedCornerShape(12.dp))
+                        .clip(ExpressiveCorners.picker)
                         .background(selectedColor)
                         .border(
                             1.dp,
                             MaterialTheme.colorScheme.outline,
-                            RoundedCornerShape(12.dp)
+                            ExpressiveCorners.picker
                         )
                 )
 
@@ -168,11 +170,13 @@ fun ClockColorPickerDialog(
                             onClick = { activeTab = tab },
                             text = {
                                 Text(
-                                    when (tab) {
-                                        ClockColorTab.PRESET -> "Preset"
-                                        ClockColorTab.WALLPAPER -> "Image"
-                                        ClockColorTab.CUSTOM -> "Custom"
-                                    },
+                                    stringResource(
+                                        when (tab) {
+                                            ClockColorTab.PRESET -> R.string.color_picker_tab_preset
+                                            ClockColorTab.WALLPAPER -> R.string.color_picker_tab_image
+                                            ClockColorTab.CUSTOM -> R.string.color_picker_tab_custom
+                                        }
+                                    ),
                                     style = MaterialTheme.typography.labelMedium
                                 )
                             }
@@ -199,29 +203,31 @@ fun ClockColorPickerDialog(
                         onColorChanged = { selectedColor = it }
                     )
                 }
-
-                Spacer(Modifier.height(20.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    TextButton(onClick = onDismiss) { Text("Cancel") }
-                    Spacer(Modifier.width(8.dp))
-                    Button(onClick = { onColorSelected(selectedColor) }) { Text("Apply") }
-                }
             }
-        }
-    }
+        },
+        confirmButton = {
+            ExpressiveTextButton(onClick = { onColorSelected(selectedColor) }) {
+                Text(stringResource(R.string.color_picker_apply))
+            }
+        },
+        dismissButton = {
+            ExpressiveTextButton(onClick = onDismiss) {
+                Text(stringResource(android.R.string.cancel))
+            }
+        },
+    )
 }
 
 @Composable
 private fun PresetTab(selected: Color, onSelect: (Color) -> Unit) {
+    val gridState = rememberLazyGridState()
     LazyVerticalGrid(
+        state = gridState,
         columns = GridCells.Fixed(4),
         modifier = Modifier
             .fillMaxWidth()
-            .height(220.dp),
+            .height(220.dp)
+            .scrollbar(gridState.scrollIndicatorState, Orientation.Vertical),
         contentPadding = PaddingValues(4.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -255,6 +261,7 @@ private fun PresetTab(selected: Color, onSelect: (Color) -> Unit) {
     }
 }
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun WallpaperTab(
     bitmap: Bitmap?,
@@ -264,14 +271,12 @@ private fun WallpaperTab(
     onImportClick: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
-        OutlinedButton(
+        ExpressivePrimaryAction(
+            text = stringResource(R.string.color_picker_import_gallery),
+            icon = Icons.Default.Image,
             onClick = onImportClick,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Icon(Icons.Default.Image, contentDescription = null, modifier = Modifier.size(18.dp))
-            Spacer(Modifier.width(8.dp))
-            Text("Import from Gallery")
-        }
+            inset = false
+        )
         Spacer(Modifier.height(12.dp))
         Box(
             modifier = Modifier
@@ -280,12 +285,12 @@ private fun WallpaperTab(
             contentAlignment = Alignment.Center
         ) {
             when {
-                isLoading -> CircularProgressIndicator()
+                isLoading -> LoadingIndicator()
                 bitmap != null -> {
                     ImageColorPicker(
                         modifier = Modifier
                             .fillMaxSize()
-                            .clip(RoundedCornerShape(12.dp)),
+                            .clip(ExpressiveCorners.picker),
                         controller = controller,
                         paletteImageBitmap = bitmap.asImageBitmap(),
                         paletteContentScale = PaletteContentScale.FIT,
@@ -297,21 +302,22 @@ private fun WallpaperTab(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     Text(
-                        "Unable to load wallpaper",
+                        stringResource(R.string.color_picker_wallpaper_error),
                         color = MaterialTheme.colorScheme.error
                     )
-                    Button(onClick = onImportClick) {
-                        Icon(Icons.Default.Image, contentDescription = null)
-                        Spacer(Modifier.width(8.dp))
-                        Text("Import Image")
-                    }
+                    ExpressivePrimaryAction(
+                        text = stringResource(R.string.color_picker_import_image),
+                        icon = Icons.Default.Image,
+                        onClick = onImportClick,
+                        inset = false
+                    )
                 }
             }
         }
         if (bitmap != null && !isLoading) {
             Spacer(Modifier.height(4.dp))
             Text(
-                "Tap the image to pick a color",
+                stringResource(R.string.color_picker_hint_image),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(start = 4.dp)
@@ -333,7 +339,7 @@ private fun CustomTab(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(160.dp)
-                .clip(RoundedCornerShape(12.dp)),
+                .clip(ExpressiveCorners.picker),
             controller = controller,
             onColorChanged = { envelope -> onColorChanged(envelope.color) }
         )
@@ -341,14 +347,14 @@ private fun CustomTab(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(32.dp)
-                .clip(RoundedCornerShape(8.dp)),
+                .clip(ExpressiveCorners.picker),
             controller = controller
         )
         AlphaSlider(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(32.dp)
-                .clip(RoundedCornerShape(8.dp)),
+                .clip(ExpressiveCorners.picker),
             controller = controller,
             tileOddColor = Color.White,
             tileEvenColor = Color.LightGray

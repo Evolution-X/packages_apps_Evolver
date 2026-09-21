@@ -5,6 +5,8 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
+import androidx.compose.material3.Surface
+import androidx.compose.ui.text.style.TextOverflow
 import android.app.ActivityManager
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -36,17 +38,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.Badge
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LoadingIndicator
+import androidx.compose.material3.ContainedLoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -62,11 +61,13 @@ import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
 import com.android.settings.R
+import com.android.settingslib.spa.framework.theme.SettingsShape
+import com.android.settingslib.spa.framework.theme.SettingsSpace
+import com.android.settingslib.spa.framework.theme.isSpaExpressiveEnabled
 import java.util.Locale
 
 // ---------------------------------------------------------------------------
@@ -195,7 +196,7 @@ fun AppIconOrPlaceholder(
             modifier = Modifier
                 .size(sizeDp.dp)
                 .clip(RoundedCornerShape(cornerDp))
-                .background(MaterialTheme.colorScheme.surfaceVariant),
+                .background(MaterialTheme.colorScheme.surfaceContainerHighest),
         )
     }
 }
@@ -227,10 +228,9 @@ fun SystemAppBadge(
 
 // ---------------------------------------------------------------------------
 // CheckCloseSwitch
-// Shared Switch with a Check/Close thumb icon, matching the ForceFullscreen
-// (AxionOS) picker-row toggle style. Used by AppPickerItem's per-row switch
+// Shared Switch with a Check/Close thumb icon, matching SettingsLib's SettingsSwitch. Used by AppPickerItem's per-row switch
 // and any other Switch that wants the same check/x thumb treatment (the
-// SpoofingHeaderCard master switch already does its own Crossfade version
+// ExpressiveHeaderCard master switch already does its own Crossfade version
 // of this and is left as-is).
 // ---------------------------------------------------------------------------
 
@@ -244,27 +244,26 @@ fun CheckCloseSwitch(
     Switch(
         checked = checked,
         onCheckedChange = onCheckedChange,
-        modifier = modifier,
+        modifier = modifier.switchFocusRing(),
         enabled = enabled,
-        thumbContent = {
-            val icon = if (checked) Icons.Rounded.Check else Icons.Rounded.Close
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                modifier = Modifier.size(SwitchDefaults.IconSize),
-            )
+        // Same as SettingsLib's SettingsSwitch (internal to SPA, so not linkable): the stock
+        // Material 3 switch with default colours and a check/close thumb when SPA is expressive.
+        thumbContent = if (isSpaExpressiveEnabled) {
+            {
+                Icon(
+                    imageVector = if (checked) Icons.Rounded.Check else Icons.Rounded.Close,
+                    contentDescription = null,
+                    modifier = Modifier.size(SwitchDefaults.IconSize),
+                )
+            }
+        } else {
+            null
         },
-        colors = SwitchDefaults.colors(
-            checkedThumbColor = MaterialTheme.colorScheme.primary,
-            checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
-            checkedIconColor = MaterialTheme.colorScheme.onPrimary,
-            uncheckedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-        ),
     )
 }
 
 // ---------------------------------------------------------------------------
-// SpoofingHeaderCard
+// ExpressiveHeaderCard
 // The big header card with icon circle + title + subtitle.
 // Screens that have a master switch pass checked/onCheckedChange;
 // TrickyStore (no switch) passes checked = null.
@@ -274,7 +273,7 @@ fun CheckCloseSwitch(
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun SpoofingHeaderCard(
+fun ExpressiveHeaderCard(
     title: String,
     subtitle: String,
     modifier: Modifier = Modifier,
@@ -284,27 +283,25 @@ fun SpoofingHeaderCard(
     icon: @Composable () -> Unit,
 ) {
     val haptic = LocalHapticFeedback.current
-    Card(
+    Surface(
         modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceBright,
-        ),
+        shape = ExpressiveCorners.single,
+        color = MaterialTheme.colorScheme.surfaceBright,
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp),
+                .padding(horizontal = SettingsSpace.small1, vertical = SettingsSpace.small3),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Box(
                 modifier = Modifier
                     .size(48.dp)
-                    .clip(CircleShape)
+                    .clip(SettingsShape.CornerFull)
                     .background(
                         when (checked) {
                             true  -> MaterialTheme.colorScheme.primary
-                            false -> MaterialTheme.colorScheme.surfaceVariant
+                            false -> MaterialTheme.colorScheme.surfaceContainerHighest
                             null  -> MaterialTheme.colorScheme.primaryContainer
                         },
                     ),
@@ -312,12 +309,13 @@ fun SpoofingHeaderCard(
             ) {
                 icon()
             }
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(SettingsSpace.small1))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = title,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.titleLargeEmphasized,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
                 Text(
                     text = subtitle,
@@ -326,8 +324,10 @@ fun SpoofingHeaderCard(
                 )
             }
             if (checked != null && onCheckedChange != null) {
+                Spacer(modifier = Modifier.width(SettingsSpace.extraSmall6))
                 Switch(
                     checked = checked,
+                    modifier = Modifier.switchFocusRing(),
                     onCheckedChange = { newValue ->
                         if (hapticOnToggle) {
                             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
@@ -351,13 +351,13 @@ fun SpoofingHeaderCard(
 }
 
 // ---------------------------------------------------------------------------
-// SpoofingAnimatedVisibility
+// ExpressiveAnimatedVisibility
 // Shared enter/exit spec used by all six screens below the header card
 // ---------------------------------------------------------------------------
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun SpoofingAnimatedVisibility(
+fun ExpressiveAnimatedVisibility(
     visible: Boolean,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
@@ -380,55 +380,53 @@ fun SpoofingAnimatedVisibility(
 }
 
 // ---------------------------------------------------------------------------
-// SpoofingLoadingBox
-// Centered LoadingIndicator with weight(1f) — identical across
+// ExpressiveLoadingBox
+// Centered ContainedLoadingIndicator with weight(1f) — identical across
 // PixelProps, TensorTargets, TrickyStore
 // ---------------------------------------------------------------------------
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun SpoofingLoadingBox(modifier: Modifier = Modifier) {
+fun ExpressiveLoadingBox(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center,
     ) {
-        LoadingIndicator()
+        ContainedLoadingIndicator()
     }
 }
 
 // ---------------------------------------------------------------------------
-// SpoofingEmptyState
+// ExpressiveEmptyState
 // Shared empty-state card — icon, title, description
 // Replaces: EmptyAppsState, EmptyDashboardState (IdleManager),
 //           empty blocks in SensorBlock, TrickyStore, UserSelectedAppSpoof
 // ---------------------------------------------------------------------------
 
 @Composable
-fun SpoofingEmptyState(
+fun ExpressiveEmptyState(
     icon: ImageVector,
     title: String,
     description: String,
     modifier: Modifier = Modifier,
 ) {
-    Card(
+    Surface(
         modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
-        ),
+        shape = ExpressiveCorners.single,
+        color = MaterialTheme.colorScheme.surfaceBright,
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(32.dp),
+                .padding(SettingsSpace.medium1),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall4),
         ) {
             Icon(
                 imageVector = icon,
                 contentDescription = null,
                 modifier = Modifier.size(48.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Text(
                 text = title,
@@ -438,35 +436,11 @@ fun SpoofingEmptyState(
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )
         }
     }
-}
-
-// ---------------------------------------------------------------------------
-// SectionLabel
-// The small coloured "CONFIGURED APPS" / "RECENT ACTIVITY" labels
-// used in multiple screens
-// ---------------------------------------------------------------------------
-
-@Composable
-fun SectionLabel(
-    text: String,
-    modifier: Modifier = Modifier,
-    includeBottomPadding: Boolean = true,
-) {
-    Text(
-        text = text,
-        style = MaterialTheme.typography.labelMedium,
-        color = MaterialTheme.colorScheme.primary,
-        fontWeight = FontWeight.Bold,
-        modifier = if (includeBottomPadding)
-            modifier.padding(start = 4.dp, bottom = 8.dp)
-        else
-            modifier.padding(start = 4.dp),
-    )
 }
 
 // ---------------------------------------------------------------------------
@@ -491,7 +465,7 @@ fun AppListAnimatedContent(
     isEmpty: Boolean,
     hasSearchQuery: Boolean,
     modifier: Modifier = Modifier,
-    loadingContent: @Composable () -> Unit = { SpoofingLoadingBox(modifier = Modifier.fillMaxSize()) },
+    loadingContent: @Composable () -> Unit = { ExpressiveLoadingBox(modifier = Modifier.fillMaxSize()) },
     emptyContent: @Composable (hasSearchQuery: Boolean) -> Unit,
     content: @Composable () -> Unit,
 ) {
