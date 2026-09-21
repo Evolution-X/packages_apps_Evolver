@@ -5,6 +5,9 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.WindowInsets
 import android.app.ActivityManager
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
@@ -23,18 +26,16 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.FilledTonalButton
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -55,8 +56,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
+import com.android.settings.widget.scrollbar
+import com.android.settingslib.spa.framework.theme.SettingsSpace
 import com.android.settings.SettingsPreferenceFragment
-import com.android.settingslib.spa.framework.theme.SettingsTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -91,7 +93,7 @@ class TensorTargetsSettings : SettingsPreferenceFragment() {
     ): View = ComposeView(requireContext()).apply {
         setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
         setContent {
-            SettingsTheme {
+            ExpressiveTheme {
                 TensorTargetsContent(context = requireContext())
             }
         }
@@ -203,16 +205,19 @@ private fun TensorTargetsContent(context: android.content.Context) {
     // UI
     // -----------------------------------------------------------------------
 
-    Scaffold(containerColor = Color.Transparent) { innerPadding ->
+    Scaffold(
+        containerColor = Color.Transparent,
+        contentWindowInsets = WindowInsets.navigationBars,
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = SettingsSpace.small1),
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
-            SpoofingHeaderCard(
+            ExpressiveHeaderCard(
                 title = stringResource(R.string.tensor_spoof_enable),
                 subtitle = when {
                     !globalEnabled -> stringResource(R.string.app_spoofing_disabled)
@@ -242,9 +247,9 @@ private fun TensorTargetsContent(context: android.content.Context) {
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall6))
 
-            SpoofingAnimatedVisibility(visible = globalEnabled) {
+            ExpressiveAnimatedVisibility(visible = globalEnabled) {
                 Column {
                     AppPickerSearchField(
                         query = searchQuery,
@@ -252,81 +257,37 @@ private fun TensorTargetsContent(context: android.content.Context) {
                         enabled = globalEnabled,
                     )
 
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        FilterChip(
-                            selected = showSystemApps,
-                            onClick = { if (globalEnabled) showSystemApps = !showSystemApps },
-                            label = { Text(stringResource(R.string.show_system_apps)) },
-                            leadingIcon = if (showSystemApps) {
-                                {
-                                    Icon(
-                                        Icons.Default.Check,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(18.dp),
-                                    )
+                    AppPickerActions(
+                        showSystemApps = showSystemApps,
+                        onToggleSystemApps = { showSystemApps = !showSystemApps },
+                        onSelectAll = {
+                            filteredApps.forEach { app ->
+                                val i = allApps.indexOfFirst {
+                                    it.packageName == app.packageName }
+                                if (i >= 0 && !allApps[i].isSelected) {
+                                    allApps[i] = allApps[i].copy(isSelected = true)
+                                    scope.launch(Dispatchers.IO) {
+                                        applyChange(app.packageName) }
                                 }
-                            } else null,
-                        )
-                    }
+                            }
+                        },
+                        onReset = {
+                            allApps.indices.forEach { i ->
+                                allApps[i] = allApps[i].copy(
+                                    isSelected = defaultApps.contains(allApps[i].packageName),
+                                )
+                            }
+                            scope.launch(Dispatchers.IO) {
+                                writeTargetsSet(defaultApps)
+                                killPackages(activityManager, defaultApps)
+                            }
+                        },
+                        enabled = globalEnabled,
+                    )
 
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        FilledTonalButton(
-                            onClick = {
-                                filteredApps.forEach { app ->
-                                    val i = allApps.indexOfFirst {
-                                        it.packageName == app.packageName }
-                                    if (i >= 0 && !allApps[i].isSelected) {
-                                        allApps[i] = allApps[i].copy(isSelected = true)
-                                        scope.launch(Dispatchers.IO) {
-                                            applyChange(app.packageName) }
-                                    }
-                                }
-                            },
-                            enabled = globalEnabled,
-                            modifier = Modifier.weight(1f),
-                            shape = RoundedCornerShape(10.dp),
-                        ) {
-                            Text(
-                                stringResource(R.string.action_select_all),
-                                style = MaterialTheme.typography.labelMedium,
-                            )
-                        }
-
-                        OutlinedButton(
-                            onClick = {
-                                allApps.indices.forEach { i ->
-                                    allApps[i] = allApps[i].copy(
-                                        isSelected = defaultApps.contains(allApps[i].packageName),
-                                    )
-                                }
-                                scope.launch(Dispatchers.IO) {
-                                    writeTargetsSet(defaultApps)
-                                    killPackages(activityManager, defaultApps)
-                                }
-                            },
-                            enabled = globalEnabled,
-                            modifier = Modifier.weight(1f),
-                            shape = RoundedCornerShape(10.dp),
-                        ) {
-                            Text(
-                                stringResource(R.string.action_reset),
-                                style = MaterialTheme.typography.labelMedium,
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
                     AppListAnimatedContent(
                         isLoading = isLoading,
@@ -334,7 +295,7 @@ private fun TensorTargetsContent(context: android.content.Context) {
                         hasSearchQuery = searchQuery.isNotEmpty(),
                         modifier = Modifier.weight(1f),
                         emptyContent = {
-                            SpoofingEmptyState(
+                            ExpressiveEmptyState(
                                 icon = Icons.Default.Memory,
                                 title = stringResource(R.string.tensor_targets_none_configured),
                                 description = stringResource(
@@ -343,17 +304,22 @@ private fun TensorTargetsContent(context: android.content.Context) {
                             )
                         },
                     ) {
+                        val listState = rememberLazyListState()
                         LazyColumn(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalArrangement = Arrangement.spacedBy(6.dp),
+                            state = listState,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .scrollbar(listState.scrollIndicatorState, Orientation.Vertical),
+                            verticalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall1),
                         ) {
-                            items(filteredApps, key = { it.packageName }) { app ->
+                            itemsIndexed(filteredApps, key = { _, app -> app.packageName }) { index, app ->
                                 AppPickerItem(
                                     packageName = app.packageName,
                                     label = app.label,
                                     icon = app.icon,
                                     isSystem = app.isSystem,
                                     checked = app.isSelected,
+                                    shapes = ListItemDefaults.segmentedShapes(index = index, count = filteredApps.size),
                                     enabled = globalEnabled,
                                     onToggle = { nowTargeted ->
                                         val index = allApps.indexOfFirst {
