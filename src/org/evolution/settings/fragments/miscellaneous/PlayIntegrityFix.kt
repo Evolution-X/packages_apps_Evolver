@@ -14,16 +14,15 @@ import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
-import androidx.preference.ListPreference
-import androidx.preference.Preference
-import androidx.preference.PreferenceCategory
-import androidx.preference.SwitchPreferenceCompat
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import com.android.internal.logging.nano.MetricsProto
 import com.android.internal.util.evolution.PixelDeviceRepository
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
-import com.android.settingslib.widget.ButtonPreference
 import java.nio.charset.StandardCharsets
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +35,8 @@ import org.json.JSONObject
 
 class PlayIntegrityFix : SettingsPreferenceFragment() {
 
+    private val ui = PifUiState()
+
     private val isPifEnabled: Boolean
         get() = Settings.System.getInt(
             requireContext().contentResolver,
@@ -45,6 +46,12 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     private var activeConfigData: Map<String, String> = emptyMap()
+
+    /** Profiles behind the open [PifDialog.DevicePicker], in the same order as its rows. */
+    private var pickerProfiles: List<PixelDeviceRepository.PixelProfile> = emptyList()
+
+    /** Runs once the [PifDialog.WipePlayStore] prompt is answered, whichever way. */
+    private var pendingWipeDone: (() -> Unit)? = null
 
     private val importLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -87,63 +94,75 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        addPreferencesFromResource(R.xml.play_integrity_fix)
-
-        findPreference<Preference>("pif_fetch_beta")?.setOnPreferenceClickListener {
-            fetchDevicesForChannel()
-            true
+    private val actions = object : PifActions {
+        override fun onEnabledChange(enabled: Boolean) {
+            Settings.System.putInt(
+                requireContext().contentResolver, PIF_ENABLED_KEY, if (enabled) 1 else 0)
+            ui.enabled = enabled
+            if (enabled) autoFetchIfStale()
         }
 
-        findPreference<Preference>("pif_import_config")?.setOnPreferenceClickListener {
+        override fun onFetch() = fetchDevicesForChannel()
+
+        override fun onImport() {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "*/*"
             }
             importLauncher.launch(intent)
-            true
         }
 
-        findPreference<Preference>("pif_delete_config")?.setOnPreferenceClickListener {
-            showDeleteDialog()
-            true
+        override fun onDelete() = showDeleteDialog()
+
+        override fun onResetAdvanced() = showResetAdvancedDialog()
+
+        override fun onFlagChange(name: String, value: Boolean) =
+            updateConfigValue(name, if (value) "1" else "0")
+
+        override fun onVendingFingerChange(value: String) =
+            updateConfigValue("spoofVendingFinger", value)
+
+        // The framework reads this as a level: 1 = SDK 32, N > 1 = SDK N, capped at the
+        // real SDK. The switch writes 1 or 0.
+        override fun onVendingSdkChange(value: Boolean) =
+            updateConfigValue("spoofVendingSdk", if (value) "1" else "0")
+
+        override fun onEditValue(key: String, value: String): String? = validateAndSaveEdit(key, value)
+
+        override fun onConfirmResetAdvanced() = resetAdvanced()
+
+        override fun onConfirmDelete() = deleteConfig()
+
+        override fun onPickDevice(index: Int) {
+            pickerProfiles.getOrNull(index)?.let { saveProfileAsPif(it) }
         }
 
-        findPreference<ListPreference>("pif_spoof_vending_finger")?.apply {
-            val current = activeConfigData["spoofVendingFinger"] ?: "0"
-            value = current
-            setOnPreferenceChangeListener { _, newValue ->
-                updateConfigValue("spoofVendingFinger", newValue as String)
-                true
+        override fun onWipePlayStore(wipe: Boolean) {
+            val done = pendingWipeDone
+            pendingWipeDone = null
+            if (wipe) wipeVendingData()
+            done?.invoke()
+        }
+    }
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {}
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View = ComposeView(requireContext()).apply {
+        setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+        setContent {
+            ExpressiveTheme {
+                PlayIntegrityFixContent(state = ui, actions = actions)
             }
         }
+    }
 
-        findPreference<SwitchPreferenceCompat>("pif_spoof_vending_sdk")?.apply {
-            isChecked = isVendingSdkOn(activeConfigData["spoofVendingSdk"])
-            setOnPreferenceChangeListener { _, newValue ->
-                // The framework reads this as a level: 1 = SDK 32, N > 1 = SDK N, capped at the
-                // real SDK. The switch writes 1 or 0.
-                updateConfigValue("spoofVendingSdk", if (newValue as Boolean) "1" else "0")
-                true
-            }
-        }
-
-        FLAG_PREFS.forEach { (prefKey, flag) ->
-            findPreference<SwitchPreferenceCompat>(prefKey)?.apply {
-                isChecked = isFlagOn(activeConfigData[flag.name], flag.default)
-                setOnPreferenceChangeListener { _, newValue ->
-                    updateConfigValue(flag.name, if (newValue as Boolean) "1" else "0")
-                    true
-                }
-            }
-        }
-
-        findPreference<ButtonPreference>("pif_reset_advanced")?.apply {
-            setButtonStyle(ButtonPreference.TYPE_TONAL, ButtonPreference.SIZE_NORMAL)
-            setOnClickListener { showResetAdvancedDialog() }
-        }
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().title = getString(R.string.play_integrity_fix_title)
         refreshStatus()
     }
 
@@ -239,183 +258,70 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
     private fun refreshStatus() {
         val content = Settings.Secure.getString(requireContext().contentResolver, PIF_CONFIG_KEY)
         activeConfigData = if (!content.isNullOrEmpty()) readConfigData(content) else emptyMap()
-        val exists = activeConfigData.isNotEmpty()
-
-        val activePref = findPreference<Preference>("pif_active_config")
-        if (exists) {
-            val model = activeConfigData["MODEL"] ?: ""
-            val fingerprint = activeConfigData["FINGERPRINT"] ?: ""
-            val ageDays = PixelDeviceRepository.getPatchAgeDays(activeConfigData["SECURITY_PATCH"] ?: "")
-            val ageStr = ageDays?.let { " · ${it}d ago" } ?: ""
-            val expiryStr = activeConfigData["_canary_month"]?.let { month ->
-                getCanaryExpiryString(month, activeConfigData["_canary_release_date"])
-            }?.let { " · $it" } ?: ""
-            activePref?.title = PIF_CONFIG_NAME
-            activePref?.summary = if (model.isNotEmpty()) {
-                "MODEL: $model$ageStr$expiryStr" +
-                if (fingerprint.isNotEmpty()) "\nFINGERPRINT: $fingerprint" else ""
-            } else {
-                getString(R.string.pif_config_loaded)
-            }
-        } else {
-            activePref?.title = getString(R.string.pif_active_config)
-            activePref?.summary = getString(R.string.pif_no_config)
+        ui.enabled = isPifEnabled
+        ui.config = activeConfigData
+        ui.patchAgeDays = PixelDeviceRepository
+            .getPatchAgeDays(activeConfigData["SECURITY_PATCH"] ?: "")
+        ui.daysLeft = activeConfigData["_canary_month"]?.takeIf { it.isNotEmpty() }?.let {
+            PixelDeviceRepository.getDaysUntilExpiry(it, activeConfigData["_canary_release_date"])
         }
-
-        findPreference<Preference>("pif_delete_config")?.isEnabled = exists
-
-        populateConfigDetails(activeConfigData)
-
-        // The framework stops bootstrapping a fingerprint once the config is non-empty, and a
-        // toggle on an empty config would create one holding only that flag.
-        findPreference<ListPreference>("pif_spoof_vending_finger")?.apply {
-            val current = activeConfigData["spoofVendingFinger"].orEmpty()
-            // PIFork and the framework also accept a literal FINGERPRINT here. The list can't
-            // show one, so leave the stored value alone and say what is set.
-            val isCustom = current.isNotEmpty() && current !in listOf("0", "1", "true", "false")
-            value = when {
-                isCustom -> current
-                current == "1" || current.equals("true", true) -> "1"
-                else -> "0"
-            }
-            summary = if (isCustom) getString(R.string.pif_vending_finger_custom_summary, current)
-                else getString(R.string.pif_spoof_vending_finger_summary)
-            isEnabled = exists
-        }
-        findPreference<SwitchPreferenceCompat>("pif_spoof_vending_sdk")?.apply {
-            isChecked = isVendingSdkOn(activeConfigData["spoofVendingSdk"])
-            isEnabled = exists
-        }
-        FLAG_PREFS.forEach { (prefKey, flag) ->
-            findPreference<SwitchPreferenceCompat>(prefKey)?.apply {
-                isChecked = isFlagOn(activeConfigData[flag.name], flag.default)
-                isEnabled = exists
-            }
-        }
-        findPreference<Preference>("pif_reset_advanced")?.isEnabled = exists
     }
 
     /** Drops every spoof* flag so the framework's defaults apply again. Keeps the fingerprint. */
     private fun showResetAdvancedDialog() {
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.pif_reset_advanced_title)
-            .setMessage(R.string.pif_reset_advanced_message)
-            .setPositiveButton(android.R.string.ok) { _, _ ->
-                try {
-                    val existing = Settings.Secure.getString(
-                        requireContext().contentResolver, PIF_CONFIG_KEY)
-                    val json = JSONObject(existing ?: return@setPositiveButton)
-                    json.keys().asSequence().filter { it.startsWith("spoof") }.toList()
-                        .forEach { json.remove(it) }
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, PIF_CONFIG_KEY, json.toString(2))
-                    stopGmsPackages()
-                    refreshStatus()
-                } catch (e: Exception) {
-                    toast(getString(R.string.pif_failed, e.message ?: ""))
-                }
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
+        ui.dialog = PifDialog.ResetAdvanced
     }
 
-    private fun populateConfigDetails(data: Map<String, String>) {
-        val category = findPreference<PreferenceCategory>("pif_config_details_category") ?: return
-        category.removeAll()
+    private fun resetAdvanced() {
+        try {
+            val existing = Settings.Secure.getString(
+                requireContext().contentResolver, PIF_CONFIG_KEY)
+            val json = JSONObject(existing ?: return)
+            json.keys().asSequence().filter { it.startsWith("spoof") }.toList()
+                .forEach { json.remove(it) }
+            Settings.Secure.putString(
+                requireContext().contentResolver, PIF_CONFIG_KEY, json.toString(2))
+            stopGmsPackages()
+            refreshStatus()
+        } catch (e: Exception) {
+            toast(getString(R.string.pif_failed, e.message ?: ""))
+        }
+    }
 
-        if (data.isEmpty()) return
-
+    /** Validates a hand-edited config value. Returns an error message, or null once saved. */
+    private fun validateAndSaveEdit(key: String, raw: String): String? {
         val intKeys = setOf("DEVICE_INITIAL_SDK_INT", "SDK_INT")
-
-        val displayOrder = listOf(
-            "MODEL", "MANUFACTURER", "BRAND", "PRODUCT", "DEVICE",
-            "FINGERPRINT", "SECURITY_PATCH", "ID", "RELEASE", "DEVICE_INITIAL_SDK_INT"
-        )
-
-        for (key in displayOrder) {
-            val value = data[key] ?: continue
-            category.addPreference(androidx.preference.EditTextPreference(requireContext()).apply {
-                this.title = key
-                this.summary = value
-                this.text = value
-                dialogTitle = key
-                setOnPreferenceChangeListener { _, newValue ->
-                    val v = (newValue as? String)?.trim() ?: return@setOnPreferenceChangeListener false
-                    if (v.isEmpty()) {
-                        toast(getString(R.string.pif_failed, "Value cannot be empty"))
-                        return@setOnPreferenceChangeListener false
-                    }
-                    if (key in intKeys && v.toIntOrNull() == null) {
-                        toast(getString(R.string.pif_failed, "Must be a valid integer"))
-                        return@setOnPreferenceChangeListener false
-                    }
-                    if (key == "FINGERPRINT" && !PixelDeviceRepository.isValidFingerprint(v)) {
-                        toast(getString(R.string.pif_failed, getString(R.string.pif_invalid_fingerprint)))
-                        return@setOnPreferenceChangeListener false
-                    }
-                    updateConfigValue(key, v, manualEdit = true)
-                    true
-                }
-            })
+        val v = raw.trim()
+        if (v.isEmpty()) return "Value cannot be empty"
+        if (key in intKeys && v.toIntOrNull() == null) return "Must be a valid integer"
+        if (key == "FINGERPRINT" && !PixelDeviceRepository.isValidFingerprint(v)) {
+            return getString(R.string.pif_invalid_fingerprint)
         }
-
-        data.keys.filter {
-            it !in displayOrder
-                && !it.startsWith("spoof")
-                && !it.startsWith("_")
-                && it != "DEBUG"
-                && it != "verboseLogs"
-                && it != "manually_imported"
-        }
-            .forEach { key ->
-                category.addPreference(androidx.preference.EditTextPreference(requireContext()).apply {
-                    this.title = key
-                    this.summary = data[key]
-                    this.text = data[key]
-                    dialogTitle = key
-                    setOnPreferenceChangeListener { _, newValue ->
-                        val v = (newValue as? String)?.trim() ?: return@setOnPreferenceChangeListener false
-                        if (v.isEmpty()) {
-                            toast(getString(R.string.pif_failed, "Value cannot be empty"))
-                            return@setOnPreferenceChangeListener false
-                        }
-                        if (key in intKeys && v.toIntOrNull() == null) {
-                            toast(getString(R.string.pif_failed, "Must be a valid integer"))
-                            return@setOnPreferenceChangeListener false
-                        }
-                        updateConfigValue(key, v, manualEdit = true)
-                        true
-                    }
-                })
-            }
+        updateConfigValue(key, v, manualEdit = true)
+        return null
     }
 
     private fun showDeleteDialog() {
-        AlertDialog.Builder(requireContext())
-            .setTitle(getString(R.string.pif_delete_title, PIF_CONFIG_NAME))
-            .setMessage(R.string.pif_delete_message)
-            .setPositiveButton(R.string.action_delete) { _, _ ->
-                try {
-                    Settings.Secure.putString(
-                        requireContext().contentResolver,
-                        PIF_CONFIG_KEY,
-                        null
-                    )
-                    clearAutoFetchCooldown()
-                    toast(getString(R.string.pif_deleted, PIF_CONFIG_NAME))
-                    refreshStatus()
-                } catch (e: Exception) {
-                    toast(getString(R.string.pif_failed, e.message ?: ""))
-                }
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
+        ui.dialog = PifDialog.Delete(PIF_CONFIG_NAME)
+    }
+
+    private fun deleteConfig() {
+        try {
+            Settings.Secure.putString(
+                requireContext().contentResolver,
+                PIF_CONFIG_KEY,
+                null
+            )
+            clearAutoFetchCooldown()
+            toast(getString(R.string.pif_deleted, PIF_CONFIG_NAME))
+            refreshStatus()
+        } catch (e: Exception) {
+            toast(getString(R.string.pif_failed, e.message ?: ""))
+        }
     }
 
     private fun fetchDevicesForChannel() {
-        val fetchPref = findPreference<Preference>("pif_fetch_beta") ?: return
-        fetchPref.summary = getString(R.string.pif_fetching)
-        fetchPref.isEnabled = false
+        ui.fetching = true
 
         scope.launch {
             try {
@@ -445,32 +351,23 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     } else {
                         it.model
                     }
-                }.toTypedArray()
+                }
                 val preselectedIndex = sortedProfiles
                     .indexOfFirst { it.codename == PixelDeviceRepository.PIF_DEFAULT_CODENAME }
                     .let { if (it < 0) 0 else it }
 
-                AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.pif_select_device)
-                    .setSingleChoiceItems(modelNames, preselectedIndex) { dialog, which ->
-                        dialog.dismiss()
-                        saveProfileAsPif(sortedProfiles[which])
-                    }
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show()
+                pickerProfiles = sortedProfiles
+                ui.dialog = PifDialog.DevicePicker(modelNames, preselectedIndex)
             } catch (e: Exception) {
                 toast(getString(R.string.pif_failed, e.message ?: ""))
             } finally {
-                fetchPref.summary = getString(R.string.pif_fetch_pixel_beta_summary)
-                fetchPref.isEnabled = true
+                ui.fetching = false
             }
         }
     }
 
     private fun saveProfileAsPif(profile: PixelDeviceRepository.PixelProfile) {
-        val fetchPref = findPreference<Preference>("pif_fetch_beta")
-        fetchPref?.summary = getString(R.string.pif_generating)
-        fetchPref?.isEnabled = false
+        ui.fetching = true
 
         scope.launch {
             try {
@@ -498,8 +395,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             } catch (e: Exception) {
                 toast(getString(R.string.pif_failed, e.message ?: ""))
             } finally {
-                fetchPref?.summary = getString(R.string.pif_fetch_pixel_beta_summary)
-                fetchPref?.isEnabled = true
+                ui.fetching = false
             }
         }
     }
@@ -564,17 +460,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
      */
     private fun killGmsWithConfirmation(onDone: () -> Unit) {
         stopGmsPackages()
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.pif_wipe_playstore_title)
-            .setMessage(R.string.pif_wipe_playstore_message)
-            .setPositiveButton(R.string.pif_wipe_confirm) { _, _ ->
-                wipeVendingData()
-                onDone()
-            }
-            .setNegativeButton(android.R.string.cancel) { _, _ ->
-                onDone()
-            }
-            .show()
+        pendingWipeDone = onDone
+        ui.dialog = PifDialog.WipePlayStore
     }
 
     private fun toast(msg: String) {
@@ -606,20 +493,6 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         // PIFork's advanced flags with the framework's defaults (PlayIntegritySpoofService).
         // spoofProvider is off there, where PIFork defaults it to on, because it would bypass
         // the keybox attestation done in the same call.
-        private val FLAG_PREFS = mapOf(
-            "pif_spoof_build" to Flag("spoofBuild", true),
-            "pif_spoof_props" to Flag("spoofProps", true),
-            "pif_spoof_provider" to Flag("spoofProvider", false),
-            "pif_spoof_signature" to Flag("spoofSignature", false),
-        )
-
-        private fun isFlagOn(value: String?, default: Boolean): Boolean =
-            if (value.isNullOrEmpty()) default else value == "1" || value.equals("true", true)
-
-        /** spoofVendingSdk is a level: 0 off, 1 = SDK 32, N > 1 = SDK N. */
-        private fun isVendingSdkOn(value: String?): Boolean =
-            value.equals("true", true) || (value?.toIntOrNull() ?: 0) > 0
-
         // PIXEL_DEVICE_GENERATION removed — use PixelDeviceRepository.GENERATION_ORDER
 
         /**
