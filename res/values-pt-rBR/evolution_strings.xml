@@ -1134,6 +1134,12 @@
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
     <string name="spoofing_applying_changes">Aplicando alterações de mascaramento\u2026</string>
+    <string name="spoofing_reset_defaults_title">Restaurar padrões</string>
+    <string name="spoofing_reset_defaults_summary">Limpar Play Integrity, keybox, lista de alvos, nível de patch e configuração do GameProps</string>
+    <string name="spoofing_reset_defaults_dialog_title">Redefinir configurações de mascaramento?</string>
+    <string name="spoofing_reset_defaults_dialog_message">Isso limpa a configuração do Play Integrity, o keybox, a lista de alvos do TrickyStore, a substituição do patch de segurança e a configuração do GameProps. Eles são repopulados na próxima execução da atualização automática. As chaves de ativação não são alteradas.</string>
+    <string name="spoofing_reset_defaults_confirm">Redefinir</string>
+    <string name="spoofing_reset_defaults_done">Configurações de mascaramento redefinidas</string>
     <string name="tensor_spoof_title">Alvos do recurso tensor</string>
     <string name="tensor_spoof_summary">Conceda aos aplicativos selecionados acesso aos recursos de IA exclusivos do Pixel Tensor</string>
     <string name="tensor_spoof_enable">Mascaramento tensor</string>
@@ -1276,6 +1282,7 @@
     <string name="pif_config_details">Detalhes de configuração</string>
     <string name="pif_failed">Falha: %s</string>
     <string name="pif_select_device">Selecione o dispositivo</string>
+    <string name="pif_recommended_suffix">Recomendado</string>
     <string name="pif_generating">Gerando configuração\u2026</string>
     <string name="pif_footer_title">Aprovando no teste de integridade básica</string>
     <string name="pif_footer_body">Uma impressão digital Canary é obtida e atualizada automaticamente a cada 21 dias. As configurações Canary expiram aproximadamente 6 semanas após a data de lançamento — a expiração é exibida no resumo da configuração ativa.\n\nPara configuração manual:\n1. Toque em \"Obter impressão digital Pixel Canary\" e selecione um dispositivo.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF funcional de uma fonte confiável. Os arquivos de configuração não são fornecidos.\n3. Verifique novamente o status de integridade do Play.\n\nSempre exclua a configuração ativa antes de importar uma nova. Carregar uma configuração PIF expirada fará com que a integridade forte do TrickyStore falhe, mesmo com uma keybox válida.\n\nMascaramento avançado:\n• Mascaramento de impressão digital da Play Store — deixe desativado, a menos que seja instruído de outra forma. Mascaramento de IMPRESSÃO DIGITAL para a Play Store raramente é necessário e pode causar problemas.\n• Mascaramento de SDK para o DroidGuard — força o caminho de atestação legado anterior ao Android 13. Habilite esta opção somente se a integridade básica estiver falhando e sua configuração for direcionada a um SDK mais antigo.</string>
