@@ -30,7 +30,6 @@ import java.util.List;
 import lineageos.providers.LineageSettings;
 
 import org.evolution.settings.preferences.SecureSettingListPreference;
-import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
@@ -49,7 +48,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_COMPACT_MEDIA_PLAYER_ENABLED = "qs_compact_media_player_mode";
     private static final String KEY_MEDIA_WAVEFORM_SEEKBAR = "media_waveform_seekbar";
-    private static final String KEY_QS_HEADER_CLOCK_STYLE = "qs_header_clock_style";
     private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
 //    private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
 //    private static final String KEY_QS_TILE_ALTERNATE_COLOR = "qs_tile_alternate_color";
@@ -79,7 +77,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mQsTileLabelHide;
     private SwitchPreferenceCompat mShowAutoBrightness;
     private SwitchPreferenceCompat mShowRingerMode;
-    private SystemSettingListPreference mQsHeaderClockStyle;
     private SystemSettingSwitchPreference mCompactMediaPlayer;
     private SystemSettingSwitchPreference mMediaWaveformSeekBar;
 //    private SystemSettingSwitchPreference mQsWidgetIosMusic;
@@ -165,11 +162,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         int panelStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
         updatePanelStylePrefs(panelStyle);
-
-        mQsHeaderClockStyle = (SystemSettingListPreference) findPreference(KEY_QS_HEADER_CLOCK_STYLE);
-        if (mQsHeaderClockStyle != null) {
-            mQsHeaderClockStyle.setOnPreferenceChangeListener(this);
-        }
     }
 
 //    private void updateWidgetPanelDependencies() {
@@ -217,13 +209,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 || preference == mBrightnessSliderHaptic
                 || preference == mMediaWaveformSeekBar) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
-            return true;
-        } else if (preference == mQsHeaderClockStyle) {
-            String newVal = newValue.toString();
-            String oldVal = mQsHeaderClockStyle.getValue();
-            if ("0".equals(newVal) != "0".equals(oldVal)) {
-                SystemUtils.showSystemUiRestartDialog(getActivity());
-            }
             return true;
         }
         return false;
