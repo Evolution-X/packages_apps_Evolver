@@ -79,9 +79,15 @@ class ExternalFontInstaller(private val context: Context) {
         }.getOrNull()
     }
 
+    // The saved font is re-applied after every FontManager.clearUpdates(), so it lives in
+    // filesDir where the system can't purge it. Installs from before that were kept in
+    // cacheDir, so look there too.
+    private fun savedFontFile(): File? =
+        File(context.filesDir, CUSTOM_FONT_FILE).takeIf { it.isFile }
+            ?: File(context.cacheDir, CUSTOM_FONT_FILE).takeIf { it.isFile }
+
     fun loadInstalledTypeface(): Typeface? = runCatching {
-        File(context.cacheDir, CUSTOM_FONT_FILE).takeIf { it.isFile }
-            ?.let { Typeface.createFromFile(it) }
+        savedFontFile()?.let { Typeface.createFromFile(it) }
     }.getOrNull()
 
     suspend fun installFontFromUri(uri: Uri): String? {
@@ -101,6 +107,12 @@ class ExternalFontInstaller(private val context: Context) {
             return null
         }
 
+        withContext(Dispatchers.IO) {
+            runCatching {
+                fontFile.copyTo(File(context.filesDir, CUSTOM_FONT_FILE), overwrite = true)
+                fontFile.delete()
+            }.onFailure { Log.e(TAG, "Failed to keep the custom font in filesDir", it) }
+        }
         updateThemeOverlays()
         cleanupPreviewFont()
         return postScriptName
@@ -186,10 +198,9 @@ class ExternalFontInstaller(private val context: Context) {
                 .addFontFamily(familyRegular)
                 .build()
 
-            val result = fontManager.updateFontFamily(
-                updateRequest,
-                fontManager.fontConfig.configVersion
-            )
+            val result = pfd.use {
+                fontManager.updateFontFamily(updateRequest, fontManager.fontConfig.configVersion)
+            }
 
             if (result != FontManager.RESULT_SUCCESS) {
                 showToast(R.string.toast_failed_apply_font)
@@ -199,6 +210,18 @@ class ExternalFontInstaller(private val context: Context) {
             Log.e(TAG, "Failed to update system font", it)
             false
         }
+    }
+
+    /**
+     * Re-applies the saved custom text font. Used after [FontManager.clearUpdates], which also
+     * drops it. Blocking; call off the main thread.
+     */
+    fun reinstallSavedFont(): Boolean {
+        val name = Settings.Secure.getString(context.contentResolver, "custom_font_name")
+        if (name.isNullOrEmpty()) return false
+        val fontFile = savedFontFile() ?: return false
+        val postScriptName = extractPostScriptName(fontFile) ?: return false
+        return applyFontToSystem(fontFile, postScriptName)
     }
 
     private fun updateThemeOverlays() {
@@ -233,6 +256,8 @@ class ExternalFontInstaller(private val context: Context) {
 
     fun resetFontUpdates() {
         fontManager.clearUpdates()
+        // clearUpdates() drops the custom emoji font too; put it back.
+        ExternalEmojiInstaller(context).reinstallSaved()
         ThemeUtils.getInstance(context).setOverlayEnabled(
             OVERLAY_CATEGORY_FONT, DEFAULT_FONT_PACKAGE, DEFAULT_FONT_PACKAGE
         )

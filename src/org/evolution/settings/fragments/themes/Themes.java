@@ -19,7 +19,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.SystemRestartUtils;
 import com.android.internal.util.evolution.ThemeUtils;
 import com.android.internal.util.evolution.Utils;
 import com.android.settings.R;
@@ -31,20 +30,17 @@ import java.util.List;
 
 import org.evolution.settings.fragments.themes.IconShapeController;
 import org.evolution.settings.preferences.SoundPickerPreference;
-import org.evolution.settings.preferences.SystemPropertyListPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
 
 @SearchIndexable
-public class Themes extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class Themes extends SettingsPreferenceFragment {
 
     private static final String TAG = "Themes";
 
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_visual_effects_category";
     private static final String KEY_BOOT_ANIMATION = "boot_animation";
-    private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
     private static final String KEY_ICON_SHAPE = "android.theme.customization.adaptive_icon_shape";
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_LOCK_SOUND = "lock_sound";
@@ -60,7 +56,6 @@ public class Themes extends SettingsPreferenceFragment implements
     private PreferenceCategory mIconsCategory;
     private SoundPickerPreference mLockSound;
     private SoundPickerPreference mUnlockSound;
-    private SystemPropertyListPreference mEmojiStyle;
     private SystemPropertySwitchPreference mSearchBar;
     private ThemeUtils mThemeUtils;
 
@@ -96,7 +91,6 @@ public class Themes extends SettingsPreferenceFragment implements
         mUdfpsIcon = findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = findPreference(KEY_UDFPS_ANIMATION);
-        mEmojiStyle = findPreference(KEY_EMOJI_STYLE);
 
         FingerprintManager fingerprintManager = (FingerprintManager)
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
@@ -117,21 +111,8 @@ public class Themes extends SettingsPreferenceFragment implements
             mIconsCategory.removePreference(mNavbarIcons);
         }
 
-        if (mEmojiStyle != null) {
-            mEmojiStyle.setOnPreferenceChangeListener(this);
-        }
-
         updateBootAnimationSummary();
         updateIconShapeSummary();
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (KEY_EMOJI_STYLE.equals(preference.getKey())) {
-            SystemRestartUtils.showSystemRestartDialog(getActivity());
-            return true;
-        }
-        return false;
     }
 
     private void updateBootAnimationSummary() {

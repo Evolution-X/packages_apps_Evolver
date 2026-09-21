@@ -28,7 +28,6 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.preference.ListPreference;
@@ -43,7 +42,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-import com.android.settingslib.widget.LayoutPreference;
+import com.android.settingslib.widget.ButtonPreference;
 
 import lineageos.preference.SystemSettingMainSwitchPreference;
 
@@ -82,7 +81,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
     private Preference mExtraWidget2;
     private Preference mExtraWidget3;
     private Preference mExtraWidget4;
-    private Button mApplyChange;
+    private ButtonPreference mApplyChange;
     
     private ListPreference mLockScreenWidgetsColorModePref;
     private SystemSettingColorPickerPreference mLockScreenWidgetsColorPref;
@@ -142,8 +141,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         mLockScreenWidgetsStylePref = findPreference(LOCKSCREEN_WIDGETS_STYLE_KEY);
         mLockScreenWidgetsTransparencyPref = findPreference(LOCKSCREEN_WIDGETS_TRANSPARENCY_KEY);
 
-        LayoutPreference layoutPreference = findPreference(KEY_APPLY_CHANGE_BUTTON);
-        mApplyChange = layoutPreference.findViewById(R.id.apply_change);
+        mApplyChange = findPreference(KEY_APPLY_CHANGE_BUTTON);
     }
 
     private void setupListeners() {
@@ -169,7 +167,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         for (Preference widgetPref : mWidgetPreferences) {
             widgetPref.setVisible(isEnabled);
         }
-        mApplyChange.setVisibility(isEnabled ? View.VISIBLE : View.INVISIBLE);
+        mApplyChange.setVisible(isEnabled);
     }
 
     private void loadInitialPreferences() {
