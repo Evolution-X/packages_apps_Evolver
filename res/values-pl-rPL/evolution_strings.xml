@@ -959,7 +959,7 @@
     <string name="quick_settings_secure_lock_screen_title">Rozwijanie szybkich ustawień na zabezpieczonym ekranie blokady</string>
     <string name="quick_settings_secure_lock_screen_summary">Pozwól przesuwać palcem w dół na ekranie blokady aby otworzyć szybkie ustawienia</string>
     <string name="quick_settings_require_unlock_title">Zabezpieczone kafelki wymagają odblokowania</string>
-    <string name="quick_settings_require_unlock_summary">W przypadku następujących kafelków konieczne jest odblokowanie urządzenia przed interakcją z nimi: Tryb samolotowy, Oszczędzanie baterii, Bluetooth, Dane mobilne, Oszczędzanie danych, Punkt dostępu, Internet, NFC, Blokada obracania i Wi-Fi</string>
+    <string name="quick_settings_require_unlock_summary">W przypadku następujących kafelków konieczne jest odblokowanie urządzenia przed interakcją: Tryb samolotowy, Oszczędzanie baterii, Bluetooth, Oszczędzanie danych, Punkt dostępu, Internet, NFC i Blokada autoobracania</string>
     <string name="quick_settings_footer_category">Dolny pasek</string>
     <string name="quick_settings_footer_edit_icon_title">Edytuj ikonę kafelków</string>
     <string name="quick_settings_footer_show_power_menu_title">Skrót menu zasilania</string>
@@ -1136,9 +1136,9 @@
     <string name="spoofing_snap_summary">Sfałszuj Snapchat udając Pixel XL, aby naprawić możliwe problemy z czatem</string>
     <string name="spoofing_applying_changes">Stosowanie zmian fałszowania\u2026</string>
     <string name="spoofing_reset_defaults_title">Zresetuj do domyślnych</string>
-    <string name="spoofing_reset_defaults_summary">Wyczyść integralność Google Play, zestaw kluczy, listę docelową, poziom poprawki i konfigurację profili gier</string>
+    <string name="spoofing_reset_defaults_summary">Przywróć integralność Google Play, listę docelową, poziom poprawki i profil gry do ustawień domyślnych. Twój zestaw kluczy zostanie zachowany</string>
     <string name="spoofing_reset_defaults_dialog_title">Zresetować ustawienia fałszowania?</string>
-    <string name="spoofing_reset_defaults_dialog_message">Spowoduje to wyczyszczenie konfiguracji integralności Google Play, zestawu kluczy, listy docelowej TrickyStore, obejścia poprawki zabezpieczeń i konfiguracji profili gier. Zostaną one ponownie wypełnione przy następnym uruchomieniu automatycznego odświeżania. Przełączniki włączania nie zostaną zmienione.</string>
+    <string name="spoofing_reset_defaults_dialog_message">Spowoduje to wyczyszczenie konfiguracji integralności Google Play, obejścia poprawki zabezpieczeń i konfiguracji profilu gry oraz przywrócenie domyślnej listy docelowej TrickyStore. Twój zestaw kluczy zostanie zachowany. Integralność Google Play i poziom poprawki zostaną ponownie pobrane wkrótce potem. Przełączniki włączania nie ulegną zmianie.</string>
     <string name="spoofing_reset_defaults_confirm">Resetuj</string>
     <string name="spoofing_reset_defaults_done">Zresetuj ustawienia fałszowania</string>
     <string name="tensor_spoof_title">Cele funkcji Tensor</string>
