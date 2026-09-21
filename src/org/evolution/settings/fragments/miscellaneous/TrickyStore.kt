@@ -10,14 +10,18 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import com.android.settings.core.SubSettingLauncher
 import android.provider.Settings
 import android.util.Base64
 import android.util.Xml
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
@@ -44,6 +48,8 @@ import org.xmlpull.v1.XmlPullParser
 import org.json.JSONObject
 
 class TrickyStore : SettingsPreferenceFragment() {
+
+    private val ui = TsUiState()
 
     // ----- Revocation status enum -------------------------------------------
 
@@ -211,48 +217,85 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Lifecycle ----------------------------------------------------------
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        addPreferencesFromResource(R.xml.tricky_store)
+    private val actions = object : TsActions {
+        override fun onEnabledChange(enabled: Boolean) {
+            Settings.System.putInt(
+                requireContext().contentResolver, TRICKYSTORE_ENABLED_KEY, if (enabled) 1 else 0)
+            ui.enabled = enabled
+            if (enabled) refreshStatus()
+        }
 
-        findPreference<Preference>("ts_import_keybox")?.setOnPreferenceClickListener {
+        override fun onFetchKeybox() = fetchOfficialKeybox()
+
+        override fun onImportKeybox() {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "*/*"
             }
             isKeyboxPickerOpen = true
             keyboxPicker.launch(intent)
-            true
         }
 
-        findPreference<Preference>("ts_delete_keybox")?.setOnPreferenceClickListener {
-            showDeleteKeyboxDialog()
-            true
+        override fun onDeleteKeybox() = showDeleteKeyboxDialog()
+
+        override fun onCheckRevocation() = checkKeyboxRevocation()
+
+        override fun onManageTargets() {
+            SubSettingLauncher(requireContext())
+                .setDestination(TrickyStoreAppSettings::class.java.name)
+                .setTitleRes(R.string.ts_manage_target_apps)
+                .setSourceMetricsCategory(getMetricsCategory())
+                .launch()
         }
 
-        findPreference<Preference>("ts_security_patch")?.setOnPreferenceClickListener {
-            showPatchDateDialog()
-            true
-        }
-
-        findPreference<Preference>("ts_import_targets")?.setOnPreferenceClickListener {
+        override fun onImportTargets() {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "text/*"
             }
             targetPicker.launch(intent)
-            true
         }
 
-        findPreference<Preference>("ts_fetch_keybox")?.setOnPreferenceClickListener {
-            fetchOfficialKeybox()
-            true
+        override fun onEditPatch() = showPatchDateDialog()
+
+        override fun onConfirmDeleteKeybox() = deleteKeybox()
+
+        // Explicit request: ignore the cooldown, keep the old keybox on failure
+        override fun onReplaceKeybox() = fetchOfficialKeybox(silent = false)
+
+        override fun onSavePatch(value: String): String? {
+            if (value.isNotEmpty() && !isValidPatchContent(value)) {
+                return getString(R.string.ts_invalid_patch_date)
+            }
+            Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, value)
+            refreshStatus()
+            return null
         }
 
-        findPreference<Preference>("ts_revocation_status")?.setOnPreferenceClickListener {
-            checkKeyboxRevocation()
-            true
+        override fun onDeletePatch() {
+            Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, "")
+            refreshStatus()
         }
+    }
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {}
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View = ComposeView(requireContext()).apply {
+        setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+        setContent {
+            ExpressiveTheme {
+                TrickyStoreContent(state = ui, actions = actions)
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().title = getString(R.string.tricky_store_title)
 
         // Restore persisted status
         currentRevocationStatus = when (
@@ -291,106 +334,88 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- UI refresh ---------------------------------------------------------
 
     private fun refreshStatus() {
-        val keyboxExists = !Settings.Secure.getString(
-            requireContext().contentResolver, KEYBOX_KEY).isNullOrEmpty()
+        val resolver = requireContext().contentResolver
+        val keyboxExists = !Settings.Secure.getString(resolver, KEYBOX_KEY).isNullOrEmpty()
 
-        val targetContent = Settings.Secure.getString(
-            requireContext().contentResolver, TARGET_KEY)
-        val targetCount = targetContent?.lines()?.count { it.isNotBlank() } ?: 0
+        val targetContent = Settings.Secure.getString(resolver, TARGET_KEY)
+        ui.enabled = isTrickyStoreEnabled
+        ui.keyboxExists = keyboxExists
+        ui.targetCount = targetContent?.lines()?.count { it.isNotBlank() } ?: 0
 
-        findPreference<Preference>("ts_import_keybox")?.summary =
-            if (keyboxExists) getString(R.string.ts_keybox_installed)
-            else getString(R.string.ts_no_keybox)
-
-        findPreference<Preference>("ts_delete_keybox")?.isEnabled = keyboxExists
-
-        findPreference<Preference>("ts_manage_targets")?.summary =
-            if (targetCount > 0) getString(R.string.ts_target_apps_count, targetCount)
-            else getString(R.string.ts_no_targets)
-
-        val patchDate = Settings.Secure.getString(requireContext().contentResolver, PATCH_KEY)
-        findPreference<Preference>("ts_security_patch")?.summary =
+        val patchDate = Settings.Secure.getString(resolver, PATCH_KEY)
+        ui.patchStale = !patchDate.isNullOrEmpty() && isPatchDateStale(patchDate)
+        ui.patchSummary =
             if (!patchDate.isNullOrEmpty()) {
-                if (isPatchDateStale(patchDate)) {
-                    getString(R.string.ts_patch_stale_warning, patchDate)
-                } else {
-                    patchDate
-                }
+                if (ui.patchStale) getString(R.string.ts_patch_stale_warning, patchDate)
+                else patchDate
             } else {
                 getString(R.string.ts_no_patch)
             }
 
-        findPreference<Preference>("ts_verification_mode")?.summary = buildVerificationSummary()
+        ui.verificationSummary = buildVerificationSummary()
 
         applyRevocationUi(currentRevocationStatus, currentRevocationReason)
         updateFetchButtonState(keyboxExists)
     }
 
     private fun applyRevocationUi(status: RevocationStatus, reason: String = "") {
-        val pref = findPreference<Preference>("ts_revocation_status") ?: return
         if (!isAdded) return
 
         val reasonSuffix = if (reason.isNotEmpty()) " ($reason)" else ""
 
-        val (iconRes, summary) = when (status) {
-            RevocationStatus.VALID -> Pair(
-                R.drawable.ic_ts_status_valid,
-                getString(R.string.ts_revocation_valid)
-            )
-            RevocationStatus.REVOKED -> Pair(
-                R.drawable.ic_ts_status_revoked,
-                getString(R.string.ts_revocation_revoked, reasonSuffix)
-            )
-            RevocationStatus.SUSPENDED -> Pair(
-                R.drawable.ic_ts_status_suspended,
-                getString(R.string.ts_revocation_suspended, reasonSuffix)
-            )
-            RevocationStatus.EXPIRING_SOON -> Pair(
-                R.drawable.ic_ts_status_suspended,  // amber warning icon
-                getString(R.string.ts_revocation_expiring_soon)
-            )
-            RevocationStatus.CHAIN_INVALID -> Pair(
-                R.drawable.ic_ts_status_suspended,
-                getString(R.string.ts_revocation_chain_invalid)
-            )
-            RevocationStatus.UNTRUSTED_ROOT -> Pair(
-                R.drawable.ic_ts_status_suspended,  // amber
-                getString(R.string.ts_revocation_untrusted_root)
-            )
-            RevocationStatus.CHECKING -> Pair(
-                R.drawable.ic_ts_status_unknown,
-                getString(R.string.ts_revocation_checking)
-            )
-            RevocationStatus.UNKNOWN -> Pair(
-                R.drawable.ic_ts_status_unknown,
+        // Chip label, chip tone and the descriptive summary for each status.
+        val (chip, tone, summary) = when (status) {
+            RevocationStatus.VALID -> Triple(
+                getString(R.string.ts_chip_valid), ExpressiveTone.Positive,
+                getString(R.string.ts_revocation_valid))
+            RevocationStatus.REVOKED -> Triple(
+                getString(R.string.ts_revocation_revoked, ""), ExpressiveTone.Negative,
+                getString(R.string.ts_revocation_revoked, reasonSuffix))
+            RevocationStatus.SUSPENDED -> Triple(
+                getString(R.string.ts_revocation_suspended, ""), ExpressiveTone.Warning,
+                getString(R.string.ts_revocation_suspended, reasonSuffix))
+            RevocationStatus.EXPIRING_SOON -> Triple(
+                getString(R.string.ts_chip_expiring), ExpressiveTone.Warning,
+                getString(R.string.ts_revocation_expiring_soon))
+            RevocationStatus.CHAIN_INVALID -> Triple(
+                getString(R.string.ts_chip_invalid), ExpressiveTone.Negative,
+                getString(R.string.ts_revocation_chain_invalid))
+            RevocationStatus.UNTRUSTED_ROOT -> Triple(
+                getString(R.string.ts_chip_unknown_root), ExpressiveTone.Warning,
+                getString(R.string.ts_revocation_untrusted_root))
+            RevocationStatus.CHECKING -> Triple(
+                getString(R.string.ts_chip_checking), ExpressiveTone.Neutral,
+                getString(R.string.ts_revocation_checking))
+            RevocationStatus.UNKNOWN -> Triple(
+                getString(R.string.ts_chip_unchecked), ExpressiveTone.Neutral,
                 if (!Settings.Secure.getString(
                         requireContext().contentResolver, KEYBOX_KEY).isNullOrEmpty())
                     getString(R.string.ts_revocation_not_yet_checked)
                 else
-                    getString(R.string.ts_revocation_no_keybox)
-            )
+                    getString(R.string.ts_revocation_no_keybox))
         }
 
-        pref.setIcon(iconRes)
+        ui.revocationChip = chip
+        ui.revocationTone = tone
+        ui.revocationChecking = status == RevocationStatus.CHECKING
         val lastChecked = getLastRevocationCheckedFormatted()
-        pref.summary = if (status == RevocationStatus.CHECKING || lastChecked == null)
+        ui.revocationSummary = if (status == RevocationStatus.CHECKING || lastChecked == null)
             summary
         else
             "$summary\n${getString(R.string.ts_revocation_last_checked, lastChecked)}"
     }
 
     private fun updateFetchButtonState(keyboxExists: Boolean) {
-        val fetchPref = findPreference<Preference>("ts_fetch_keybox") ?: return
-
+        ui.fetching = false
         val isBlockingStatus = currentRevocationStatus == RevocationStatus.VALID
 
         if (isBlockingStatus) {
-            fetchPref.isEnabled = false
-            fetchPref.summary = getString(R.string.ts_fetch_keybox_blocked)
+            ui.fetchEnabled = false
+            ui.fetchSummary = getString(R.string.ts_fetch_keybox_blocked)
         } else {
-            fetchPref.isEnabled = true
+            ui.fetchEnabled = true
             val timestamp = getLastFetchedFormatted()
-            fetchPref.summary = if (timestamp != null && keyboxExists)
+            ui.fetchSummary = if (timestamp != null && keyboxExists)
                 getString(R.string.ts_fetch_keybox_last_fetched, timestamp)
             else
                 getString(R.string.ts_fetch_keybox_summary)
@@ -447,18 +472,8 @@ class TrickyStore : SettingsPreferenceFragment() {
                     handleActionableStatus(status)
                 },
                 onFailure = { e ->
-                    val pref = findPreference<Preference>("ts_revocation_status")
-                        ?: return@fold
-                    pref.setIcon(when (currentRevocationStatus) {
-                        RevocationStatus.VALID                         -> R.drawable.ic_ts_status_valid
-                        RevocationStatus.REVOKED,
-                        RevocationStatus.CHAIN_INVALID                 -> R.drawable.ic_ts_status_revoked
-                        RevocationStatus.UNTRUSTED_ROOT,
-                        RevocationStatus.SUSPENDED,
-                        RevocationStatus.EXPIRING_SOON                 -> R.drawable.ic_ts_status_suspended
-                        else                                           -> R.drawable.ic_ts_status_unknown
-                    })
-                    pref.summary = getString(R.string.ts_revocation_error, e.message)
+                    ui.revocationChecking = false
+                    ui.revocationSummary = getString(R.string.ts_revocation_error, e.message)
                 }
             )
         }
@@ -851,10 +866,9 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- Official keybox fetch ----------------------------------------------
 
     private fun fetchOfficialKeybox(silent: Boolean = false) {
-        val pref = findPreference<Preference>("ts_fetch_keybox")
         if (!silent) {
-            pref?.isEnabled = false
-            pref?.summary = getString(R.string.ts_fetch_keybox_fetching)
+            ui.fetching = true
+            ui.fetchSummary = getString(R.string.ts_fetch_keybox_fetching)
         }
 
         lifecycleScope.launch {
@@ -1052,79 +1066,51 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- Dialogs ------------------------------------------------------------
 
     private fun showDeleteKeyboxDialog() {
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_delete_keybox_title)
-            .setMessage(R.string.ts_delete_keybox_message)
-            .setPositiveButton(R.string.action_delete) { _, _ ->
-                try {
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, KEYBOX_KEY, "")
-                    Settings.Secure.putLong(
-                        requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
-                    toast(getString(R.string.ts_keybox_deleted))
-                    currentRevocationStatus = RevocationStatus.UNKNOWN
-                    currentRevocationReason = ""
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, LAST_REVOCATION_REASON_KEY, "")
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, KEYBOX_SOURCE_KEY, "")
-                    clearNoValidKeyboxCooldown()
-                    Settings.Secure.putLong(
-                        requireContext().contentResolver, LAST_REVOCATION_CHECK_KEY, 0L)
-                    refreshStatus()
-                } catch (e: Exception) {
-                    toast(getString(R.string.ts_failed, e.message ?: ""))
-                }
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
+        ui.dialog = TsDialog.DeleteKeybox
     }
 
+    private fun deleteKeybox() {
+        try {
+            Settings.Secure.putString(
+                requireContext().contentResolver, KEYBOX_KEY, "")
+            Settings.Secure.putLong(
+                requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
+            toast(getString(R.string.ts_keybox_deleted))
+            currentRevocationStatus = RevocationStatus.UNKNOWN
+            currentRevocationReason = ""
+            Settings.Secure.putString(
+                requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
+            Settings.Secure.putString(
+                requireContext().contentResolver, LAST_REVOCATION_REASON_KEY, "")
+            Settings.Secure.putString(
+                requireContext().contentResolver, KEYBOX_SOURCE_KEY, "")
+            clearNoValidKeyboxCooldown()
+            Settings.Secure.putLong(
+                requireContext().contentResolver, LAST_REVOCATION_CHECK_KEY, 0L)
+            refreshStatus()
+        } catch (e: Exception) {
+            toast(getString(R.string.ts_failed, e.message ?: ""))
+        }
+    }
+
+    // The three prompts below are raised from the async revocation check. They never replace a
+    // dialog that is already open, so a half-typed patch date is not lost; the status is
+    // persisted and prompts again on the next check.
+
     private fun showUntrustedRootDialog() {
-        if (!isAdded) return
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_untrusted_root_title)
-            .setMessage(R.string.ts_untrusted_root_message)
-            .setPositiveButton(R.string.ts_untrusted_root_keep) { _, _ ->
-                // User acknowledges — leave keybox installed, don't refetch
-            }
-            .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                // Explicit request: ignore the cooldown, keep the old keybox on failure
-                fetchOfficialKeybox(silent = false)
-            }
-            .setCancelable(false)
-            .show()
+        if (!isAdded || ui.dialog != null) return
+        ui.dialog = TsDialog.UntrustedRoot
     }
 
     private fun showChainInvalidDialog() {
-        if (!isAdded) return
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_chain_invalid_title)
-            .setMessage(R.string.ts_chain_invalid_message)
-            .setPositiveButton(R.string.ts_untrusted_root_keep) { _, _ -> }
-            .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                // Explicit request: ignore the cooldown, keep the old keybox on failure
-                fetchOfficialKeybox(silent = false)
-            }
-            .setCancelable(false)
-            .show()
+        if (!isAdded || ui.dialog != null) return
+        ui.dialog = TsDialog.ChainInvalid
     }
 
     private fun showExpiringSoonDialog() {
-        if (!isAdded) return
+        if (!isAdded || ui.dialog != null) return
         val expiryStr = currentRevocationReason.ifEmpty { getString(R.string.ts_expiry_unknown) }
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_expiring_soon_title)
-            .setMessage(getString(R.string.ts_expiring_soon_message, expiryStr))
-            .setPositiveButton(R.string.ts_untrusted_root_keep) { _, _ -> }
-            .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                // Explicit request: ignore the cooldown, keep the old keybox on failure
-                fetchOfficialKeybox(silent = false)
-            }
-            .setCancelable(false)
-            .show()
+        ui.dialog = TsDialog.ExpiringSoon(expiryStr)
     }
 
     /**
@@ -1163,42 +1149,7 @@ class TrickyStore : SettingsPreferenceFragment() {
     private fun showPatchDateDialog() {
         val current = Settings.Secure.getString(
             requireContext().contentResolver, PATCH_KEY) ?: ""
-        val input = android.widget.EditText(requireContext()).apply {
-            setText(current)
-            hint = getString(R.string.ts_patch_date_hint)
-            inputType = android.text.InputType.TYPE_CLASS_TEXT or
-                android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE
-            minLines = 3
-            maxLines = 10
-            setHorizontallyScrolling(false)
-            setPadding(48, 24, 48, 24)
-        }
-        val dialog = AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_security_patch)
-            .setView(input)
-            .setPositiveButton(android.R.string.ok, null)
-            .setNegativeButton(android.R.string.cancel, null)
-            .setNeutralButton(R.string.action_delete) { _, _ ->
-                Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, "")
-                refreshStatus()
-            }
-            .create()
-
-        dialog.setOnShowListener {
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                val value = input.text.toString().trim()
-                if (value.isNotEmpty() && !isValidPatchContent(value)) {
-                    toast(getString(R.string.ts_invalid_patch_date))
-                    return@setOnClickListener
-                }
-                Settings.Secure.putString(
-                    requireContext().contentResolver, PATCH_KEY, value)
-                refreshStatus()
-                dialog.dismiss()
-            }
-            dialog.getButton(AlertDialog.BUTTON_NEUTRAL).isEnabled = current.isNotEmpty()
-        }
-        dialog.show()
+        ui.dialog = TsDialog.PatchDate(current)
     }
 
     private fun isUserImportedKeybox(): Boolean =
