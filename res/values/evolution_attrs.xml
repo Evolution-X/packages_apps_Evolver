@@ -4,10 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-    <declare-styleable name="WallpaperView">
-        <attr name="blurred" format="boolean" />
-    </declare-styleable>
-
     <!-- ColorPicker -->
     <declare-styleable name="ColorPickerPreference">
         <attr name="alphaSlider" format="boolean" />
@@ -24,12 +20,6 @@
         <attr name="showSign" format="boolean" />
         <attr name="units" format="string|reference" />
         <attr name="continuousUpdates" format="boolean" />
-    </declare-styleable>
-
-    <!-- Base attributes available to OverlaySwitchPreference. -->
-    <declare-styleable name="OverlaySwitchPreference">
-        <attr name="dkey" format="string" />
-        <attr name="dkeyNightOnly" format="boolean" />
     </declare-styleable>
 
     <!-- Base attributes available to DeviceConfigSwitchPreference. -->
