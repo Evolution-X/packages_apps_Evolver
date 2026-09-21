@@ -16,17 +16,13 @@
 
 package org.evolution.settings.fragments.statusbar;
 
-import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.Menu;
-import android.widget.EditText;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -44,6 +40,7 @@ import java.util.Date;
 import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.providers.LineageSettings;
 
+import org.evolution.settings.preferences.ExpressiveDialogs;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 
 @SearchIndexable
@@ -109,7 +106,6 @@ public class Clock extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-      AlertDialog dialog;
       ContentResolver resolver = getActivity().getContentResolver();
       if (preference == mClockDateDisplay) {
           int val = Integer.parseInt((String) newValue);
@@ -133,40 +129,19 @@ public class Clock extends SettingsPreferenceFragment
           int index = mClockDateFormat.findIndexOfValue((String) newValue);
 
           if (index == CUSTOM_CLOCK_DATE_FORMAT_INDEX) {
-              AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-              alert.setTitle(R.string.status_bar_date_string_edittext_title);
-              alert.setMessage(R.string.status_bar_date_string_edittext_summary);
-
-              final EditText input = new EditText(getActivity());
               String oldText = Settings.System.getString(
                   resolver,
                   Settings.System.STATUS_BAR_CLOCK_DATE_FORMAT);
-              if (oldText != null) {
-                  input.setText(oldText);
-              }
-              alert.setView(input);
-
-              alert.setPositiveButton(R.string.menu_save, new DialogInterface.OnClickListener() {
-                  public void onClick(DialogInterface dialogInterface, int whichButton) {
-                      String value = input.getText().toString();
-                      if (value.equals("")) {
-                          return;
-                      }
-                      Settings.System.putString(resolver,
-                          Settings.System.STATUS_BAR_CLOCK_DATE_FORMAT, value);
-
-                      return;
-                  }
-              });
-
-              alert.setNegativeButton(R.string.menu_cancel,
-                  new DialogInterface.OnClickListener() {
-                  public void onClick(DialogInterface dialogInterface, int which) {
-                      return;
-                  }
-              });
-              dialog = alert.create();
-              dialog.show();
+              ExpressiveDialogs.showTextInputDialog(
+                  getActivity(),
+                  getString(R.string.status_bar_date_string_edittext_title),
+                  getString(R.string.status_bar_date_string_edittext_summary),
+                  oldText,
+                  getString(R.string.menu_save),
+                  getString(R.string.menu_cancel),
+                  false,
+                  value -> Settings.System.putString(resolver,
+                      Settings.System.STATUS_BAR_CLOCK_DATE_FORMAT, value));
           } else {
               if ((String) newValue != null) {
                   Settings.System.putString(resolver,

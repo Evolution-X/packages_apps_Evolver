@@ -7,27 +7,27 @@ package org.evolution.settings.preferences
 
 import android.content.Context
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Typeface
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import android.widget.Toast
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.preference.Preference
 import androidx.preference.PreferenceManager
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
 import org.evolution.settings.utils.SystemUtils
-import kotlin.math.min
 
 class LockClockFontsPreference @JvmOverloads constructor(
     context: Context,
@@ -35,8 +35,8 @@ class LockClockFontsPreference @JvmOverloads constructor(
     defStyleAttr: Int = androidx.preference.R.attr.preferenceStyle
 ) : Preference(context, attrs, defStyleAttr) {
 
-    private var dialog: AlertDialog? = null
-    private var recyclerView: RecyclerView? = null
+    private var dialog: ComposeDialogHandle? = null
+    private val mainHandler = Handler(Looper.getMainLooper())
 
     private val themeUtils = ThemeUtils.getInstance(context)
     private val pkgs: List<String> = themeUtils.getOverlayPackagesForCategory(CATEGORY, "android")
@@ -49,71 +49,84 @@ class LockClockFontsPreference @JvmOverloads constructor(
     override fun onDetached() {
         dialog?.dismiss()
         dialog = null
-        recyclerView = null
         super.onDetached()
     }
 
     override fun onClick() {
         val ctx = context
-        val content = LayoutInflater.from(ctx).inflate(R.layout.picker_dialog, null)
+        dialog?.dismiss()
 
-        recyclerView = content.findViewById<RecyclerView>(R.id.recycler_view).apply {
-            setHasFixedSize(true)
-
-            val isLandscape = ctx.resources.configuration.orientation ==
-                    Configuration.ORIENTATION_LANDSCAPE
-            val span = if (isLandscape) 2 else 1
-            layoutManager = GridLayoutManager(ctx, span)
-            adapter = FontsAdapter(ctx, pkgs, themeUtils)
-
-            post {
-                val fraction = if (isLandscape) 0.75f else 0.6f
-                val maxHeight = (ctx.resources.displayMetrics.heightPixels * fraction).toInt()
-                layoutParams.height = maxHeight
-                requestLayout()
+        val current = getAppliedPkg()
+        val time = pickerClockText(ctx)
+        val options = pkgs.map { pkg ->
+            PickerOption(label = if (pkg == "android") "Default" else getLabelSafe(ctx, pkg)) {
+                // Loaded when the row scrolls into view, not for the whole list up front.
+                val family = remember(pkg) { getTypefaceSafe(ctx, pkg)?.let { FontFamily(it) } }
+                Text(
+                    text = time,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontFamily = family,
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    modifier = Modifier.width(84.dp).padding(horizontal = 8.dp, vertical = 4.dp),
+                )
             }
         }
 
-        dialog = AlertDialog.Builder(ctx)
-            .setTitle(title)
-            .setView(content)
-            .setNegativeButton(android.R.string.cancel, null)
-            .create()
-            .also { dlg ->
-                dlg.setOnDismissListener {
-                    dialog = null
-                    recyclerView = null
-                }
-                dlg.show()
-                applyDialogWidth(dlg)
-            }
+        dialog = ctx.showPickerDialog(
+            title = title,
+            options = options,
+            selectedIndex = pkgs.indexOf(current).coerceAtLeast(0),
+            onClosed = { dialog = null },
+        ) { index ->
+            val pkg = pkgs[index]
+            if (pkg == current) return@showPickerDialog false
+            applyFont(ctx, old = current, pkg = pkg)
+            true
+        }
     }
 
-    private fun applyDialogWidth(dlg: AlertDialog) {
-        val w = dlg.window ?: return
-        val ctx = context
+    private fun applyFont(ctx: Context, old: String, pkg: String) {
+        ctx.showChoiceDialog(
+            title = ctx.getString(R.string.systemui_restart_title),
+            message = ctx.getString(R.string.systemui_restart_message),
+            confirmText = ctx.getString(R.string.action_yes),
+            laterText = ctx.getString(R.string.systemui_restart_not_now),
+            onConfirm = {
+                applyOverlayInBackground(
+                    old, pkg,
+                    onFailed = {
+                        Toast.makeText(ctx, R.string.toast_failed_apply_font, Toast.LENGTH_SHORT).show()
+                    }
+                ) {
+                    SystemUtils.restartSystemUI(ctx)
+                }
+            },
+            onLater = {
+                mainHandler.post {
+                    themeUtils.setOverlayEnabled(CATEGORY, old, old)
+                    themeUtils.setOverlayEnabled(CATEGORY, pkg, "android")
+                }
+            },
+        )
+    }
 
-        val wm = ctx.getSystemService(WindowManager::class.java)
-
-        val boundsWidthPx = try {
-            wm.currentWindowMetrics.bounds.width()
-        } catch (_: Throwable) {
-            ctx.resources.displayMetrics.widthPixels
-        }
-
-        val density = ctx.resources.displayMetrics.density
-
-        val maxDp = if (ctx.resources.configuration.orientation ==
-                Configuration.ORIENTATION_LANDSCAPE) {
-            DIALOG_MAX_WIDTH_DP_LANDSCAPE
-        } else {
-            DIALOG_MAX_WIDTH_DP
-        }
-        val maxWidthPx = (maxDp * density + 0.5f).toInt()
-
-        val targetPx = (boundsWidthPx * 0.90f).toInt()
-        w.setLayout(min(maxWidthPx, targetPx), WindowManager.LayoutParams.WRAP_CONTENT)
-        w.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+    private fun applyOverlayInBackground(
+        oldPkg: String,
+        newPkg: String,
+        onFailed: () -> Unit,
+        onDone: () -> Unit
+    ) {
+        Thread({
+            try {
+                themeUtils.setOverlayEnabled(CATEGORY, oldPkg, oldPkg)
+                themeUtils.setOverlayEnabled(CATEGORY, newPkg, "android")
+                mainHandler.post { onDone() }
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to apply lock clock font overlay", e)
+                mainHandler.post { onFailed() }
+            }
+        }, "LockClockFontOverlay").start()
     }
 
     private fun getAppliedPkg(): String {
@@ -130,133 +143,22 @@ class LockClockFontsPreference @JvmOverloads constructor(
         }
     }
 
-    private inner class FontsAdapter(
-        private val ctx: Context,
-        private val pkgs: List<String>,
-        private val themeUtils: ThemeUtils
-    ) : RecyclerView.Adapter<FontsAdapter.FontsViewHolder>() {
-
-        private var selectedPkg: String = getApplied(themeUtils)
-        private val appliedPkg: String = selectedPkg
-
-        private val mainHandler = Handler(Looper.getMainLooper())
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FontsViewHolder {
-            val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.clock_option, parent, false)
-            return FontsViewHolder(v)
-        }
-
-        override fun onBindViewHolder(holder: FontsViewHolder, position: Int) {
-            val pkg = pkgs[position]
-            val label = getLabelSafe(ctx, pkg)
-            val tf = getTypefaceSafe(ctx, pkg)
-
-            holder.clock.setPadding(8, 2, 8, 2)
-            holder.clock.textAlignment = View.TEXT_ALIGNMENT_CENTER
-            if (tf != null) holder.clock.typeface = tf
-            holder.clock.setTextColor(
-                holder.clock.context.getColorStateList(R.color.picker_option_text)
-            )
-
-            holder.name.visibility = View.VISIBLE
-            holder.name.text = if (pkg == "android") "Default" else label
-
-            holder.itemView.isActivated = (pkg == selectedPkg)
-
-            holder.itemView.setOnClickListener {
-                val pkg = pkgs[position]
-                if (pkg == selectedPkg) return@setOnClickListener
-
-                val old = selectedPkg
-                val pending = pkg
-
-                selectedPkg = pending
-                notifyItemChanged(pkgs.indexOf(old).takeIf { it >= 0 } ?: 0)
-                notifyItemChanged(position)
-
-                dialog?.dismiss()
-
-                showSystemUiRestartDialogWithAction(ctx,
-                    onConfirm = {
-                        applyOverlayInBackground(old, pending) {
-                            SystemUtils.restartSystemUI(ctx)
-                        }
-                    },
-                    onLater = {
-                        mainHandler.post {
-                            themeUtils.setOverlayEnabled(CATEGORY, old, old)
-                            themeUtils.setOverlayEnabled(CATEGORY, pending, "android")
-                        }
-                    }
-                )
-            }
-        }
-
-        override fun getItemCount(): Int = pkgs.size
-
-        private fun applyOverlayInBackground(
-            oldPkg: String,
-            newPkg: String,
-            onDone: () -> Unit
-        ) {
-            Thread({
-                try {
-                    themeUtils.setOverlayEnabled(CATEGORY, oldPkg, oldPkg)
-                    themeUtils.setOverlayEnabled(CATEGORY, newPkg, "android")
-                    mainHandler.post { onDone() }
-                } catch (e: Exception) {
-                    Log.e(TAG, "Failed to apply lock clock font overlay", e)
-                }
-            }, "LockClockFontOverlay").start()
-        }
-
-        private fun showSystemUiRestartDialogWithAction(
-            ctx: Context,
-            onConfirm: () -> Unit,
-            onLater: () -> Unit
-        ) {
-            androidx.appcompat.app.AlertDialog.Builder(ctx)
-                .setTitle(R.string.systemui_restart_title)
-                .setMessage(R.string.systemui_restart_message)
-                .setPositiveButton(R.string.action_yes) { _, _ ->
-                    onConfirm()
-                }
-                .setNegativeButton(R.string.systemui_restart_not_now) { _, _ ->
-                    onLater()
-                }
-                .show()
-        }
-
-        inner class FontsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val clock: TextView = itemView.findViewById(R.id.option_clock)
-            val name: TextView = itemView.findViewById(R.id.option_label)
-        }
-
-        private fun getTypefaceSafe(context: Context, pkg: String): Typeface? {
-            return try {
-                val pm = context.packageManager
-                val res = if (pkg == "android") Resources.getSystem() else pm.getResourcesForApplication(pkg)
-                val id = res.getIdentifier("config_clockFontFamily", "string", pkg)
-                if (id == 0) return null
-                Typeface.create(res.getString(id), Typeface.NORMAL)
-            } catch (e: Exception) {
-                Log.e(TAG, "Typeface load failed for pkg: $pkg", e)
-                null
-            }
+    private fun getTypefaceSafe(context: Context, pkg: String): Typeface? {
+        return try {
+            val pm = context.packageManager
+            val res = if (pkg == "android") Resources.getSystem() else pm.getResourcesForApplication(pkg)
+            val id = res.getIdentifier("config_clockFontFamily", "string", pkg)
+            if (id == 0) return null
+            Typeface.create(res.getString(id), Typeface.NORMAL)
+        } catch (e: Exception) {
+            Log.e(TAG, "Typeface load failed for pkg: $pkg", e)
+            null
         }
     }
 
     companion object {
         private const val TAG = "LockClockFontsPreference"
         private const val CATEGORY = "android.theme.customization.lockscreen_clock_font"
-        private const val DIALOG_MAX_WIDTH_DP = 360
-        private const val DIALOG_MAX_WIDTH_DP_LANDSCAPE = 640
-
-        private fun getApplied(themeUtils: ThemeUtils): String {
-            return themeUtils.getOverlayInfos(CATEGORY)
-                .firstOrNull { it.isEnabled }?.packageName ?: "android"
-        }
 
         private fun getLabelSafe(context: Context, pkg: String): String {
             return try {
