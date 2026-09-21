@@ -1133,6 +1133,12 @@
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Snapchat を Pixel XL として偽装し、チャットの問題を修正します</string>
     <string name="spoofing_applying_changes">偽装設定を適用中\u2026</string>
+    <string name="spoofing_reset_defaults_title">デフォルトに戻す</string>
+    <string name="spoofing_reset_defaults_summary">Play Integrity、キーボックス、ターゲットリスト、パッチレベル、ゲーム偽装の設定をクリアする</string>
+    <string name="spoofing_reset_defaults_dialog_title">偽装の設定をリセットしますか？</string>
+    <string name="spoofing_reset_defaults_dialog_message">これにより、Play Integrity設定、キーボックス、TrickyStoreのターゲットリスト、セキュリティパッチのオーバーライド、およびゲーム偽装の設定がクリアされます。これらは次回の自動更新実行時に再生成されます。有効/無効の切り替え設定は変更されません。</string>
+    <string name="spoofing_reset_defaults_confirm">リセット</string>
+    <string name="spoofing_reset_defaults_done">偽装の設定をリセットしました</string>
     <string name="tensor_spoof_title">Tensor 機能のターゲット</string>
     <string name="tensor_spoof_summary">選択したアプリに Google Tensor 専用の AI 機能へのアクセスを許可します</string>
     <string name="tensor_spoof_enable">Tensor 偽装</string>
@@ -1275,6 +1281,7 @@
     <string name="pif_config_details">設定の詳細</string>
     <string name="pif_failed">失敗: %s</string>
     <string name="pif_select_device">デバイスを選択</string>
+    <string name="pif_recommended_suffix">おすすめ</string>
     <string name="pif_generating">設定を生成中\u2026</string>
     <string name="pif_footer_title">基本的な整合性のパス方法</string>
     <string name="pif_footer_body">Canaryのフィンガープリントは自動的に取得・更新され、その有効期間は21日間です。Canary設定はリリース日から約6週間で有効期限が切れます（有効期限はアクティブな設定の概要に表示されます）。\n\n手動で設定する場合：\n1. 「Fetch Pixel Canary fingerprint」をタップし、デバイスを選択します。\n2. デバイスが見つからない場合は、信頼できるソースから動作確認済みのPIF設定をインポートしてください（設定ファイル自体は提供されていません）。\n3. Play Integrityのステータスを再確認してください。\n\n新しい設定をインポートする前に、必ず現在アクティブな設定を削除してください。有効期限の切れたPIF設定を読み込むと、有効なKeyboxを使用していてもTrickyStoreの「強力な整合性」チェックに失敗する原因となります。\n\n高度なスプーフィング機能：\n• Playストアのフィンガープリント偽装 — 特に指示がない限り、無効のままにしてください。Playストアに対してFINGERPRINTを偽装する必要性は稀であり、問​​題を引き起こす可能性があります。\n• DroidGuardへのSDK偽装 — Android 13より前のレガシーな認証パスを強制的に使用します。「基本的な整合性」チェックに失敗しており、かつ設定が古いSDKを対象としている場合にのみ有効にしてください。</string>
