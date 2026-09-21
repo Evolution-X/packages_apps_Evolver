@@ -17,7 +17,6 @@
 package org.evolution.settings.fragments.lockscreen
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -31,6 +30,7 @@ import androidx.preference.Preference
 import com.android.settings.R
 import com.android.settings.preferences.BasePreferenceFragment
 
+import org.evolution.settings.preferences.showConfirmDialog
 import org.evolution.settings.utils.ImageUtils
 import org.evolution.settings.utils.PreferenceUtils
 
@@ -112,20 +112,21 @@ class ClockStyles : BasePreferenceFragment(R.xml.clock_styles),
 
     private fun showDisclaimer() {
         val ctx = context ?: return
-        AlertDialog.Builder(ctx)
-            .setTitle(ctx.getString(R.string.clock_styles_disclaimer_title))
-            .setMessage(ctx.getString(R.string.clock_styles_disclaimer_message))
-            .setPositiveButton(android.R.string.ok) { dialog, _ ->
-                dialog.dismiss()
+        showConfirmDialog(
+            context = ctx,
+            title = ctx.getString(R.string.clock_styles_disclaimer_title),
+            message = ctx.getString(R.string.clock_styles_disclaimer_message),
+            confirmText = ctx.getString(android.R.string.ok),
+            cancelable = false,
+            onConfirm = {
                 Settings.System.putIntForUser(
                     ctx.contentResolver,
                     "custom_clock_disclaimer_dismissed",
                     1,
                     UserHandle.USER_CURRENT
-                    )
-            }
-            .setCancelable(false)
-            .show()
+                )
+            },
+        )
     }
 
     private fun updateCustomImagePreference() {
