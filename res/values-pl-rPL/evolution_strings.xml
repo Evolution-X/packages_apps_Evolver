@@ -1712,4 +1712,7 @@
     <string name="screenshot_clipboard_only_summary">Kopiuj zrzut ekranu do schowka, zamiast zapisywać go w pamięci</string>
     <string name="hide_status_bar_in_screenshot_title">Ukryj pasek stanu na zrzutach ekranu</string>
     <string name="hide_status_bar_in_screenshot_summary">Wytnij obszar paska stanu z pełnych zrzutów ekranu</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">Powiększenie tapety</string>
+    <string name="wallpaper_zoom_summary">Wyłącz, aby wyświetlić tapetę bez dodatkowego powiększenia</string>
 </resources>
