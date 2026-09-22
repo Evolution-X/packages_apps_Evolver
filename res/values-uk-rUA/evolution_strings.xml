@@ -957,7 +957,7 @@
     <string name="quick_settings_secure_lock_screen_title">Показ плиток QS на екран блокування</string>
     <string name="quick_settings_secure_lock_screen_summary">Дозволити відкриття швидких налаштувань, проводячи пальцем униз по екрану блокування</string>
     <string name="quick_settings_require_unlock_title">Захищені плитки потребують розблокування</string>
-    <string name="quick_settings_require_unlock_summary">Для використання таких плиток пристрій потрібно розблокувати: «У літаку», «Економія заряду», «Bluetooth», «Стільниковий зв’язок», «Економія даних», «Точка доступу», «Інтернет», «NFC», «Блокування обертання» та «Wi-Fi»</string>
+    <string name="quick_settings_require_unlock_summary">Наступні плитки потребують розблокування пристрою, перш ніж взаємодіяти з ними: \"Airplan\", \"Заощадження батареї\", \"Bluetooth\", \"Заощадження даних\", \"Точка доступу\", \"Мережа\" та \"Ротація\"</string>
     <string name="quick_settings_footer_category">Нижній колонтитул</string>
     <string name="quick_settings_footer_edit_icon_title">Піктограма редагування плиток</string>
     <string name="quick_settings_footer_show_power_menu_title">Меню живлення</string>
@@ -1134,9 +1134,9 @@
     <string name="spoofing_snap_summary">Імітувати Pixel XL для Snapchat для вирішення можливих проблем чату</string>
     <string name="spoofing_applying_changes">Застосування spoof змін\u2026</string>
     <string name="spoofing_reset_defaults_title">Скинути до значень за замовчуванням</string>
-    <string name="spoofing_reset_defaults_summary">Очистити цілісність відтворення, вибір з клавіш, цільового списку, рівень патчу та налаштування GameProps</string>
+    <string name="spoofing_reset_defaults_summary">Відновлено режим \"Цілісний\", цільовий список, патч і GameProps до стандартних налаштувань. Використання ключової скриньки зберігаються</string>
     <string name="spoofing_reset_defaults_dialog_title">Скинути параметри Spoofs?</string>
-    <string name="spoofing_reset_defaults_dialog_message">Це очищує файл конфігурації Play Цілісності, keybox, цільовий список TrickyStore, перевизначити патч і файл GameProps в налаштуваннях. Вони заповнені наступного разу під час автоматичного оновлення. Активація перемикачів не змінюється.</string>
+    <string name="spoofing_reset_defaults_dialog_message">Це очищує конфігурацію конфігурації Playure, патч безпеки перекриває і GameProps налаштування й відновлює цільовий список TrickyStore. Ваш ключ збережений. Відтворити цілісність і рівень пропатчування знову незабаром після того як були проведені. Увімкніть перемикачі не змінені.</string>
     <string name="spoofing_reset_defaults_confirm">Скинути</string>
     <string name="spoofing_reset_defaults_done">Налаштування Spoofing скинуто</string>
     <string name="tensor_spoof_title">Цільові об\'єкти тензора</string>
