@@ -957,7 +957,7 @@
     <string name="quick_settings_secure_lock_screen_title">保護されたロック画面に表示</string>
     <string name="quick_settings_secure_lock_screen_summary">ロック画面で下にスワイプしてクイック設定を開くことを許可する</string>
     <string name="quick_settings_require_unlock_title">セキュアなタイルはロック解除が必要</string>
-    <string name="quick_settings_require_unlock_summary">次のタイルを操作するにはデバイスのロック解除が必要です: 機内モード、バッテリー節約、Bluetooth、モバイルデータ、データセーバー、ホットスポット、インターネット、NFC、画面回転、Wi-Fi</string>
+    <string name="quick_settings_require_unlock_summary">「機内モード、バッテリーセーバー、Bluetooth、データセーバー、ホットスポット、インターネット、NFC、画面回転ロック」のタイルを操作するには、デバイスのロックを解除する必要があります</string>
     <string name="quick_settings_footer_category">フッター</string>
     <string name="quick_settings_footer_edit_icon_title">タイルの編集アイコン</string>
     <string name="quick_settings_footer_show_power_menu_title">電源メニューのショートカット</string>
@@ -1134,9 +1134,9 @@
     <string name="spoofing_snap_summary">Snapchat を Pixel XL として偽装し、チャットの問題を修正します</string>
     <string name="spoofing_applying_changes">偽装設定を適用中\u2026</string>
     <string name="spoofing_reset_defaults_title">デフォルトに戻す</string>
-    <string name="spoofing_reset_defaults_summary">Play Integrity、キーボックス、ターゲットリスト、パッチレベル、ゲーム偽装の設定をクリアする</string>
+    <string name="spoofing_reset_defaults_summary">Play Integrity、ターゲットリスト、パッチレベル、ゲームの偽装をデフォルトに戻します。キーボックスは保持されます</string>
     <string name="spoofing_reset_defaults_dialog_title">偽装の設定をリセットしますか？</string>
-    <string name="spoofing_reset_defaults_dialog_message">これにより、Play Integrity設定、キーボックス、TrickyStoreのターゲットリスト、セキュリティパッチのオーバーライド、およびゲーム偽装の設定がクリアされます。これらは次回の自動更新実行時に再生成されます。有効/無効の切り替え設定は変更されません。</string>
+    <string name="spoofing_reset_defaults_dialog_message">これにより、Play Integrity 設定、セキュリティパッチの上書き、およびゲーム偽装の設定がクリアされ、TrickyStore のデフォルトのターゲットリストが復元されます。キーボックスは保持されます。Play Integrity とパッチレベルは、その後すぐに再度取得されます。有効化トグルは変更されません。</string>
     <string name="spoofing_reset_defaults_confirm">リセット</string>
     <string name="spoofing_reset_defaults_done">偽装の設定をリセットしました</string>
     <string name="tensor_spoof_title">Tensor 機能のターゲット</string>
