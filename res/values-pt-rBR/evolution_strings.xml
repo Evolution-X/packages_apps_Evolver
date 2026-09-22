@@ -958,7 +958,7 @@
     <string name="quick_settings_secure_lock_screen_title">Puxar Configurações Rápidas na tela de bloqueio segura</string>
     <string name="quick_settings_secure_lock_screen_summary">Permitir deslizar para baixo na tela de bloqueio para abrir configurações rápidas</string>
     <string name="quick_settings_require_unlock_title">Blocos seguros exigem desbloqueio</string>
-    <string name="quick_settings_require_unlock_summary">Os blocos a seguir exigem que o dispositivo seja desbloqueado antes de interagir com eles: Avião, Economia de bateria, Bluetooth, Celular, Economia de dados, Hotspot, Internet, NFC, Bloqueio de rotação e Wi-Fi</string>
+    <string name="quick_settings_require_unlock_summary">Os seguintes blocos exigem que o dispositivo seja desbloqueado antes de interagir com eles: Avião, Economia de bateria, Bluetooth, Economia de dados, Hotspot, Internet, NFC e bloqueio de rotação</string>
     <string name="quick_settings_footer_category">Rodapé</string>
     <string name="quick_settings_footer_edit_icon_title">Ícone editar (lápis)</string>
     <string name="quick_settings_footer_show_power_menu_title">Atalho do menu de energia</string>
@@ -1135,9 +1135,9 @@
     <string name="spoofing_snap_summary">Mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
     <string name="spoofing_applying_changes">Aplicando alterações de mascaramento\u2026</string>
     <string name="spoofing_reset_defaults_title">Restaurar padrões</string>
-    <string name="spoofing_reset_defaults_summary">Limpar Play Integrity, keybox, lista de alvos, nível de patch e configuração do GameProps</string>
+    <string name="spoofing_reset_defaults_summary">Restaure a integridade do jogo, a lista de alvos, o nível de patch e os GameProps para os valores padrão. Seu keybox será mantido</string>
     <string name="spoofing_reset_defaults_dialog_title">Redefinir configurações de mascaramento?</string>
-    <string name="spoofing_reset_defaults_dialog_message">Isso limpa a configuração do Play Integrity, o keybox, a lista de alvos do TrickyStore, a substituição do patch de segurança e a configuração do GameProps. Eles são repopulados na próxima execução da atualização automática. As chaves de ativação não são alteradas.</string>
+    <string name="spoofing_reset_defaults_dialog_message">Isso limpa a configuração do Play Integrity, a sobrescrita do patch de segurança e a configuração do GameProps, além de restaurar a lista de destinos padrão do TrickyStore. Seu keybox é mantido. O Play Integrity e o nível do patch são obtidos novamente logo em seguida. As opções de ativação/desativação não são alteradas.</string>
     <string name="spoofing_reset_defaults_confirm">Redefinir</string>
     <string name="spoofing_reset_defaults_done">Configurações de mascaramento redefinidas</string>
     <string name="tensor_spoof_title">Alvos do recurso tensor</string>
