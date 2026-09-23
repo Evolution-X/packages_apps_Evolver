@@ -960,7 +960,7 @@
     <string name="quick_settings_secure_lock_screen_title">安全锁屏下快速下拉</string>
     <string name="quick_settings_secure_lock_screen_summary">在设备锁定时隐藏通知阴影中的所有快速设置</string>
     <string name="quick_settings_require_unlock_title">解锁才能使用涉及安全操作的磁块</string>
-    <string name="quick_settings_require_unlock_summary">下面的快速设置需要设备解锁后才能与它们进行交互：\n飞行模式、省电模式、蓝牙、移动数据、数据节省模式、热点、互联网、NFC、旋转锁定和Wi-Fi</string>
+    <string name="quick_settings_require_unlock_summary">以下磁贴需要先解锁设备才能操作：飞行模式、省电模式、蓝牙、流量节省程序、热点、互联网、NFC 和旋转锁定</string>
     <string name="quick_settings_footer_category">底部</string>
     <string name="quick_settings_footer_edit_icon_title">编辑磁贴图标</string>
     <string name="quick_settings_footer_show_power_menu_title">电源菜单快捷方式</string>
@@ -1136,6 +1136,12 @@
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">对 Snapchat 伪装成 Google Pixel XL 来解决可能产生的聊天问题</string>
     <string name="spoofing_applying_changes">正在应用伪装更改\u2026</string>
+    <string name="spoofing_reset_defaults_title">重置为默认</string>
+    <string name="spoofing_reset_defaults_summary">将 Play Integrity、目标列表、补丁级别和 GameProps 恢复为默认值。你的 keybox 会保留</string>
+    <string name="spoofing_reset_defaults_dialog_title">重置伪装设置？</string>
+    <string name="spoofing_reset_defaults_dialog_message">这会清除 Play Integrity 配置、覆盖安全补丁级别和 GameProps 配置，并恢复 TrickyStore 的默认目标列表。你的 keybox 会保留。随后会很快重新获取 Play Integrity 和补丁级别。各启用开关的状态不会改变。</string>
+    <string name="spoofing_reset_defaults_confirm">重置</string>
+    <string name="spoofing_reset_defaults_done">重置伪装设置</string>
     <string name="tensor_spoof_title">Tensor 特性</string>
     <string name="tensor_spoof_summary">解锁仅在搭载 Tensor 的 Pixel 设备上可用的 AI 功能</string>
     <string name="tensor_spoof_enable">Tensor 伪装</string>
@@ -1278,6 +1284,7 @@
     <string name="pif_config_details">配置详情</string>
     <string name="pif_failed">失败: %s</string>
     <string name="pif_select_device">选择设备</string>
+    <string name="pif_recommended_suffix">推荐</string>
     <string name="pif_generating">生成配置\u2026</string>
     <string name="pif_footer_title">基本完整性校验通过</string>
     <string name="pif_footer_body">Canary 指纹每 21 天自动提取和刷新一次。Canary 配置将在其发布日期后大约6周到期——到期时间显示在活动配置摘要中。\n\n对于手动安装：\n1。点击“提取 Pixel Canary 指纹”，然后选择设备。\n2.如果未找到设备，请从可信源导入可用的 PIF 配置。我们不提供配置文件。\n3.重新检查您的 Play 完整性状态。\n\n始终在导入新配置之前删除活动配置。加载过期的 PIF 配置将导致 TrickyStore 强完整性失败，即使有有效的密钥箱。\n\n高级伪装：\n•Play 商店指纹欺骗-除非另有建议，否则保持禁用状态。Play Store 很少需要指纹伪装，这可能会导致问题。\n•Spoof SDK 到 DroidGuard——强制使用旧的 Android 13 之前的认证路径。只有在基本完整性失败且配置目标为较旧的 SDK 时才启用此功能。</string>
@@ -1705,4 +1712,7 @@
     <string name="screenshot_clipboard_only_summary">复制屏幕截图到剪贴板而不是保存到存储</string>
     <string name="hide_status_bar_in_screenshot_title">在屏幕截图中隐藏状态栏</string>
     <string name="hide_status_bar_in_screenshot_summary">从全屏截图中裁剪状态栏区域</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">壁纸缩放</string>
+    <string name="wallpaper_zoom_summary">关闭以显示壁纸而不需要额外缩放</string>
 </resources>
