@@ -1709,4 +1709,7 @@
     <string name="screenshot_clipboard_only_summary">Скопіювати скріншот в буфер обміну замість збереження в сховищі</string>
     <string name="hide_status_bar_in_screenshot_title">Приховувати рядок стану на скріншотах</string>
     <string name="hide_status_bar_in_screenshot_summary">Обрізати область в рядку стану з повноекранних знімків</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">Масштабування шпалер</string>
+    <string name="wallpaper_zoom_summary">Вимкніть фоновий малюнок без додаткового масштабу</string>
 </resources>
