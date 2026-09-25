@@ -34,6 +34,7 @@ import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -58,6 +59,8 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- Trust anchors (SHA-256 of DER-encoded cert) ------------------------
 
     companion object {
+        private const val TAG = "TrickyStore"
+
         // Fallback trust anchors, used only if the live roots fetch fails and
         // no cached copy exists yet. Google may add/rotate roots at any time;
         // the live fetch from ROOTS_URL is the source of truth, this list
@@ -71,7 +74,7 @@ class TrickyStore : SettingsPreferenceFragment() {
             "CEDB1CB6DC896AE5EC797348BCE9286753C2B38EE71CE0FBE34A9A1248800DFC"
         // Google Hardware Attestation Root (EC P-384) "Key Attestation CA1", 2025
         private const val FALLBACK_ROOT_EC_2025_SHA256 =
-            "C6E5DC76BD81307046A3CCC979F0FAC6BDDEF46CC9B533B2134EB0E99F67550E"
+            "6D9DB4CE6C5C0B293166D08986E05774A8776CEB525D9E4329520DE12BA4BCC0"
 
         private const val ROOTS_URL = "https://android.googleapis.com/attestation/root"
         private const val ROOTS_CACHE_KEY       = "spoof_trickystore_cached_roots"
@@ -623,11 +626,14 @@ class TrickyStore : SettingsPreferenceFragment() {
 
         // Root must match a live-fetched Google attestation root, or (if the
         // live/cached fetch is unavailable) one of the fallback fingerprints.
+        // Compared by SHA-256 fingerprint rather than raw DER equality, since
+        // a keybox-embedded root can be a re-encoding of the same logical
+        // cert (e.g. different ASN.1 length form) and still be legitimate.
         val trustAnchors = getTrustAnchors()
+        val rootFingerprint = sha256Hex(root.encoded)
         val trusted = if (trustAnchors.isNotEmpty()) {
-            trustAnchors.any { it.encoded.contentEquals(root.encoded) }
+            trustAnchors.any { sha256Hex(it.encoded) == rootFingerprint }
         } else {
-            val rootFingerprint = sha256Hex(root.encoded)
             val fallbackRoots = setOf(
                 normalise(FALLBACK_ROOT_RSA_2019_SHA256),
                 normalise(FALLBACK_ROOT_RSA_2022_SHA256),
@@ -636,6 +642,8 @@ class TrickyStore : SettingsPreferenceFragment() {
             rootFingerprint in fallbackRoots
         }
         if (!trusted) {
+            Log.w(TAG, "untrusted root: fingerprint=$rootFingerprint " +
+                "liveAnchors=${trustAnchors.size}")
             return "UNTRUSTED_ROOT"
         }
 
@@ -644,12 +652,21 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Network helpers ----------------------------------------------------
 
-    private fun fetchRevocationJson(): JSONObject? = try {
-        val conn = openFreshConnection(REVOCATION_URL)
-        if (conn.responseCode == HttpURLConnection.HTTP_OK)
-            JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
-        else null
-    } catch (_: Exception) { null }
+    private fun fetchRevocationJson(): JSONObject? {
+        var conn: HttpURLConnection? = null
+        return try {
+            conn = openFreshConnection(REVOCATION_URL)
+            if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+                JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
+            } else {
+                null
+            }
+        } catch (_: Exception) {
+            null
+        } finally {
+            conn?.disconnect()
+        }
+    }
 
     /**
      * Opens a connection with cache-busting so a stale CDN-cached 200 isn't
@@ -675,13 +692,25 @@ class TrickyStore : SettingsPreferenceFragment() {
      * FALLBACK_ROOT_*_SHA256 fingerprints.
      */
     private fun getTrustAnchors(): Set<X509Certificate> {
+        val resolver = requireContext().contentResolver
+        val cached = Settings.Secure.getString(resolver, ROOTS_CACHE_KEY)
+        val cachedAt = Settings.Secure.getLong(resolver, ROOTS_CACHED_AT_KEY, 0L)
+        val now = System.currentTimeMillis()
+        val cacheIsFresh = !cached.isNullOrEmpty() &&
+            cachedAt > 0L &&
+            cachedAt <= now &&
+            now - cachedAt <= ROOTS_CACHE_TTL_MS
+
+        if (cacheIsFresh) {
+            parseRootsJson(cached!!)?.let { return it }
+        }
+
         val live = fetchTrustAnchorsLive()
         if (live != null) {
             cacheTrustAnchors(live.second)
             return live.first
         }
-        val cached = Settings.Secure.getString(
-            requireContext().contentResolver, ROOTS_CACHE_KEY)
+
         if (!cached.isNullOrEmpty()) {
             parseRootsJson(cached)?.let { return it }
         }
@@ -689,13 +718,31 @@ class TrickyStore : SettingsPreferenceFragment() {
     }
 
     /** Returns (parsed certs, raw json) on success, null on any failure. */
-    private fun fetchTrustAnchorsLive(): Pair<Set<X509Certificate>, String>? = try {
-        val conn = openFreshConnection(ROOTS_URL)
-        if (conn.responseCode == HttpURLConnection.HTTP_OK) {
-            val raw = BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() }
-            parseRootsJson(raw)?.let { Pair(it, raw) }
-        } else null
-    } catch (_: Exception) { null }
+    private fun fetchTrustAnchorsLive(): Pair<Set<X509Certificate>, String>? {
+        var conn: HttpURLConnection? = null
+        return try {
+            conn = openFreshConnection(ROOTS_URL)
+            if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+                val raw = BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() }
+                val certs = parseRootsJson(raw)
+                if (certs != null) {
+                    Log.d(TAG, "fetched ${certs.size} live attestation root(s)")
+                    Pair(certs, raw)
+                } else {
+                    Log.w(TAG, "roots fetch: response parsed to zero valid certs")
+                    null
+                }
+            } else {
+                Log.w(TAG, "roots fetch failed: HTTP ${conn.responseCode}")
+                null
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "roots fetch failed", e)
+            null
+        } finally {
+            conn?.disconnect()
+        }
+    }
 
     private fun parseRootsJson(raw: String): Set<X509Certificate>? = try {
         val array = org.json.JSONArray(raw)
@@ -793,12 +840,16 @@ class TrickyStore : SettingsPreferenceFragment() {
             val result = withContext(Dispatchers.IO) {
                 runCatching {
                     val conn = URL(OFFICIAL_KEYBOX_URL).openConnection() as HttpURLConnection
-                    conn.connectTimeout = 10_000
-                    conn.readTimeout = 10_000
-                    check(conn.responseCode == HttpURLConnection.HTTP_OK) {
-                        "HTTP ${conn.responseCode}"
+                    try {
+                        conn.connectTimeout = 10_000
+                        conn.readTimeout = 10_000
+                        check(conn.responseCode == HttpURLConnection.HTTP_OK) {
+                            "HTTP ${conn.responseCode}"
+                        }
+                        conn.inputStream.use { it.readBytes().toString(Charsets.UTF_8) }
+                    } finally {
+                        conn.disconnect()
                     }
-                    conn.inputStream.use { it.readBytes().toString(Charsets.UTF_8) }
                 }
             }
 
