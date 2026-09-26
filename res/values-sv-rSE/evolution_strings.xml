@@ -171,7 +171,7 @@
     <string name="pulse_settings_title">Pulse-visualisering</string>
     <string name="pulse_settings_summary">Visa en stapelvisualisering på låsskärmen när musik spelas</string>
     <string name="ambient_pulse_enabled_title">Puls på inaktiv skärm</string>
-    <string name="ambient_pulse_enabled_summary">Visa visualiseringen på omgivningsskärmen</string>
+    <string name="ambient_pulse_enabled_summary">Visa visualiseringen på den inaktiva skärmen</string>
     <string name="pulse_bass_haptics_title">Haptisk basåterkoppling</string>
     <string name="pulse_bass_haptics_none">Ingen subtil vibration vid kraftiga bastoppar</string>
     <string name="pulse_bass_haptics_running">Endast när Pulse visas</string>
@@ -202,6 +202,9 @@
     <string name="pulse_capture_mode_amplitude">Amplitud (vågform)</string>
     <string name="pulse_show_on_ambient_title">Visa på inaktiv skärm</string>
     <string name="pulse_show_on_ambient_summary">Visa visualiseringen på skärmen som alltid är på och i omgivningsläget. Inaktivera för att endast visa den på låsskärmen.</string>
+    <string name="pulse_show_on_ambient_disabled_player">Visualiseringen är inte tillgänglig på den inaktiva skärmen när mediespelarens bakgrund är aktiverad</string>
+    <string name="pulse_show_on_media_player_title">Visa på mediespelarens bakgrund</string>
+    <string name="pulse_show_on_media_player_summary">Visa visualiseringen på mediespelarens bakgrund på låsskärmen och i snabbinställningarna</string>
     <string name="pulse_height_multiplier_title">Pulshöjd</string>
     <string name="pulse_height_multiplier_summary">Justera visualiseringshöjden</string>
     <!-- Lockscreen Clock Highlight Guide -->
@@ -304,7 +307,7 @@
     <string name="ls_media_art_title">Medieomslag</string>
     <string name="ls_media_art_summary">Visa omslagsbild för media när en sådan finns</string>
     <string name="ambient_media_art_title">Medieomslag på inaktiv skärm</string>
-    <string name="ambient_media_art_summary">Visa omslagsbild för media på omgivningsskärmen när en sådan finns</string>
+    <string name="ambient_media_art_summary">Visa medieomslag på den inaktiva skärmen när det finns tillgängligt</string>
     <string name="ls_media_art_filter_title">Filter för omslagsbild</string>
     <string name="ls_media_art_filter_none">Ingen</string>
     <string name="ls_media_art_filter_blur">Oskärpa</string>
@@ -384,7 +387,7 @@
     <string name="display_icon_title">Ikoner</string>
     <string name="display_icon_summary">Visa ikoner bredvid nivå &amp; temperatur</string>
     <string name="doze_always_on_wallpaper_title">Bakgrundsbild på omgivande skärm</string>
-    <string name="doze_always_on_wallpaper_summary">Visa låsskärmens bakgrundsbild på den omgivande skärmen</string>
+    <string name="doze_always_on_wallpaper_summary">Visa låsskärmens bakgrundsbild på den inaktiva skärmen</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Förhandsvisningsskärm</string>
     <string name="peek_display_notifications_summary">Aktivera en minimal aviseringsstil på låsskärmen</string>
@@ -795,7 +798,7 @@
     <string name="cutout_progress_music_stroke_title">Linjebredd</string>
     <string name="cutout_progress_music_clockwise_title">Medurs riktning</string>
     <string name="cutout_progress_music_aod_title">Visa på AOD</string>
-    <string name="cutout_progress_music_aod_summary">Håll musikringen synlig på den omgivande skärmen</string>
+    <string name="cutout_progress_music_aod_summary">Låt musikringen fortsätta visas på den inaktiva skärmen</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Bluetooth-batteristatus</string>
     <string name="status_bar_bluetooth_battery_summary">Visa batteristatusen för den anslutna Bluetooth-enheten, om den är tillgänglig</string>
@@ -954,7 +957,7 @@
     <string name="quick_settings_secure_lock_screen_title">Dra ned snabbinställningarna på en säker låsskärm</string>
     <string name="quick_settings_secure_lock_screen_summary">Tillåt att snabbinställningarna öppnas genom att svepa nedåt på låsskärmen</string>
     <string name="quick_settings_require_unlock_title">Säkra rutor kräver upplåsning</string>
-    <string name="quick_settings_require_unlock_summary">Följande rutor kräver att enheten låses upp innan de kan användas: Flygplansläge, Batterisparläge, Bluetooth, Mobilnät, Datasparläge, Surfzon, Internet, NFC, Rotationslås och Wi-Fi</string>
+    <string name="quick_settings_require_unlock_summary">Enheten måste låsas upp innan följande snabbinställningar kan användas: flygplansläge, batterisparläge, Bluetooth, datasparläge, surfzon, internet, NFC och rotationslås</string>
     <string name="quick_settings_footer_category">Sidfot</string>
     <string name="quick_settings_footer_edit_icon_title">Ikon för att redigera rutor</string>
     <string name="quick_settings_footer_show_power_menu_title">Genväg till avstängningsmenyn</string>
@@ -1089,7 +1092,7 @@
     <string name="powermenu_style4">iOS</string>
     <string name="powermenu_style5">Lager</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">Identitetsförfalskning</string>
+    <string name="miscellaneous_spoofing_category">Maskering</string>
     <string name="miscellaneous_developer_options_category">Utvecklaralternativ</string>
     <string name="miscellaneous_app_downgrade_title">Tillåt nedgradering av appar</string>
     <string name="miscellaneous_app_downgrade_summary">Tillåt nedgradering av systemappar. Detta kan orsaka kraschar och dataförlust.</string>
@@ -1099,6 +1102,8 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Hindra alla appar från att tona ned bakgrundsbilden och tvinga nedtoningsnivån till 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignorera säkra fönsterflaggor</string>
     <string name="miscellaneous_ignore_window_secure_summary">Ta bort begränsningar för skärmbilder och skärminspelning för alla appar. Kan röja privat innehåll</string>
+    <string name="miscellaneous_screenshot_flash_title">Visa skärmblixt vid skärmbild</string>
+    <string name="miscellaneous_screenshot_flash_summary">Låt skärmen blinka till när en skärmbild tas</string>
     <string name="miscellaneous_block_screenshot_detection_title">Blockera identifiering av skärmdumpar</string>
     <string name="miscellaneous_block_screenshot_detection_summary">Förhindra att appar upptäcker när en skärmbild tas av deras innehåll</string>
     <string name="miscellaneous_block_screenrecord_detection_title">Blockera identifiering av skärminspelning</string>
@@ -1115,7 +1120,7 @@
     <string name="smart_pixels_summary">Spara batteri genom att inaktivera en del av skärmens pixlar</string>
     <string name="smart_pixels_percent">Andel bildpunkter som ska inaktiveras</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Identitetsförfalskning</string>
+    <string name="spoofing_title">Maskering</string>
     <string name="spoofing_summary">Play Integrity, enhetsidentitet och funktionsmaskering</string>
     <string name="spoofing_integrity_category">Play Integrity</string>
     <string name="spoofing_identity_category">Enhetsidentitet</string>
@@ -1128,6 +1133,12 @@
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Maskera Snapchat som en Pixel XL för att åtgärda eventuella chattproblem</string>
     <string name="spoofing_applying_changes">Tillämpar maskeringsändringar\u2026</string>
+    <string name="spoofing_reset_defaults_title">Återställ standardinställningar</string>
+    <string name="spoofing_reset_defaults_summary">Återställ Play Integrity, mållistan, säkerhetsuppdateringsnivån och GameProps till standardinställningarna. Din keybox behålls</string>
+    <string name="spoofing_reset_defaults_dialog_title">Återställa maskeringsinställningarna?</string>
+    <string name="spoofing_reset_defaults_dialog_message">Detta rensar konfigurationen för Play Integrity, den åsidosatta säkerhetsuppdateringsnivån och konfigurationen för GameProps samt återställer standardmållistan för TrickyStore. Din keybox behålls. Play Integrity och säkerhetsuppdateringsnivån hämtas på nytt kort därefter. Aktiveringsreglagens lägen ändras inte.</string>
+    <string name="spoofing_reset_defaults_confirm">Återställ</string>
+    <string name="spoofing_reset_defaults_done">Maskeringsinställningarna har återställts</string>
     <string name="tensor_spoof_title">Mål för Tensor-funktioner</string>
     <string name="tensor_spoof_summary">Ge valda appar åtkomst till AI-funktioner som är exklusiva för Pixel Tensor</string>
     <string name="tensor_spoof_enable">Tensor-maskering</string>
@@ -1270,6 +1281,7 @@
     <string name="pif_config_details">Konfigurationsinformation</string>
     <string name="pif_failed">Misslyckades: %s</string>
     <string name="pif_select_device">Välj enhet</string>
+    <string name="pif_recommended_suffix">Rekommenderas</string>
     <string name="pif_generating">Genererar konfiguration\u2026</string>
     <string name="pif_footer_title">Klarar grundläggande integritetskontroll</string>
     <string name="pif_footer_body">Canary-fingeravtrycket hämtas och uppdateras automatiskt var 21:e dag. Canary-konfigurationer upphör att gälla cirka 6 veckor efter lanseringsdatumet — utgångsdatumet visas i sammanfattningen för den aktiva konfigurationen.\n\nFör manuell konfiguration:\n1. Tryck på \"Hämta Pixel Canary-fingeravtryck\" och välj en enhet.\n2. Om inga enheter hittas importerar du en fungerande PIF-konfiguration från en betrodd källa. Konfigurationsfiler tillhandahålls inte.\n3. Kontrollera din Play Integrity-status igen.\n\nTa alltid bort den aktiva konfigurationen innan du importerar en ny. Om du läser in en utgången PIF-konfiguration misslyckas TrickyStores starka integritetskontroll även med en giltig keybox.\n\nAvancerad maskering:\n• Maskering av Play Butiks fingeravtryck — låt den vara inaktiverad om du inte har fått andra råd. Att maskera FINGERPRINT för Play Butik behövs sällan och kan orsaka problem.\n• Maskera SDK för DroidGuard — tvingar fram den äldre attesteringsvägen före Android 13. Aktivera endast detta om grundläggande integritet misslyckas och konfigurationen är avsedd för en äldre SDK.</string>
@@ -1308,6 +1320,7 @@
     <string name="ts_failed">Misslyckades: %s</string>
     <string name="ts_footer_title">Klarar stark integritetskontroll</string>
     <string name="ts_footer_body">En keybox hämtas och hålls giltig automatiskt. Återkallningsstatusen kontrolleras var 24:e timme, och en ny keybox hämtas från den officiella källan om den aktuella har återkallats eller spärrats.\n\nManuell konfiguration:\n1. Tryck på \"Hämta officiell keybox\" för att hämta en automatiskt, eller importera en egen från en betrodd källa.\n2. Öppna \"Hantera målappar\" och välj apparna som kräver integritetskontroller.\n3. Ställ in målläget på \"Leaf\" om enheten har en fungerande TEE. Lämna det annars på Auto.\n4. Kontrollera Play Integrity-statusen igen.\n\nObs! Om ingen giltig officiell keybox är tillgänglig pausas automatisk hämtning i 24 timmar innan ett nytt försök görs. Ta alltid bort den befintliga keybox-filen innan du importerar en ny.</string>
+    <string name="ts_patch_stale_warning">%1$s (inaktuell, minst 12 månader gammal)</string>
     <string name="ts_security_patch">Datum för säkerhetsuppdatering</string>
     <string name="ts_no_patch">Inte angivet (enhetens standard används)</string>
     <string name="ts_select_target_apps">Välj målappar</string>
@@ -1654,7 +1667,7 @@
     <string name="charging_color_mode_title">Färgläge</string>
     <string name="charging_display_category_title">Visningsalternativ</string>
     <string name="charging_show_on_lockscreen_summary">Visa animeringen när låsskärmen är synlig</string>
-    <string name="charging_show_on_aod_summary">Visa animeringen i läget för omgivande skärm</string>
+    <string name="charging_show_on_aod_summary">Visa animeringen på den inaktiva skärmen</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Emoji-stil</string>
     <string name="emoji_style_summary">Välj systemets emojipaket utan att ändra textteckensnitt</string>
@@ -1689,4 +1702,14 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Omgjord avstängningsmeny</string>
     <string name="global_actions_use_compose_dialog_summary">Använd den nya strömmenyn med en anpassningsbar rutlayout där rutorna kan dras. Inaktivera för att använda den klassiska strömmenyn.</string>
+    <string name="global_actions_advanced_reboot_title">Aktivera avancerad omstart</string>
+    <string name="global_actions_advanced_reboot_summary">Aktiverar en ny dialogruta med avancerade omstartsalternativ</string>
+    <!-- Screenshots -->
+    <string name="screenshot_clipboard_only_title">Kopiera endast till urklipp</string>
+    <string name="screenshot_clipboard_only_summary">Kopiera skärmbilden till urklipp i stället för att spara den i lagringen</string>
+    <string name="hide_status_bar_in_screenshot_title">Dölj statusfältet i skärmbilder</string>
+    <string name="hide_status_bar_in_screenshot_summary">Beskär bort statusfältet från helskärmsbilder</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">Zoomning av bakgrundsbild</string>
+    <string name="wallpaper_zoom_summary">Stäng av för att visa bakgrundsbilden utan extra zoomning</string>
 </resources>
