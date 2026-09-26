@@ -8,6 +8,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quick_settings_title">
 
+    <org.evolution.settings.preferences.QuickSettingsPreviewPreference
+        android:key="quick_settings_live_preview" />
+
     <PreferenceCategory
         android:key="quick_settings_interface_category"
         android:title="@string/quick_settings_interface_category">
