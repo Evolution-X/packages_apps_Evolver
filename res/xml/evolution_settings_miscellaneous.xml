@@ -24,6 +24,12 @@
         android:key="miscellaneous_gestures_category"
         android:title="@string/gestures_category_title">
 
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="home_double_tap_to_sleep"
+            android:title="@string/double_tap_to_sleep_title"
+            android:summary="@string/double_tap_to_sleep_summary"
+            android:defaultValue="false" />
+
         <!-- Three fingers swipe action -->
         <ListPreference
             android:key="three_fingers_swipe"
