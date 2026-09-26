@@ -157,7 +157,7 @@
     <string name="tone_shift_light_desc">Shift all light-mode colors lighter (+) or darker (−) independent of contrast.</string>
     <string name="tone_shift_dark_title">Lightness bias (dark mode)</string>
     <string name="tone_shift_dark_desc">Shift all dark-mode colors lighter (+) or darker (−) independent of contrast.</string>
- 
+
     <!-- Secondary seed -->
     <string name="secondary_seed_category">Secondary seed color</string>
     <string name="use_secondary_seed_title">Enable secondary seed</string>
@@ -481,6 +481,10 @@
     <string name="status_bar_icons_category">Icons</string>
     <string name="status_bar_tuner_title">Status bar tuner</string>
     <string name="status_bar_tuner_summary">Choose which system icons can be shown</string>
+    <string name="status_bar_mobile_type_hidden_title">Hide mobile network type</string>
+    <string name="status_bar_mobile_type_hidden_summary">Hide the LTE, 4G, 5G and other mobile network type indicator from the status bar</string>
+    <string name="status_bar_mobile_type_compact_title">Compact mobile network type</string>
+    <string name="status_bar_mobile_type_compact_summary">Show a smaller network type indicator beside the mobile signal without changing the signal bars</string>
     <string name="status_bar_colored_icons_title">Colored icons</string>
     <string name="status_bar_colored_icons_summary">Use launcher icons for app notifications</string>
     <string name="status_bar_notif_count_title">Notification count</string>

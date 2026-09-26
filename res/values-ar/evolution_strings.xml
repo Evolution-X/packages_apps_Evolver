@@ -410,6 +410,10 @@
     <string name="status_bar_icons_category">الأيقونات</string>
     <string name="status_bar_tuner_title">ضبط شريط الحالة</string>
     <string name="status_bar_tuner_summary">اختر أيقونات النظام التي يمكن إظهارها</string>
+    <string name="status_bar_mobile_type_hidden_title">إخفاء نوع شبكة الهاتف</string>
+    <string name="status_bar_mobile_type_hidden_summary">إخفاء مؤشر نوع الشبكة مثل LTE و4G و5G من شريط الحالة</string>
+    <string name="status_bar_mobile_type_compact_title">تصغير مؤشر نوع شبكة الهاتف</string>
+    <string name="status_bar_mobile_type_compact_summary">عرض مؤشر نوع الشبكة بحجم أصغر بجانب إشارة الهاتف دون تغيير شكل أشرطة الإشارة</string>
     <string name="status_bar_colored_icons_title">أيقونات ملوّنة</string>
     <string name="status_bar_colored_icons_summary">استخدام أيقونات المشغّل لإشعارات التطبيقات</string>
     <string name="status_bar_notif_count_title">عدد الإشعارات</string>
