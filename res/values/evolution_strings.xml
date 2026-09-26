@@ -771,6 +771,8 @@
     <string name="cutout_progress_cat_glow">Glow effect</string>
     <string name="cutout_progress_cat_battery">Battery ring</string>
     <string name="cutout_progress_cat_music">Music ring</string>
+    <string name="cutout_progress_cat_timer">Timer ring</string>
+    <string name="cutout_progress_cat_aurora">Aurora effect</string>
     <string name="cutout_progress_ring_color_title">Ring color</string>
     <string name="cutout_progress_error_color_title">Error color</string>
     <string name="cutout_progress_finish_flash_color_title">Finish flash color</string>
@@ -794,6 +796,8 @@
     <string name="cutout_progress_finish_flash_summary">Briefly flash the ring with the finish color when complete</string>
     <string name="cutout_progress_pulse_title">Completion pulse</string>
     <string name="cutout_progress_pulse_summary">Brief brightness pulse before the finish animation</string>
+    <string name="cutout_progress_auto_geometry_title">Automatic camera fit</string>
+    <string name="cutout_progress_auto_geometry_summary">Automatically detect the physical camera cutout, keep its size and position stable across rotation and resolution changes, and fall back safely when device geometry is incomplete</string>
     <string name="cutout_progress_path_mode_title">Pill mode</string>
     <string name="cutout_progress_path_mode_summary">Use a pill-shaped path for elongated cutouts</string>
     <string name="cutout_progress_scale_x_title">Horizontal scale</string>
@@ -805,11 +809,15 @@
     <string name="cutout_progress_percent_size_title">Percentage text size</string>
     <string name="cutout_progress_percent_bold_title">Bold percentage</string>
     <string name="cutout_progress_percent_position_title">Percentage position</string>
+    <string name="cutout_progress_percent_offset_x_title">Percentage horizontal offset</string>
+    <string name="cutout_progress_percent_offset_y_title">Percentage vertical offset</string>
     <string name="cutout_progress_filename_enabled_title">Show filename</string>
     <string name="cutout_progress_filename_enabled_summary">Display the name of the file being downloaded</string>
     <string name="cutout_progress_filename_size_title">Filename text size</string>
     <string name="cutout_progress_filename_bold_title">Bold filename</string>
     <string name="cutout_progress_filename_position_title">Filename position</string>
+    <string name="cutout_progress_filename_offset_x_title">Filename horizontal offset</string>
+    <string name="cutout_progress_filename_offset_y_title">Filename vertical offset</string>
     <string name="cutout_progress_filename_max_chars_title">Max filename length</string>
     <string name="cutout_progress_filename_truncate_title">Filename truncation</string>
     <string name="cutout_progress_badge_title">Show download count badge</string>
@@ -834,9 +842,9 @@
     <string name="cutout_progress_music_title">Music ring</string>
     <string name="cutout_progress_music_summary">Show a visualizer ring tracking media playback progress</string>
     <string name="cutout_progress_music_color_mode_title">Color mode</string>
-    <string name="cutout_progress_music_color_mode_album_icon">Album icon color</string>
+    <string name="cutout_progress_music_color_mode_album_icon">Artwork dominant color</string>
     <string name="cutout_progress_music_color_mode_accent">System accent</string>
-    <string name="cutout_progress_music_color_mode_album_art">Album art</string>
+    <string name="cutout_progress_music_color_mode_album_art">Album art palette</string>
     <string name="cutout_progress_music_color_mode_custom">Custom color</string>
     <string name="cutout_progress_music_custom_color_title">Custom color</string>
     <string name="cutout_progress_music_opacity_title">Ring opacity</string>
@@ -844,6 +852,61 @@
     <string name="cutout_progress_music_clockwise_title">Clockwise direction</string>
     <string name="cutout_progress_music_aod_title">Show on AOD</string>
     <string name="cutout_progress_music_aod_summary">Keep the music ring visible on ambient display</string>
+
+    <string name="cutout_progress_cat_layers">Multi-ring behavior</string>
+    <string name="cutout_progress_download_presentation_title">Download ring placement</string>
+    <string name="cutout_progress_download_presentation_summary">Choose whether downloads use the primary camera ring, a dedicated outer ring, or no ring</string>
+    <string name="cutout_progress_music_presentation_title">Music ring placement</string>
+    <string name="cutout_progress_music_presentation_summary">Choose whether music uses the primary camera ring, a dedicated outer ring, or no ring</string>
+    <string name="cutout_progress_presentation_primary">Primary ring</string>
+    <string name="cutout_progress_presentation_independent">Independent outer ring</string>
+    <string name="cutout_progress_presentation_disabled">Disabled</string>
+    <string name="cutout_progress_primary_priority_title">Source priority</string>
+    <string name="cutout_progress_primary_priority_summary">Choose which source wins the primary ring and which independent ring stays closer to the camera</string>
+    <string name="cutout_progress_primary_priority_download">Downloads first</string>
+    <string name="cutout_progress_primary_priority_music">Music first</string>
+    <string name="cutout_progress_primary_priority_timer">Timer first</string>
+    <string name="cutout_progress_multi_ring_spacing_title">Independent ring spacing</string>
+    <string name="cutout_progress_multi_ring_spacing_summary">Distance between automatically stacked rings</string>
+
+    <string name="cutout_progress_music_wave_title">Outer waveform</string>
+    <string name="cutout_progress_music_wave_summary">Draw an animated waveform outside the active music ring; it follows the resolved music color including album-art colors</string>
+    <string name="cutout_progress_music_wave_amplitude_title">Waveform amplitude</string>
+    <string name="cutout_progress_music_wave_density_title">Waveform density</string>
+    <string name="cutout_progress_music_wave_speed_title">Waveform speed</string>
+
+    <string name="cutout_progress_timer_title">Countdown timer ring</string>
+    <string name="cutout_progress_timer_summary">Show active Clock countdown timers around the camera cutout using the primary ring or an independent outer ring</string>
+    <string name="cutout_progress_timer_presentation_title">Timer ring placement</string>
+    <string name="cutout_progress_timer_color_mode_title">Timer color mode</string>
+    <string name="cutout_progress_timer_custom_color_title">Custom timer color</string>
+    <string name="cutout_progress_timer_opacity_title">Timer opacity</string>
+    <string name="cutout_progress_timer_stroke_title">Timer stroke width</string>
+    <string name="cutout_progress_timer_clockwise_title">Timer clockwise direction</string>
+    <string name="cutout_progress_timer_flame_title">Burning fuse effect</string>
+    <string name="cutout_progress_timer_flame_summary">Animate a small flame at the shrinking edge of the countdown ring; disable for a clean shrinking ring</string>
+    <string name="cutout_progress_timer_flame_color_title">Flame color</string>
+    <string name="cutout_progress_timer_flame_size_title">Flame size</string>
+
+    <string name="cutout_progress_aurora_title">Aurora around rings</string>
+    <string name="cutout_progress_aurora_summary">Draw a smooth layered aurora around the camera rings for selected live events</string>
+    <string name="cutout_progress_aurora_calls_title">Calls</string>
+    <string name="cutout_progress_aurora_music_title">Music playback</string>
+    <string name="cutout_progress_aurora_music_summary">Use Aurora while music is playing; the outer music waveform is automatically paused while this effect is active</string>
+    <string name="cutout_progress_aurora_recording_title">Audio recording</string>
+    <string name="cutout_progress_aurora_notifications_title">New notifications</string>
+    <string name="cutout_progress_aurora_color_mode_title">Aurora color mode</string>
+    <string name="cutout_progress_aurora_color_mode_spectrum">Full spectrum</string>
+    <string name="cutout_progress_aurora_color_mode_source">Event/source color</string>
+    <string name="cutout_progress_aurora_color_mode_custom">Fixed custom color</string>
+    <string name="cutout_progress_aurora_custom_color_title">Fixed Aurora color</string>
+    <string name="cutout_progress_aurora_notification_color_mode_title">Notification color</string>
+    <string name="cutout_progress_aurora_notification_color_notification">Use notification color</string>
+    <string name="cutout_progress_aurora_notification_color_effect">Use Aurora color mode</string>
+    <string name="cutout_progress_aurora_spread_title">Aurora size / spread</string>
+    <string name="cutout_progress_aurora_opacity_title">Aurora opacity</string>
+    <string name="cutout_progress_aurora_speed_title">Aurora animation speed</string>
+    <string name="cutout_progress_aurora_notification_duration_title">Notification effect duration</string>
 
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
