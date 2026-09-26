@@ -27,6 +27,7 @@ import org.evolution.settings.utils.UrlUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.lang.ref.WeakReference;
 import java.security.MessageDigest;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
@@ -62,21 +63,25 @@ public class GithubAvatarLoader {
 
         final String user = githubUsername.trim();
         final String userKey = user.toLowerCase(Locale.ROOT);
+        final Context appContext = getSafeApplicationContext(context);
+        final WeakReference<Preference> preferenceRef = new WeakReference<>(preference);
 
-        final SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        final File cacheFile = getAvatarFile(context, userKey);
+        final SharedPreferences prefs =
+                appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        final File cacheFile = getAvatarFile(appContext, userKey);
         final HttpCachePrefs cache = new HttpCachePrefs(prefs, userKey);
 
         // 1) Immediate render from disk cache (persistent across reboot/process death).
         Bitmap cachedBitmap = decodeBitmap(cacheFile);
         if (cachedBitmap != null) {
-            preference.setIcon(buildAdaptiveAvatar(context, cachedBitmap));
+            preference.setIcon(buildAdaptiveAvatar(appContext, cachedBitmap));
         }
 
         // 2) Revalidate when stale.
         if (!cache.isStale()) return;
 
-        mExecutor.execute(() -> revalidateAndUpdate(context, preference, user, userKey, cacheFile, prefs));
+        mExecutor.execute(() -> revalidateAndUpdate(
+                appContext, preferenceRef, user, userKey, cacheFile, prefs));
     }
 
     /**
@@ -128,10 +133,12 @@ public class GithubAvatarLoader {
 
         final String user = githubUsername.trim();
         final String userKey = user.toLowerCase(Locale.ROOT);
+        final Context appContext = getSafeApplicationContext(context);
+        final WeakReference<ImageView> imageViewRef = new WeakReference<>(imageView);
 
         final SharedPreferences prefs =
-                context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        final File cacheFile = getAvatarFile(context, userKey);
+                appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        final File cacheFile = getAvatarFile(appContext, userKey);
         final HttpCachePrefs cache = new HttpCachePrefs(prefs, userKey);
 
         // 1) Instant render from disk cache
@@ -148,20 +155,32 @@ public class GithubAvatarLoader {
             Bitmap bitmap = fetchAndCacheAvatar(user, userKey, cacheFile, prefs);
             if (bitmap != null) {
                 mMainHandler.post(() -> {
-                    applyCircleClip(imageView);
-                    imageView.setImageBitmap(bitmap);
+                    ImageView target = imageViewRef.get();
+                    if (target == null) return;
+                    applyCircleClip(target);
+                    target.setImageBitmap(bitmap);
                 });
             }
         });
     }
 
-    private void revalidateAndUpdate(Context context, Preference preference, String user,
-            String userKey, File cacheFile, SharedPreferences prefs) {
+    private void revalidateAndUpdate(Context context, WeakReference<Preference> preferenceRef,
+            String user, String userKey, File cacheFile, SharedPreferences prefs) {
         Bitmap bitmap = fetchAndCacheAvatar(user, userKey, cacheFile, prefs);
         if (bitmap != null) {
             Drawable icon = buildAdaptiveAvatar(context, bitmap);
-            mMainHandler.post(() -> preference.setIcon(icon));
+            mMainHandler.post(() -> {
+                Preference preference = preferenceRef.get();
+                if (preference != null) {
+                    preference.setIcon(icon);
+                }
+            });
         }
+    }
+
+    private static Context getSafeApplicationContext(Context context) {
+        Context appContext = context.getApplicationContext();
+        return appContext != null ? appContext : context;
     }
 
     private Drawable buildAdaptiveAvatar(Context context, Bitmap bitmap) {
