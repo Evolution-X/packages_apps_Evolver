@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package org.evolution.settings.fragments.themes
+package org.evolution.settings.fragments
 
-import android.graphics.Color as AndroidColor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,24 +25,15 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
 import com.android.settingslib.spa.framework.theme.SettingsTheme
-import org.evolution.settings.utils.ColorPickerDialog
+import org.evolution.settings.utils.WallpaperColorPickerDialog
 
-class ColorPickerDialogFragment : DialogFragment() {
+class WallpaperColorPickerDialogFragment : DialogFragment() {
 
-    private var initialColor: Color = Color(0xFF6750A4)
     private var onColorSelected: ((Color) -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, android.R.style.Theme_Material_Dialog_NoActionBar)
-        
-        arguments?.getString(ARG_COLOR_HEX)?.let { hex ->
-            try {
-                initialColor = Color(AndroidColor.parseColor("#$hex"))
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
     }
 
     override fun onCreateView(
@@ -56,8 +46,7 @@ class ColorPickerDialogFragment : DialogFragment() {
             
             setContent {
                 SettingsTheme {
-                    ColorPickerDialog(
-                        initialColor = initialColor,
+                    WallpaperColorPickerDialog(
                         onDismiss = { dismiss() },
                         onColorSelected = { color ->
                             onColorSelected?.invoke(color)
@@ -74,15 +63,10 @@ class ColorPickerDialogFragment : DialogFragment() {
     }
 
     companion object {
-        private const val ARG_COLOR_HEX = "color_hex"
-        const val TAG = "ColorPickerDialogFragment"
+        const val TAG = "WallpaperColorPickerDialogFragment"
 
-        fun newInstance(colorHex: String): ColorPickerDialogFragment {
-            return ColorPickerDialogFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_COLOR_HEX, colorHex)
-                }
-            }
+        fun newInstance(): WallpaperColorPickerDialogFragment {
+            return WallpaperColorPickerDialogFragment()
         }
     }
 }

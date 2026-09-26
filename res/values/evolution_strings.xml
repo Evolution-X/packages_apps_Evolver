@@ -137,6 +137,23 @@
     <string name="monet_engine_color_source_home">Home wallpaper</string>
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
+    <string name="monet_settings_title">Color Customization</string>
+    <string name="monet_settings_summary">Customize theme colors and style</string>
+    <string name="color_settings_category">Color Settings</string>
+    <string name="advanced_settings_category">Advanced Settings</string>
+    <string name="use_wallpaper_colors_title">Use Wallpaper Colors</string>
+    <string name="use_wallpaper_colors_desc">Extract colors from your wallpaper</string>
+    <string name="custom_seed_color_title">Custom Seed Color</string>
+    <string name="theme_style_title">Theme Style</string>
+    <string name="theme_style_desc">Select color palette style</string>
+    <string name="fidelity_title">Color Fidelity</string>
+    <string name="fidelity_desc">Preserve the original seed color more accurately</string>
+    <string name="contrast_level_title">Contrast Level</string>
+    <string name="chroma_boost_title">Chroma Boost</string>
+    <string name="about_color_customization_title">About Color Customization</string>
+    <string name="about_color_customization_desc">Color changes apply system-wide to all apps that support Material You theming.\nAdjusting these colors may affect the appearance of apps across your device.</string>
+    <string name="wallpaper_seed_color_title">Pick from Wallpaper</string>
+    <string name="wallpaper_seed_color_desc">Extract color from your current wallpaper</string>
 
     <!-- Per-palette chroma override -->
     <string name="chroma_accent1_title">Primary chroma</string>
@@ -157,7 +174,7 @@
     <string name="tone_shift_light_desc">Shift all light-mode colors lighter (+) or darker (−) independent of contrast.</string>
     <string name="tone_shift_dark_title">Lightness bias (dark mode)</string>
     <string name="tone_shift_dark_desc">Shift all dark-mode colors lighter (+) or darker (−) independent of contrast.</string>
- 
+
     <!-- Secondary seed -->
     <string name="secondary_seed_category">Secondary seed color</string>
     <string name="use_secondary_seed_title">Enable secondary seed</string>
