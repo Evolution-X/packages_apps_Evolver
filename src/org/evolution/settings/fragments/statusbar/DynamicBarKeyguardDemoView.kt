@@ -86,59 +86,64 @@ class DynamicBarKeyguardDemoView @JvmOverloads constructor(
         val chipTop = cy - chipH / 2f
 
         // Chip background
-        chipPaint.color = COLOR_RED
+        chipPaint.color = Color.BLACK
         chipRect.set(chipLeft, chipTop, chipLeft + chipW, chipTop + chipH)
         chipPath.reset()
         chipPath.addRoundRect(chipRect, chipH / 2f, chipH / 2f, Path.Direction.CW)
         canvas.drawPath(chipPath, chipPaint)
 
-        var x = chipLeft + padS
+        val isRtl = layoutDirection == LAYOUT_DIRECTION_RTL
+        val direction = if (isRtl) -1f else 1f
+        var x = if (isRtl) chipLeft + chipW - padS else chipLeft + padS
 
-        // Blinking recording dot
+        // Blinking recording dot at semantic start.
         dotPaint.alpha = (glowAlpha * 255).toInt()
-        canvas.drawCircle(x + dotR, cy, dotR, dotPaint)
+        canvas.drawCircle(x + direction * dotR, cy, dotR, dotPaint)
         dotPaint.alpha = 255
-        x += dotR * 2 + gap
+        x += direction * (dotR * 2 + gap)
 
-        // Time text
+        // Keep numeric glyphs intact while anchoring text to semantic start.
         val textY = cy - (textPaint.descent() + textPaint.ascent()) / 2f
+        textPaint.textAlign = if (isRtl) Paint.Align.RIGHT else Paint.Align.LEFT
         canvas.drawText(timeText, x, textY, textPaint)
-        x += timeW + gap
+        x += direction * (timeW + gap)
 
         // Pause button
         btnBgPaint.color = Color.WHITE
         btnBgPaint.alpha = (0.2f * 255).toInt()
-        canvas.drawCircle(x + btnSize / 2f, cy, btnSize / 2f, btnBgPaint)
+        var buttonCx = x + direction * btnSize / 2f
+        canvas.drawCircle(buttonCx, cy, btnSize / 2f, btnBgPaint)
 
         val pauseBarW = dpToPx(3f)
         val pauseBarH = dpToPx(10f)
         barPaint.color = Color.WHITE
         chipRect.set(
-            x + btnSize / 2f - pauseBarW - dpToPx(1f),
+            buttonCx - pauseBarW - dpToPx(1f),
             cy - pauseBarH / 2f,
-            x + btnSize / 2f - dpToPx(1f),
+            buttonCx - dpToPx(1f),
             cy + pauseBarH / 2f
         )
         canvas.drawRoundRect(chipRect, dpToPx(1f), dpToPx(1f), barPaint)
 
         chipRect.set(
-            x + btnSize / 2f + dpToPx(1f),
+            buttonCx + dpToPx(1f),
             cy - pauseBarH / 2f,
-            x + btnSize / 2f + dpToPx(1f) + pauseBarW,
+            buttonCx + dpToPx(1f) + pauseBarW,
             cy + pauseBarH / 2f
         )
         canvas.drawRoundRect(chipRect, dpToPx(1f), dpToPx(1f), barPaint)
 
-        x += btnSize + btnGap
+        x += direction * (btnSize + btnGap)
 
         // Stop button
-        canvas.drawCircle(x + btnSize / 2f, cy, btnSize / 2f, btnBgPaint)
+        buttonCx = x + direction * btnSize / 2f
+        canvas.drawCircle(buttonCx, cy, btnSize / 2f, btnBgPaint)
 
         val stopSize = dpToPx(8f)
         chipRect.set(
-            x + btnSize / 2f - stopSize / 2f,
+            buttonCx - stopSize / 2f,
             cy - stopSize / 2f,
-            x + btnSize / 2f + stopSize / 2f,
+            buttonCx + stopSize / 2f,
             cy + stopSize / 2f
         )
         canvas.drawRoundRect(chipRect, dpToPx(2f), dpToPx(2f), barPaint)

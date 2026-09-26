@@ -173,6 +173,10 @@ class DynamicBar : SettingsPreferenceFragment() {
         private const val SETTINGS_KEY_EVENTS = "ax_dynamic_bar_events"
         private const val SETTINGS_KEY_COMPACT_NOTIFICATIONS = "ax_dynamic_bar_compact_notifications"
         private const val SETTINGS_KEY_BATTERY_CHIP_MODE = "ax_dynamic_bar_keyguard_battery_chip_mode"
+        private const val SETTINGS_KEY_CUTOUT_ALIGNMENT = "ax_dynamic_bar_cutout_alignment"
+        private const val SETTINGS_KEY_ISLAND_SIZE = "ax_dynamic_bar_island_size"
+        private const val SETTINGS_KEY_LANDSCAPE_MODE = "ax_dynamic_bar_landscape_mode"
+        private const val SETTINGS_KEY_DEBUG_BOUNDS = "ax_dynamic_bar_debug_bounds"
 
         @JvmStatic
         fun reset(context: Context) {
@@ -191,6 +195,22 @@ class DynamicBar : SettingsPreferenceFragment() {
             )
             Settings.Secure.putIntForUser(
                 resolver, SETTINGS_KEY_BATTERY_CHIP_MODE, 1,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putIntForUser(
+                resolver, SETTINGS_KEY_CUTOUT_ALIGNMENT, 0,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putIntForUser(
+                resolver, SETTINGS_KEY_ISLAND_SIZE, 0,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putIntForUser(
+                resolver, SETTINGS_KEY_LANDSCAPE_MODE, 0,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putIntForUser(
+                resolver, SETTINGS_KEY_DEBUG_BOUNDS, 0,
                 UserHandle.USER_CURRENT
             )
         }

@@ -1785,4 +1785,40 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+    <string-array name="dynamic_bar_cutout_alignment_entries" translatable="false">
+        <item>@string/dynamic_bar_cutout_alignment_auto</item>
+        <item>@string/dynamic_bar_cutout_alignment_center</item>
+    </string-array>
+
+    <string-array name="dynamic_bar_cutout_alignment_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="dynamic_bar_island_size_entries" translatable="false">
+        <item>@string/dynamic_bar_island_size_auto</item>
+        <item>@string/dynamic_bar_island_size_compact</item>
+        <item>@string/dynamic_bar_island_size_large</item>
+    </string-array>
+
+    <string-array name="dynamic_bar_island_size_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="dynamic_bar_landscape_mode_entries" translatable="false">
+        <item>@string/dynamic_bar_landscape_auto</item>
+        <item>@string/dynamic_bar_landscape_always</item>
+        <item>@string/dynamic_bar_landscape_compact</item>
+        <item>@string/dynamic_bar_landscape_disabled</item>
+    </string-array>
+
+    <string-array name="dynamic_bar_landscape_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 </resources>

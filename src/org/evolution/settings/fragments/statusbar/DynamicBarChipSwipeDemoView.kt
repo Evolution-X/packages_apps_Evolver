@@ -100,17 +100,45 @@ class DynamicBarChipSwipeDemoView @JvmOverloads constructor(
         val current = demoChips[phase]
         val next = demoChips[(phase + 1) % 3]
 
+        val isRtl = layoutDirection == LAYOUT_DIRECTION_RTL
+        val swipeDirection = if (isRtl) 1f else -1f
         val slideOffset = frac * width * 0.4f
-        drawSwipeChip(canvas, current, cx - slideOffset, cy, chipH, padH, iconSize, gap, 1f - frac, 1f)
-        drawSwipeChip(canvas, next, cx + width * 0.4f - slideOffset, cy, chipH, padH, iconSize, gap, frac, 0.92f + 0.08f * frac)
+        drawSwipeChip(
+            canvas,
+            current,
+            cx + swipeDirection * slideOffset,
+            cy,
+            chipH,
+            padH,
+            iconSize,
+            gap,
+            1f - frac,
+            1f,
+        )
+        drawSwipeChip(
+            canvas,
+            next,
+            cx - swipeDirection * width * 0.4f + swipeDirection * slideOffset,
+            cy,
+            chipH,
+            padH,
+            iconSize,
+            gap,
+            frac,
+            0.92f + 0.08f * frac,
+        )
 
-        // Swipe arrow indicator
-        val arrowAlpha = if (frac < 0.3f) frac / 0.3f else if (frac > 0.7f) (1f - frac) / 0.3f else 1f
-        val arrowX = cx + chipH
+        // Keep the gesture hint semantic: the next event is on the opposite physical side in RTL.
+        val arrowAlpha =
+            if (frac < 0.3f) frac / 0.3f
+            else if (frac > 0.7f) (1f - frac) / 0.3f
+            else 1f
+        val arrowX = if (isRtl) cx - chipH else cx + chipH
         val arrowSize = dpToPx(6f)
+        val arrowTipX = arrowX + if (isRtl) -arrowSize else arrowSize
         arrowPaint.alpha = (arrowAlpha * 0.4f * 255).toInt()
-        canvas.drawLine(arrowX, cy - arrowSize, arrowX + arrowSize, cy, arrowPaint)
-        canvas.drawLine(arrowX, cy + arrowSize, arrowX + arrowSize, cy, arrowPaint)
+        canvas.drawLine(arrowX, cy - arrowSize, arrowTipX, cy, arrowPaint)
+        canvas.drawLine(arrowX, cy + arrowSize, arrowTipX, cy, arrowPaint)
         arrowPaint.alpha = 255
     }
 
@@ -142,7 +170,7 @@ class DynamicBarChipSwipeDemoView @JvmOverloads constructor(
         val left = centerX - w / 2f
         val top = cy - h / 2f
 
-        chipPaint.color = chip.accent
+        chipPaint.color = Color.BLACK
         chipPaint.alpha = (alpha * 255).toInt()
         chipRect.set(left, top, left + w, top + h)
         chipPath.reset()
