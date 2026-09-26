@@ -41,6 +41,14 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
         private const val KEY_FIDELITY = "fidelity_enabled"
         private const val KEY_CONTRAST = "contrast_level"
         private const val KEY_CHROMA = "chroma_boost"
+        private const val KEY_CHROMA_ACCENT1 = "chroma_boost_accent1"
+        private const val KEY_CHROMA_ACCENT2 = "chroma_boost_accent2"
+        private const val KEY_CHROMA_ACCENT3 = "chroma_boost_accent3"
+        private const val KEY_CHROMA_NEUTRAL1 = "chroma_boost_neutral1"
+        private const val KEY_CHROMA_NEUTRAL2 = "chroma_boost_neutral2"
+        private const val KEY_HUE_SHIFT = "hue_shift"
+        private const val KEY_TONE_SHIFT_LIGHT = "tone_shift_light"
+        private const val KEY_TONE_SHIFT_DARK = "tone_shift_dark"
     }
 
     private lateinit var useWallpaperColors: SwitchPreferenceCompat
@@ -50,6 +58,14 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
     private lateinit var fidelity: SwitchPreferenceCompat
     private var contrast: CustomSeekBarPreference? = null
     private var chroma: CustomSeekBarPreference? = null
+    private var chromaAccent1: CustomSeekBarPreference? = null
+    private var chromaAccent2: CustomSeekBarPreference? = null
+    private var chromaAccent3: CustomSeekBarPreference? = null
+    private var chromaNeutral1: CustomSeekBarPreference? = null
+    private var chromaNeutral2: CustomSeekBarPreference? = null
+    private var hueShift: CustomSeekBarPreference? = null
+    private var toneShiftLight: CustomSeekBarPreference? = null
+    private var toneShiftDark: CustomSeekBarPreference? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.monet_settings)
@@ -61,6 +77,14 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
         fidelity = findPreference(KEY_FIDELITY)!!
         contrast = findPreference(KEY_CONTRAST)
         chroma = findPreference(KEY_CHROMA)
+        chromaAccent1 = findPreference(KEY_CHROMA_ACCENT1)
+        chromaAccent2 = findPreference(KEY_CHROMA_ACCENT2)
+        chromaAccent3 = findPreference(KEY_CHROMA_ACCENT3)
+        chromaNeutral1 = findPreference(KEY_CHROMA_NEUTRAL1)
+        chromaNeutral2 = findPreference(KEY_CHROMA_NEUTRAL2)
+        hueShift = findPreference(KEY_HUE_SHIFT)
+        toneShiftLight = findPreference(KEY_TONE_SHIFT_LIGHT)
+        toneShiftDark = findPreference(KEY_TONE_SHIFT_DARK)
 
         useWallpaperColors.onPreferenceChangeListener = this
         
@@ -78,6 +102,14 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
         fidelity.onPreferenceChangeListener = this
         contrast?.onPreferenceChangeListener = this
         chroma?.onPreferenceChangeListener = this
+        chromaAccent1?.onPreferenceChangeListener = this
+        chromaAccent2?.onPreferenceChangeListener = this
+        chromaAccent3?.onPreferenceChangeListener = this
+        chromaNeutral1?.onPreferenceChangeListener = this
+        chromaNeutral2?.onPreferenceChangeListener = this
+        hueShift?.onPreferenceChangeListener = this
+        toneShiftLight?.onPreferenceChangeListener = this
+        toneShiftDark?.onPreferenceChangeListener = this
 
         loadCurrentSettings()
         updateSeedColorSummary()
@@ -107,6 +139,14 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
                 val chromaValue = json.optDouble("_chroma_boost", 0.0).toInt()
                 it.value = chromaValue
             }
+            chromaAccent1?.value = json.optDouble("_chroma_accent1", 0.0).toInt()
+            chromaAccent2?.value = json.optDouble("_chroma_accent2", 0.0).toInt()
+            chromaAccent3?.value = json.optDouble("_chroma_accent3", 0.0).toInt()
+            chromaNeutral1?.value = json.optDouble("_chroma_neutral1", 0.0).toInt()
+            chromaNeutral2?.value = json.optDouble("_chroma_neutral2", 0.0).toInt()
+            hueShift?.value = json.optDouble("_hue_shift", 0.0).toInt()
+            toneShiftLight?.value = json.optDouble("_tone_shift_light", 0.0).toInt()
+            toneShiftDark?.value = json.optDouble("_tone_shift_dark", 0.0).toInt()
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -134,6 +174,38 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
             }
             KEY_CHROMA -> {
                 applyChromaBoost(newValue as Int)
+                return true
+            }
+            KEY_CHROMA_ACCENT1 -> {
+                applyDoubleKey("_chroma_accent1", (newValue as Int).toDouble())
+                return true
+            }
+            KEY_CHROMA_ACCENT2 -> {
+                applyDoubleKey("_chroma_accent2", (newValue as Int).toDouble())
+                return true
+            }
+            KEY_CHROMA_ACCENT3 -> {
+                applyDoubleKey("_chroma_accent3", (newValue as Int).toDouble())
+                return true
+            }
+            KEY_CHROMA_NEUTRAL1 -> {
+                applyDoubleKey("_chroma_neutral1", (newValue as Int).toDouble())
+                return true
+            }
+            KEY_CHROMA_NEUTRAL2 -> {
+                applyDoubleKey("_chroma_neutral2", (newValue as Int).toDouble())
+                return true
+            }
+            KEY_HUE_SHIFT -> {
+                applyDoubleKey("_hue_shift", (newValue as Int).toDouble())
+                return true
+            }
+            KEY_TONE_SHIFT_LIGHT -> {
+                applyDoubleKey("_tone_shift_light", (newValue as Int).toDouble())
+                return true
+            }
+            KEY_TONE_SHIFT_DARK -> {
+                applyDoubleKey("_tone_shift_dark", (newValue as Int).toDouble())
                 return true
             }
         }
@@ -283,6 +355,16 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
         try {
             val json = getCurrentSettings()
             json.put("_chroma_boost", value.toDouble())
+            applySettings(json)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun applyDoubleKey(jsonKey: String, value: Double) {
+        try {
+            val json = getCurrentSettings()
+            json.put(jsonKey, value)
             applySettings(json)
         } catch (e: Exception) {
             e.printStackTrace()
