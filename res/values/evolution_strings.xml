@@ -1820,6 +1820,8 @@
     <!-- Screenshots -->
     <string name="screenshot_clipboard_only_title">Copy to clipboard only</string>
     <string name="screenshot_clipboard_only_summary">Copy screenshot to clipboard instead of saving in storage</string>
+    <string name="screenshot_full_page_capture_title">Full-page scrolling screenshot</string>
+    <string name="screenshot_full_page_capture_summary">Continue scroll capture downward to include as much of the page as safely supported</string>
     <string name="hide_status_bar_in_screenshot_title">Hide status bar in screenshots</string>
     <string name="hide_status_bar_in_screenshot_summary">Crop the status bar area out of full screenshots</string>
 
