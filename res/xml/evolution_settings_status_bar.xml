@@ -25,7 +25,7 @@
             android:summary="@string/status_bar_toggle_brightness_summary"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference 
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="status_bar_brightness_control_lockscreen"
             android:title="@string/status_bar_toggle_brightness_lockscreen_title"
             android:summary="@string/status_bar_toggle_brightness_lockscreen_summary"
@@ -88,6 +88,19 @@
             android:summary="@string/status_bar_tuner_summary">
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
+
+        <!-- Mobile network type indicator -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_mobile_type_hidden"
+            android:title="@string/status_bar_mobile_type_hidden_title"
+            android:summary="@string/status_bar_mobile_type_hidden_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_mobile_type_compact"
+            android:title="@string/status_bar_mobile_type_compact_title"
+            android:summary="@string/status_bar_mobile_type_compact_summary"
+            android:defaultValue="false" />
 
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_clock"
