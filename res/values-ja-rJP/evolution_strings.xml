@@ -1709,4 +1709,7 @@
     <string name="screenshot_clipboard_only_summary">ストレージ内に保存する代わりにクリップボードにスクリーンショットをコピー</string>
     <string name="hide_status_bar_in_screenshot_title">スクリーンショット内のステータスバーを隠す</string>
     <string name="hide_status_bar_in_screenshot_summary">全画面表示からステータスバーの領域をトリミングする</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">壁紙のズーム</string>
+    <string name="wallpaper_zoom_summary">オフにすると、余分なズームなしで壁紙が表示されます</string>
 </resources>
