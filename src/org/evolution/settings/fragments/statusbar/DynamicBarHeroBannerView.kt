@@ -136,89 +136,81 @@ class DynamicBarHeroBannerView @JvmOverloads constructor(
 
         val cx = width / 2f
         val cy = height / 2f
-        val chipH = dpToPx(24f)
-        val chipPadH = dpToPx(10f)
-        val iconSize = dpToPx(16f)
+        val islandH = dpToPx(28f)
+        val wingW = dpToPx(52f)
+        val cameraW = dpToPx(30f)
         val gap = dpToPx(4f)
+        val islandW = wingW * 2f + cameraW + gap * 2f
+        val islandLeft = cx - islandW / 2f
+        val islandTop = cy - islandH / 2f
+        val cameraLeft = cx - cameraW / 2f
+        val cameraRight = cx + cameraW / 2f
 
         val activeIndex = chipCycleProgress.toInt().coerceIn(0, 2)
         val activeChip = chips[activeIndex]
+        val isRtl = layoutDirection == LAYOUT_DIRECTION_RTL
 
-        val waveBarCount = 4
-        val waveBarW = dpToPx(2f)
-        val waveBarGap = dpToPx(2f)
-        val waveW = waveBarCount * (waveBarW + waveBarGap) - waveBarGap
-
-        // Measure chip width
-        val chipW = when (activeChip.type) {
-            ChipType.RECORDING -> {
-                val tw = textPaint.measureText(activeChip.label)
-                chipPadH + dpToPx(8f) + gap + tw + chipPadH
-            }
-            ChipType.MEDIA -> {
-                chipPadH + iconSize + gap + waveW + chipPadH
-            }
-            ChipType.TIMER -> {
-                val tw = textPaint.measureText(activeChip.label)
-                chipPadH + iconSize + gap + tw + chipPadH
-            }
-        }
-
-        val chipLeft = cx - chipW / 2f
-        val chipTop = cy - chipH / 2f
-
-        // Draw chip background
-        chipPaint.color = activeChip.accent
-        chipRect.set(chipLeft, chipTop, chipLeft + chipW, chipTop + chipH)
+        chipPaint.color = Color.BLACK
+        chipRect.set(islandLeft, islandTop, islandLeft + islandW, islandTop + islandH)
         chipPath.reset()
-        chipPath.addRoundRect(chipRect, chipH / 2f, chipH / 2f, Path.Direction.CW)
+        chipPath.addRoundRect(chipRect, islandH / 2f, islandH / 2f, Path.Direction.CW)
         canvas.drawPath(chipPath, chipPaint)
 
-        // Draw chip contents
-        var contentX = chipLeft + chipPadH
+        chipPaint.color = Color.rgb(8, 8, 8)
+        chipRect.set(cameraLeft, cy - dpToPx(8f), cameraRight, cy + dpToPx(8f))
+        canvas.drawRoundRect(chipRect, dpToPx(8f), dpToPx(8f), chipPaint)
+
+        val leftCenter = (islandLeft + dpToPx(8f) + cameraLeft - gap) / 2f
+        val rightCenter = (cameraRight + gap + islandLeft + islandW - dpToPx(8f)) / 2f
+        val startCenter = if (isRtl) rightCenter else leftCenter
+        val endCenter = if (isRtl) leftCenter else rightCenter
+        val iconSize = dpToPx(16f)
 
         when (activeChip.type) {
             ChipType.RECORDING -> {
+                dotPaint.color = activeChip.accent
                 dotPaint.alpha = (dotAlpha * 255).toInt()
-                canvas.drawCircle(contentX + dpToPx(4f), cy, dpToPx(4f), dotPaint)
+                canvas.drawCircle(startCenter, cy, dpToPx(4f), dotPaint)
                 dotPaint.alpha = 255
-                contentX += dpToPx(8f) + gap
+                val tw = textPaint.measureText(activeChip.label)
                 val textY = cy - (textPaint.descent() + textPaint.ascent()) / 2f
-                canvas.drawText(activeChip.label, contentX, textY, textPaint)
+                canvas.drawText(activeChip.label, endCenter - tw / 2f, textY, textPaint)
             }
             ChipType.MEDIA -> {
-                // Icon circle
-                dotPaint.alpha = (0.3f * 255).toInt()
-                canvas.drawCircle(contentX + iconSize / 2f, cy, iconSize / 2f, dotPaint)
+                dotPaint.color = activeChip.accent
+                dotPaint.alpha = (0.75f * 255).toInt()
+                canvas.drawCircle(startCenter, cy, iconSize / 2f, dotPaint)
                 dotPaint.alpha = 255
-                contentX += iconSize + gap
-                // Wave bars
+
+                val waveBarCount = 4
+                val waveBarW = dpToPx(2f)
+                val waveBarGap = dpToPx(2f)
+                val waveW = waveBarCount * (waveBarW + waveBarGap) - waveBarGap
+                val waveStart = endCenter - waveW / 2f
                 val maxBarH = dpToPx(10f)
+                barPaint.color = activeChip.accent
                 for (i in 0 until waveBarCount) {
                     val phase = wavePhase + i * 1.2f
                     val h = maxBarH * (0.22f + 0.56f * ((sin(phase) + 1f) / 2f))
-                    val bx = contentX + i * (waveBarW + waveBarGap)
-                    barPaint.alpha = (0.85f * 255).toInt()
+                    val bx = waveStart + i * (waveBarW + waveBarGap)
                     chipRect.set(bx, cy - h / 2f, bx + waveBarW, cy + h / 2f)
                     canvas.drawRoundRect(chipRect, waveBarW / 2f, waveBarW / 2f, barPaint)
                 }
-                barPaint.alpha = 255
             }
             ChipType.TIMER -> {
-                // Hourglass
-                drawHourglass(canvas, contentX + iconSize / 2f, cy, iconSize * 0.35f, hourglassRotation)
-                contentX += iconSize + gap
+                drawHourglass(canvas, startCenter, cy, iconSize * 0.35f, hourglassRotation)
+                val tw = textPaint.measureText(activeChip.label)
                 val textY = cy - (textPaint.descent() + textPaint.ascent()) / 2f
-                canvas.drawText(activeChip.label, contentX, textY, textPaint)
+                canvas.drawText(activeChip.label, endCenter - tw / 2f, textY, textPaint)
             }
         }
 
-        // Draw indicator dots
-        val indY = chipTop + chipH + dpToPx(10f)
+        val indY = islandTop + islandH + dpToPx(10f)
         for (i in chips.indices) {
             val dotX = cx + (i - 1) * dpToPx(10f)
             val isCurrent = i == activeIndex
-            indicatorPaint.color = if (isCurrent) activeChip.accent else Color.argb(51, 255, 255, 255)
+            indicatorPaint.color =
+                if (isCurrent) activeChip.accent else Color.argb(51, 255, 255, 255)
             val r = if (isCurrent) dpToPx(3f) else dpToPx(2f)
             canvas.drawCircle(dotX, indY, r, indicatorPaint)
         }
