@@ -1304,7 +1304,7 @@
     <string name="ts_keybox_installed">Keybox instalada</string>
     <string name="ts_keybox_imported">Keybox importada com sucesso</string>
     <string name="ts_delete_keybox">Excluir keybox</string>
-    <string name="ts_delete_keybox_summary">Removendo o arquivo keybox</string>
+    <string name="ts_delete_keybox_summary">Remover o arquivo de keybox</string>
     <string name="ts_delete_keybox_title">Excluir Keybox?</string>
     <string name="ts_delete_keybox_message">O arquivo keybox será removido permanentemente.</string>
     <string name="ts_keybox_deleted">Keybox excluído</string>
@@ -1710,4 +1710,7 @@
     <string name="screenshot_clipboard_only_summary">Copiar captura de tela para área de transferência em vez de salvar no armazenamento</string>
     <string name="hide_status_bar_in_screenshot_title">Ocultar barra de status nas capturas de tela</string>
     <string name="hide_status_bar_in_screenshot_summary">Cortar a área da barra de status fora de capturas de tela inteira</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">Zoom do papel de parede</string>
+    <string name="wallpaper_zoom_summary">Desative para exibir o papel de parede sem zoom adicional</string>
 </resources>
