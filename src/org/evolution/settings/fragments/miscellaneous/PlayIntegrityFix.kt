@@ -515,8 +515,9 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             if (key == "FINGERPRINT") {
                 // These describe the old fingerprint. Drop them so the framework derives them
                 // from the new one (PlayIntegritySpoofService.deriveFieldsFromFingerprint).
-                listOf("ID", "INCREMENTAL", "TYPE", "TAGS", "RELEASE",
-                    "_canary_month", "_canary_release_date").forEach { json.remove(it) }
+                // MODEL and MANUFACTURER can't be derived and stay as edited.
+                listOf("BRAND", "PRODUCT", "DEVICE", "ID", "INCREMENTAL", "TYPE", "TAGS",
+                    "RELEASE", "_canary_month", "_canary_release_date").forEach { json.remove(it) }
             }
             // A hand-edited field must survive the auto-refresh, which skips manually_imported.
             if (manualEdit) json.put("manually_imported", true)
