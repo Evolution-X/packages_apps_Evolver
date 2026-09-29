@@ -1285,15 +1285,27 @@
     <string name="pif_recommended_suffix">Recomendado</string>
     <string name="pif_generating">Gerando configuração\u2026</string>
     <string name="pif_footer_title">Aprovando no teste de integridade básica</string>
-    <string name="pif_footer_body">Uma impressão digital Canary é obtida e atualizada automaticamente a cada 21 dias. As configurações Canary expiram aproximadamente 6 semanas após a data de lançamento — a expiração é exibida no resumo da configuração ativa.\n\nPara configuração manual:\n1. Toque em \"Obter impressão digital Pixel Canary\" e selecione um dispositivo.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF funcional de uma fonte confiável. Os arquivos de configuração não são fornecidos.\n3. Verifique novamente o status de integridade do Play.\n\nSempre exclua a configuração ativa antes de importar uma nova. Carregar uma configuração PIF expirada fará com que a integridade forte do TrickyStore falhe, mesmo com uma keybox válida.\n\nMascaramento avançado:\n• Mascaramento de impressão digital da Play Store — deixe desativado, a menos que seja instruído de outra forma. Mascaramento de IMPRESSÃO DIGITAL para a Play Store raramente é necessário e pode causar problemas.\n• Mascaramento de SDK para o DroidGuard — força o caminho de atestação legado anterior ao Android 13. Habilite esta opção somente se a integridade básica estiver falhando e sua configuração for direcionada a um SDK mais antigo.</string>
+    <string name="pif_footer_body">A impressão digital (fingerprint) do Canary é verificada no máximo uma vez por dia e substituída automaticamente quando faltam cerca de duas semanas para expirar. As configurações do Canary expiram aproximadamente 6 semanas após a data de lançamento; a data de expiração é exibida no resumo da configuração ativa.\n\nPara configuração manual:\n1. Toque em \"Fetch Pixel Canary fingerprint\" e selecione um dispositivo.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF funcional de uma fonte confiável. Arquivos de configuração não são fornecidos.\n3. Verifique novamente o status do Play Integrity.\n\nSempre exclua a configuração ativa antes de importar uma nova. Carregar uma configuração PIF expirada fará com que a integridade forte (strong integrity) do TrickyStore falhe, mesmo com um keybox válido.\n\nSpoofing avançado:\n• Spoof de impressão digital (fingerprint) para a Play Store — mantenha desativado, a menos que seja instruído de outra forma. O spoofing da impressão digital para a Play Store raramente é necessário e pode causar problemas.\n• Spoof de SDK para a Play Store — apresenta o SDK 32 à Play Store para forçar o caminho de verificação legado (anterior ao Android 13). Isso pode afetar o comportamento da Play Store, portanto, mantenha desativado, a menos que esteja realizando testes.\n• Spoof de campos de build e propriedades do sistema — mantenha ativado. Eles apresentam a impressão digital ao DroidGuard.\n• Spoof do provedor de keystore — mantenha desativado quando um keybox estiver em uso, pois isso ignora a atestação do keybox.\n• Spoof de assinatura da ROM — experimental.</string>
     <string name="pif_invalid_fingerprint">Formato de fingerprint inválido</string>
     <string name="pif_no_devices_found">Nenhum dispositivo encontrado</string>
-    <string name="pif_no_api_key">Falha ao extrair a chave API do Flash Tool</string>
+    <string name="pif_master_switch_title">Ativar o Play Integrity Fix</string>
     <string name="pif_advanced_settings">Mascaramento avançado</string>
     <string name="pif_spoof_vending_finger_title">Mascaramento de impressão digital na Play Store</string>
     <string name="pif_spoof_vending_finger_summary">Controla qual IMPRESSÃO DIGITAL é apresentada ao processo da Play Store</string>
-    <string name="pif_spoof_vending_sdk_title">Mascarar SDK para DroidGuard</string>
-    <string name="pif_spoof_vending_sdk_summary">Substitua o SDK_INT para o DroidGuard para forçar o caminho de atestação legado &lt;A13</string>
+    <string name="pif_spoof_vending_sdk_title">Mascarar SDK para Play Store</string>
+    <string name="pif_spoof_vending_sdk_summary">Informe o SDK 32 à Play Store para forçar o caminho de decisão legado do Android 13. Nunca defina um valor superior ao SDK real. Isso pode afetar o comportamento da Play Store; portanto, não utilize essa configuração, a menos que esteja realizando testes</string>
+    <string name="pif_vending_finger_custom_summary">Impressão digital personalizada: %1$s</string>
+    <string name="pif_spoof_build_title">Mascarar campos de build</string>
+    <string name="pif_spoof_build_summary">Forneça os campos de Build da impressão digital (modelo, dispositivo, impressão digital, ...) ao DroidGuard</string>
+    <string name="pif_spoof_props_title">Mascarar propriedades do sistema</string>
+    <string name="pif_spoof_props_summary">Forneça o ID de compilação, o patch de segurança, o nível de API e a identidade do produto da impressão digital ao DroidGuard</string>
+    <string name="pif_spoof_provider_title">Provedor de keystore mascarado</string>
+    <string name="pif_spoof_provider_summary">Faça com que a solicitação da cadeia de certificados do DroidGuard falhe. Isso ignora a atestação de *keybox*; portanto, mantenha essa opção desativada quando um *keybox* estiver em uso</string>
+    <string name="pif_spoof_signature_title">Forjar assinatura de ROM</string>
+    <string name="pif_spoof_signature_summary">Experimental. Contorna o bloqueio de ROM com chaves de teste (test-key) do DroidGuard</string>
+    <string name="pif_reset_advanced_title">Redefinir mascaramento avançado</string>
+    <string name="pif_reset_advanced_summary">Restaure o valor padrão de cada opção acima. A impressão digital é mantida</string>
+    <string name="pif_reset_advanced_message">Redefinir todas as opções avançadas de spoofing para os padrões? A impressão digital atual será mantida.</string>
     <string name="pif_vending_finger_disabled">Desativado (padrão)</string>
     <string name="pif_vending_finger_same">Igual à impressão digital do DroidGuard</string>
     <string name="tricky_store_title">TrickyStore</string>
@@ -1304,7 +1316,7 @@
     <string name="ts_keybox_installed">Keybox instalada</string>
     <string name="ts_keybox_imported">Keybox importada com sucesso</string>
     <string name="ts_delete_keybox">Excluir keybox</string>
-    <string name="ts_delete_keybox_summary">Removendo o arquivo keybox</string>
+    <string name="ts_delete_keybox_summary">Remover o arquivo de keybox</string>
     <string name="ts_delete_keybox_title">Excluir Keybox?</string>
     <string name="ts_delete_keybox_message">O arquivo keybox será removido permanentemente.</string>
     <string name="ts_keybox_deleted">Keybox excluído</string>
@@ -1365,7 +1377,7 @@
     <string name="ts_revocation_status">Verificar o estado de revogação</string>
     <string name="ts_revocation_checking">Verificando o status de revogação…</string>
     <string name="ts_revocation_no_keybox">Nenhuma keybox instalada</string>
-    <string name="ts_revocation_valid">Válida — não revogada</string>
+    <string name="ts_revocation_valid">Não consta na lista de revogação do Google</string>
     <string name="ts_revocation_revoked">Revogada%s</string>
     <string name="ts_revocation_suspended">Suspensa%s</string>
     <string name="ts_revocation_network_error">Não foi possível acessar o servidor de revogação</string>
@@ -1710,4 +1722,7 @@
     <string name="screenshot_clipboard_only_summary">Copiar captura de tela para área de transferência em vez de salvar no armazenamento</string>
     <string name="hide_status_bar_in_screenshot_title">Ocultar barra de status nas capturas de tela</string>
     <string name="hide_status_bar_in_screenshot_summary">Cortar a área da barra de status fora de capturas de tela inteira</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">Zoom do papel de parede</string>
+    <string name="wallpaper_zoom_summary">Desative para exibir o papel de parede sem zoom adicional</string>
 </resources>
