@@ -330,17 +330,9 @@ class TrickyStore : SettingsPreferenceFragment() {
         val pref = findPreference<Preference>("ts_revocation_status") ?: return
         if (!isAdded) return
 
-        val effectiveStatus = if (!isUserImportedKeybox() &&
-            (status == RevocationStatus.CHAIN_INVALID ||
-             status == RevocationStatus.UNTRUSTED_ROOT)) {
-            RevocationStatus.VALID
-        } else {
-            status
-        }
-
         val reasonSuffix = if (reason.isNotEmpty()) " ($reason)" else ""
 
-        val (iconRes, summary) = when (effectiveStatus) {
+        val (iconRes, summary) = when (status) {
             RevocationStatus.VALID -> Pair(
                 R.drawable.ic_ts_status_valid,
                 getString(R.string.ts_revocation_valid)
@@ -509,12 +501,14 @@ class TrickyStore : SettingsPreferenceFragment() {
         val xml = decodeKeyboxXml(raw)
             ?: return Pair(RevocationStatus.UNKNOWN, "")
 
-        // 1. Parse certificates
-        val certs = extractCertificates(xml)
-        if (certs.isEmpty()) return Pair(RevocationStatus.UNKNOWN, "")
+        // 1. Parse the certificate chain of every <Key>. A keybox normally holds an ECDSA
+        // and an RSA chain, which must be validated one at a time: as a single list the
+        // EC root is checked against the RSA leaf and always fails.
+        val chains = extractChains(xml)
+        if (chains.isEmpty()) return Pair(RevocationStatus.UNKNOWN, "")
 
-        // 2. Validate chain: each cert must be signed by the next, root must be trusted
-        val chainError = validateChain(certs)
+        // 2. Validate each chain: each cert must be signed by the next, root must be trusted
+        val chainError = chains.firstNotNullOfOrNull { validateChain(it) }
         if (chainError != null) {
             val status = if (chainError == "UNTRUSTED_ROOT")
                 RevocationStatus.UNTRUSTED_ROOT
@@ -523,18 +517,18 @@ class TrickyStore : SettingsPreferenceFragment() {
             return Pair(status, chainError)
         }
 
-        // 4. Check leaf cert expiry
-        val leafCert = certs.first()
+        // 4. Check leaf cert expiry, on whichever leaf runs out first
+        val leafExpiry = chains.minOf { it.first().notAfter.time }
         val now = System.currentTimeMillis()
-        if (leafCert.notAfter.time < now) {
+        if (leafExpiry < now) {
             // Already expired – treat like chain invalid so it gets replaced
             return Pair(RevocationStatus.CHAIN_INVALID, "CERT_EXPIRED")
         }
-        val expiringStatus = if (leafCert.notAfter.time - now < EXPIRY_WARN_MS)
+        val expiringStatus = if (leafExpiry - now < EXPIRY_WARN_MS)
             RevocationStatus.EXPIRING_SOON else null
 
         // 5. Fetch Google's revocation JSON
-        val serials = certs.map { it.serialNumber.toString(16).lowercase() }
+        val serials = serialKeys(chains.flatten())
         val revJson = fetchRevocationJson()
             ?: return checkCachedRevocation(serials)
 
@@ -564,7 +558,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         // 7. If the cert is expiring soon, surface that now (it passed all other checks)
         if (expiringStatus != null) {
             val expiryFormatted = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                .format(leafCert.notAfter)
+                .format(Date(leafExpiry))
             return Pair(expiringStatus, expiryFormatted)
         }
 
@@ -582,6 +576,27 @@ class TrickyStore : SettingsPreferenceFragment() {
             if (asXml.startsWith("<")) asXml else null
         } catch (_: Exception) { null }
     }
+
+    /**
+     * The certificate chain of each <Key>, leaf first. A document without <Key> blocks is
+     * treated as one chain.
+     */
+    private fun extractChains(xml: String): List<List<X509Certificate>> {
+        val chains = Regex("<Key\\b[^>]*>([\\s\\S]*?)</Key>").findAll(xml)
+            .map { extractCertificates(it.groupValues[1]) }
+            .filter { it.isNotEmpty() }
+            .toList()
+        if (chains.isNotEmpty()) return chains
+        return extractCertificates(xml).let { if (it.isEmpty()) emptyList() else listOf(it) }
+    }
+
+    /**
+     * The spellings a serial can have in Google's revocation list: lowercase hex without
+     * leading zeros for 128-bit serials, plain decimal for the old 64-bit ones.
+     */
+    private fun serialKeys(certs: List<X509Certificate>): List<String> =
+        certs.flatMap { listOf(it.serialNumber.toString(16), it.serialNumber.toString()) }
+            .distinct()
 
     private fun extractCertificates(xml: String): List<X509Certificate> {
         val certs = mutableListOf<X509Certificate>()
@@ -892,9 +907,7 @@ class TrickyStore : SettingsPreferenceFragment() {
                             return@fold
                         }
 
-                        val fetchedSerials = fetchedCerts.map {
-                            it.serialNumber.toString(16).lowercase()
-                        }
+                        val fetchedSerials = serialKeys(fetchedCerts)
 
                         // Check revocation
                         val revocationJson = withContext(Dispatchers.IO) { fetchRevocationJson() }
