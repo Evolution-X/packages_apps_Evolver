@@ -467,10 +467,9 @@ class TrickyStore : SettingsPreferenceFragment() {
     private fun handleActionableStatus(status: RevocationStatus) {
         when (status) {
             RevocationStatus.REVOKED, RevocationStatus.SUSPENDED -> {
-                Settings.Secure.putString(requireContext().contentResolver, KEYBOX_KEY, "")
-                Settings.Secure.putLong(requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
-                currentRevocationStatus = RevocationStatus.UNKNOWN
-                refreshStatus()
+                // Never wipe here: a revoked keybox may still be better than none.
+                // fetchOfficialKeybox swaps it only once a non-revoked, unexpired
+                // replacement has been fetched.
                 toast(getString(
                     if (status == RevocationStatus.REVOKED)
                         R.string.ts_fetch_keybox_revoked_refetch
@@ -645,13 +644,16 @@ class TrickyStore : SettingsPreferenceFragment() {
 
         // Root must match a live-fetched Google attestation root, or (if the
         // live/cached fetch is unavailable) one of the fallback fingerprints.
-        // Compared by SHA-256 fingerprint rather than raw DER equality, since
-        // a keybox-embedded root can be a re-encoding of the same logical
-        // cert (e.g. different ASN.1 length form) and still be legitimate.
+        // Live anchors are compared by public key, not certificate hash: Google
+        // reissues a root under a new certificate with the same key (the 2019 RSA
+        // root became the 2022 one), so keyboxes still chaining to the old
+        // certificate would never match by hash. The signature checks above tie
+        // the chain to that key. Fallbacks are certificate hashes.
         val trustAnchors = getTrustAnchors()
         val rootFingerprint = sha256Hex(root.encoded)
         val trusted = if (trustAnchors.isNotEmpty()) {
-            trustAnchors.any { sha256Hex(it.encoded) == rootFingerprint }
+            val rootKey = sha256Hex(root.publicKey.encoded)
+            trustAnchors.any { sha256Hex(it.publicKey.encoded) == rootKey }
         } else {
             val fallbackRoots = setOf(
                 normalise(FALLBACK_ROOT_RSA_2019_SHA256),
@@ -886,6 +888,10 @@ class TrickyStore : SettingsPreferenceFragment() {
                             decodeKeyboxXml(existing) else null
                         if (existingXml != null && existingXml.trim() == xml.trim()) {
                             if (!silent) toast(getString(R.string.ts_fetch_keybox_same_file))
+                            if (currentRevocationStatus == RevocationStatus.REVOKED ||
+                                currentRevocationStatus == RevocationStatus.SUSPENDED) {
+                                markNoValidKeyboxFound()
+                            }
                             return@fold
                         }
 
@@ -895,16 +901,31 @@ class TrickyStore : SettingsPreferenceFragment() {
                             return@fold
                         }
 
-                        val fetchedCerts = extractCertificates(xml)
+                        val fetchedChains = extractChains(xml)
+                        val fetchedCerts = fetchedChains.flatten()
 
-                        // Check expiry of the leaf cert
-                        val leafExpiry = fetchedCerts.firstOrNull()?.notAfter
+                        // Earliest-expiring leaf, same as the status check
+                        val leafExpiry = fetchedChains.minOfOrNull { it.first().notAfter.time }
                         val now = System.currentTimeMillis()
-                        if (leafExpiry != null && leafExpiry.time < now) {
+                        if (leafExpiry != null && leafExpiry < now) {
                             if (!silent) toast(getString(
                                 R.string.ts_fetch_keybox_failed, "Cert already expired"))
                             markNoValidKeyboxFound()
                             return@fold
+                        }
+
+                        // Do not swap a keybox for one whose chain or root is bad. With
+                        // nothing installed, anything beats no keybox, so only gate a swap.
+                        if (!existing.isNullOrEmpty()) {
+                            val chainError = withContext(Dispatchers.IO) {
+                                fetchedChains.firstNotNullOfOrNull { validateChain(it) }
+                            }
+                            if (chainError != null) {
+                                if (!silent) toast(getString(
+                                    R.string.ts_fetch_keybox_failed, chainError))
+                                markNoValidKeyboxFound()
+                                return@fold
+                            }
                         }
 
                         val fetchedSerials = serialKeys(fetchedCerts)
@@ -1070,14 +1091,8 @@ class TrickyStore : SettingsPreferenceFragment() {
                 // User acknowledges — leave keybox installed, don't refetch
             }
             .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                Settings.Secure.putString(requireContext().contentResolver, KEYBOX_KEY, "")
-                Settings.Secure.putLong(requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
-                Settings.Secure.putString(requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
-                Settings.Secure.putString(requireContext().contentResolver, LAST_REVOCATION_REASON_KEY, "")
-                currentRevocationStatus = RevocationStatus.UNKNOWN
-                currentRevocationReason = ""
-                refreshStatus()
-                if (!isNoValidCooldownActive()) fetchOfficialKeybox(silent = true)
+                // Explicit request: ignore the cooldown, keep the old keybox on failure
+                fetchOfficialKeybox(silent = false)
             }
             .setCancelable(false)
             .show()
@@ -1090,14 +1105,8 @@ class TrickyStore : SettingsPreferenceFragment() {
             .setMessage(R.string.ts_chain_invalid_message)
             .setPositiveButton(R.string.ts_untrusted_root_keep) { _, _ -> }
             .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                Settings.Secure.putString(requireContext().contentResolver, KEYBOX_KEY, "")
-                Settings.Secure.putLong(requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
-                Settings.Secure.putString(requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
-                Settings.Secure.putString(requireContext().contentResolver, LAST_REVOCATION_REASON_KEY, "")
-                currentRevocationStatus = RevocationStatus.UNKNOWN
-                currentRevocationReason = ""
-                refreshStatus()
-                if (!isNoValidCooldownActive()) fetchOfficialKeybox(silent = true)
+                // Explicit request: ignore the cooldown, keep the old keybox on failure
+                fetchOfficialKeybox(silent = false)
             }
             .setCancelable(false)
             .show()
@@ -1111,14 +1120,8 @@ class TrickyStore : SettingsPreferenceFragment() {
             .setMessage(getString(R.string.ts_expiring_soon_message, expiryStr))
             .setPositiveButton(R.string.ts_untrusted_root_keep) { _, _ -> }
             .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                Settings.Secure.putString(requireContext().contentResolver, KEYBOX_KEY, "")
-                Settings.Secure.putLong(requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
-                Settings.Secure.putString(requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
-                Settings.Secure.putString(requireContext().contentResolver, LAST_REVOCATION_REASON_KEY, "")
-                currentRevocationStatus = RevocationStatus.UNKNOWN
-                currentRevocationReason = ""
-                refreshStatus()
-                if (!isNoValidCooldownActive()) fetchOfficialKeybox(silent = true)
+                // Explicit request: ignore the cooldown, keep the old keybox on failure
+                fetchOfficialKeybox(silent = false)
             }
             .setCancelable(false)
             .show()
