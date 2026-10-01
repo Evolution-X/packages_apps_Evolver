@@ -23,8 +23,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.net.Uri;
 import android.provider.Settings;
 import android.text.InputType;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -42,6 +44,7 @@ import lineageos.preference.SystemSettingMainSwitchPreference;
 
 import java.io.File;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Set;
 
 import org.evolution.settings.preferences.SystemSettingListPreference;
@@ -53,6 +56,10 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "LockGlympsSettings";
+    private static final long SERVICE_REFRESH_DELAY_MS = 150L;
+    private static final int MAX_CUSTOM_URLS = 100;
+    private static final int MAX_CUSTOM_URL_LENGTH = 4096;
+    private static final int MAX_API_KEY_LENGTH = 512;
 
     private static final String KEY_PREVIEW = "lock_glymps_preview";
     private static final String KEY_ENABLE = "lock_glymps_enabled";
@@ -107,6 +114,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private Preference mFolderInfoPreference;
 
     private Handler mHandler;
+    private Runnable mPendingServiceRefresh;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -265,32 +273,60 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         if (KEY_ENABLE.equals(key)) {
             boolean enabled = (Boolean) newValue;
 
+            // Persist first so SystemUI reads the new state during Service.onCreate().
+            // The preference framework will persist the same value again after this
+            // listener returns true.
+            Settings.System.putInt(
+                    context.getContentResolver(),
+                    KEY_ENABLE,
+                    enabled ? 1 : 0);
+
             Intent serviceIntent = new Intent();
-            serviceIntent.setClassName("com.android.systemui",
+            serviceIntent.setClassName(
+                    "com.android.systemui",
                     "com.android.systemui.lockglymps.LockGlympsService");
 
-            if (enabled) {
-                context.startService(serviceIntent);
-            } else {
-                context.stopService(serviceIntent);
+            try {
+                if (enabled) {
+                    context.startService(serviceIntent);
+                } else {
+                    context.stopService(serviceIntent);
+                }
+            } catch (RuntimeException e) {
+                Log.e(TAG, "Unable to change Wallpaper Glymps service state", e);
+                Settings.System.putInt(
+                        context.getContentResolver(),
+                        KEY_ENABLE,
+                        enabled ? 0 : 1);
+                Toast.makeText(
+                        context,
+                        R.string.lock_glymps_service_error,
+                        Toast.LENGTH_SHORT).show();
+                return false;
             }
 
+            if (enabled) {
+                scheduleServiceRefresh(context);
+            }
             return true;
         }
 
         if (KEY_WALLPAPER_TARGET.equals(key)) {
-            notifyServiceToRefresh(context);
+            scheduleServiceRefresh(context);
             schedulePreviewRefresh();
             return true;
         }
 
         if (KEY_CHANGE_ON.equals(key)) {
             updateTimerVisibility((String) newValue);
-            notifyServiceToRefresh(context);
+            scheduleServiceRefresh(context);
             return true;
         }
 
-        notifyServiceToRefresh(context);
+        // Preference listeners run before the preference framework commits the new
+        // value. Defer the refresh slightly so SystemUI never races and reloads
+        // the previous setting.
+        scheduleServiceRefresh(context);
         return true;
     }
 
@@ -350,7 +386,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                             defaultCsv,
                             entriesRes,
                             valuesRes);
-                    notifyServiceToRefresh(context);
+                    scheduleServiceRefresh(context);
                     schedulePreviewRefresh();
                     dialog.dismiss();
                 }));
@@ -499,16 +535,16 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                     Settings.Secure.putString(
                             context.getContentResolver(),
                             KEY_PEXELS_API_KEY,
-                            pexels.getText().toString().trim());
+                            sanitizeApiKey(pexels.getText().toString()));
                     Settings.Secure.putString(
                             context.getContentResolver(),
                             KEY_UNSPLASH_API_KEY,
-                            unsplash.getText().toString().trim());
+                            sanitizeApiKey(unsplash.getText().toString()));
                     Settings.Secure.putString(
                             context.getContentResolver(),
                             KEY_PIXABAY_API_KEY,
-                            pixabay.getText().toString().trim());
-                    notifyServiceToRefresh(context);
+                            sanitizeApiKey(pixabay.getText().toString()));
+                    scheduleServiceRefresh(context);
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
@@ -548,7 +584,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             mFolderInfoPreference.setSummary("Folder not found. Tap to create.");
         } else {
             File[] files = storageDir.listFiles((dir, name) -> {
-                String lower = name.toLowerCase();
+                String lower = name.toLowerCase(Locale.ROOT);
                 return lower.endsWith(".jpg") || lower.endsWith(".jpeg")
                         || lower.endsWith(".png") || lower.endsWith(".webp");
             });
@@ -588,7 +624,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             builder.setNegativeButton(android.R.string.cancel, null);
         } else {
             File[] files = storageDir.listFiles((dir, name) -> {
-                String lower = name.toLowerCase();
+                String lower = name.toLowerCase(Locale.ROOT);
                 return lower.endsWith(".jpg") || lower.endsWith(".jpeg")
                         || lower.endsWith(".png") || lower.endsWith(".webp");
             });
@@ -606,12 +642,40 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         builder.show();
     }
 
+    private void scheduleServiceRefresh(Context context) {
+        if (context == null) return;
+
+        Context appContext = context.getApplicationContext();
+        if (mHandler == null) {
+            notifyServiceToRefresh(appContext);
+            return;
+        }
+
+        if (mPendingServiceRefresh != null) {
+            mHandler.removeCallbacks(mPendingServiceRefresh);
+        }
+
+        mPendingServiceRefresh = () -> {
+            notifyServiceToRefresh(appContext);
+            mPendingServiceRefresh = null;
+        };
+        mHandler.postDelayed(mPendingServiceRefresh, SERVICE_REFRESH_DELAY_MS);
+    }
+
     private void notifyServiceToRefresh(Context context) {
+        if (context == null) return;
+
         Intent serviceIntent = new Intent();
-        serviceIntent.setClassName("com.android.systemui",
+        serviceIntent.setClassName(
+                "com.android.systemui",
                 "com.android.systemui.lockglymps.LockGlympsService");
         serviceIntent.setAction("REFRESH_SETTINGS");
-        context.startService(serviceIntent);
+
+        try {
+            context.startService(serviceIntent);
+        } catch (RuntimeException e) {
+            Log.e(TAG, "Unable to refresh Wallpaper Glymps service", e);
+        }
     }
 
     private void showCustomUrlsDialog() {
@@ -623,10 +687,10 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Custom Wallpaper URLs");
-        builder.setMessage("Enter direct image URLs, one per line");
+        builder.setMessage("Enter direct HTTP or HTTPS image URLs, one per line");
 
         final EditText input = new EditText(context);
-        input.setText(urls != null ? urls.replace(",", "\n") : "");
+        input.setText(formatCustomUrlsForEditor(urls));
         input.setMinLines(5);
         input.setMaxLines(10);
         input.setHint("https://example.com/image1.jpg\nhttps://example.com/image2.png");
@@ -637,14 +701,25 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         builder.setView(input);
 
         builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
-            String[] lines = input.getText().toString().split("\\n");
+            String[] lines = input.getText().toString().split("\\r?\\n");
             StringBuilder result = new StringBuilder();
+            int invalidCount = 0;
+            int acceptedCount = 0;
 
             for (String line : lines) {
                 String trimmed = line.trim();
                 if (trimmed.isEmpty()) continue;
-                if (result.length() > 0) result.append(',');
+
+                if (acceptedCount >= MAX_CUSTOM_URLS
+                        || trimmed.length() > MAX_CUSTOM_URL_LENGTH
+                        || !isValidHttpUrl(trimmed)) {
+                    invalidCount++;
+                    continue;
+                }
+
+                if (result.length() > 0) result.append('\n');
                 result.append(trimmed);
+                acceptedCount++;
             }
 
             Settings.System.putString(
@@ -652,11 +727,52 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                     KEY_CUSTOM_URLS,
                     result.toString());
 
-            notifyServiceToRefresh(context);
+            if (invalidCount > 0) {
+                Toast.makeText(
+                        context,
+                        getString(R.string.lock_glymps_invalid_urls_ignored, invalidCount),
+                        Toast.LENGTH_LONG).show();
+            }
+
+            scheduleServiceRefresh(context);
         });
 
         builder.setNegativeButton(android.R.string.cancel, null);
         builder.show();
+    }
+
+    private String formatCustomUrlsForEditor(String storedUrls) {
+        if (storedUrls == null || storedUrls.trim().isEmpty()) {
+            return "";
+        }
+
+        // New format is newline-delimited so valid URLs containing commas are
+        // preserved. Convert the legacy comma-delimited format on first edit.
+        return storedUrls.indexOf('\n') >= 0
+                ? storedUrls
+                : storedUrls.replace(",", "\n");
+    }
+
+    private boolean isValidHttpUrl(String value) {
+        if (value == null || value.length() > MAX_CUSTOM_URL_LENGTH) {
+            return false;
+        }
+
+        Uri uri = Uri.parse(value);
+        String scheme = uri.getScheme();
+        String host = uri.getHost();
+
+        return host != null
+                && !host.isEmpty()
+                && ("https".equalsIgnoreCase(scheme) || "http".equalsIgnoreCase(scheme));
+    }
+
+    private String sanitizeApiKey(String value) {
+        if (value == null) return "";
+        String trimmed = value.trim();
+        return trimmed.length() <= MAX_API_KEY_LENGTH
+                ? trimmed
+                : trimmed.substring(0, MAX_API_KEY_LENGTH);
     }
 
     private void clearCache() {
@@ -671,7 +787,16 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                     intent.setClassName("com.android.systemui",
                             "com.android.systemui.lockglymps.LockGlympsService");
                     intent.setAction("CLEAR_CACHE");
-                    context.startService(intent);
+                    try {
+                        context.startService(intent);
+                    } catch (RuntimeException e) {
+                        Log.e(TAG, "Unable to clear Wallpaper Glymps cache", e);
+                        Toast.makeText(
+                                context,
+                                R.string.lock_glymps_service_error,
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                     Toast.makeText(context,
                             "Cache cleared. New wallpapers will be downloaded.",
@@ -685,6 +810,10 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     public void onDestroy() {
         super.onDestroy();
         if (mHandler != null) {
+            if (mPendingServiceRefresh != null) {
+                mHandler.removeCallbacks(mPendingServiceRefresh);
+                mPendingServiceRefresh = null;
+            }
             mHandler.removeCallbacksAndMessages(null);
             mHandler = null;
         }
