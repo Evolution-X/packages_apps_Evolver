@@ -37,6 +37,11 @@ import java.util.concurrent.Executors;
 public class WallpaperPreviewPreference extends Preference {
 
     private static final String TAG = "WallpaperPreviewPreference";
+    private static final String GLYMPS_CONTROL_PACKAGE = "com.android.systemui";
+    private static final String GLYMPS_CONTROL_RECEIVER =
+            "com.android.systemui.lockglymps.LockGlympsControlReceiver";
+    private static final String ACTION_APPLY_NOW =
+            "com.android.systemui.lockglymps.action.APPLY_NOW";
 
     private ImageView mLockPreview;
     private ImageView mHomePreview;
@@ -147,14 +152,11 @@ public class WallpaperPreviewPreference extends Preference {
             mApplyButton.setText(R.string.lock_glymps_applying);
         }
 
-        Intent intent = new Intent();
-        intent.setClassName(
-                "com.android.systemui",
-                "com.android.systemui.lockglymps.LockGlympsService");
-        intent.setAction("APPLY_NOW");
+        Intent intent = new Intent(ACTION_APPLY_NOW);
+        intent.setClassName(GLYMPS_CONTROL_PACKAGE, GLYMPS_CONTROL_RECEIVER);
 
         try {
-            context.startService(intent);
+            context.sendBroadcast(intent);
         } catch (RuntimeException e) {
             Log.e(TAG, "Unable to request a new Wallpaper Glymps image", e);
             if (mApplyButton != null) {
