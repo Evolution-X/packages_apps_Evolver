@@ -1691,22 +1691,6 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
-    <!-- Settings UI -->
-    <string name="settings_icon_title">Styl ustawień</string>
-    <string name="settings_icon_summary">Dostosuj styl interfejsu aplikacji ustawienia</string>
-    <string name="settings_icon_style_title">Styl ikony ustawień</string>
-    <string name="settings_icon_style_expressive">Material ekspresyjny</string>
-    <string name="settings_icon_style_colored_bg">Kolorowe tło i biała ikona</string>
-    <string name="settings_icon_style_gradient_bg">Gradientowe tło i biała ikona</string>
-    <string name="settings_icon_style_accent_outline">Obrys akcentu i ikona</string>
-    <string name="settings_icon_style_colored_outline">Kolorowy obrys i ikona</string>
-    <string name="settings_icon_style_colored_icon">Tylko kolorowa ikona</string>
-    <string name="settings_icon_style_accent_icon">Tylko ikona akcentu</string>
-    <string name="settings_icon_corner_style_title">Styl narożników ikon ustawień</string>
-    <string name="settings_icon_corner_style_circle">Okrąg</string>
-    <string name="settings_icon_corner_style_rounded_square">Zaokrąglony kwadrat</string>
-    <string name="settings_icon_random_colors_title">Losowe kolory</string>
-    <string name="settings_icon_random_colors_summary">Użyj losowych kolorów dla każdej ikony</string>
     <!-- Volume slider -->
     <string name="qs_show_volume_slider_title">Tryb suwaka</string>
     <string name="qs_show_volume_slider_hide">Tylko suwak jasności</string>
