@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2024-2025 Lunaris AOSP
+ * Copyright (C) 2026 Evolution X contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +16,7 @@
  */
 package org.evolution.settings.fragments.themes;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,10 +24,12 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
+import android.text.InputType;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.evolution.VibrationUtils;
@@ -37,8 +41,9 @@ import com.android.settingslib.search.SearchIndexable;
 import lineageos.preference.SystemSettingMainSwitchPreference;
 
 import java.io.File;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-import org.evolution.settings.preferences.ExpressiveDialogs;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.preferences.WallpaperPreviewPreference;
@@ -52,7 +57,15 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
     private static final String KEY_PREVIEW = "lock_glymps_preview";
     private static final String KEY_ENABLE = "lock_glymps_enabled";
-    private static final String KEY_SOURCE = "lock_glymps_source";
+
+    // New multi-source registry. Keep KEY_LEGACY_SOURCE synchronized until
+    // SystemUI migrations no longer need the original 0/1/2 source selector.
+    private static final String KEY_LEGACY_SOURCE = "lock_glymps_source";
+    private static final String KEY_PROVIDERS = "lock_glymps_providers";
+    private static final String KEY_CATEGORIES = "lock_glymps_categories";
+    private static final String KEY_PROVIDER_STRATEGY = "lock_glymps_provider_strategy";
+    private static final String KEY_API_KEYS = "lock_glymps_api_keys";
+
     private static final String KEY_WALLPAPER_TARGET = "lock_glymps_wallpaper_target";
     private static final String KEY_CHANGE_ON = "lock_glymps_change_on";
     private static final String KEY_TIMER_INTERVAL = "lock_glymps_timer_interval";
@@ -62,11 +75,29 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_CLEAR_CACHE = "lock_glymps_clear_cache";
     private static final String KEY_FOLDER_INFO = "lock_glymps_folder_info";
 
+    private static final String KEY_PEXELS_API_KEY = "lock_glymps_pexels_api_key";
+    private static final String KEY_UNSPLASH_API_KEY = "lock_glymps_unsplash_api_key";
+    private static final String KEY_PIXABAY_API_KEY = "lock_glymps_pixabay_api_key";
+
+    private static final String DEFAULT_PROVIDERS = "wallhaven,picsum";
+    private static final String DEFAULT_CATEGORIES = "nature,amoled,space";
+
+    private static final String PROVIDER_WALLHAVEN = "wallhaven";
+    private static final String PROVIDER_PICSUM = "picsum";
+    private static final String PROVIDER_PEXELS = "pexels";
+    private static final String PROVIDER_UNSPLASH = "unsplash";
+    private static final String PROVIDER_PIXABAY = "pixabay";
+    private static final String PROVIDER_CUSTOM_URLS = "custom_urls";
+    private static final String PROVIDER_LOCAL_FOLDER = "local_folder";
+
     private static final String STORAGE_FOLDER = "Glymps";
 
     private WallpaperPreviewPreference mPreviewPreference;
     private SystemSettingMainSwitchPreference mEnablePreference;
-    private SystemSettingListPreference mSourcePreference;
+    private Preference mProvidersPreference;
+    private Preference mCategoriesPreference;
+    private Preference mApiKeysPreference;
+    private SystemSettingListPreference mProviderStrategyPreference;
     private SystemSettingListPreference mWallpaperTargetPreference;
     private SystemSettingListPreference mChangeOnPreference;
     private SystemSettingListPreference mTimerIntervalPreference;
@@ -98,13 +129,47 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             mEnablePreference.setOnPreferenceChangeListener(this);
         }
 
-        mSourcePreference = findPreference(KEY_SOURCE);
-        if (mSourcePreference != null) {
-            mSourcePreference.setOnPreferenceChangeListener(this);
-            String currentSource = mSourcePreference.getValue();
-            if (currentSource != null) {
-                updateSourceDependentPrefs(currentSource);
-            }
+        mProvidersPreference = findPreference(KEY_PROVIDERS);
+        if (mProvidersPreference != null) {
+            mProvidersPreference.setOnPreferenceClickListener(pref -> {
+                showMultiSelectDialog(
+                        KEY_PROVIDERS,
+                        R.array.lock_glymps_provider_entries,
+                        R.array.lock_glymps_provider_values,
+                        R.string.lock_glymps_select_providers_title,
+                        DEFAULT_PROVIDERS,
+                        pref,
+                        true);
+                return true;
+            });
+        }
+
+        mCategoriesPreference = findPreference(KEY_CATEGORIES);
+        if (mCategoriesPreference != null) {
+            mCategoriesPreference.setOnPreferenceClickListener(pref -> {
+                showMultiSelectDialog(
+                        KEY_CATEGORIES,
+                        R.array.lock_glymps_category_entries,
+                        R.array.lock_glymps_category_values,
+                        R.string.lock_glymps_select_categories_title,
+                        DEFAULT_CATEGORIES,
+                        pref,
+                        false);
+                return true;
+            });
+        }
+
+        mProviderStrategyPreference = findPreference(KEY_PROVIDER_STRATEGY);
+        if (mProviderStrategyPreference != null) {
+            mProviderStrategyPreference.setOnPreferenceChangeListener(this);
+        }
+
+        mApiKeysPreference = findPreference(KEY_API_KEYS);
+        if (mApiKeysPreference != null) {
+            mApiKeysPreference.setOnPreferenceClickListener(pref -> {
+                showApiKeysDialog();
+                return true;
+            });
         }
 
         mWallpaperTargetPreference = findPreference(KEY_WALLPAPER_TARGET);
@@ -120,14 +185,13 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 updateTimerVisibility(currentMode);
             }
         }
-        
+
         mTimerIntervalPreference = findPreference(KEY_TIMER_INTERVAL);
         if (mTimerIntervalPreference != null) {
             mTimerIntervalPreference.setOnPreferenceChangeListener(this);
         }
 
         mWifiOnlyPreference = findPreference(KEY_WIFI_ONLY);
-
         mCacheSizePreference = findPreference(KEY_CACHE_SIZE);
 
         mCustomUrlsPreference = findPreference(KEY_CUSTOM_URLS);
@@ -154,6 +218,20 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 return true;
             });
         }
+
+        updateMultiSelectSummary(
+                mProvidersPreference,
+                KEY_PROVIDERS,
+                DEFAULT_PROVIDERS,
+                R.array.lock_glymps_provider_entries,
+                R.array.lock_glymps_provider_values);
+        updateMultiSelectSummary(
+                mCategoriesPreference,
+                KEY_CATEGORIES,
+                DEFAULT_CATEGORIES,
+                R.array.lock_glymps_category_entries,
+                R.array.lock_glymps_category_values);
+        updateProviderDependentPrefs();
     }
 
     @Override
@@ -168,7 +246,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
             Intent serviceIntent = new Intent();
             serviceIntent.setClassName("com.android.systemui",
-                "com.android.systemui.lockglymps.LockGlympsService");
+                    "com.android.systemui.lockglymps.LockGlympsService");
 
             if (enabled) {
                 context.startService(serviceIntent);
@@ -178,32 +256,251 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
             SystemUtils.showSystemUiRestartDialog(context);
             return true;
+        }
 
-        } else if (KEY_SOURCE.equals(key)) {
-            updateSourceDependentPrefs((String) newValue);
-            notifyServiceToRefresh(context);
-            SystemUtils.showSystemUiRestartDialog(context);
-            return true;
-
-        } else if (KEY_WALLPAPER_TARGET.equals(key)) {
+        if (KEY_WALLPAPER_TARGET.equals(key)) {
             notifyServiceToRefresh(context);
             schedulePreviewRefresh();
-            SystemUtils.showSystemUiRestartDialog(context);
             return true;
+        }
 
-        } else if (KEY_CHANGE_ON.equals(key)) {
+        if (KEY_CHANGE_ON.equals(key)) {
             updateTimerVisibility((String) newValue);
-            notifyServiceToRefresh(context);
-            SystemUtils.showSystemUiRestartDialog(context);
-            return true;
-
-        } else if (KEY_TIMER_INTERVAL.equals(key)) {
             notifyServiceToRefresh(context);
             return true;
         }
 
         notifyServiceToRefresh(context);
         return true;
+    }
+
+    private void showMultiSelectDialog(
+            String settingKey,
+            int entriesRes,
+            int valuesRes,
+            int titleRes,
+            String defaultCsv,
+            Preference summaryPreference,
+            boolean providers) {
+        Context context = getActivity();
+        if (context == null) return;
+
+        CharSequence[] entries = getResources().getTextArray(entriesRes);
+        String[] values = getResources().getStringArray(valuesRes);
+        Set<String> selected = readCsvSetting(settingKey, defaultCsv);
+        boolean[] checked = new boolean[values.length];
+
+        for (int i = 0; i < values.length; i++) {
+            checked[i] = selected.contains(values[i]);
+        }
+
+        AlertDialog dialog = new AlertDialog.Builder(context)
+                .setTitle(titleRes)
+                .setMultiChoiceItems(entries, checked, (d, which, isChecked) -> checked[which] = isChecked)
+                .setPositiveButton(android.R.string.ok, null)
+                .setNegativeButton(android.R.string.cancel, null)
+                .create();
+
+        dialog.setOnShowListener(d -> dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                .setOnClickListener(v -> {
+                    LinkedHashSet<String> result = new LinkedHashSet<>();
+                    for (int i = 0; i < values.length; i++) {
+                        if (checked[i]) result.add(values[i]);
+                    }
+
+                    if (result.isEmpty()) {
+                        Toast.makeText(context, R.string.lock_glymps_selection_required,
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    Settings.System.putString(
+                            context.getContentResolver(),
+                            settingKey,
+                            joinCsv(result));
+
+                    if (providers) {
+                        syncLegacySource(result);
+                        updateProviderDependentPrefs();
+                    }
+
+                    updateMultiSelectSummary(
+                            summaryPreference,
+                            settingKey,
+                            defaultCsv,
+                            entriesRes,
+                            valuesRes);
+                    notifyServiceToRefresh(context);
+                    schedulePreviewRefresh();
+                    dialog.dismiss();
+                }));
+
+        dialog.show();
+    }
+
+    private Set<String> readCsvSetting(String key, String defaultValue) {
+        Context context = getActivity();
+        LinkedHashSet<String> values = new LinkedHashSet<>();
+        if (context == null) return values;
+
+        String stored = Settings.System.getString(context.getContentResolver(), key);
+        String csv = (stored == null || stored.trim().isEmpty()) ? defaultValue : stored;
+        if (csv == null) return values;
+
+        for (String value : csv.split(",")) {
+            String trimmed = value.trim();
+            if (!trimmed.isEmpty()) values.add(trimmed);
+        }
+        return values;
+    }
+
+    private String joinCsv(Set<String> values) {
+        StringBuilder builder = new StringBuilder();
+        for (String value : values) {
+            if (builder.length() > 0) builder.append(',');
+            builder.append(value);
+        }
+        return builder.toString();
+    }
+
+    private void updateMultiSelectSummary(
+            Preference preference,
+            String settingKey,
+            String defaultCsv,
+            int entriesRes,
+            int valuesRes) {
+        if (preference == null) return;
+
+        Set<String> selected = readCsvSetting(settingKey, defaultCsv);
+        CharSequence[] entries = getResources().getTextArray(entriesRes);
+        String[] values = getResources().getStringArray(valuesRes);
+
+        if (selected.size() <= 3) {
+            StringBuilder labels = new StringBuilder();
+            for (int i = 0; i < values.length; i++) {
+                if (!selected.contains(values[i])) continue;
+                if (labels.length() > 0) labels.append(" • ");
+                labels.append(entries[i]);
+            }
+            if (labels.length() > 0) {
+                preference.setSummary(labels);
+                return;
+            }
+        }
+
+        preference.setSummary(getString(R.string.lock_glymps_selected_count, selected.size()));
+    }
+
+    private void syncLegacySource(Set<String> providers) {
+        Context context = getActivity();
+        if (context == null) return;
+
+        int legacySource = 0;
+        if (providers.size() == 1 && providers.contains(PROVIDER_CUSTOM_URLS)) {
+            legacySource = 1;
+        } else if (providers.size() == 1 && providers.contains(PROVIDER_LOCAL_FOLDER)) {
+            legacySource = 2;
+        }
+
+        Settings.System.putInt(context.getContentResolver(), KEY_LEGACY_SOURCE, legacySource);
+    }
+
+    private void updateProviderDependentPrefs() {
+        Set<String> providers = readCsvSetting(KEY_PROVIDERS, DEFAULT_PROVIDERS);
+
+        boolean hasCustomUrls = providers.contains(PROVIDER_CUSTOM_URLS);
+        boolean hasLocalFolder = providers.contains(PROVIDER_LOCAL_FOLDER);
+        boolean needsApiKey = providers.contains(PROVIDER_PEXELS)
+                || providers.contains(PROVIDER_UNSPLASH)
+                || providers.contains(PROVIDER_PIXABAY);
+        boolean hasOnlineProvider = providers.contains(PROVIDER_WALLHAVEN)
+                || providers.contains(PROVIDER_PICSUM)
+                || providers.contains(PROVIDER_PEXELS)
+                || providers.contains(PROVIDER_UNSPLASH)
+                || providers.contains(PROVIDER_PIXABAY)
+                || hasCustomUrls;
+
+        if (mCustomUrlsPreference != null) {
+            mCustomUrlsPreference.setVisible(hasCustomUrls);
+        }
+
+        if (mFolderInfoPreference != null) {
+            mFolderInfoPreference.setVisible(hasLocalFolder);
+            if (hasLocalFolder) updateFolderInfo();
+        }
+
+        if (mApiKeysPreference != null) {
+            mApiKeysPreference.setVisible(needsApiKey);
+        }
+
+        if (mWifiOnlyPreference != null) {
+            mWifiOnlyPreference.setVisible(hasOnlineProvider);
+        }
+
+        if (mCacheSizePreference != null) {
+            mCacheSizePreference.setVisible(hasOnlineProvider);
+        }
+
+        if (mClearCachePreference != null) {
+            mClearCachePreference.setVisible(hasOnlineProvider);
+        }
+    }
+
+    private void showApiKeysDialog() {
+        Context context = getActivity();
+        if (context == null) return;
+
+        LinearLayout container = new LinearLayout(context);
+        container.setOrientation(LinearLayout.VERTICAL);
+        int padding = (int) (20 * context.getResources().getDisplayMetrics().density);
+        container.setPadding(padding, padding / 2, padding, 0);
+
+        EditText pexels = createApiKeyField(
+                context,
+                R.string.lock_glymps_pexels_key_hint,
+                Settings.Secure.getString(context.getContentResolver(), KEY_PEXELS_API_KEY));
+        EditText unsplash = createApiKeyField(
+                context,
+                R.string.lock_glymps_unsplash_key_hint,
+                Settings.Secure.getString(context.getContentResolver(), KEY_UNSPLASH_API_KEY));
+        EditText pixabay = createApiKeyField(
+                context,
+                R.string.lock_glymps_pixabay_key_hint,
+                Settings.Secure.getString(context.getContentResolver(), KEY_PIXABAY_API_KEY));
+
+        container.addView(pexels);
+        container.addView(unsplash);
+        container.addView(pixabay);
+
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.lock_glymps_api_keys_dialog_title)
+                .setView(container)
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    Settings.Secure.putString(
+                            context.getContentResolver(),
+                            KEY_PEXELS_API_KEY,
+                            pexels.getText().toString().trim());
+                    Settings.Secure.putString(
+                            context.getContentResolver(),
+                            KEY_UNSPLASH_API_KEY,
+                            unsplash.getText().toString().trim());
+                    Settings.Secure.putString(
+                            context.getContentResolver(),
+                            KEY_PIXABAY_API_KEY,
+                            pixabay.getText().toString().trim());
+                    notifyServiceToRefresh(context);
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private EditText createApiKeyField(Context context, int hintRes, String value) {
+        EditText field = new EditText(context);
+        field.setHint(hintRes);
+        field.setSingleLine(true);
+        field.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        if (value != null) field.setText(value);
+        return field;
     }
 
     private void schedulePreviewRefresh() {
@@ -218,37 +515,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
     private void updateTimerVisibility(String changeOnValue) {
         if (mTimerIntervalPreference != null) {
-            boolean showTimer = "2".equals(changeOnValue);
-            mTimerIntervalPreference.setVisible(showTimer);
-        }
-    }
-
-    private void updateSourceDependentPrefs(String sourceValue) {
-        boolean isOnlineSource = "0".equals(sourceValue) || "1".equals(sourceValue);
-        boolean isCustomUrls = "1".equals(sourceValue);
-        boolean isLocalFolder = "2".equals(sourceValue);
-
-        if (mWifiOnlyPreference != null) {
-            mWifiOnlyPreference.setVisible(isOnlineSource);
-        }
-
-        if (mCacheSizePreference != null) {
-            mCacheSizePreference.setVisible(isOnlineSource);
-        }
-
-        if (mCustomUrlsPreference != null) {
-            mCustomUrlsPreference.setVisible(isCustomUrls);
-        }
-
-        if (mFolderInfoPreference != null) {
-            mFolderInfoPreference.setVisible(isLocalFolder);
-            if (isLocalFolder) {
-                updateFolderInfo();
-            }
-        }
-
-        if (mClearCachePreference != null) {
-            mClearCachePreference.setVisible(isOnlineSource);
+            mTimerIntervalPreference.setVisible("2".equals(changeOnValue));
         }
     }
 
@@ -262,12 +529,13 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         } else {
             File[] files = storageDir.listFiles((dir, name) -> {
                 String lower = name.toLowerCase();
-                return lower.endsWith(".jpg") || lower.endsWith(".jpeg") ||
-                       lower.endsWith(".png") || lower.endsWith(".webp");
+                return lower.endsWith(".jpg") || lower.endsWith(".jpeg")
+                        || lower.endsWith(".png") || lower.endsWith(".webp");
             });
 
-            int count = (files != null) ? files.length : 0;
-            mFolderInfoPreference.setSummary(count + " wallpapers found in " + storageDir.getPath());
+            int count = files != null ? files.length : 0;
+            mFolderInfoPreference.setSummary(
+                    count + " wallpapers found in " + storageDir.getPath());
         }
     }
 
@@ -276,52 +544,52 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         if (context == null) return;
 
         File storageDir = new File(Environment.getExternalStorageDirectory(), STORAGE_FOLDER);
-        String title = getString(R.string.lock_glymps_folder_dialog_title);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Local Wallpaper Folder");
 
         if (!storageDir.exists()) {
-            ExpressiveDialogs.showConfirmDialog(
-                context,
-                title,
-                getString(R.string.lock_glymps_folder_missing_message, storageDir.getPath()),
-                getString(R.string.lock_glymps_folder_create),
-                getString(R.string.menu_cancel),
-                true,
-                () -> {
-                    if (storageDir.mkdirs()) {
-                        android.widget.Toast.makeText(context,
-                            getString(R.string.lock_glymps_folder_created, storageDir.getPath()),
-                            android.widget.Toast.LENGTH_LONG).show();
-                        updateFolderInfo();
-                    } else {
-                        android.widget.Toast.makeText(context,
-                            R.string.lock_glymps_folder_create_failed,
-                            android.widget.Toast.LENGTH_SHORT).show();
-                    }
-                });
+            builder.setMessage("Folder does not exist yet.\n\nLocation: " + storageDir.getPath()
+                    + "\n\nWould you like to create it?");
+
+            builder.setPositiveButton("Create Folder", (dialog, which) -> {
+                if (storageDir.mkdirs()) {
+                    Toast.makeText(context,
+                            "Folder created: " + storageDir.getPath(),
+                            Toast.LENGTH_LONG).show();
+                    updateFolderInfo();
+                } else {
+                    Toast.makeText(context,
+                            "Failed to create folder",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            builder.setNegativeButton(android.R.string.cancel, null);
         } else {
             File[] files = storageDir.listFiles((dir, name) -> {
                 String lower = name.toLowerCase();
-                return lower.endsWith(".jpg") || lower.endsWith(".jpeg") ||
-                       lower.endsWith(".png") || lower.endsWith(".webp");
+                return lower.endsWith(".jpg") || lower.endsWith(".jpeg")
+                        || lower.endsWith(".png") || lower.endsWith(".webp");
             });
 
-            int count = (files != null) ? files.length : 0;
+            int count = files != null ? files.length : 0;
 
-            ExpressiveDialogs.showConfirmDialog(
-                context,
-                title,
-                getString(R.string.lock_glymps_folder_info_message, storageDir.getPath(), count),
-                getString(android.R.string.ok),
-                null,
-                true,
-                null);
+            builder.setMessage("Folder location: " + storageDir.getPath()
+                    + "\n\nWallpapers found: " + count
+                    + "\n\nSupported formats: JPG, PNG, WEBP"
+                    + "\n\nPlace your wallpaper images in this folder and they will be used randomly.");
+
+            builder.setPositiveButton(android.R.string.ok, null);
         }
+
+        builder.show();
     }
 
     private void notifyServiceToRefresh(Context context) {
         Intent serviceIntent = new Intent();
         serviceIntent.setClassName("com.android.systemui",
-            "com.android.systemui.lockglymps.LockGlympsService");
+                "com.android.systemui.lockglymps.LockGlympsService");
         serviceIntent.setAction("REFRESH_SETTINGS");
         context.startService(serviceIntent);
     }
@@ -330,67 +598,67 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         Context context = getActivity();
         if (context == null) return;
 
-        String urls = Settings.System.getString(context.getContentResolver(),
-            "lock_glymps_custom_urls");
+        String urls = Settings.System.getString(
+                context.getContentResolver(), KEY_CUSTOM_URLS);
 
-        ExpressiveDialogs.showTextInputDialog(
-            context,
-            getString(R.string.lock_glymps_custom_urls_dialog_title),
-            getString(R.string.lock_glymps_custom_urls_dialog_message),
-            urls != null ? urls.replace(",", "\n") : "",
-            getString(R.string.menu_save),
-            getString(R.string.menu_cancel),
-            true,
-            false,
-            5,
-            10,
-            getString(R.string.lock_glymps_custom_urls_hint),
-            inputText -> {
-                StringBuilder sb = new StringBuilder();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Custom Wallpaper URLs");
+        builder.setMessage("Enter direct image URLs, one per line");
 
-                for (String line : inputText.split("\n")) {
-                    String trimmed = line.trim();
-                    if (!trimmed.isEmpty()) {
-                        if (sb.length() > 0) sb.append(",");
-                        sb.append(trimmed);
-                    }
-                }
+        final EditText input = new EditText(context);
+        input.setText(urls != null ? urls.replace(",", "\n") : "");
+        input.setMinLines(5);
+        input.setMaxLines(10);
+        input.setHint("https://example.com/image1.jpg\nhttps://example.com/image2.png");
 
-                Settings.System.putString(context.getContentResolver(),
-                    "lock_glymps_custom_urls", sb.toString());
+        int padding = (int) (16 * context.getResources().getDisplayMetrics().density);
+        input.setPadding(padding, padding, padding, padding);
 
-                notifyServiceToRefresh(context);
+        builder.setView(input);
 
-                android.widget.Toast.makeText(context,
-                    R.string.lock_glymps_custom_urls_saved,
-                    android.widget.Toast.LENGTH_SHORT).show();
-            });
+        builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+            String[] lines = input.getText().toString().split("\\n");
+            StringBuilder result = new StringBuilder();
+
+            for (String line : lines) {
+                String trimmed = line.trim();
+                if (trimmed.isEmpty()) continue;
+                if (result.length() > 0) result.append(',');
+                result.append(trimmed);
+            }
+
+            Settings.System.putString(
+                    context.getContentResolver(),
+                    KEY_CUSTOM_URLS,
+                    result.toString());
+
+            notifyServiceToRefresh(context);
+        });
+
+        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.show();
     }
 
     private void clearCache() {
         Context context = getActivity();
         if (context == null) return;
 
-        ExpressiveDialogs.showConfirmDialog(
-            context,
-            getString(R.string.lock_glymps_clear_cache_dialog_title),
-            getString(R.string.lock_glymps_clear_cache_dialog_message),
-            getString(R.string.lock_glymps_clear_cache_confirm),
-            getString(R.string.menu_cancel),
-            true,
-            () -> {
-                Intent intent = new Intent();
-                intent.setClassName("com.android.systemui",
-                    "com.android.systemui.lockglymps.LockGlympsService");
-                intent.setAction("CLEAR_CACHE");
-                context.startService(intent);
+        new AlertDialog.Builder(context)
+                .setTitle("Clear Cache")
+                .setMessage("This will delete all cached wallpapers and they will be re-downloaded. Continue?")
+                .setPositiveButton("Clear", (dialog, which) -> {
+                    Intent intent = new Intent();
+                    intent.setClassName("com.android.systemui",
+                            "com.android.systemui.lockglymps.LockGlympsService");
+                    intent.setAction("CLEAR_CACHE");
+                    context.startService(intent);
 
-                android.widget.Toast.makeText(context,
-                    R.string.lock_glymps_cache_cleared,
-                    android.widget.Toast.LENGTH_SHORT).show();
-
-                SystemUtils.showSystemUiRestartDialog(context);
-            });
+                    Toast.makeText(context,
+                            "Cache cleared. New wallpapers will be downloaded.",
+                            Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     @Override
@@ -401,7 +669,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             mHandler = null;
         }
     }
-    
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.EVOLVER;
