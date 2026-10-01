@@ -56,6 +56,17 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "LockGlympsSettings";
+    private static final String GLYMPS_CONTROL_PACKAGE = "com.android.systemui";
+    private static final String GLYMPS_CONTROL_RECEIVER =
+            "com.android.systemui.lockglymps.LockGlympsControlReceiver";
+    private static final String ACTION_ENABLE =
+            "com.android.systemui.lockglymps.action.ENABLE";
+    private static final String ACTION_DISABLE =
+            "com.android.systemui.lockglymps.action.DISABLE";
+    private static final String ACTION_REFRESH_SETTINGS =
+            "com.android.systemui.lockglymps.action.REFRESH_SETTINGS";
+    private static final String ACTION_CLEAR_CACHE =
+            "com.android.systemui.lockglymps.action.CLEAR_CACHE";
     private static final long SERVICE_REFRESH_DELAY_MS = 150L;
     private static final int MAX_CUSTOM_URLS = 100;
     private static final int MAX_CUSTOM_URL_LENGTH = 4096;
@@ -281,19 +292,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                     KEY_ENABLE,
                     enabled ? 1 : 0);
 
-            Intent serviceIntent = new Intent();
-            serviceIntent.setClassName(
-                    "com.android.systemui",
-                    "com.android.systemui.lockglymps.LockGlympsService");
-
-            try {
-                if (enabled) {
-                    context.startService(serviceIntent);
-                } else {
-                    context.stopService(serviceIntent);
-                }
-            } catch (RuntimeException e) {
-                Log.e(TAG, "Unable to change Wallpaper Glymps service state", e);
+            if (!sendGlympsCommand(context, enabled ? ACTION_ENABLE : ACTION_DISABLE)) {
                 Settings.System.putInt(
                         context.getContentResolver(),
                         KEY_ENABLE,
@@ -663,18 +662,21 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     }
 
     private void notifyServiceToRefresh(Context context) {
-        if (context == null) return;
+        sendGlympsCommand(context, ACTION_REFRESH_SETTINGS);
+    }
 
-        Intent serviceIntent = new Intent();
-        serviceIntent.setClassName(
-                "com.android.systemui",
-                "com.android.systemui.lockglymps.LockGlympsService");
-        serviceIntent.setAction("REFRESH_SETTINGS");
+    private boolean sendGlympsCommand(Context context, String action) {
+        if (context == null || action == null) return false;
+
+        Intent commandIntent = new Intent(action);
+        commandIntent.setClassName(GLYMPS_CONTROL_PACKAGE, GLYMPS_CONTROL_RECEIVER);
 
         try {
-            context.startService(serviceIntent);
+            context.sendBroadcast(commandIntent);
+            return true;
         } catch (RuntimeException e) {
-            Log.e(TAG, "Unable to refresh Wallpaper Glymps service", e);
+            Log.e(TAG, "Unable to send Wallpaper Glymps command: " + action, e);
+            return false;
         }
     }
 
@@ -813,14 +815,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 .setTitle("Clear Cache")
                 .setMessage("This will delete all cached wallpapers and they will be re-downloaded. Continue?")
                 .setPositiveButton("Clear", (dialog, which) -> {
-                    Intent intent = new Intent();
-                    intent.setClassName("com.android.systemui",
-                            "com.android.systemui.lockglymps.LockGlympsService");
-                    intent.setAction("CLEAR_CACHE");
-                    try {
-                        context.startService(intent);
-                    } catch (RuntimeException e) {
-                        Log.e(TAG, "Unable to clear Wallpaper Glymps cache", e);
+                    if (!sendGlympsCommand(context, ACTION_CLEAR_CACHE)) {
                         Toast.makeText(
                                 context,
                                 R.string.lock_glymps_service_error,
