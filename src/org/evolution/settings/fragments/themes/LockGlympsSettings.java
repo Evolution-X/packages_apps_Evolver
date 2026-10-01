@@ -17,8 +17,10 @@
 package org.evolution.settings.fragments.themes;
 
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -668,8 +670,19 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private boolean sendGlympsCommand(Context context, String action) {
         if (context == null || action == null) return false;
 
+        ComponentName component = new ComponentName(
+                GLYMPS_CONTROL_PACKAGE,
+                GLYMPS_CONTROL_RECEIVER);
+
+        try {
+            context.getPackageManager().getReceiverInfo(component, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Wallpaper Glymps control receiver is unavailable", e);
+            return false;
+        }
+
         Intent commandIntent = new Intent(action);
-        commandIntent.setClassName(GLYMPS_CONTROL_PACKAGE, GLYMPS_CONTROL_RECEIVER);
+        commandIntent.setComponent(component);
 
         try {
             context.sendBroadcast(commandIntent);
