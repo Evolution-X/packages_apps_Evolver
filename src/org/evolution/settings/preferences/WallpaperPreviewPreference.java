@@ -16,8 +16,10 @@
 package org.evolution.settings.preferences;
 
 import android.app.WallpaperManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -152,29 +154,41 @@ public class WallpaperPreviewPreference extends Preference {
             mApplyButton.setText(R.string.lock_glymps_applying);
         }
 
+        ComponentName component = new ComponentName(
+                GLYMPS_CONTROL_PACKAGE,
+                GLYMPS_CONTROL_RECEIVER);
+        try {
+            context.getPackageManager().getReceiverInfo(component, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Wallpaper Glymps control receiver is unavailable", e);
+            restoreApplyButton();
+            return;
+        }
+
         Intent intent = new Intent(ACTION_APPLY_NOW);
-        intent.setClassName(GLYMPS_CONTROL_PACKAGE, GLYMPS_CONTROL_RECEIVER);
+        intent.setComponent(component);
 
         try {
             context.sendBroadcast(intent);
         } catch (RuntimeException e) {
             Log.e(TAG, "Unable to request a new Wallpaper Glymps image", e);
-            if (mApplyButton != null) {
-                mApplyButton.setEnabled(true);
-                mApplyButton.setText(R.string.lock_glymps_apply_now);
-            }
+            restoreApplyButton();
             return;
         }
 
         mHandler.postDelayed(() -> {
             if (!mAttached) return;
 
-            if (mApplyButton != null) {
-                mApplyButton.setEnabled(true);
-                mApplyButton.setText(R.string.lock_glymps_apply_now);
-            }
+            restoreApplyButton();
             mHandler.postDelayed(this::loadWallpaperPreviews, 1000);
         }, 2000);
+    }
+
+    private void restoreApplyButton() {
+        if (mApplyButton != null) {
+            mApplyButton.setEnabled(true);
+            mApplyButton.setText(R.string.lock_glymps_apply_now);
+        }
     }
 
     public void refreshPreviews() {
