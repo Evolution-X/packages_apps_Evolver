@@ -682,8 +682,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         Context context = getActivity();
         if (context == null) return;
 
-        String urls = Settings.System.getString(
-                context.getContentResolver(), KEY_CUSTOM_URLS);
+        String urls = readAndMigrateCustomUrls(context);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Custom Wallpaper URLs");
@@ -722,7 +721,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 acceptedCount++;
             }
 
-            Settings.System.putString(
+            Settings.Secure.putString(
                     context.getContentResolver(),
                     KEY_CUSTOM_URLS,
                     result.toString());
@@ -746,11 +745,34 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             return "";
         }
 
-        // New format is newline-delimited so valid URLs containing commas are
-        // preserved. Convert the legacy comma-delimited format on first edit.
-        return storedUrls.indexOf('\n') >= 0
-                ? storedUrls
-                : storedUrls.replace(",", "\n");
+        // New format is newline-delimited. For the old comma-delimited format,
+        // split only when a comma is followed by another HTTP(S) URL so commas
+        // inside a valid URL remain untouched.
+        if (storedUrls.indexOf('\n') >= 0) {
+            return storedUrls;
+        }
+        return storedUrls.replaceAll(",(?=\\s*https?://)", "\n");
+    }
+
+    private String readAndMigrateCustomUrls(Context context) {
+        String secure = Settings.Secure.getString(
+                context.getContentResolver(), KEY_CUSTOM_URLS);
+        if (secure != null) {
+            return secure;
+        }
+
+        String legacy = Settings.System.getString(
+                context.getContentResolver(), KEY_CUSTOM_URLS);
+        String migrated = legacy == null ? "" : legacy;
+
+        // Custom network endpoints are security-sensitive. Migrate them out of
+        // Settings.System (which third-party apps can be allowed to modify) into
+        // Settings.Secure, then remove the legacy value.
+        Settings.Secure.putString(
+                context.getContentResolver(), KEY_CUSTOM_URLS, migrated);
+        Settings.System.putString(
+                context.getContentResolver(), KEY_CUSTOM_URLS, null);
+        return migrated;
     }
 
     private boolean isValidHttpUrl(String value) {
