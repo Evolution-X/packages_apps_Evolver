@@ -768,10 +768,18 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         // Custom network endpoints are security-sensitive. Migrate them out of
         // Settings.System (which third-party apps can be allowed to modify) into
         // Settings.Secure, then remove the legacy value.
-        Settings.Secure.putString(
-                context.getContentResolver(), KEY_CUSTOM_URLS, migrated);
-        Settings.System.putString(
-                context.getContentResolver(), KEY_CUSTOM_URLS, null);
+        try {
+            boolean stored = Settings.Secure.putString(
+                    context.getContentResolver(), KEY_CUSTOM_URLS, migrated);
+            if (stored) {
+                Settings.System.putString(
+                        context.getContentResolver(), KEY_CUSTOM_URLS, null);
+            } else {
+                Log.w(TAG, "Unable to migrate custom wallpaper URLs to Settings.Secure");
+            }
+        } catch (RuntimeException e) {
+            Log.w(TAG, "Unable to migrate custom wallpaper URLs", e);
+        }
         return migrated;
     }
 
