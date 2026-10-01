@@ -1236,6 +1236,8 @@
     <string name="lock_glymps_select_providers_title">Select providers</string>
     <string name="lock_glymps_select_categories_title">Select categories</string>
     <string name="lock_glymps_selection_required">Select at least one item</string>
+    <string name="lock_glymps_service_error">Unable to update Wallpaper Glymps</string>
+    <string name="lock_glymps_invalid_urls_ignored">%1$d invalid URL(s) were ignored</string>
 
     <string name="lock_glymps_custom_urls_title">Manage custom URLs</string>
     <string name="lock_glymps_custom_urls_summary">Add or remove custom wallpaper URLs</string>
