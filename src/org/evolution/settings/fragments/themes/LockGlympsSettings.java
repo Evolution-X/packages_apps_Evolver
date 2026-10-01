@@ -29,6 +29,7 @@ import android.net.Uri;
 import android.provider.Settings;
 import android.text.InputType;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -592,7 +593,12 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         EditText field = new EditText(context);
         field.setHint(hintRes);
         field.setSingleLine(true);
-        field.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        field.setInputType(
+                InputType.TYPE_CLASS_TEXT
+                        | InputType.TYPE_TEXT_VARIATION_PASSWORD
+                        | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        field.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
+        field.setAutofillHints((String[]) null);
         if (value != null) field.setText(value);
         return field;
     }
