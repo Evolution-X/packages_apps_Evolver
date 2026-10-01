@@ -47,7 +47,6 @@ import java.util.Set;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.preferences.WallpaperPreviewPreference;
-import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
 public class LockGlympsSettings extends SettingsPreferenceFragment
@@ -276,7 +275,6 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 context.stopService(serviceIntent);
             }
 
-            SystemUtils.showSystemUiRestartDialog(context);
             return true;
         }
 
