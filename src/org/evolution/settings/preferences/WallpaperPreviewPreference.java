@@ -159,7 +159,9 @@ public class WallpaperPreviewPreference extends Preference {
                 GLYMPS_CONTROL_PACKAGE,
                 GLYMPS_CONTROL_RECEIVER);
         try {
-            context.getPackageManager().getReceiverInfo(component, 0);
+            context.getPackageManager().getReceiverInfo(
+                    component,
+                    PackageManager.ComponentInfoFlags.of(0));
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "Wallpaper Glymps control receiver is unavailable", e);
             Toast.makeText(
