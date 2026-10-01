@@ -79,7 +79,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_UNSPLASH_API_KEY = "lock_glymps_unsplash_api_key";
     private static final String KEY_PIXABAY_API_KEY = "lock_glymps_pixabay_api_key";
 
-    private static final String DEFAULT_PROVIDERS = "wallhaven,picsum";
+    private static final String DEFAULT_PROVIDERS = "wallhaven";
     private static final String DEFAULT_CATEGORIES = "nature,amoled,space";
 
     private static final String PROVIDER_WALLHAVEN = "wallhaven";
