@@ -25,14 +25,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 import com.android.settings.R;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.card.MaterialCardView;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -43,11 +40,7 @@ public class WallpaperPreviewPreference extends Preference {
 
     private ImageView mLockPreview;
     private ImageView mHomePreview;
-    private TextView mLockLabel;
-    private TextView mHomeLabel;
     private MaterialButton mApplyButton;
-    private MaterialCardView mLockCard;
-    private MaterialCardView mHomeCard;
 
     private ExecutorService mExecutor;
     private Handler mHandler;
@@ -76,12 +69,8 @@ public class WallpaperPreviewPreference extends Preference {
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
 
-        mLockCard = (MaterialCardView) holder.findViewById(R.id.lock_wallpaper_card);
-        mHomeCard = (MaterialCardView) holder.findViewById(R.id.home_wallpaper_card);
         mLockPreview = (ImageView) holder.findViewById(R.id.lock_wallpaper_preview);
         mHomePreview = (ImageView) holder.findViewById(R.id.home_wallpaper_preview);
-        mLockLabel = (TextView) holder.findViewById(R.id.lock_wallpaper_label);
-        mHomeLabel = (TextView) holder.findViewById(R.id.home_wallpaper_label);
         mApplyButton = (MaterialButton) holder.findViewById(R.id.apply_now_button);
 
         if (mApplyButton != null) {
@@ -202,11 +191,7 @@ public class WallpaperPreviewPreference extends Preference {
 
         mLockPreview = null;
         mHomePreview = null;
-        mLockLabel = null;
-        mHomeLabel = null;
         mApplyButton = null;
-        mLockCard = null;
-        mHomeCard = null;
         mLockWallpaper = null;
         mHomeWallpaper = null;
 
