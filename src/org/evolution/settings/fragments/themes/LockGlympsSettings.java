@@ -289,10 +289,18 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             // Persist first so SystemUI reads the new state during Service.onCreate().
             // The preference framework will persist the same value again after this
             // listener returns true.
-            Settings.System.putInt(
+            boolean persisted = Settings.System.putInt(
                     context.getContentResolver(),
                     KEY_ENABLE,
                     enabled ? 1 : 0);
+            if (!persisted) {
+                Log.e(TAG, "Unable to persist Wallpaper Glymps enabled state");
+                Toast.makeText(
+                        context,
+                        R.string.lock_glymps_service_error,
+                        Toast.LENGTH_SHORT).show();
+                return false;
+            }
 
             if (!sendGlympsCommand(context, enabled ? ACTION_ENABLE : ACTION_DISABLE)) {
                 Settings.System.putInt(
@@ -371,10 +379,18 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                         return;
                     }
 
-                    Settings.System.putString(
+                    boolean stored = Settings.System.putString(
                             context.getContentResolver(),
                             settingKey,
                             joinCsv(result));
+                    if (!stored) {
+                        Log.e(TAG, "Unable to persist Glymps multi-select setting: " + settingKey);
+                        Toast.makeText(
+                                context,
+                                R.string.lock_glymps_service_error,
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                     if (providers) {
                         syncLegacySource(result);
@@ -533,18 +549,39 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 .setTitle(R.string.lock_glymps_api_keys_dialog_title)
                 .setView(container)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                    Settings.Secure.putString(
-                            context.getContentResolver(),
-                            KEY_PEXELS_API_KEY,
-                            sanitizeApiKey(pexels.getText().toString()));
-                    Settings.Secure.putString(
-                            context.getContentResolver(),
-                            KEY_UNSPLASH_API_KEY,
-                            sanitizeApiKey(unsplash.getText().toString()));
-                    Settings.Secure.putString(
-                            context.getContentResolver(),
-                            KEY_PIXABAY_API_KEY,
-                            sanitizeApiKey(pixabay.getText().toString()));
+                    String oldPexels = Settings.Secure.getString(
+                            context.getContentResolver(), KEY_PEXELS_API_KEY);
+                    String oldUnsplash = Settings.Secure.getString(
+                            context.getContentResolver(), KEY_UNSPLASH_API_KEY);
+                    String oldPixabay = Settings.Secure.getString(
+                            context.getContentResolver(), KEY_PIXABAY_API_KEY);
+
+                    String newPexels = sanitizeApiKey(pexels.getText().toString());
+                    String newUnsplash = sanitizeApiKey(unsplash.getText().toString());
+                    String newPixabay = sanitizeApiKey(pixabay.getText().toString());
+
+                    boolean pexelsStored = Settings.Secure.putString(
+                            context.getContentResolver(), KEY_PEXELS_API_KEY, newPexels);
+                    boolean unsplashStored = Settings.Secure.putString(
+                            context.getContentResolver(), KEY_UNSPLASH_API_KEY, newUnsplash);
+                    boolean pixabayStored = Settings.Secure.putString(
+                            context.getContentResolver(), KEY_PIXABAY_API_KEY, newPixabay);
+
+                    if (!pexelsStored || !unsplashStored || !pixabayStored) {
+                        Log.e(TAG, "Unable to persist all Glymps API keys; rolling back");
+                        Settings.Secure.putString(
+                                context.getContentResolver(), KEY_PEXELS_API_KEY, oldPexels);
+                        Settings.Secure.putString(
+                                context.getContentResolver(), KEY_UNSPLASH_API_KEY, oldUnsplash);
+                        Settings.Secure.putString(
+                                context.getContentResolver(), KEY_PIXABAY_API_KEY, oldPixabay);
+                        Toast.makeText(
+                                context,
+                                R.string.lock_glymps_service_error,
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     scheduleServiceRefresh(context);
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -736,10 +773,18 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 acceptedCount++;
             }
 
-            Settings.Secure.putString(
+            boolean stored = Settings.Secure.putString(
                     context.getContentResolver(),
                     KEY_CUSTOM_URLS,
                     result.toString());
+            if (!stored) {
+                Log.e(TAG, "Unable to persist custom Wallpaper Glymps URLs");
+                Toast.makeText(
+                        context,
+                        R.string.lock_glymps_service_error,
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             if (invalidCount > 0) {
                 Toast.makeText(
