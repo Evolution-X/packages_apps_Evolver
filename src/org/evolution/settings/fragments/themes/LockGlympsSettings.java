@@ -192,7 +192,29 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         }
 
         mWifiOnlyPreference = findPreference(KEY_WIFI_ONLY);
+        if (mWifiOnlyPreference != null) {
+            mWifiOnlyPreference.setOnPreferenceChangeListener(this);
+        }
+
         mCacheSizePreference = findPreference(KEY_CACHE_SIZE);
+        if (mCacheSizePreference != null) {
+            mCacheSizePreference.setOnPreferenceChangeListener(this);
+        }
+
+        String[] refreshKeys = new String[] {
+                "lock_glymps_min_resolution",
+                "lock_glymps_orientation",
+                "lock_glymps_tone",
+                "lock_glymps_order",
+                "lock_glymps_sfw_only",
+                "lock_glymps_no_repeat"
+        };
+        for (String refreshKey : refreshKeys) {
+            Preference refreshPreference = findPreference(refreshKey);
+            if (refreshPreference != null) {
+                refreshPreference.setOnPreferenceChangeListener(this);
+            }
+        }
 
         mCustomUrlsPreference = findPreference(KEY_CUSTOM_URLS);
         if (mCustomUrlsPreference != null) {
