@@ -28,6 +28,7 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 import com.android.settings.R;
@@ -161,6 +162,10 @@ public class WallpaperPreviewPreference extends Preference {
             context.getPackageManager().getReceiverInfo(component, 0);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "Wallpaper Glymps control receiver is unavailable", e);
+            Toast.makeText(
+                    context,
+                    R.string.lock_glymps_service_error,
+                    Toast.LENGTH_SHORT).show();
             restoreApplyButton();
             return;
         }
@@ -172,6 +177,10 @@ public class WallpaperPreviewPreference extends Preference {
             context.sendBroadcast(intent);
         } catch (RuntimeException e) {
             Log.e(TAG, "Unable to request a new Wallpaper Glymps image", e);
+            Toast.makeText(
+                    context,
+                    R.string.lock_glymps_service_error,
+                    Toast.LENGTH_SHORT).show();
             restoreApplyButton();
             return;
         }
