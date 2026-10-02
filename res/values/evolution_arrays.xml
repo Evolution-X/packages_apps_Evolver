@@ -1514,17 +1514,585 @@
         <item>3</item>
     </string-array>
 
-    <!-- Lock Glymps Source -->
-    <string-array name="lock_glymps_source_entries">
-        <item>Random Wallpapers (Picsum)</item>
-        <item>Custom URL List</item>
-        <item>Local Folder</item>
+    <!-- Wallpaper Glymps multi-source registry -->
+    <string-array name="lock_glymps_provider_entries">
+        <item>Wallhaven</item>
+        <item>Picsum</item>
+        <item>Pexels</item>
+        <item>Unsplash</item>
+        <item>Pixabay</item>
+        <item>Custom URL list</item>
+        <item>Local folder</item>
+    </string-array>
+    <string-array name="lock_glymps_provider_values" translatable="false">
+        <item>wallhaven</item>
+        <item>picsum</item>
+        <item>pexels</item>
+        <item>unsplash</item>
+        <item>pixabay</item>
+        <item>custom_urls</item>
+        <item>local_folder</item>
     </string-array>
 
-    <string-array name="lock_glymps_source_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
+    <string-array name="lock_glymps_category_entries">
+        <item>Nature</item>
+        <item>Mountains</item>
+        <item>Forests</item>
+        <item>Lakes</item>
+        <item>Rivers</item>
+        <item>Waterfalls</item>
+        <item>Oceans</item>
+        <item>Beaches</item>
+        <item>Islands</item>
+        <item>Deserts</item>
+        <item>Canyons</item>
+        <item>Caves</item>
+        <item>Fields</item>
+        <item>Countryside</item>
+        <item>Snow</item>
+        <item>Ice</item>
+        <item>Volcanoes</item>
+        <item>Rain</item>
+        <item>Storms</item>
+        <item>Fog</item>
+        <item>Clouds</item>
+        <item>Sunrise</item>
+        <item>Sunset</item>
+        <item>Night nature</item>
+        <item>Autumn</item>
+        <item>Winter</item>
+        <item>Spring</item>
+        <item>Summer</item>
+        <item>Space</item>
+        <item>Galaxies</item>
+        <item>Nebulae</item>
+        <item>Stars</item>
+        <item>Planets</item>
+        <item>Moon</item>
+        <item>Earth</item>
+        <item>Astronauts</item>
+        <item>Milky Way</item>
+        <item>Aurora</item>
+        <item>Eclipses</item>
+        <item>Cosmic abstract</item>
+        <item>Cities</item>
+        <item>Skylines</item>
+        <item>Night cities</item>
+        <item>Streets</item>
+        <item>Urban</item>
+        <item>Architecture</item>
+        <item>Modern architecture</item>
+        <item>Historic buildings</item>
+        <item>Skyscrapers</item>
+        <item>Bridges</item>
+        <item>Castles</item>
+        <item>Palaces</item>
+        <item>Villages</item>
+        <item>Abandoned places</item>
+        <item>Industrial</item>
+        <item>Futuristic cities</item>
+        <item>Cyberpunk cities</item>
+        <item>AMOLED</item>
+        <item>Pure black</item>
+        <item>Dark minimal</item>
+        <item>Dark abstract</item>
+        <item>Black &amp; white</item>
+        <item>Neon dark</item>
+        <item>OLED</item>
+        <item>Dark nature</item>
+        <item>Dark space</item>
+        <item>Dark cars</item>
+        <item>Dark architecture</item>
+        <item>Abstract</item>
+        <item>Minimal</item>
+        <item>Geometric</item>
+        <item>Gradients</item>
+        <item>Patterns</item>
+        <item>Fractals</item>
+        <item>Liquid</item>
+        <item>Glass</item>
+        <item>Smoke</item>
+        <item>Ink</item>
+        <item>Paint</item>
+        <item>3D abstract</item>
+        <item>Material</item>
+        <item>Textures</item>
+        <item>Shapes</item>
+        <item>Lines</item>
+        <item>Waves</item>
+        <item>Colorful</item>
+        <item>Monochrome</item>
+        <item>Animals</item>
+        <item>Wildlife</item>
+        <item>Cats</item>
+        <item>Dogs</item>
+        <item>Birds</item>
+        <item>Fish</item>
+        <item>Horses</item>
+        <item>Wolves</item>
+        <item>Lions</item>
+        <item>Tigers</item>
+        <item>Foxes</item>
+        <item>Bears</item>
+        <item>Deer</item>
+        <item>Elephants</item>
+        <item>Reptiles</item>
+        <item>Insects</item>
+        <item>Butterflies</item>
+        <item>Marine life</item>
+        <item>Flowers</item>
+        <item>Roses</item>
+        <item>Trees</item>
+        <item>Leaves</item>
+        <item>Tropical plants</item>
+        <item>Cactus</item>
+        <item>Mushrooms</item>
+        <item>Gardens</item>
+        <item>Botanical</item>
+        <item>Macro nature</item>
+        <item>Cars</item>
+        <item>Supercars</item>
+        <item>Sports cars</item>
+        <item>Classic cars</item>
+        <item>JDM</item>
+        <item>Luxury cars</item>
+        <item>Electric cars</item>
+        <item>Racing</item>
+        <item>Motorcycles</item>
+        <item>Trucks</item>
+        <item>Aircraft</item>
+        <item>Jets</item>
+        <item>Helicopters</item>
+        <item>Trains</item>
+        <item>Ships</item>
+        <item>Boats</item>
+        <item>Spacecraft</item>
+        <item>Technology</item>
+        <item>Computers</item>
+        <item>Smartphones</item>
+        <item>Hardware</item>
+        <item>CPUs</item>
+        <item>GPUs</item>
+        <item>Robotics</item>
+        <item>Artificial intelligence</item>
+        <item>Coding</item>
+        <item>Cybersecurity</item>
+        <item>Servers</item>
+        <item>Datacenters</item>
+        <item>Circuits</item>
+        <item>Electronics</item>
+        <item>Futuristic tech</item>
+        <item>Gaming</item>
+        <item>Retro gaming</item>
+        <item>Arcade</item>
+        <item>Pixel art</item>
+        <item>Consoles</item>
+        <item>PC gaming</item>
+        <item>Sci-fi gaming</item>
+        <item>Fantasy gaming</item>
+        <item>Racing gaming</item>
+        <item>Digital art</item>
+        <item>Concept art</item>
+        <item>Illustration</item>
+        <item>Painting</item>
+        <item>Watercolor</item>
+        <item>Oil painting</item>
+        <item>Sketch</item>
+        <item>Street art</item>
+        <item>Graffiti</item>
+        <item>Low poly</item>
+        <item>3D art</item>
+        <item>Surreal</item>
+        <item>Fantasy art</item>
+        <item>Fantasy</item>
+        <item>Dragons</item>
+        <item>Magic</item>
+        <item>Fantasy castles</item>
+        <item>Warriors</item>
+        <item>Mythology</item>
+        <item>Medieval</item>
+        <item>Elves</item>
+        <item>Dark fantasy</item>
+        <item>Epic landscapes</item>
+        <item>Science fiction</item>
+        <item>Spaceships</item>
+        <item>Futuristic</item>
+        <item>Robots</item>
+        <item>Mecha</item>
+        <item>Cyberpunk</item>
+        <item>Synthwave</item>
+        <item>Retrowave</item>
+        <item>Vaporwave</item>
+        <item>Dystopian</item>
+        <item>Alien worlds</item>
+        <item>Islamic</item>
+        <item>Mosques</item>
+        <item>Quranic art</item>
+        <item>Islamic architecture</item>
+        <item>Calligraphy</item>
+        <item>Ramadan</item>
+        <item>Eid</item>
+        <item>Kaaba</item>
+        <item>Mecca</item>
+        <item>Medina</item>
+        <item>Islamic geometry</item>
+        <item>Islamic patterns</item>
+        <item>Travel</item>
+        <item>Landmarks</item>
+        <item>Europe</item>
+        <item>Asia</item>
+        <item>Africa</item>
+        <item>Middle East</item>
+        <item>Americas</item>
+        <item>Tropical</item>
+        <item>Road trips</item>
+        <item>Historic places</item>
+        <item>Ancient ruins</item>
+        <item>Calm</item>
+        <item>Zen</item>
+        <item>Relaxing</item>
+        <item>Meditation</item>
+        <item>Simple</item>
+        <item>Clean</item>
+        <item>Soft colors</item>
+        <item>Cozy</item>
+        <item>Peaceful nature</item>
+        <item>Minimal workspace</item>
+        <item>Food</item>
+        <item>Coffee</item>
+        <item>Tea</item>
+        <item>Desserts</item>
+        <item>Fruit</item>
+        <item>Cooking</item>
+        <item>Street food</item>
+        <item>Photography</item>
+        <item>Macro</item>
+        <item>Long exposure</item>
+        <item>Bokeh</item>
+        <item>Portrait photography</item>
+        <item>Landscape photography</item>
+        <item>Street photography</item>
+        <item>Aerial</item>
+        <item>Drone</item>
+        <item>Underwater</item>
+    </string-array>
+    <string-array name="lock_glymps_category_values" translatable="false">
+        <item>nature</item>
+        <item>mountains</item>
+        <item>forests</item>
+        <item>lakes</item>
+        <item>rivers</item>
+        <item>waterfalls</item>
+        <item>oceans</item>
+        <item>beaches</item>
+        <item>islands</item>
+        <item>deserts</item>
+        <item>canyons</item>
+        <item>caves</item>
+        <item>fields</item>
+        <item>countryside</item>
+        <item>snow</item>
+        <item>ice</item>
+        <item>volcanoes</item>
+        <item>rain</item>
+        <item>storms</item>
+        <item>fog</item>
+        <item>clouds</item>
+        <item>sunrise</item>
+        <item>sunset</item>
+        <item>night_nature</item>
+        <item>autumn</item>
+        <item>winter</item>
+        <item>spring</item>
+        <item>summer</item>
+        <item>space</item>
+        <item>galaxies</item>
+        <item>nebulae</item>
+        <item>stars</item>
+        <item>planets</item>
+        <item>moon</item>
+        <item>earth</item>
+        <item>astronauts</item>
+        <item>milky_way</item>
+        <item>aurora</item>
+        <item>eclipses</item>
+        <item>cosmic_abstract</item>
+        <item>cities</item>
+        <item>skylines</item>
+        <item>night_cities</item>
+        <item>streets</item>
+        <item>urban</item>
+        <item>architecture</item>
+        <item>modern_architecture</item>
+        <item>historic_buildings</item>
+        <item>skyscrapers</item>
+        <item>bridges</item>
+        <item>castles</item>
+        <item>palaces</item>
+        <item>villages</item>
+        <item>abandoned</item>
+        <item>industrial</item>
+        <item>futuristic_cities</item>
+        <item>cyberpunk_cities</item>
+        <item>amoled</item>
+        <item>pure_black</item>
+        <item>dark_minimal</item>
+        <item>dark_abstract</item>
+        <item>black_white</item>
+        <item>neon_dark</item>
+        <item>oled</item>
+        <item>dark_nature</item>
+        <item>dark_space</item>
+        <item>dark_cars</item>
+        <item>dark_architecture</item>
+        <item>abstract</item>
+        <item>minimal</item>
+        <item>geometric</item>
+        <item>gradients</item>
+        <item>patterns</item>
+        <item>fractals</item>
+        <item>liquid</item>
+        <item>glass</item>
+        <item>smoke</item>
+        <item>ink</item>
+        <item>paint</item>
+        <item>abstract_3d</item>
+        <item>material</item>
+        <item>textures</item>
+        <item>shapes</item>
+        <item>lines</item>
+        <item>waves</item>
+        <item>colorful</item>
+        <item>monochrome</item>
+        <item>animals</item>
+        <item>wildlife</item>
+        <item>cats</item>
+        <item>dogs</item>
+        <item>birds</item>
+        <item>fish</item>
+        <item>horses</item>
+        <item>wolves</item>
+        <item>lions</item>
+        <item>tigers</item>
+        <item>foxes</item>
+        <item>bears</item>
+        <item>deer</item>
+        <item>elephants</item>
+        <item>reptiles</item>
+        <item>insects</item>
+        <item>butterflies</item>
+        <item>marine_life</item>
+        <item>flowers</item>
+        <item>roses</item>
+        <item>trees</item>
+        <item>leaves</item>
+        <item>tropical_plants</item>
+        <item>cactus</item>
+        <item>mushrooms</item>
+        <item>gardens</item>
+        <item>botanical</item>
+        <item>macro_nature</item>
+        <item>cars</item>
+        <item>supercars</item>
+        <item>sports_cars</item>
+        <item>classic_cars</item>
+        <item>jdm</item>
+        <item>luxury_cars</item>
+        <item>electric_cars</item>
+        <item>racing</item>
+        <item>motorcycles</item>
+        <item>trucks</item>
+        <item>aircraft</item>
+        <item>jets</item>
+        <item>helicopters</item>
+        <item>trains</item>
+        <item>ships</item>
+        <item>boats</item>
+        <item>spacecraft</item>
+        <item>technology</item>
+        <item>computers</item>
+        <item>smartphones</item>
+        <item>hardware</item>
+        <item>cpus</item>
+        <item>gpus</item>
+        <item>robotics</item>
+        <item>ai</item>
+        <item>coding</item>
+        <item>cybersecurity</item>
+        <item>servers</item>
+        <item>datacenters</item>
+        <item>circuits</item>
+        <item>electronics</item>
+        <item>futuristic_tech</item>
+        <item>gaming</item>
+        <item>retro_gaming</item>
+        <item>arcade</item>
+        <item>pixel_art</item>
+        <item>consoles</item>
+        <item>pc_gaming</item>
+        <item>scifi_gaming</item>
+        <item>fantasy_gaming</item>
+        <item>racing_gaming</item>
+        <item>digital_art</item>
+        <item>concept_art</item>
+        <item>illustration</item>
+        <item>painting</item>
+        <item>watercolor</item>
+        <item>oil_painting</item>
+        <item>sketch</item>
+        <item>street_art</item>
+        <item>graffiti</item>
+        <item>low_poly</item>
+        <item>art_3d</item>
+        <item>surreal</item>
+        <item>fantasy_art</item>
+        <item>fantasy</item>
+        <item>dragons</item>
+        <item>magic</item>
+        <item>fantasy_castles</item>
+        <item>warriors</item>
+        <item>mythology</item>
+        <item>medieval</item>
+        <item>elves</item>
+        <item>dark_fantasy</item>
+        <item>epic_landscapes</item>
+        <item>science_fiction</item>
+        <item>spaceships</item>
+        <item>futuristic</item>
+        <item>robots</item>
+        <item>mecha</item>
+        <item>cyberpunk</item>
+        <item>synthwave</item>
+        <item>retrowave</item>
+        <item>vaporwave</item>
+        <item>dystopian</item>
+        <item>alien_worlds</item>
+        <item>islamic</item>
+        <item>mosques</item>
+        <item>quranic_art</item>
+        <item>islamic_architecture</item>
+        <item>calligraphy</item>
+        <item>ramadan</item>
+        <item>eid</item>
+        <item>kaaba</item>
+        <item>mecca</item>
+        <item>medina</item>
+        <item>islamic_geometry</item>
+        <item>islamic_patterns</item>
+        <item>travel</item>
+        <item>landmarks</item>
+        <item>europe</item>
+        <item>asia</item>
+        <item>africa</item>
+        <item>middle_east</item>
+        <item>americas</item>
+        <item>tropical</item>
+        <item>road_trips</item>
+        <item>historic_places</item>
+        <item>ancient_ruins</item>
+        <item>calm</item>
+        <item>zen</item>
+        <item>relaxing</item>
+        <item>meditation</item>
+        <item>simple</item>
+        <item>clean</item>
+        <item>soft_colors</item>
+        <item>cozy</item>
+        <item>peaceful_nature</item>
+        <item>minimal_workspace</item>
+        <item>food</item>
+        <item>coffee</item>
+        <item>tea</item>
+        <item>desserts</item>
+        <item>fruit</item>
+        <item>cooking</item>
+        <item>street_food</item>
+        <item>photography</item>
+        <item>macro</item>
+        <item>long_exposure</item>
+        <item>bokeh</item>
+        <item>portrait_photography</item>
+        <item>landscape_photography</item>
+        <item>street_photography</item>
+        <item>aerial</item>
+        <item>drone</item>
+        <item>underwater</item>
+    </string-array>
+
+    <string-array name="lock_glymps_provider_strategy_entries">
+        <item>Balanced automatically</item>
+        <item>Priority fallback</item>
+        <item>Random provider</item>
+        <item>Round-robin providers</item>
+    </string-array>
+
+    <string-array name="lock_glymps_provider_strategy_values" translatable="false">
+        <item>balanced</item>
+        <item>priority</item>
+        <item>random</item>
+        <item>round_robin</item>
+    </string-array>
+
+    <string-array name="lock_glymps_resolution_entries">
+        <item>Automatic</item>
+        <item>Full HD+ (1080p minimum)</item>
+        <item>QHD+ (1440p minimum)</item>
+        <item>4K (2160p minimum)</item>
+        <item>8K (4320p minimum)</item>
+    </string-array>
+
+    <string-array name="lock_glymps_resolution_values" translatable="false">
+        <item>auto</item>
+        <item>1080</item>
+        <item>1440</item>
+        <item>2160</item>
+        <item>4320</item>
+    </string-array>
+
+    <string-array name="lock_glymps_orientation_entries">
+        <item>Automatic</item>
+        <item>Portrait / phone</item>
+        <item>Landscape</item>
+        <item>Square</item>
+    </string-array>
+
+    <string-array name="lock_glymps_orientation_values" translatable="false">
+        <item>auto</item>
+        <item>portrait</item>
+        <item>landscape</item>
+        <item>square</item>
+    </string-array>
+
+    <string-array name="lock_glymps_tone_entries">
+        <item>Any tone</item>
+        <item>Dark</item>
+        <item>AMOLED / near black</item>
+        <item>Light</item>
+        <item>Colorful</item>
+        <item>Monochrome</item>
+    </string-array>
+
+    <string-array name="lock_glymps_tone_values" translatable="false">
+        <item>any</item>
+        <item>dark</item>
+        <item>amoled</item>
+        <item>light</item>
+        <item>colorful</item>
+        <item>monochrome</item>
+    </string-array>
+
+    <string-array name="lock_glymps_order_entries">
+        <item>Latest</item>
+        <item>Random</item>
+        <item>Popular</item>
+        <item>Top rated</item>
+    </string-array>
+
+    <string-array name="lock_glymps_order_values" translatable="false">
+        <item>latest</item>
+        <item>random</item>
+        <item>popular</item>
+        <item>top</item>
     </string-array>
 
     <!-- Wallpaper Target -->

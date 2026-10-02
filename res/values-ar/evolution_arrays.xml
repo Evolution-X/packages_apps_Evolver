@@ -71,6 +71,32 @@
         <item>المنتصف</item><item>البداية</item><item>النهاية</item>
     </string-array>
 
+    <string-array name="lock_glymps_provider_entries">
+        <item>Wallhaven</item><item>Picsum</item><item>Pexels</item><item>Unsplash</item><item>Pixabay</item>
+        <item>قائمة روابط مخصصة</item><item>مجلد محلي</item>
+    </string-array>
+
+    <string-array name="lock_glymps_provider_strategy_entries">
+        <item>توازن تلقائي</item><item>أولوية مع انتقال احتياطي</item><item>مزود عشوائي</item><item>تناوب بين المزودات</item>
+    </string-array>
+
+    <string-array name="lock_glymps_resolution_entries">
+        <item>تلقائي</item><item>Full HD+ (1080p كحد أدنى)</item><item>QHD+ (1440p كحد أدنى)</item>
+        <item>4K (2160p كحد أدنى)</item><item>8K (4320p كحد أدنى)</item>
+    </string-array>
+
+    <string-array name="lock_glymps_orientation_entries">
+        <item>تلقائي</item><item>عمودي / هاتف</item><item>أفقي</item><item>مربع</item>
+    </string-array>
+
+    <string-array name="lock_glymps_tone_entries">
+        <item>أي نمط</item><item>داكن</item><item>AMOLED / أسود تقريبًا</item><item>فاتح</item><item>ملون</item><item>أحادي اللون</item>
+    </string-array>
+
+    <string-array name="lock_glymps_order_entries">
+        <item>الأحدث</item><item>عشوائي</item><item>الأكثر شيوعًا</item><item>الأعلى تقييمًا</item>
+    </string-array>
+
     <string-array name="lock_glymps_source_entries">
         <item>خلفيات عشوائية (Picsum)</item><item>قائمة روابط مخصصة</item><item>مجلد محلي</item>
     </string-array>
