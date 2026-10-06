@@ -69,13 +69,8 @@
     <string name="themes_screen_off_animation_scale">Масштабування</string>
     <string name="themes_udfps_animation_title">Анімації відбитка пальця</string>
     <string name="themes_udfps_animation_summary">Встановити стиль анімації UDFPS</string>
-    <string name="themes_launcher_category">Pixel Launcher</string>
     <string name="themes_launcher_background_blur_title">Розмиття фону</string>
     <string name="themes_launcher_background_blur_summary">Увімкнути ефект розмиття для фону сторінки з останніми елементами</string>
-    <string name="themes_launcher_more_themed_icons_title">Більше тематичних іконок</string>
-    <string name="themes_launcher_more_themed_icons_summary">Розширює підтримку динамічної теми значків встановлених програм</string>
-    <string name="themes_launcher_force_new_search_bar">Оновлено панель пошуку</string>
-    <string name="themes_launcher_force_new_search_bar_summary">Увімкнути новий стиль панелі пошуку Google</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Анімація завантаження</string>
     <string name="boot_animation_custom_pick">Вибрати ZIP файл</string>
@@ -666,6 +661,8 @@
     <string name="dynamic_bar_events">Події</string>
     <string name="dynamic_bar_event_audio_recording">Запис звуку</string>
     <string name="dynamic_bar_event_audio_recording_summary">Голосовий записувач та запис звуку</string>
+    <string name="dynamic_bar_event_call">Поточний виклик</string>
+    <string name="dynamic_bar_event_call_summary">Вхідні та активні виклики</string>
     <string name="dynamic_bar_event_media">Відтворення медіа</string>
     <string name="dynamic_bar_event_media_summary">Відтворення музики та аудіо елементів керування</string>
     <string name="dynamic_bar_event_notification">Сповіщення</string>
@@ -1000,6 +997,8 @@
     <string name="compact_heads_up_notifications_enabled_summary">Відображати сповіщення в компактному розмірі</string>
     <string name="notifications_less_boring_heads_up_title">Менше нудних спливаючих сповіщень</string>
     <string name="notifications_less_boring_heads_up_summary">Показувати спливаючі сповіщення лише для будильників, дзвінків і програм обміну повідомленнями</string>
+    <string name="notification_heads_up_timeout_title">Тривалість</string>
+    <string name="notification_heads_up_timeout_summary">Час показу спливаючих сповіщень</string>
     <string name="notif_style_title">Стиль сповіщень</string>
     <string name="notif_style1">Кіберпанк</string>
     <string name="notif_style2">Duoline</string>
@@ -1688,10 +1687,27 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Settings UI -->
+    <string name="settings_icon_title">Стиль налаштувань</string>
+    <string name="settings_icon_summary">Налаштувати стиль інтерфейсу програми «Налаштування»</string>
+    <string name="settings_icon_style_title">Стиль піктограми налаштувань</string>
+    <string name="settings_icon_style_expressive">Матеріальна виразність</string>
+    <string name="settings_icon_style_colored_bg">Кольоровий фон і біла іконка</string>
+    <string name="settings_icon_style_gradient_bg">Градієнт тла та біла іконка</string>
+    <string name="settings_icon_style_accent_outline">Контур та значок акценту</string>
+    <string name="settings_icon_style_colored_outline">Кольоровий контур та значок</string>
+    <string name="settings_icon_style_colored_icon">Тільки кольоровий значок</string>
+    <string name="settings_icon_style_accent_icon">Тільки значок акценту</string>
+    <string name="settings_icon_corner_style_title">Кутовий стиль значків налаштувань</string>
+    <string name="settings_icon_corner_style_circle">Кільце</string>
+    <string name="settings_icon_corner_style_rounded_square">Заокруглений квадрат</string>
+    <string name="settings_icon_random_colors_title">Випадкові кольори</string>
+    <string name="settings_icon_random_colors_summary">Використання випадкових кольорів для кожного значка</string>
     <!-- Volume slider -->
     <string name="qs_show_volume_slider_title">Режим слайдера</string>
     <string name="qs_show_volume_slider_hide">Тільки повзунок яскравості</string>
     <string name="qs_show_volume_slider_both">Повзунки яскравості та гучності</string>
+    <string name="qs_show_volume_slider_below">Повзунок гучності під повзунком яскравості</string>
     <string name="qs_show_volume_slider_only">Тільки повзунок гучності</string>
     <string name="qs_show_ringer_mode_title">Режим дзвінка</string>
     <string name="qs_show_ringer_mode_summary">Показати піктограму режиму дзвінка з повзунком гучності</string>
