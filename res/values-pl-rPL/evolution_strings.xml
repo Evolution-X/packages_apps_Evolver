@@ -667,6 +667,8 @@
     <string name="dynamic_bar_events">Zdarzenia</string>
     <string name="dynamic_bar_event_audio_recording">Nagrywanie dźwięku</string>
     <string name="dynamic_bar_event_audio_recording_summary">Rejestrator głosu i przechwytywanie dźwięku</string>
+    <string name="dynamic_bar_event_call">Trwające połączenie</string>
+    <string name="dynamic_bar_event_call_summary">Połączenia przychodzące i aktywne</string>
     <string name="dynamic_bar_event_media">Odtwarzanie multimediów</string>
     <string name="dynamic_bar_event_media_summary">Aktualnie odtwarzana muzyka i sterowanie dźwiękiem</string>
     <string name="dynamic_bar_event_notification">Powiadomienia</string>
@@ -1002,6 +1004,8 @@
     <string name="compact_heads_up_notifications_enabled_summary">Wyświetlaj powiadomienia w kompaktowym rozmiarze</string>
     <string name="notifications_less_boring_heads_up_title">Mniej wyskakujących powiadomień</string>
     <string name="notifications_less_boring_heads_up_summary">Pokaż wyskakujące powiadomienia tylko dla alarmów, połączeń i aplikacji wiadomości</string>
+    <string name="notification_heads_up_timeout_title">Limit czasu</string>
+    <string name="notification_heads_up_timeout_summary">Czas wyświetlania wyskakujących powiadomień</string>
     <string name="notif_style_title">Styl powiadomień</string>
     <string name="notif_style1">Cyberpunk</string>
     <string name="notif_style2">Podwójna linia </string>
@@ -1691,10 +1695,27 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Settings UI -->
+    <string name="settings_icon_title">Styl ustawień</string>
+    <string name="settings_icon_summary">Dostosuj styl interfejsu aplikacji ustawienia</string>
+    <string name="settings_icon_style_title">Styl ikony ustawień</string>
+    <string name="settings_icon_style_expressive">Material ekspresyjny</string>
+    <string name="settings_icon_style_colored_bg">Kolorowe tło i biała ikona</string>
+    <string name="settings_icon_style_gradient_bg">Gradientowe tło i biała ikona</string>
+    <string name="settings_icon_style_accent_outline">Obrys akcentu i ikona</string>
+    <string name="settings_icon_style_colored_outline">Kolorowy obrys i ikona</string>
+    <string name="settings_icon_style_colored_icon">Tylko kolorowa ikona</string>
+    <string name="settings_icon_style_accent_icon">Tylko ikona akcentu</string>
+    <string name="settings_icon_corner_style_title">Styl narożników ikon ustawień</string>
+    <string name="settings_icon_corner_style_circle">Okrąg</string>
+    <string name="settings_icon_corner_style_rounded_square">Zaokrąglony kwadrat</string>
+    <string name="settings_icon_random_colors_title">Losowe kolory</string>
+    <string name="settings_icon_random_colors_summary">Użyj losowych kolorów dla każdej ikony</string>
     <!-- Volume slider -->
     <string name="qs_show_volume_slider_title">Tryb suwaka</string>
     <string name="qs_show_volume_slider_hide">Tylko suwak jasności</string>
     <string name="qs_show_volume_slider_both">Zarówno suwak jasność, jak i głośności</string>
+    <string name="qs_show_volume_slider_below">Suwak głośności poniżej suwaka jasności</string>
     <string name="qs_show_volume_slider_only">Tylko suwak głośności</string>
     <string name="qs_show_ringer_mode_title">Tryb dzwonka</string>
     <string name="qs_show_ringer_mode_summary">Pokaż ikonę trybu dzwonka z suwakiem głośności</string>
