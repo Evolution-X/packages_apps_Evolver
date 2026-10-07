@@ -545,6 +545,10 @@
     <string name="status_bar_clock_date_position">Розташування дати</string>
     <string name="status_bar_clock_date_right">Праворуч від годинника</string>
     <string name="status_bar_clock_date_left">Ліворуч від годинника</string>
+    <string name="status_bar_clock_period_separator_title">Розділювач циклів</string>
+    <string name="status_bar_clock_period_separator_summary">Показати час з періодом замість двокрапки (10.45 замість 10:45)</string>
+    <string name="status_bar_clock_bold_title">Жирний годинник</string>
+    <string name="status_bar_clock_bold_summary">Показувати годинник у жирному тексті</string>
     <string name="statusbar_clock_chip_title">Колір фонової підкладки годинника</string>
     <string name="solid_accent">Суцільний акцент</string>
     <string name="outline">Контур</string>
