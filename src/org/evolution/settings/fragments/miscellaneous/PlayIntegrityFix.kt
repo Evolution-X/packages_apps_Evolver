@@ -206,7 +206,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 val profiles = withContext(Dispatchers.IO) {
                     PixelDeviceRepository.getProfiles(requireContext(), true)
                 }
-                val defaultCodename = PixelDeviceRepository.getDefaultPhoneCodename(profiles)
+                val defaultCodename = PixelDeviceRepository.getDefaultPifCodename(profiles)
                 val matched = withContext(Dispatchers.IO) {
                     PixelDeviceRepository.getProfileByCodename(requireContext(), defaultCodename, false)
                 } ?: return@launch
@@ -428,25 +428,25 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 }
 
                 val currentDevice = android.os.SystemProperties.get(MATCH_DEVICE_PROP, "")
-                val preferredASeries = PixelDeviceRepository.getPreferredASeriesCodename(profiles)
                 val sortedProfiles = profiles.sortedWith(
                     compareByDescending<PixelDeviceRepository.PixelProfile> {
+                        it.codename == PixelDeviceRepository.PIF_DEFAULT_CODENAME
+                    }.thenByDescending {
                         it.device == currentDevice
-                    }.thenByDescending {
-                        PixelDeviceRepository.A_SERIES_ORDER.contains(it.codename)
-                    }.thenByDescending {
-                        PixelDeviceRepository.GENERATION_ORDER.indexOf(it.codename)
-                            .let { idx -> if (idx < 0) -1 else PixelDeviceRepository.GENERATION_ORDER.size - idx }
+                    }.thenBy {
+                        PixelDeviceRepository.PICKER_ORDER.indexOf(it.codename)
+                            .let { idx -> if (idx < 0) Int.MAX_VALUE else idx }
                     }
                 )
                 val modelNames = sortedProfiles.map {
-                    if (PixelDeviceRepository.A_SERIES_ORDER.contains(it.codename)) {
+                    if (it.codename == PixelDeviceRepository.PIF_DEFAULT_CODENAME) {
                         "${it.model} — ${getString(R.string.pif_recommended_suffix)}"
                     } else {
                         it.model
                     }
                 }.toTypedArray()
-                val preselectedIndex = sortedProfiles.indexOfFirst { it.codename == preferredASeries }
+                val preselectedIndex = sortedProfiles
+                    .indexOfFirst { it.codename == PixelDeviceRepository.PIF_DEFAULT_CODENAME }
                     .let { if (it < 0) 0 else it }
 
                 AlertDialog.Builder(requireContext())
