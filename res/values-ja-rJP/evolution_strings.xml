@@ -69,13 +69,8 @@
     <string name="themes_screen_off_animation_scale">縮小</string>
     <string name="themes_udfps_animation_title">画面内指紋認証のアニメーション</string>
     <string name="themes_udfps_animation_summary">画面内指紋認証アニメーションを設定する</string>
-    <string name="themes_launcher_category">Pixel ランチャー</string>
     <string name="themes_launcher_background_blur_title">背景のぼかし</string>
     <string name="themes_launcher_background_blur_summary">最近のアイテムページの背景のぼかし効果を有効にする</string>
-    <string name="themes_launcher_more_themed_icons_title">アイコンのテーマを追加</string>
-    <string name="themes_launcher_more_themed_icons_summary">インストールされたアプリのダイナミックカラーをテーマにしたアイコンのサポートを拡張</string>
-    <string name="themes_launcher_force_new_search_bar">刷新された検索バー</string>
-    <string name="themes_launcher_force_new_search_bar_summary">新しいGoogle検索バーのスタイルを有効にする</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">起動アニメーション</string>
     <string name="boot_animation_custom_pick">ZIP ファイルを選択</string>
@@ -550,6 +545,10 @@
     <string name="status_bar_clock_date_position">日付の位置</string>
     <string name="status_bar_clock_date_right">時刻の右</string>
     <string name="status_bar_clock_date_left">時刻の左</string>
+    <string name="status_bar_clock_period_separator_title">ピリオドで区切る</string>
+    <string name="status_bar_clock_period_separator_summary">コロンの代わりにピリオドで時刻を表示します (10:45の代わりに10.45)</string>
+    <string name="status_bar_clock_bold_title">太字の時計</string>
+    <string name="status_bar_clock_bold_summary">ステータスバーの時計を太字で表示します</string>
     <string name="statusbar_clock_chip_title">時計の背景チップ</string>
     <string name="solid_accent">ソリッドアクセント</string>
     <string name="outline">アウトライン</string>
@@ -666,6 +665,8 @@
     <string name="dynamic_bar_events">イベント</string>
     <string name="dynamic_bar_event_audio_recording">音声の録音</string>
     <string name="dynamic_bar_event_audio_recording_summary">ボイスレコーダーとオーディオキャプチャ</string>
+    <string name="dynamic_bar_event_call">通話中</string>
+    <string name="dynamic_bar_event_call_summary">着信および通話中の通話</string>
     <string name="dynamic_bar_event_media">メディアの再生</string>
     <string name="dynamic_bar_event_media_summary">再生中の音楽とオーディオコントロール</string>
     <string name="dynamic_bar_event_notification">通知</string>
@@ -1000,6 +1001,8 @@
     <string name="compact_heads_up_notifications_enabled_summary">コンパクトなサイズで通知を表示する</string>
     <string name="notifications_less_boring_heads_up_title">通知制限</string>
     <string name="notifications_less_boring_heads_up_summary">アラーム、通話、メッセージアプリのみポップアップ通知を表示する</string>
+    <string name="notification_heads_up_timeout_title">表示時間</string>
+    <string name="notification_heads_up_timeout_summary">Heads Up 通知を表示する時間を指定する</string>
     <string name="notif_style_title">通知のスタイル</string>
     <string name="notif_style1">サイバーパンク</string>
     <string name="notif_style2">デュオライン</string>
@@ -1688,10 +1691,27 @@
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
     <string name="emoji_style_facebook">Facebook</string>
+    <!-- Settings UI -->
+    <string name="settings_icon_title">設定のスタイル</string>
+    <string name="settings_icon_summary">設定アプリの UI スタイルをカスタマイズしよう</string>
+    <string name="settings_icon_style_title">設定内のアイコンのスタイル</string>
+    <string name="settings_icon_style_expressive">Material Expressive</string>
+    <string name="settings_icon_style_colored_bg">色付きの背景・白いアイコン</string>
+    <string name="settings_icon_style_gradient_bg">グラデーションの背景・白いアイコン</string>
+    <string name="settings_icon_style_accent_outline">アクセントのアウトライン・アイコン</string>
+    <string name="settings_icon_style_colored_outline">色付きのアウトライン・アイコン</string>
+    <string name="settings_icon_style_colored_icon">色付きのアイコンのみ</string>
+    <string name="settings_icon_style_accent_icon">アクセントカラーのアイコンのみ</string>
+    <string name="settings_icon_corner_style_title">設定内のアイコンの形</string>
+    <string name="settings_icon_corner_style_circle">円</string>
+    <string name="settings_icon_corner_style_rounded_square">角丸四角形</string>
+    <string name="settings_icon_random_colors_title">ランダムな色</string>
+    <string name="settings_icon_random_colors_summary">アイコンごとにランダムな色を使用する</string>
     <!-- Volume slider -->
     <string name="qs_show_volume_slider_title">スライダーモード</string>
     <string name="qs_show_volume_slider_hide">明るさスライダーを表示</string>
     <string name="qs_show_volume_slider_both">明るさスライダーと音量スライダー</string>
+    <string name="qs_show_volume_slider_below">明るさスライダーの下の音量スライダー</string>
     <string name="qs_show_volume_slider_only">音量スライダーのみ</string>
     <string name="qs_show_ringer_mode_title">着信モード</string>
     <string name="qs_show_ringer_mode_summary">音量スライダーに着信モードアイコンを表示</string>
