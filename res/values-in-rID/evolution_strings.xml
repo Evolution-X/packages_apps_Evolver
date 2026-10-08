@@ -69,13 +69,8 @@
     <string name="themes_screen_off_animation_scale">Skala</string>
     <string name="themes_udfps_animation_title">Animasi Sidik Jari</string>
     <string name="themes_udfps_animation_summary">Setel gaya animasi Sidik Jari Dalam Layar</string>
-    <string name="themes_launcher_category">Pixel Launcher</string>
     <string name="themes_launcher_background_blur_title">Blur latar belakang</string>
     <string name="themes_launcher_background_blur_summary">Aktifkan Efek Blur Latar Belakang Terkini</string>
-    <string name="themes_launcher_more_themed_icons_title">Lebih banyak ikon bertema</string>
-    <string name="themes_launcher_more_themed_icons_summary">Memperluas dukungan untuk ikon bertema warna dinamis untuk aplikasi yang terpasang</string>
-    <string name="themes_launcher_force_new_search_bar">Bilah pencarian yang diperbarui</string>
-    <string name="themes_launcher_force_new_search_bar_summary">Aktifkan gaya bilah pencarian Google yang baru</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animasi boot</string>
     <string name="boot_animation_custom_pick">Pilih file ZIP</string>
@@ -87,7 +82,24 @@
     <string name="boot_animation_preview_title">Pratinjau animasi boot</string>
     <string name="boot_animation_no_preview">Tidak ada pratinjau yang tersedia</string>
     <string name="boot_animation_style_unknown">Tidak diketahui</string>
-    <!-- Themes/Monet Engine -->
+    <!-- Themes/Monet Settings -->
+    <string name="monet_settings_title">Kustomisasi Warna</string>
+    <string name="monet_settings_summary">Sesuaikan warna dan gaya tema</string>
+    <string name="color_settings_category">Setelan Warna</string>
+    <string name="advanced_settings_category">Setelan Lanjutan</string>
+    <string name="use_wallpaper_colors_title">Gunakan Warna Wallpaper</string>
+    <string name="use_wallpaper_colors_desc">Ekstrak warna dari wallpaper Anda</string>
+    <string name="custom_seed_color_title">Warna Dasar Kustom</string>
+    <string name="theme_style_title">Gaya Tema</string>
+    <string name="theme_style_desc">Pilih gaya palet warna</string>
+    <string name="fidelity_title">Keakuratan Warna</string>
+    <string name="fidelity_desc">Mempertahankan warna dasar asli secara lebih akurat</string>
+    <string name="contrast_level_title">Level Kontras</string>
+    <string name="chroma_boost_title">Peningkatan Warna</string>
+    <string name="about_color_customization_title">Tentang Kustomisasi Warna</string>
+    <string name="about_color_customization_desc">Perubahan warna berlaku di seluruh sistem untuk semua aplikasi yang mendukung tema Material You.\nMenyesuaikan warna-warna ini dapat memengaruhi tampilan aplikasi di seluruh perangkat Anda.</string>
+    <string name="wallpaper_seed_color_title">Pilih dari Wallpaper</string>
+    <string name="wallpaper_seed_color_desc">Mengekstrak warna dari wallpaper Anda saat ini</string>
     <string name="monet_engine_custom_color_title">Warna aksen</string>
     <string name="monet_engine_custom_color_summary">Pilih warna aksen kustom</string>
     <string name="monet_engine_custom_bgcolor_title">Warna latar belakang</string>
@@ -115,6 +127,27 @@
     <string name="monet_engine_color_source_home">Wallpaper beranda</string>
     <string name="monet_engine_color_source_lock">Wallpaper layar kunci</string>
     <string name="monet_engine_color_source_preset">Preset</string>
+    <!-- Per-palette chroma override -->
+    <string name="chroma_accent1_title">Warna primer</string>
+    <string name="chroma_accent2_title">Warna sekunder</string>
+    <string name="chroma_accent3_title">Warna tersier</string>
+    <string name="chroma_neutral1_title">Warna netral</string>
+    <string name="chroma_neutral2_title">Varian warna netral</string>
+    <!-- Hue / tone category -->
+    <string name="hue_tone_settings_category">Corak &amp; Kecerahan</string>
+    <!-- Hue rotation -->
+    <string name="hue_shift_title">Rotasi warna</string>
+    <string name="hue_shift_desc">Putar corak warna benih. Menghasilkan corak warna yang harmonis dan berdekatan tanpa mengubah warna benih secara manual.</string>
+    <!-- Tone shifts -->
+    <string name="tone_shift_light_title">Bias kecerahan (mode terang)</string>
+    <string name="tone_shift_light_desc">Geser semua warna mode terang menjadi lebih terang (+) atau lebih gelap (−) secara independen dari kontras.</string>
+    <string name="tone_shift_dark_title">Bias kecerahan (mode gelap)</string>
+    <string name="tone_shift_dark_desc">Geser semua warna mode gelap menjadi lebih terang (+) atau lebih gelap (−) secara independen dari kontras.</string>
+    <!-- Secondary seed -->
+    <string name="secondary_seed_category">Warna benih sekunder</string>
+    <string name="use_secondary_seed_title">Aktifkan benih sekunder</string>
+    <string name="use_secondary_seed_desc">Ciptakan palet warna sekunder dan tersier dari warna dasar yang berbeda untuk tema dua warna.</string>
+    <string name="secondary_seed_color_title">Warna benih sekunder</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Tampilan</string>
     <string name="lock_screen_charging_category">Baterai sedang</string>
@@ -139,6 +172,7 @@
     <string name="pulse_bass_haptics_none">Tidak ada getaran halus pada lonjakan bass yang tajam</string>
     <string name="pulse_bass_haptics_running">Hanya saat denyut terlihat</string>
     <string name="pulse_bass_haptics_always">Setiap kali pemutaran media aktif</string>
+    <string name="pulse_bass_haptics_disabled_amplitude">Tidak tersedia dalam mode pengambilan amplitudo</string>
     <string name="pulse_rounded_bars_title">Bar membulat</string>
     <string name="pulse_rounded_bars_summary">Tampilkan bar visualisasi dengan sudut membulat</string>
     <string name="pulse_color">Warna Visualisasi</string>
@@ -158,10 +192,29 @@
     <string name="pulse_renderer_matrix">Matriks</string>
     <string name="pulse_renderer_particle">Partikel</string>
     <string name="pulse_renderer_waveform">Gelombang</string>
+    <string name="pulse_renderer_dot_wave">Gelombang titik</string>
+    <string name="pulse_capture_mode_title">Mode perekaman audio</string>
+    <string name="pulse_capture_mode_fft">FFT (Frekuensi)</string>
+    <string name="pulse_capture_mode_amplitude">Amplitudo (Bentuk Gelombang)</string>
     <string name="pulse_show_on_ambient_title">Tampilkan di tampilan ambient</string>
     <string name="pulse_show_on_ambient_summary">Visualisasi tampilan pada mode always-on display dan ambient. Nonaktifkan untuk hanya menampilkan di layar kunci.</string>
+    <string name="pulse_show_on_ambient_disabled_player">Visualizer tidak tersedia untuk tampilan latar belakang saat pemutar media diaktifkan</string>
+    <string name="pulse_show_on_media_player_title">Tampilkan di latar belakang pemutar media</string>
+    <string name="pulse_show_on_media_player_summary">Tampilkan visualizer pada latar belakang pemutar media untuk layar kunci dan setelan cepat</string>
     <string name="pulse_height_multiplier_title">Tinggi denyut</string>
     <string name="pulse_height_multiplier_summary">Sesuaikan tinggi visualisasi</string>
+    <!-- Lockscreen Clock Highlight Guide -->
+    <string name="ls_clock_title">Jam Layar Kunci</string>
+    <string name="ls_clock_summary">Atur gaya jam dan widgetmu</string>
+    <string name="clock_styles_disclaimer_title">Sebelum Anda melanjutkan</string>
+    <string name="clock_styles_disclaimer_message">Untuk pengalaman terbaik dengan tampilan jam dan widget, pastikan untuk:\n\n• Menonaktifkan Smartspace layar kunci\n• Menonaktifkan cuaca layar kunci\n• Menonaktifkan gaya jam besar\n\nAnda dapat menemukan opsi ini di pengaturan Layar Kunci.</string>
+    <string name="ls_clock_face_highlight_text">Geser ke kiri atau kanan untuk melihat pratinjau gaya jam</string>
+    <!-- Lockscreen Clock Accent Color -->
+    <string name="clock_text_accent_color_title">Gunakan warna aksen untuk jam</string>
+    <string name="clock_text_accent_color_summary">Gunakan warna aksen sistem, bukan warna putih, untuk teks jam</string>
+    <!-- Lockscreen Clock Opacity -->
+    <string name="clock_text_opacity_title">Transparansi</string>
+    <string name="clock_text_opacity_summary">Sesuaikan transparansi teks jam</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">Jam yang dipilih tidak mendukung font khusus</string>
     <string name="lockscreen_clock_category_title">Jam</string>
@@ -170,20 +223,82 @@
     <string name="theme_customization_lock_clock_face_summary">Ubah tampilan jam di layar kunci</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Gaya jam kustom</string>
+    <string name="lockscreen_custom_clock_style_summary">Konfigurasi gaya jam layar kunci</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Geser ke kiri atau kanan untuk melihat pratinjau gaya jam</string>
-    <string name="lockscreen_custom_clock_style_info">Gaya jam kustom menggantikan gaya jam AOSP. Smartspace akan dinonaktifkan. Anda dapat mengaktifkan cuaca kustom sebagai gantinya.</string>
-    <string name="lockscreen_custom_clock_opacity_title">Opasitas jam</string>
-    <string name="lockscreen_custom_clock_opacity_summary">Sesuaikan transparansi jam kustom</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Tinggi jam</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_summary">Sesuaikan posisi vertikal jam kustom</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Mode warna jam</string>
-    <string name="lockscreen_custom_clock_size_title">Ukuran jam</string>
-    <string name="lockscreen_custom_clock_size_summary">Sesuaikan skala jam layar kunci (50–150%)</string>
-    <string name="lockscreen_custom_clock_aod_anim_title">Animasi jam AOD kustom</string>
-    <string name="lockscreen_custom_clock_aod_anim_summary">Atur animasi AOD untuk gaya jam kustom</string>
+    <string name="lockscreen_custom_clock_style_info">Gaya jam kustom menggantikan gaya jam AOSP dengan jam kustom. Ruang pintar akan dinonaktifkan. Anda dapat mengaktifkan dan menggunakan cuaca kustom sebagai gantinya.</string>
+    <string name="lockscreen_custom_clock_opacity_title">Transparansi jam</string>
+    <string name="lockscreen_custom_clock_opacity_summary">Sesuaikan transparansi gaya jam kustom</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Margin atas</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Sesuaikan ketinggian gaya jam kustom</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Mode warna</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">Animasi AOD</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">Aktifkan animasi AOD untuk gaya jam kustom</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_title">Efek pengisian goyang</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_summary">Tampilkan efek goyang pada jam saat terhubung ke pengisi daya</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Batas horizontal</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Posisi Kiri/Kanan</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_title">Teks gradien</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Terapkan gradien dua warna pada teks jam, bukan warna solid. Menggantikan mode warna lainnya</string>
+    <string name="lockscreen_custom_clock_gradient_start_title">Warna awal gradien</string>
+    <string name="lockscreen_custom_clock_gradient_end_title">Warna akhir gradien</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_title">Posisi gradien</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_summary">Atur posisi vertikal pusat gradien</string>
+    <string name="lockscreen_custom_clock_gradient_radius_title">Sebaran gradien</string>
+    <string name="lockscreen_custom_clock_gradient_radius_summary">Atur jarak sebaran gradien dari titiknya</string>
+    <string name="lockscreen_custom_clock_color_category_title">Warna</string>
+    <string name="lockscreen_custom_clock_gradient_category_title">Gradien</string>
+    <string name="lockscreen_custom_clock_layout_category_title">Ukuran &amp; posisi</string>
+    <string name="lockscreen_custom_clock_animation_category_title">Animasi</string>
+    <string name="unit_degrees">°</string>
+    <!-- Lockscreen Clock Size -->
+    <string name="clock_size_title">Ukuran</string>
+    <string name="clock_size_summary">Atur jam layar kunci (50–150%)</string>
     <!-- Lockscreen clock: album art color override -->
-    <string name="clock_album_art_color_title">Jam warna sampul album</string>
+    <string name="clock_album_art_color_title">Gunakan warna cover album</string>
     <string name="clock_album_art_color_summary">Warna jam akan diganti dengan palet warna sampul album saat media sedang diputar</string>
+    <!-- Lockscreen widgets -->
+    <string name="lockscreen_widgets_title">Widget</string>
+    <string name="lockscreen_widgets_enabled_title">Aktifkan Widget Layar kunci</string>
+    <string name="lockscreen_widgets_enabled_summary">Tambahkan widget ke layar kunci</string>
+    <string name="lockscreen_display_widgets_title">Widget info perangkat</string>
+    <string name="lockscreen_widgets_color_mode_title">Mode warna info widget</string>
+    <string name="lockscreen_display_widgets_summary">Tampilkan widget info perangkat di layar kunci</string>
+    <string name="large_widgets_category_title">Widget besar</string>
+    <string name="main_custom_widgets1">Widget besar 1</string>
+    <string name="main_custom_widgets2">Widget besar 2</string>
+    <string name="mini_widgets_category_title">Widget kecil</string>
+    <string name="custom_widgets1">Widget kecil 1</string>
+    <string name="custom_widgets2">Widget kecil 2</string>
+    <string name="custom_widgets3">Widget kecil 3</string>
+    <string name="custom_widgets4">Widget kecil 4</string>
+    <string name="camera">Kamera</string>
+    <string name="clock_timer">Jam/Timer</string>
+    <string name="calculator">Kalkulator</string>
+    <string name="gallery">Galeri</string>
+    <string name="media">Pemutar Media</string>
+    <string name="torch">Senter</string>
+    <string name="controls_media_button_play">Putar</string>
+    <string name="weather">Cuaca</string>
+    <string name="wifi">WiFi</string>
+    <string name="data">Data</string>
+    <string name="ringer">Dering</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Hotspot</string>
+    <string name="wallet">Dompet</string>
+    <string name="qr_scanner">Pemindai QR</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">Gaya widget layar kunci</string>
+    <string name="lockscreen_widgets_style1">Material Bundar</string>
+    <string name="lockscreen_widgets_style2">Material Persegi</string>
+    <string name="lockscreen_widgets_style3">Persegi Transparan</string>
+    <string name="lockscreen_widgets_style4">Bundar Transparan</string>
+    <string name="lockscreen_widgets_style5">Persegi blur</string>
+    <string name="lockscreen_widgets_style6">Bulat blur</string>
+    <string name="lockscreen_widgets_transparency_title">Transparansi bergaya tembus cahaya</string>
+    <string name="lockscreen_widgets_transparency_summary">Konfigurasikan tingkat opasitas widget gaya tembus cahaya</string>
+    <!-- Lockscreen Weather -->
+    <string name="custom_clock_weather_title">Cuaca layar kunci</string>
+    <string name="custom_clock_weather_summary">Tampilkan cuaca pada jam layar kunci kustom</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Sampul album media</string>
     <string name="ls_media_art_summary">Tampilkan sampul seni media bila tersedia</string>
@@ -211,8 +326,7 @@
     <string name="nowplaying_title">Sedang Diputar</string>
     <string name="nowplaying_summary">Tampilkan informasi musik yang sedang diputar di layar kunci dan Always On Display (AOD)</string>
     <string name="nowplaying_appearance_title">Penampilan</string>
-    <string name="nowplaying_use_accent_color_title">Gunakan warna aksen</string>
-    <string name="nowplaying_use_accent_color_summary">Gunakan warna aksen sistem sebagai pengganti warna putih</string>
+    <string name="nowplaying_color_mode_title">Mode warna teks</string>
     <string name="nowplaying_vertical_position_title">Posisi vertikal</string>
     <string name="nowplaying_vertical_position_summary">Sesuaikan posisi dari atas ke bawah layar</string>
     <string name="nowplaying_track_text_size_title">Ukuran judul trek</string>
@@ -233,6 +347,9 @@
     <string name="nowplaying_info_summary">Sedang Diputar menampilkan lagu dan artis yang sedang diputar di layar kunci dan AOD. Fitur ini muncul secara otomatis saat musik diputar dan disembunyikan saat musik berhenti. Posisinya dapat disesuaikan dari atas ke bawah layar.</string>
     <string name="nowplaying_expand_dialog">Perluas dialog</string>
     <string name="nowplaying_expand_dialog_summary">Perluas dialog Sedang Diputar</string>
+    <string name="nowplaying_lyrics_mode_title">Mode lirik</string>
+    <string name="nowplaying_lyrics_mode_summary">Tampilkan lirik yang disinkronkan, bukan judul lagu dan ikon</string>
+    <string name="nowplaying_pixel_native_footer">Perangkat ini sudah menyediakan fitur \"Now Playing\" secara bawaan melalui indikasi ambient Pixel. Pengaturan ini tidak tersedia saat versi bawaan aktif.</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Setelan cuaca</string>
     <string name="weather_settings_summary">Atur paket ikon dan layanan cuaca</string>
@@ -286,14 +403,29 @@
     <string name="lockscreen_smartspace_title">Ruang pintar</string>
     <string name="lockscreen_smartspace_summary">Tampilkan ruang pintar Google saat tersedia</string>
     <!-- Lock screen/Depth wallpaper -->
-    <string name="dw_wallpaper_enabled_title">Kedalaman wallpaper</string>
-    <string name="dw_wallpaper_enabled_summary_tile">Terapkan efek kedalaman\npada wallpaper</string>
-    <string name="dw_wallpaper_enabled_summary">Aktifkan wallpaper kedalaman yang terinspirasi iOS. Memerlukan gambar subjek</string>
-    <string name="dw_file_header_select_title">Pilih gambar subjek</string>
-    <string name="dw_file_header_select_summary">Pilih gambar subjek dari penyimpanan untuk digunakan pada efek kedalaman</string>
-    <string name="dw_wallpaper_opacity_title">Opasitas subjek</string>
-    <string name="depth_wallpaper_offset_x_title">Batas horizontal</string>
-    <string name="depth_wallpaper_offset_y_title">Batas vertikal</string>
+    <string name="depthwall_file_header_select_title">Pilih Subjek Kedalaman Wallpaper</string>
+    <string name="depthwall_file_header_select_summary">Pilih gambar subjek kedalaman wallpaper dari penyimpanan.</string>
+    <string name="depthwall_wallpaper_enabled_title">Wallpaper kedalaman</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Terapkan efek kedalaman\npada wallpaper</string>
+    <string name="depthwall_wallpaper_enabled_summary">Aktifkan wallpaper kedalaman yang terinspirasi iOS. Memerlukan gambar subjek.</string>
+    <string name="depthwall_wallpaper_opacity_title">Opasitas kedalaman wallpaper</string>
+    <string name="depth_wallpaper_bottom_fade_title">Pudar bawah</string>
+    <string name="depth_wallpaper_bottom_fade_summary">Pudarkan bagian bawah wallpaper</string>
+    <string name="depth_wallpaper_fade_curve_title">Kurva pudaran</string>
+    <string name="depth_wallpaper_fade_curve_summary">Atur kurva pudaran wallpaper</string>
+    <string name="depth_wallpaper_bottom_inset_title">Sisipan bawah</string>
+    <string name="depth_wallpaper_bottom_inset_summary">Sesuaikan jarak masuk wallpaper di bagian bawah</string>
+    <string name="depthwall_auto_subject_title">Subjek otomatis wallpaper kedalaman</string>
+    <string name="depthwall_auto_subject_summary">Ambil subjek wallpaper untuk buat efek kedalaman secara otomatis</string>
+    <string name="depthwall_extract_now_title">Ambil subjek sekarang</string>
+    <string name="depthwall_extract_now_summary">Ambil subjek dari wallpaper segera (Atur wallpaper untuk layar kunci secara terpisah)</string>
+    <string name="depthwall_extracting_toast">Mengambil subjek dari wallpaper…</string>
+    <string name="depthwall_extraction_complete_toast">Pengambilan subjek selesai!</string>
+    <string name="depthwall_storage_permission_denied">Butuh izin penyimpanan untuk mengambil subjek dari wallpaper.</string>
+    <string name="depthwall_clear_subject_title">Hapus subjek gambar</string>
+    <string name="depthwall_clear_subject_summary">Hapus subjek yang sudah diambil otomatis dan manual</string>
+    <string name="depthwall_clear_subject_confirm_message">Ini akan menghapus subjek foto wallpaper kedalaman sekarang. Lanjutkan?</string>
+    <string name="depthwall_clear_subject_done_toast">Subjek foto dihapus</string>
     <string name="dw_footer_text">Wallpaper Kedalaman menempatkan gambar subjek di atas jam layar kunci, terinspirasi oleh segmentasi subjek wallpaper iOS.\n\nPengaturan:\n1. Atur wallpaper dengan latar belakang yang Anda inginkan di belakang subjek.\n2. Pilih gambar subjek untuk ditempatkan di atas jam layar kunci.\n3. Sesuaikan batas dan opasitas sesuai preferensi Anda.</string>
     <!-- Status bar -->
     <string name="status_bar_toggle_brightness_title">Kontrol kecerahan</string>
@@ -315,6 +447,8 @@
     <string name="status_bar_colored_icons_summary">Gunakan ikon peluncur untuk notifikasi aplikasi</string>
     <string name="status_bar_notif_count_title">Jumlah notifikasi</string>
     <string name="status_bar_notif_count_summary">Tampilkan jumlah notifikasi yang tertunda pada setiap ikon aplikasi</string>
+    <string name="status_bar_lyric_title">Lirik bilah status</string>
+    <string name="status_bar_lyric_summary">Tampilkan lirik di bilah status</string>
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Label operator</string>
     <string name="lockscreen_show_carrier_title">Tampilkan label operator</string>
@@ -412,6 +546,10 @@
     <string name="status_bar_clock_date_position">Posisi tanggal</string>
     <string name="status_bar_clock_date_right">Sebelah kanan jam</string>
     <string name="status_bar_clock_date_left">Sebelah kiri jam</string>
+    <string name="status_bar_clock_period_separator_title">Pemisah periode</string>
+    <string name="status_bar_clock_period_separator_summary">Tampilkan waktu menggunakan tanda titik, bukan tanda titik dua (10.45, bukan 10:45)</string>
+    <string name="status_bar_clock_bold_title">Tebalkan jam</string>
+    <string name="status_bar_clock_bold_summary">Tampilkan jam pada bilah status dengan teks tebal</string>
     <string name="statusbar_clock_chip_title">Chip latar belakang jam</string>
     <string name="solid_accent">Aksen solid</string>
     <string name="outline">Garis luar</string>
@@ -477,6 +615,17 @@
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
     <string name="status_bar_logo_style_amogus">Amogus</string>
+    <string name="status_bar_logo_style_custom">Gambar kustom</string>
+    <!-- Custom image logo style -->
+    <string name="status_bar_logo_style_custom_image">Gambar kustom</string>
+    <string name="status_bar_logo_custom_image_title">Pilih gambar logo kustom</string>
+    <string name="status_bar_logo_custom_image_summary">Ketuk untuk memilih gambar dari galeri</string>
+    <string name="status_bar_logo_custom_image_pick_summary">Pilih gambar dari galeri</string>
+    <!-- Statusbar logo color -->
+    <string name="status_bar_logo_color_title">Warna</string>
+    <string name="status_bar_logo_color_default">Bawaan (Putih)</string>
+    <string name="status_bar_logo_color_accent">Aksen</string>
+    <string name="status_bar_logo_color_custom">Kustom</string>
     <!-- Status bar/Network traffic -->
     <string name="status_bar_network_traffic_settings_title">Monitor lalu lintas jaringan</string>
     <string name="status_bar_network_traffic_settings_summary">Tampilan dan kustomisasi tingkat lalu lintas jaringan saat ini</string>
@@ -505,7 +654,6 @@
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Bilah Dinamis</string>
     <string name="dynamic_bar_summary">Chip bilah status pintar untuk aktivitas seperti perekaman, media, pengatur waktu, dan lainnya</string>
-    <string name="dynamic_bar_enable">Aktifkan Bilah Dinamis</string>
     <string name="dynamic_bar_enable_summary">Tampilkan chip dinamis di bilah status untuk siaran langsung</string>
     <string name="dynamic_bar_keyguard_enable">Bilah Dinamis di layar kunci</string>
     <string name="dynamic_bar_keyguard_enable_summary">Gantikan indikator kunci layar dengan chip Bilah Dinamis pada layar kunci</string>
@@ -570,7 +718,6 @@
     <!-- Status bar/Cutout progress ring -->
     <string name="cutout_progress_title">Cincin Kemajuan</string>
     <string name="cutout_progress_summary">Tampilkan lingkaran progres di sekitar lubang kamera</string>
-    <string name="cutout_progress_enabled_summary">Tampilkan lingkaran indikator kemajuan di sekitar lubang kamera selama proses pengunduhan</string>
     <string name="cutout_progress_cat_appearance">Penampilan</string>
     <string name="cutout_progress_cat_behaviour">Perilaku</string>
     <string name="cutout_progress_cat_bg_ring">Latar belakang cincin</string>
@@ -669,6 +816,8 @@
     <string name="qs_tile_alternate_color_title">Warna ubin Setelan Cepat alternatif</string>
     <string name="qs_tile_alternate_color_summary">Gunakan warna latar belakang alternatif untuk ubin Setelan Cepat</string>
     <string name="qs_brightness_slider_shape_title">Bentuk penggeser kecerahan</string>
+    <string name="media_waveform_seekbar_title">Bilah media bentuk gelombang</string>
+    <string name="media_waveform_seekbar_summary">Tampilkan efek animasi gelombang untuk kemajuan pemutaran media</string>
     <string name="floating_rotation_button_title">Tombol rotasi mengambang</string>
     <string name="floating_rotation_button_summary">Tampilkan tombol mengambang untuk memutar saat orientasi perangkat berubah</string>
     <!-- Quick settings -->
@@ -783,6 +932,7 @@
     <!-- Quick settings/Header image -->
     <string name="quick_settings_header_image_title">Gambar Header</string>
     <string name="quick_settings_header_image_summary">Pilih gambar latar belakang untuk setelan cepat</string>
+    <string name="quick_settings_header_image_error">Gagal menyimpan gambar header</string>
     <string name="quick_settings_header_daylight_pack_title">Koleksi gambar</string>
     <string name="quick_settings_header_shadow_title">Bayangan gambar header</string>
     <string name="quick_settings_header_shadow_summary">Meningkatkan visibilitas pada gambar terang</string>
@@ -804,11 +954,12 @@
     <string name="quick_settings_transparency_summary">Atur tingkat transparansi untuk latar belakang Setelan Cepat</string>
     <string name="quick_settings_data_usage_title">Penggunaan data</string>
     <string name="quick_settings_data_usage_summary">Tampilkan penggunaan data di bagian bawah Setelan Cepat</string>
+    <string name="quick_settings_data_usage_window_title">Periode penggunaan data</string>
     <string name="quick_settings_lock_screen_category">Layar Kunci</string>
-    <string name="quick_settings_secure_lock_screen_title">Nonaktifkan tarikan Setelan Cepat pada layar kunci aman</string>
+    <string name="quick_settings_secure_lock_screen_title">Menarik Setelan Cepat di layar kunci yang aman</string>
     <string name="quick_settings_secure_lock_screen_summary">Izinkan menggeser ke bawah pada layar kunci untuk membuka Setelan Cepat</string>
     <string name="quick_settings_require_unlock_title">Ubin Setelan Cepat yang aman memerlukan pembukaan kunci</string>
-    <string name="quick_settings_require_unlock_summary">Ubin-ubin berikut memerlukan perangkat untuk dibuka kuncinya sebelum dapat diinteraksi: Pesawat, Penghemat baterai, Bluetooth, Seluler, Penghemat data, Hotspot, Internet, NFC, Kunci rotasi, dan Wi-Fi</string>
+    <string name="quick_settings_require_unlock_summary">Ubin berikut mengharuskan perangkat dibuka kuncinya sebelum dapat berinteraksi dengannya: Mode pesawat, Penghemat baterai, Bluetooth, Penghemat data, Hotspot, Internet, NFC, dan kunci rotasi</string>
     <string name="quick_settings_footer_category">Footer Setelan Cepat</string>
     <string name="quick_settings_footer_edit_icon_title">Ikon edit ubin</string>
     <string name="quick_settings_footer_show_power_menu_title">Pintasan menu daya</string>
@@ -851,6 +1002,8 @@
     <string name="compact_heads_up_notifications_enabled_summary">Tampilkan notifikasi dalam ukuran yang ringkas</string>
     <string name="notifications_less_boring_heads_up_title">Kurangi frekuensi</string>
     <string name="notifications_less_boring_heads_up_summary">Tampilkan notifikasi pop-up hanya untuk alarm, panggilan, dan aplikasi perpesanan</string>
+    <string name="notification_heads_up_timeout_title">Waktu habis</string>
+    <string name="notification_heads_up_timeout_summary">Waktu untuk menampilkan notifikasi mengambang</string>
     <string name="notif_style_title">Gaya pemberitahuan</string>
     <string name="notif_style1">Cyberpunk</string>
     <string name="notif_style2">Duoline</string>
@@ -902,6 +1055,10 @@
     <string name="edge_light_animation_effect_sparkle">Berkilau</string>
     <string name="edge_light_animation_effect_chase">Mengejar</string>
     <string name="edge_light_animation_effect_comet">Komet</string>
+    <string name="edge_light_spread_title">Cahaya menyebar</string>
+    <string name="edge_light_spread_summary">Seberapa jauh cahaya itu memancar ke dalam dari tepi</string>
+    <string name="edge_light_intensity_title">Intensitas cahaya</string>
+    <string name="edge_light_intensity_summary">Kecerahan puncak efek cahaya</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Tampilan</string>
     <string name="power_menu_actions_title">Aksi menu daya</string>
@@ -949,6 +1106,12 @@
     <string name="miscellaneous_block_wallpaper_dimming_summary">Blokir semua aplikasi agar tidak meredupkan wallpaper, paksa tingkat peredupan menjadi 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Abaikan hamparan pengaman privasi</string>
     <string name="miscellaneous_ignore_window_secure_summary">Hapus pembatasan tangkapan layar dan perekaman layar untuk semua aplikasi. Dapat mengungkap konten pribadi</string>
+    <string name="miscellaneous_screenshot_flash_title">Tampilkan kilatan tangkapan layar</string>
+    <string name="miscellaneous_screenshot_flash_summary">Layar akan berkedip sebentar saat tangkapan layar diambil</string>
+    <string name="miscellaneous_block_screenshot_detection_title">Blokir deteksi tangkapan layar</string>
+    <string name="miscellaneous_block_screenshot_detection_summary">Mencegah aplikasi mengetahui kapan kontennya telah di-screenshot</string>
+    <string name="miscellaneous_block_screenrecord_detection_title">Blokir deteksi perekaman layar</string>
+    <string name="miscellaneous_block_screenrecord_detection_summary">Mencegah aplikasi mengetahui kapan konten layarnya sedang direkam</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Perekaman layar tanpa batas</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Hapus batasan ukuran file 15 GiB. Hal ini dapat menghasilkan file output yang lebih besar dari yang dibutuhkan</string>
     <string name="disable_flash_sms_title">Nonaktifkan Flash SMS</string>
@@ -974,6 +1137,12 @@
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Memalsukan Snapchat sebagai Pixel XL untuk memperbaiki kemungkinan masalah obrolan</string>
     <string name="spoofing_applying_changes">Menerapkan perubahan palsu\u2026</string>
+    <string name="spoofing_reset_defaults_title">Atur ulang ke bawaan</string>
+    <string name="spoofing_reset_defaults_summary">Kembalikan Play Integrity, daftar target, tingkat patch, dan GameProps ke setelan awal. Keybox Anda tetap dipertahankan</string>
+    <string name="spoofing_reset_defaults_dialog_title">Atur ulang pengaturan spoofing?</string>
+    <string name="spoofing_reset_defaults_dialog_message">Tindakan ini menghapus konfigurasi Play Integrity, config, patch keamanan, dan konfigurasi GameProps, serta memulihkan daftar target default TrickyStore. Keybox Anda tetap dipertahankan. Data Play Integrity dan tingkat patch akan diambil kembali tak lama kemudian. Tombol aktif/nonaktif tidak diubah.</string>
+    <string name="spoofing_reset_defaults_confirm">Atur ulang</string>
+    <string name="spoofing_reset_defaults_done">Setelan spoofing diatur ulang</string>
     <string name="tensor_spoof_title">Target fitur Tensor</string>
     <string name="tensor_spoof_summary">Berikan akses kepada aplikasi terpilih ke fitur AI eksklusif Pixel Tensor</string>
     <string name="tensor_spoof_enable">Pemalsuan Tensor</string>
@@ -1109,27 +1278,41 @@
     <string name="pif_delete_config_summary">Hapus file konfigurasi yang sedang aktif</string>
     <string name="pif_delete_title">Hapus %s?</string>
     <string name="pif_delete_message">File konfigurasi ini akan dihapus secara permanen.</string>
+    <string name="pif_wipe_playstore_title">Hapus data Play Store?</string>
+    <string name="pif_wipe_playstore_message">Penggunaan sidik jari ini paling efektif dilakukan saat memulai sesi Play Store yang baru. Ingin menghapus data aplikasi Play Store sekarang? Tindakan ini akan mengeluarkan Anda dari akun serta menghapus cache lokal dan antrean unduhan.</string>
+    <string name="pif_wipe_confirm">Hapus data</string>
     <string name="pif_deleted">Dihapus %s</string>
     <string name="pif_config_details">Detail konfigurasi</string>
     <string name="pif_failed">Gagal: %s</string>
     <string name="pif_select_device">Pilih perangkat</string>
+    <string name="pif_recommended_suffix">Direkomendasikan</string>
     <string name="pif_generating">Menghasilkan konfigurasi\u2026</string>
     <string name="pif_footer_title">Lulus uji integritas dasar</string>
-    <string name="pif_footer_body">Sidik jari canary diambil dan diperbarui secara otomatis setiap 21 hari. Konfigurasi canary kedaluwarsa sekitar 6 minggu dari tanggal rilisnya — masa kedaluwarsa ditampilkan dalam ringkasan konfigurasi aktif.\n\nUntuk pengaturan manual:\n1. Ketuk \"Ambil sidik jari Pixel Canary\" dan pilih perangkat.\n2. Jika tidak ada perangkat yang ditemukan, impor konfigurasi PIF yang berfungsi dari sumber tepercaya. File konfigurasi tidak disediakan.\n3. Periksa kembali status Integritas Play Anda.\n\nSelalu hapus konfigurasi aktif sebelum mengimpor yang baru. Memuat konfigurasi PIF yang kedaluwarsa akan menyebabkan integritas kuat TrickyStore gagal bahkan dengan keybox yang valid.\n\nPenipuan tingkat lanjut:\n• Penipuan sidik jari Play Store — biarkan dinonaktifkan kecuali disarankan sebaliknya. Menipu SIDIK JARI ke Play Store jarang diperlukan dan dapat menyebabkan masalah.\n• Menipu SDK ke DroidGuard — memaksa jalur pengesahan pra-Android 13 lama. Aktifkan ini hanya jika integritas dasar gagal dan konfigurasi Anda menargetkan SDK versi lama.</string>
+    <string name="pif_footer_body">Sidik jari Canary diperiksa paling banyak satu kali sehari dan diganti secara otomatis saat masa berlakunya tinggal sekitar dua minggu lagi. Konfigurasi Canary kedaluwarsa kira-kira 6 minggu setelah tanggal rilisnya — tanggal kedaluwarsa ditampilkan dalam ringkasan konfigurasi aktif.\n\nUntuk pengaturan manual:\n1. Ketuk \"Ambil sidik jari Pixel Canary\" dan pilih perangkat.\n2. Jika tidak ada perangkat yang ditemukan, impor konfigurasi PIF yang berfungsi dari sumber tepercaya. File konfigurasi tidak disediakan.\n3. Periksa kembali status Play Integrity Anda.\n\nSelalu hapus konfigurasi aktif sebelum mengimpor yang baru. Memuat konfigurasi PIF yang sudah kedaluwarsa akan menyebabkan kegagalan integritas kuat (strong integrity) TrickyStore, meskipun menggunakan keybox yang valid.\n\nSpoofing tingkat lanjut:\n• Spoof sidik jari Play Store — biarkan nonaktif kecuali ada saran lain. Spoofing SIDIK JARI untuk Play Store jarang diperlukan dan dapat menimbulkan masalah.\n• Spoof SDK untuk Play Store — menyajikan SDK 32 ke Play Store untuk memaksa penggunaan jalur keputusan (verdict path) versi lama (pra-Android 13). Hal ini dapat mengganggu perilaku Play Store, jadi biarkan nonaktif kecuali saat melakukan pengujian.\n• Spoof field build dan properti sistem — biarkan aktif. Pengaturan ini menyajikan fingerprint ke DroidGuard.\n• Spoof penyedia keystore — biarkan nonaktif saat keybox sedang digunakan, karena hal ini memintas atestasi keybox.\n• Spoof tanda tangan ROM — eksperimental.</string>
     <string name="pif_invalid_fingerprint">Format sidik jari tidak valid</string>
     <string name="pif_no_devices_found">Perangkat tidak ditemukan</string>
-    <string name="pif_no_api_key">Gagal mengekstrak kunci API Flash Tool</string>
-    <string name="pif_master_switch_title">Aktifkan Perbaikan Integritas Play</string>
+    <string name="pif_master_switch_title">Hidupkan Perbaikan Play Integrity</string>
     <string name="pif_advanced_settings">Pemalsuan tingkat lanjut</string>
     <string name="pif_spoof_vending_finger_title">Pemalsuan sidik jari Play Store</string>
     <string name="pif_spoof_vending_finger_summary">Mengontrol sidik jari mana yang akan ditampilkan ke proses Play Store</string>
-    <string name="pif_spoof_vending_sdk_title">Memalsukan SDK ke DroidGuard</string>
-    <string name="pif_spoof_vending_sdk_summary">Timpa SDK_INT untuk DroidGuard untuk memaksa jalur pengesahan &lt;A13 lama</string>
+    <string name="pif_spoof_vending_sdk_title">Spoof SDK ke Play Store</string>
+    <string name="pif_spoof_vending_sdk_summary">Gunakan SDK 32 untuk Play Store guna memaksakan jalur keputusan *legacy* &lt;A13. Nilai ini tidak pernah ditetapkan lebih tinggi daripada SDK yang sebenarnya. Hal ini dapat mengganggu perilaku Play Store, jadi jangan gunakan kecuali untuk keperluan pengujian</string>
+    <string name="pif_vending_finger_custom_summary">Sidik jari kustom: %1$s</string>
+    <string name="pif_spoof_build_title">Memalsukan kolom build</string>
+    <string name="pif_spoof_build_summary">Tampilkan kolom Build dari fingerprint (model, perangkat, fingerprint, ...) ke DroidGuard</string>
+    <string name="pif_spoof_props_title">Spoof properti sistem</string>
+    <string name="pif_spoof_props_summary">Tampilkan ID build, patch keamanan, tingkat API, dan identitas produk dari fingerprint kepada DroidGuard</string>
+    <string name="pif_spoof_provider_title">Spoof penyedia keystore</string>
+    <string name="pif_spoof_provider_summary">Buat permintaan rantai sertifikat DroidGuard gagal. Tindakan ini mem-bypass atestasi keybox, jadi pastikan fitur ini dinonaktifkan saat keybox sedang digunakan</string>
+    <string name="pif_spoof_signature_title">Spoof tanda tangan ROM</string>
+    <string name="pif_spoof_signature_summary">Eksperimental. Mengakali pemblokiran ROM \'test-key\' untuk DroidGuard</string>
+    <string name="pif_reset_advanced_title">Atur ulang spoofing tingkat lanjut</string>
+    <string name="pif_reset_advanced_summary">Kembalikan setelan default setiap tombol diatas. Sidik jari tetap terjaga</string>
+    <string name="pif_reset_advanced_message">Kembalikan setelan spoofing tingkat lanjut ke default? Sidik jari sekarang tetap terjaga</string>
     <string name="pif_vending_finger_disabled">Dinonaktifkan (default)</string>
     <string name="pif_vending_finger_same">Sama seperti sidik jari DroidGuard</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Kelola keybox dan aplikasi target untuk pengesahan integritas yang kuat</string>
-    <string name="ts_master_switch_title">Aktifkan pemalsuan TrickyStore</string>
     <string name="ts_keybox_management">Manajemen keybox</string>
     <string name="ts_import_keybox">Impor keybox</string>
     <string name="ts_no_keybox">Tidak ada keybox terpasang</string>
@@ -1144,6 +1327,7 @@
     <string name="ts_manage_target_apps">Kelola aplikasi target</string>
     <string name="ts_no_targets">Tidak ada aplikasi target yang dikonfigurasi</string>
     <string name="ts_target_apps_count">%d aplikasi yang dikonfigurasi</string>
+    <string name="ts_target_apps_empty_description">Tidak ada aplikasi yang sesuai dengan pencarian atau konfigurasi Anda</string>
     <string name="ts_import_target_list">Impor daftar target</string>
     <string name="ts_import_target_list_summary">Impor target.txt dari sebuah file</string>
     <string name="ts_invalid_patch_date">Format tanggal tidak valid. Gunakan YYYY-MM-DD</string>
@@ -1152,6 +1336,7 @@
     <string name="ts_failed">Gagal: %s</string>
     <string name="ts_footer_title">Meluluskan integritas yang kuat</string>
     <string name="ts_footer_body">Kotak kunci (keybox) diambil dan dipertahankan validitasnya secara otomatis. Status pencabutan diperiksa setiap 24 jam, dan kotak kunci baru diambil dari sumber resmi jika yang saat ini dicabut atau ditangguhkan.\n\nUntuk pengaturan manual:\n1. Ketuk \"Ambil keybox resmi\" untuk mengunduhnya secara otomatis, atau impor milik Anda sendiri dari sumber tepercaya.\n2. Buka \"Kelola aplikasi target\" dan pilih aplikasi yang memerlukan pemeriksaan integritas.\n3. Atur mode target ke \"Leaf\" jika perangkat Anda memiliki TEE yang berfungsi; jika tidak, biarkan sebagai Otomatis.\n4. Periksa kembali status Integritas Play Anda.\n\nCatatan: Jika tidak ada keybox resmi yang valid, pengambilan otomatis akan dijeda selama 24 jam sebelum dicoba lagi. Selalu hapus keybox yang ada sebelum mengimpor yang baru.</string>
+    <string name="ts_patch_stale_warning">%1$s (basi, berumur 12 bulan ke atas)</string>
     <string name="ts_security_patch">Tanggal pembaruan keamanan</string>
     <string name="ts_no_patch">Tidak diatur (menggunakan default perangkat)</string>
     <string name="ts_select_target_apps">Pilih target aplikasi</string>
@@ -1160,6 +1345,7 @@
     <string name="ts_mode_auto">Otomatis</string>
     <string name="ts_mode_leaf">Leaf</string>
     <string name="ts_mode_cert">Sertifikat</string>
+    <string name="ts_mode_skip">Lewati</string>
     <string name="ts_verification_mode">Mode verifikasi</string>
     <string name="ts_verification_mode_auto">Otomatis</string>
     <string name="ts_verification_mode_cert">Sertifikat</string>
@@ -1194,7 +1380,7 @@
     <string name="ts_revocation_status">Periksa status pencabutan</string>
     <string name="ts_revocation_checking">Memeriksa status pencabutan…</string>
     <string name="ts_revocation_no_keybox">Tidak ada keybox terpasang</string>
-    <string name="ts_revocation_valid">Berlaku — tidak dicabut</string>
+    <string name="ts_revocation_valid">Tidak tercantum dalam daftar pencabutan Google</string>
     <string name="ts_revocation_revoked">Dicabut %s</string>
     <string name="ts_revocation_suspended">Ditangguhkan %s</string>
     <string name="ts_revocation_network_error">Tidak dapat terhubung ke server pencabutan</string>
@@ -1387,6 +1573,7 @@
     <string name="changelog_title">Catatan perubahan</string>
     <string name="changelog_summary">Lihat perubahan pada ROM</string>
     <string name="changelog_error">Tidak dapat memuat daftar perubahan</string>
+    <string name="changelog_error_no_official">Tidak tersedia catatan perubahan resmi untuk perangkat atau build ini. Kunjungi %1$s untuk informasi lebih lanjut.</string>
     <!-- Color picker -->
     <string name="dialog_color_picker">Pemilih warna</string>
     <string name="press_color_to_apply">Ketuk warna untuk menerapkannya</string>
@@ -1468,6 +1655,7 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Gesekan tiga jari</string>
     <string name="shake_gestures_enabled_title">Gestur Goyang</string>
+    <string name="shake_gestures_enabled_summary">Goyangkan perangkat Anda untuk melakukan tindakan</string>
     <string name="shake_gestures_action_title">Tindakan Gestur Goyang</string>
     <string name="shake_gestures_intensity_title">Sensitivitas goyang</string>
     <string name="shake_gestures_intensity_summary">Sesuaikan sensitivitas deteksi goyang</string>
@@ -1524,7 +1712,21 @@
     <string name="qs_show_volume_slider_title">Mode penggeser</string>
     <string name="qs_show_volume_slider_hide">Hanya penggeser kecerahan</string>
     <string name="qs_show_volume_slider_both">Penggeser kecerahan dan volume</string>
+    <string name="qs_show_volume_slider_below">Pengatur volume di bawah pengatur kecerahan</string>
     <string name="qs_show_volume_slider_only">Hanya penggeser volume</string>
     <string name="qs_show_ringer_mode_title">Mode dering</string>
     <string name="qs_show_ringer_mode_summary">Tampilkan ikon mode dering dengan penggeser volume</string>
+    <!-- Custom power menu style -->
+    <string name="global_actions_use_compose_dialog_title">Menu daya yang didesain ulang</string>
+    <string name="global_actions_use_compose_dialog_summary">Gunakan menu daya baru dengan tata letak ubin yang dapat disesuaikan dan digeser. Nonaktifkan untuk menggunakan menu daya klasik.</string>
+    <string name="global_actions_advanced_reboot_title">Aktifkan mulai ulang lanjutan</string>
+    <string name="global_actions_advanced_reboot_summary">Membuka dialog baru yang memungkinkan opsi mulai ulang tingkat lanjut</string>
+    <!-- Screenshots -->
+    <string name="screenshot_clipboard_only_title">Salin ke papan klip saja</string>
+    <string name="screenshot_clipboard_only_summary">Salin tangkapan layar ke papan klip, alih-alih menyimpannya di penyimpanan</string>
+    <string name="hide_status_bar_in_screenshot_title">Sembunyikan bilah status di tangkapan layar</string>
+    <string name="hide_status_bar_in_screenshot_summary">Potong area bilah status dari tangkapan layar penuh</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">Pembesaran wallpaper</string>
+    <string name="wallpaper_zoom_summary">Matikan untuk menampilkan wallpaper tanpa zoom tambahan</string>
 </resources>
