@@ -18,8 +18,16 @@
 
 <PreferenceScreen 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/pulse_settings_title">
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="pulse_preview"
+        android:layout="@layout/pulse_preview"
+        android:selectable="false"
+        app:allowDividerBelow="false"
+        settings:searchable="false" />
 
     <lineageos.preference.SecureSettingMainSwitchPreference
         android:key="lockscreen_pulse_enabled"
