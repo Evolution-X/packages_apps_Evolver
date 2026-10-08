@@ -546,6 +546,10 @@
     <string name="status_bar_clock_date_position">Położenie daty</string>
     <string name="status_bar_clock_date_right">Po prawej stronie zegara</string>
     <string name="status_bar_clock_date_left">Po lewej stronie zegara</string>
+    <string name="status_bar_clock_period_separator_title">Separator godziny</string>
+    <string name="status_bar_clock_period_separator_summary">Pokaż godzinę za pomocą kropki zamiast dwukropka (10.45 zamiast 10:45)</string>
+    <string name="status_bar_clock_bold_title">Pogrubiony zegar</string>
+    <string name="status_bar_clock_bold_summary">Pokaż zegar na pasku stanu pogrubioną czcionką</string>
     <string name="statusbar_clock_chip_title">Tło za zegarem</string>
     <string name="solid_accent">Jednolity akcent</string>
     <string name="outline">Obrys</string>
