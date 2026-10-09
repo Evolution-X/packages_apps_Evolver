@@ -570,10 +570,7 @@ private fun loadDrawableForStyle(context: android.content.Context, index: Int): 
         Log.w(TAG, "Boot animation zip not found for style $index: $zipPath")
         return null
     }
-    return if (BootAnimationUtils.isAnimatedImageStyle(index))
-        loadAnimatedImageFromZip(zipPath) ?: loadFramesFromPath(context, zipPath)
-    else
-        loadFramesFromPath(context, zipPath)
+    return loadFramesFromPath(context, zipPath)
 }
 
 private fun loadFramesFromPath(context: android.content.Context, zipPath: String): AnimationDrawable? {
@@ -624,26 +621,6 @@ private fun loadThumbnailForStyle(context: android.content.Context, index: Int):
 
     return runCatching {
         ZipFile(zipFile).use { zf ->
-            if (BootAnimationUtils.isAnimatedImageStyle(index)) {
-                val entries = zf.entries()
-                while (entries.hasMoreElements()) {
-                    val entry = entries.nextElement()
-                    val name = entry.name.lowercase()
-                    if (!name.contains("/") &&
-                        (name.endsWith(".webp") || name.endsWith(".gif"))
-                    ) {
-                        zf.getInputStream(entry).use { stream ->
-                            val bytes = stream.readBytes()
-                            val src = ImageDecoder.createSource(ByteBuffer.wrap(bytes))
-                            return ImageDecoder.decodeDrawable(src) { dec, _, _ ->
-                                dec.setPostProcessor(null)
-                            }
-                        }
-                    }
-                }
-                return null
-            }
-
             // PNG/JPG frame-based: find a meaningful first frame
             val framePattern = Pattern.compile(
                 "part\\d+/.*\\.(png|jpg)$", Pattern.CASE_INSENSITIVE,

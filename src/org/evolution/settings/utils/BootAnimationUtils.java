@@ -46,9 +46,7 @@ public class BootAnimationUtils {
 
     // Public style index constants — keep in sync with BOOT_ANIMATION_FILES order
     public static final int STYLE_DEFAULT            = 0;
-    public static final int STYLE_GOOGLE             = 7;
-    public static final int STYLE_GOOGLE_MONET       = 8;
-    public static final int STYLE_CUSTOM             = 13;
+    public static final int STYLE_CUSTOM             = 12;
 
     public static final String[] BOOT_ANIMATION_FILES = {
         "/product/media/bootanimation.zip",               // 0
@@ -59,12 +57,11 @@ public class BootAnimationUtils {
         "/product/media/bootanimation_cyberpunk.zip",     // 5
         "/product/media/bootanimation_du.zip",            // 6
         "/product/media/bootanimation_google.zip",        // 7
-        "/product/media/bootanimation_google_monet.zip",  // 8
-        "/product/media/bootanimation_pac.zip",           // 9
-        "/product/media/bootanimation_rr.zip",            // 10
-        "/product/media/bootanimation_slim.zip",          // 11
-        "/product/media/bootanimation_valorant.zip",      // 12
-        "/data/misc/bootanim/bootanimation.zip",          // 13 (custom/user-picked)
+        "/product/media/bootanimation_pac.zip",           // 8
+        "/product/media/bootanimation_rr.zip",            // 9
+        "/product/media/bootanimation_slim.zip",          // 10
+        "/product/media/bootanimation_valorant.zip",      // 11
+        "/data/misc/bootanim/bootanimation.zip",          // 12 (custom/user-picked)
     };
 
     /**
@@ -94,14 +91,6 @@ public class BootAnimationUtils {
             return BOOT_ANIMATION_FILES[style];
         }
         return null;
-    }
-
-    /**
-     * Returns true for styles that ship a single animated WebP/GIF at the
-     * zip root rather than a folder of PNG frames.
-     */
-    public static boolean isAnimatedImageStyle(int style) {
-        return style == STYLE_GOOGLE || style == STYLE_GOOGLE_MONET;
     }
 
     // -----------------------------------------------------------------------
