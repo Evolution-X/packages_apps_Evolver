@@ -1890,4 +1890,6 @@
     <string name="lock_glymps_category_preview_count">%1$d matching example(s) found</string>
     <string name="lock_glymps_original_quality_title">Original image quality</string>
     <string name="lock_glymps_original_quality_summary">4K/8K requires original images with those dimensions, not enlarged low-resolution pictures. Only compatible sources are searched; images can be downsampled for the phone display to protect memory. High resolutions may exceed the selected data or storage limits.</string>
+    <string name="lock_glymps_category_preview_search_hint">Search or enter a custom wallpaper theme</string>
+    <string name="lock_glymps_category_preview_search">Show sample images</string>
 </resources>
