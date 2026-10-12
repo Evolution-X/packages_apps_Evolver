@@ -1406,7 +1406,7 @@
     <string name="lock_glymps_selected_count">تم تحديد %1$d</string>
     <string name="lock_glymps_provider_strategy_title">استراتيجية المزودات</string>
     <string name="lock_glymps_api_keys_title">مفاتيح API للمزودات</string>
-    <string name="lock_glymps_api_keys_summary">مفاتيح اختيارية لـ Pexels وUnsplash وPixabay وتُحفظ على هذا الجهاز</string>
+    <string name="lock_glymps_api_keys_summary">يتطلب Pixabay مفتاح API، بينما تعمل Wallhaven وOpenverse وPicsum دون مفتاح</string>
     <string name="lock_glymps_api_keys_dialog_title">مفاتيح API للمزودات</string>
     <string name="lock_glymps_pexels_key_hint">مفتاح Pexels API</string>
     <string name="lock_glymps_unsplash_key_hint">مفتاح وصول Unsplash</string>
