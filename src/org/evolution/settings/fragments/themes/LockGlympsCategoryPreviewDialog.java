@@ -100,7 +100,7 @@ final class LockGlympsCategoryPreviewDialog {
         for (String token : categories.split(",")) {
             String value = token.trim();
             if (!value.isEmpty() && !mCategories.contains(value)
-                    && mCategories.size() < 32) {
+                    && mCategories.size() < 256) {
                 mCategories.add(value);
                 String title = mKnownLabels.get(value);
                 mLabels.add(title != null ? title : value.replace('_', ' '));
@@ -177,42 +177,97 @@ final class LockGlympsCategoryPreviewDialog {
             mStatus.setText(R.string.lock_glymps_category_preview_no_search_provider);
             return;
         }
-        mWorker.execute(() -> {
-            List<Example> examples = new ArrayList<>();
-            String query = category.replace('_', ' ');
-            try {
+        try {
+            mWorker.execute(() -> {
+                if (generation != mGeneration.get()) return;
+                List<Example> examples = new ArrayList<>();
+                String query = queryForCategory(category);
+
                 if (mProviders.contains("wallhaven")) {
-                    appendWallhaven(query, examples);
+                    try {
+                        appendWallhaven(query, examples);
+                    } catch (Exception ignored) {
+                        // Continue with Openverse even if Wallhaven fails.
+                    }
                 }
+                if (generation != mGeneration.get()
+                        || Thread.currentThread().isInterrupted()) return;
                 if (examples.size() < MAX_EXAMPLES && mProviders.contains("openverse")) {
-                    appendOpenverse(query, examples);
+                    try {
+                        appendOpenverse(query, examples);
+                    } catch (Exception ignored) {
+                        // Keep previously retrieved examples.
+                    }
                 }
-            } catch (Exception ignored) {
-                // A failed provider should not prevent a partial preview result.
-            }
-            for (Example example : examples) {
-                if (Thread.currentThread().isInterrupted()) break;
-                try {
-                    example.preview = decodeSmallThumbnail(
-                            fetchBytes(example.thumbnailUrl, MAX_THUMBNAIL_BYTES));
-                } catch (Exception ignored) {
-                    // Skip invalid or unreachable thumbnails.
-                }
-            }
-            mMain.post(() -> {
-                if (generation != mGeneration.get() || mDialog == null
-                        || !mDialog.isShowing()) return;
-                int displayed = 0;
                 for (Example example : examples) {
-                    if (example.preview == null) continue;
-                    addExample(example);
-                    displayed++;
+                    if (generation != mGeneration.get()
+                            || Thread.currentThread().isInterrupted()) return;
+                    try {
+                        example.preview = decodeSmallThumbnail(
+                                fetchBytes(example.thumbnailUrl, MAX_THUMBNAIL_BYTES));
+                    } catch (Exception ignored) {
+                        // A missing thumbnail must not crash Settings.
+                    }
                 }
-                mStatus.setText(displayed > 0
-                        ? mContext.getString(R.string.lock_glymps_category_preview_count, displayed)
-                        : mContext.getString(R.string.lock_glymps_category_preview_empty));
+                mMain.post(() -> {
+                    if (generation != mGeneration.get() || mDialog == null
+                            || !mDialog.isShowing()) return;
+                    int displayed = 0;
+                    for (Example example : examples) {
+                        if (example.preview == null) continue;
+                        addExample(example);
+                        displayed++;
+                    }
+                    mStatus.setText(displayed > 0
+                            ? mContext.getString(R.string.lock_glymps_category_preview_count,
+                                    displayed)
+                            : mContext.getString(R.string.lock_glymps_category_preview_empty));
+                });
             });
-        });
+        } catch (java.util.concurrent.RejectedExecutionException ignored) {
+            // Dialog closed before the pending selection was dispatched.
+        }
+    }
+
+    private String queryForCategory(String category) {
+        String query;
+        switch (category) {
+            case "amoled": query = "AMOLED pure black wallpaper"; break;
+            case "pure_black": query = "pure black dark wallpaper"; break;
+            case "oled": query = "OLED black wallpaper"; break;
+            case "dark_minimal": query = "dark minimal wallpaper"; break;
+            case "dark_abstract": query = "dark abstract wallpaper"; break;
+            case "night_nature": query = "night nature landscape"; break;
+            case "night_cities": query = "night city skyline"; break;
+            case "cyberpunk_cities": query = "cyberpunk futuristic city"; break;
+            case "cosmic_abstract": query = "cosmic space abstract"; break;
+            case "milky_way": query = "Milky Way night sky"; break;
+            case "ai": query = "artificial intelligence technology"; break;
+            case "jdm": query = "JDM cars"; break;
+            case "quranic_art": query = "Quran Islamic art"; break;
+            case "islamic": query = "Islamic art architecture"; break;
+            case "islamic_architecture": query = "Islamic mosque architecture"; break;
+            case "islamic_geometry": query = "Islamic geometric art"; break;
+            case "islamic_patterns": query = "Islamic geometric patterns"; break;
+            case "kaaba": query = "Kaaba Mecca"; break;
+            case "mecca": query = "Mecca mosque"; break;
+            case "medina": query = "Medina mosque"; break;
+            case "ramadan": query = "Ramadan Islamic"; break;
+            case "eid": query = "Eid Islamic"; break;
+            case "middle_east": query = "Middle East landscape architecture"; break;
+            case "abstract_3d": query = "3D abstract art"; break;
+            case "art_3d": query = "3D digital art"; break;
+            case "scifi_gaming": query = "science fiction gaming"; break;
+            default: query = category.replace('_', ' ');
+        }
+        String tone = Settings.System.getString(
+                mContext.getContentResolver(), "lock_glymps_tone");
+        if ("dark".equals(tone)) return query + " dark";
+        if ("amoled".equals(tone)) return query + " AMOLED black dark";
+        if ("light".equals(tone)) return query + " bright light";
+        if ("colorful".equals(tone)) return query + " colorful vibrant";
+        if ("monochrome".equals(tone)) return query + " monochrome black and white";
+        return query;
     }
 
     private int[] minimumBounds() {
