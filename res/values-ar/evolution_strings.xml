@@ -1713,7 +1713,7 @@
     <string name="lock_glymps_cache_limit_title">الحد الأقصى لمساحة الخلفيات المؤقتة</string>
     <string name="lock_glymps_daily_limit_title">الحد اليومي للتنزيل</string>
     <string name="lock_glymps_cache_policy_title">الحماية التلقائية لمساحة التخزين</string>
-    <string name="lock_glymps_cache_policy_summary">تُحذف الخلفيات المخزنة بعد 7 أيام، بحد 8 صور و12 ميغابايت للصورة و48 طلبًا يوميًا وبحد أقصى 128 ميغابايت من البيانات يوميًا. عند انخفاض المساحة أو بلوغ الحد، تتوقف التنزيلات وتُستخدم الصور المحلية أو المخزنة. لا حاجة إلى مفاتيح API.</string>
+    <string name="lock_glymps_cache_policy_summary">تنتهي صلاحية الخلفيات المخزنة بعد 7 أيام، بحد أقصى 8 صور. حد تنزيل الصورة 12 ميغابايت عادةً، أو 16 ميغابايت لـ4K و24 ميغابايت لـ8K الأصليتين. الشبكة محدودة بـ48 طلبًا يوميًا وبسقف تختاره بين 32 و128 ميغابايت يوميًا. تتوقف التنزيلات عند نقص المساحة أو بلوغ الحدود، مع بقاء الصور المحلية والمخزنة متاحة. دون مفاتيح API.</string>
     <string name="lock_glymps_charging_only_title">التنزيل أثناء الشحن فقط</string>
     <string name="lock_glymps_charging_only_summary">إيقاف تنزيل الخلفيات أثناء العمل على البطارية؛ تبقى الخلفيات المخزنة والمحلية متاحة</string>
     <string name="lock_glymps_safe_keyless_title">البحث الآمن (دون مفاتيح API)</string>
@@ -1738,4 +1738,5 @@
     <string name="lock_glymps_clear_cache_action">مسح الكاش</string>
     <string name="lock_glymps_clear_cache_requested">تم إرسال طلب مسح الكاش</string>
     <string name="lock_glymps_category_preview_paused">المعاينة متوقفة بسبب إعدادات Wi-Fi أو توفير الطاقة أو الشحن أو توفير البيانات.</string>
+    <string name="lock_glymps_category_preview_network_paused">المعاينة متوقفة بسبب إعدادات الشبكة أو الشحن أو توفير البيانات أو الطاقة.</string>
 </resources>
