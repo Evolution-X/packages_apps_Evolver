@@ -211,6 +211,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 "lock_glymps_sfw_only",
                 "lock_glymps_no_repeat",
                 "lock_glymps_charging_only",
+                "lock_glymps_pause_battery_saver",
                 "lock_glymps_cache_limit_mb",
                 "lock_glymps_daily_limit_mb"
         };
@@ -636,6 +637,11 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         if (mWifiOnlyPreference != null) {
             mWifiOnlyPreference.setVisible(hasOnlineProvider);
+        }
+
+        Preference batterySaver = findPreference("lock_glymps_pause_battery_saver");
+        if (batterySaver != null) {
+            batterySaver.setVisible(hasOnlineProvider);
         }
 
         Preference chargingOnly = findPreference("lock_glymps_charging_only");
