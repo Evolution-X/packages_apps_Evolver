@@ -767,7 +767,7 @@
     <string name="lock_glymps_cache_limit_title">Maximaler Speicher für Hintergrundbilder</string>
     <string name="lock_glymps_daily_limit_title">Tägliches Downloadlimit</string>
     <string name="lock_glymps_cache_policy_title">Automatischer Speicherschutz</string>
-    <string name="lock_glymps_cache_policy_summary">Zwischengespeicherte Bilder verfallen nach 7 Tagen. Höchstens 8 Bilder, 12 MB pro Bild, 48 Anfragen pro Tag und maximal 128 MB täglicher Netzwerkverkehr. Bei wenig Speicherplatz oder erreichtem Limit werden zwischengespeicherte oder lokale Bilder verwendet. Kein API-Schlüssel erforderlich.</string>
+    <string name="lock_glymps_cache_policy_summary">Zwischengespeicherte Bilder verfallen nach 7 Tagen, maximal 8 Bilder. Pro Download gelten 12 MB regulär, 16 MB für natives 4K und 24 MB für natives 8K. Höchstens 48 Netzwerkanfragen täglich sowie ein wählbares Datenlimit von 32 bis 128 MB. Bei wenig Speicherplatz oder erreichten Grenzen pausieren Downloads; lokale und gespeicherte Bilder bleiben verfügbar. Kein API-Schlüssel nötig.</string>
     <string name="lock_glymps_charging_only_title">Nur während des Ladens herunterladen</string>
     <string name="lock_glymps_charging_only_summary">Downloads im Akkubetrieb pausieren; zwischengespeicherte und lokale Bilder bleiben verfügbar</string>
     <string name="lock_glymps_safe_keyless_title">Sichere Suche ohne API-Schlüssel</string>
@@ -792,4 +792,5 @@
     <string name="lock_glymps_clear_cache_action">Cache leeren</string>
     <string name="lock_glymps_clear_cache_requested">Cache-Löschung angefordert</string>
     <string name="lock_glymps_category_preview_paused">Die Vorschau ist durch WLAN-, Energiespar-, Lade- oder Datenspareinstellungen pausiert.</string>
+    <string name="lock_glymps_category_preview_network_paused">Die Vorschau ist wegen Netzwerk-, Lade-, Datenspar- oder Energiesparregeln pausiert.</string>
 </resources>
