@@ -100,10 +100,19 @@ final class LockGlympsCategoryPreviewDialog {
         for (String token : categories.split(",")) {
             String value = token.trim();
             if (!value.isEmpty() && !mCategories.contains(value)
-                    && mCategories.size() < 256) {
+                    && mCategories.size() < 512) {
                 mCategories.add(value);
                 String title = mKnownLabels.get(value);
-                mLabels.add(title != null ? title : value.replace('_', ' '));
+                mLabels.add("✓ " + (title != null ? title : value.replace('_', ' ')));
+            }
+        }
+
+        // Let people inspect themes before selecting them. Custom user topics
+        // appear first, then every built-in catalog category.
+        for (String value : values) {
+            if (!mCategories.contains(value) && mCategories.size() < 512) {
+                mCategories.add(value);
+                mLabels.add(mKnownLabels.get(value));
             }
         }
 
