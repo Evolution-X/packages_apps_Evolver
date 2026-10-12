@@ -38,7 +38,7 @@
         android:title="@string/network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"
         android:dependency="network_traffic_enabled"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
 
     <org.evolution.settings.preferences.SystemSettingSeekBarPreference
         android:key="network_traffic_autohide_threshold"

@@ -89,6 +89,13 @@
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
 
+        <!-- Keep signal bars visible when hiding the LTE/5G network type badge. -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_show_network_type"
+            android:title="@string/status_bar_show_network_type_title"
+            android:summary="@string/status_bar_show_network_type_summary"
+            android:defaultValue="true" />
+
         <lineageos.preference.LineageSystemSettingListPreference
             android:key="status_bar_clock"
             android:title="@string/status_bar_clock_position_title"

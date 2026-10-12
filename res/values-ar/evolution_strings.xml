@@ -1679,4 +1679,7 @@
     <string name="screenshot_clipboard_only_summary">نسخ لقطة الشاشة إلى الحافظة بدل حفظها في مساحة التخزين</string>
     <string name="hide_status_bar_in_screenshot_title">إخفاء شريط الحالة في لقطات الشاشة</string>
     <string name="hide_status_bar_in_screenshot_summary">اقتصاص منطقة شريط الحالة من لقطات الشاشة الكاملة</string>
+    <!-- Mobile network type indicator -->
+    <string name="status_bar_show_network_type_title">إظهار نوع شبكة الهاتف</string>
+    <string name="status_bar_show_network_type_summary">إظهار رمز LTE أو 4G أو 5G بجانب أشرطة إشارة الهاتف</string>
 </resources>
