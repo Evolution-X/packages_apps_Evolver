@@ -1706,4 +1706,8 @@
     <string name="screenshot_clipboard_only_summary">نسخ لقطة الشاشة إلى الحافظة بدل حفظها في مساحة التخزين</string>
     <string name="hide_status_bar_in_screenshot_title">إخفاء شريط الحالة في لقطات الشاشة</string>
     <string name="hide_status_bar_in_screenshot_summary">اقتصاص منطقة شريط الحالة من لقطات الشاشة الكاملة</string>
+    <!-- Wallpaper Glymps free-source customization -->
+    <string name="lock_glymps_search_hint">ابحث عن نوع الخلفيات</string>
+    <string name="lock_glymps_custom_categories_hint">مواضيع من اختيارك (افصل بفاصلة، حتى 16 موضوعًا)</string>
+    <string name="lock_glymps_invalid_category">أدخل حتى 16 موضوعًا قصيرًا بالأحرف أو الأرقام أو الشرطات</string>
 </resources>
