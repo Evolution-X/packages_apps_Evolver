@@ -27,10 +27,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.net.Uri;
 import android.provider.Settings;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -46,6 +50,7 @@ import com.android.settingslib.search.SearchIndexable;
 import lineageos.preference.SystemSettingMainSwitchPreference;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -168,14 +173,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         mCategoriesPreference = findPreference(KEY_CATEGORIES);
         if (mCategoriesPreference != null) {
             mCategoriesPreference.setOnPreferenceClickListener(pref -> {
-                showMultiSelectDialog(
-                        KEY_CATEGORIES,
-                        R.array.lock_glymps_category_entries,
-                        R.array.lock_glymps_category_values,
-                        R.string.lock_glymps_select_categories_title,
-                        DEFAULT_CATEGORIES,
-                        pref,
-                        false);
+                showSearchableCategoriesDialog(pref);
                 return true;
             });
         }
@@ -338,6 +336,158 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         // the previous setting.
         scheduleServiceRefresh(context);
         return true;
+    }
+
+
+    /**
+     * Selecting from hundreds of wallpaper subjects must not require scrolling through
+     * the whole catalogue. The selected set is independent from the filtered rows so
+     * changing the search query never loses previously checked categories.
+     */
+    private void showSearchableCategoriesDialog(Preference preference) {
+        Context context = getActivity();
+        if (context == null) return;
+
+        CharSequence[] titles = getResources().getTextArray(
+                R.array.lock_glymps_category_entries);
+        String[] values = getResources().getStringArray(
+                R.array.lock_glymps_category_values);
+        LinkedHashSet<String> selected = new LinkedHashSet<>(
+                readCsvSetting(KEY_CATEGORIES, DEFAULT_CATEGORIES));
+        LinkedHashSet<String> knownValues = new LinkedHashSet<>();
+        for (String value : values) knownValues.add(value);
+
+        ArrayList<String> custom = new ArrayList<>();
+        for (String value : selected) {
+            if (!knownValues.contains(value)) {
+                custom.add(value.replace('_', ' '));
+            }
+        }
+
+        float density = getResources().getDisplayMetrics().density;
+        int padding = Math.round(16f * density);
+        LinearLayout content = new LinearLayout(context);
+        content.setOrientation(LinearLayout.VERTICAL);
+        content.setPadding(padding, 0, padding, 0);
+
+        EditText search = new EditText(context);
+        search.setSingleLine(true);
+        search.setHint(R.string.lock_glymps_search_hint);
+        content.addView(search, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+
+        ListView list = new ListView(context);
+        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        list.setFastScrollEnabled(true);
+        ArrayList<Integer> visibleIndexes = new ArrayList<>();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                context, android.R.layout.simple_list_item_multiple_choice,
+                new ArrayList<>());
+        list.setAdapter(adapter);
+        content.addView(list, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, Math.round(320f * density)));
+
+        EditText customInput = new EditText(context);
+        customInput.setHint(R.string.lock_glymps_custom_categories_hint);
+        customInput.setSingleLine(false);
+        customInput.setMaxLines(3);
+        customInput.setText(android.text.TextUtils.join(", ", custom));
+        content.addView(customInput, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+
+        Runnable render = () -> {
+            String filter = search.getText().toString().trim().toLowerCase(Locale.ROOT);
+            visibleIndexes.clear();
+            ArrayList<String> visible = new ArrayList<>();
+            for (int i = 0; i < titles.length && i < values.length; i++) {
+                String label = titles[i].toString();
+                if (label.toLowerCase(Locale.ROOT).contains(filter)
+                        || values[i].toLowerCase(Locale.ROOT).contains(filter)) {
+                    visibleIndexes.add(i);
+                    visible.add(label);
+                }
+            }
+            adapter.clear();
+            adapter.addAll(visible);
+            adapter.notifyDataSetChanged();
+            list.clearChoices();
+            for (int pos = 0; pos < visibleIndexes.size(); pos++) {
+                list.setItemChecked(pos,
+                        selected.contains(values[visibleIndexes.get(pos)]));
+            }
+        };
+        list.setOnItemClickListener((parent, row, position, id) -> {
+            if (position < 0 || position >= visibleIndexes.size()) return;
+            String value = values[visibleIndexes.get(position)];
+            if (list.isItemChecked(position)) {
+                selected.add(value);
+            } else {
+                selected.remove(value);
+            }
+        });
+        search.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(
+                    CharSequence text, int start, int count, int after) {}
+            @Override public void onTextChanged(
+                    CharSequence text, int start, int before, int count) {
+                render.run();
+            }
+            @Override public void afterTextChanged(Editable text) {}
+        });
+        render.run();
+
+        AlertDialog dialog = new AlertDialog.Builder(context)
+                .setTitle(R.string.lock_glymps_select_categories_title)
+                .setView(content)
+                .setPositiveButton(android.R.string.ok, null)
+                .setNegativeButton(android.R.string.cancel, null)
+                .create();
+        dialog.setOnShowListener(ignored ->
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                        .setOnClickListener(view -> {
+                            // Remove older free-text subjects before applying edits.
+                            selected.removeIf(value -> !knownValues.contains(value));
+                            String rawCustom = customInput.getText().toString();
+                            int extraCount = 0;
+                            for (String token : rawCustom.split(",")) {
+                                String value = token.trim().toLowerCase(Locale.ROOT)
+                                        .replace(' ', '_');
+                                if (value.isEmpty()) continue;
+                                if (extraCount >= 16 || value.length() > 64
+                                        || !value.matches("[\\p{L}\\p{N}_-]+")) {
+                                    Toast.makeText(context,
+                                            R.string.lock_glymps_invalid_category,
+                                            Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                if (selected.add(value)) extraCount++;
+                            }
+
+                            if (selected.isEmpty()) {
+                                Toast.makeText(context,
+                                        R.string.lock_glymps_selection_required,
+                                        Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            if (!Settings.System.putString(context.getContentResolver(),
+                                    KEY_CATEGORIES, joinCsv(selected))) {
+                                Toast.makeText(context,
+                                        R.string.lock_glymps_service_error,
+                                        Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                            updateMultiSelectSummary(preference, KEY_CATEGORIES,
+                                    DEFAULT_CATEGORIES,
+                                    R.array.lock_glymps_category_entries,
+                                    R.array.lock_glymps_category_values);
+                            scheduleServiceRefresh(context);
+                            schedulePreviewRefresh();
+                            dialog.dismiss();
+                        }));
+        dialog.show();
     }
 
     private void showMultiSelectDialog(
