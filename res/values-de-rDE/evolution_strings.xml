@@ -760,4 +760,8 @@
     <!-- Interface / Expressive Design -->
     <string name="expressive_design_title">Ausdrucksvolles Design</string>
     <string name="expressive_design_summary">Expressive Design-Vorschau aktivieren</string>
+    <!-- Wallpaper Glymps free-source customization -->
+    <string name="lock_glymps_search_hint">Hintergrundkategorien suchen</string>
+    <string name="lock_glymps_custom_categories_hint">Eigene Themen (durch Komma getrennt, bis zu 16)</string>
+    <string name="lock_glymps_invalid_category">Bis zu 16 kurze Themen mit Buchstaben, Zahlen oder Bindestrichen eingeben</string>
 </resources>
