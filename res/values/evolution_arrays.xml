@@ -2015,6 +2015,15 @@
         <item>underwater</item>
     </string-array>
 
+    <string-array name="lock_glymps_category_strategy_entries">
+        <item>@string/lock_glymps_category_strategy_ordered</item>
+        <item>@string/lock_glymps_category_strategy_random</item>
+    </string-array>
+    <string-array name="lock_glymps_category_strategy_values" translatable="false">
+        <item>round_robin</item>
+        <item>random</item>
+    </string-array>
+
     <string-array name="lock_glymps_provider_strategy_entries">
         <item>Balanced automatically</item>
         <item>Priority fallback</item>
