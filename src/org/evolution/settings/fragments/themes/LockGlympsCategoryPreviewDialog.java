@@ -19,6 +19,11 @@ package org.evolution.settings.fragments.themes;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.os.BatteryManager;
+import android.os.PowerManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
@@ -216,6 +221,10 @@ final class LockGlympsCategoryPreviewDialog {
             mStatus.setText(R.string.lock_glymps_category_preview_no_search_provider);
             return;
         }
+        if (!allowedByDownloadPolicy()) {
+            mStatus.setText(R.string.lock_glymps_category_preview_network_paused);
+            return;
+        }
         try {
             mWorker.execute(() -> {
                 if (generation != mGeneration.get()) return;
@@ -390,6 +399,45 @@ final class LockGlympsCategoryPreviewDialog {
         }
     }
 
+    /** Apply the same network, charging and Battery Saver preferences as the service. */
+    private boolean allowedByDownloadPolicy() {
+        PowerManager power = mContext.getSystemService(PowerManager.class);
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                "lock_glymps_pause_battery_saver", 1) != 0
+                && power != null && power.isPowerSaveMode()) {
+            return false;
+        }
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                "lock_glymps_charging_only", 0) != 0) {
+            BatteryManager battery = mContext.getSystemService(BatteryManager.class);
+            if (battery == null || !battery.isCharging()) return false;
+        }
+
+        ConnectivityManager connectivity = mContext.getSystemService(
+                ConnectivityManager.class);
+        if (connectivity == null) return false;
+        Network active = connectivity.getActiveNetwork();
+        if (active == null) return false;
+        NetworkCapabilities caps = connectivity.getNetworkCapabilities(active);
+        if (caps == null
+                || !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                || !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)) {
+            return false;
+        }
+        if (connectivity.isActiveNetworkMetered()
+                && connectivity.getRestrictBackgroundStatus()
+                    == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED) {
+            return false;
+        }
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                "lock_glymps_wifi_only", 1) != 0) {
+            return !connectivity.isActiveNetworkMetered()
+                    && caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                    && !caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR);
+        }
+        return true;
+    }
+
     private boolean reservePreviewRequest(int maximumBytes) {
         if (maximumBytes <= 0 || maximumBytes > MAX_THUMBNAIL_BYTES) return false;
         synchronized (PREVIEW_BUDGET_LOCK) {
@@ -420,6 +468,9 @@ final class LockGlympsCategoryPreviewDialog {
         }
         // Charge the maximum possible response bytes *before* opening a socket.
         // The allowance persists between Settings restarts and across dialogs.
+        if (!allowedByDownloadPolicy()) {
+            throw new java.io.IOException("Glymps preview disabled by network/power policy");
+        }
         if (!reservePreviewRequest(maxBytes)) {
             mPreviewLimitExceeded = true;
             throw new java.io.IOException("Daily Glymps preview budget exhausted");
