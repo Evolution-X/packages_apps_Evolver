@@ -783,4 +783,6 @@
     <string name="lock_glymps_category_preview_empty">Kein passendes Vorschaubild für dieses Thema und die Mindestauflösung gefunden.</string>
     <string name="lock_glymps_category_preview_no_search_provider">Wallhaven oder Openverse für Themenvorschauen aktivieren. Picsum und lokale Bilder unterstützen keine Themensuche.</string>
     <string name="lock_glymps_category_preview_count">%1$d passende Beispiele gefunden</string>
+    <string name="lock_glymps_original_quality_title">Originalauflösung der Bilder</string>
+    <string name="lock_glymps_original_quality_summary">4K/8K setzt echte Quellabmessungen voraus, keine hochskalierten Bilder. Es werden nur passende Quellen verwendet. Zur Schonung des Arbeitsspeichers kann die Ausgabe an das Display angepasst werden. Große Bilder können Daten- oder Speicherlimits überschreiten.</string>
 </resources>
