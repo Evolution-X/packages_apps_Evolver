@@ -1718,4 +1718,7 @@
     <string name="lock_glymps_charging_only_summary">إيقاف تنزيل الخلفيات أثناء العمل على البطارية؛ تبقى الخلفيات المخزنة والمحلية متاحة</string>
     <string name="lock_glymps_safe_keyless_title">البحث الآمن (دون مفاتيح API)</string>
     <string name="lock_glymps_safe_keyless_summary">تقتصر المصادر العامة المجانية على المحتوى الآمن. مطابقة نتائج البحث للفئات تقريبية ولا تضمن دقة التصنيف بالكامل.</string>
+    <string name="lock_glymps_category_strategy_title">ترتيب اختيار فئات الخلفيات</string>
+    <string name="lock_glymps_category_strategy_ordered">التناوب بين الفئات التي اخترتها</string>
+    <string name="lock_glymps_category_strategy_random">اختيار عشوائي دون تكرار الفئة مرتين متتاليتين</string>
 </resources>
