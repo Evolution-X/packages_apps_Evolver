@@ -1516,19 +1516,17 @@
 
     <!-- Wallpaper Glymps multi-source registry -->
     <string-array name="lock_glymps_provider_entries">
-        <item>Wallhaven</item>
-        <item>Picsum</item>
-        <item>Pexels</item>
-        <item>Unsplash</item>
-        <item>Pixabay</item>
+        <item>Wallhaven (free)</item>
+        <item>Openverse (public domain / CC0)</item>
+        <item>Picsum (free random photos)</item>
+        <item>Pixabay (requires API key)</item>
         <item>Custom URL list</item>
         <item>Local folder</item>
     </string-array>
     <string-array name="lock_glymps_provider_values" translatable="false">
         <item>wallhaven</item>
+        <item>openverse</item>
         <item>picsum</item>
-        <item>pexels</item>
-        <item>unsplash</item>
         <item>pixabay</item>
         <item>custom_urls</item>
         <item>local_folder</item>
