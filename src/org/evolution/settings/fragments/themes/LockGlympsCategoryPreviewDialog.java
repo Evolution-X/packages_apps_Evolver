@@ -172,6 +172,11 @@ final class LockGlympsCategoryPreviewDialog {
             String text = selector.getText().toString().trim();
             if (text.isEmpty()) return;
             int index = mLabels.indexOf(text);
+            if (index < 0 && (text.length() > 64
+                    || !text.matches("[\\p{L}\\p{N} _-]+"))) {
+                mStatus.setText(R.string.lock_glymps_invalid_category);
+                return;
+            }
             String value = index >= 0 ? mCategories.get(index)
                     : text.replace(' ', '_');
             load(value);
