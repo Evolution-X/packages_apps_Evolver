@@ -1896,4 +1896,5 @@
     <string name="lock_glymps_clear_cache_confirm">Remove downloaded Glymps images and provider response cache? No new images will be downloaded immediately after clearing.</string>
     <string name="lock_glymps_clear_cache_action">Clear cache</string>
     <string name="lock_glymps_clear_cache_requested">Cache removal requested</string>
+    <string name="lock_glymps_category_preview_paused">Preview is paused by your Wi-Fi, Battery Saver, charging, or Data Saver settings.</string>
 </resources>
