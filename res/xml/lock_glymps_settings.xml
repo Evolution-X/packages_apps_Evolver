@@ -37,11 +37,6 @@
             android:defaultValue="balanced" />
 
         <Preference
-            android:key="lock_glymps_api_keys"
-            android:title="@string/lock_glymps_api_keys_title"
-            android:summary="@string/lock_glymps_api_keys_summary" />
-
-        <Preference
             android:key="lock_glymps_custom_urls"
             android:title="@string/lock_glymps_custom_urls_title"
             android:summary="@string/lock_glymps_custom_urls_summary" />
@@ -150,6 +145,27 @@
             android:entries="@array/lock_glymps_cache_size_entries"
             android:entryValues="@array/lock_glymps_cache_size_values"
             android:defaultValue="5" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lock_glymps_cache_limit_mb"
+            android:title="@string/lock_glymps_cache_limit_title"
+            android:summary="%s"
+            android:entries="@array/lock_glymps_cache_limit_entries"
+            android:entryValues="@array/lock_glymps_cache_limit_values"
+            android:defaultValue="32" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="lock_glymps_daily_limit_mb"
+            android:title="@string/lock_glymps_daily_limit_title"
+            android:summary="%s"
+            android:entries="@array/lock_glymps_daily_limit_entries"
+            android:entryValues="@array/lock_glymps_daily_limit_values"
+            android:defaultValue="64" />
+
+        <Preference
+            android:title="@string/lock_glymps_cache_policy_title"
+            android:summary="@string/lock_glymps_cache_policy_summary"
+            android:selectable="false" />
 
     </PreferenceCategory>
 
