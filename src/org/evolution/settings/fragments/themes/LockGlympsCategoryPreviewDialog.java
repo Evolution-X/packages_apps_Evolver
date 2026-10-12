@@ -24,6 +24,11 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.os.BatteryManager;
 import android.os.PowerManager;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.os.BatteryManager;
+import android.os.PowerManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
@@ -89,6 +94,7 @@ final class LockGlympsCategoryPreviewDialog {
     private TextView mStatus;
     private GridLayout mGallery;
     private volatile boolean mPreviewLimitExceeded;
+    private volatile boolean mPreviewPausedByPolicy;
 
     static void show(Context context) {
         new LockGlympsCategoryPreviewDialog(context).open();
@@ -215,6 +221,7 @@ final class LockGlympsCategoryPreviewDialog {
     private void load(String category) {
         final int generation = mGeneration.incrementAndGet();
         mPreviewLimitExceeded = false;
+        mPreviewPausedByPolicy = false;
         mGallery.removeAllViews();
         mStatus.setText(R.string.lock_glymps_category_preview_loading);
         if (!mProviders.contains("wallhaven") && !mProviders.contains("openverse")) {
@@ -266,12 +273,15 @@ final class LockGlympsCategoryPreviewDialog {
                         addExample(example);
                         displayed++;
                     }
+                    int emptyLabel = mPreviewPausedByPolicy
+                            ? R.string.lock_glymps_category_preview_paused
+                            : mPreviewLimitExceeded
+                                    ? R.string.lock_glymps_category_preview_budget_reached
+                                    : R.string.lock_glymps_category_preview_empty;
                     mStatus.setText(displayed > 0
                             ? mContext.getString(R.string.lock_glymps_category_preview_count,
                                     displayed)
-                            : mContext.getString(mPreviewLimitExceeded
-                                    ? R.string.lock_glymps_category_preview_budget_reached
-                                    : R.string.lock_glymps_category_preview_empty));
+                            : mContext.getString(emptyLabel));
                 });
             });
         } catch (java.util.concurrent.RejectedExecutionException ignored) {
@@ -438,6 +448,46 @@ final class LockGlympsCategoryPreviewDialog {
         return true;
     }
 
+    /**
+     * A manual preview must respect the same power/data policy as background
+     * downloads. A separate preview budget still applies to manual requests.
+     */
+    private boolean isPreviewNetworkAllowed() {
+        PowerManager power = mContext.getSystemService(PowerManager.class);
+        boolean pauseInSaver = Settings.System.getInt(
+                mContext.getContentResolver(), "lock_glymps_pause_battery_saver", 1) != 0;
+        if (pauseInSaver && power != null && power.isPowerSaveMode()) {
+            return false;
+        }
+        boolean chargingOnly = Settings.System.getInt(
+                mContext.getContentResolver(), "lock_glymps_charging_only", 0) != 0;
+        if (chargingOnly) {
+            BatteryManager battery = mContext.getSystemService(BatteryManager.class);
+            if (battery == null || !battery.isCharging()) return false;
+        }
+
+        ConnectivityManager connectivity = mContext.getSystemService(ConnectivityManager.class);
+        if (connectivity == null) return false;
+        Network active = connectivity.getActiveNetwork();
+        if (active == null) return false;
+        NetworkCapabilities caps = connectivity.getNetworkCapabilities(active);
+        if (caps == null || !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+                || !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+            return false;
+        }
+        boolean metered = connectivity.isActiveNetworkMetered();
+        if (metered
+                && connectivity.getRestrictBackgroundStatus()
+                    == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED) {
+            return false;
+        }
+        boolean wifiOnly = Settings.System.getInt(
+                mContext.getContentResolver(), "lock_glymps_wifi_only", 1) != 0;
+        return !wifiOnly || (!metered
+                && caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                && !caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR));
+    }
+
     private boolean reservePreviewRequest(int maximumBytes) {
         if (maximumBytes <= 0 || maximumBytes > MAX_THUMBNAIL_BYTES) return false;
         synchronized (PREVIEW_BUDGET_LOCK) {
@@ -470,6 +520,10 @@ final class LockGlympsCategoryPreviewDialog {
         // The allowance persists between Settings restarts and across dialogs.
         if (!allowedByDownloadPolicy()) {
             throw new java.io.IOException("Glymps preview disabled by network/power policy");
+        }
+        if (!isPreviewNetworkAllowed()) {
+            mPreviewPausedByPolicy = true;
+            throw new java.io.IOException("Wallpaper preview blocked by power/network policy");
         }
         if (!reservePreviewRequest(maxBytes)) {
             mPreviewLimitExceeded = true;
