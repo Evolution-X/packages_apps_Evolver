@@ -1519,7 +1519,6 @@
         <item>Wallhaven (free)</item>
         <item>Openverse (public domain / CC0)</item>
         <item>Picsum (free random photos)</item>
-        <item>Pixabay (requires API key)</item>
         <item>Custom URL list</item>
         <item>Local folder</item>
     </string-array>
@@ -1527,7 +1526,6 @@
         <item>wallhaven</item>
         <item>openverse</item>
         <item>picsum</item>
-        <item>pixabay</item>
         <item>custom_urls</item>
         <item>local_folder</item>
     </string-array>
@@ -2108,15 +2106,37 @@
 
     <!-- Lock Glymps Cache Size -->
     <string-array name="lock_glymps_cache_size_entries">
-        <item>3 wallpapers (~30MB)</item>
-        <item>5 wallpapers (~50MB)</item>
-        <item>10 wallpapers (~100MB)</item>
+        <item>3 wallpapers</item>
+        <item>5 wallpapers</item>
+        <item>8 wallpapers</item>
     </string-array>
 
     <string-array name="lock_glymps_cache_size_values" translatable="false">
         <item>3</item>
         <item>5</item>
-        <item>10</item>
+        <item>8</item>
+    </string-array>
+
+    <string-array name="lock_glymps_cache_limit_entries">
+        <item>16 MB (minimal)</item>
+        <item>32 MB (recommended)</item>
+        <item>64 MB (maximum)</item>
+    </string-array>
+    <string-array name="lock_glymps_cache_limit_values" translatable="false">
+        <item>16</item>
+        <item>32</item>
+        <item>64</item>
+    </string-array>
+
+    <string-array name="lock_glymps_daily_limit_entries">
+        <item>32 MB per day (data saver)</item>
+        <item>64 MB per day (recommended)</item>
+        <item>128 MB per day (maximum)</item>
+    </string-array>
+    <string-array name="lock_glymps_daily_limit_values" translatable="false">
+        <item>32</item>
+        <item>64</item>
+        <item>128</item>
     </string-array>
 
     <string-array name="lock_glymps_change_on_entries">
