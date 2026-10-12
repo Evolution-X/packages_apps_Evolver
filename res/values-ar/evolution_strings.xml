@@ -1731,4 +1731,6 @@
     <string name="lock_glymps_category_preview_count">عُثر على %1$d عينة مطابقة</string>
     <string name="lock_glymps_original_quality_title">الدقة الأصلية للخلفيات</string>
     <string name="lock_glymps_original_quality_summary">يشترط اختيار 4K أو 8K أن تكون الصورة الأصلية بهذه الدقة، وليس تكبير صورة صغيرة. تُستخدم المصادر المتوافقة فقط، وقد تُصغّر الصورة عند عرضها لحماية الذاكرة. الدقات الكبيرة قد تتجاوز حدود البيانات أو التخزين المختارة.</string>
+    <string name="lock_glymps_category_preview_search_hint">ابحث أو اكتب نوع خلفية مخصصًا</string>
+    <string name="lock_glymps_category_preview_search">عرض عينات الصور</string>
 </resources>
