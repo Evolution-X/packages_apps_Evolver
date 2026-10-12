@@ -28,6 +28,11 @@
             android:title="@string/lock_glymps_categories_title"
             android:summary="@string/lock_glymps_categories_summary" />
 
+        <Preference
+            android:key="lock_glymps_category_preview_samples"
+            android:title="@string/lock_glymps_category_preview_title"
+            android:summary="@string/lock_glymps_category_preview_notice" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="lock_glymps_category_strategy"
             android:title="@string/lock_glymps_category_strategy_title"
