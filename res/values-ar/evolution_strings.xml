@@ -1721,4 +1721,6 @@
     <string name="lock_glymps_category_strategy_title">ترتيب اختيار فئات الخلفيات</string>
     <string name="lock_glymps_category_strategy_ordered">التناوب بين الفئات التي اخترتها</string>
     <string name="lock_glymps_category_strategy_random">اختيار عشوائي دون تكرار الفئة مرتين متتاليتين</string>
+    <string name="lock_glymps_pause_battery_saver_title">إيقاف التنزيل أثناء توفير الطاقة</string>
+    <string name="lock_glymps_pause_battery_saver_summary">إيقاف تنزيل الخلفيات الجديدة والجارية عند تفعيل توفير الطاقة، مع استمرار استخدام الخلفيات المحلية والمخزنة.</string>
 </resources>
