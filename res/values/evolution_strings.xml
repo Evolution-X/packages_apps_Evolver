@@ -1893,4 +1893,7 @@
     <string name="lock_glymps_category_preview_search_hint">Search or enter a custom wallpaper theme</string>
     <string name="lock_glymps_category_preview_search">Show sample images</string>
     <string name="lock_glymps_category_preview_budget_reached">Daily preview limit reached (16 MB or 48 requests). Try again tomorrow. Wallpaper rotation is unaffected.</string>
+    <string name="lock_glymps_clear_cache_confirm">Remove downloaded Glymps images and provider response cache? No new images will be downloaded immediately after clearing.</string>
+    <string name="lock_glymps_clear_cache_action">Clear cache</string>
+    <string name="lock_glymps_clear_cache_requested">Cache removal requested</string>
 </resources>
