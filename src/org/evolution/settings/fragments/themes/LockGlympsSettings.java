@@ -936,9 +936,9 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         if (context == null) return;
 
         new AlertDialog.Builder(context)
-                .setTitle("Clear Cache")
-                .setMessage("This will delete all cached wallpapers and they will be re-downloaded. Continue?")
-                .setPositiveButton("Clear", (dialog, which) -> {
+                .setTitle(R.string.lock_glymps_clear_cache_title)
+                .setMessage(R.string.lock_glymps_clear_cache_confirm)
+                .setPositiveButton(R.string.lock_glymps_clear_cache_action, (dialog, which) -> {
                     if (!sendGlympsCommand(context, ACTION_CLEAR_CACHE)) {
                         Toast.makeText(
                                 context,
@@ -947,8 +947,10 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                         return;
                     }
 
+                    // sendBroadcast is asynchronous: this confirms that the clear
+                    // request was sent, not that deletion has already completed.
                     Toast.makeText(context,
-                            "Cache cleared. New wallpapers will be downloaded.",
+                            R.string.lock_glymps_clear_cache_requested,
                             Toast.LENGTH_SHORT).show();
                 })
                 .setNegativeButton(android.R.string.cancel, null)
