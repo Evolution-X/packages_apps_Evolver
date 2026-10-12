@@ -1710,4 +1710,8 @@
     <string name="lock_glymps_search_hint">ابحث عن نوع الخلفيات</string>
     <string name="lock_glymps_custom_categories_hint">مواضيع من اختيارك (افصل بفاصلة، حتى 16 موضوعًا)</string>
     <string name="lock_glymps_invalid_category">أدخل حتى 16 موضوعًا قصيرًا بالأحرف أو الأرقام أو الشرطات</string>
+    <string name="lock_glymps_cache_limit_title">الحد الأقصى لمساحة الخلفيات المؤقتة</string>
+    <string name="lock_glymps_daily_limit_title">الحد اليومي للتنزيل</string>
+    <string name="lock_glymps_cache_policy_title">الحماية التلقائية لمساحة التخزين</string>
+    <string name="lock_glymps_cache_policy_summary">تُحذف الخلفيات المخزنة بعد 7 أيام، بحد 8 صور و12 ميغابايت للصورة و48 طلبًا يوميًا وبحد أقصى 128 ميغابايت من البيانات يوميًا. عند انخفاض المساحة أو بلوغ الحد، تتوقف التنزيلات وتُستخدم الصور المحلية أو المخزنة. لا حاجة إلى مفاتيح API.</string>
 </resources>
