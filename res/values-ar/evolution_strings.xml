@@ -1427,7 +1427,7 @@
     <string name="lock_glymps_invalid_urls_ignored">تم تجاهل %1$d من الروابط غير الصالحة</string>
 
     <string name="lock_glymps_custom_urls_title">إدارة الروابط المخصصة</string>
-    <string name="lock_glymps_custom_urls_summary">إضافة روابط خلفيات مخصصة أو إزالتها</string>
+    <string name="lock_glymps_custom_urls_summary">أضف روابط صور HTTPS مباشرة؛ روابط HTTP غير الآمنة غير مسموحة</string>
     <string name="lock_glymps_folder_title">مجلد محلي</string>
     <string name="lock_glymps_folder_summary">عرض المجلد المحلي وملفات الخلفيات المتاحة</string>
     <string name="lock_glymps_download_category">إعدادات التنزيل</string>
