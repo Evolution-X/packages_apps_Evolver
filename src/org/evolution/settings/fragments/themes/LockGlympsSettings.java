@@ -28,7 +28,6 @@ import android.os.Looper;
 import android.net.Uri;
 import android.provider.Settings;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -78,7 +77,6 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final long SERVICE_REFRESH_DELAY_MS = 150L;
     private static final int MAX_CUSTOM_URLS = 100;
     private static final int MAX_CUSTOM_URL_LENGTH = 4096;
-    private static final int MAX_API_KEY_LENGTH = 512;
 
     private static final String KEY_PREVIEW = "lock_glymps_preview";
     private static final String KEY_ENABLE = "lock_glymps_enabled";
@@ -89,7 +87,6 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_PROVIDERS = "lock_glymps_providers";
     private static final String KEY_CATEGORIES = "lock_glymps_categories";
     private static final String KEY_PROVIDER_STRATEGY = "lock_glymps_provider_strategy";
-    private static final String KEY_API_KEYS = "lock_glymps_api_keys";
 
     private static final String KEY_WALLPAPER_TARGET = "lock_glymps_wallpaper_target";
     private static final String KEY_CHANGE_ON = "lock_glymps_change_on";
@@ -100,19 +97,12 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_CLEAR_CACHE = "lock_glymps_clear_cache";
     private static final String KEY_FOLDER_INFO = "lock_glymps_folder_info";
 
-    private static final String KEY_PEXELS_API_KEY = "lock_glymps_pexels_api_key";
-    private static final String KEY_UNSPLASH_API_KEY = "lock_glymps_unsplash_api_key";
-    private static final String KEY_PIXABAY_API_KEY = "lock_glymps_pixabay_api_key";
-
     private static final String DEFAULT_PROVIDERS = "wallhaven,openverse";
     private static final String DEFAULT_CATEGORIES = "nature,amoled,space";
 
     private static final String PROVIDER_WALLHAVEN = "wallhaven";
     private static final String PROVIDER_OPENVERSE = "openverse";
     private static final String PROVIDER_PICSUM = "picsum";
-    private static final String PROVIDER_PEXELS = "pexels";
-    private static final String PROVIDER_UNSPLASH = "unsplash";
-    private static final String PROVIDER_PIXABAY = "pixabay";
     private static final String PROVIDER_CUSTOM_URLS = "custom_urls";
     private static final String PROVIDER_LOCAL_FOLDER = "local_folder";
 
@@ -122,7 +112,6 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private SystemSettingMainSwitchPreference mEnablePreference;
     private Preference mProvidersPreference;
     private Preference mCategoriesPreference;
-    private Preference mApiKeysPreference;
     private SystemSettingListPreference mProviderStrategyPreference;
     private SystemSettingListPreference mWallpaperTargetPreference;
     private SystemSettingListPreference mChangeOnPreference;
@@ -184,14 +173,6 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             mProviderStrategyPreference.setOnPreferenceChangeListener(this);
         }
 
-        mApiKeysPreference = findPreference(KEY_API_KEYS);
-        if (mApiKeysPreference != null) {
-            mApiKeysPreference.setOnPreferenceClickListener(pref -> {
-                showApiKeysDialog();
-                return true;
-            });
-        }
-
         mWallpaperTargetPreference = findPreference(KEY_WALLPAPER_TARGET);
         if (mWallpaperTargetPreference != null) {
             mWallpaperTargetPreference.setOnPreferenceChangeListener(this);
@@ -227,7 +208,9 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
                 "lock_glymps_tone",
                 "lock_glymps_order",
                 "lock_glymps_sfw_only",
-                "lock_glymps_no_repeat"
+                "lock_glymps_no_repeat",
+                "lock_glymps_cache_limit_mb",
+                "lock_glymps_daily_limit_mb"
         };
         for (String refreshKey : refreshKeys) {
             Preference refreshPreference = findPreference(refreshKey);
@@ -635,11 +618,9 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         boolean hasCustomUrls = providers.contains(PROVIDER_CUSTOM_URLS);
         boolean hasLocalFolder = providers.contains(PROVIDER_LOCAL_FOLDER);
-        boolean needsApiKey = providers.contains(PROVIDER_PIXABAY);
         boolean hasOnlineProvider = providers.contains(PROVIDER_WALLHAVEN)
                 || providers.contains(PROVIDER_OPENVERSE)
                 || providers.contains(PROVIDER_PICSUM)
-                || providers.contains(PROVIDER_PIXABAY)
                 || hasCustomUrls;
 
         if (mCustomUrlsPreference != null) {
@@ -649,10 +630,6 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         if (mFolderInfoPreference != null) {
             mFolderInfoPreference.setVisible(hasLocalFolder);
             if (hasLocalFolder) updateFolderInfo();
-        }
-
-        if (mApiKeysPreference != null) {
-            mApiKeysPreference.setVisible(needsApiKey);
         }
 
         if (mWifiOnlyPreference != null) {
@@ -666,55 +643,6 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         if (mClearCachePreference != null) {
             mClearCachePreference.setVisible(hasOnlineProvider);
         }
-    }
-
-    private void showApiKeysDialog() {
-        Context context = getActivity();
-        if (context == null) return;
-
-        // Pixabay is the only currently selectable provider that requires an API key.
-        // Keep older Pexels and Unsplash credentials untouched for compatibility,
-        // but do not offer integrations that cannot satisfy wallpaper API policies.
-        EditText pixabay = createApiKeyField(
-                context,
-                R.string.lock_glymps_pixabay_key_hint,
-                Settings.Secure.getString(context.getContentResolver(), KEY_PIXABAY_API_KEY));
-
-        LinearLayout container = new LinearLayout(context);
-        container.setOrientation(LinearLayout.VERTICAL);
-        int padding = (int) (20 * context.getResources().getDisplayMetrics().density);
-        container.setPadding(padding, padding / 2, padding, 0);
-        container.addView(pixabay);
-
-        new AlertDialog.Builder(context)
-                .setTitle(R.string.lock_glymps_api_keys_dialog_title)
-                .setView(container)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                    String next = sanitizeApiKey(pixabay.getText().toString());
-                    if (!Settings.Secure.putString(
-                            context.getContentResolver(), KEY_PIXABAY_API_KEY, next)) {
-                        Toast.makeText(context, R.string.lock_glymps_service_error,
-                                Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    scheduleServiceRefresh(context);
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
-    }
-
-    private EditText createApiKeyField(Context context, int hintRes, String value) {
-        EditText field = new EditText(context);
-        field.setHint(hintRes);
-        field.setSingleLine(true);
-        field.setInputType(
-                InputType.TYPE_CLASS_TEXT
-                        | InputType.TYPE_TEXT_VARIATION_PASSWORD
-                        | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-        field.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
-        field.setAutofillHints((String[]) null);
-        if (value != null) field.setText(value);
-        return field;
     }
 
     private void schedulePreviewRefresh() {
@@ -977,14 +905,6 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         return host != null
                 && !host.isEmpty()
                 && ("https".equalsIgnoreCase(scheme) || "http".equalsIgnoreCase(scheme));
-    }
-
-    private String sanitizeApiKey(String value) {
-        if (value == null) return "";
-        String trimmed = value.trim();
-        return trimmed.length() <= MAX_API_KEY_LENGTH
-                ? trimmed
-                : trimmed.substring(0, MAX_API_KEY_LENGTH);
     }
 
     private void clearCache() {
