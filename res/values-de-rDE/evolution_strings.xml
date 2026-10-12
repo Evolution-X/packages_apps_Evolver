@@ -788,4 +788,7 @@
     <string name="lock_glymps_category_preview_search_hint">Thema suchen oder eigenes Thema eingeben</string>
     <string name="lock_glymps_category_preview_search">Beispielbilder anzeigen</string>
     <string name="lock_glymps_category_preview_budget_reached">Tägliches Vorschaulimit erreicht (16 MB oder 48 Anfragen). Morgen erneut versuchen. Der Hintergrundbildwechsel bleibt unbeeinflusst.</string>
+    <string name="lock_glymps_clear_cache_confirm">Heruntergeladene Glymps-Bilder und zwischengespeicherte Quelldaten löschen? Anschließend werden keine Bilder sofort neu geladen.</string>
+    <string name="lock_glymps_clear_cache_action">Cache leeren</string>
+    <string name="lock_glymps_clear_cache_requested">Cache-Löschung angefordert</string>
 </resources>
