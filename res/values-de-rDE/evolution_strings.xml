@@ -772,4 +772,7 @@
     <string name="lock_glymps_charging_only_summary">Downloads im Akkubetrieb pausieren; zwischengespeicherte und lokale Bilder bleiben verfügbar</string>
     <string name="lock_glymps_safe_keyless_title">Sichere Suche ohne API-Schlüssel</string>
     <string name="lock_glymps_safe_keyless_summary">Kostenlose öffentliche Quellen liefern nur sichere Inhalte. Die Übereinstimmung mit gewählten Themen kann nicht vollständig garantiert werden.</string>
+    <string name="lock_glymps_category_strategy_title">Reihenfolge der Themenauswahl</string>
+    <string name="lock_glymps_category_strategy_ordered">Ausgewählte Themen reihum verwenden</string>
+    <string name="lock_glymps_category_strategy_random">Themen mischen, ohne direkte Wiederholung</string>
 </resources>
