@@ -760,4 +760,7 @@
     <!-- Interface / Expressive Design -->
     <string name="expressive_design_title">Ausdrucksvolles Design</string>
     <string name="expressive_design_summary">Expressive Design-Vorschau aktivieren</string>
+    <!-- Mobile network type indicator -->
+    <string name="status_bar_show_network_type_title">Mobilfunknetztyp anzeigen</string>
+    <string name="status_bar_show_network_type_summary">LTE-, 4G- oder 5G-Kennung neben dem Mobilfunksignal anzeigen</string>
 </resources>
