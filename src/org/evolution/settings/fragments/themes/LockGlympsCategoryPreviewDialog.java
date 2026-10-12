@@ -29,7 +29,8 @@ import android.widget.ArrayAdapter;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.AdapterView;
 
@@ -137,11 +138,27 @@ final class LockGlympsCategoryPreviewDialog {
         intro.setText(R.string.lock_glymps_category_preview_notice);
         layout.addView(intro);
 
-        Spinner selector = new Spinner(mContext);
+        AutoCompleteTextView selector = new AutoCompleteTextView(mContext);
+        selector.setSingleLine(true);
+        selector.setThreshold(1);
+        selector.setHint(R.string.lock_glymps_category_preview_search_hint);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                mContext, android.R.layout.simple_spinner_dropdown_item, mLabels);
+                mContext, android.R.layout.simple_dropdown_item_1line, mLabels);
         selector.setAdapter(adapter);
+        if (!mLabels.isEmpty()) selector.setText(mLabels.get(0), false);
         layout.addView(selector);
+
+        Button previewButton = new Button(mContext);
+        previewButton.setText(R.string.lock_glymps_category_preview_search);
+        layout.addView(previewButton);
+        previewButton.setOnClickListener(view -> {
+            String text = selector.getText().toString().trim();
+            if (text.isEmpty()) return;
+            int index = mLabels.indexOf(text);
+            String value = index >= 0 ? mCategories.get(index)
+                    : text.replace(' ', '_');
+            load(value);
+        });
 
         mStatus = new TextView(mContext);
         mStatus.setPadding(0, dp(12), 0, dp(8));
@@ -162,17 +179,23 @@ final class LockGlympsCategoryPreviewDialog {
             mGallery.removeAllViews();
         });
 
-        selector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, android.view.View view,
-                    int position, long id) {
-                if (position >= 0 && position < mCategories.size()) {
-                    load(mCategories.get(position));
-                }
-            }
-            @Override public void onNothingSelected(AdapterView<?> parent) {}
+        selector.setOnItemClickListener((parent, view, position, id) -> {
+            String chosen = String.valueOf(parent.getItemAtPosition(position));
+            int index = mLabels.indexOf(chosen);
+            if (index >= 0) load(mCategories.get(index));
         });
+        selector.setOnEditorActionListener((view, actionId, event) -> {
+            if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH) {
+                previewButton.performClick();
+                return true;
+            }
+            return false;
+        });
+        selector.setImeOptions(android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH);
         mDialog.show();
+        if (!mCategories.isEmpty()) {
+            load(mCategories.get(0));
+        }
         if (mCategories.isEmpty()) {
             mStatus.setText(R.string.lock_glymps_category_preview_empty);
         }
