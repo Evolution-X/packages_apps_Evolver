@@ -203,6 +203,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         }
 
         String[] refreshKeys = new String[] {
+                "lock_glymps_category_strategy",
                 "lock_glymps_min_resolution",
                 "lock_glymps_orientation",
                 "lock_glymps_tone",
