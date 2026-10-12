@@ -1873,4 +1873,8 @@
     <string name="lock_glymps_daily_limit_title">Daily download allowance</string>
     <string name="lock_glymps_cache_policy_title">Automatic storage protection</string>
     <string name="lock_glymps_cache_policy_summary">Stored wallpapers expire after 7 days. Up to 8 cached images, 12 MB per image, 48 requests per day and a maximum of 128 MB daily traffic. Glymps pauses downloads on low storage and reuses cached or local images when a limit is reached. No API keys required.</string>
+    <string name="lock_glymps_charging_only_title">Download only while charging</string>
+    <string name="lock_glymps_charging_only_summary">Keep wallpaper downloads paused on battery power; stored and local wallpapers still work</string>
+    <string name="lock_glymps_safe_keyless_title">Safe search (keyless sources)</string>
+    <string name="lock_glymps_safe_keyless_summary">Free public sources are limited to safe content. Their search results are best-effort and cannot guarantee perfect classification.</string>
 </resources>
