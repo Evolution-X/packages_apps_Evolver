@@ -104,10 +104,11 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_UNSPLASH_API_KEY = "lock_glymps_unsplash_api_key";
     private static final String KEY_PIXABAY_API_KEY = "lock_glymps_pixabay_api_key";
 
-    private static final String DEFAULT_PROVIDERS = "wallhaven";
+    private static final String DEFAULT_PROVIDERS = "wallhaven,openverse";
     private static final String DEFAULT_CATEGORIES = "nature,amoled,space";
 
     private static final String PROVIDER_WALLHAVEN = "wallhaven";
+    private static final String PROVIDER_OPENVERSE = "openverse";
     private static final String PROVIDER_PICSUM = "picsum";
     private static final String PROVIDER_PEXELS = "pexels";
     private static final String PROVIDER_UNSPLASH = "unsplash";
@@ -634,13 +635,10 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         boolean hasCustomUrls = providers.contains(PROVIDER_CUSTOM_URLS);
         boolean hasLocalFolder = providers.contains(PROVIDER_LOCAL_FOLDER);
-        boolean needsApiKey = providers.contains(PROVIDER_PEXELS)
-                || providers.contains(PROVIDER_UNSPLASH)
-                || providers.contains(PROVIDER_PIXABAY);
+        boolean needsApiKey = providers.contains(PROVIDER_PIXABAY);
         boolean hasOnlineProvider = providers.contains(PROVIDER_WALLHAVEN)
+                || providers.contains(PROVIDER_OPENVERSE)
                 || providers.contains(PROVIDER_PICSUM)
-                || providers.contains(PROVIDER_PEXELS)
-                || providers.contains(PROVIDER_UNSPLASH)
                 || providers.contains(PROVIDER_PIXABAY)
                 || hasCustomUrls;
 
@@ -674,65 +672,31 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         Context context = getActivity();
         if (context == null) return;
 
-        LinearLayout container = new LinearLayout(context);
-        container.setOrientation(LinearLayout.VERTICAL);
-        int padding = (int) (20 * context.getResources().getDisplayMetrics().density);
-        container.setPadding(padding, padding / 2, padding, 0);
-
-        EditText pexels = createApiKeyField(
-                context,
-                R.string.lock_glymps_pexels_key_hint,
-                Settings.Secure.getString(context.getContentResolver(), KEY_PEXELS_API_KEY));
-        EditText unsplash = createApiKeyField(
-                context,
-                R.string.lock_glymps_unsplash_key_hint,
-                Settings.Secure.getString(context.getContentResolver(), KEY_UNSPLASH_API_KEY));
+        // Pixabay is the only currently selectable provider that requires an API key.
+        // Keep older Pexels and Unsplash credentials untouched for compatibility,
+        // but do not offer integrations that cannot satisfy wallpaper API policies.
         EditText pixabay = createApiKeyField(
                 context,
                 R.string.lock_glymps_pixabay_key_hint,
                 Settings.Secure.getString(context.getContentResolver(), KEY_PIXABAY_API_KEY));
 
-        container.addView(pexels);
-        container.addView(unsplash);
+        LinearLayout container = new LinearLayout(context);
+        container.setOrientation(LinearLayout.VERTICAL);
+        int padding = (int) (20 * context.getResources().getDisplayMetrics().density);
+        container.setPadding(padding, padding / 2, padding, 0);
         container.addView(pixabay);
 
         new AlertDialog.Builder(context)
                 .setTitle(R.string.lock_glymps_api_keys_dialog_title)
                 .setView(container)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                    String oldPexels = Settings.Secure.getString(
-                            context.getContentResolver(), KEY_PEXELS_API_KEY);
-                    String oldUnsplash = Settings.Secure.getString(
-                            context.getContentResolver(), KEY_UNSPLASH_API_KEY);
-                    String oldPixabay = Settings.Secure.getString(
-                            context.getContentResolver(), KEY_PIXABAY_API_KEY);
-
-                    String newPexels = sanitizeApiKey(pexels.getText().toString());
-                    String newUnsplash = sanitizeApiKey(unsplash.getText().toString());
-                    String newPixabay = sanitizeApiKey(pixabay.getText().toString());
-
-                    boolean pexelsStored = Settings.Secure.putString(
-                            context.getContentResolver(), KEY_PEXELS_API_KEY, newPexels);
-                    boolean unsplashStored = Settings.Secure.putString(
-                            context.getContentResolver(), KEY_UNSPLASH_API_KEY, newUnsplash);
-                    boolean pixabayStored = Settings.Secure.putString(
-                            context.getContentResolver(), KEY_PIXABAY_API_KEY, newPixabay);
-
-                    if (!pexelsStored || !unsplashStored || !pixabayStored) {
-                        Log.e(TAG, "Unable to persist all Glymps API keys; rolling back");
-                        Settings.Secure.putString(
-                                context.getContentResolver(), KEY_PEXELS_API_KEY, oldPexels);
-                        Settings.Secure.putString(
-                                context.getContentResolver(), KEY_UNSPLASH_API_KEY, oldUnsplash);
-                        Settings.Secure.putString(
-                                context.getContentResolver(), KEY_PIXABAY_API_KEY, oldPixabay);
-                        Toast.makeText(
-                                context,
-                                R.string.lock_glymps_service_error,
+                    String next = sanitizeApiKey(pixabay.getText().toString());
+                    if (!Settings.Secure.putString(
+                            context.getContentResolver(), KEY_PIXABAY_API_KEY, next)) {
+                        Toast.makeText(context, R.string.lock_glymps_service_error,
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
-
                     scheduleServiceRefresh(context);
                 })
                 .setNegativeButton(android.R.string.cancel, null)
