@@ -1869,4 +1869,8 @@
     <string name="lock_glymps_search_hint">Search wallpaper categories</string>
     <string name="lock_glymps_custom_categories_hint">Your own themes (comma-separated, up to 16)</string>
     <string name="lock_glymps_invalid_category">Use up to 16 short themes with letters, numbers or hyphens</string>
+    <string name="lock_glymps_cache_limit_title">Maximum wallpaper cache space</string>
+    <string name="lock_glymps_daily_limit_title">Daily download allowance</string>
+    <string name="lock_glymps_cache_policy_title">Automatic storage protection</string>
+    <string name="lock_glymps_cache_policy_summary">Stored wallpapers expire after 7 days. Up to 8 cached images, 12 MB per image, 48 requests per day and a maximum of 128 MB daily traffic. Glymps pauses downloads on low storage and reuses cached or local images when a limit is reached. No API keys required.</string>
 </resources>
