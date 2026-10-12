@@ -81,6 +81,11 @@
             android:entryValues="@array/lock_glymps_resolution_values"
             android:defaultValue="auto" />
 
+        <Preference
+            android:title="@string/lock_glymps_original_quality_title"
+            android:summary="@string/lock_glymps_original_quality_summary"
+            android:selectable="false" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="lock_glymps_orientation"
             android:title="@string/lock_glymps_orientation_title"
