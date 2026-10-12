@@ -768,4 +768,8 @@
     <string name="lock_glymps_daily_limit_title">Tägliches Downloadlimit</string>
     <string name="lock_glymps_cache_policy_title">Automatischer Speicherschutz</string>
     <string name="lock_glymps_cache_policy_summary">Zwischengespeicherte Bilder verfallen nach 7 Tagen. Höchstens 8 Bilder, 12 MB pro Bild, 48 Anfragen pro Tag und maximal 128 MB täglicher Netzwerkverkehr. Bei wenig Speicherplatz oder erreichtem Limit werden zwischengespeicherte oder lokale Bilder verwendet. Kein API-Schlüssel erforderlich.</string>
+    <string name="lock_glymps_charging_only_title">Nur während des Ladens herunterladen</string>
+    <string name="lock_glymps_charging_only_summary">Downloads im Akkubetrieb pausieren; zwischengespeicherte und lokale Bilder bleiben verfügbar</string>
+    <string name="lock_glymps_safe_keyless_title">Sichere Suche ohne API-Schlüssel</string>
+    <string name="lock_glymps_safe_keyless_summary">Kostenlose öffentliche Quellen liefern nur sichere Inhalte. Die Übereinstimmung mit gewählten Themen kann nicht vollständig garantiert werden.</string>
 </resources>
