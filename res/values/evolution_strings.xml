@@ -1842,4 +1842,7 @@
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Wallpaper zoom</string>
     <string name="wallpaper_zoom_summary">Turn off to show the wallpaper without extra zoom</string>
+    <!-- Mobile network type indicator -->
+    <string name="status_bar_show_network_type_title">Show mobile network type</string>
+    <string name="status_bar_show_network_type_summary">Show LTE, 4G or 5G next to the mobile signal bars</string>
 </resources>
