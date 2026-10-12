@@ -18,6 +18,7 @@ package org.evolution.settings.fragments.themes;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
@@ -65,6 +66,10 @@ final class LockGlympsCategoryPreviewDialog {
     private static final int MAX_METADATA_BYTES = 256 * 1024;
     private static final int MAX_THUMBNAIL_BYTES = 384 * 1024;
     private static final int MAX_PREVIEW_SIDE_PX = 256;
+    private static final int MAX_DAILY_PREVIEW_REQUESTS = 48;
+    private static final long MAX_DAILY_PREVIEW_BYTES = 16L * 1024 * 1024;
+    private static final String PREVIEW_BUDGET_PREFS = "glymps_preview_budget";
+    private static final Object PREVIEW_BUDGET_LOCK = new Object();
 
     private final Context mContext;
     private final Handler mMain = new Handler(Looper.getMainLooper());
@@ -78,6 +83,7 @@ final class LockGlympsCategoryPreviewDialog {
     private AlertDialog mDialog;
     private TextView mStatus;
     private GridLayout mGallery;
+    private volatile boolean mPreviewLimitExceeded;
 
     static void show(Context context) {
         new LockGlympsCategoryPreviewDialog(context).open();
@@ -203,6 +209,7 @@ final class LockGlympsCategoryPreviewDialog {
 
     private void load(String category) {
         final int generation = mGeneration.incrementAndGet();
+        mPreviewLimitExceeded = false;
         mGallery.removeAllViews();
         mStatus.setText(R.string.lock_glymps_category_preview_loading);
         if (!mProviders.contains("wallhaven") && !mProviders.contains("openverse")) {
@@ -253,7 +260,9 @@ final class LockGlympsCategoryPreviewDialog {
                     mStatus.setText(displayed > 0
                             ? mContext.getString(R.string.lock_glymps_category_preview_count,
                                     displayed)
-                            : mContext.getString(R.string.lock_glymps_category_preview_empty));
+                            : mContext.getString(mPreviewLimitExceeded
+                                    ? R.string.lock_glymps_category_preview_budget_reached
+                                    : R.string.lock_glymps_category_preview_empty));
                 });
             });
         } catch (java.util.concurrent.RejectedExecutionException ignored) {
@@ -381,12 +390,39 @@ final class LockGlympsCategoryPreviewDialog {
         }
     }
 
-    private static byte[] fetchBytes(String url, int maxBytes) throws Exception {
+    private boolean reservePreviewRequest(int maximumBytes) {
+        if (maximumBytes <= 0 || maximumBytes > MAX_THUMBNAIL_BYTES) return false;
+        synchronized (PREVIEW_BUDGET_LOCK) {
+            SharedPreferences prefs = mContext.getSharedPreferences(
+                    PREVIEW_BUDGET_PREFS, Context.MODE_PRIVATE);
+            long today = System.currentTimeMillis() / (24L * 60 * 60 * 1000);
+            long day = prefs.getLong("day", -1L);
+            int requests = day == today ? prefs.getInt("requests", 0) : 0;
+            long bytes = day == today ? prefs.getLong("reserved_bytes", 0L) : 0L;
+            // A manual clock rollback must not reset a previously consumed allowance.
+            if (day > today) return false;
+            if (requests >= MAX_DAILY_PREVIEW_REQUESTS
+                    || bytes > MAX_DAILY_PREVIEW_BYTES - maximumBytes) {
+                return false;
+            }
+            return prefs.edit().putLong("day", today)
+                    .putInt("requests", requests + 1)
+                    .putLong("reserved_bytes", bytes + maximumBytes).commit();
+        }
+    }
+
+    private byte[] fetchBytes(String url, int maxBytes) throws Exception {
         // No redirects, arbitrary user hosts, remote file writes or full-size images.
         if (!(url.startsWith("https://wallhaven.cc/api/v1/")
                 || url.startsWith("https://api.openverse.org/v1/images/")
                 || url.startsWith("https://th.wallhaven.cc/"))) {
             throw new java.io.IOException("Untrusted thumbnail host");
+        }
+        // Charge the maximum possible response bytes *before* opening a socket.
+        // The allowance persists between Settings restarts and across dialogs.
+        if (!reservePreviewRequest(maxBytes)) {
+            mPreviewLimitExceeded = true;
+            throw new java.io.IOException("Daily Glymps preview budget exhausted");
         }
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setInstanceFollowRedirects(false);
