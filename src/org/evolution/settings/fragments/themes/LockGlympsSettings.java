@@ -928,7 +928,9 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         return host != null
                 && !host.isEmpty()
-                && ("https".equalsIgnoreCase(scheme) || "http".equalsIgnoreCase(scheme));
+                && "https".equalsIgnoreCase(scheme)
+                && (uri.getPort() == -1 || uri.getPort() == 443)
+                && uri.getUserInfo() == null;
     }
 
     private void clearCache() {
