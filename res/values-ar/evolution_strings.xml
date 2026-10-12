@@ -1714,4 +1714,8 @@
     <string name="lock_glymps_daily_limit_title">الحد اليومي للتنزيل</string>
     <string name="lock_glymps_cache_policy_title">الحماية التلقائية لمساحة التخزين</string>
     <string name="lock_glymps_cache_policy_summary">تُحذف الخلفيات المخزنة بعد 7 أيام، بحد 8 صور و12 ميغابايت للصورة و48 طلبًا يوميًا وبحد أقصى 128 ميغابايت من البيانات يوميًا. عند انخفاض المساحة أو بلوغ الحد، تتوقف التنزيلات وتُستخدم الصور المحلية أو المخزنة. لا حاجة إلى مفاتيح API.</string>
+    <string name="lock_glymps_charging_only_title">التنزيل أثناء الشحن فقط</string>
+    <string name="lock_glymps_charging_only_summary">إيقاف تنزيل الخلفيات أثناء العمل على البطارية؛ تبقى الخلفيات المخزنة والمحلية متاحة</string>
+    <string name="lock_glymps_safe_keyless_title">البحث الآمن (دون مفاتيح API)</string>
+    <string name="lock_glymps_safe_keyless_summary">تقتصر المصادر العامة المجانية على المحتوى الآمن. مطابقة نتائج البحث للفئات تقريبية ولا تضمن دقة التصنيف بالكامل.</string>
 </resources>
