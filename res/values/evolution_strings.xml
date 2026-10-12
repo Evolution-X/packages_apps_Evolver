@@ -1872,7 +1872,7 @@
     <string name="lock_glymps_cache_limit_title">Maximum wallpaper cache space</string>
     <string name="lock_glymps_daily_limit_title">Daily download allowance</string>
     <string name="lock_glymps_cache_policy_title">Automatic storage protection</string>
-    <string name="lock_glymps_cache_policy_summary">Stored wallpapers expire after 7 days. Up to 8 cached images, 12 MB per image, 48 requests per day and a maximum of 128 MB daily traffic. Glymps pauses downloads on low storage and reuses cached or local images when a limit is reached. No API keys required.</string>
+    <string name="lock_glymps_cache_policy_summary">Stored wallpapers expire after 7 days. Up to 8 cached images, with image download caps of 12 MB normally, 16 MB for native 4K and 24 MB for native 8K. Network usage is restricted to 48 requests per day and the configured 32–128 MB daily limit. Downloads pause on low storage or when limits are reached; local and cached wallpapers remain available. No API keys needed.</string>
     <string name="lock_glymps_charging_only_title">Download only while charging</string>
     <string name="lock_glymps_charging_only_summary">Keep wallpaper downloads paused on battery power; stored and local wallpapers still work</string>
     <string name="lock_glymps_safe_keyless_title">Safe search (keyless sources)</string>
@@ -1897,4 +1897,5 @@
     <string name="lock_glymps_clear_cache_action">Clear cache</string>
     <string name="lock_glymps_clear_cache_requested">Cache removal requested</string>
     <string name="lock_glymps_category_preview_paused">Preview is paused by your Wi-Fi, Battery Saver, charging, or Data Saver settings.</string>
+    <string name="lock_glymps_category_preview_network_paused">Preview is paused by your network, charging, Data Saver or Battery Saver settings.</string>
 </resources>
