@@ -1723,4 +1723,10 @@
     <string name="lock_glymps_category_strategy_random">اختيار عشوائي دون تكرار الفئة مرتين متتاليتين</string>
     <string name="lock_glymps_pause_battery_saver_title">إيقاف التنزيل أثناء توفير الطاقة</string>
     <string name="lock_glymps_pause_battery_saver_summary">إيقاف تنزيل الخلفيات الجديدة والجارية عند تفعيل توفير الطاقة، مع استمرار استخدام الخلفيات المحلية والمخزنة.</string>
+    <string name="lock_glymps_category_preview_title">معاينة فئات الخلفيات المختارة</string>
+    <string name="lock_glymps_category_preview_notice">عينات مصغرة من المصادر القابلة للبحث والمفعلة. لا تُغيّر المعاينة الخلفية الحالية وقد تختلف النتائج المقبلة، وتستخدم بيانات محدودة.</string>
+    <string name="lock_glymps_category_preview_loading">جار البحث عن صور آمنة ومطابقة…</string>
+    <string name="lock_glymps_category_preview_empty">لا تتوفر عينة مطابقة لهذه الفئة وحد الدقة المختار.</string>
+    <string name="lock_glymps_category_preview_no_search_provider">فعّل Wallhaven أو Openverse لمعاينة الفئات. لا يدعم Picsum أو الصور المحلية البحث حسب الفئة.</string>
+    <string name="lock_glymps_category_preview_count">عُثر على %1$d عينة مطابقة</string>
 </resources>
