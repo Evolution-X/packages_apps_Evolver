@@ -775,4 +775,6 @@
     <string name="lock_glymps_category_strategy_title">Reihenfolge der Themenauswahl</string>
     <string name="lock_glymps_category_strategy_ordered">Ausgewählte Themen reihum verwenden</string>
     <string name="lock_glymps_category_strategy_random">Themen mischen, ohne direkte Wiederholung</string>
+    <string name="lock_glymps_pause_battery_saver_title">Downloads im Energiesparmodus pausieren</string>
+    <string name="lock_glymps_pause_battery_saver_summary">Neue und laufende Hintergrundbild-Downloads im Energiesparmodus stoppen. Gespeicherte und lokale Bilder bleiben verfügbar.</string>
 </resources>
