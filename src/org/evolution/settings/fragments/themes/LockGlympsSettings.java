@@ -168,6 +168,17 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             });
         }
 
+        Preference categorySamples = findPreference(
+                "lock_glymps_category_preview_samples");
+        if (categorySamples != null) {
+            categorySamples.setOnPreferenceClickListener(preference -> {
+                if (getActivity() != null) {
+                    LockGlympsCategoryPreviewDialog.show(getActivity());
+                }
+                return true;
+            });
+        }
+
         mProviderStrategyPreference = findPreference(KEY_PROVIDER_STRATEGY);
         if (mProviderStrategyPreference != null) {
             mProviderStrategyPreference.setOnPreferenceChangeListener(this);
