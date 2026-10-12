@@ -1880,4 +1880,6 @@
     <string name="lock_glymps_category_strategy_title">Theme selection order</string>
     <string name="lock_glymps_category_strategy_ordered">Cycle through my themes</string>
     <string name="lock_glymps_category_strategy_random">Shuffle themes without immediate repeats</string>
+    <string name="lock_glymps_pause_battery_saver_title">Pause downloads in Battery Saver</string>
+    <string name="lock_glymps_pause_battery_saver_summary">Stop new and ongoing wallpaper downloads in power-saving mode. Cached and local wallpapers remain available.</string>
 </resources>
