@@ -448,46 +448,6 @@ final class LockGlympsCategoryPreviewDialog {
         return true;
     }
 
-    /**
-     * A manual preview must respect the same power/data policy as background
-     * downloads. A separate preview budget still applies to manual requests.
-     */
-    private boolean isPreviewNetworkAllowed() {
-        PowerManager power = mContext.getSystemService(PowerManager.class);
-        boolean pauseInSaver = Settings.System.getInt(
-                mContext.getContentResolver(), "lock_glymps_pause_battery_saver", 1) != 0;
-        if (pauseInSaver && power != null && power.isPowerSaveMode()) {
-            return false;
-        }
-        boolean chargingOnly = Settings.System.getInt(
-                mContext.getContentResolver(), "lock_glymps_charging_only", 0) != 0;
-        if (chargingOnly) {
-            BatteryManager battery = mContext.getSystemService(BatteryManager.class);
-            if (battery == null || !battery.isCharging()) return false;
-        }
-
-        ConnectivityManager connectivity = mContext.getSystemService(ConnectivityManager.class);
-        if (connectivity == null) return false;
-        Network active = connectivity.getActiveNetwork();
-        if (active == null) return false;
-        NetworkCapabilities caps = connectivity.getNetworkCapabilities(active);
-        if (caps == null || !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
-                || !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-            return false;
-        }
-        boolean metered = connectivity.isActiveNetworkMetered();
-        if (metered
-                && connectivity.getRestrictBackgroundStatus()
-                    == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED) {
-            return false;
-        }
-        boolean wifiOnly = Settings.System.getInt(
-                mContext.getContentResolver(), "lock_glymps_wifi_only", 1) != 0;
-        return !wifiOnly || (!metered
-                && caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
-                && !caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR));
-    }
-
     private boolean reservePreviewRequest(int maximumBytes) {
         if (maximumBytes <= 0 || maximumBytes > MAX_THUMBNAIL_BYTES) return false;
         synchronized (PREVIEW_BUDGET_LOCK) {
@@ -519,9 +479,6 @@ final class LockGlympsCategoryPreviewDialog {
         // Charge the maximum possible response bytes *before* opening a socket.
         // The allowance persists between Settings restarts and across dialogs.
         if (!allowedByDownloadPolicy()) {
-            throw new java.io.IOException("Glymps preview disabled by network/power policy");
-        }
-        if (!isPreviewNetworkAllowed()) {
             mPreviewPausedByPolicy = true;
             throw new java.io.IOException("Wallpaper preview blocked by power/network policy");
         }
