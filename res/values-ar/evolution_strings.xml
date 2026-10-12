@@ -1734,4 +1734,7 @@
     <string name="lock_glymps_category_preview_search_hint">ابحث أو اكتب نوع خلفية مخصصًا</string>
     <string name="lock_glymps_category_preview_search">عرض عينات الصور</string>
     <string name="lock_glymps_category_preview_budget_reached">بلغت المعاينة الحد اليومي (16 ميغابايت أو 48 طلبًا). حاول غدًا. لا يتأثر تغيير الخلفيات.</string>
+    <string name="lock_glymps_clear_cache_confirm">هل تريد حذف صور Glymps المحمّلة والبيانات المؤقتة للمصادر؟ لن يبدأ تنزيل صور جديدة فور مسح الكاش.</string>
+    <string name="lock_glymps_clear_cache_action">مسح الكاش</string>
+    <string name="lock_glymps_clear_cache_requested">تم إرسال طلب مسح الكاش</string>
 </resources>
