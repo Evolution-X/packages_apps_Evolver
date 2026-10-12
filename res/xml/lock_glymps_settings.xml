@@ -92,11 +92,12 @@
             android:entryValues="@array/lock_glymps_order_values"
             android:defaultValue="latest" />
 
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="lock_glymps_sfw_only"
-            android:title="@string/lock_glymps_sfw_only_title"
-            android:summary="@string/lock_glymps_sfw_only_summary"
-            android:defaultValue="true" />
+        <!-- The keyless public sources support safe search only. Don't offer
+             a switch that appears to allow unsupported adult content. -->
+        <Preference
+            android:title="@string/lock_glymps_safe_keyless_title"
+            android:summary="@string/lock_glymps_safe_keyless_summary"
+            android:selectable="false" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lock_glymps_no_repeat"
@@ -137,6 +138,12 @@
             android:title="@string/lock_glymps_wifi_only_title"
             android:summary="@string/lock_glymps_wifi_only_summary"
             android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lock_glymps_charging_only"
+            android:title="@string/lock_glymps_charging_only_title"
+            android:summary="@string/lock_glymps_charging_only_summary"
+            android:defaultValue="false" />
 
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="lock_glymps_cache_size"
