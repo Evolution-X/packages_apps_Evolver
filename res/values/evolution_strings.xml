@@ -1516,7 +1516,7 @@
     <string name="lock_glymps_invalid_urls_ignored">%1$d invalid URL(s) were ignored</string>
 
     <string name="lock_glymps_custom_urls_title">Manage custom URLs</string>
-    <string name="lock_glymps_custom_urls_summary">Add or remove custom wallpaper URLs</string>
+    <string name="lock_glymps_custom_urls_summary">Add direct HTTPS image links (port 443); insecure HTTP links are blocked</string>
     <string name="lock_glymps_folder_title">Local folder</string>
     <string name="lock_glymps_folder_summary">View the local folder and available wallpaper files</string>
     <string name="lock_glymps_download_category">Download settings</string>
