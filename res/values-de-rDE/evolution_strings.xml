@@ -764,4 +764,8 @@
     <string name="lock_glymps_search_hint">Hintergrundkategorien suchen</string>
     <string name="lock_glymps_custom_categories_hint">Eigene Themen (durch Komma getrennt, bis zu 16)</string>
     <string name="lock_glymps_invalid_category">Bis zu 16 kurze Themen mit Buchstaben, Zahlen oder Bindestrichen eingeben</string>
+    <string name="lock_glymps_cache_limit_title">Maximaler Speicher für Hintergrundbilder</string>
+    <string name="lock_glymps_daily_limit_title">Tägliches Downloadlimit</string>
+    <string name="lock_glymps_cache_policy_title">Automatischer Speicherschutz</string>
+    <string name="lock_glymps_cache_policy_summary">Zwischengespeicherte Bilder verfallen nach 7 Tagen. Höchstens 8 Bilder, 12 MB pro Bild, 48 Anfragen pro Tag und maximal 128 MB täglicher Netzwerkverkehr. Bei wenig Speicherplatz oder erreichtem Limit werden zwischengespeicherte oder lokale Bilder verwendet. Kein API-Schlüssel erforderlich.</string>
 </resources>
