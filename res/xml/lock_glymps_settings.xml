@@ -148,6 +148,12 @@
             android:defaultValue="true" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="lock_glymps_pause_battery_saver"
+            android:title="@string/lock_glymps_pause_battery_saver_title"
+            android:summary="@string/lock_glymps_pause_battery_saver_summary"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lock_glymps_charging_only"
             android:title="@string/lock_glymps_charging_only_title"
             android:summary="@string/lock_glymps_charging_only_summary"
