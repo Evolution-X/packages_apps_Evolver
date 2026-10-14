@@ -113,10 +113,9 @@ class FontManager(context: Context, private val isLockscreen: Boolean) {
                 !isLockscreen && HEADLINE_FONT_LABEL_MAP.contains(label) -> THEME_RESOURCE_HEADLINE_FONT_FAMILY
                 else -> THEME_RESOURCE_FONT_FAMILY
             }
-            Typeface.create(
-                res.getString(res.getIdentifier(identifier, "string", pkg)),
-                Typeface.NORMAL
-            )
+            val id = res.getIdentifier(identifier, "string", pkg)
+            if (id == 0) return null
+            Typeface.create(res.getString(id), Typeface.NORMAL)
         } catch (e: PackageManager.NameNotFoundException) {
             null
         }

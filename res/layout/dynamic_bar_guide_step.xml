@@ -52,7 +52,7 @@
                 android:paddingTop="1dp"
                 android:paddingRight="4dp"
                 android:paddingBottom="1dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="@style/TextAppearance.SettingsLib.BodyMedium"
                 android:textColor="?android:attr/colorAccent"
                 android:textSize="10sp"
                 android:textStyle="bold" />
@@ -73,7 +73,7 @@
                 android:id="@+id/step_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="@style/TextAppearance.SettingsLib.BodyMedium"
                 android:textStyle="bold"
                 android:textColor="?android:attr/textColorPrimary" />
 
@@ -85,7 +85,7 @@
                 android:id="@+id/step_body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="@style/TextAppearance.SettingsLib.BodyMedium"
                 android:textColor="?android:attr/textColorSecondary" />
 
         </LinearLayout>
