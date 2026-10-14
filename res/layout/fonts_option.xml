@@ -7,14 +7,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    android:gravity="center"
+    android:gravity="center_vertical"
     android:orientation="horizontal"
     android:background="@drawable/selector_border_edge_custom">
 
+    <View
+        android:id="@+id/option_action_spacer"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone" />
+
     <TextView
         android:id="@+id/option_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:paddingVertical="8dp"
+        android:paddingHorizontal="8dp"
         android:textAppearance="@style/OptionTitleTextAppearance"/>
+
+    <ImageButton
+        android:id="@+id/option_action"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/reset_custom_font_content_desc"
+        android:src="@drawable/ic_delete"
+        android:tint="?android:attr/textColorSecondary"
+        android:visibility="gone" />
 </LinearLayout>
