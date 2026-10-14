@@ -19,60 +19,64 @@
     <com.android.settingslib.widget.TopIntroPreference
         android:title="@string/about_info" />
 
-    <!-- Changelog -->
-    <Preference
-        android:key="about_changelog"
-        android:icon="@drawable/ic_changelog"
-        android:title="@string/changelog_title"
-        android:summary="@string/changelog_summary">
-        <intent android:action="android.intent.action.MAIN"
-             android:targetPackage="com.android.settings"
-             android:targetClass="org.evolution.settings.fragments.about.ChangelogActivity"/>
-    </Preference>
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="about_links_category">
 
-    <!-- Website -->
-    <Preference
-        android:key="about_website"
-        android:title="@string/about_website_title"
-        android:summary="@string/about_website_summary"
-        android:icon="@drawable/ic_about">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://evolution-x.org" />
-    </Preference>
+        <!-- Changelog -->
+        <Preference
+            android:key="about_changelog"
+            android:icon="@drawable/ic_about_changelog"
+            android:title="@string/changelog_title"
+            android:summary="@string/changelog_summary">
+            <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.android.settings"
+                 android:targetClass="org.evolution.settings.fragments.about.ChangelogActivity"/>
+        </Preference>
 
-    <!-- Github -->
-    <Preference
-        android:key="about_github"
-        android:title="@string/about_github_title"
-        android:summary="@string/about_github_summary"
-        android:icon="@drawable/ic_github">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://github.com/Evolution-X" />
-    </Preference>
+        <!-- Website -->
+        <Preference
+            android:key="about_website"
+            android:title="@string/about_website_title"
+            android:summary="@string/about_website_summary"
+            android:icon="@drawable/ic_evolver_about">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://evolution-x.org" />
+        </Preference>
 
-    <!-- Discord -->
-    <Preference
-        android:key="about_discord"
-        android:title="@string/about_discord_title"
-        android:summary="@string/about_discord_summary"
-        android:icon="@drawable/ic_discord">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://discord.gg/3qbSZHx" />
-    </Preference>
+        <!-- Github -->
+        <Preference
+            android:key="about_github"
+            android:title="@string/about_github_title"
+            android:summary="@string/about_github_summary"
+            android:icon="@drawable/ic_about_github">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Evolution-X" />
+        </Preference>
 
-    <!-- X -->
-    <Preference
-        android:key="about_x"
-        android:title="@string/about_x_title"
-        android:summary="@string/about_x_summary"
-        android:icon="@drawable/ic_x">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://x.com/EvolutionXROM" />
-    </Preference>
+        <!-- Discord -->
+        <Preference
+            android:key="about_discord"
+            android:title="@string/about_discord_title"
+            android:summary="@string/about_discord_summary"
+            android:icon="@drawable/ic_about_discord">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://discord.gg/3qbSZHx" />
+        </Preference>
+
+        <!-- X -->
+        <Preference
+            android:key="about_x"
+            android:title="@string/about_x_title"
+            android:summary="@string/about_x_summary"
+            android:icon="@drawable/ic_about_x">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://x.com/EvolutionXROM" />
+        </Preference>
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
 
     <PreferenceCategory
         android:key="founders"
