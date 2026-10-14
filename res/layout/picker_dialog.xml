@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: crDroid Android Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/settingslib_expressive_space_small4"
+    android:paddingTop="@dimen/settingslib_expressive_space_small1"
+    android:paddingEnd="@dimen/settingslib_expressive_space_small4">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/settingslib_expressive_space_extrasmall2"
+        android:scrollIndicators="top|bottom"
+        android:scrollbars="none" />
+</LinearLayout>
