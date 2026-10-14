@@ -924,7 +924,13 @@
 
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">Edge light</string>
-    <string name="edge_light_summary">Light up the edges of the screen on notification pulse</string>
+    <string name="edge_light_summary">Light up the screen edges on notifications or when unlocking</string>
+    <string name="edge_light_display_mode_title">Display mode</string>
+    <string name="edge_light_trigger_unlock_only_title">Unlock-only edge light triggering</string>
+    <string name="edge_light_trigger_unlock_only_description">When enabled, the edge light will only trigger when the device is unlocked, and not for notifications</string>
+    <string name="edge_light_display_mode_lockscreen">Lockscreen only</string>
+    <string name="edge_light_display_mode_unlocked">Unlocked device only</string>
+    <string name="edge_light_display_mode_both">Both</string>
     <string name="edge_light_color_mode_title">Color mode</string>
     <string name="edge_light_pulse_count_title">Pulse count</string>
     <string name="edge_light_pulse_count_summary">Number of pulses for edge light</string>

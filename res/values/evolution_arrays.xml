@@ -480,6 +480,18 @@
     </string-array>
 
     <!-- Notifications/Edge light -->
+    <string-array name="edge_light_display_mode_entries" translatable="false">
+        <item>@string/edge_light_display_mode_lockscreen</item>
+        <item>@string/edge_light_display_mode_unlocked</item>
+        <item>@string/edge_light_display_mode_both</item>
+    </string-array>
+
+    <string-array name="edge_light_display_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="edge_light_color_mode_entries" translatable="false">
         <item>@string/accent_color</item>
         <item>@string/notification_color</item>
