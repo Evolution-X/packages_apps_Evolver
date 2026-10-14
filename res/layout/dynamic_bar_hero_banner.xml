@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dynamic_bar"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="@style/TextAppearance.SettingsLib.TitleMedium"
                 android:textStyle="bold" />
 
             <Space
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dynamic_bar_summary"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="@style/TextAppearance.SettingsLib.BodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:gravity="center" />
 

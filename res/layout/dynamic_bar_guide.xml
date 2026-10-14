@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dynamic_bar_guide_swipe_title"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="@style/TextAppearance.SettingsLib.BodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textStyle="bold" />
 
@@ -100,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dynamic_bar_guide_expand_title"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="@style/TextAppearance.SettingsLib.BodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textStyle="bold" />
 
@@ -137,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dynamic_bar_guide_keyguard_title"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="@style/TextAppearance.SettingsLib.BodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textStyle="bold" />
 
