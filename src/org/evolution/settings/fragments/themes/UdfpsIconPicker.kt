@@ -9,7 +9,6 @@ import android.content.ContentResolver
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Resources
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.UserHandle
 import android.provider.Settings
@@ -33,8 +32,8 @@ class UdfpsIconPicker : SettingsPreferenceFragment() {
 
     private var udfpsPkg = "org.evolution.udfps.icons"
 
-    private var udfpsCtx: Context? = null
     private var udfpsRes: Resources? = null
+    private var previewLoader: UdfpsPreviewLoader? = null
 
     private val items = ArrayList<IconItem>(0)
 
@@ -54,14 +53,13 @@ class UdfpsIconPicker : SettingsPreferenceFragment() {
 
             val arrayId = res.getIdentifier("udfps_icons", "array", udfpsPkg)
             if (arrayId == 0) {
-                udfpsCtx = null
                 udfpsRes = null
                 return
             }
 
             val iconNames = res.getStringArray(arrayId)
-            udfpsCtx = pkgCtx
             udfpsRes = res
+            previewLoader = UdfpsPreviewLoader(res, pkgCtx.theme)
 
             iconNames.forEachIndexed { index, name ->
                 val id = res.getIdentifier(name, "drawable", udfpsPkg)
@@ -74,7 +72,6 @@ class UdfpsIconPicker : SettingsPreferenceFragment() {
                 )
             }
         } catch (_: PackageManager.NameNotFoundException) {
-            udfpsCtx = null
             udfpsRes = null
         }
     }
@@ -95,7 +92,7 @@ class UdfpsIconPicker : SettingsPreferenceFragment() {
 
         val adapter = UdfpsIconAdapter(
             contentResolver = requireContext().contentResolver,
-            iconLoader = { item -> getIconDrawable(item.drawableId) }
+            previewLoader = previewLoader
         )
         rv.adapter = adapter
         adapter.submitList(items.toList())
@@ -103,14 +100,9 @@ class UdfpsIconPicker : SettingsPreferenceFragment() {
         return view
     }
 
-    private fun getIconDrawable(@DrawableRes id: Int): Drawable? {
-        val c = udfpsCtx ?: return null
-        if (id == 0) return null
-        return try {
-            c.getDrawable(id)
-        } catch (_: Resources.NotFoundException) {
-            null
-        }
+    override fun onDestroy() {
+        previewLoader?.shutdown()
+        super.onDestroy()
     }
 
     override fun getMetricsCategory(): Int = MetricsEvent.EVOLVER
@@ -136,7 +128,7 @@ class UdfpsIconPicker : SettingsPreferenceFragment() {
 
     private class UdfpsIconAdapter(
         private val contentResolver: ContentResolver,
-        private val iconLoader: (IconItem) -> Drawable?
+        private val previewLoader: UdfpsPreviewLoader?
     ) : ListAdapter<IconItem, UdfpsIconAdapter.VH>(DIFF) {
 
         private var selectedPos: Int = -1
@@ -164,7 +156,8 @@ class UdfpsIconPicker : SettingsPreferenceFragment() {
                 )
             }
 
-            holder.image.setImageDrawable(iconLoader(item))
+            val size = (PREVIEW_DP * holder.image.resources.displayMetrics.density).toInt()
+            previewLoader?.show(holder.image, item.drawableId, size)
             holder.image.setPadding(20, 20, 20, 20)
             holder.name.visibility = View.GONE
 
@@ -191,6 +184,8 @@ class UdfpsIconPicker : SettingsPreferenceFragment() {
         }
 
         private companion object {
+            const val PREVIEW_DP = 80
+
             val DIFF = object : DiffUtil.ItemCallback<IconItem>() {
                 override fun areItemsTheSame(oldItem: IconItem, newItem: IconItem): Boolean {
                     return oldItem.index == newItem.index
