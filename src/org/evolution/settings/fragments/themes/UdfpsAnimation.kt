@@ -32,6 +32,7 @@ class UdfpsAnimation : SettingsPreferenceFragment() {
 
     private var udfpsPkg = "org.evolution.udfps.animations"
     private var udfpsRes: Resources? = null
+    private var previewLoader: UdfpsPreviewLoader? = null
 
     private val items = ArrayList<AnimItem>(0)
 
@@ -52,6 +53,7 @@ class UdfpsAnimation : SettingsPreferenceFragment() {
         }
 
         val res = udfpsRes ?: return
+        previewLoader = UdfpsPreviewLoader(res, host.theme)
 
         val stylesId = res.getIdentifier("udfps_animation_styles", "array", udfpsPkg)
         val previewsId = res.getIdentifier("udfps_animation_previews", "array", udfpsPkg)
@@ -70,6 +72,7 @@ class UdfpsAnimation : SettingsPreferenceFragment() {
                     index = i,
                     animDrawableName = styles[i],
                     previewDrawableName = previews[i],
+                    previewDrawableId = res.getIdentifier(previews[i], "drawable", udfpsPkg),
                     title = titles[i]
                 )
             )
@@ -92,12 +95,18 @@ class UdfpsAnimation : SettingsPreferenceFragment() {
 
         val adapter = UdfpsAnimAdapter(
             contentResolver = requireContext().contentResolver,
-            drawableLoader = { name -> getDrawableByName(name) }
+            drawableLoader = { name -> getDrawableByName(name) },
+            previewLoader = previewLoader
         )
         rv.adapter = adapter
         adapter.submitList(items.toList())
 
         return view
+    }
+
+    override fun onDestroy() {
+        previewLoader?.shutdown()
+        super.onDestroy()
     }
 
     override fun getMetricsCategory(): Int = MetricsEvent.EVOLVER
@@ -130,12 +139,14 @@ class UdfpsAnimation : SettingsPreferenceFragment() {
         val index: Int,
         val animDrawableName: String,
         val previewDrawableName: String,
+        @DrawableRes val previewDrawableId: Int,
         val title: String
     )
 
     private class UdfpsAnimAdapter(
         private val contentResolver: ContentResolver,
-        private val drawableLoader: (String) -> Drawable?
+        private val drawableLoader: (String) -> Drawable?,
+        private val previewLoader: UdfpsPreviewLoader?
     ) : ListAdapter<AnimItem, UdfpsAnimAdapter.VH>(DIFF) {
 
         private var selectedPos: Int = -1
@@ -163,7 +174,8 @@ class UdfpsAnimation : SettingsPreferenceFragment() {
                 )
             }
 
-            holder.image.setImageDrawable(drawableLoader(item.previewDrawableName))
+            val size = (PREVIEW_DP * holder.image.resources.displayMetrics.density).toInt()
+            previewLoader?.show(holder.image, item.previewDrawableId, size)
             holder.name.text = item.title
 
             holder.itemView.isActivated = (position == selectedPos)
@@ -197,6 +209,8 @@ class UdfpsAnimation : SettingsPreferenceFragment() {
         }
 
         private companion object {
+            const val PREVIEW_DP = 80
+
             val DIFF = object : DiffUtil.ItemCallback<AnimItem>() {
                 override fun areItemsTheSame(oldItem: AnimItem, newItem: AnimItem): Boolean {
                     return oldItem.index == newItem.index
