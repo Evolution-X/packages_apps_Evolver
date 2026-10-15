@@ -6,33 +6,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
+    android:layout_marginVertical="@dimen/settingslib_expressive_space_extrasmall1"
+    android:minHeight="@dimen/settingslib_expressive_space_medium5"
+    android:paddingStart="@dimen/settingslib_expressive_space_small3"
+    android:paddingEnd="@dimen/settingslib_expressive_space_small1"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:background="@drawable/selector_border_edge_custom">
-
-    <View
-        android:id="@+id/option_action_spacer"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:visibility="gone" />
+    android:background="@drawable/bg_font_option">
 
     <TextView
         android:id="@+id/option_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="8dp"
-        android:textAppearance="@style/OptionTitleTextAppearance"/>
+        android:paddingVertical="@dimen/settingslib_expressive_space_extrasmall6"
+        android:textAppearance="@style/TextAppearance.SettingsLib.BodyLarge"
+        android:textAlignment="viewStart"
+        android:textColor="@color/font_option_text" />
 
-    <ImageButton
-        android:id="@+id/option_action"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/reset_custom_font_content_desc"
-        android:src="@drawable/ic_delete"
-        android:tint="?android:attr/textColorSecondary"
-        android:visibility="gone" />
+    <ImageView
+        android:id="@+id/option_check"
+        android:layout_width="@dimen/settingslib_expressive_space_small4"
+        android:layout_height="@dimen/settingslib_expressive_space_small4"
+        android:layout_marginStart="@dimen/settingslib_expressive_space_extrasmall4"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_font_option_check"
+        android:tint="@color/settingslib_materialColorOnSecondaryContainer" />
 </LinearLayout>

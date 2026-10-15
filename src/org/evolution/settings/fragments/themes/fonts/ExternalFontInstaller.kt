@@ -79,6 +79,11 @@ class ExternalFontInstaller(private val context: Context) {
         }.getOrNull()
     }
 
+    fun loadInstalledTypeface(): Typeface? = runCatching {
+        File(context.cacheDir, CUSTOM_FONT_FILE).takeIf { it.isFile }
+            ?.let { Typeface.createFromFile(it) }
+    }.getOrNull()
+
     suspend fun installFontFromUri(uri: Uri): String? {
         val fontFile = copyUriToCache(uri, CUSTOM_FONT_FILE) ?: run {
             showToast(R.string.toast_failed_apply_font)
