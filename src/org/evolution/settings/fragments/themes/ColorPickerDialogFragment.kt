@@ -26,11 +26,11 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
 import com.android.settingslib.spa.framework.theme.SettingsTheme
-import org.evolution.settings.utils.ColorPickerDialog
+import org.evolution.settings.utils.PreferenceColorPickerDialog
 
 class ColorPickerDialogFragment : DialogFragment() {
 
-    private var initialColor: Color = Color(0xFF6750A4)
+    private var initialColor: Int = 0xFF6750A4.toInt()
     private var onColorSelected: ((Color) -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class ColorPickerDialogFragment : DialogFragment() {
         
         arguments?.getString(ARG_COLOR_HEX)?.let { hex ->
             try {
-                initialColor = Color(AndroidColor.parseColor("#$hex"))
+                initialColor = AndroidColor.parseColor("#$hex")
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -56,11 +56,13 @@ class ColorPickerDialogFragment : DialogFragment() {
             
             setContent {
                 SettingsTheme {
-                    ColorPickerDialog(
+                    PreferenceColorPickerDialog(
+                        title = "Choose Seed Color",
                         initialColor = initialColor,
+                        alphaEnabled = false,
                         onDismiss = { dismiss() },
-                        onColorSelected = { color ->
-                            onColorSelected?.invoke(color)
+                        onColorSelected = { argb ->
+                            onColorSelected?.invoke(Color(argb))
                             dismiss()
                         }
                     )

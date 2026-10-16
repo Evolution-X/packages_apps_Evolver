@@ -8,48 +8,36 @@
 
 package org.evolution.settings.preferences.colorpicker;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.content.res.Configuration;
+import android.content.ContextWrapper;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
-import android.widget.GridLayout;
-import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
 
 import com.android.settings.R;
 
 /**
- * A preference type that allows a user to choose a time
- * @author Sergey Margaritov
+ * A preference that lets the user pick a color using the skydoves color picker.
+ * The value is persisted as an ARGB int.
  */
-public class ColorPickerPreference extends Preference implements
-        ColorPickerDialog.OnColorChangedListener {
+public class ColorPickerPreference extends Preference {
 
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
     private static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
 
     PreferenceViewHolder mView;
     LinearLayout mWidgetFrameView;
-    ColorPickerDialog mDialog;
     private int mDefaultValue = Color.BLACK;
     private int mCurrentValue = mDefaultValue;
     private String mCurrentHexValue;
@@ -60,7 +48,6 @@ public class ColorPickerPreference extends Preference implements
     private boolean mDividerAbove;
     private boolean mDividerBelow;
     private boolean mAutoSummary = true;
-    private EditText mEditText;
 
     public ColorPickerPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         this(context, attrs, defStyleAttr, 0);
@@ -83,15 +70,15 @@ public class ColorPickerPreference extends Preference implements
 
     @Override
     protected Object onGetDefaultValue(TypedArray ta, int index) {
-        int defaultValue = ta.getInt(index, Color.BLACK);
-        return defaultValue;
+        return ta.getInt(index, Color.BLACK);
     }
 
     @Override
     protected void onSetInitialValue(boolean restorePersistedValue, Object defaultValue) {
-        // when using PreferenceDataStore, restorePersistedValue is always true (see Preference class for reference)
-        // so we load the persistent value with getPersistedInt if available in the data store, 
-        // and use defaultValue as fallback (onGetDefaultValue has been already called and it loaded the android:defaultValue attr from our xml).
+        // when using PreferenceDataStore, restorePersistedValue is always true (see Preference
+        // class for reference) so we load the persistent value with getPersistedInt if available
+        // in the data store, and use defaultValue as fallback (onGetDefaultValue has been already
+        // called and it loaded the android:defaultValue attr from our xml).
         if (defaultValue == null) {
             // if we forgot to add android:defaultValue, default to black color
             defaultValue = Color.BLACK;
@@ -105,13 +92,31 @@ public class ColorPickerPreference extends Preference implements
     private void init(Context context, AttributeSet attrs) {
         mDensity = getContext().getResources().getDisplayMetrics().density;
         if (attrs != null) {
-            mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", false);
-            mDefaultValue = attrs.getAttributeIntValue(ANDROIDNS, "defaultValue", Color.BLACK);
+            mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", false)
+                    || attrs.getAttributeBooleanValue(SETTINGS_NS, "alphaSlider", false);
+            // Some layouts declare the default with the settings: namespace instead of android:
+            mDefaultValue = attrs.getAttributeIntValue(ANDROIDNS, "defaultValue",
+                    attrs.getAttributeIntValue(SETTINGS_NS, "defaultValue", Color.BLACK));
             mShowReset = attrs.getAttributeBooleanValue(SETTINGS_NS, "showReset", true);
             mShowPreview = attrs.getAttributeBooleanValue(SETTINGS_NS, "showPreview", true);
             mDividerAbove = attrs.getAttributeBooleanValue(SETTINGS_NS, "dividerAbove", false);
             mDividerBelow = attrs.getAttributeBooleanValue(SETTINGS_NS, "dividerBelow", false);
         }
+    }
+
+    @Override
+    public void onAttached() {
+        super.onAttached();
+        registerResultListener();
+    }
+
+    @Override
+    public void onDetached() {
+        FragmentActivity activity = getFragmentActivity();
+        if (activity != null) {
+            activity.getSupportFragmentManager().clearFragmentResultListener(getRequestKey());
+        }
+        super.onDetached();
     }
 
     @Override
@@ -121,14 +126,8 @@ public class ColorPickerPreference extends Preference implements
         view.setDividerAllowedAbove(mDividerAbove);
         view.setDividerAllowedBelow(mDividerBelow);
 
-        view.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog(null);
-            }
-        });
-        mWidgetFrameView = ((LinearLayout) view
-                .findViewById(android.R.id.widget_frame));
+        view.itemView.setOnClickListener(v -> showDialog());
+        mWidgetFrameView = ((LinearLayout) view.findViewById(android.R.id.widget_frame));
         mWidgetFrameView.setOrientation(LinearLayout.HORIZONTAL);
         mWidgetFrameView.setVisibility(View.VISIBLE);
         mWidgetFrameView.setMinimumWidth(0);
@@ -136,8 +135,7 @@ public class ColorPickerPreference extends Preference implements
                 mWidgetFrameView.getPaddingLeft(),
                 mWidgetFrameView.getPaddingTop(),
                 (int) (mDensity * 8),
-                mWidgetFrameView.getPaddingBottom()
-                );
+                mWidgetFrameView.getPaddingBottom());
         setDefaultButton();
         setPreviewColor();
     }
@@ -171,12 +169,7 @@ public class ColorPickerPreference extends Preference implements
         mWidgetFrameView.addView(defView);
         defView.setImageDrawable(getContext().getDrawable(R.drawable.ic_settings_backup_restore));
         defView.setTag("default");
-        defView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onColorChanged(mDefaultValue);
-            }
-        });
+        defView.setOnClickListener(v -> onColorChanged(mDefaultValue));
         // sorcery for a linear layout ugh
         View spacer = new View(getContext());
         spacer.setTag("spacer");
@@ -200,47 +193,68 @@ public class ColorPickerPreference extends Preference implements
         if (!isEnabled()) return;
         ImageView iView = new ImageView(getContext());
         mWidgetFrameView.addView(iView);
-        final int size = (int) getContext().getResources().getDimension(R.dimen.oval_notification_size);
+        final int size = (int) getContext().getResources()
+                .getDimension(R.dimen.oval_notification_size);
         final int imageColor = ((mCurrentValue & 0xF0F0F0) == 0xF0F0F0) ?
                 (mCurrentValue - 0x101010) : mCurrentValue;
         iView.setImageDrawable(createOvalShape(size, 0xFF000000 + imageColor));
         iView.setTag("preview");
     }
 
-    @Override
     public void onColorChanged(int color) {
         mCurrentValue = color;
         mCurrentHexValue = convertToARGB(color);
         if (mAutoSummary) setSummary(mCurrentHexValue);
         setPreviewColor();
         persistInt(color);
-        try {
-            getOnPreferenceChangeListener().onPreferenceChange(this, color);
-        } catch (NullPointerException e) {
-        }
-        try {
-            mEditText.setText(Integer.toString(color, 16));
-        } catch (NullPointerException e) {
+        OnPreferenceChangeListener listener = getOnPreferenceChangeListener();
+        if (listener != null) {
+            listener.onPreferenceChange(this, color);
         }
     }
 
-    protected void showDialog(Bundle state) {
+    protected void showDialog() {
         if (!isEnabled())
             return;
 
-        mDialog = new ColorPickerDialog(getContext(), mCurrentValue);
-        mDialog.setOnColorChangedListener(this);
-        if (mAlphaSliderEnabled) {
-            mDialog.setAlphaSliderVisible(true);
-        }
-        if (state != null) {
-            mDialog.onRestoreInstanceState(state);
-        }
-        mDialog.show();
-        mDialog.getWindow().setSoftInputMode(
-                android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        FragmentActivity activity = getFragmentActivity();
+        if (activity == null)
+            return;
+
+        FragmentManager fm = activity.getSupportFragmentManager();
+        if (fm.findFragmentByTag(ColorPickerPrefDialogFragment.TAG) != null)
+            return;
+
+        registerResultListener();
+        CharSequence title = getTitle();
+        ColorPickerPrefDialogFragment.newInstance(getRequestKey(),
+                title != null ? title.toString() : null, mCurrentValue, mAlphaSliderEnabled)
+                .show(fm, ColorPickerPrefDialogFragment.TAG);
     }
 
+    private void registerResultListener() {
+        FragmentActivity activity = getFragmentActivity();
+        if (activity == null)
+            return;
+        activity.getSupportFragmentManager().setFragmentResultListener(getRequestKey(), activity,
+                (requestKey, result) -> onColorChanged(
+                        result.getInt(ColorPickerPrefDialogFragment.RESULT_COLOR)));
+    }
+
+    private String getRequestKey() {
+        return "color_picker_pref:" + getKey();
+    }
+
+    private FragmentActivity getFragmentActivity() {
+        Context context = getContext();
+        while (context instanceof ContextWrapper) {
+            if (context instanceof FragmentActivity) {
+                return (FragmentActivity) context;
+            }
+            context = ((ContextWrapper) context).getBaseContext();
+        }
+        return null;
+    }
 
     /**
      * Toggle Alpha Slider visibility (by default it's disabled)
@@ -252,23 +266,8 @@ public class ColorPickerPreference extends Preference implements
     }
 
     public static String convertToRGB(int color) {
-        String red = Integer.toHexString(Color.red(color));
-        String green = Integer.toHexString(Color.green(color));
-        String blue = Integer.toHexString(Color.blue(color));
-
-        if (red.length() == 1) {
-            red = "0" + red;
-        }
-
-        if (green.length() == 1) {
-            green = "0" + green;
-        }
-
-        if (blue.length() == 1) {
-            blue = "0" + blue;
-        }
-
-        return "#" + red + green + blue;
+        return String.format("#%02x%02x%02x", Color.red(color), Color.green(color),
+                Color.blue(color));
     }
 
     /**
@@ -292,28 +291,8 @@ public class ColorPickerPreference extends Preference implements
      * @author Unknown
      */
     public static String convertToARGB(int color) {
-        String alpha = Integer.toHexString(Color.alpha(color));
-        String red = Integer.toHexString(Color.red(color));
-        String green = Integer.toHexString(Color.green(color));
-        String blue = Integer.toHexString(Color.blue(color));
-
-        if (alpha.length() == 1) {
-            alpha = "0" + alpha;
-        }
-
-        if (red.length() == 1) {
-            red = "0" + red;
-        }
-
-        if (green.length() == 1) {
-            green = "0" + green;
-        }
-
-        if (blue.length() == 1) {
-            blue = "0" + blue;
-        }
-
-        return "#" + alpha + red + green + blue;
+        return String.format("#%02x%02x%02x%02x", Color.alpha(color), Color.red(color),
+                Color.green(color), Color.blue(color));
     }
 
     /**
@@ -354,62 +333,6 @@ public class ColorPickerPreference extends Preference implements
      */
     public void setAutoSummaryEnabled(boolean enable) {
         mAutoSummary = enable;
-    }
-
-    @Override
-    protected Parcelable onSaveInstanceState() {
-        final Parcelable superState = super.onSaveInstanceState();
-        if (mDialog == null || !mDialog.isShowing()) {
-            return superState;
-        }
-
-        final SavedState myState = new SavedState(superState);
-        myState.dialogBundle = mDialog.onSaveInstanceState();
-        return myState;
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Parcelable state) {
-        if (state == null || !(state instanceof SavedState)) {
-            // Didn't save state for us in onSaveInstanceState
-            super.onRestoreInstanceState(state);
-            return;
-        }
-
-        SavedState myState = (SavedState) state;
-        super.onRestoreInstanceState(myState.getSuperState());
-        showDialog(myState.dialogBundle);
-    }
-
-    private static class SavedState extends BaseSavedState {
-        Bundle dialogBundle;
-
-        public SavedState(Parcel source) {
-            super(source);
-            dialogBundle = source.readBundle();
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            super.writeToParcel(dest, flags);
-            dest.writeBundle(dialogBundle);
-        }
-
-        public SavedState(Parcelable superState) {
-            super(superState);
-        }
-
-        @SuppressWarnings("unused")
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Parcelable.Creator<SavedState>() {
-            public SavedState createFromParcel(Parcel in) {
-                return new SavedState(in);
-            }
-
-            public SavedState[] newArray(int size) {
-                return new SavedState[size];
-            }
-        };
     }
 
     private static ShapeDrawable createOvalShape(int size, int color) {
