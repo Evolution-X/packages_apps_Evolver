@@ -19,8 +19,6 @@
     <string name="notifications_summary">ポップアップ通知、エッジライト、サウンド</string>
     <string name="power_menu_title">電源メニュー</string>
     <string name="power_menu_summary">ロック画面のアクション</string>
-    <string name="buttons_title">ボタン</string>
-    <string name="buttons_summary">電源ボタン、音量ボタン</string>
     <string name="miscellaneous_title">その他</string>
     <string name="miscellaneous_summary">偽装、開発者向けオプション</string>
     <string name="about_title">Evolution X</string>
@@ -32,63 +30,40 @@
     <string name="lock_screen_clock_category">時計</string>
     <string name="lock_screen_media_category">メディア</string>
     <string name="lock_screen_charging_effects_category">充電エフェクト</string>
-    <string name="notifications_flashlight_category">トーチ</string>
     <string name="status_bar_features_category">機能</string>
     <!-- Themes -->
-    <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet の設定</string>
     <string name="themes_monet_summary">Android の組み込みテーマエンジンをカスタマイズ</string>
     <string name="themes_audio_category">オーディオ</string>
     <string name="themes_lock_sound_title">ロック時の音</string>
     <string name="themes_unlock_sound_title">ロック解除時の音</string>
     <string name="themes_fonts_category">フォント</string>
-    <string name="themes_system_font_title">システムフォント</string>
-    <string name="themes_system_font_summary">システムフォントのスタイルを設定する</string>
     <string name="themes_lock_screen_clock_font_title">ロック画面の時計のフォント</string>
     <string name="themes_lock_screen_clock_font_summary">ロック画面の時計のフォントスタイルを設定する</string>
     <string name="themes_icons_category">アイコン</string>
-    <string name="themes_system_icons_title">システムアイコン</string>
-    <string name="themes_system_icons_summary">システムアイコンのスタイルを設定する</string>
     <string name="themes_icon_shape_title">アイコンの形状</string>
-    <string name="themes_signal_icon_title">電波アイコン</string>
-    <string name="themes_signal_icon_summary">電波アイコンのスタイルを設定する</string>
-    <string name="themes_wifi_icon_title">Wi-Fi アイコン</string>
-    <string name="themes_wifi_icon_summary">Wi-Fi アイコンのスタイルを設定する</string>
     <string name="themes_navigation_bar_icons_title">ナビゲーションバーアイコン</string>
     <string name="themes_navigation_bar_icons_summary">ナビゲーションバーアイコンのスタイルを設定する</string>
     <string name="themes_udfps_icon_title">画面内指紋認証アイコン</string>
     <string name="themes_udfps_icon_summary">画面内指紋認証のアイコンスタイルを設定する</string>
-    <string name="themes_brightness_category">明るさスライダー</string>
-    <string name="themes_brightness_slider_title">明るさスライダースタイル</string>
-    <string name="themes_brightness_slider_summary">明るさスライダーのスタイルを設定する</string>
-    <string name="themes_animations_category">アニメーション</string>
     <string name="themes_screen_off_animation_title">画面消灯時のアニメーション</string>
     <string name="themes_screen_off_animation_crt">ブラウン管</string>
     <string name="themes_screen_off_animation_scale">縮小</string>
     <string name="themes_udfps_animation_title">画面内指紋認証のアニメーション</string>
     <string name="themes_udfps_animation_summary">画面内指紋認証アニメーションを設定する</string>
-    <string name="themes_launcher_background_blur_title">背景のぼかし</string>
-    <string name="themes_launcher_background_blur_summary">最近のアイテムページの背景のぼかし効果を有効にする</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">起動アニメーション</string>
-    <string name="boot_animation_custom_pick">ZIP ファイルを選択</string>
-    <string name="boot_animation_custom_pick_summary">カスタムbootanimation.zipを選択</string>
     <string name="boot_animation_applied_error">ブートアニメーションの適用に失敗しました</string>
-    <string name="boot_animation_preview_loading">プレビューを読み込み中…</string>
-    <string name="boot_animation_preview_desc">選択したブートアニメーションのプレビュー</string>
-    <string name="boot_animation_preview_summary">現在選択されているブートアニメーションのプレビューを表示する</string>
     <string name="boot_animation_preview_title">ブートアニメーションのプレビュー</string>
     <string name="boot_animation_no_preview">プレビューは利用できません</string>
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">色のカスタマイズ</string>
-    <string name="monet_settings_summary">テーマの色とスタイルを編集する</string>
     <string name="color_settings_category">色設定</string>
     <string name="advanced_settings_category">高度な設定</string>
     <string name="use_wallpaper_colors_title">壁紙の色を使用する</string>
     <string name="use_wallpaper_colors_desc">壁紙から色を抽出</string>
     <string name="custom_seed_color_title">カスタムの色</string>
     <string name="theme_style_title">テーマのスタイル</string>
-    <string name="theme_style_desc">カラーパレットのスタイルを選択</string>
     <string name="fidelity_title">色の忠実度</string>
     <string name="fidelity_desc">元のシードの色をより正確に保ちます</string>
     <string name="contrast_level_title">コントラストレベル</string>
@@ -97,20 +72,6 @@
     <string name="about_color_customization_desc">色の変更は、テーマをサポートするすべてのアプリにシステム全体に適用されます。\nこれらの色を調整すると、デバイス全体のアプリの外観に影響を与える可能性があります。</string>
     <string name="wallpaper_seed_color_title">壁紙から選択</string>
     <string name="wallpaper_seed_color_desc">壁紙から色を抽出</string>
-    <string name="monet_engine_custom_color_title">アクセントカラー</string>
-    <string name="monet_engine_custom_color_summary">カスタムのアクセントカラーを選択する</string>
-    <string name="monet_engine_custom_bgcolor_title">背景色</string>
-    <string name="monet_engine_custom_bgcolor_summary">カスタムの背景色を選択する</string>
-    <string name="monet_engine_color_override_title">カスタムの色</string>
-    <string name="monet_engine_luminance_factor_title">明度</string>
-    <string name="monet_engine_luminance_factor_summary">値が高いほど明るい色が得られます</string>
-    <string name="monet_engine_chroma_factor_title">彩度係数</string>
-    <string name="monet_engine_chroma_factor_summary">値が高いほど色が濃くなります</string>
-    <string name="monet_engine_whole_palette_title">パレット全体</string>
-    <string name="monet_engine_whole_palette_summary">輝度と彩度の設定を背景色にも適用する</string>
-    <string name="monet_engine_tint_background_title">色付きの背景</string>
-    <string name="monet_engine_tint_background_summary">輝度と彩度の設定を背景色にも適用する</string>
-    <string name="monet_engine_style_title">テーマのスタイル</string>
     <string name="monet_engine_style_tonal_spot">Tonal Spot (既定)</string>
     <string name="monet_engine_style_vibrant">Vibrant</string>
     <string name="monet_engine_style_expressive">Exspressive</string>
@@ -119,11 +80,9 @@
     <string name="monet_engine_style_fruit_salad">Fruit Salad</string>
     <string name="monet_engine_style_content">Content</string>
     <string name="monet_engine_style_monochromatic">モノクロ</string>
-    <string name="monet_engine_color_source_title">色のソース</string>
     <string name="monet_engine_color_source_both">両方 (既定)</string>
     <string name="monet_engine_color_source_home">ホームの壁紙</string>
     <string name="monet_engine_color_source_lock">ロック画面の壁紙</string>
-    <string name="monet_engine_color_source_preset">プリセット</string>
     <!-- Per-palette chroma override -->
     <string name="chroma_accent1_title">プライマリクロマ</string>
     <string name="chroma_accent2_title">セカンダリクロマ</string>
@@ -147,7 +106,6 @@
     <string name="secondary_seed_color_title">セカンダリシードの色</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">インターフェース</string>
-    <string name="lock_screen_charging_category">中程度</string>
     <string name="lock_screen_charging_stats_title">充電ステータス</string>
     <string name="lock_screen_charging_stats_summary">充電中はロック画面に充電器の最大電流/電圧/バッテリー温度を表示する</string>
     <string name="lock_screen_charging_time_title">充電の時間</string>
@@ -159,12 +117,9 @@
     <string name="lock_screen_fingerprint_success_vibration_summary">指紋認証成功時に振動させる</string>
     <string name="lock_screen_fingerprint_error_vibration_title">認証エラー時の振動</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">指紋認証が失敗した際に振動させる</string>
-    <string name="lock_screen_miscellaneous_category">その他</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Pulse ビジュアライザー</string>
     <string name="pulse_settings_summary">音楽再生時にロック画面にバービジュアライザーを表示する</string>
-    <string name="ambient_pulse_enabled_title">アンビエント画面の Pulse</string>
-    <string name="ambient_pulse_enabled_summary">アンビエント表示にビジュアライザーを表示する</string>
     <string name="pulse_bass_haptics_title">低音ハプティクス</string>
     <string name="pulse_bass_haptics_none">低音のピーク時に振動させない</string>
     <string name="pulse_bass_haptics_running">Pulse 表示中のみ振動させる</string>
@@ -205,19 +160,6 @@
     <string name="ls_clock_summary">時計のスタイルとウィジェットを設定</string>
     <string name="clock_styles_disclaimer_title">続行する前に</string>
     <string name="clock_styles_disclaimer_message">時計の文字やウィジェットをご利用いただくために、以下の設定を行ってください：\n\n• ロック画面の「スマートスペース」を無効にする\n• ロック画面の天気を無効にする\n• 大きな時計のスタイルを無効にする\n\nこれらの設定は、ロック画面の設定から変更できます。</string>
-    <string name="ls_clock_face_highlight_text">左右にスワイプして時計スタイルをプレビュー</string>
-    <!-- Lockscreen Clock Accent Color -->
-    <string name="clock_text_accent_color_title">時計にアクセントカラーを使用</string>
-    <string name="clock_text_accent_color_summary">クロックテキストには白の代わりにシステムアクセントカラーを使用する</string>
-    <!-- Lockscreen Clock Opacity -->
-    <string name="clock_text_opacity_title">透過度</string>
-    <string name="clock_text_opacity_summary">カスタム時計の透明度を調整する</string>
-    <!-- Lock screen/Clock -->
-    <string name="ls_clock_custom_font_not_supported">選択した時計はカスタムフォントをサポートしていません</string>
-    <string name="lockscreen_clock_category_title">時計</string>
-    <string name="custom_clock_style">カスタム時計スタイル</string>
-    <string name="theme_customization_lock_clock_face_title">時計の見た目</string>
-    <string name="theme_customization_lock_clock_face_summary">ロック画面の時計の見た目を変更する</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">カスタム時計スタイル</string>
     <string name="lockscreen_custom_clock_style_summary">ロック画面の時計のスタイルを設定する</string>
@@ -246,7 +188,6 @@
     <string name="lockscreen_custom_clock_gradient_category_title">グラデーション</string>
     <string name="lockscreen_custom_clock_layout_category_title">サイズと位置</string>
     <string name="lockscreen_custom_clock_animation_category_title">アニメーション</string>
-    <string name="unit_degrees">°</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">サイズ</string>
     <string name="clock_size_summary">ロック画面の時計の大きさを変更する (50–150%)</string>
@@ -260,21 +201,16 @@
     <string name="lockscreen_display_widgets_title">デバイス情報ウィジェット</string>
     <string name="lockscreen_widgets_color_mode_title">ウィジェットのカラーモード</string>
     <string name="lockscreen_display_widgets_summary">デバイス情報ウィジェットをロック画面に表示する</string>
-    <string name="large_widgets_category_title">大きなウィジェット</string>
     <string name="main_custom_widgets1">大きなウィジェット 1</string>
     <string name="main_custom_widgets2">大きなウィジェット 2</string>
-    <string name="mini_widgets_category_title">小さなウィジェット</string>
     <string name="custom_widgets1">小さなウィジェット 1</string>
     <string name="custom_widgets2">小さなウィジェット 2</string>
     <string name="custom_widgets3">小さなウィジェット 3</string>
     <string name="custom_widgets4">小さなウィジェット 4</string>
-    <string name="camera">カメラ</string>
     <string name="clock_timer">時計/タイマー</string>
     <string name="calculator">電卓</string>
-    <string name="gallery">ギャラリー</string>
     <string name="media">メディアプレイヤー</string>
     <string name="torch">ライト</string>
-    <string name="controls_media_button_play">再生</string>
     <string name="weather">天気</string>
     <string name="data">データ</string>
     <string name="ringer">着信音</string>
@@ -298,8 +234,6 @@
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">メディアカバーアート</string>
     <string name="ls_media_art_summary">利用可能な場合はカバーアートを表示する</string>
-    <string name="ambient_media_art_title">アンビエントメディアカバーアート</string>
-    <string name="ambient_media_art_summary">利用可能な場合はアンビエント表示にメディアカバーアートを表示する</string>
     <string name="ls_media_art_filter_title">カバーアートのフィルター</string>
     <string name="ls_media_art_filter_none">なし</string>
     <string name="ls_media_art_filter_blur">ぼかし</string>
@@ -321,10 +255,7 @@
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Now Playing</string>
     <string name="nowplaying_summary">現在再生中の音楽情報をロック画面と AOD に表示する</string>
-    <string name="nowplaying_appearance_title">外観</string>
     <string name="nowplaying_color_mode_title">テキストのカラーモード</string>
-    <string name="nowplaying_vertical_position_title">縦位置</string>
-    <string name="nowplaying_vertical_position_summary">画面の上下位置を調整する</string>
     <string name="nowplaying_track_text_size_title">トラックタイトルのサイズ</string>
     <string name="nowplaying_track_text_size_summary">トラック名のテキストサイズ</string>
     <string name="nowplaying_artist_text_size_title">アーティスト名のサイズ</string>
@@ -338,8 +269,6 @@
     <string name="nowplaying_icon_size_summary">アイコンのサイズを調整する</string>
     <string name="nowplaying_show_on_aod_title">AOD に表示</string>
     <string name="nowplaying_show_on_aod_summary">アンビエント表示に音楽情報を表示する</string>
-    <string name="nowplaying_compact_style_title">コンパクトスタイル</string>
-    <string name="nowplaying_compact_style_summary">トラックタイトルのサイズを使用して 1 行で表示する</string>
     <string name="nowplaying_info_summary">Now Playingはロック画面と常時オン画面に現在のトラックとアーティストを表示します。 音楽の再生中に自動的に表示され、停止時に非表示になります。位置は画面の上部から下部に調整可能です。</string>
     <string name="nowplaying_expand_dialog">ダイアログを展開</string>
     <string name="nowplaying_expand_dialog_summary">Now Playingのダイアログを展開する</string>
@@ -362,13 +291,10 @@
     <string name="lockscreen_weather_humidity_info_title">湿度の情報</string>
     <string name="lockscreen_weather_humidity_info_summary">現在の湿度の割合を表示する</string>
     <!-- Lock screen/AOD -->
-    <string name="aod_display_category_title">常時表示ディスプレイ(AOD)</string>
-    <string name="aod_pulse_category_title">Pulse/Doze</string>
     <string name="lockscreen_custom_image_enabled_title">AOD の画像</string>
     <string name="lockscreen_custom_image_title">AOD の画像を選択</string>
     <string name="lockscreen_custom_image_summary">常時表示ディスプレイのカスタム画像を設定する</string>
     <string name="lockscreen_custom_image_pick_summary">ギャラリーから画像を選択する</string>
-    <string name="custom_aod_image_not_supported">選択した時計スタイルではサポートされていません</string>
     <string name="ambient_display_category_title">アンビエント表示</string>
     <string name="ambient_bottom_title">AOD 下部のコンテンツ</string>
     <string name="ambient_battery_disable_title">無効</string>
@@ -380,18 +306,6 @@
     <string name="display_icon_summary">残量と温度と一緒にアイコンを表示する</string>
     <string name="ambient_wallpaper_title">アンビエント壁紙</string>
     <string name="doze_always_on_wallpaper_summary">アンビエント表示にロック画面の壁紙を表示する</string>
-    <!-- Lock screen/Peek display -->
-    <string name="peek_display_notifications_title">Peek 表示</string>
-    <string name="peek_display_notifications_summary">最小限のロック画面通知スタイルを有効にする</string>
-    <string name="peek_display_location_title">Peek 表示の位置</string>
-    <string name="peek_display_bottom_margin_title">上部余白 (下部)</string>
-    <string name="peek_display_minimalist">ミニマリスト</string>
-    <string name="peek_display_style_title">Peek 表示スタイル</string>
-    <!-- Lock screen/Now bar -->
-    <string name="keyguard_now_bar_enabled_title">Now bar</string>
-    <string name="keyguard_now_bar_enabled_summary">ロック画面の Now bar ウィジェットを有効にする</string>
-    <string name="keyguard_now_bar_height_title">Now barの高さ</string>
-    <string name="keyguard_now_bar_height_summary">Now barの高さを調整する</string>
     <!-- Lock screen/Scrim -->
     <string name="keyguard_scrim_transparent_title">透明なロック画面のスクリム</string>
     <string name="keyguard_scrim_transparent_summary">ロック画面の壁紙の減光レイヤーを隠す</string>
@@ -402,7 +316,6 @@
     <string name="depthwall_file_header_select_title">深度壁紙のを選択</string>
     <string name="depthwall_file_header_select_summary">ストレージから深度壁紙画像を選択します。</string>
     <string name="depthwall_wallpaper_enabled_title">深度エフェクト壁紙</string>
-    <string name="depthwall_wallpaper_enabled_summary_tile">壁紙に奥行き効果\nを適用する</string>
     <string name="depthwall_wallpaper_enabled_summary">iOS をインスパイアした奥行きのある壁紙を有効化します。被写体の画像が必要です。</string>
     <string name="depthwall_wallpaper_opacity_title">奥行きのある壁紙の透明度</string>
     <string name="depth_wallpaper_bottom_fade_title">下部にフェード</string>
@@ -416,7 +329,6 @@
     <string name="depthwall_extract_now_title">今すぐ被写体を抽出</string>
     <string name="depthwall_extract_now_summary">壁紙からすぐに被写体を抽出（ロック画面には壁紙を個別に設定）</string>
     <string name="depthwall_extracting_toast">壁紙から被写体を抽出しています…</string>
-    <string name="depthwall_extraction_complete_toast">被写体の抽出が完了しました！</string>
     <string name="depthwall_storage_permission_denied">壁紙から自動で被写体を抽出するには、ストレージのアクセス許可が必要です。</string>
     <string name="depthwall_clear_subject_title">被写体画像を選択</string>
     <string name="depthwall_clear_subject_summary">現在抽出されている、または手動で設定された被写体を削除します。</string>
@@ -460,33 +372,15 @@
     <string name="status_bar_battery_style_icon_portrait">縦アイコン</string>
     <string name="status_bar_battery_style_icon_rlandscape">横向き (右)</string>
     <string name="status_bar_battery_style_icon_landscape">横向き (左)</string>
-    <string name="status_bar_battery_style_icon_landscape_buddy">横向きカプセル</string>
-    <string name="status_bar_battery_style_icon_landscape_line">横向き Lorn</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">横向き iOS</string>
-    <string name="status_bar_battery_style_icon_landscape_pill">縦向き Mx</string>
-    <string name="status_bar_battery_style_icon_landscape_signal">横向き Airoo</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_a">横向き (右) スタイル A</string>
-    <string name="status_bar_battery_style_icon_landscape_style_a">横向き (左) スタイル A</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_b">横向き (右) スタイル B</string>
-    <string name="status_bar_battery_style_icon_landscape_style_b">横向き (左) スタイル B</string>
-    <string name="status_bar_battery_style_icon_landscape_ios15">横向き iOS 15</string>
-    <string name="status_bar_battery_style_icon_landscape_ios16">横向き iOS 16</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">横向きの Origami</string>
-    <string name="status_bar_battery_style_icon_landscape_oneui7">横向き OneUI 7</string>
     <string name="status_bar_battery_style_circle">円</string>
     <string name="status_bar_battery_style_dotted_circle">円 (点線)</string>
     <string name="status_bar_battery_style_filled_circle">円 (塗り潰し)</string>
-    <string name="status_bar_battery_style_big_circle">円 (大)</string>
-    <string name="status_bar_battery_style_big_dotted_circle">円 (大/点線)</string>
     <string name="status_bar_battery_style_text">文字</string>
     <string name="status_bar_battery_style_hidden">非表示</string>
-    <string name="status_bar_battery_style_follow_status_bar">ステータスバーのスタイルに従う</string>
     <string name="status_bar_battery_percent_title">バッテリー残量の表示</string>
     <string name="status_bar_battery_percent_hidden">非表示</string>
     <string name="status_bar_battery_percent_text_inside">アイコンの中</string>
     <string name="status_bar_battery_percent_text_next">アイコンの外</string>
-    <string name="status_bar_battery_percent_text_next_right">アイコンの隣 (右)</string>
-    <string name="status_bar_battery_percent_text_next_left">アイコンの隣（左）</string>
     <string name="status_bar_battery_text_charging_title">充電中は常に割合を表示</string>
     <string name="status_bar_battery_text_charging_summary">デバイスの充電中は常にバッテリー残量を表示する</string>
     <string name="battery_bar_title">バッテリーバー</string>
@@ -613,9 +507,7 @@
     <string name="status_bar_logo_style_amogus">Amogus</string>
     <string name="status_bar_logo_style_custom">カスタム画像</string>
     <!-- Custom image logo style -->
-    <string name="status_bar_logo_style_custom_image">カスタム画像</string>
     <string name="status_bar_logo_custom_image_title">カスタムロゴ画像を選択</string>
-    <string name="status_bar_logo_custom_image_summary">タップしてギャラリーから画像を選択</string>
     <string name="status_bar_logo_custom_image_pick_summary">ギャラリーから画像を選択</string>
     <!-- Statusbar logo color -->
     <string name="status_bar_logo_color_title">色</string>
@@ -625,10 +517,6 @@
     <!-- Status bar/Network traffic -->
     <string name="status_bar_network_traffic_settings_title">ネットワークトラフィックモニター</string>
     <string name="status_bar_network_traffic_settings_summary">電波の強さを表示またはカスタマイズ</string>
-    <string name="network_traffic_location_title">位置</string>
-    <string name="network_traffic_location_disable">無効</string>
-    <string name="network_traffic_location_statusbar">ステータスバー</string>
-    <string name="network_traffic_location_quick_statusbar">クイックステータスバー</string>
     <string name="network_traffic_mode_title">表示モード</string>
     <string name="network_traffic_mode_up">アップロードのみ</string>
     <string name="network_traffic_mode_down">ダウンロードのみ</string>
@@ -640,11 +528,7 @@
     <string name="network_traffic_refresh_interval_summary">通信速度の更新間隔</string>
     <string name="network_traffic_units_title">測定単位</string>
     <string name="network_traffic_units_bits">ビット/秒 (b/s)</string>
-    <string name="network_traffic_units_kilobits">キロビット/秒 (kb/s)</string>
-    <string name="network_traffic_units_megabits">メガビット/秒 (Mb/s)</string>
     <string name="network_traffic_units_bytes">バイト/秒 (B/s)</string>
-    <string name="network_traffic_units_kilobytes">キロバイト/秒 (kB/s)</string>
-    <string name="network_traffic_units_megabytes">メガバイト/秒 (MB/s)</string>
     <string name="network_traffic_hidearrow">矢印を非表示</string>
     <string name="network_traffic_hidearrow_summary">通信速度の矢印を隠す</string>
     <!-- Status bar/Dynamic Bar -->
@@ -657,8 +541,6 @@
     <string name="dynamic_bar_keyguard_battery_chip_disabled">非表示</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">充電中のみ</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">常に表示</string>
-    <string name="dynamic_bar_keyguard_compact_chip">コンパクトなロック画面チップ</string>
-    <string name="dynamic_bar_keyguard_compact_chip_summary">ロック画面で常にコンパクトなチップスタイルを使用します。無効な場合、スペースが限られているときのみコンパクトモードが使用されます。</string>
     <string name="dynamic_bar_events">イベント</string>
     <string name="dynamic_bar_event_audio_recording">音声の録音</string>
     <string name="dynamic_bar_event_audio_recording_summary">ボイスレコーダーとオーディオキャプチャ</string>
@@ -714,7 +596,6 @@
     <!-- Status bar/Cutout progress ring -->
     <string name="cutout_progress_title">カットアウトのプログレスリング</string>
     <string name="cutout_progress_summary">カメラのカットアウトの周囲に進行状況リングを表示する</string>
-    <string name="cutout_progress_cat_appearance">外観</string>
     <string name="cutout_progress_cat_behaviour">動作</string>
     <string name="cutout_progress_cat_bg_ring">背景リング</string>
     <string name="cutout_progress_cat_finish">終了アニメーション</string>
@@ -771,7 +652,6 @@
     <string name="cutout_progress_badge_offset_x_title">バッジの水平オフセット</string>
     <string name="cutout_progress_badge_offset_y_title">バッジの垂直オフセット</string>
     <string name="cutout_progress_ring_color_mode_title">着信時のカラーモード</string>
-    <string name="cutout_progress_color_picker_title">色の選択</string>
     <string name="cutout_progress_ring_color_mode_accent">アクセント</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Rainbow</string>
     <string name="cutout_progress_ring_color_mode_custom">カスタム</string>
@@ -795,14 +675,10 @@
     <string name="cutout_progress_music_opacity_title">リングの不透明度</string>
     <string name="cutout_progress_music_stroke_title">線の太さ</string>
     <string name="cutout_progress_music_clockwise_title">時計回り</string>
-    <string name="cutout_progress_music_aod_title">AOD に表示</string>
-    <string name="cutout_progress_music_aod_summary">アンビエント表示中もミュージックリングを表示し続ける</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Bluetooth のバッテリー状態</string>
     <string name="status_bar_bluetooth_battery_summary">可能な場合は接続している Bluetooth デバイスのバッテリー状態を表示する</string>
     <!-- Status bar/Misc -->
-    <string name="max_visible_notification_icons_title">通知アイコンの最大数</string>
-    <string name="max_visible_notification_icons_summary">ステータスバーに表示される通知アイコンの最大数</string>
     <string name="statusbar_extra_padding_category">追加の余白</string>
     <string name="statusbar_extra_padding_start_title">開始位置の余白</string>
     <string name="statusbar_extra_padding_top_title">上部の余白</string>
@@ -818,29 +694,12 @@
     <string name="floating_rotation_button_summary">デバイスの向きが変わったときに回転用のフローティングボタンを表示する</string>
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">インターフェース</string>
-    <string name="quick_settings_tile_ui_style_title">タイルのスタイル</string>
-    <string name="quick_settings_tile_ui_style_a11_circle">丸いタイル</string>
-    <string name="quick_settings_tile_ui_style_a11_square">四角いタイル (角丸)</string>
-    <string name="quick_settings_tile_ui_style_a11_mix">丸いタイルと四角いタイル</string>
-    <string name="quick_settings_panel_style_title">パネルのスタイル</string>
-    <string name="quick_settings_panel_style_outline">アウトライン</string>
-    <string name="quick_settings_panel_style_two_tone">ツートーンアクセント</string>
-    <string name="quick_settings_panel_style_color_pop">カラーポップ</string>
-    <string name="quick_settings_panel_style_shaded">シェーディング</string>
-    <string name="quick_settings_panel_style_cyberpunk">サイバーパンク</string>
-    <string name="quick_settings_panel_style_neumorph">ニューモフィズム</string>
-    <string name="quick_settings_panel_style_reflected">リフレクテッド</string>
-    <string name="quick_settings_panel_style_surround">サラウンド</string>
-    <string name="quick_settings_panel_style_thin">シンライン</string>
     <string name="qs_panel_style_title">クイック設定パネルのスタイル</string>
     <string name="qs_panel_style_card">カード</string>
     <string name="qs_panel_style_classic">Android11</string>
     <string name="quick_settings_layout_category_title">レイアウト</string>
     <string name="quick_settings_tile_label_hide_title">ラベルを非表示</string>
-    <string name="quick_settings_tile_label_size_title">ラベルのテキストサイズ</string>
     <string name="quick_settings_tile_label_hide_summary">タイル内にアイコンのみを表示する</string>
-    <string name="quick_settings_tile_layout_title">縦方向レイアウト</string>
-    <string name="quick_settings_tile_layout_summary">ラベルをアイコンの横ではなく下に表示する</string>
     <string name="quick_settings_layout_columns_rows_title">列数と行数</string>
     <string name="quick_settings_layout_columns_rows_summary">クイック設定の列と行を編集します</string>
     <string name="quick_settings_layout_columns_rows_footer_text">クイック設定の行はクイック設定の行と同じかそれ以上である必要があります。円またはタイルのスタイルには列数が多いです。</string>
@@ -891,8 +750,6 @@
     <string name="quick_settings_show_brightness_slider_never">非表示</string>
     <string name="quick_settings_show_brightness_slider_expanded">展開時に表示</string>
     <string name="quick_settings_show_brightness_slider_always">常に表示</string>
-    <string name="quick_settings_show_brightness_percentage_title">明るさの割合</string>
-    <string name="quick_settings_show_brightness_percentage_summary">スライダーの横に明るさの割合を表示する</string>
     <string name="quick_settings_brightness_slider_position_title">スライダーの位置</string>
     <string name="quick_settings_brightness_slider_position_top">上部</string>
     <string name="quick_settings_brightness_slider_position_bottom">下部</string>
@@ -903,7 +760,6 @@
     <string name="qs_brightness_slider_gradient_title">明るさスライダーのグラデーション</string>
     <string name="qs_brightness_slider_gradient_summary">明るさスライダーの背景にグラデーションを有効にする</string>
     <!-- Quick settings/Animations -->
-    <string name="quick_settings_animations_category">アニメーション</string>
     <string name="qs_tile_animation_style_title">タイルのアニメーション</string>
     <string name="qs_tile_animation_style_bounce">弾む</string>
     <string name="qs_tile_animation_style_ripple">波紋</string>
@@ -917,14 +773,6 @@
     <string name="qs_tile_animation_style_tilt">傾ける</string>
     <string name="qs_tile_animation_style_heartbeat">鼓動</string>
     <string name="qs_tile_animation_style_swing">スイング</string>
-    <string name="quick_settings_tile_animation_interpolator_linear">等速</string>
-    <string name="quick_settings_tile_animation_interpolator_accelerate">加速</string>
-    <string name="quick_settings_tile_animation_interpolator_decelerate">減速</string>
-    <string name="quick_settings_tile_animation_interpolator_accelerateDecelerate">加速と減速</string>
-    <string name="quick_settings_tile_animation_interpolator_bounce">弾む</string>
-    <string name="quick_settings_tile_animation_interpolator_overshoot">通過</string>
-    <string name="quick_settings_tile_animation_interpolator_anticipate">先取り</string>
-    <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">先取りと通過</string>
     <!-- Quick settings/Header image -->
     <string name="quick_settings_header_image_title">ヘッダー画像</string>
     <string name="quick_settings_header_image_summary">クイック設定の背景画像を選択する</string>
@@ -946,8 +794,6 @@
     <string name="quick_settings_header_offset_title">ヘッダー画像のオフセット</string>
     <string name="quick_settings_header_offset_summary">ヘッダー画像のサイズを調整する</string>
     <!-- Quick settings/Misc -->
-    <string name="quick_settings_transparency_title">背景の透明度</string>
-    <string name="quick_settings_transparency_summary">クイック設定の背景の透明度を設定する</string>
     <string name="quick_settings_data_usage_title">データ使用量</string>
     <string name="quick_settings_data_usage_summary">クイック設定のフッターにデータ使用量を表示する</string>
     <string name="quick_settings_data_usage_window_title">データ使用期間</string>
@@ -960,8 +806,6 @@
     <string name="quick_settings_footer_edit_icon_title">タイルの編集アイコン</string>
     <string name="quick_settings_footer_show_power_menu_title">電源メニューのショートカット</string>
     <string name="quick_settings_footer_settings_icon_title">設定のショートカット</string>
-    <string name="qs_split_shade_enabled_title">横画面でシェードを分割</string>
-    <string name="qs_split_shade_enabled_summary">横画面でクイック設定のパネルを分割します（ベータ版）。横画面時のポップアップ通知が正しく表示されない場合があります。</string>
     <string name="qs_header_clock_style_title">クイック設定ヘッダーの時計スタイル</string>
     <string name="qs_header_style1">チップ</string>
     <string name="qs_header_style2">Oxygen</string>
@@ -975,9 +819,6 @@
     <string name="qs_show_media_player_bottom">下部に表示</string>
     <string name="qs_tile_gradient_title">クイック設定のグラデーション</string>
     <string name="qs_tile_gradient_summary">クイック設定の背景にグラデーションを適用します</string>
-    <string name="qs_tiles_haptic_feedback_title">クイック設定のタイルをタップで振動</string>
-    <string name="qs_panel_tile_haptic_intensity_title">クイック設定タイルの触覚の強さ</string>
-    <string name="qs_haptics_intensity_title">QS fling強度</string>
     <!-- QS widget -->
     <string name="qs_widget_panel_title">クイック設定パネルにウィジェットを表示する</string>
     <string name="qs_widget_panel_summary">QS パネルにメディア、音量、明るさのウィジェットを表示する</string>
@@ -987,7 +828,6 @@
     <string name="qs_widget_slider_corner_summary">クイック設定パネルに垂直方向のウィジェットスライダーを表示する</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Heads Up</string>
-    <string name="notifications_heads_up_summary">ポップアップ通知を許可する</string>
     <string name="notifications_interface_category">インターフェース</string>
     <string name="notifications_kill_app_button_title">アプリの終了</string>
     <string name="notifications_kill_app_button_summary">通知の長押しメニューにアプリ終了ボタンを表示する</string>
@@ -1000,12 +840,6 @@
     <string name="notifications_less_boring_heads_up_summary">アラーム、通話、メッセージアプリのみポップアップ通知を表示する</string>
     <string name="notification_heads_up_timeout_title">表示時間</string>
     <string name="notification_heads_up_timeout_summary">Heads Up 通知を表示する時間を指定する</string>
-    <string name="notif_style_title">通知のスタイル</string>
-    <string name="notif_style1">サイバーパンク</string>
-    <string name="notif_style2">デュオライン</string>
-    <string name="notif_style3">Fluid(透明)</string>
-    <string name="notif_style4">iOS</string>
-    <string name="notif_style5">レイヤー</string>
     <string name="notification_use_app_icons_title">通知にアプリのアイコンを使用</string>
     <string name="notification_use_app_icons_summary">通知の小さなアイコンの代わりに、ランチャーのアイコンを表示する</string>
     <string name="notification_use_themed_app_icons_title">テーマ付きアプリのアイコンを使用</string>
@@ -1020,19 +854,8 @@
     <string name="notification_bubble_apps_summary">通知をタップしたときにフローティングバブルでアプリを開く</string>
     <string name="media_squiggle_animation_title">波状アニメーション</string>
     <string name="media_squiggle_animation_summary">再生中のメディアパネルのシークバーに波状のアニメーションを表示する</string>
-    <string name="small_landscape_notification_title">横画面時の小さな通知</string>
-    <string name="small_landscape_notification_summary">横画面時に通知の幅を狭く表示する</string>
     <string name="essential_notifications">重要な通知</string>
     <string name="essential_notifications_summary">通知シェードに常に表示するアプリを選択する</string>
-    <string name="selected_apps_description">選択したアプリは常に通知シェードに表示されます</string>
-    <string name="no_apps_selected">アプリが選択されていません</string>
-    <string name="essential_apps_count">%d 個のアプリを選択済み</string>
-    <string name="essential_configured_apps">設定済みアプリ</string>
-    <string name="essential_no_apps_configured">アプリが設定されていません</string>
-    <string name="essential_no_apps_available">利用可能なアプリがありません</string>
-    <string name="essential_no_apps_found">\"%s\" に一致する結果はありません</string>
-    <string name="essential_remove_title">アプリを削除しますか？</string>
-    <string name="essential_remove_confirm">%s を重要な通知から削除しますか？</string>
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">エッジライト</string>
     <string name="edge_light_summary">通知を受信したときに画面の端をライトアップします</string>
@@ -1059,38 +882,21 @@
     <string name="power_menu_interface_category">インターフェース</string>
     <string name="power_menu_actions_title">電源メニューのオプション</string>
     <string name="power_menu_actions_summary">表示するアクションを選択してください</string>
-    <string name="power_menu_lock_screen_category">ロック画面</string>
     <string name="power_menu_lock_screen_secure_title">セキュアなロック画面で隠す</string>
     <string name="power_menu_lock_screen_secure_summary">端末がロックされている間に電源メニューを表示する</string>
     <string name="power_menu_actions_screenshot_title">スクリーンショット</string>
     <string name="power_menu_actions_onthego_title">On-The-Go モード</string>
     <string name="power_menu_actions_airplane_title">機内モード</string>
-    <string name="power_menu_actions_torch_title">トーチ</string>
-    <string name="power_menu_actions_settings_title">設定</string>
     <string name="power_menu_actions_lockdown_title">画面ロック</string>
     <string name="power_menu_actions_lockdown_unavailable">ロック画面がセキュリティで保護されていないため、画面ロックは利用できません</string>
-    <string name="power_menu_actions_soundpanel_title">音量パネル</string>
     <string name="power_menu_actions_users_title">ユーザー</string>
-    <string name="power_menu_actions_logout_title">ログアウト</string>
     <string name="power_menu_actions_emergency_title">緊急通報</string>
     <string name="power_menu_actions_devicecontrols_title">端末の制御</string>
-    <string name="power_menu_restart_items_category_title">高度な再起動オプション</string>
-    <string name="power_menu_actions_restart_recovery_title">リカバリーへ再起動</string>
-    <string name="power_menu_actions_restart_bootloader_title">ブートローダーへ再起動</string>
-    <string name="power_menu_actions_restart_fastboot_title">Fastboot へ再起動</string>
-    <string name="power_menu_actions_restart_download_title">ダウンロードモードへ再起動</string>
-    <string name="power_menu_actions_restart_systemui_title">システムUIを再起動</string>
     <string name="power_menu_advanced_title">高度な再起動オプション</string>
     <string name="advanced_reboot_title">高度な再起動</string>
     <string name="advanced_reboot_summary">ロック解除時、電源メニューにリカバリやブートローダーへの再起動オプションを表示する</string>
     <string name="advanced_reboot_secured_title">保護されたロック画面に表示</string>
     <string name="advanced_reboot_secured_summary">セキュリティ保護されたロック画面に高度な再起動オプションを表示する</string>
-    <string name="powermenu_style_title">電源メニューのスタイル</string>
-    <string name="powermenu_style1">サイバーパンク</string>
-    <string name="powermenu_style2">デュオライン</string>
-    <string name="powermenu_style3">フルイド (透明)</string>
-    <string name="powermenu_style4">iOS</string>
-    <string name="powermenu_style5">レイヤー</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">偽装</string>
     <string name="miscellaneous_developer_options_category">開発者向けオプション</string>
@@ -1142,14 +948,12 @@
     <string name="tensor_spoof_title">Tensor 機能のターゲット</string>
     <string name="tensor_spoof_summary">選択したアプリに Google Tensor 専用の AI 機能へのアクセスを許可します</string>
     <string name="tensor_spoof_enable">Tensor 偽装</string>
-    <string name="tensor_spoof_enable_summary">選択したアプリにGoogle Tensor専用機能へのアクセスを許可する</string>
     <string name="tensor_targets_none_configured">ターゲットアプリはありません</string>
     <string name="tensor_targets_count">%1$d 個のターゲットアプリ</string>
     <string name="tensor_targets_empty_description">選択したアプリは Tensor ハードウェア機能を報告し、AI や Pixel 限定の機能をアンロックします</string>
     <string name="user_selectable_app_spoofing_title">アプリとゲームの偽装</string>
     <string name="user_selectable_app_spoofing_summary">特定のアプリやゲームに対してデバイス情報を偽装します</string>
     <string name="user_select_spoofing_profile_title">偽装プロファイルを選択</string>
-    <string name="app_spoofing_category_title">アプリごとの偽装</string>
     <string name="app_spoofing_header_title">偽装を使用</string>
     <string name="app_spoofing_configured_count">%1$d 個のアプリとゲームを偽装中</string>
     <string name="app_spoofing_disabled">無効</string>
@@ -1181,81 +985,8 @@
     <string name="pp_empty_description">選択したアプリは選択した Pixel デバイスの識別情報を報告し、Pixel 限定機能をアンロックします</string>
     <string name="pp_mainline_unsupported">このデバイスはPixel です。純正のPixel デバイスでは偽装は利用できません。</string>
     <!-- Miscellaneous/Sensor block -->
-    <string name="sensor_block_header_title">センサーのブロック</string>
     <string name="sensor_block_title">アプリごとのセンサーブロック</string>
     <string name="sensor_block_summary">バッテリーを節約するために、選択したアプリによる特定のセンサーへのアクセスをブロックする</string>
-    <string name="sensor_block_app_picker_title">アプリへのセンサーをブロック</string>
-    <string name="add_sensor_block_package_title">センサーをブロックするアプリを追加</string>
-    <string name="add_sensor_block_package_summary">選択したアプリの重要な動き、加速度センサー、線形加速度センサーをブロックします</string>
-    <string name="sensor_block_count">%1$d 個のアプリをブロック済み</string>
-    <string name="sensor_block_add_apps">アプリを追加</string>
-    <string name="sensor_block_configured_apps">ブロックされたアプリ</string>
-    <string name="sensor_block_empty_description">ここにリストされたアプリは、システム全体でセンサーがブロックされます</string>
-    <string name="sensor_block_no_apps_configured">ブロックされているアプリはありません</string>
-    <string name="sensor_block_no_apps_available">利用可能なアプリはありません</string>
-    <string name="sensor_block_no_apps_found">\"%1$s\" に一致する結果はありません</string>
-    <string name="sensor_block_remove_title">アプリを削除しますか？</string>
-    <string name="sensor_block_remove_confirm">%1$s をセンサーブロックリストから削除しますか？</string>
-    <string name="sensor_block_clear_all">全て消去</string>
-    <string name="sensor_block_clear_all_confirm">すべてのアプリのブロックを解除し、センサーブロックを無効にします。</string>
-    <string name="sensor_block_disabled">無効</string>
-    <!-- Miscellaneous/Idle Manager -->
-    <string name="idle_manager_title">アイドルマネージャー</string>
-    <string name="idle_manager_summary">バックグラウンドプロセスを管理し、バッテリーを最適化</string>
-    <string name="idle_manager_app_count">%1$d 個のアプリが設定済み</string>
-    <string name="idle_manager_disabled">無効 — タップして有効化</string>
-    <string name="idle_manager_tab_apps">アプリ</string>
-    <string name="idle_manager_tab_dashboard">ダッシュボード</string>
-    <string name="idle_manager_add_apps">アプリを追加</string>
-    <string name="idle_manager_clear_all">全て消去</string>
-    <string name="idle_manager_clear_all_confirm">設定されているすべてのアプリを削除しますか？スタンバイバケットが復元されます。</string>
-    <string name="idle_manager_configured_apps">設定済みアプリ</string>
-    <string name="idle_manager_no_apps_configured">設定されたアプリはありません</string>
-    <string name="idle_manager_no_apps_hint">「アプリを追加」をタップしてバックグラウンドプロセスの管理を開始します。</string>
-    <string name="idle_manager_no_apps_available">利用可能なアプリはありません</string>
-    <string name="idle_manager_no_apps_found">\"%1$s\" に一致する結果はありません</string>
-    <string name="idle_manager_back_to_apps">← 戻る</string>
-    <string name="idle_manager_select_policy">ポリシーを設定</string>
-    <string name="idle_manager_select_policy_count">次へ: %1$d 個のアプリにポリシーを設定</string>
-    <string name="idle_manager_edit_policy">%1$sを編集</string>
-    <string name="idle_manager_idle_timeout">アイドルタイムアウト</string>
-    <string name="idle_manager_policy_balanced">バランス</string>
-    <string name="idle_manager_policy_aggressive">積極的</string>
-    <string name="idle_manager_policy_custom">カスタム</string>
-    <string name="idle_manager_policy_balanced_desc">60分間アイドル状態のアプリに対してアクションを実行します。</string>
-    <string name="idle_manager_policy_aggressive_desc">15分間アイドル状態のアプリに対してアクションを実行します。バッテリー節約にお勧めです。</string>
-    <string name="idle_manager_policy_custom_desc">独自のアイドルタイムアウトを設定します。</string>
-    <string name="idle_manager_timeout_minutes">タイムアウト: %1$d 分</string>
-    <string name="idle_manager_timeout_label">タイムアウト</string>
-    <string name="idle_manager_policy_label">ポリシー</string>
-    <string name="idle_manager_enforcement_action">実行アクション</string>
-    <string name="idle_action_rare_bucket">Rare バケット</string>
-    <string name="idle_action_restricted">制限付き</string>
-    <string name="idle_action_kill_bg">バックグラウンドを終了</string>
-    <string name="idle_action_full_kill">完全終了</string>
-    <string name="idle_manager_policy_custom_desc_dynamic">%1$d 分間アイドル状態のアプリに対してアクションを実行します。</string>
-    <string name="idle_action_rare_bucket_desc">アプリを制限スタンバイに移動します。バックグラウンドジョブとアラームをブロックします。アプリを開くと自動的に復元されます。</string>
-    <string name="idle_action_restricted_desc">アプリを制限されたスタンバイに移動します。バックグラウンド操作はほとんど許可されていません。</string>
-    <string name="idle_action_kill_bg_desc">キャッシュされたバックグラウンドプロセスをソフトキルします。アプリが自動的に再起動する場合があります。</string>
-    <string name="idle_action_full_kill_desc">制限されたスタンバイとソフトキルの組み合わせ。バッテリー節約のための最大の執行。</string>
-    <string name="idle_manager_kill_count_label">アクションの合計</string>
-    <string name="idle_manager_last_killed_label">最後のアクション</string>
-    <string name="idle_manager_last_killed">最後: %1$s</string>
-    <string name="idle_manager_longpress_hint">長押ししてすばやく編集します</string>
-    <string name="idle_manager_critical_system_warning">重要なシステムパッケージです。これを制限すると不安定になる可能性があります。</string>
-    <string name="idle_manager_remove_title">アプリを削除しますか？</string>
-    <string name="idle_manager_remove_confirm">%1$s を削除し、スタンバイバケットを復元します。</string>
-    <string name="idle_manager_apps_acted_on">対象アプリ</string>
-    <string name="idle_manager_total_actions">実行回数の合計</string>
-    <string name="idle_manager_action_breakdown">アクションの内訳</string>
-    <string name="idle_manager_recent_activity">最近のアクティビティ</string>
-    <string name="idle_manager_no_activity">アクティビティはまだありません</string>
-    <string name="idle_manager_no_activity_hint">画面が消灯し、アプリがアイドル状態になるとここにアクションが表示されます。</string>
-    <string name="idle_manager_refresh_dashboard">更新</string>
-    <string name="idle_manager_clear_stats_title">統計を消去</string>
-    <string name="idle_manager_clear_stats_confirm">これまでの実行履歴を完全に削除します。アイドルマネージャーは通常通り動作し続けます。</string>
-    <string name="idle_manager_sleep_mode_trigger_title">おやすみモードで起動</string>
-    <string name="idle_manager_sleep_mode_trigger_summary">おやすみモードがアクティブな間のみアイドルルールを適用します</string>
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrityの修正</string>
     <string name="play_integrity_fix_summary">基本的な整合性のために PIF 設定とデバイスのフィンガープリントを管理します</string>
@@ -1287,7 +1018,6 @@
     <string name="pif_footer_body">Canaryのフィンガープリントは 1 日に最大 1 回チェックされ、有効期限が切れる約 2 週間以内になると自動的に置き換えられます。Canary の設定はリリース日から約 6 週間で期限切れになります。有効期限はアクティブな設定の概要に表示されます。\n\n手動設定の場合：\n1. 「Pixel Canaryフィンガープリントを取得」をタップしてデバイスを選択します。\n2. デバイスが見つからない場合は、信頼できるソースから動作する PIF 設定をインポートします。設定ファイルは提供されません。\n3. Play の整合性ステータスを再確認します。\n\n新しい設定をインポートする前に、常にアクティブな設定を削除してください。期限切れの PIF 設定を読み込むと、有効なキーボックスがあっても TrickyStore の強力な整合性が失敗します。\n\n高度ななりすまし：\n• Play ストアのフィンガープリントのなりすまし - 特に指示がない限り無効にしておきます。Play ストアへの指紋のなりすましはあまり必要とされず、問題を引き起こす可能性があります。\n• Play ストアへの SDK のなりすまし - SDK 32 を Play ストアに提示して、Android 13 より前のレガシー判定パスを強制します。 Play ストアの動作が壊れる可能性があるため、テスト時以外はオフにしておいてください。\n• ビルド フィールドとシステム プロパティを偽装する - オンにしておいてください。これらは DroidGuard にフィンガープリントを提示します。\n• キー ストア プロバイダーを偽装する - キー ボックスが使用されている場合はオフにしてください。キー ボックスの認証をバイパスするためです。\n• ROM 署名を偽装する - 実験的機能です。</string>
     <string name="pif_invalid_fingerprint">フィンガープリントの形式が無効です</string>
     <string name="pif_no_devices_found">デバイスが見つかりません</string>
-    <string name="pif_master_switch_title">Play Integrity 修正を有効にする</string>
     <string name="pif_advanced_settings">高度な設定</string>
     <string name="pif_spoof_vending_finger_title">Playストアのフィンガープリントの偽装</string>
     <string name="pif_spoof_vending_finger_summary">FINGERPRINTがPlayストアのプロセスに表示されるかを制御します</string>
@@ -1328,24 +1058,18 @@
     <string name="ts_import_target_list_summary">ファイルから target.txt をインポートします</string>
     <string name="ts_invalid_patch_date">日付形式が無効です。YYYY-MM-DD を使用してください</string>
     <string name="ts_target_list_imported">ターゲットリストをインポートしました</string>
-    <string name="ts_targets_saved">ターゲットリストを保存しました</string>
     <string name="ts_failed">失敗: %s</string>
     <string name="ts_footer_title">基本的な整合性のパス方法</string>
     <string name="ts_footer_body">キーボックスは自動的に取得され、有効な状態が維持されます。失効されいるかの状況は24時間ごとに確認され、現在のキーボックスが失効または停止されている場合は、公式ソースから新しいキーボックスが取得されます。\n\n手動で設定する場合：\n1. 「公式Keyboxを取得」をタップして自動的にダウンロードするか、信頼できるソースから独自のキーボックスをインポートします。\n2. 「対象アプリの管理」を開き、整合性チェックが必要なアプリを選択します。\n3. デバイスでTEEが機能している場合はターゲットモードを「Leaf」に設定し、そうでない場合は「自動」のままにします。\n4. Play Integrityのステータスを再確認します。\n5. \n注：有効な公式キーボックスが利用できない場合、自動取得は24時間停止され、その後再試行されます。また、新しいキーボックスをインポートする前に、必ず既存のキーボックスを削除してください。</string>
     <string name="ts_patch_stale_warning">%1$s (古い、12ヶ月以上)</string>
     <string name="ts_security_patch">セキュリティパッチの日付</string>
     <string name="ts_no_patch">未設定 (デバイスの既定を使用)</string>
-    <string name="ts_select_target_apps">ターゲットアプリを選択</string>
-    <string name="ts_select_target_apps_desc">証明書偽装を有効にするアプリを選択してください</string>
-    <string name="ts_selected_count">%d 個選択済み</string>
     <string name="ts_mode_auto">自動</string>
     <string name="ts_mode_leaf">Leaf</string>
     <string name="ts_mode_cert">証明書</string>
     <string name="ts_mode_skip">スキップ</string>
     <string name="ts_verification_mode">検証モード</string>
     <string name="ts_verification_mode_auto">自動</string>
-    <string name="ts_verification_mode_cert">証明書</string>
-    <string name="ts_verification_mode_leaf">Leaf</string>
     <string name="ts_verification_auto_count">%1$d 自動</string>
     <string name="ts_verification_cert_count">%1$d 証明書</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
@@ -1379,16 +1103,12 @@
     <string name="ts_revocation_valid">Googleの失効リストにはありません</string>
     <string name="ts_revocation_revoked">失効済み (%s</string>
     <string name="ts_revocation_suspended">一時停止中 (%s</string>
-    <string name="ts_revocation_network_error">失効確認サーバーに接続できませんでした</string>
     <string name="ts_revocation_error">確認失敗: %s</string>
     <string name="ts_revocation_last_checked">最終確認: %1$s</string>
-    <string name="ts_revocation_tap_to_check">タップして失効ステータスを確認</string>
     <string name="ts_revocation_not_yet_checked">まだチェックされていません — 今すぐ確認するにはタップしてください</string>
     <!-- Toasts for new auto-replace triggers -->
     <string name="ts_fetch_keybox_revoked_refetch">キーボックスが失効しています。新しいものを取得中…</string>
     <string name="ts_fetch_keybox_suspended_refetch">キーボックスが失効しています。新しいものを取得中…</string>
-    <string name="ts_fetch_keybox_expiring_refetch">キーボックスの期限が間もなく切れます。変更しています…</string>
-    <string name="ts_fetch_keybox_chain_invalid_refetch">キーボックスのチェーンが無効です。変更しています…</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_styles_title">壁紙のスタイル</string>
     <string name="wallpaper_settings_summary">壁紙のスタイルとエフェクトを設定する</string>
@@ -1414,12 +1134,10 @@
     <string name="wallpaper_posterize_levels_summary">色深度の削減</string>
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">壁紙カルーセル</string>
-    <string name="lock_glymps_enable_title">壁紙カルーセルを使用</string>
     <string name="lock_glymps_enable_summary">画面が点灯するたびに壁紙を変更する</string>
     <string name="lock_glymps_wallpaper_target_title">適用する対象</string>
     <string name="lock_glymps_source_category">壁紙のソース</string>
     <string name="lock_glymps_source_title">壁紙のソース</string>
-    <string name="lock_glymps_source_summary">壁紙の取得先を選択する</string>
     <string name="lock_glymps_custom_urls_title">カスタム URL の管理</string>
     <string name="lock_glymps_custom_urls_summary">カスタム壁紙 URL を追加または削除する</string>
     <string name="lock_glymps_folder_title">ローカルフォルダ</string>
@@ -1439,7 +1157,6 @@
     <string name="lock_glymps_timer_interval_summary">壁紙を自動的に変更する頻度</string>
     <string name="lock_glymps_footer_title">情報</string>
     <string name="lock_glymps_footer_text">ローカルフォルダ: /sdcard/Glymps\n\n 低スペックのデバイスでは、わずかなラグが発生する場合があります。\n\nヒント: 色を安定させるには、Monet 設定でカスタムアクセントを使用してください。</string>
-    <string name="lock_glymps_preview_category">現在の壁紙</string>
     <string name="lock_glymps_preview_title">壁紙のプレビュー</string>
     <string name="lock_glymps_preview_summary">現在のロック画面とホーム画面の壁紙</string>
     <string name="lock_glymps_lock_screen">ロック画面</string>
@@ -1449,60 +1166,9 @@
     <string name="lock_glymps_lock_preview_desc">ロック画面の壁紙プレビュー</string>
     <string name="lock_glymps_home_preview_desc">ホーム画面の壁紙プレビュー</string>
     <!-- Video wallpaper -->
-    <string name="video_wallpaper_title">アニメーション壁紙</string>
     <string name="video_wallpaper_category">壁紙のカスタマイズ</string>
     <string name="video_wallpaper_category_title">アニメーション壁紙</string>
     <string name="video_wallpaper_category_summary">アニメーション壁紙 (MP4, GIF, WebP) を設定する</string>
-    <string name="video_wallpaper_current_title">現在の壁紙</string>
-    <string name="video_wallpaper_current_summary">アニメーション壁紙が選択されていません</string>
-    <string name="video_wallpaper_pick_title">ビデオまたは GIF を選択</string>
-    <string name="video_wallpaper_pick_summary">動画またはアニメーション画像ファイルを選択してください</string>
-    <string name="video_wallpaper_enable_title">ビデオ壁紙を使用</string>
-    <string name="video_wallpaper_enable_summary">選択した動画をライブ壁紙として適用します</string>
-    <string name="video_wallpaper_clear_title">アニメーション壁紙をクリア</string>
-    <string name="video_wallpaper_clear_summary">現在のアニメーション壁紙を削除する</string>
-    <string name="video_wallpaper_playback">再生設定</string>
-    <string name="video_wallpaper_speed">再生速度</string>
-    <string name="video_wallpaper_pause_lock">ロック画面で一時停止</string>
-    <string name="video_wallpaper_pause_lock_summary">バッテリーを節約するため、画面ロック中は再生を一時停止する</string>
-    <string name="video_wallpaper_info_category_title">情報</string>
-    <string name="video_wallpaper_info_title">サポートされている形式</string>
-    <string name="video_wallpaper_info_summary">MP4 ビデオ、GIF、WebP アニメーション。最大ファイルサイズ: 50 MB</string>
-    <string name="video_wallpaper_tips_title">ヒント</string>
-    <string name="video_wallpaper_tips_summary">• ビデオは自動的にミュートされます\n• 低解像度のビデオほどバッテリーの消費が少なくなります\n• パフォーマンス向上のため、短いループが推奨されます\n• ビデオ壁紙が読み込まれない場合は、「壁紙とスタイル」からライブ壁紙を再選択してください\n• デバイスの再起動後に再適用してください</string>
-    <string name="video_wallpaper_description">アニメーションビデオと GIF 壁紙</string>
-    <string name="video_wallpaper_cleared">ビデオ壁紙を消去しました</string>
-    <string name="video_wallpaper_clear_failed">ビデオ壁紙の消去に失敗しました</string>
-    <string name="video_wallpaper_current_summary_dynamic">%1$s | %2$s</string>
-    <string name="video_wallpaper_current_none">ビデオ壁紙が選択されていません</string>
-    <string name="video_wallpaper_select_first">最初にビデオ壁紙を選択してください</string>
-    <string name="video_wallpaper_select_wallpaper">ビデオ壁紙を選択</string>
-    <string name="video_wallpaper_save_failed">選択したファイルの保存に失敗しました</string>
-    <string name="video_wallpaper_apply_prompt">プレビュー画面から手動で選択したビデオ壁紙を適用してください</string>
-    <string name="video_wallpaper_enable_failed">ビデオ壁紙の有効化に失敗しました</string>
-    <string name="video_wallpaper_picker_error">ピッカーを開けませんでした。もう一度お試しください。</string>
-    <string name="video_wallpaper_processing">選択したファイルを処理中…</string>
-    <string name="video_wallpaper_saved">ビデオ壁紙を保存しました</string>
-    <!-- Haptics settings -->
-    <string name="haptics_settings_title">システムの触覚</string>
-    <string name="haptics_settings_summary">システムの触覚フィードバックの強度を調整する</string>
-    <string name="back_gesture_haptic_intensity_title">戻るジェスチャーの強度</string>
-    <string name="brightness_slider_haptics_intensity_title">明るさスライダーの強度</string>
-    <string name="edge_scrolling_haptics_intensity_title">エッジスクロールの強度</string>
-    <string name="volume_slider_haptics_intensity_title">音量スライダーの強度</string>
-    <string name="volume_sound_haptics_title">音量調節時のサウンドフィードバック</string>
-    <string name="volume_sound_haptics_summary">音量調節時にサウンドを再生する</string>
-    <!-- Volume panel styles -->
-    <string name="volume_style_title">音量パネルのスタイル</string>
-    <string name="revamped_aosp_style">刷新された AOSP</string>
-    <string name="rui_style">Realme UI</string>
-    <string name="aosp_style">デフォルトのAOSP</string>
-    <string name="double_layer_style">ダブルレイヤー</string>
-    <string name="gradient_style">グラデーション</string>
-    <string name="neumorph_style">ニューモフィズム</string>
-    <string name="neumorph_outline_style">ニューモフィズムアウトライン</string>
-    <string name="outline_style">アウトライン</string>
-    <string name="shaded_layer_style">シェーディングレイヤー</string>
     <!-- Gradient styles -->
     <string name="gradient_settings_title">グラデーションのカスタマイズ</string>
     <string name="gradient_settings_summary">システム要素にグラデーションカラーを適用する</string>
@@ -1515,31 +1181,15 @@
     <string name="custom_gradient_color_mode_custom">カスタム</string>
     <string name="custom_gradient_start_color_title">開始色</string>
     <string name="custom_gradient_end_color_title">終了色</string>
-    <!-- Progress bar styles -->
-    <string name="progress_bar_style_title">進行状況バーのスタイル</string>
-    <string name="progress_bar_style1">ブロック状つまみ</string>
-    <string name="progress_bar_style2">最小限のつまみ</string>
-    <string name="progress_bar_style3">アウトラインつまみ</string>
-    <string name="progress_bar_style4">刺繍</string>
     <!-- Fonts -->
     <string name="font_styles_title">フォントスタイル</string>
     <string name="font_styles_summary">システムフォントのスタイルを変更する</string>
-    <string name="font_preview_text">素早い茶色の\nキツネが\n怠惰な犬\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
-    <string name="font_picker_select_font">フォントを選択</string>
-    <string name="font_title">フォント</string>
-    <string name="font_style">フォントスタイル</string>
     <string name="font_preview_dialog_title">フォントのプレビュー</string>
     <string name="font_preview_quote">恐れる事は革新の敵なのだ。</string>
-    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
     <string name="add_font">フォントを追加</string>
-    <string name="custom_font">カスタムフォント</string>
-    <string name="no_custom_font">カスタムフォントなし</string>
     <string name="sound_preview_play">プレビューを再生</string>
     <string name="sound_preview_stop">プレビューを停止</string>
-    <string name="change_custom_font">カスタムフォントを変更</string>
-    <string name="reset_custom_font_content_desc">カスタムフォントをリセット</string>
     <string name="reboot_required_custom_font_title">カスタムフォントには再起動が必要です</string>
-    <string name="reboot_required_custom_font_desc">カスタムフォントを変更した後に再起動をスキップすると、一部のアプリで上手く表示されない場合があります。</string>
     <string name="toast_failed_apply_font">フォントの適用に失敗しました</string>
     <string name="toast_invalid_font_file">無効なフォントファイルです</string>
     <string name="custom_system_theme_title">テーマ</string>
@@ -1555,12 +1205,8 @@
     <string name="about_team_members_title">チームメンバー</string>
     <string name="about_remembering_title">記憶</string>
     <string name="about_current_maintainers_title">現在のメンテナー</string>
-    <string name="about_current_maintainers_loading_title">読み込み中…</string>
     <string name="about_current_maintainers_loading_summary">OTAから現在のメンテナーを取得しています</string>
     <string name="about_current_maintainers_empty_title">有効なメンテナーが見つかりません</string>
-    <string name="about_current_maintainers_empty_summary">OTA ビルドから現在メンテナンスされているエントリが見つかりませんでした</string>
-    <string name="about_current_maintainers_last_updated">最終更新 %1$s</string>
-    <string name="about_current_maintainers_last_updated_unknown">最終更新: 不明</string>
     <string name="about_current_maintainers_tap_to_view">タップしてアクティブなメンテナーを表示</string>
     <string name="about_current_maintainers_sheet_subtitle">%1$d 人のアクティブなメンテナー</string>
     <string name="about_current_maintainers_search_hint">メンテナーまたはデバイスを検索…</string>
@@ -1569,10 +1215,8 @@
     <!-- Changelog -->
     <string name="changelog_title">更新履歴</string>
     <string name="changelog_summary">ROMの変更点を表示</string>
-    <string name="changelog_error">更新履歴を読み込めませんでした</string>
     <string name="changelog_error_no_official">このデバイスでは公式の更新履歴は利用できません。詳細は %1$s をご覧ください。</string>
     <!-- Color picker -->
-    <string name="dialog_color_picker">カラーピッカー</string>
     <string name="press_color_to_apply">適用するには下の色をタップしてください</string>
     <string name="accent_color">アクセントカラー</string>
     <string name="notification_color">通知の色</string>
@@ -1580,11 +1224,6 @@
     <string name="rainbow_color">Rainbow</string>
     <string name="custom_color">カスタムの色</string>
     <string name="custom_color_summary">一部の時計スタイルにカスタムカラーを適用する</string>
-    <!-- Custom seekbar -->
-    <string name="custom_seekbar_value">値: <xliff:g id="v">%s</xliff:g></string>
-    <string name="custom_seekbar_default_value">既定</string>
-    <string name="custom_seekbar_default_value_to_set">既定値: <xliff:g id="v">%s</xliff:g>\n長押しで設定</string>
-    <string name="custom_seekbar_default_value_is_set">既定値が設定されています</string>
     <!-- SystemUI restart dialog -->
     <string name="systemui_restart_title">システムUIを再起動</string>
     <string name="systemui_restart_message">変更を適用するには SystemUI の再起動が必要です。今すぐ再起動しますか？</string>
@@ -1592,42 +1231,25 @@
     <string name="systemui_restart_process">システムUIを再起動中…</string>
     <!-- Units -->
     <string name="unit_hz">Hz</string>
-    <string name="unit_milliseconds">ミリ秒</string>
     <string name="unit_seconds">秒</string>
     <!-- Generic actions & labels -->
     <string name="action_enable">有効</string>
-    <string name="action_disable">無効</string>
     <string name="action_apply">適用</string>
-    <string name="applied">適用済み</string>
     <string name="action_delete">削除</string>
-    <string name="action_clear">クリア</string>
     <string name="action_yes">はい</string>
-    <string name="action_set">設定</string>
     <string name="action_reset">リセット</string>
-    <string name="action_remove">削除</string>
-    <string name="action_add">追加</string>
-    <string name="action_add_apps">アプリを追加</string>
-    <string name="action_choose_app">アプリを選択</string>
     <string name="action_search_apps">アプリを検索</string>
     <string name="action_select_all">すべて選択</string>
-    <string name="action_restart">再起動</string>
     <string name="action_reboot_now">今すぐ再起動</string>
     <string name="action_add_installed">インストール済みを追加</string>
     <string name="show_system_apps">システムアプリを表示</string>
     <string name="hide_system_apps">システムアプリを非表示</string>
     <string name="default_value">既定</string>
     <string name="never">なし</string>
-    <string name="top">上部</string>
-    <string name="bottom">下部</string>
-    <string name="delete_message">選択した項目を削除しますか?</string>
-    <string name="active_content_desc">アクティブ</string>
     <string name="boot_animation_applied">ブートアニメーションを適用しました</string>
-    <string name="reboot_device">デバイスを再起動</string>
     <string name="reboot_required_title">再起動が必要です</string>
     <string name="reboot_required_message">フォントの変更を適用するには再起動が必要です。今すぐ再起動しますか？</string>
     <string name="action_later">後で</string>
-    <string name="reset_default_title">既定値にリセット</string>
-    <string name="reset_default_message">フォントをシステムの既定値にリセットします。よろしいですか？</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
     <string name="hardware_keys_action_nothing">なし</string>
     <string name="hardware_keys_action_menu">メニューの開閉</string>
@@ -1668,7 +1290,6 @@
     <!-- Charging animation -->
     <string name="charging_animation_title">充電アニメーション</string>
     <string name="charging_animation_summary">ロック画面または AOD での充電中に視覚効果を表示する</string>
-    <string name="charging_animation_style_category_title">アニメーションスタイル</string>
     <string name="charging_animation_style_title">効果の種類</string>
     <string name="charging_ripple_opacity_title">リップルの不透明度</string>
     <string name="charging_ripple_opacity_summary">リップル波の視認性を調整する</string>
@@ -1683,7 +1304,6 @@
     <string name="charging_show_on_aod_summary">アンビエント表示モードでアニメーションを表示する</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">絵文字のスタイル</string>
-    <string name="emoji_style_summary">テキストフォントを変更せずにシステムの絵文字パックを選択する</string>
     <string name="emoji_style_stock">標準 AOSPパネル</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
@@ -1692,19 +1312,6 @@
     <!-- Settings UI -->
     <string name="settings_icon_title">設定のスタイル</string>
     <string name="settings_icon_summary">設定アプリの UI スタイルをカスタマイズしよう</string>
-    <string name="settings_icon_style_title">設定内のアイコンのスタイル</string>
-    <string name="settings_icon_style_expressive">Material Expressive</string>
-    <string name="settings_icon_style_colored_bg">色付きの背景・白いアイコン</string>
-    <string name="settings_icon_style_gradient_bg">グラデーションの背景・白いアイコン</string>
-    <string name="settings_icon_style_accent_outline">アクセントのアウトライン・アイコン</string>
-    <string name="settings_icon_style_colored_outline">色付きのアウトライン・アイコン</string>
-    <string name="settings_icon_style_colored_icon">色付きのアイコンのみ</string>
-    <string name="settings_icon_style_accent_icon">アクセントカラーのアイコンのみ</string>
-    <string name="settings_icon_corner_style_title">設定内のアイコンの形</string>
-    <string name="settings_icon_corner_style_circle">円</string>
-    <string name="settings_icon_corner_style_rounded_square">角丸四角形</string>
-    <string name="settings_icon_random_colors_title">ランダムな色</string>
-    <string name="settings_icon_random_colors_summary">アイコンごとにランダムな色を使用する</string>
     <!-- Volume slider -->
     <string name="qs_show_volume_slider_title">スライダーモード</string>
     <string name="qs_show_volume_slider_hide">明るさスライダーを表示</string>
