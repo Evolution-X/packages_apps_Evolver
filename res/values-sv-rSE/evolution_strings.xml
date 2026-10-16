@@ -19,8 +19,6 @@
     <string name="notifications_summary">Popupaviseringar, kantbelysning, ljud</string>
     <string name="power_menu_title">Avstängningsmeny</string>
     <string name="power_menu_summary">Åtgärder, låsskärm</string>
-    <string name="buttons_title">Knappar</string>
-    <string name="buttons_summary">Strömknappen och volymknapparna</string>
     <string name="miscellaneous_title">Övrigt</string>
     <string name="miscellaneous_summary">Enhetsmaskering, utvecklaralternativ</string>
     <string name="about_title">Evolution X</string>
@@ -32,68 +30,40 @@
     <string name="lock_screen_clock_category">Klocka</string>
     <string name="lock_screen_media_category">Media</string>
     <string name="lock_screen_charging_effects_category">Laddningseffekter</string>
-    <string name="notifications_flashlight_category">Ficklampa</string>
     <string name="status_bar_features_category">Funktioner</string>
     <!-- Themes -->
-    <string name="themes_monet_category">Monet</string>
     <string name="themes_monet_title">Monet-inställningar</string>
     <string name="themes_monet_summary">Anpassa Androids inbyggda temamotor</string>
     <string name="themes_audio_category">Ljud</string>
     <string name="themes_lock_sound_title">Låsljud</string>
     <string name="themes_unlock_sound_title">Upplåsningsljud</string>
     <string name="themes_fonts_category">Teckensnitt</string>
-    <string name="themes_system_font_title">Systemteckensnitt</string>
-    <string name="themes_system_font_summary">Ange systemets teckensnittsstil</string>
     <string name="themes_lock_screen_clock_font_title">Teckensnitt för låsskärmsklockan</string>
     <string name="themes_lock_screen_clock_font_summary">Ange teckensnitt för låsskärmsklockan</string>
     <string name="themes_icons_category">Ikoner</string>
-    <string name="themes_system_icons_title">Systemikoner</string>
-    <string name="themes_system_icons_summary">Ange stil för systemikoner</string>
     <string name="themes_icon_shape_title">Ikonform</string>
-    <string name="themes_signal_icon_title">Signalikon</string>
-    <string name="themes_signal_icon_summary">Ange stil för signalikonen</string>
-    <string name="themes_wifi_icon_title">Wi-Fi-ikon</string>
-    <string name="themes_wifi_icon_summary">Ange Wi-Fi-ikonstil</string>
     <string name="themes_navigation_bar_icons_title">Ikoner i navigeringsfältet</string>
     <string name="themes_navigation_bar_icons_summary">Ange stil för navigeringsfältets ikoner</string>
     <string name="themes_udfps_icon_title">UDFPS-ikon</string>
     <string name="themes_udfps_icon_summary">Ange stil för UDFPS-ikonen</string>
-    <string name="themes_brightness_category">Reglage för ljusstyrka</string>
-    <string name="themes_brightness_slider_title">Stil för ljusstyrkereglaget</string>
-    <string name="themes_brightness_slider_summary">Ange stil för ljusstyrkereglaget</string>
-    <string name="themes_animations_category">Animationer</string>
     <string name="themes_screen_off_animation_title">Animering när skärmen stängs av</string>
     <string name="themes_screen_off_animation_crt">CRT</string>
     <string name="themes_screen_off_animation_scale">Skalning</string>
     <string name="themes_udfps_animation_title">UDFPS-animering</string>
     <string name="themes_udfps_animation_summary">Ange animationsstil för UDFPS</string>
-    <string name="themes_launcher_category">Pixel Launcher</string>
-    <string name="themes_launcher_background_blur_title">Bakgrundsoskärpa</string>
-    <string name="themes_launcher_background_blur_summary">Aktivera oskärpa för bakgrunden på sidan med senaste objekt</string>
-    <string name="themes_launcher_more_themed_icons_title">Fler temaanpassade ikoner</string>
-    <string name="themes_launcher_more_themed_icons_summary">Utökar stödet för temaikoner med dynamiska färger för installerade appar</string>
-    <string name="themes_launcher_force_new_search_bar">Förnyat sökfält</string>
-    <string name="themes_launcher_force_new_search_bar_summary">Aktivera den nya stilen för Googles sökfält</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Startanimering</string>
-    <string name="boot_animation_custom_pick">Välj ZIP-fil</string>
-    <string name="boot_animation_custom_pick_summary">Välj en anpassad bootanimation.zip</string>
     <string name="boot_animation_applied_error">Det gick inte att använda startanimeringen</string>
-    <string name="boot_animation_preview_loading">Läser in förhandsgranskning…</string>
-    <string name="boot_animation_preview_desc">Förhandsgranskning av den valda startanimeringen</string>
-    <string name="boot_animation_preview_summary">Visar en förhandsgranskning av den valda startanimeringen</string>
     <string name="boot_animation_preview_title">Förhandsgranskning av startanimeringen</string>
     <string name="boot_animation_no_preview">Ingen förhandsvisning tillgänglig</string>
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">Färganpassning</string>
-    <string name="monet_settings_summary">Anpassa temafärger och stil</string>
     <string name="color_settings_category">Färginställningar</string>
     <string name="advanced_settings_category">Avancerade inställningar</string>
     <string name="use_wallpaper_colors_title">Använd bakgrundsbildens färger</string>
     <string name="use_wallpaper_colors_desc">Hämta färger från bakgrundsbilden</string>
     <string name="custom_seed_color_title">Anpassad grundfärg</string>
     <string name="theme_style_title">Temastil</string>
-    <string name="theme_style_desc">Välj färgpalettstil</string>
     <string name="fidelity_title">Färgåtergivning</string>
     <string name="fidelity_desc">Bevara den ursprungliga fröfärgen mer exakt</string>
     <string name="contrast_level_title">Kontrastnivå</string>
@@ -102,20 +72,6 @@
     <string name="about_color_customization_desc">Färgändringar tillämpas i hela systemet på alla appar som stöder Material You-teman.\nJustering av dessa färger kan påverka hur appar ser ut på hela enheten.</string>
     <string name="wallpaper_seed_color_title">Välj från bakgrundsbilden</string>
     <string name="wallpaper_seed_color_desc">Hämta färg från den aktuella bakgrundsbilden</string>
-    <string name="monet_engine_custom_color_title">Accentfärg</string>
-    <string name="monet_engine_custom_color_summary">Välj en anpassad accentfärg</string>
-    <string name="monet_engine_custom_bgcolor_title">Bakgrundsfärg</string>
-    <string name="monet_engine_custom_bgcolor_summary">Välj en anpassad bakgrundsfärg</string>
-    <string name="monet_engine_color_override_title">Anpassad färg</string>
-    <string name="monet_engine_luminance_factor_title">Luminans</string>
-    <string name="monet_engine_luminance_factor_summary">Högre värden ger ljusare färger</string>
-    <string name="monet_engine_chroma_factor_title">Kromafaktor</string>
-    <string name="monet_engine_chroma_factor_summary">Högre värden ger starkare färger</string>
-    <string name="monet_engine_whole_palette_title">Hela paletten</string>
-    <string name="monet_engine_whole_palette_summary">Tillämpa inställningar för luminans och kroma även på sekundärfärger</string>
-    <string name="monet_engine_tint_background_title">Tona bakgrunden</string>
-    <string name="monet_engine_tint_background_summary">Tillämpa även inställningarna för luminans och kroma på bakgrundsfärger</string>
-    <string name="monet_engine_style_title">Temastil</string>
     <string name="monet_engine_style_tonal_spot">Tonal Spot (standard)</string>
     <string name="monet_engine_style_vibrant">Livfull</string>
     <string name="monet_engine_style_expressive">Expressiv</string>
@@ -124,11 +80,9 @@
     <string name="monet_engine_style_fruit_salad">Fruktsallad</string>
     <string name="monet_engine_style_content">Innehåll</string>
     <string name="monet_engine_style_monochromatic">Monokromatisk</string>
-    <string name="monet_engine_color_source_title">Färgkälla</string>
     <string name="monet_engine_color_source_both">Båda (Standard)</string>
     <string name="monet_engine_color_source_home">Bakgrundsbild på startskärmen</string>
     <string name="monet_engine_color_source_lock">Låsskärmens bakgrund</string>
-    <string name="monet_engine_color_source_preset">Förinställning</string>
     <!-- Per-palette chroma override -->
     <string name="chroma_accent1_title">Primär kroma</string>
     <string name="chroma_accent2_title">Sekundär kroma</string>
@@ -152,7 +106,6 @@
     <string name="secondary_seed_color_title">Sekundär fröfärg</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Gränssnitt</string>
-    <string name="lock_screen_charging_category">Laddar</string>
     <string name="lock_screen_charging_stats_title">Laddningsstatistik</string>
     <string name="lock_screen_charging_stats_summary">Visa ström, spänning, effekt och temperatur under laddning</string>
     <string name="lock_screen_charging_time_title">Laddningstid</string>
@@ -164,12 +117,9 @@
     <string name="lock_screen_fingerprint_success_vibration_summary">Vibrera när fingeravtrycksautentiseringen lyckas</string>
     <string name="lock_screen_fingerprint_error_vibration_title">Vibration vid autentiseringsfel</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">Vibrera när fingeravtrycksautentisering misslyckas</string>
-    <string name="lock_screen_miscellaneous_category">Övrigt</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Pulse-visualisering</string>
     <string name="pulse_settings_summary">Visa en stapelvisualisering på låsskärmen när musik spelas</string>
-    <string name="ambient_pulse_enabled_title">Puls på inaktiv skärm</string>
-    <string name="ambient_pulse_enabled_summary">Visa visualiseringen på den inaktiva skärmen</string>
     <string name="pulse_bass_haptics_title">Haptisk basåterkoppling</string>
     <string name="pulse_bass_haptics_none">Ingen subtil vibration vid kraftiga bastoppar</string>
     <string name="pulse_bass_haptics_running">Endast när Pulse visas</string>
@@ -210,19 +160,9 @@
     <string name="ls_clock_summary">Ange klockstil och widgetar</string>
     <string name="clock_styles_disclaimer_title">Innan du fortsätter</string>
     <string name="clock_styles_disclaimer_message">För bästa möjliga upplevelse med urtavlor och widgetar bör du:\n\n• Inaktivera Smartspace på låsskärmen\n• Inaktivera väder på låsskärmen\n• Inaktivera den stora klockstilen\n\nDu hittar alternativen i inställningarna för låsskärmen.</string>
-    <string name="ls_clock_face_highlight_text">Svep åt vänster eller höger för att förhandsgranska klockstilar</string>
     <!-- Lockscreen Clock Accent Color -->
-    <string name="clock_text_accent_color_title">Använd accentfärg för klockan</string>
-    <string name="clock_text_accent_color_summary">Använd systemets accentfärg i stället för vitt för klocktexten</string>
     <!-- Lockscreen Clock Opacity -->
-    <string name="clock_text_opacity_title">Opacitet</string>
-    <string name="clock_text_opacity_summary">Justera klocktextens genomskinlighet</string>
     <!-- Lock screen/Clock -->
-    <string name="ls_clock_custom_font_not_supported">Den valda klockan stöder inte anpassade teckensnitt</string>
-    <string name="lockscreen_clock_category_title">Klocka</string>
-    <string name="custom_clock_style">Anpassad klockstil</string>
-    <string name="theme_customization_lock_clock_face_title">Urtavla</string>
-    <string name="theme_customization_lock_clock_face_summary">Ändra utseendet på låsskärmsklockan</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Anpassad klockstil</string>
     <string name="lockscreen_custom_clock_style_summary">Konfigurera klockstilar för låsskärmen</string>
@@ -251,7 +191,6 @@
     <string name="lockscreen_custom_clock_gradient_category_title">Övertoning</string>
     <string name="lockscreen_custom_clock_layout_category_title">Storlek &amp; position</string>
     <string name="lockscreen_custom_clock_animation_category_title">Animering</string>
-    <string name="unit_degrees">°</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">Storlek</string>
     <string name="clock_size_summary">Skala låsskärmsklockan (50–150%)</string>
@@ -265,21 +204,16 @@
     <string name="lockscreen_display_widgets_title">Widget för enhetsinformation</string>
     <string name="lockscreen_widgets_color_mode_title">Färgläge för informationswidget</string>
     <string name="lockscreen_display_widgets_summary">Visa widgeten med enhetsinformation på låsskärmen</string>
-    <string name="large_widgets_category_title">Stora widgetar</string>
     <string name="main_custom_widgets1">Stor widget 1</string>
     <string name="main_custom_widgets2">Stor widget 2</string>
-    <string name="mini_widgets_category_title">Miniwidgetar</string>
     <string name="custom_widgets1">Miniwidget 1</string>
     <string name="custom_widgets2">Miniwidget 2</string>
     <string name="custom_widgets3">Miniwidget 3</string>
     <string name="custom_widgets4">Miniwidget 4</string>
-    <string name="camera">Kamera</string>
     <string name="clock_timer">Klocka/timer</string>
     <string name="calculator">Kalkylator</string>
-    <string name="gallery">Galleri</string>
     <string name="media">Mediespelare</string>
     <string name="torch">Ficklampa</string>
-    <string name="controls_media_button_play">Spela upp</string>
     <string name="weather">Väder</string>
     <string name="data">Data</string>
     <string name="ringer">Ringsignal</string>
@@ -303,8 +237,6 @@
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Medieomslag</string>
     <string name="ls_media_art_summary">Visa omslagsbild för media när en sådan finns</string>
-    <string name="ambient_media_art_title">Medieomslag på inaktiv skärm</string>
-    <string name="ambient_media_art_summary">Visa medieomslag på den inaktiva skärmen när det finns tillgängligt</string>
     <string name="ls_media_art_filter_title">Filter för omslagsbild</string>
     <string name="ls_media_art_filter_none">Ingen</string>
     <string name="ls_media_art_filter_blur">Oskärpa</string>
@@ -326,10 +258,7 @@
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Spelas nu</string>
     <string name="nowplaying_summary">Visa information om musiken som spelas på låsskärmen och AOD</string>
-    <string name="nowplaying_appearance_title">Utseende</string>
     <string name="nowplaying_color_mode_title">Färgläge för text</string>
-    <string name="nowplaying_vertical_position_title">Vertikal position</string>
-    <string name="nowplaying_vertical_position_summary">Justera positionen från skärmens överkant till underkant</string>
     <string name="nowplaying_track_text_size_title">Låttitelns storlek</string>
     <string name="nowplaying_track_text_size_summary">Textstorlek för låttiteln</string>
     <string name="nowplaying_artist_text_size_title">Artistnamnets storlek</string>
@@ -343,8 +272,6 @@
     <string name="nowplaying_icon_size_summary">Justera ikonens storlek</string>
     <string name="nowplaying_show_on_aod_title">Visa på skärm alltid på</string>
     <string name="nowplaying_show_on_aod_summary">Visa musikinformation på inaktiv skärm</string>
-    <string name="nowplaying_compact_style_title">Kompakt stil</string>
-    <string name="nowplaying_compact_style_summary">Visa på en enda rad med låttitelns teckenstorlek</string>
     <string name="nowplaying_info_summary">Nu spelas visar aktuellt spår och artist på låsskärmen och alltid på-skärmen. Funktionen visas automatiskt när musik spelas och döljs när uppspelningen stoppas. Placeringen kan justeras från skärmens överkant till nederkant.</string>
     <string name="nowplaying_expand_dialog">Expandera dialogrutan</string>
     <string name="nowplaying_expand_dialog_summary">Expandera dialogrutan Nu spelas</string>
@@ -367,13 +294,10 @@
     <string name="lockscreen_weather_humidity_info_title">Luftfuktighet</string>
     <string name="lockscreen_weather_humidity_info_summary">Visa aktuell luftfuktighetsprocent</string>
     <!-- Lock screen/AOD -->
-    <string name="aod_display_category_title">Alltid på-skärm</string>
-    <string name="aod_pulse_category_title">Puls/viloläge</string>
     <string name="lockscreen_custom_image_enabled_title">AOD-bild</string>
     <string name="lockscreen_custom_image_title">Välj AOD-bild</string>
     <string name="lockscreen_custom_image_summary">Ange en anpassad bild för skärm alltid på</string>
     <string name="lockscreen_custom_image_pick_summary">Välj en bild från galleriet</string>
-    <string name="custom_aod_image_not_supported">Stöds inte av den valda klockstilen</string>
     <string name="ambient_display_category_title">Inaktiv skärm</string>
     <string name="ambient_bottom_title">Innehåll längst ned på AOD</string>
     <string name="ambient_battery_disable_title">Inaktiverad</string>
@@ -386,17 +310,7 @@
     <string name="ambient_wallpaper_title">Bakgrundsbild på omgivande skärm</string>
     <string name="doze_always_on_wallpaper_summary">Visa låsskärmens bakgrundsbild på den inaktiva skärmen</string>
     <!-- Lock screen/Peek display -->
-    <string name="peek_display_notifications_title">Förhandsvisningsskärm</string>
-    <string name="peek_display_notifications_summary">Aktivera en minimal aviseringsstil på låsskärmen</string>
-    <string name="peek_display_location_title">Förhandsvisningsskärmens plats</string>
-    <string name="peek_display_bottom_margin_title">Övre marginal (nederkant)</string>
-    <string name="peek_display_minimalist">Minimalistisk</string>
-    <string name="peek_display_style_title">Förhandsvisningsskärmens stil</string>
     <!-- Lock screen/Now bar -->
-    <string name="keyguard_now_bar_enabled_title">Nu-fält</string>
-    <string name="keyguard_now_bar_enabled_summary">Aktivera Nu-fältets widgetar på låsskärmen</string>
-    <string name="keyguard_now_bar_height_title">Now Bar-höjd</string>
-    <string name="keyguard_now_bar_height_summary">Justera höjden på Now-fältet</string>
     <!-- Lock screen/Scrim -->
     <string name="keyguard_scrim_transparent_title">Genomskinlig toning på låsskärmen</string>
     <string name="keyguard_scrim_transparent_summary">Dölj lagret som tonar ned låsskärmens bakgrundsbild</string>
@@ -407,7 +321,6 @@
     <string name="depthwall_file_header_select_title">Välj motiv för djupbakgrund</string>
     <string name="depthwall_file_header_select_summary">Välj motivbild för djupbakgrunden från lagringsutrymmet.</string>
     <string name="depthwall_wallpaper_enabled_title">Djupbakgrund</string>
-    <string name="depthwall_wallpaper_enabled_summary_tile">Tillämpa djupeffekt\npå bakgrundsbilden</string>
     <string name="depthwall_wallpaper_enabled_summary">Aktivera en iOS-inspirerad djupbakgrund. Kräver en motivbild.</string>
     <string name="depthwall_wallpaper_opacity_title">Djupbakgrundens opacitet</string>
     <string name="depth_wallpaper_bottom_fade_title">Nedre toning</string>
@@ -421,7 +334,6 @@
     <string name="depthwall_extract_now_title">Extrahera motiv nu</string>
     <string name="depthwall_extract_now_summary">Starta omedelbart extrahering av motivet från bakgrundsbilden (ange en separat bakgrundsbild för låsskärmen)</string>
     <string name="depthwall_extracting_toast">Extraherar motiv från bakgrundsbilden…</string>
-    <string name="depthwall_extraction_complete_toast">Motivet har extraherats!</string>
     <string name="depthwall_storage_permission_denied">Lagringsbehörighet krävs för att automatiskt extrahera motiv från bakgrundsbilder.</string>
     <string name="depthwall_clear_subject_title">Rensa motivbild</string>
     <string name="depthwall_clear_subject_summary">Ta bort det aktuella extraherade eller manuellt angivna motivet</string>
@@ -465,33 +377,15 @@
     <string name="status_bar_battery_style_icon_portrait">Stående ikon</string>
     <string name="status_bar_battery_style_icon_rlandscape">Liggande ikon (höger)</string>
     <string name="status_bar_battery_style_icon_landscape">Liggande ikon (vänster)</string>
-    <string name="status_bar_battery_style_icon_landscape_buddy">Liggande kapsel</string>
-    <string name="status_bar_battery_style_icon_landscape_line">Liggande Lorn</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">Stående iOS</string>
-    <string name="status_bar_battery_style_icon_landscape_pill">Stående Mx</string>
-    <string name="status_bar_battery_style_icon_landscape_signal">Liggande Airoo</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_a">Liggande R, stil A</string>
-    <string name="status_bar_battery_style_icon_landscape_style_a">Liggande L, stil A</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_b">Liggande R, stil B</string>
-    <string name="status_bar_battery_style_icon_landscape_style_b">Liggande L, stil B</string>
-    <string name="status_bar_battery_style_icon_landscape_ios15">Liggande iOS 15</string>
-    <string name="status_bar_battery_style_icon_landscape_ios16">Liggande iOS 16</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">Liggande origami</string>
-    <string name="status_bar_battery_style_icon_landscape_oneui7">Liggande OneUI 7</string>
     <string name="status_bar_battery_style_circle">Cirkel</string>
     <string name="status_bar_battery_style_dotted_circle">Prickad cirkel</string>
     <string name="status_bar_battery_style_filled_circle">Fylld cirkel</string>
-    <string name="status_bar_battery_style_big_circle">Stor cirkel</string>
-    <string name="status_bar_battery_style_big_dotted_circle">Stor prickad cirkel</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Dold</string>
-    <string name="status_bar_battery_style_follow_status_bar">Följ statusfältets stil</string>
     <string name="status_bar_battery_percent_title">Batteriprocent</string>
     <string name="status_bar_battery_percent_hidden">Dold</string>
     <string name="status_bar_battery_percent_text_inside">Inuti ikonen</string>
     <string name="status_bar_battery_percent_text_next">Bredvid ikonen</string>
-    <string name="status_bar_battery_percent_text_next_right">Bredvid ikonen (höger)</string>
-    <string name="status_bar_battery_percent_text_next_left">Bredvid ikonen (till vänster)</string>
     <string name="status_bar_battery_text_charging_title">Visa alltid procent under laddning</string>
     <string name="status_bar_battery_text_charging_summary">Visa alltid batteriprocent medan enheten laddas</string>
     <string name="battery_bar_title">Batterifält</string>
@@ -614,9 +508,7 @@
     <string name="status_bar_logo_style_amogus">Amogus</string>
     <string name="status_bar_logo_style_custom">Anpassad bild</string>
     <!-- Custom image logo style -->
-    <string name="status_bar_logo_style_custom_image">Anpassad bild</string>
     <string name="status_bar_logo_custom_image_title">Välj anpassad logotypbild</string>
-    <string name="status_bar_logo_custom_image_summary">Tryck för att välja en bild från galleriet</string>
     <string name="status_bar_logo_custom_image_pick_summary">Välj en bild från galleriet</string>
     <!-- Statusbar logo color -->
     <string name="status_bar_logo_color_title">Färg</string>
@@ -626,10 +518,6 @@
     <!-- Status bar/Network traffic -->
     <string name="status_bar_network_traffic_settings_title">Nätverkstrafikövervakning</string>
     <string name="status_bar_network_traffic_settings_summary">Visa och anpassa aktuella nätverkstrafiknivåer</string>
-    <string name="network_traffic_location_title">Plats</string>
-    <string name="network_traffic_location_disable">Inaktiverad</string>
-    <string name="network_traffic_location_statusbar">Statusfältet</string>
-    <string name="network_traffic_location_quick_statusbar">Snabbstatusfält</string>
     <string name="network_traffic_mode_title">Visningsläge</string>
     <string name="network_traffic_mode_up">Endast uppladdning</string>
     <string name="network_traffic_mode_down">Endast nedladdning</string>
@@ -641,11 +529,7 @@
     <string name="network_traffic_refresh_interval_summary">Hur ofta hastighetsmätningen uppdateras</string>
     <string name="network_traffic_units_title">Mätenheter</string>
     <string name="network_traffic_units_bits">Bitar per sekund (b/s)</string>
-    <string name="network_traffic_units_kilobits">Kilobit per sekund (kb/s)</string>
-    <string name="network_traffic_units_megabits">Megabit per sekund (Mb/s)</string>
     <string name="network_traffic_units_bytes">Byte per sekund (B/s)</string>
-    <string name="network_traffic_units_kilobytes">Kilobyte per sekund (kB/s)</string>
-    <string name="network_traffic_units_megabytes">Megabyte per sekund (MB/s)</string>
     <string name="network_traffic_hidearrow">Dölj pilar</string>
     <string name="network_traffic_hidearrow_summary">Dölj pilarna för nätverkstrafikindikatorn</string>
     <!-- Status bar/Dynamic Bar -->
@@ -658,8 +542,6 @@
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Visa aldrig</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Endast vid laddning</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Visa alltid</string>
-    <string name="dynamic_bar_keyguard_compact_chip">Kompakt låsskärmsplatta</string>
-    <string name="dynamic_bar_keyguard_compact_chip_summary">Använd alltid kompakt chipstil på låsskärmen. När detta är inaktiverat används kompakt läge endast när utrymmet är begränsat.</string>
     <string name="dynamic_bar_events">Händelser</string>
     <string name="dynamic_bar_event_audio_recording">Ljudinspelning</string>
     <string name="dynamic_bar_event_audio_recording_summary">Röstinspelare och ljudinspelning</string>
@@ -713,7 +595,6 @@
     <!-- Status bar/Cutout progress ring -->
     <string name="cutout_progress_title">Förloppsring runt skärmutskärningen</string>
     <string name="cutout_progress_summary">Visa en förloppsring runt kamerautskärningen</string>
-    <string name="cutout_progress_cat_appearance">Utseende</string>
     <string name="cutout_progress_cat_behaviour">Beteende</string>
     <string name="cutout_progress_cat_bg_ring">Bakgrundsring</string>
     <string name="cutout_progress_cat_finish">Slutanimering</string>
@@ -770,7 +651,6 @@
     <string name="cutout_progress_badge_offset_x_title">Märkets horisontella förskjutning</string>
     <string name="cutout_progress_badge_offset_y_title">Märkets vertikala förskjutning</string>
     <string name="cutout_progress_ring_color_mode_title">Ringens färgläge</string>
-    <string name="cutout_progress_color_picker_title">Välj färg</string>
     <string name="cutout_progress_ring_color_mode_accent">Accentfärg</string>
     <string name="cutout_progress_ring_color_mode_rainbow">Regnbåge</string>
     <string name="cutout_progress_ring_color_mode_custom">Anpassad</string>
@@ -794,14 +674,10 @@
     <string name="cutout_progress_music_opacity_title">Ringens opacitet</string>
     <string name="cutout_progress_music_stroke_title">Linjebredd</string>
     <string name="cutout_progress_music_clockwise_title">Medurs riktning</string>
-    <string name="cutout_progress_music_aod_title">Visa på AOD</string>
-    <string name="cutout_progress_music_aod_summary">Låt musikringen fortsätta visas på den inaktiva skärmen</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Bluetooth-batteristatus</string>
     <string name="status_bar_bluetooth_battery_summary">Visa batteristatusen för den anslutna Bluetooth-enheten, om den är tillgänglig</string>
     <!-- Status bar/Misc -->
-    <string name="max_visible_notification_icons_title">Högsta antal aviseringsikoner</string>
-    <string name="max_visible_notification_icons_summary">Högsta antal aviseringsikoner som visas i statusfältet</string>
     <string name="statusbar_extra_padding_category">Extra utfyllnad</string>
     <string name="statusbar_extra_padding_start_title">Startutfyllnad</string>
     <string name="statusbar_extra_padding_top_title">Övre utfyllnad</string>
@@ -817,29 +693,12 @@
     <string name="floating_rotation_button_summary">Visa en flytande knapp för att rotera när enhetsorienteringen ändras</string>
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Gränssnitt</string>
-    <string name="quick_settings_tile_ui_style_title">Rutstil</string>
-    <string name="quick_settings_tile_ui_style_a11_circle">Runda rutor</string>
-    <string name="quick_settings_tile_ui_style_a11_square">Fyrkantiga rutor</string>
-    <string name="quick_settings_tile_ui_style_a11_mix">Runda &amp; fyrkantiga rutor</string>
-    <string name="quick_settings_panel_style_title">Panelstil</string>
-    <string name="quick_settings_panel_style_outline">Kontur</string>
-    <string name="quick_settings_panel_style_two_tone">Tvåfärgad accent</string>
-    <string name="quick_settings_panel_style_color_pop">Färgklick</string>
-    <string name="quick_settings_panel_style_shaded">Skuggad</string>
-    <string name="quick_settings_panel_style_cyberpunk">Cyberpunk</string>
-    <string name="quick_settings_panel_style_neumorph">Neumorph</string>
-    <string name="quick_settings_panel_style_reflected">Speglad</string>
-    <string name="quick_settings_panel_style_surround">Omslutande</string>
-    <string name="quick_settings_panel_style_thin">ThinLine</string>
     <string name="qs_panel_style_title">Stil för snabbinställningspanelen</string>
     <string name="qs_panel_style_card">Kort</string>
     <string name="qs_panel_style_classic">Klassisk</string>
     <string name="quick_settings_layout_category_title">Layout</string>
     <string name="quick_settings_tile_label_hide_title">Dölj etiketten</string>
-    <string name="quick_settings_tile_label_size_title">Etikettens textstorlek</string>
     <string name="quick_settings_tile_label_hide_summary">Visa endast ikonen i rutan</string>
-    <string name="quick_settings_tile_layout_title">Vertikal layout</string>
-    <string name="quick_settings_tile_layout_summary">Visa etiketten under ikonen i stället för bredvid den</string>
     <string name="quick_settings_layout_columns_rows_title">Kolumner &amp; rader</string>
     <string name="quick_settings_layout_columns_rows_summary">Anpassa kolumner och rader i snabbinställningarna</string>
     <string name="quick_settings_layout_columns_rows_footer_text">Antalet rader i snabbinställningarna måste vara lika stort som eller större än antalet rader i kompakta snabbinställningar. Använd fler kolumner för runda eller fyrkantiga rutor.</string>
@@ -890,8 +749,6 @@
     <string name="quick_settings_show_brightness_slider_never">Visa aldrig</string>
     <string name="quick_settings_show_brightness_slider_expanded">Visa när panelen är expanderad</string>
     <string name="quick_settings_show_brightness_slider_always">Visa alltid</string>
-    <string name="quick_settings_show_brightness_percentage_title">Procentuell ljusstyrka</string>
-    <string name="quick_settings_show_brightness_percentage_summary">Visa ljusstyrkan i procent bredvid reglaget</string>
     <string name="quick_settings_brightness_slider_position_title">Reglagets position</string>
     <string name="quick_settings_brightness_slider_position_top">Överst</string>
     <string name="quick_settings_brightness_slider_position_bottom">Nederkant</string>
@@ -902,7 +759,6 @@
     <string name="qs_brightness_slider_gradient_title">Övertoning för ljusstyrkereglaget</string>
     <string name="qs_brightness_slider_gradient_summary">Aktivera en övertonad bakgrund för ljusstyrkereglaget</string>
     <!-- Quick settings/Animations -->
-    <string name="quick_settings_animations_category">Animationer</string>
     <string name="qs_tile_animation_style_title">Rutanimering</string>
     <string name="qs_tile_animation_style_bounce">Studsa</string>
     <string name="qs_tile_animation_style_ripple">Krusning</string>
@@ -916,14 +772,6 @@
     <string name="qs_tile_animation_style_tilt">Lutning</string>
     <string name="qs_tile_animation_style_heartbeat">Hjärtslag</string>
     <string name="qs_tile_animation_style_swing">Gunga</string>
-    <string name="quick_settings_tile_animation_interpolator_linear">Linjär</string>
-    <string name="quick_settings_tile_animation_interpolator_accelerate">Accelerera</string>
-    <string name="quick_settings_tile_animation_interpolator_decelerate">Decelerera</string>
-    <string name="quick_settings_tile_animation_interpolator_accelerateDecelerate">Accelerera och bromsa</string>
-    <string name="quick_settings_tile_animation_interpolator_bounce">Studsa</string>
-    <string name="quick_settings_tile_animation_interpolator_overshoot">Översvängning</string>
-    <string name="quick_settings_tile_animation_interpolator_anticipate">Förutse</string>
-    <string name="quick_settings_tile_animation_interpolator_anticipateOvershoot">Förutse överskjutning</string>
     <!-- Quick settings/Header image -->
     <string name="quick_settings_header_image_title">Sidhuvudsbild</string>
     <string name="quick_settings_header_image_summary">Välj en bakgrundsbild för snabbinställningarna</string>
@@ -945,8 +793,6 @@
     <string name="quick_settings_header_offset_title">Rubrikbildens förskjutning</string>
     <string name="quick_settings_header_offset_summary">Justera rubrikbildens storlek</string>
     <!-- Quick settings/Misc -->
-    <string name="quick_settings_transparency_title">Bakgrundstransparens</string>
-    <string name="quick_settings_transparency_summary">Ange genomskinlighetsnivån för snabbinställningarnas bakgrund</string>
     <string name="quick_settings_data_usage_title">Dataanvändning</string>
     <string name="quick_settings_data_usage_summary">Visa dataanvändning i snabbinställningarnas sidfot</string>
     <string name="quick_settings_data_usage_window_title">Period för dataanvändning</string>
@@ -959,8 +805,6 @@
     <string name="quick_settings_footer_edit_icon_title">Ikon för att redigera rutor</string>
     <string name="quick_settings_footer_show_power_menu_title">Genväg till avstängningsmenyn</string>
     <string name="quick_settings_footer_settings_icon_title">Genväg till inställningarna</string>
-    <string name="qs_split_shade_enabled_title">Delad panel i liggande läge</string>
-    <string name="qs_split_shade_enabled_summary">Aktivera experimentella snabbinställningar med delad panel i liggande läge. Kan störa popupaviseringar i liggande läge</string>
     <string name="qs_header_clock_style_title">Klockstil i snabbinställningarnas sidhuvud</string>
     <string name="qs_header_style1">Chip</string>
     <string name="qs_header_style2">Oxygen</string>
@@ -974,9 +818,6 @@
     <string name="qs_show_media_player_bottom">Visa längst ned</string>
     <string name="qs_tile_gradient_title">Övertoning för snabbinställningsrutor</string>
     <string name="qs_tile_gradient_summary">Aktivera övertonade bakgrunder för snabbinställningsrutor</string>
-    <string name="qs_tiles_haptic_feedback_title">Vibrera när du trycker på snabbinställningsrutor</string>
-    <string name="qs_panel_tile_haptic_intensity_title">Vibrationsstyrka för snabbinställningsrutor</string>
-    <string name="qs_haptics_intensity_title">Svepintensitet i snabbinställningarna</string>
     <!-- QS widget -->
     <string name="qs_widget_panel_title">Visa widget i snabbinställningspanelen</string>
     <string name="qs_widget_panel_summary">Visa widgeten för media, volym och ljusstyrka i snabbinställningspanelen</string>
@@ -986,7 +827,6 @@
     <string name="qs_widget_slider_corner_summary">Visa vertikala widgetreglage med rundad stil på snabbinställningspanelen</string>
     <!-- Notifications -->
     <string name="notifications_heads_up_title">Popupaviseringar</string>
-    <string name="notifications_heads_up_summary">Tillåt popupaviseringar</string>
     <string name="notifications_interface_category">Gränssnitt</string>
     <string name="notifications_kill_app_button_title">Tvångsavsluta appen</string>
     <string name="notifications_kill_app_button_summary">Visa en knapp för att tvångsavsluta appen i aviseringsmenyn som öppnas med ett långt tryck</string>
@@ -997,12 +837,6 @@
     <string name="compact_heads_up_notifications_enabled_summary">Visa aviseringar i kompakt storlek</string>
     <string name="notifications_less_boring_heads_up_title">Mindre tråkigt</string>
     <string name="notifications_less_boring_heads_up_summary">Visa popupaviseringar endast för alarm, samtal och meddelandeappar</string>
-    <string name="notif_style_title">Aviseringsstil</string>
-    <string name="notif_style1">Cyberpunk</string>
-    <string name="notif_style2">Tvåradig</string>
-    <string name="notif_style3">Flytande (genomskinlig)</string>
-    <string name="notif_style4">iOS</string>
-    <string name="notif_style5">Lager</string>
     <string name="notification_use_app_icons_title">Använd appikoner i aviseringar</string>
     <string name="notification_use_app_icons_summary">Visa appstartarens ikon i stället för den lilla aviseringsikonen</string>
     <string name="notification_use_themed_app_icons_title">Använd appikoner med tema</string>
@@ -1017,19 +851,8 @@
     <string name="notification_bubble_apps_summary">Öppna appar i en flytande bubbla när du trycker på deras aviseringar</string>
     <string name="media_squiggle_animation_title">Slingeranimering</string>
     <string name="media_squiggle_animation_summary">Visa en vågformad animering i mediepanelens förloppsreglage under uppspelning</string>
-    <string name="small_landscape_notification_title">Små aviseringar i liggande läge</string>
-    <string name="small_landscape_notification_summary">Visa smalare aviseringar i liggande läge</string>
     <string name="essential_notifications">Viktiga aviseringar</string>
     <string name="essential_notifications_summary">Välj appar som alltid visas på aviseringspanelen</string>
-    <string name="selected_apps_description">Valda appar visas alltid i aviseringspanelen</string>
-    <string name="no_apps_selected">Inga appar har valts</string>
-    <string name="essential_apps_count">%d appar har valts</string>
-    <string name="essential_configured_apps">Konfigurerade appar</string>
-    <string name="essential_no_apps_configured">Inga appar har konfigurerats</string>
-    <string name="essential_no_apps_available">Inga appar tillgängliga</string>
-    <string name="essential_no_apps_found">Inga resultat för \"%s\"</string>
-    <string name="essential_remove_title">Ta bort appen?</string>
-    <string name="essential_remove_confirm">Ta bort %s från viktiga aviseringar?</string>
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">Kantbelysning</string>
     <string name="edge_light_summary">Lys upp skärmens kanter vid aviseringspuls</string>
@@ -1056,38 +879,21 @@
     <string name="power_menu_interface_category">Gränssnitt</string>
     <string name="power_menu_actions_title">Åtgärder på strömmenyn</string>
     <string name="power_menu_actions_summary">Välj vilka åtgärder som visas</string>
-    <string name="power_menu_lock_screen_category">Låsskärm</string>
     <string name="power_menu_lock_screen_secure_title">Visa på den säkra låsskärmen</string>
     <string name="power_menu_lock_screen_secure_summary">Visa strömmenyn medan enheten är låst</string>
     <string name="power_menu_actions_screenshot_title">Skärmbild</string>
     <string name="power_menu_actions_onthego_title">On-The-Go-läget</string>
     <string name="power_menu_actions_airplane_title">Flygplansläge</string>
-    <string name="power_menu_actions_torch_title">Ficklampa</string>
-    <string name="power_menu_actions_settings_title">Inställningar</string>
     <string name="power_menu_actions_lockdown_title">Låsningsläge</string>
     <string name="power_menu_actions_lockdown_unavailable">Låsningsläget är inte tillgängligt eftersom låsskärmen inte är säker</string>
-    <string name="power_menu_actions_soundpanel_title">Ljudpanel</string>
     <string name="power_menu_actions_users_title">Användare</string>
-    <string name="power_menu_actions_logout_title">Logga ut</string>
     <string name="power_menu_actions_emergency_title">Nödsituation</string>
     <string name="power_menu_actions_devicecontrols_title">Enhetsstyrning</string>
-    <string name="power_menu_restart_items_category_title">Avancerade omstartsalternativ</string>
-    <string name="power_menu_actions_restart_recovery_title">Starta om till återställningsläge</string>
-    <string name="power_menu_actions_restart_bootloader_title">Starta om till bootloader</string>
-    <string name="power_menu_actions_restart_fastboot_title">Starta om till fastboot</string>
-    <string name="power_menu_actions_restart_download_title">Starta om till hämtningsläge</string>
-    <string name="power_menu_actions_restart_systemui_title">Starta om SystemUI</string>
     <string name="power_menu_advanced_title">Avancerade omstartsalternativ</string>
     <string name="advanced_reboot_title">Avancerad omstart</string>
     <string name="advanced_reboot_summary">När enheten är upplåst visas alternativ för att starta om till återställningsläge eller starthanteraren i avstängningsmenyn</string>
     <string name="advanced_reboot_secured_title">Visa på den säkra låsskärmen</string>
     <string name="advanced_reboot_secured_summary">Visa avancerade omstartalternativ på den säkra låsskärmen</string>
-    <string name="powermenu_style_title">Strömmenyns stil</string>
-    <string name="powermenu_style1">Cyberpunk</string>
-    <string name="powermenu_style2">Tvåradig</string>
-    <string name="powermenu_style3">Flytande (genomskinlig)</string>
-    <string name="powermenu_style4">iOS</string>
-    <string name="powermenu_style5">Lager</string>
     <!-- Miscellaneous -->
     <string name="miscellaneous_spoofing_category">Maskering</string>
     <string name="miscellaneous_developer_options_category">Utvecklaralternativ</string>
@@ -1139,14 +945,12 @@
     <string name="tensor_spoof_title">Mål för Tensor-funktioner</string>
     <string name="tensor_spoof_summary">Ge valda appar åtkomst till AI-funktioner som är exklusiva för Pixel Tensor</string>
     <string name="tensor_spoof_enable">Tensor-maskering</string>
-    <string name="tensor_spoof_enable_summary">Ge valda appar åtkomst till funktioner som är exklusiva för Pixel Tensor</string>
     <string name="tensor_targets_none_configured">Inga appar har valts</string>
     <string name="tensor_targets_count">%1$d appar har valts</string>
     <string name="tensor_targets_empty_description">Valda appar rapporterar Tensor-maskinvarufunktioner för att låsa upp AI-funktioner och Pixel-exklusiva funktioner</string>
     <string name="user_selectable_app_spoofing_title">Maskering av appar &amp; spel</string>
     <string name="user_selectable_app_spoofing_summary">Maskera enhetsegenskaper för specifika appar och spel</string>
     <string name="user_select_spoofing_profile_title">Välj maskeringsprofil</string>
-    <string name="app_spoofing_category_title">Maskering per app</string>
     <string name="app_spoofing_header_title">Aktivera maskering</string>
     <string name="app_spoofing_configured_count">%1$d appar &amp; spel har maskerats</string>
     <string name="app_spoofing_disabled">Inaktiverad</string>
@@ -1178,81 +982,9 @@
     <string name="pp_empty_description">Valda appar rapporterar den valda Pixel-enhetsidentiteten för att låsa upp Pixel-exklusiva funktioner</string>
     <string name="pp_mainline_unsupported">Den här enheten är redan en Pixel. Maskering är inte tillgänglig på ordinarie Pixel-enheter.</string>
     <!-- Miscellaneous/Sensor block -->
-    <string name="sensor_block_header_title">Sensorblockering</string>
     <string name="sensor_block_title">Sensorblockering per app</string>
     <string name="sensor_block_summary">Blockera valda appars åtkomst till vissa sensorer för att spara batteri</string>
-    <string name="sensor_block_app_picker_title">Blockera sensorer för dessa appar</string>
-    <string name="add_sensor_block_package_title">Lägg till appar i sensorblockeringen</string>
-    <string name="add_sensor_block_package_summary">Blockerar sensorer för signifikant rörelse, acceleration och linjär acceleration för valda appar</string>
-    <string name="sensor_block_count">%1$d appar har blockerats</string>
-    <string name="sensor_block_add_apps">Lägg till appar</string>
-    <string name="sensor_block_configured_apps">Blockerade appar</string>
-    <string name="sensor_block_empty_description">Sensorerna blockeras i hela systemet för apparna i listan</string>
-    <string name="sensor_block_no_apps_configured">Inga appar blockerade</string>
-    <string name="sensor_block_no_apps_available">Inga appar tillgängliga</string>
-    <string name="sensor_block_no_apps_found">Inga resultat för \"%1$s\"</string>
-    <string name="sensor_block_remove_title">Ta bort appen?</string>
-    <string name="sensor_block_remove_confirm">Ta bort %1$s från listan över sensorblockerade appar?</string>
-    <string name="sensor_block_clear_all">Rensa alla</string>
-    <string name="sensor_block_clear_all_confirm">Detta avblockerar alla appar och inaktiverar sensorblockering.</string>
-    <string name="sensor_block_disabled">Inaktiverad</string>
     <!-- Miscellaneous/Idle Manager -->
-    <string name="idle_manager_title">Inaktivitetshanterare</string>
-    <string name="idle_manager_summary">Hantera bakgrundsprocesser och optimera batteriet</string>
-    <string name="idle_manager_app_count">%1$d appar övervakas</string>
-    <string name="idle_manager_disabled">Inaktiverad — tryck för att aktivera</string>
-    <string name="idle_manager_tab_apps">Appar</string>
-    <string name="idle_manager_tab_dashboard">Översikt</string>
-    <string name="idle_manager_add_apps">Lägg till appar</string>
-    <string name="idle_manager_clear_all">Rensa alla</string>
-    <string name="idle_manager_clear_all_confirm">Ta bort alla konfigurerade appar? Deras väntelägeskategorier återställs.</string>
-    <string name="idle_manager_configured_apps">Konfigurerade appar</string>
-    <string name="idle_manager_no_apps_configured">Inga appar har konfigurerats</string>
-    <string name="idle_manager_no_apps_hint">Tryck på \"Lägg till appar\" för att börja hantera bakgrundsprocesser.</string>
-    <string name="idle_manager_no_apps_available">Inga appar tillgängliga</string>
-    <string name="idle_manager_no_apps_found">Inga resultat för \"%1$s\"</string>
-    <string name="idle_manager_back_to_apps">← Tillbaka</string>
-    <string name="idle_manager_select_policy">Ange policy</string>
-    <string name="idle_manager_select_policy_count">Nästa: ange policy för %1$d app(ar)</string>
-    <string name="idle_manager_edit_policy">Redigera: %1$s</string>
-    <string name="idle_manager_idle_timeout">Tidsgräns för inaktivitet</string>
-    <string name="idle_manager_policy_balanced">Balanserad</string>
-    <string name="idle_manager_policy_aggressive">Aggressiv</string>
-    <string name="idle_manager_policy_custom">Anpassad</string>
-    <string name="idle_manager_policy_balanced_desc">Tillämpa åtgärden på appar som har varit inaktiva i 60 minuter.</string>
-    <string name="idle_manager_policy_aggressive_desc">Tillämpa åtgärden på appar som har varit inaktiva i 15 minuter. Rekommenderas för att spara batteri.</string>
-    <string name="idle_manager_policy_custom_desc">Ange en egen tidsgräns för inaktivitet.</string>
-    <string name="idle_manager_timeout_minutes">Tidsgräns: %1$d min</string>
-    <string name="idle_manager_timeout_label">Tidsgräns</string>
-    <string name="idle_manager_policy_label">Policy</string>
-    <string name="idle_manager_enforcement_action">Åtgärd vid inaktivitet</string>
-    <string name="idle_action_rare_bucket">Sällsynt kategori</string>
-    <string name="idle_action_restricted">Begränsad</string>
-    <string name="idle_action_kill_bg">Avsluta i bakgrunden</string>
-    <string name="idle_action_full_kill">Fullständig tvångsavslutning</string>
-    <string name="idle_manager_policy_custom_desc_dynamic">Åtgärda appar som har varit inaktiva i %1$d minuter.</string>
-    <string name="idle_action_rare_bucket_desc">Flyttar appen till väntelägesgruppen RARE. Blockerar bakgrundsjobb och alarm. Appen återställs automatiskt när den öppnas.</string>
-    <string name="idle_action_restricted_desc">Flyttar appen till vänteläget RESTRICTED. Mycket få bakgrundsåtgärder tillåts.</string>
-    <string name="idle_action_kill_bg_desc">Tvångsavslutar cachelagrade bakgrundsprocesser mjukt. Appen kan starta om av sig själv.</string>
-    <string name="idle_action_full_kill_desc">Vänteläget RESTRICTED kombinerat med mjuk avslutning. Maximal begränsning för att spara batteri.</string>
-    <string name="idle_manager_kill_count_label">Totalt antal åtgärder</string>
-    <string name="idle_manager_last_killed_label">Senaste åtgärd</string>
-    <string name="idle_manager_last_killed">Senast: %1$s</string>
-    <string name="idle_manager_longpress_hint">Tryck länge för att redigera snabbt</string>
-    <string name="idle_manager_critical_system_warning">Kritiskt systempaket. Om det begränsas kan systemet bli instabilt.</string>
-    <string name="idle_manager_remove_title">Ta bort appen?</string>
-    <string name="idle_manager_remove_confirm">%1$s tas bort och dess standby-kategori återställs.</string>
-    <string name="idle_manager_apps_acted_on">Berörda appar</string>
-    <string name="idle_manager_total_actions">Totalt antal åtgärder</string>
-    <string name="idle_manager_action_breakdown">Åtgärdsfördelning</string>
-    <string name="idle_manager_recent_activity">Senaste aktivitet</string>
-    <string name="idle_manager_no_activity">Ingen aktivitet än</string>
-    <string name="idle_manager_no_activity_hint">Åtgärder visas här när skärmen har stängts av och appar blir inaktiva.</string>
-    <string name="idle_manager_refresh_dashboard">Uppdatera</string>
-    <string name="idle_manager_clear_stats_title">Rensa statistik</string>
-    <string name="idle_manager_clear_stats_confirm">Detta raderar all åtgärdshistorik permanent. Idle Manager fortsätter att köras normalt.</string>
-    <string name="idle_manager_sleep_mode_trigger_title">Utlös vid sömnläge</string>
-    <string name="idle_manager_sleep_mode_trigger_summary">Tillämpa endast inaktivitetsregler medan sömnläget är aktivt</string>
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrity Fix</string>
     <string name="play_integrity_fix_summary">Hantera PIF-konfiguration och enhetsfingeravtryck för grundläggande integritet</string>
@@ -1284,7 +1016,6 @@
     <string name="pif_footer_body">Canary-fingeravtrycket hämtas och uppdateras automatiskt var 21:e dag. Canary-konfigurationer upphör att gälla cirka 6 veckor efter lanseringsdatumet — utgångsdatumet visas i sammanfattningen för den aktiva konfigurationen.\n\nFör manuell konfiguration:\n1. Tryck på \"Hämta Pixel Canary-fingeravtryck\" och välj en enhet.\n2. Om inga enheter hittas importerar du en fungerande PIF-konfiguration från en betrodd källa. Konfigurationsfiler tillhandahålls inte.\n3. Kontrollera din Play Integrity-status igen.\n\nTa alltid bort den aktiva konfigurationen innan du importerar en ny. Om du läser in en utgången PIF-konfiguration misslyckas TrickyStores starka integritetskontroll även med en giltig keybox.\n\nAvancerad maskering:\n• Maskering av Play Butiks fingeravtryck — låt den vara inaktiverad om du inte har fått andra råd. Att maskera FINGERPRINT för Play Butik behövs sällan och kan orsaka problem.\n• Maskera SDK för DroidGuard — tvingar fram den äldre attesteringsvägen före Android 13. Aktivera endast detta om grundläggande integritet misslyckas och konfigurationen är avsedd för en äldre SDK.</string>
     <string name="pif_invalid_fingerprint">Ogiltigt fingeravtrycksformat</string>
     <string name="pif_no_devices_found">Inga enheter hittades</string>
-    <string name="pif_no_api_key">Det gick inte att extrahera Flash Tools API-nyckel</string>
     <string name="pif_advanced_settings">Avancerad maskering</string>
     <string name="pif_spoof_vending_finger_title">Maskering av Play Butiks fingeravtryck</string>
     <string name="pif_spoof_vending_finger_summary">Styr vilket FINGERPRINT som visas för Play Butik-processen</string>
@@ -1313,24 +1044,18 @@
     <string name="ts_import_target_list_summary">Importera target.txt från en fil</string>
     <string name="ts_invalid_patch_date">Ogiltigt datumformat. Använd YYYY-MM-DD</string>
     <string name="ts_target_list_imported">Mållista importerad</string>
-    <string name="ts_targets_saved">Mållistan har sparats</string>
     <string name="ts_failed">Misslyckades: %s</string>
     <string name="ts_footer_title">Klarar stark integritetskontroll</string>
     <string name="ts_footer_body">En keybox hämtas och hålls giltig automatiskt. Återkallningsstatusen kontrolleras var 24:e timme, och en ny keybox hämtas från den officiella källan om den aktuella har återkallats eller spärrats.\n\nManuell konfiguration:\n1. Tryck på \"Hämta officiell keybox\" för att hämta en automatiskt, eller importera en egen från en betrodd källa.\n2. Öppna \"Hantera målappar\" och välj apparna som kräver integritetskontroller.\n3. Ställ in målläget på \"Leaf\" om enheten har en fungerande TEE. Lämna det annars på Auto.\n4. Kontrollera Play Integrity-statusen igen.\n\nObs! Om ingen giltig officiell keybox är tillgänglig pausas automatisk hämtning i 24 timmar innan ett nytt försök görs. Ta alltid bort den befintliga keybox-filen innan du importerar en ny.</string>
     <string name="ts_patch_stale_warning">%1$s (inaktuell, minst 12 månader gammal)</string>
     <string name="ts_security_patch">Datum för säkerhetsuppdatering</string>
     <string name="ts_no_patch">Inte angivet (enhetens standard används)</string>
-    <string name="ts_select_target_apps">Välj målappar</string>
-    <string name="ts_select_target_apps_desc">Välj appar där attestationsmaskering ska aktiveras</string>
-    <string name="ts_selected_count">%d har valts</string>
     <string name="ts_mode_auto">Auto</string>
     <string name="ts_mode_leaf">Löv</string>
     <string name="ts_mode_cert">Cert</string>
     <string name="ts_mode_skip">Hoppa över</string>
     <string name="ts_verification_mode">Verifieringsläge</string>
     <string name="ts_verification_mode_auto">Auto</string>
-    <string name="ts_verification_mode_cert">Cert</string>
-    <string name="ts_verification_mode_leaf">Löv</string>
     <string name="ts_verification_auto_count">%1$d auto</string>
     <string name="ts_verification_cert_count">%1$d certifikat</string>
     <string name="ts_verification_leaf_count">%1$d slutcertifikat</string>
@@ -1364,16 +1089,12 @@
     <string name="ts_revocation_valid">Giltig – inte återkallad</string>
     <string name="ts_revocation_revoked">Återkallad%s</string>
     <string name="ts_revocation_suspended">Spärrad%s</string>
-    <string name="ts_revocation_network_error">Det gick inte att nå återkallningsservern</string>
     <string name="ts_revocation_error">Kontrollen misslyckades: %s</string>
     <string name="ts_revocation_last_checked">Senast kontrollerad: %1$s</string>
-    <string name="ts_revocation_tap_to_check">Tryck för att kontrollera återkallelsestatus</string>
     <string name="ts_revocation_not_yet_checked">Inte kontrollerad ännu — tryck för att verifiera nu</string>
     <!-- Toasts for new auto-replace triggers -->
     <string name="ts_fetch_keybox_revoked_refetch">Keybox har återkallats, hämtar en nyare…</string>
     <string name="ts_fetch_keybox_suspended_refetch">Keyboxen är spärrad. En nyare hämtas…</string>
-    <string name="ts_fetch_keybox_expiring_refetch">Keybox upphör snart att gälla, hämtar en ersättare…</string>
-    <string name="ts_fetch_keybox_chain_invalid_refetch">Keybox-kedjan är ogiltig. En ersättning hämtas…</string>
     <!-- Wallpaper styles -->
     <string name="wallpaper_styles_title">Bakgrundsbildsstilar</string>
     <string name="wallpaper_settings_summary">Konfigurera stilar och effekter för bakgrundsbilder</string>
@@ -1399,12 +1120,10 @@
     <string name="wallpaper_posterize_levels_summary">Minskning av färgdjup</string>
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">Wallpaper Glymps</string>
-    <string name="lock_glymps_enable_title">Aktivera Wallpaper Glymps</string>
     <string name="lock_glymps_enable_summary">Byt bakgrundsbild varje gång skärmen slås på</string>
     <string name="lock_glymps_wallpaper_target_title">Tillämpa bakgrundsbild på</string>
     <string name="lock_glymps_source_category">Bakgrundsbildskälla</string>
     <string name="lock_glymps_source_title">Bakgrundsbildskälla</string>
-    <string name="lock_glymps_source_summary">Välj var bakgrundsbilder ska hämtas</string>
     <string name="lock_glymps_custom_urls_title">Hantera anpassade webbadresser</string>
     <string name="lock_glymps_custom_urls_summary">Lägg till eller ta bort anpassade webbadresser för bakgrundsbilder</string>
     <string name="lock_glymps_folder_title">Lokal mapp</string>
@@ -1424,7 +1143,6 @@
     <string name="lock_glymps_timer_interval_summary">Hur ofta bakgrundsbilden ska bytas automatiskt</string>
     <string name="lock_glymps_footer_title">Information</string>
     <string name="lock_glymps_footer_text">📁 Lokal mapp: /sdcard/Glymps\n\n⚠ Enheter i instegssegmentet kan bli något långsammare.\n\n🎨 Tips: Använd en anpassad accentfärg i Monet-inställningarna för enhetliga färger.</string>
-    <string name="lock_glymps_preview_category">Aktuella bakgrundsbilder</string>
     <string name="lock_glymps_preview_title">Förhandsgranskning av bakgrundsbild</string>
     <string name="lock_glymps_preview_summary">Aktuella bakgrundsbilder på lås- och startskärmen</string>
     <string name="lock_glymps_lock_screen">Låsskärm</string>
@@ -1434,60 +1152,11 @@
     <string name="lock_glymps_lock_preview_desc">Förhandsgranskning av låsskärmens bakgrundsbild</string>
     <string name="lock_glymps_home_preview_desc">Förhandsvisning av startskärmens bakgrundsbild</string>
     <!-- Video wallpaper -->
-    <string name="video_wallpaper_title">Videobakgrund</string>
     <string name="video_wallpaper_category">Anpassning av bakgrundsbild</string>
     <string name="video_wallpaper_category_title">Videobakgrund</string>
     <string name="video_wallpaper_category_summary">Ange animerade bakgrundsbilder (MP4, GIF, WebP)</string>
-    <string name="video_wallpaper_current_title">Aktuell bakgrundsbild</string>
-    <string name="video_wallpaper_current_summary">Ingen videobakgrund har valts</string>
-    <string name="video_wallpaper_pick_title">Välj video eller GIF</string>
-    <string name="video_wallpaper_pick_summary">Välj en video eller animerad bildfil</string>
-    <string name="video_wallpaper_enable_title">Aktivera videobakgrund</string>
-    <string name="video_wallpaper_enable_summary">Använd den valda videon som en levande bakgrundsbild</string>
-    <string name="video_wallpaper_clear_title">Rensa videobakgrunden</string>
-    <string name="video_wallpaper_clear_summary">Ta bort den aktuella videobakgrunden</string>
-    <string name="video_wallpaper_playback">Uppspelningsinställningar</string>
-    <string name="video_wallpaper_speed">Uppspelningshastighet</string>
-    <string name="video_wallpaper_pause_lock">Pausa på låsskärmen</string>
-    <string name="video_wallpaper_pause_lock_summary">Pausa uppspelningen när skärmen är låst för att spara batteri</string>
-    <string name="video_wallpaper_info_category_title">Information</string>
-    <string name="video_wallpaper_info_title">Stödda format</string>
-    <string name="video_wallpaper_info_summary">MP4-videor, GIF och WebP-animationer. Maximal filstorlek: 50 MB</string>
-    <string name="video_wallpaper_tips_title">Tips</string>
-    <string name="video_wallpaper_tips_summary">• Videor ljudlösas automatiskt\n• Videor med lägre upplösning använder mindre batteri\n• Korta loopar rekommenderas för bättre prestanda\n• Om videobakgrunden inte läses in väljer du den animerade bakgrunden på nytt under Bakgrund &amp; stil\n• Tillämpa på nytt när enheten har startats om</string>
-    <string name="video_wallpaper_description">Animerad video- och GIF-bakgrund</string>
-    <string name="video_wallpaper_cleared">Videobakgrunden har rensats</string>
-    <string name="video_wallpaper_clear_failed">Det gick inte att rensa videobakgrunden</string>
-    <string name="video_wallpaper_current_summary_dynamic">%1$s • %2$s</string>
-    <string name="video_wallpaper_current_none">Ingen videobakgrund har valts</string>
-    <string name="video_wallpaper_select_first">Välj först en videobakgrund</string>
-    <string name="video_wallpaper_select_wallpaper">Välj videobakgrund</string>
-    <string name="video_wallpaper_save_failed">Det gick inte att spara den valda filen</string>
-    <string name="video_wallpaper_apply_prompt">Använd den valda videobakgrunden manuellt från förhandsvisningsskärmen</string>
-    <string name="video_wallpaper_enable_failed">Det gick inte att aktivera videobakgrunden</string>
-    <string name="video_wallpaper_picker_error">Det gick inte att öppna väljaren. Försök igen.</string>
-    <string name="video_wallpaper_processing">Bearbetar den valda filen…</string>
-    <string name="video_wallpaper_saved">Videobakgrunden har sparats</string>
     <!-- Haptics settings -->
-    <string name="haptics_settings_title">Systemhaptik</string>
-    <string name="haptics_settings_summary">Justera styrkan på systemets haptiska återkoppling</string>
-    <string name="back_gesture_haptic_intensity_title">Haptisk styrka för bakåtgesten</string>
-    <string name="brightness_slider_haptics_intensity_title">Haptisk styrka för ljusstyrkereglaget</string>
-    <string name="edge_scrolling_haptics_intensity_title">Intensitet för kantrullning</string>
-    <string name="volume_slider_haptics_intensity_title">Volymreglagets vibrationsstyrka</string>
-    <string name="volume_sound_haptics_title">Ljudåterkoppling för volym</string>
-    <string name="volume_sound_haptics_summary">Spela ett ljud när du justerar volymen</string>
     <!-- Volume panel styles -->
-    <string name="volume_style_title">Volympanelens stil</string>
-    <string name="revamped_aosp_style">Omarbetad AOSP</string>
-    <string name="rui_style">Realme UI</string>
-    <string name="aosp_style">AOSP-standard</string>
-    <string name="double_layer_style">Dubbla lager</string>
-    <string name="gradient_style">Övertoning</string>
-    <string name="neumorph_style">Neumorph</string>
-    <string name="neumorph_outline_style">Neumorf kontur</string>
-    <string name="outline_style">Kontur</string>
-    <string name="shaded_layer_style">Skuggat lager</string>
     <!-- Gradient styles -->
     <string name="gradient_settings_title">Anpassning av övertoning</string>
     <string name="gradient_settings_summary">Tillämpa övertoningsfärger på systemelement</string>
@@ -1501,28 +1170,13 @@
     <string name="custom_gradient_start_color_title">Startfärg</string>
     <string name="custom_gradient_end_color_title">Slutfärg</string>
     <!-- Progress bar styles -->
-    <string name="progress_bar_style_title">Förloppsindikatorns stil</string>
-    <string name="progress_bar_style1">Blockformad reglageknopp</string>
-    <string name="progress_bar_style2">Minimal reglageknopp</string>
-    <string name="progress_bar_style3">Konturerat reglagehandtag</string>
-    <string name="progress_bar_style4">Shishu</string>
     <!-- Fonts -->
     <string name="font_styles_title">Teckensnittsstilar</string>
     <string name="font_styles_summary">Ändra systemets teckensnittsstil</string>
-    <string name="font_preview_text">Den snabba bruna\nräven hoppar över den\nlata hunden\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
-    <string name="font_picker_select_font">Välj teckensnitt</string>
-    <string name="font_title">Teckensnitt</string>
-    <string name="font_style">Teckensnittsstil</string>
     <string name="font_preview_dialog_title">Förhandsgranskning av teckensnitt</string>
     <string name="font_preview_quote">Rädsla är innovationens fiende.</string>
-    <string name="font_preview_numbers">1234567890!@#%&amp;*()_+-=</string>
     <string name="add_font">Lägg till teckensnitt</string>
-    <string name="custom_font">Anpassat teckensnitt</string>
-    <string name="no_custom_font">Inget anpassat teckensnitt</string>
-    <string name="change_custom_font">Ändra anpassat teckensnitt</string>
-    <string name="reset_custom_font_content_desc">Återställ anpassat teckensnitt</string>
     <string name="reboot_required_custom_font_title">Omstart krävs för anpassat teckensnitt</string>
-    <string name="reboot_required_custom_font_desc">Om du inte startar om efter att ha ändrat det anpassade teckensnittet kan visningen bli inkonsekvent i vissa appar.</string>
     <string name="toast_failed_apply_font">Det gick inte att använda teckensnittet</string>
     <string name="toast_invalid_font_file">Ogiltig teckensnittsfil</string>
     <string name="custom_system_theme_title">Teman</string>
@@ -1538,12 +1192,8 @@
     <string name="about_team_members_title">Teammedlemmar</string>
     <string name="about_remembering_title">Till minne av</string>
     <string name="about_current_maintainers_title">Aktuella underhållare</string>
-    <string name="about_current_maintainers_loading_title">Laddar…</string>
     <string name="about_current_maintainers_loading_summary">Hämtar aktuella underhållare från OTA</string>
     <string name="about_current_maintainers_empty_title">Inga aktiva underhållare hittades</string>
-    <string name="about_current_maintainers_empty_summary">Det gick inte att hitta några poster från OTA-versioner som för närvarande underhålls</string>
-    <string name="about_current_maintainers_last_updated">Senast uppdaterad %1$s</string>
-    <string name="about_current_maintainers_last_updated_unknown">Senaste uppdatering: okänd</string>
     <string name="about_current_maintainers_tap_to_view">Tryck för att visa aktiva underhållare</string>
     <string name="about_current_maintainers_sheet_subtitle">%1$d aktiva underhållare</string>
     <string name="about_current_maintainers_search_hint">Sök efter underhållare eller enheter…</string>
@@ -1552,10 +1202,8 @@
     <!-- Changelog -->
     <string name="changelog_title">Ändringslogg</string>
     <string name="changelog_summary">Visa ändringar i ROM</string>
-    <string name="changelog_error">Det gick inte att läsa in ändringsloggen</string>
     <string name="changelog_error_no_official">Det finns ingen officiell ändringslogg för den här enheten eller versionen. Besök %1$s för mer information.</string>
     <!-- Color picker -->
-    <string name="dialog_color_picker">Färgväljare</string>
     <string name="press_color_to_apply">Tryck på en färg nedan för att använda den</string>
     <string name="accent_color">Accentfärg</string>
     <string name="notification_color">Aviseringsfärg</string>
@@ -1564,10 +1212,6 @@
     <string name="custom_color">Anpassad färg</string>
     <string name="custom_color_summary">Anpassad färg för vissa klockstilar</string>
     <!-- Custom seekbar -->
-    <string name="custom_seekbar_value">Värde: <xliff:g id="v">%s</xliff:g></string>
-    <string name="custom_seekbar_default_value">Standard</string>
-    <string name="custom_seekbar_default_value_to_set">Standardvärde: <xliff:g id="v">%s</xliff:g>\nTryck länge för att ange</string>
-    <string name="custom_seekbar_default_value_is_set">Standardvärdet har angetts</string>
     <!-- SystemUI restart dialog -->
     <string name="systemui_restart_title">Starta om SystemUI</string>
     <string name="systemui_restart_message">En omstart av SystemUI krävs för att ändringarna ska börja gälla. Starta om nu?</string>
@@ -1575,42 +1219,25 @@
     <string name="systemui_restart_process">Startar om SystemUI…</string>
     <!-- Units -->
     <string name="unit_hz">Hz</string>
-    <string name="unit_milliseconds">millisekunder</string>
     <string name="unit_seconds">sekunder</string>
     <!-- Generic actions & labels -->
     <string name="action_enable">Aktivera</string>
-    <string name="action_disable">Inaktivera</string>
     <string name="action_apply">Tillämpa</string>
-    <string name="applied">Tillämpat</string>
     <string name="action_delete">Radera</string>
-    <string name="action_clear">Rensa</string>
     <string name="action_yes">Ja</string>
-    <string name="action_set">Ställ in</string>
     <string name="action_reset">Återställ</string>
-    <string name="action_remove">Ta bort</string>
-    <string name="action_add">Lägg till</string>
-    <string name="action_add_apps">Lägg till appar</string>
-    <string name="action_choose_app">Välj app</string>
     <string name="action_search_apps">Sök efter appar</string>
     <string name="action_select_all">Välj alla</string>
-    <string name="action_restart">Starta om</string>
     <string name="action_reboot_now">Starta om nu</string>
     <string name="action_add_installed">Lägg till installerade</string>
     <string name="show_system_apps">Visa systemappar</string>
     <string name="hide_system_apps">Dölj systemappar</string>
     <string name="default_value">Standard</string>
     <string name="never">Aldrig</string>
-    <string name="top">Överst</string>
-    <string name="bottom">Nederkant</string>
-    <string name="delete_message">Ta bort det valda objektet?</string>
-    <string name="active_content_desc">Aktiv</string>
     <string name="boot_animation_applied">Startanimeringen har tillämpats</string>
-    <string name="reboot_device">Starta om enheten</string>
     <string name="reboot_required_title">Omstart krävs</string>
     <string name="reboot_required_message">En omstart krävs för att använda teckensnittsändringarna. Starta om nu?</string>
     <string name="action_later">Senare</string>
-    <string name="reset_default_title">Återställ till standard</string>
-    <string name="reset_default_message">Detta återställer teckensnittet till systemets standardteckensnitt. Är du säker?</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
     <string name="hardware_keys_action_nothing">Ingen åtgärd</string>
     <string name="hardware_keys_action_menu">Öppna/stäng menyn</string>
@@ -1651,7 +1278,6 @@
     <!-- Charging animation -->
     <string name="charging_animation_title">Laddningsanimering</string>
     <string name="charging_animation_summary">Visa visuella effekter under laddning på låsskärmen eller alltid på-skärmen</string>
-    <string name="charging_animation_style_category_title">Animationsstil</string>
     <string name="charging_animation_style_title">Effekttyp</string>
     <string name="charging_ripple_opacity_title">Krusningens opacitet</string>
     <string name="charging_ripple_opacity_summary">Justera ringvågens synlighet</string>
@@ -1666,7 +1292,6 @@
     <string name="charging_show_on_aod_summary">Visa animeringen på den inaktiva skärmen</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Emoji-stil</string>
-    <string name="emoji_style_summary">Välj systemets emojipaket utan att ändra textteckensnitt</string>
     <string name="emoji_style_stock">Standard</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
@@ -1675,19 +1300,6 @@
     <!-- Settings UI -->
     <string name="settings_icon_title">Inställningsstil</string>
     <string name="settings_icon_summary">Anpassa gränssnittsstilen i appen Inställningar</string>
-    <string name="settings_icon_style_title">Ikonstil i Inställningar</string>
-    <string name="settings_icon_style_expressive">Material Expressive</string>
-    <string name="settings_icon_style_colored_bg">Färgad bakgrund och vit ikon</string>
-    <string name="settings_icon_style_gradient_bg">Övertoningsbakgrund och vit ikon</string>
-    <string name="settings_icon_style_accent_outline">Accentfärgad kontur och ikon</string>
-    <string name="settings_icon_style_colored_outline">Färgad kontur och ikon</string>
-    <string name="settings_icon_style_colored_icon">Endast färgad ikon</string>
-    <string name="settings_icon_style_accent_icon">Endast accentikon</string>
-    <string name="settings_icon_corner_style_title">Hörnstil för inställningsikoner</string>
-    <string name="settings_icon_corner_style_circle">Cirkel</string>
-    <string name="settings_icon_corner_style_rounded_square">Rundad fyrkant</string>
-    <string name="settings_icon_random_colors_title">Slumpmässiga färger</string>
-    <string name="settings_icon_random_colors_summary">Använd slumpmässiga färger för varje ikon</string>
     <!-- Volume slider -->
     <string name="qs_show_volume_slider_title">Reglageläge</string>
     <string name="qs_show_volume_slider_hide">Endast ljusstyrkereglage</string>
