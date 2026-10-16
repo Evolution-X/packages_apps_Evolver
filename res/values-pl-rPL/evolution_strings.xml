@@ -16,11 +16,11 @@
     <string name="status_bar_summary">Gesty, ikony, logo, wypełnienie</string>
     <string name="quick_settings_title">Szybkie ustawienia</string>
     <string name="quick_settings_summary">Interfejs, suwak jasności, układ</string>
-    <string name="notifications_summary">Wyskakujące powiadomienia, podświetlenie krawędzi, dźwięki</string>
+    <string name="notifications_summary">Wyskakujące powiadomienia, przeźroczystość, dźwięki</string>
     <string name="power_menu_title">Menu zasilania</string>
     <string name="power_menu_summary">Akcje, ekran blokady</string>
     <string name="miscellaneous_title">Różne</string>
-    <string name="miscellaneous_summary">Fałszowanie, opcje programisty</string>
+    <string name="miscellaneous_summary">Centrum fałszowania, opcje programisty</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">O naszym ROM-ie</string>
     <string name="gestures_category_title">Gesty</string>
@@ -58,7 +58,7 @@
     <string name="boot_animation_no_preview">Brak dostępnego podglądu</string>
     <string name="boot_animation_style_unknown">Nieznany</string>
     <!-- Themes/Monet Settings -->
-    <string name="monet_settings_title">Dostosowanie koloru</string>
+    <string name="monet_settings_title">Dostosowywanie kolorów</string>
     <string name="color_settings_category">Ustawienia koloru</string>
     <string name="advanced_settings_category">Ustawienia zaawansowane</string>
     <string name="use_wallpaper_colors_title">Użyj kolorów tapety</string>
@@ -68,7 +68,7 @@
     <string name="fidelity_title">Wierność kolorów</string>
     <string name="fidelity_desc">Dokładniej zachowuj oryginalny kolor bazowy</string>
     <string name="contrast_level_title">Poziom kontrastu</string>
-    <string name="chroma_boost_title">Wzmocnij nasycenie</string>
+    <string name="chroma_boost_title">Wzmocnienie nasycenia</string>
     <string name="about_color_customization_title">O dostosowywaniu kolorów</string>
     <string name="about_color_customization_desc">Zmiany kolorów są stosowane w całym systemie do wszystkich aplikacji obsługujących motywy dynamiczne.\nDostosowanie tych kolorów może wpłynąć na wygląd aplikacji na twoim urządzeniu.</string>
     <string name="wallpaper_seed_color_title">Wybierz z tapety</string>
@@ -102,7 +102,7 @@
     <string name="tone_shift_dark_desc">Przesuwa wszystkie kolory trybu ciemnego w kierunku jaśniejszym (+) lub ciemniejszym (−), niezależnie od kontrastu.</string>
     <!-- Secondary seed -->
     <string name="secondary_seed_category">Kolor drugorzędny</string>
-    <string name="use_secondary_seed_title">Włącz kolor drugorzędny</string>
+    <string name="use_secondary_seed_title">Użyj pomocniczego koloru bazowego</string>
     <string name="use_secondary_seed_desc">Steruj paletami drugorzędnymi i trzeciorzędnymi z osobnego koloru źródłowego w przypadku motywów dwukolorowych.</string>
     <string name="secondary_seed_color_title">Kolor drugorzędny</string>
     <!-- Lock screen -->
@@ -153,17 +153,14 @@
     <string name="pulse_show_on_ambient_summary">Wyświetlaj wizualizator na zawsze włączonym ekranie i trybie otoczenia. Wyłącz, aby wyświetlić tylko na ekranie blokady.</string>
     <string name="pulse_show_on_ambient_disabled_player">Wizualizator nie jest dostępny dla ekranu otoczenia, gdy włączone jest tło odtwarzacza multimedialnego</string>
     <string name="pulse_show_on_media_player_title">Pokaż na tle odtwarzacza multimedialnego</string>
-    <string name="pulse_show_on_media_player_summary">Wyświetl wizualizator na tle odtwarzacza multimedialnego dla ekranu blokady i szybkich ustawień</string>
+    <string name="pulse_show_on_media_player_summary">Wyświetl wizualizator na tle odtwarzacza multimedialnego na ekranie blokady i w szybkich ustawieniach</string>
     <string name="pulse_height_multiplier_title">Wysokość impulsu</string>
     <string name="pulse_height_multiplier_summary">Dostosuj wysokość wizualizacji</string>
     <!-- Lockscreen Clock Highlight Guide -->
     <string name="ls_clock_title">Zegary na ekranie blokady</string>
     <string name="ls_clock_summary">Ustaw styl zegara i widżety</string>
     <string name="clock_styles_disclaimer_title">Zanim przejdziesz dalej</string>
-    <string name="clock_styles_disclaimer_message">Aby uzyskać najlepsze działanie tarcz zegara i widżetów, upewnij się, że:\n\n• Wyłącz szybki podgląd, na ekranie blokady\n• Wyłącz pogodę na ekranie blokady\n• Wyłącz styl dużego zegara\n\nOpcje te znajdziesz w ustawieniach ekranu blokady.</string>
-    <!-- Lockscreen Clock Accent Color -->
-    <!-- Lockscreen Clock Opacity -->
-    <!-- Lock screen/Clock -->
+    <string name="clock_styles_disclaimer_message">Pamiętaj o następujących krokach, aby w pełni korzystać z tarcz zegara i widżetów:\n\n• Wyłącz funkcję szybkiego podglądu na ekranie blokady\n• Wyłącz pogodę na ekranie blokady\n• Wyłącz styl dużego zegara\n\nOpcje te znajdziesz w ustawieniach ekranu blokady.</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Niestandardowy styl zegara</string>
     <string name="lockscreen_custom_clock_style_summary">Konfiguruj style zegara na ekranie blokady</string>
@@ -200,8 +197,8 @@
     <string name="clock_album_art_color_summary">Zastąp kolor zegara paletą okładek albumów podczas odtwarzania multimediów</string>
     <!-- Lockscreen widgets -->
     <string name="lockscreen_widgets_title">Widżety</string>
-    <string name="lockscreen_widgets_enabled_title">Włącz widżety ekranu blokady</string>
-    <string name="lockscreen_widgets_enabled_summary">Dodaj widżety na ekranie blokady</string>
+    <string name="lockscreen_widgets_enabled_title">Użyj widżetów ekranu blokady</string>
+    <string name="lockscreen_widgets_enabled_summary">Dodaj widżety do ekranu blokady</string>
     <string name="lockscreen_display_widgets_title">Widżet informacji o urządzeniu</string>
     <string name="lockscreen_widgets_color_mode_title">Tryb kolorów widżetu informacyjnego</string>
     <string name="lockscreen_display_widgets_summary">Pokaż widżet informacji o urządzeniu na ekranie blokady</string>
@@ -223,7 +220,7 @@
     <string name="wallet">Portfel</string>
     <string name="qr_scanner">Skaner QR</string>
     <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">Styl widżetów ekranu blokady</string>
+    <string name="lockscreen_widgets_style_title">Styl widżetów na ekranie blokady</string>
     <string name="lockscreen_widgets_style1">Zaokrąglony styl dynamiczny</string>
     <string name="lockscreen_widgets_style2">Kwadratowy styl dynamiczny</string>
     <string name="lockscreen_widgets_style3">Kwadratowy półprzezroczysty</string>
@@ -234,7 +231,7 @@
     <string name="lockscreen_widgets_transparency_summary">Konfiguracja poziomu krycia widżetu w stylu półprzezroczystym</string>
     <!-- Lockscreen Weather -->
     <string name="custom_clock_weather_title">Pogoda na ekranie blokady</string>
-    <string name="custom_clock_weather_summary">Pokaż pogodę na niestandardowym zegarze na ekranie blokady</string>
+    <string name="custom_clock_weather_summary">Pokaż pogodę na niestandardowym ekranie blokady zegara</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Okładka multimediów</string>
     <string name="ls_media_art_summary">Wyświetl okładkę multimediów, gdy jest dostępna</string>
@@ -258,27 +255,12 @@
     <string name="aod_brightness_title">Jasność ekran zawsze włączony</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Co jest grane</string>
-    <string name="nowplaying_summary">Pokaż informacje o aktualnie odtwarzanej muzyce na ekranie blokady i ekran zawsze włączony</string>
-    <string name="nowplaying_color_mode_title">Tryb koloru tekstu</string>
-    <string name="nowplaying_track_text_size_title">Rozmiar tytułu utworu</string>
-    <string name="nowplaying_track_text_size_summary">Rozmiar tekstu tytułu utworu</string>
-    <string name="nowplaying_artist_text_size_title">Rozmiar nazwy wykonawcy</string>
-    <string name="nowplaying_artist_text_size_summary">Rozmiar tekstu nazwy artysty lub albumu</string>
-    <string name="nowplaying_display_title">Opcje wyświetlania</string>
-    <string name="nowplaying_show_on_lockscreen_title">Pokaż na ekranie blokady</string>
-    <string name="nowplaying_show_on_lockscreen_summary">Wyświetlaj informacje o muzyce, gdy urządzenie jest zablokowane</string>
-    <string name="nowplaying_icon_style_title">Styl ikony</string>
-    <string name="nowplaying_icon_style_summary">Wybierz ikonę, którą chcesz wyświetlić</string>
-    <string name="nowplaying_icon_size_title">Rozmiar ikony</string>
-    <string name="nowplaying_icon_size_summary">Dostosuj rozmiar ikony</string>
-    <string name="nowplaying_show_on_aod_title">Pokaż na ekran zawsze włączony</string>
-    <string name="nowplaying_show_on_aod_summary">Wyświetlaj informacje o muzyce na ekranie otoczenia</string>
-    <string name="nowplaying_info_summary">Co jest grane, wyświetla aktualny utwór i wykonawcę na ekranie blokady i na ekran zawsze włączony. Pojawia się automatycznie podczas odtwarzania muzyki i znika po jej zatrzymaniu. Pozycję można regulować od góry do dołu ekranu.</string>
-    <string name="nowplaying_expand_dialog">Rozwiń okno dialogowe</string>
-    <string name="nowplaying_expand_dialog_summary">Rozwiń okno dialogowe Co jest grane</string>
+    <string name="nowplaying_summary">Słuchaj muzyki w pobliżu telefonu i wyświetlaj utwór na ekranie blokady i na ekranie zawsze włączonym. Domyślnie wyłączone.</string>
+    <string name="nowplaying_on_demand_title">Skrót na żądanie</string>
+    <string name="nowplaying_on_demand_summary">Wyświetl ikonę wyszukiwania na ekranie blokady. Długie naciśnięcie uruchamia wyszukiwanie.</string>
     <string name="nowplaying_lyrics_mode_title">Tryb tekstów</string>
-    <string name="nowplaying_lyrics_mode_summary">Pokaż zsynchronizowane teksty zamiast tytułu utworu i ikony</string>
-    <string name="nowplaying_pixel_native_footer">To urządzenie oferuje już natywną funkcję Co jest grane, poprzez wskaźnik otoczenia w Pixelu. Ustawienia te są niedostępne, gdy wbudowana wersja jest aktywna.</string>
+    <string name="nowplaying_lyrics_mode_summary">Pokaż zsynchronizowane teksty utworów odtwarzanych na tym telefonie na ekranie blokady</string>
+    <string name="nowplaying_pixel_native_summary">To urządzenie oferuje już natywnie funkcję Co jest grane za pośrednictwem wskaźnika otoczenia w urządzeniu Pixel</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Ustawienia pogody</string>
     <string name="weather_settings_summary">Skonfiguruj zestaw ikon i usługę pogody</string>
@@ -304,14 +286,12 @@
     <string name="ambient_battery_disable_title">Wyłączony</string>
     <string name="ambient_battery_percent_title">Poziom baterii</string>
     <string name="ambient_battery_both_title">Poziom baterii i temperatura</string>
-    <string name="ambient_battery_cpu_battery_temperature_title">Poziom baterii, temperatura (bateria i procesor)</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Poziom baterii, temperatura (baterii i procesora)</string>
     <string name="ambient_user_name_title">Nazwa użytkownika</string>
     <string name="display_icon_title">Ikony</string>
     <string name="display_icon_summary">Wyświetlaj ikony obok poziomu i temperatury</string>
     <string name="ambient_wallpaper_title">Tapeta ekranu otoczenia</string>
     <string name="doze_always_on_wallpaper_summary">Pokaż tapetę ekranu blokady na ekranie otoczenia</string>
-    <!-- Lock screen/Peek display -->
-    <!-- Lock screen/Now bar -->
     <!-- Lock screen/Scrim -->
     <string name="keyguard_scrim_transparent_title">Przezroczysta nakładka ekranu blokady</string>
     <string name="keyguard_scrim_transparent_summary">Ukryj warstwę przyciemniającą tapetę ekranu blokady</string>
@@ -333,9 +313,9 @@
     <string name="depthwall_auto_subject_title">Automatyczny obiekt tapety z efektem głębi</string>
     <string name="depthwall_auto_subject_summary">Automatyczne wyodrębnianie obiektu z tapety w celu uzyskania efektu głębi</string>
     <string name="depthwall_extract_now_title">Wyodrębnij obiekt teraz</string>
-    <string name="depthwall_extract_now_summary">Natychmiastowe wyzwolenie wyodrębnienia obiektu z tapety (ustaw tapetę osobno dla ekranu blokady)</string>
+    <string name="depthwall_extract_now_summary">Natychmiastowe wywoływanie ekstrakcji obiektu z tapety (ustaw tapetę osobno dla ekranu blokady)</string>
     <string name="depthwall_extracting_toast">Wyodrębnianie obiektu z tapety…</string>
-    <string name="depthwall_storage_permission_denied">Aby automatycznie wyodrębnić obiekty z tapet, wymagane jest uprawnienie dostępu do pamięci wewnętrznej.</string>
+    <string name="depthwall_storage_permission_denied">Wymagane jest uprawnienie dostępu do pamięci, aby automatycznie wyodrębnić obiekty z tapet.</string>
     <string name="depthwall_clear_subject_title">Wyczyść obiekt obrazu</string>
     <string name="depthwall_clear_subject_summary">Usuń aktualnie wyodrębniony lub ręcznie ustawiony obiekt</string>
     <string name="depthwall_clear_subject_confirm_message">Spowoduje to usunięcie aktualnego obrazu głębi tapety. Kontynuować?</string>
@@ -368,7 +348,7 @@
     <string name="lockscreen_show_carrier_title">Pokazuj etykietę operatora</string>
     <string name="carrier_show_lockscreen_only">Tylko ekran blokady</string>
     <string name="carrier_show_statusbar_only">Tylko pasek stanu</string>
-    <string name="carrier_show_both">Na ekranie blokady i pasku stanu</string>
+    <string name="carrier_show_both">Ekran blokady i pasek stanu</string>
     <string name="custom_carrier_label_title">Niestandardowa etykieta operatora</string>
     <string name="custom_carrier_label_summary">Naciśnij, aby ustawić własną etykietę operatora</string>
     <string name="custom_carrier_label_dialog_message">Zastąp etykietę operatora niestandardowym tekstem. Pozostaw pole puste, aby używać prawdziwej etykiety operatora.</string>
@@ -420,7 +400,7 @@
     <string name="status_bar_clock_position_center">Na środku</string>
     <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
     <string name="status_bar_clock_seconds_summary">Wyświetl sekundy obok zegara na pasku stanu</string>
-    <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
+    <string name="status_bar_clock_auto_hide_title">Auto-ukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, gdy launcher jest widoczny</string>
     <string name="status_bar_am_pm_title">Styl AM/PM</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
@@ -515,6 +495,7 @@
     <!-- Custom image logo style -->
     <string name="status_bar_logo_custom_image_title">Wybierz niestandardowy obraz logo</string>
     <string name="status_bar_logo_custom_image_pick_summary">Wybierz obraz z galerii</string>
+    <string name="status_bar_logo_add">Dodaj logo</string>
     <!-- Statusbar logo color -->
     <string name="status_bar_logo_color_title">Kolor</string>
     <string name="status_bar_logo_color_default">Domyślne (białe)</string>
@@ -527,7 +508,7 @@
     <string name="network_traffic_mode_up">Tylko wysyłanie</string>
     <string name="network_traffic_mode_down">Tylko pobieranie</string>
     <string name="network_traffic_mode_all">Wysyłanie i pobieranie</string>
-    <string name="network_traffic_autohide">Automatyczne ukrywanie</string>
+    <string name="network_traffic_autohide">Auto-ukrywanie</string>
     <string name="network_traffic_autohide_summary">Ukryj monitor ruchu przy braku aktywności sieci</string>
     <string name="network_traffic_autohide_threshold">Próg bezczynności</string>
     <string name="network_traffic_refresh_interval_title">Częstotliwość odświeżania</string>
@@ -587,6 +568,9 @@
     <string name="dynamic_bar_event_biometric">Odblokowywanie biometryczne</string>
     <string name="dynamic_bar_event_biometric_summary">Pokaż wskaźnik przy odblokowywaniu odciskiem palca lub twarzą</string>
     <string name="dynamic_bar_guide_title">Jak używać dynamicznego paska</string>
+    <!-- Dynamic Bar guide: expanded timer demo labels -->
+    <string name="dynamic_bar_demo_running">Uruchamianie</string>
+    <string name="dynamic_bar_demo_add_minute">+1 minuta</string>
     <string name="dynamic_bar_guide_chip">Wydarzenia są wyświetlane na pasku stanu dla aktywnych zdarzeń, takich jak nagrywanie, odtwarzanie multimediów i liczniki</string>
     <string name="dynamic_bar_guide_swipe">Gdy aktywnych jest wiele zdarzeń, przesuń palcem w lewo lub w prawo na wskaźniku, aby je przeglądać</string>
     <string name="dynamic_bar_guide_expand">Naciśnij znacznik, aby rozwinąć go do szczegółowej karty ze sterowaniem i dodatkowymi informacjami</string>
@@ -760,8 +744,8 @@
     <string name="quick_settings_brightness_slider_position_title">Pozycja suwaka</string>
     <string name="quick_settings_brightness_slider_position_top">U góry</string>
     <string name="quick_settings_brightness_slider_position_bottom">Na dole</string>
-    <string name="quick_settings_auto_brightness_icon_title">Ikona automatycznej jasności</string>
-    <string name="quick_settings_auto_brightness_icon_summary">Pokaż przełącznik adaptacyjnej jasności obok suwaka</string>
+    <string name="quick_settings_auto_brightness_icon_title">Ikona auto-jasności</string>
+    <string name="quick_settings_auto_brightness_icon_summary">Pokaż przełącznik jasności adaptacyjnej obok suwaka</string>
     <string name="quick_settings_brightness_slider_haptic_title">Wibracja dotykowa</string>
     <string name="quick_settings_brightness_slider_haptic_summary">Wibracja przy dostosowywaniu jasności suwakiem</string>
     <string name="qs_brightness_slider_gradient_title">Gradient suwaka jasności</string>
@@ -838,7 +822,7 @@
     <string name="notifications_interface_category">Interfejs</string>
     <string name="notifications_kill_app_button_title">Zatrzymaj aplikację</string>
     <string name="notifications_kill_app_button_summary">Wyświetl przycisk zatrzymania aplikacji w menu powiadomień po przytrzymaniu</string>
-    <string name="notifications_sounds_vibration_category">Dźwięki i wibracje</string>
+    <string name="notifications_sounds_vibration_category">Dźwięki i wibracja</string>
     <string name="notifications_alert_display_on_title">Alert, gdy wyświetlacz jest włączony</string>
     <string name="notifications_alert_display_on_summary">Odtwarzaj dźwięk i wibracje dla powiadomień, gdy ekran jest włączony</string>
     <string name="compact_heads_up_notifications_enabled_title">Kompaktowe wyskakujące powiadomienia</string>
@@ -905,7 +889,7 @@
     <string name="advanced_reboot_secured_title">Pokaż na zabezpieczonym ekranie blokady</string>
     <string name="advanced_reboot_secured_summary">Wyświetl zaawansowane opcje restartu na zabezpieczonym ekranie blokady</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">Fałszowanie</string>
+    <string name="miscellaneous_spoofing_category">Centrum fałszowania</string>
     <string name="miscellaneous_developer_options_category">Opcje programisty</string>
     <string name="miscellaneous_app_downgrade_title">Zezwalaj na obniżanie wersji aplikacji</string>
     <string name="miscellaneous_app_downgrade_summary">Zezwól na obniżenie wersji aplikacji systemowych. Może to spowodować awarie i utratę danych.</string>
@@ -933,9 +917,9 @@
     <string name="smart_pixels_summary">Oszczędzaj baterię, wyłączając część pikseli ekranu</string>
     <string name="smart_pixels_percent">Procent pikseli do wyłączenia</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Fałszowanie</string>
-    <string name="spoofing_summary">Integralność Google Play, identyfikacja urządzenia i funkcje fałszowania</string>
-    <string name="spoofing_integrity_category">Integralność Google Play</string>
+    <string name="spoofing_title">Centrum fałszowania</string>
+    <string name="spoofing_summary">Poprawa integralności Google Play, identyfikacja urządzenia i fałszowanie funkcji</string>
+    <string name="spoofing_integrity_category">Poprawka integralności Google Play</string>
     <string name="spoofing_identity_category">Identyfikacja urządzenia</string>
     <string name="spoofing_features_category">Funkcje sprzętowe</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
@@ -947,13 +931,12 @@
     <string name="spoofing_snap_summary">Sfałszuj Snapchat udając Pixel XL, aby naprawić możliwe problemy z czatem</string>
     <string name="spoofing_applying_changes">Stosowanie zmian fałszowania\u2026</string>
     <string name="spoofing_reset_defaults_title">Zresetuj do domyślnych</string>
-    <string name="spoofing_reset_defaults_summary">Przywróć integralność Google Play, listę docelową, poziom poprawki i profil gry do ustawień domyślnych. Twój zestaw kluczy zostanie zachowany</string>
     <string name="spoofing_reset_defaults_dialog_title">Zresetować ustawienia fałszowania?</string>
     <string name="spoofing_reset_defaults_dialog_message">Spowoduje to wyczyszczenie konfiguracji integralności Google Play, obejścia poprawki zabezpieczeń i konfiguracji profilu gry oraz przywrócenie domyślnej listy docelowej TrickyStore. Twój zestaw kluczy zostanie zachowany. Integralność Google Play i poziom poprawki zostaną ponownie pobrane wkrótce potem. Przełączniki włączania nie ulegną zmianie.</string>
     <string name="spoofing_reset_defaults_confirm">Resetuj</string>
     <string name="spoofing_reset_defaults_done">Zresetuj ustawienia fałszowania</string>
-    <string name="tensor_spoof_title">Cele funkcji Tensor</string>
-    <string name="tensor_spoof_summary">Udziel wybranym aplikacjom dostępu do funkcji AI dostępnych tylko dla Pixel Tensor</string>
+    <string name="tensor_spoof_title">Fałszowanie Tensor</string>
+    <string name="tensor_spoof_summary">Przyznaj wybranym aplikacjom dostęp do funkcji ekskluzywnych dla Pixel Tensor</string>
     <string name="tensor_spoof_enable">Fałszowanie Tensor</string>
     <string name="tensor_targets_none_configured">Brak docelowych aplikacji</string>
     <string name="tensor_targets_count">%1$d aplikacji docelowych</string>
@@ -961,7 +944,7 @@
     <string name="user_selectable_app_spoofing_title">Fałszowanie aplikacji i gier</string>
     <string name="user_selectable_app_spoofing_summary">Sfałszuj właściwości urządzenia dla konkretnych aplikacji i gier</string>
     <string name="user_select_spoofing_profile_title">Wybierz profil fałszowania</string>
-    <string name="app_spoofing_header_title">Włącz fałszowanie</string>
+    <string name="app_spoofing_header_title">Użyj fałszowania</string>
     <string name="app_spoofing_configured_count">%1$d aplikacji i gier sfałszowanych</string>
     <string name="app_spoofing_disabled">Wyłączony</string>
     <string name="app_spoofing_add_apps">Dodaj aplikacje i gry</string>
@@ -994,46 +977,33 @@
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_title">Blokada czujników dla aplikacji</string>
     <string name="sensor_block_summary">Zablokuj dostęp do niektórych czujników dla wybranych aplikacji, aby oszczędzać baterię</string>
-    <!-- Miscellaneous/Idle Manager -->
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Poprawka integralności Google Play</string>
     <string name="play_integrity_fix_summary">Zarządzaj konfiguracją poprawki integralności Google Play i odciskami palców urządzenia</string>
-    <string name="pif_status">Status</string>
     <string name="pif_active_config">Aktywna konfiguracja</string>
     <string name="pif_no_config">Nie załadowano konfiguracji</string>
-    <string name="pif_config_loaded">Konfiguracja załadowana</string>
     <string name="pif_fetch_pixel_beta">Pobierz odcisk palca Pixel canary</string>
-    <string name="pif_fetch_pixel_beta_summary">Pobierz najnowszy odcisk palca Pixel canary z Google</string>
-    <string name="pif_fetching">Pobieranie z Google\u2026</string>
     <string name="pif_fetched_model">Pobrano odcisk palca dla %s</string>
-    <string name="pif_import_config">Importuj konfigurację</string>
-    <string name="pif_import_config_summary">Importuj konfigurację poprawki integralności Google Play z pliku</string>
     <string name="pif_imported_as">Zaimportowano jako %s</string>
-    <string name="pif_delete_config">Usuń aktywną konfigurację</string>
-    <string name="pif_delete_config_summary">Usuń aktualnie aktywny plik konfiguracyjny</string>
     <string name="pif_delete_title">Usunąć %s?</string>
     <string name="pif_delete_message">Ten plik konfiguracyjny zostanie trwale usunięty.</string>
     <string name="pif_wipe_playstore_title">Wyczyścić dane Sklepu Google Play?</string>
     <string name="pif_wipe_playstore_message">Zastosowanie tego odcisku palca działa najlepiej po rozpoczęciu nowej sesji w Sklepie Google Play. Wyczyścić dane aplikacji w Sklepie Google Play? Spowoduje to wylogowanie i wyczyszczenie lokalnej pamięci podręcznej oraz kolejki pobierania.</string>
     <string name="pif_wipe_confirm">Wyczyść dane</string>
     <string name="pif_deleted">Usunięto %s</string>
-    <string name="pif_config_details">Szczegóły konfiguracji</string>
     <string name="pif_failed">Niepowodzenie: %s</string>
     <string name="pif_select_device">Wybierz urządzenie</string>
     <string name="pif_recommended_suffix">Zalecane</string>
-    <string name="pif_generating">Generowanie konfiguracji\u2026</string>
-    <string name="pif_footer_title">Przejście podstawowej integralności</string>
     <string name="pif_footer_body">Odcisk palca Canary jest sprawdzany maksymalnie raz dziennie i automatycznie zastępowany, gdy upłynie około dwa tygodnie od daty jego wygaśnięcia. Konfiguracje Canary wygasają po około 6 tygodniach od daty wydania — data wygaśnięcia jest wyświetlana w podsumowaniu aktywnej konfiguracji.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz odcisk palca Pixel Canary i wybierz urządzenie.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostarczane.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed zaimportowaniem nowej. Wczytanie wygasłej konfiguracji poprawki integralności Google Play spowoduje awarię silnej integralności TrickyStore, nawet z prawidłowym kluczem.\n\nZaawansowane fałszowanie:\n• Fałszowanie odcisku palca Sklepu Google Play — pozostaw wyłączone, chyba że zalecono inaczej. Fałszowanie odcisku palca w Sklepie Google Play jest rzadko potrzebne i może powodować problemy.\n• Fałszowanie SDK w Sklepie Google Play — wprowadza SDK 32 do Sklepu Google Play, aby wymusić ścieżkę werdyktu starszej wersji sprzed Androida 13. Może to zakłócić działanie Sklepu Google Play, więc wyłącz tę opcję, chyba że jest to testowane.\n• Fałszowanie pól kompilacji i właściwości systemu — pozostaw włączone. Przekazują one odcisk palca do DroidGuard.\n• Fałszowanie dostawcy zestawu kluczy — wyłącz, gdy używany jest zestaw kluczy, ponieważ omija to atestację zestawu kluczy.\n• Fałszowanie podpisu ROM — eksperymentalne.</string>
     <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
     <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
     <string name="pif_advanced_settings">Zaawansowane fałszowanie</string>
     <string name="pif_spoof_vending_finger_title">Fałszowanie odcisku palca Sklepu Google Play</string>
-    <string name="pif_spoof_vending_finger_summary">Kontroluje, który odcisk palca jest prezentowany w procesie Sklepu Google Play</string>
     <string name="pif_spoof_vending_sdk_title">Sfałszuj SDK Sklepu Google Play</string>
     <string name="pif_spoof_vending_sdk_summary">Wyświetla SDK 32 w Sklepie Google Play, aby wymusić starszą ścieżkę werdyktu &lt;A13. Nigdy nie ustawiaj wersji wyższej niż rzeczywisty SDK. Może to zakłócić działanie Sklepu Google Play, więc nie ustawiaj wyższego, chyba że w celach testowych</string>
     <string name="pif_vending_finger_custom_summary">Niestandardowy odcisk palca: %1$s</string>
     <string name="pif_spoof_build_title">Sfałszuj pola kompilacji</string>
-    <string name="pif_spoof_build_summary">Podmień pola kompilacji odcisku palca (model, urządzenie, odcisk palca, ...) w programie DroidGuard</string>
+    <string name="pif_spoof_build_summary">Przedstaw pola kompilacji odcisku palca (model, urządzenie, odcisk palca, …) w programie DroidGuard</string>
     <string name="pif_spoof_props_title">Sfałszuj właściwości systemu</string>
     <string name="pif_spoof_props_summary">Podmień identyfikator kompilacji odcisku palca, poprawkę zabezpieczeń, poziom API oraz tożsamość produktu dla DroidGuard</string>
     <string name="pif_spoof_provider_title">Sfałszuj dostawcę zestawu kluczy</string>
@@ -1041,19 +1011,22 @@
     <string name="pif_spoof_signature_title">Sfałszuj podpis ROM</string>
     <string name="pif_spoof_signature_summary">Eksperymentalne. Obejście blokady testowych kluczy ROM przez DroidGuard</string>
     <string name="pif_reset_advanced_title">Zresetuj zaawansowane fałszowanie</string>
-    <string name="pif_reset_advanced_summary">Przywróć wartość domyślną każdego przełącznika powyżej. Odcisk palca zostanie zachowany</string>
     <string name="pif_reset_advanced_message">Zresetować wszystkie zaawansowane opcje fałszowania do ustawień domyślnych? Bieżący odcisk palca zostanie zachowany.</string>
     <string name="pif_vending_finger_disabled">Wyłączone (domyślnie)</string>
     <string name="pif_vending_finger_same">Tak samo jak odcisk palca DroidGuard</string>
+    <string name="pif_fingerprint_spoofing">Fałszowanie</string>
+    <string name="pif_active_model">Aktywny: %1$s</string>
+    <string name="pif_canary_fingerprint">Testowy odcisk palca</string>
+    <string name="pif_patch_age">Poprawka %1$s \u00b7 %2$dd stara</string>
+    <string name="pif_days_left">Pozostało %1$dd</string>
+    <string name="pif_expired">Wygasła</string>
+    <string name="pif_vending_finger_custom_clear_hint">Naciśnij, aby wyłączyć</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Zarządzaj zestawem kluczy i aplikacjami docelowymi dla poświadczenia silnej integralności</string>
     <string name="ts_keybox_management">Zarządzanie zestawem kluczy</string>
-    <string name="ts_import_keybox">Importuj zestaw kluczy</string>
     <string name="ts_no_keybox">Nie zainstalowano zestawu kluczy</string>
     <string name="ts_keybox_installed">Zainstalowano zestaw kluczy</string>
     <string name="ts_keybox_imported">Zestaw kluczy zaimportowano pomyślnie</string>
-    <string name="ts_delete_keybox">Usuń zestaw kluczy</string>
-    <string name="ts_delete_keybox_summary">Usuń plik zestawu kluczy</string>
     <string name="ts_delete_keybox_title">Usunąć zestaw kluczy?</string>
     <string name="ts_delete_keybox_message">Ten plik zestawu kluczy zostanie trwale usunięty.</string>
     <string name="ts_keybox_deleted">Usunięto zestaw kluczy</string>
@@ -1067,8 +1040,7 @@
     <string name="ts_invalid_patch_date">Nieprawidłowy format daty. Użyj RRRR-MM-DD</string>
     <string name="ts_target_list_imported">Zaimportowano listę docelową</string>
     <string name="ts_failed">Niepowodzenie: %s</string>
-    <string name="ts_footer_title">Przejście silnej integralności</string>
-    <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Status unieważnienia jest sprawdzany co 24 godziny, a nowy zestaw kluczy jest pobierany z oficjalnego źródła, jeśli obecny został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij „Pobierz oficjalny zestaw kluczy”, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na \"Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw tryb Automatyczny.\n4. Sprawdź ponownie status integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden ważny oficjalny zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
+    <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Stan unieważnienia jest sprawdzany co 24 godziny, a nowy zestaws kluczy jest pobierany z oficjalnego źródła, jeśli obecn został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz najnowszy zestaw kluczy, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz Zarządzaj aplikacjami docelowymi i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na Podmiana certyfikatu, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw opcję Automatycznie.\n4. Sprawdź ponownie stan integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden prawidłowy najnowszy zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
     <string name="ts_patch_stale_warning">%1$s (nieaktualne, starsze niż 12 miesięcy)</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używane domyślne ustawienia urządzenia)</string>
@@ -1081,10 +1053,10 @@
     <string name="ts_verification_auto_count">%1$d automatycznie</string>
     <string name="ts_verification_cert_count">%1$d generowanie certyfikatu</string>
     <string name="ts_verification_leaf_count">%1$d podmiana certyfikatu</string>
-    <string name="ts_fetch_keybox">Pobierz oficjalny zestaw kluczy</string>
+    <string name="ts_fetch_keybox">Pobierz najnowszy zestaw kluczy</string>
     <string name="ts_fetch_keybox_summary">Pobieranie zestawu kluczy z serwerów Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Pobieranie zestawu kluczy…</string>
-    <string name="ts_fetch_keybox_success">Pobieranie oficjalnego zestawu kluczy powiodło się</string>
+    <string name="ts_fetch_keybox_success">Najnowszy zestaw kluczy pobrany pomyślnie</string>
     <string name="ts_fetch_keybox_failed">Pobieranie nieudane: %s</string>
     <string name="ts_fetch_keybox_same_file">Zestaw kluczy jest obecnie aktualny</string>
     <string name="ts_fetch_keybox_blocked">Twój zestaw kluczy jest ważny — nie trzeba go pobierać</string>
@@ -1093,12 +1065,12 @@
     <string name="ts_fetch_keybox_no_valid_found">Nie ma jeszcze dostępnego prawidłowego zestawu kluczy, spróbuj ponownie jutro</string>
     <!-- Keybox info row -->
     <string name="ts_chain_invalid_title">Nieprawidłowy łańcuch certyfikatów</string>
-    <string name="ts_chain_invalid_message">Łańcuch certyfikatu zestawu kluczy jest nieprawidłowy lub nie można go zweryfikować. Może być uszkodzony lub zmodyfikowany. Czy chcesz go zastąpić oficjalnym zestawem kluczy?</string>
+    <string name="ts_chain_invalid_message">Łańcuch certyfikatów zestawu kluczy jest nieprawidłowy lub nie można go zweryfikować. Może być uszkodzony lub zmodyfikowany. Zastąpić go najnowszą wersją zestawu kluczy?</string>
     <string name="ts_expiring_soon_title">Zestaw kluczy niedługo wygaśnie</string>
-    <string name="ts_expiring_soon_message">Certyfikat tego zestawu kluczy wygasa %1$s. Obecnie spełnia on kryteria integralności, ale przestanie działać po wygaśnięciu. Czy zastąpić go teraz oficjalnym zestawem kluczy?</string>
+    <string name="ts_expiring_soon_message">Łańcuch certyfikatów tego zestawu kluczy wygasa %1$s. Obecnie spełnia on kryteria integralności, ale przestanie działać po wygaśnięciu. Zastąpić go teraz najnowszym zestawem kluczy?</string>
     <string name="ts_expiry_unknown">nieznany termin ważności</string>
     <string name="ts_untrusted_root_title">Nierozpoznany główny zestaw kluczy</string>
-    <string name="ts_untrusted_root_message">Ten zestaw kluczy ma łańcuch certyfikatów oparty na urzędzie certyfikacji, który nie jest rozpoznawany przez Evolution X. Na niektórych urządzeniach może nadal przejść silną integralność. Zachować go czy zastąpić oficjalnym zestawem kluczy?</string>
+    <string name="ts_untrusted_root_message">Ten zestaw kluczy ma łańcuch certyfikatów powiązany z instytucją nieuznawaną przez Evolution X. Nadal może przejść test silnej integralności na niektórych urządzeniach. Zachować go, czy wymienić na najnowszy zestaw kluczy?</string>
     <string name="ts_untrusted_root_keep">Zachowaj</string>
     <string name="ts_untrusted_root_replace">Zastąp</string>
     <!-- Revocation status -->
@@ -1115,6 +1087,12 @@
     <string name="ts_revocation_last_checked">Ostatnio sprawdzono: %1$s</string>
     <string name="ts_revocation_not_yet_checked">Jeszcze nie sprawdzony — naciśnij, aby zweryfikować teraz</string>
     <!-- Toasts for new auto-replace triggers -->
+    <string name="ts_chip_valid">Ważny</string>
+    <string name="ts_chip_expiring">Wygasa</string>
+    <string name="ts_chip_invalid">Nieprawidłowy łańcuch</string>
+    <string name="ts_chip_unknown_root">Nieznany root</string>
+    <string name="ts_chip_checking">Sprawdzanie</string>
+    <string name="ts_chip_unchecked">Nie sprawdzony</string>
     <string name="ts_fetch_keybox_revoked_refetch">Zestaw na klucze został unieważniony, pobieranie nowego…</string>
     <string name="ts_fetch_keybox_suspended_refetch">Zestaw kluczy zawieszony, pobieram nowszy…</string>
     <!-- Wallpaper styles -->
@@ -1151,13 +1129,27 @@
     <string name="lock_glymps_folder_title">Folder lokalny</string>
     <string name="lock_glymps_folder_summary">Wyświetl lokalizację folderu i liczbę tapet (maksymalnie 10 tapet)</string>
     <string name="lock_glymps_download_category">Ustawienia pobierania</string>
-    <string name="lock_glymps_wifi_only_title">Tylko Wi-Fi</string>
-    <string name="lock_glymps_wifi_only_summary">Pobierz tapety tylko po połączeniu z Wi-Fi</string>
+    <string name="lock_glymps_wifi_only_title">Tylko sieć Wi-Fi</string>
+    <string name="lock_glymps_wifi_only_summary">Pobierz tapety tylko po połączeniu z siecią Wi-Fi</string>
     <string name="lock_glymps_cache_size_title">Rozmiar pamięci podręcznej</string>
     <string name="lock_glymps_cache_size_summary">Liczba tapet do wstępnego pobrania</string>
     <string name="lock_glymps_advanced_category">Zaawansowane</string>
     <string name="lock_glymps_clear_cache_title">Wyczyść pamięć podręczną</string>
     <string name="lock_glymps_clear_cache_summary">Usuń wszystkie pamięci podręczne tapet</string>
+    <string name="lock_glymps_folder_dialog_title">Folder lokalny z tapetami</string>
+    <string name="lock_glymps_folder_missing_message">Folder jeszcze nie istnieje.\n\nLokalizacja: %1$s\n\nChcesz go utworzyć?</string>
+    <string name="lock_glymps_folder_create">Utwórz folder</string>
+    <string name="lock_glymps_folder_created">Folder utworzony: %1$s</string>
+    <string name="lock_glymps_folder_create_failed">Nie udało się utworzyć folderu</string>
+    <string name="lock_glymps_folder_info_message">Lokalizacja folderu: %1$s\n\nZnalezione tapety: %2$d\n\nObsługiwane formaty: JPG, PNG, WEBP\n\nUmieść pliki z tapetami w tym folderze, a będą one wybierane losowo.</string>
+    <string name="lock_glymps_custom_urls_dialog_title">Niestandardowe adresy stron internetowych tapet</string>
+    <string name="lock_glymps_custom_urls_dialog_message">Wprowadź bezpośrednie adresy stron internetowych obrazów, po jednym w każdym wierszu</string>
+    <string name="lock_glymps_custom_urls_hint">https://przykład.pl/image1.jpg\nhttps://przykład.pl/image2.png</string>
+    <string name="lock_glymps_custom_urls_saved">Niestandardowe adresy stron internetowych zostały zapisane</string>
+    <string name="lock_glymps_clear_cache_dialog_title">Wyczyść pamięć podręczną</string>
+    <string name="lock_glymps_clear_cache_dialog_message">Spowoduje to usunięcie wszystkich zapisanych w pamięci podręcznej tapet, które następnie zostaną pobrane ponownie. Kontynuować?</string>
+    <string name="lock_glymps_clear_cache_confirm">Jasny</string>
+    <string name="lock_glymps_cache_cleared">Pamięć podręczna wyczyszczona. Nowe tapety zostaną pobrane.</string>
     <string name="lock_glymps_behavior_category">Zachowanie</string>
     <string name="lock_glymps_change_on_title">Moment zmiany tapety</string>
     <string name="lock_glymps_change_on_summary">Kiedy zmienić tapetę</string>
@@ -1177,8 +1169,6 @@
     <string name="video_wallpaper_category">Personalizacja tapety</string>
     <string name="video_wallpaper_category_title">Tapeta wideo</string>
     <string name="video_wallpaper_category_summary">Ustaw animowane tapety (MP4, GIF, WebP)</string>
-    <!-- Haptics settings -->
-    <!-- Volume panel styles -->
     <!-- Gradient styles -->
     <string name="gradient_settings_title">Personalizacja gradientu</string>
     <string name="gradient_settings_summary">Zastosuj kolory gradientowe do elementów systemowych</string>
@@ -1191,13 +1181,14 @@
     <string name="custom_gradient_color_mode_custom">Niestandardowy</string>
     <string name="custom_gradient_start_color_title">Kolor początkowy</string>
     <string name="custom_gradient_end_color_title">Kolor końcowy</string>
-    <!-- Progress bar styles -->
     <!-- Fonts -->
     <string name="font_styles_title">Style czcionki</string>
     <string name="font_styles_summary">Zmień styl czcionki systemowej</string>
     <string name="font_preview_dialog_title">Podgląd czcionki</string>
     <string name="font_preview_quote">Strach jest wrogiem innowacji.</string>
     <string name="add_font">Dodaj czcionkę</string>
+    <string name="sound_preview_play">Odtwórz podgląd</string>
+    <string name="sound_preview_stop">Zatrzymaj podgląd</string>
     <string name="reboot_required_custom_font_title">Wymagany restart dla niestandardowej czcionki</string>
     <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
     <string name="toast_invalid_font_file">Nieprawidłowy plik czcionki</string>
@@ -1226,13 +1217,26 @@
     <string name="changelog_summary">Wyświetl zmiany w źródle ROM</string>
     <string name="changelog_error_no_official">Brak oficjalnego rejestru zmian dla tego urządzenia lub kompilacji. Więcej informacji znajdziesz na stronie %1$s.</string>
     <!-- Color picker -->
+    <string name="color_picker_reset">Przywróć ustawienia domyślne</string>
+    <string name="color_picker_apply">Zastosuj</string>
+    <string name="color_picker_clock_title">Kolor zegara</string>
+    <string name="color_picker_tab_preset">Ustawienie wstępne</string>
+    <string name="color_picker_tab_image">Obraz</string>
+    <string name="color_picker_tab_custom">Niestandardowy</string>
+    <string name="color_picker_import_gallery">Importuj z galerii</string>
+    <string name="color_picker_import_image">Importuj obraz</string>
+    <string name="color_picker_selected_color">Wybrany kolor</string>
+    <string name="color_picker_title_image">Wybierz kolor z obrazu</string>
+    <string name="color_picker_title_wallpaper">Wybierz kolor z tapety</string>
+    <string name="color_picker_wallpaper_error">Nie można wczytać tapety</string>
+    <string name="color_picker_hint_image">Naciśnij obraz, aby wybrać kolor</string>
+    <string name="color_picker_hint_wallpaper">Naciśnij tapetę, aby wybrać kolor</string>
     <string name="accent_color">Kolor akcentu</string>
     <string name="notification_color">Kolor powiadomień</string>
     <string name="wallpaper_color">Kolor tapety</string>
     <string name="rainbow_color">Tęcza</string>
     <string name="custom_color">Niestandardowy kolor</string>
     <string name="custom_color_summary">Niestandardowy kolor niektórych stylów zegarów</string>
-    <!-- Custom seekbar -->
     <!-- SystemUI restart dialog -->
     <string name="systemui_restart_title">Zrestartuj interfejs systemu</string>
     <string name="systemui_restart_message">Wymagany jest restart interfejsu systemu, aby zastosować zmiany. Zrestartować teraz? </string>
@@ -1245,6 +1249,7 @@
     <string name="action_enable">Włącz</string>
     <string name="action_apply">Zastosuj</string>
     <string name="action_delete">Usuń</string>
+    <string name="action_import">Importuj</string>
     <string name="action_yes">Tak</string>
     <string name="action_reset">Resetuj</string>
     <string name="action_search_apps">Wyszukaj aplikacje</string>
@@ -1309,7 +1314,9 @@
     <string name="charging_appearance_category_title">Wygląd</string>
     <string name="charging_color_mode_title">Tryb kolorów</string>
     <string name="charging_display_category_title">Opcje wyświetlania</string>
+    <string name="charging_show_on_lockscreen_title">Pokaż na ekranie blokady</string>
     <string name="charging_show_on_lockscreen_summary">Pokaż animację, gdy widoczny jest ekran blokady</string>
+    <string name="charging_show_on_aod_title">Pokaż na ekranie zawsze włączonym</string>
     <string name="charging_show_on_aod_summary">Pokaż animację w trybie ekranu otoczenia</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Styl emoji</string>
@@ -1332,7 +1339,7 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Przeprojektowane menu zasilania</string>
     <string name="global_actions_use_compose_dialog_summary">Użyj nowego menu zasilania z konfigurowalnym, przeciąganym układem kafelków. Wyłącz, aby korzystać z klasycznego menu zasilania.</string>
-    <string name="global_actions_advanced_reboot_title">Włącz zaawansowany restart</string>
+    <string name="global_actions_advanced_reboot_title">Użyj zaawansowanego restartu</string>
     <string name="global_actions_advanced_reboot_summary">Odblokowuje nowe okno dialogowe umożliwiające zaawansowany restart</string>
     <!-- Screenshots -->
     <string name="screenshot_clipboard_only_title">Kopiuj tylko do schowka</string>
