@@ -114,12 +114,14 @@
             android:key="statusbar_clock_chip_gradient_start_color"
             android:title="@string/clock_chip_gradient_start_color_title"
             android:summary="@string/clock_chip_gradient_start_color_summary"
+            android:defaultValue="0xFFFF6B6B"
             android:visible="false" />
 
         <org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="statusbar_clock_chip_gradient_end_color"
             android:title="@string/clock_chip_gradient_end_color_title"
             android:summary="@string/clock_chip_gradient_end_color_summary"
+            android:defaultValue="0xFF4ECDC4"
             android:visible="false" />
 
         <org.evolution.settings.preferences.SystemSettingSeekBarPreference
@@ -261,10 +263,10 @@
             android:defaultValue="0" />
 
         <!-- Logo custom color -->
-        <org.evolution.settings.preferences.colorpicker.ColorPickerPreference
+        <org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="status_bar_logo_color_picker"
             android:title="@string/status_bar_logo_color_custom"
-            settings:defaultValue="0xFFFFFFFF" />
+            android:defaultValue="0xFFFFFFFF" />
     </PreferenceCategory>
 
     <PreferenceCategory
