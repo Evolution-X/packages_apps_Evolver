@@ -85,14 +85,6 @@ public class BootAnimationUtils {
         return SystemProperties.getInt("persist.sys.bootanimation_style", 0);
     }
 
-    public static String getSelectedBootAnimation() {
-        final int style = getBootAnimStyle();
-        if (style >= 0 && style < BOOT_ANIMATION_FILES.length) {
-            return BOOT_ANIMATION_FILES[style];
-        }
-        return null;
-    }
-
     // -----------------------------------------------------------------------
     // Frame extraction (PNG/JPG based animations)
     // -----------------------------------------------------------------------
@@ -118,13 +110,6 @@ public class BootAnimationUtils {
             Log.e(TAG, "Error loading boot animation frames from " + path, e);
         }
         return animationDrawable;
-    }
-
-    public static AnimationDrawable getBootAnimationFrames(Context context) {
-        String path = getSelectedBootAnimation();
-        return path != null
-                ? getBootAnimationFramesFromPath(context, path)
-                : new AnimationDrawable();
     }
 
     // -----------------------------------------------------------------------

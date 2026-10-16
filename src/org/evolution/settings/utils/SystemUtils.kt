@@ -22,7 +22,6 @@ package org.evolution.settings.utils
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import android.provider.Settings
 import android.widget.Toast
 
 import androidx.appcompat.app.AlertDialog
@@ -55,12 +54,5 @@ object SystemUtils {
         Handler(Looper.getMainLooper()).postDelayed({
             Utils.restartSystemUI()
         }, 2000) // 2-second delay
-    }
-
-    @JvmStatic
-    fun reloadSystemUI(context: Context) {
-        val resolver = context.contentResolver
-        val currentValue = Settings.System.getInt(resolver, "system_ui_reload", 0)
-        Settings.System.putInt(resolver, "system_ui_reload", if (currentValue == 0) 1 else 0)
     }
 }
