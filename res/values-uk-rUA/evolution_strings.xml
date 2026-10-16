@@ -16,7 +16,7 @@
     <string name="status_bar_summary">Жести, значки, логотип, відступи</string>
     <string name="quick_settings_title">Швидкі налаштування</string>
     <string name="quick_settings_summary">Інтерфейс, повзунок яскравості, макет</string>
-    <string name="notifications_summary">Спливаючі сповіщення, підсвітка країв, звуки</string>
+    <string name="notifications_summary">Вспливаючі сповіщення, прозорість інтерфейсу, звуки</string>
     <string name="power_menu_title">Меню живлення</string>
     <string name="power_menu_summary">Дії, екран блокування</string>
     <string name="miscellaneous_title">Різне</string>
@@ -25,7 +25,7 @@
     <string name="about_summary">Про прошивку</string>
     <string name="gestures_category_title">Жести</string>
     <!-- Reorganized categories -->
-    <string name="themes_monet_colors_category">Монет &amp; кольори</string>
+    <string name="themes_monet_colors_category">Монет та кольори</string>
     <string name="themes_visual_effects_category">Візуальні ефекти</string>
     <string name="lock_screen_clock_category">Годинник</string>
     <string name="lock_screen_media_category">Медіа</string>
@@ -64,9 +64,9 @@
     <string name="use_wallpaper_colors_desc">Видобувати кольори з ваших шпалер</string>
     <string name="custom_seed_color_title">Колір, який встановлюється користувачем</string>
     <string name="theme_style_title">Стиль теми</string>
-    <string name="fidelity_title">Фіделіті кольору</string>
+    <string name="fidelity_title">Точність кольору</string>
     <string name="fidelity_desc">Точніше збереження оригінального кольору насіння</string>
-    <string name="contrast_level_title">Рівень контрастності</string>
+    <string name="contrast_level_title">Рівень контрасту</string>
     <string name="chroma_boost_title">Підсилення насиченості</string>
     <string name="about_color_customization_title">Про персоналізацію кольорів</string>
     <string name="about_color_customization_desc">Зміни кольорів застосовуються до всіх програм, що підтримують тему Material You, на рівні всієї системи.\nНалаштування цих кольорів може вплинути на зовнішній вигляд програм на вашому пристрої.</string>
@@ -90,7 +90,7 @@
     <string name="chroma_neutral1_title">Нейтральна хрома</string>
     <string name="chroma_neutral2_title">Нейтральний різновид хрома</string>
     <!-- Hue / tone category -->
-    <string name="hue_tone_settings_category">Відтінок і яскравість</string>
+    <string name="hue_tone_settings_category">Відтінок та легкість</string>
     <!-- Hue rotation -->
     <string name="hue_shift_title">Обертання відтінку</string>
     <string name="hue_shift_desc">Обертайте початковий колір. Виробляє гармонійні якості, не змінюючи початкового кольору вручну.</string>
@@ -101,7 +101,7 @@
     <string name="tone_shift_dark_desc">Зміщує всі кольори темного режиму на світліший (+) або темніший (−) рівень незалежно від контрастності.</string>
     <!-- Secondary seed -->
     <string name="secondary_seed_category">Додатковий колір фрази-паролю (seed)</string>
-    <string name="use_secondary_seed_title">Увімкнути друге насіння</string>
+    <string name="use_secondary_seed_title">Використовувати друге насіння</string>
     <string name="use_secondary_seed_desc">Вторинна і третинна палітра від окремого кольору насіння для двотонної теми.</string>
     <string name="secondary_seed_color_title">Додатковий колір фрази-паролю (seed)</string>
     <!-- Lock screen -->
@@ -152,17 +152,14 @@
     <string name="pulse_show_on_ambient_summary">Візуалізатор на постійному екрані і Ambient режим. Вимкніть тільки на екрані блокування.</string>
     <string name="pulse_show_on_ambient_disabled_player">Візуалізатор недоступний для Ambient дисплея, коли фон медіа-плеєра увімкнено</string>
     <string name="pulse_show_on_media_player_title">Показувати на тлі медіа-програвача</string>
-    <string name="pulse_show_on_media_player_summary">Показувати візуалізацію на тлі мультиплеєра для екрану блокування та швидких налаштувань</string>
+    <string name="pulse_show_on_media_player_summary">Показувати візуалізацію на тлі медіа-плеєра для блокування екрану та швидких налаштувань</string>
     <string name="pulse_height_multiplier_title">Висота Імпульсу</string>
     <string name="pulse_height_multiplier_summary">Налаштуйте висоту візуалізації</string>
     <!-- Lockscreen Clock Highlight Guide -->
-    <string name="ls_clock_title">Годинник на екрані блокування</string>
+    <string name="ls_clock_title">Годинники на екрані блокування</string>
     <string name="ls_clock_summary">Налаштуйте стиль годинника та віджети</string>
     <string name="clock_styles_disclaimer_title">Перш ніж продовжити</string>
-    <string name="clock_styles_disclaimer_message">Для найкращого досвіду роботи з циферблатами годинника та віджетами, будь ласка, переконайтеся, що:\n\n• Вимкніть розумний простір на екрані блокування\n• Вимкніть погоду на екрані блокування\n• Вимкніть стиль великого годинника\n\nВи можете знайти ці опції у налаштуваннях екрана блокування.</string>
-    <!-- Lockscreen Clock Accent Color -->
-    <!-- Lockscreen Clock Opacity -->
-    <!-- Lock screen/Clock -->
+    <string name="clock_styles_disclaimer_message">Для найкращого досвіду роботи з циферблатами годинника та віджетами, будь ласка, переконайтеся, що:\n\n• Вимкніть Smartspace на екрані блокування\n• Вимкніть погоду на екрані блокування\n• Вимкніть стиль великого годинника\n\nВи можете знайти ці опції у налаштуваннях екрана блокування.</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Користувацький стиль годинника</string>
     <string name="lockscreen_custom_clock_style_summary">Налаштування стилів годинника на екрані блокування</string>
@@ -189,7 +186,7 @@
     <string name="lockscreen_custom_clock_gradient_radius_summary">Контролювати, як далеко градієнт знаходиться зі своєї точки прив’язки</string>
     <string name="lockscreen_custom_clock_color_category_title">Колір</string>
     <string name="lockscreen_custom_clock_gradient_category_title">Градієнт</string>
-    <string name="lockscreen_custom_clock_layout_category_title">Розмір &amp; позиції</string>
+    <string name="lockscreen_custom_clock_layout_category_title">Розмір і положення</string>
     <string name="lockscreen_custom_clock_animation_category_title">Анімація</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">Розмір</string>
@@ -199,8 +196,8 @@
     <string name="clock_album_art_color_summary">Перевизначити колір годинника з палітром альбому при відтворенні мультимедіа</string>
     <!-- Lockscreen widgets -->
     <string name="lockscreen_widgets_title">Віджети</string>
-    <string name="lockscreen_widgets_enabled_title">Увімкнути віджети Заблокованого екрана</string>
-    <string name="lockscreen_widgets_enabled_summary">Додати віджети на Заблокований екран</string>
+    <string name="lockscreen_widgets_enabled_title">Використовувати віджети на екрані блокування</string>
+    <string name="lockscreen_widgets_enabled_summary">Додати віджети на екран блокування</string>
     <string name="lockscreen_display_widgets_title">Віджет із інформацією про пристрій</string>
     <string name="lockscreen_widgets_color_mode_title">Кольоровий режим віджета інформації про дані</string>
     <string name="lockscreen_display_widgets_summary">Відображати віджет інформації про пристрій на екрані блокування</string>
@@ -222,7 +219,7 @@
     <string name="wallet">Гаманець</string>
     <string name="qr_scanner">QR-сканер</string>
     <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">Стиль віджетів на Заблокованому екрані</string>
+    <string name="lockscreen_widgets_style_title">Стиль віджетів на екрані блокування</string>
     <string name="lockscreen_widgets_style1">Матеріал Округлений</string>
     <string name="lockscreen_widgets_style2">Матеріал Square</string>
     <string name="lockscreen_widgets_style3">Квадратний прозорий</string>
@@ -257,27 +254,12 @@
     <string name="aod_brightness_title">AOD яскравість</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Зараз грає</string>
-    <string name="nowplaying_summary">Показувати поточну інформацію про музику на екрані блокування та на AOD</string>
-    <string name="nowplaying_color_mode_title">Кольоровий режим тексту</string>
-    <string name="nowplaying_track_text_size_title">Розмір заголовку пісні</string>
-    <string name="nowplaying_track_text_size_summary">Розмір заголовка треку</string>
-    <string name="nowplaying_artist_text_size_title">Розмір імені виконавця</string>
-    <string name="nowplaying_artist_text_size_summary">Розмір тексту назви виконавця або альбому</string>
-    <string name="nowplaying_display_title">Варіанти відображення</string>
-    <string name="nowplaying_show_on_lockscreen_title">Показати на екрані блокування</string>
-    <string name="nowplaying_show_on_lockscreen_summary">Показати інформацію про музику, коли пристрій заблоковано</string>
-    <string name="nowplaying_icon_style_title">Стиль піктограм</string>
-    <string name="nowplaying_icon_style_summary">Виберіть, які дії відображаються</string>
-    <string name="nowplaying_icon_size_title">Розмір іконок</string>
-    <string name="nowplaying_icon_size_summary">Регулювання розміру іконки</string>
-    <string name="nowplaying_show_on_aod_title">Показувати на завжди ввімкненому дисплеї</string>
-    <string name="nowplaying_show_on_aod_summary">Показати інформацію про музику на Ambient Display</string>
-    <string name="nowplaying_info_summary">Тепер гра показує поточний трек і художника на екрані блокування і завжди на дисплеї. Автоматично з\'являється, коли музика відтворюється і приховується, коли зупинено. Положення визначається зверху в нижній частині екрану.</string>
-    <string name="nowplaying_expand_dialog">Розгорнути діалог</string>
-    <string name="nowplaying_expand_dialog_summary">Розгорнути діалог «Зараз грає»</string>
+    <string name="nowplaying_summary">Слухати музику біля телефону і показати пісню на екрані блокування і AOD за замовчуванням.</string>
+    <string name="nowplaying_on_demand_title">Ярлик на вимогу</string>
+    <string name="nowplaying_on_demand_summary">Показувати іконку пошуку на екрані блокування. Довге натискання починається пошук.</string>
     <string name="nowplaying_lyrics_mode_title">Режим текстів</string>
-    <string name="nowplaying_lyrics_mode_summary">Показати тексти пісень замість назви та значка</string>
-    <string name="nowplaying_pixel_native_footer">Цей пристрій вже надає налаштування відтворення зараз через Ambient Display Pixel. Ці параметри недоступні при активній вбудованій версії.</string>
+    <string name="nowplaying_lyrics_mode_summary">Показати синхронізовані тексти музики, що грає на цьому телефоні на екрані блокування</string>
+    <string name="nowplaying_pixel_native_summary">Цей пристрій вже забезпечує функцію «Зараз грає» завдяки індикації навколишнього середовища Pixel</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Налаштування погоди</string>
     <string name="weather_settings_summary">Налаштуйте пакет значків та службу погоди</string>
@@ -302,15 +284,13 @@
     <string name="ambient_bottom_title">Нижній вміст AOD</string>
     <string name="ambient_battery_disable_title">Вимкнено</string>
     <string name="ambient_battery_percent_title">Рівень заряду акумулятора</string>
-    <string name="ambient_battery_both_title">Рівень заряду батареї &amp; температура</string>
-    <string name="ambient_battery_cpu_battery_temperature_title">Рівень заряду батареї, температура (батарея &amp; процесор)</string>
+    <string name="ambient_battery_both_title">Рівень заряду батареї та температура</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Рівень акумулятора, температура (заряд акумулятора та процесора)</string>
     <string name="ambient_user_name_title">Ім\'я користувача</string>
     <string name="display_icon_title">Іконки</string>
-    <string name="display_icon_summary">Відображення значків разом з рівнем &amp; температурою</string>
+    <string name="display_icon_summary">Відображати іконки поруч з рівнем і температурою</string>
     <string name="ambient_wallpaper_title">Тло на Ambient Display</string>
     <string name="doze_always_on_wallpaper_summary">Показувати шпалери екрану блокування на Ambient Display</string>
-    <!-- Lock screen/Peek display -->
-    <!-- Lock screen/Now bar -->
     <!-- Lock screen/Scrim -->
     <string name="keyguard_scrim_transparent_title">Прозорий екран блокування</string>
     <string name="keyguard_scrim_transparent_summary">Приховати шар затемнення шпалер екрана блокування</string>
@@ -332,7 +312,7 @@
     <string name="depthwall_auto_subject_title">Автоматична тема верхніх шпалер</string>
     <string name="depthwall_auto_subject_summary">Для глибини витягування теми з шпалер</string>
     <string name="depthwall_extract_now_title">Видобути тему зараз</string>
-    <string name="depthwall_extract_now_summary">Негайно видалити тему з шпалер (встановлюйте шпалери окремо для блокування екрану)</string>
+    <string name="depthwall_extract_now_summary">Негайно видалити тему з шпалер (встановлюйте шпалери окремо для екрану блокування)</string>
     <string name="depthwall_extracting_toast">Вилучення теми з шпалер…</string>
     <string name="depthwall_storage_permission_denied">Дозвіл на зберігання потрібен для автоматичного вилучення тем зі шпалер.</string>
     <string name="depthwall_clear_subject_title">Очистити зображення теми</string>
@@ -367,7 +347,7 @@
     <string name="lockscreen_show_carrier_title">Назва оператора</string>
     <string name="carrier_show_lockscreen_only">Тільки на екрані блокування</string>
     <string name="carrier_show_statusbar_only">Тільки рядок стану</string>
-    <string name="carrier_show_both">На екрані блокування та в статус барі</string>
+    <string name="carrier_show_both">Блокування екрану і рядка стану</string>
     <string name="custom_carrier_label_title">Власна назва оператора</string>
     <string name="custom_carrier_label_summary">Торкніться, щоб встановити ім\'я оператора</string>
     <string name="custom_carrier_label_dialog_message">Замінити мітку оператора на свій текст. Залиште порожнім, щоб використовувати реальну назву оператора.</string>
@@ -411,8 +391,8 @@
     <string name="battery_bar_low_color">Низький рівень кольору</string>
     <string name="battery_bar_animate_color">Колір анімації заряджання</string>
     <!-- Status bar/Clock & date -->
-    <string name="status_bar_clock_and_date_title">Налаштування годинника та налаштування дати</string>
-    <string name="status_bar_clock_and_date_summary">Налаштування години і дати</string>
+    <string name="status_bar_clock_and_date_title">Годинник і дата</string>
+    <string name="status_bar_clock_and_date_summary">Налаштування годинника та дати</string>
     <string name="status_bar_clock_position_title">Розташування годинника</string>
     <string name="status_bar_clock_position_right">Праворуч</string>
     <string name="status_bar_clock_position_left">Ліворуч</string>
@@ -705,7 +685,7 @@
     <string name="quick_settings_layout_category_title">Макет</string>
     <string name="quick_settings_tile_label_hide_title">Приховати підписи</string>
     <string name="quick_settings_tile_label_hide_summary">Показувати іконку тільки на плитці</string>
-    <string name="quick_settings_layout_columns_rows_title">Стовпці &amp; рядки</string>
+    <string name="quick_settings_layout_columns_rows_title">Колонки і рядки</string>
     <string name="quick_settings_layout_columns_rows_summary">Налаштуйте стовпці та рядки QS</string>
     <string name="quick_settings_layout_columns_rows_footer_text">Рядки швидких налаштувань повинні бути однаковими або більшими, ніж стрілки швидких налаштувань. Використовуйте більше стовпців для кола або квадратних стилів.</string>
     <string name="quick_settings_columns_portrait_title">Стовпці (портретна орієнтація)</string>
@@ -836,7 +816,7 @@
     <string name="notifications_interface_category">Інтерфейс</string>
     <string name="notifications_kill_app_button_title">Завершити додаток</string>
     <string name="notifications_kill_app_button_summary">Показувати кнопку закриття програми в меню сповіщень при довгому натисканні</string>
-    <string name="notifications_sounds_vibration_category">Звуки &amp; Вібрація</string>
+    <string name="notifications_sounds_vibration_category">Звуки та вібрація</string>
     <string name="notifications_alert_display_on_title">Сповіщення, коли дисплей увімкнено</string>
     <string name="notifications_alert_display_on_summary">Відтворювання звуку та вібрації для сповіщень при увімкненому екрані</string>
     <string name="compact_heads_up_notifications_enabled_title">Компактні сповіщення</string>
@@ -956,15 +936,15 @@
     <string name="tensor_targets_none_configured">Немає цільових додатків</string>
     <string name="tensor_targets_count">Цільових програм %1$d</string>
     <string name="tensor_targets_empty_description">Вибрані додатки повідомлять про функціонал Tensor для розблокування функцій AI і Pixel-exclusive</string>
-    <string name="user_selectable_app_spoofing_title">Підробка додатків та ігор</string>
+    <string name="user_selectable_app_spoofing_title">Додаток та ігрові Spoofing</string>
     <string name="user_selectable_app_spoofing_summary">Імітувати властивості пристрою для певних програм та ігор</string>
     <string name="user_select_spoofing_profile_title">Виберіть профіль Spoofing</string>
-    <string name="app_spoofing_header_title">Увімкнути Spoofing</string>
+    <string name="app_spoofing_header_title">Використовувати Spoofing</string>
     <string name="app_spoofing_configured_count">%1$d програм та ігор підроблено</string>
     <string name="app_spoofing_disabled">Вимкнено</string>
-    <string name="app_spoofing_add_apps">Додати програми та ігри</string>
+    <string name="app_spoofing_add_apps">Додайте програми та ігри</string>
     <string name="app_spoofing_clear_all">Очистити все</string>
-    <string name="app_spoofing_configured_apps">Налаштовані програми та ігри</string>
+    <string name="app_spoofing_configured_apps">Налаштовані додатки та ігри</string>
     <string name="app_spoofing_no_apps_configured">Не налаштовано жодних програм або ігор</string>
     <string name="app_spoofing_spoof_model">Підміна моделі</string>
     <string name="app_spoofing_select_spoof_model">Обрати підмінну модель</string>
@@ -992,7 +972,6 @@
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_title">Блок датчиків для кожного додатка</string>
     <string name="sensor_block_summary">Блокування доступу до певних датчиків для вибраних програм для економії заряду батареї</string>
-    <!-- Miscellaneous/Idle Manager -->
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrity Fix</string>
     <string name="play_integrity_fix_summary">Керуйте налаштуваннями PIF і відбитками пристроїв для основної цілісності</string>
@@ -1031,7 +1010,7 @@
     <string name="pif_spoof_vending_sdk_summary">Представляє SDK 32 в Play Store, щоб змусити спадщину &lt;A13 вердикт. Ніколи не зростає над реальним SDK. Може зламати Play Store поведінку, тому залиште вимкненим, якщо не тестуєте</string>
     <string name="pif_vending_finger_custom_summary">Користувацький відбиток: %1$s</string>
     <string name="pif_spoof_build_title">Імітування поля збірки</string>
-    <string name="pif_spoof_build_summary">Представити поля збірки відбитків (модель, пристрій, відбиток пальця ...) для DroidGuard</string>
+    <string name="pif_spoof_build_summary">Представити поля збірки відбитків (модель, пристрій, fingerprint, …) до DroidGuard</string>
     <string name="pif_spoof_props_title">Імітувати властивості системи</string>
     <string name="pif_spoof_props_summary">Представити ідентифікатор, патч API, рівень API та ідентифікатор користувача DroidGuard</string>
     <string name="pif_spoof_provider_title">Імітація провайдера ключів</string>
@@ -1175,8 +1154,6 @@
     <string name="video_wallpaper_category">Налаштування шпалер</string>
     <string name="video_wallpaper_category_title">Відеошпалери</string>
     <string name="video_wallpaper_category_summary">Встановити анімовані шпалери (MP4, GIF, WebP)</string>
-    <!-- Haptics settings -->
-    <!-- Volume panel styles -->
     <!-- Gradient styles -->
     <string name="gradient_settings_title">Градієнтна кастомізація</string>
     <string name="gradient_settings_summary">Застосувати градієнт кольорів до системних елементів</string>
@@ -1189,13 +1166,14 @@
     <string name="custom_gradient_color_mode_custom">Персоналізація</string>
     <string name="custom_gradient_start_color_title">Початковий колір</string>
     <string name="custom_gradient_end_color_title">Кінцевий колір</string>
-    <!-- Progress bar styles -->
     <!-- Fonts -->
     <string name="font_styles_title">Стиль шрифту</string>
     <string name="font_styles_summary">Зміна стилю системного шрифту</string>
     <string name="font_preview_dialog_title">Попередній перегляд шрифту</string>
     <string name="font_preview_quote">Страх - це ворог інновацій.</string>
     <string name="add_font">Додати шрифт</string>
+    <string name="sound_preview_play">Відтворити попередній</string>
+    <string name="sound_preview_stop">Зупинити попередній перегляд</string>
     <string name="reboot_required_custom_font_title">Для користувацького шрифту потрібне перезавантаження</string>
     <string name="toast_failed_apply_font">Не вдалося застосувати шрифт</string>
     <string name="toast_invalid_font_file">Некоректний файл шрифту</string>
@@ -1224,13 +1202,13 @@
     <string name="changelog_summary">Переглянути зміни в джерелі прошивки</string>
     <string name="changelog_error_no_official">Немає офіційного списку змін для цього пристрою чи збірки. Відвідайте %1$s для отримання додаткової інформації.</string>
     <!-- Color picker -->
+    <string name="color_picker_reset">Скинути до стандартних</string>
     <string name="accent_color">Колір акценту</string>
     <string name="notification_color">Колір сповіщення</string>
     <string name="wallpaper_color">Колір шпалер</string>
     <string name="rainbow_color">Веселка</string>
     <string name="custom_color">Власний колір</string>
     <string name="custom_color_summary">Користувацький колір деяких стилів годинника</string>
-    <!-- Custom seekbar -->
     <!-- SystemUI restart dialog -->
     <string name="systemui_restart_title">Перезапустити SystemUI</string>
     <string name="systemui_restart_message">Для застосування змін потрібен перезапуск системного інтерфейсу. Перезавантажити зараз?</string>
@@ -1307,7 +1285,9 @@
     <string name="charging_appearance_category_title">Зовнішній вигляд</string>
     <string name="charging_color_mode_title">Колір підсвічування контуру</string>
     <string name="charging_display_category_title">Параметри відображення</string>
+    <string name="charging_show_on_lockscreen_title">Показати на екрані блокування</string>
     <string name="charging_show_on_lockscreen_summary">Показувати анімацію, коли видно екран блокування</string>
+    <string name="charging_show_on_aod_title">Показувати на завжди ввімкненому дисплеї</string>
     <string name="charging_show_on_aod_summary">Показати анімацію в режимі активного екрану</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Стиль емодзі</string>
@@ -1330,7 +1310,7 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Перероблене меню кнопки живлення</string>
     <string name="global_actions_use_compose_dialog_summary">Використовуйте нове меню живлення з настроюваним, перетягуваною плиткою. Вимкніть для використання класичного меню живлення.</string>
-    <string name="global_actions_advanced_reboot_title">Увімкнути розширене перезавантаження</string>
+    <string name="global_actions_advanced_reboot_title">Використовувати розширене перезавантаження</string>
     <string name="global_actions_advanced_reboot_summary">Розблокує нове діалогове вікно, яке дозволяє просунуте перезавантаження</string>
     <!-- Screenshots -->
     <string name="screenshot_clipboard_only_title">Скопіювати тільки в буфер</string>
