@@ -10,7 +10,6 @@
     <string name="status_bar_summary">الإيماءات والأيقونات والشعار والحواف</string>
     <string name="quick_settings_title">الإعدادات السريعة</string>
     <string name="quick_settings_summary">الواجهة وشريط السطوع والتخطيط</string>
-    <string name="notifications_title">الإشعارات</string>
     <string name="notifications_summary">الإشعارات المنبثقة وإضاءة الحواف والأصوات</string>
     <string name="power_menu_title">قائمة الطاقة</string>
     <string name="power_menu_summary">الإجراءات وشاشة القفل</string>
@@ -20,7 +19,6 @@
     <string name="miscellaneous_summary">انتحال الخصائص وخيارات المطوّر</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">حول الروم</string>
-    <string name="general_category_title">عام</string>
     <string name="gestures_category_title">الإيماءات</string>
     <string name="themes_monet_colors_category">Monet والألوان</string>
     <string name="themes_visual_effects_category">المؤثرات المرئية</string>
@@ -259,7 +257,6 @@
     <string name="torch">المصباح</string>
     <string name="controls_media_button_play">تشغيل</string>
     <string name="weather">الطقس</string>
-    <string name="wifi">Wi‑Fi</string>
     <string name="data">بيانات الجوال</string>
     <string name="ringer">الرنين</string>
     <string name="bt">Bluetooth</string>
@@ -355,7 +352,7 @@
     <string name="ambient_user_name_title">اسم المستخدم</string>
     <string name="display_icon_title">الأيقونات</string>
     <string name="display_icon_summary">عرض الأيقونات بجانب المستوى ودرجة الحرارة</string>
-    <string name="doze_always_on_wallpaper_title">خلفية الشاشة المحيطة</string>
+    <string name="ambient_wallpaper_title">خلفية الشاشة المحيطة</string>
     <string name="doze_always_on_wallpaper_summary">إظهار خلفية شاشة القفل على الشاشة المحيطة</string>
     <string name="peek_display_notifications_title">عرض خاطف</string>
     <string name="peek_display_notifications_summary">تفعيل نمط إشعارات مبسط على شاشة القفل</string>
@@ -1370,7 +1367,7 @@
     <string name="ts_fetch_keybox_suspended_refetch">تم تعليق Keybox، جارٍ جلب واحد أحدث…</string>
     <string name="ts_fetch_keybox_expiring_refetch">ستنتهي صلاحية Keybox قريبًا، جارٍ جلب بديل…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">سلسلة Keybox غير صالحة، جارٍ جلب بديل…</string>
-    <string name="wallpaper_settings_title">أنماط الخلفية</string>
+    <string name="wallpaper_styles_title">أنماط الخلفية</string>
     <string name="wallpaper_settings_summary">تهيئة أنماط الخلفية وتأثيراتها</string>
     <string name="wallpaper_blur_title">تأثير التمويه</string>
     <string name="wallpaper_blur_filter">نوع التمويه</string>

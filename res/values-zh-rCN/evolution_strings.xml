@@ -16,7 +16,6 @@
     <string name="status_bar_summary">手势、图标</string>
     <string name="quick_settings_title">快速设置</string>
     <string name="quick_settings_summary">亮度滑块、界面、锁屏</string>
-    <string name="notifications_title">通知</string>
     <string name="notifications_summary">浮动通知、界面</string>
     <string name="power_menu_title">电源菜单</string>
     <string name="power_menu_summary">电源键操作、锁屏设置</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">开发者选项、伪装设置</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">关于 ROM</string>
-    <string name="general_category_title">常规</string>
     <string name="gestures_category_title">手势</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">莫奈 &amp; 颜色</string>
@@ -286,7 +284,6 @@
     <string name="torch">手电筒</string>
     <string name="controls_media_button_play">播放</string>
     <string name="weather">天气</string>
-    <string name="wifi">WiFi</string>
     <string name="data">数据</string>
     <string name="ringer">铃声</string>
     <string name="bt">蓝牙</string>
@@ -389,7 +386,7 @@
     <string name="ambient_user_name_title">用户名</string>
     <string name="display_icon_title">图标</string>
     <string name="display_icon_summary">在电量 &amp; 旁展示图标</string>
-    <string name="doze_always_on_wallpaper_title">主动显示壁纸</string>
+    <string name="ambient_wallpaper_title">主动显示壁纸</string>
     <string name="doze_always_on_wallpaper_summary">主动显示时显示锁屏壁纸</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">预览显示</string>
@@ -1381,7 +1378,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">Keybox 即将过期，正在获取新 Keybox…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">Keybox 无效，正在获取新 Keybox…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">壁纸样式</string>
+    <string name="wallpaper_styles_title">壁纸样式</string>
     <string name="wallpaper_settings_summary">配置壁纸样式和设置</string>
     <string name="wallpaper_blur_title">壁纸模糊</string>
     <string name="wallpaper_blur_filter">壁纸模糊样式</string>

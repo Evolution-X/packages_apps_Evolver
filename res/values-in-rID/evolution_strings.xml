@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Gestur, ikon, logo, lapisan</string>
     <string name="quick_settings_title">Setelan Cepat</string>
     <string name="quick_settings_summary">Antarmuka, penggeser kecerahan, tata letak</string>
-    <string name="notifications_title">Notifikasi</string>
     <string name="notifications_summary">Perhatian, cahaya tepi, suara</string>
     <string name="power_menu_title">Menu daya</string>
     <string name="power_menu_summary">Tindakan, layar kunci</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Pemalsuan, opsi pengembang</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Tentang ROM kami</string>
-    <string name="general_category_title">Umum</string>
     <string name="gestures_category_title">Gestur</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Monet &amp; Warna</string>
@@ -279,7 +277,6 @@
     <string name="torch">Senter</string>
     <string name="controls_media_button_play">Putar</string>
     <string name="weather">Cuaca</string>
-    <string name="wifi">WiFi</string>
     <string name="data">Data</string>
     <string name="ringer">Dering</string>
     <string name="bt">Bluetooth</string>
@@ -382,7 +379,7 @@
     <string name="ambient_user_name_title">Nama pengguna</string>
     <string name="display_icon_title">Ikon</string>
     <string name="display_icon_summary">Tampilkan ikon di samping level &amp; suhu</string>
-    <string name="doze_always_on_wallpaper_title">Wallpaper ambient</string>
+    <string name="ambient_wallpaper_title">Wallpaper ambient</string>
     <string name="doze_always_on_wallpaper_summary">Tampilkan wallpaper layar kunci pada Tampilan Ambient</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Tampilan sekilas</string>
@@ -1394,7 +1391,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">Keybox akan segera habis masa berlakunya, sedang dicari penggantinya…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">Rantai keybox tidak valid, sedang diambil penggantinya…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Gaya latar</string>
+    <string name="wallpaper_styles_title">Gaya latar</string>
     <string name="wallpaper_settings_summary">Konfigurasikan gaya dan efek wallpaper</string>
     <string name="wallpaper_blur_title">Efek blur</string>
     <string name="wallpaper_blur_filter">Jenis blur</string>

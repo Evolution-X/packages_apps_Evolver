@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Gesti, icone, logo, riempimento</string>
     <string name="quick_settings_title">Impostazioni rapide</string>
     <string name="quick_settings_summary">Interfaccia, cursore luminosità, disposizione</string>
-    <string name="notifications_title">Notifiche</string>
     <string name="notifications_summary">Notifiche a comparsa, illuminazione del bordo, suoni</string>
     <string name="power_menu_title">Menù di alimentazione</string>
     <string name="power_menu_summary">Azioni, schermata di blocco</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Opzioni sviluppatore, falsificazione</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Informazioni su Evolution X</string>
-    <string name="general_category_title">Generale</string>
     <string name="gestures_category_title">Gesti</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Monet &amp; Colori</string>
@@ -280,7 +278,6 @@
     <string name="torch">Torcia</string>
     <string name="controls_media_button_play">Riproduci</string>
     <string name="weather">Meteo</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="data">Dati</string>
     <string name="ringer">Suoneria</string>
     <string name="bt">Bluetooth</string>
@@ -382,7 +379,7 @@
     <string name="ambient_user_name_title">Nome utente</string>
     <string name="display_icon_title">Icone</string>
     <string name="display_icon_summary">Mostra le icone accanto al livello e alla temperatura</string>
-    <string name="doze_always_on_wallpaper_title">Sfondo su Ambient Display</string>
+    <string name="ambient_wallpaper_title">Sfondo su Ambient Display</string>
     <string name="doze_always_on_wallpaper_summary">Mostra lo sfondo della schermata di blocco su Ambient Display</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Schermata Peek</string>
@@ -1349,7 +1346,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">Keybox in scadenza, download del sostituto in corso…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">Catena del keybox non valida, download del sostituto in corso…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Stili sfondo</string>
+    <string name="wallpaper_styles_title">Stili sfondo</string>
     <string name="wallpaper_settings_summary">Configura stili e impostazioni dello sfondo</string>
     <string name="wallpaper_blur_title">Sfocatura dello sfondo</string>
     <string name="wallpaper_blur_filter">Stile sfocatura sfondo</string>

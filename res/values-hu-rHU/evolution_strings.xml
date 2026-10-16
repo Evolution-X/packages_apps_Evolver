@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Mozdulatvezérlők, ikonok, logó, kitöltés</string>
     <string name="quick_settings_title">Gyorsbeállítások</string>
     <string name="quick_settings_summary">Felhasználói felület, fényerőszabályzó, kinézet</string>
-    <string name="notifications_title">Értesítések</string>
     <string name="notifications_summary">Felugró értesítés, oldalvilágítás, hangok</string>
     <string name="power_menu_title">Kikapcsolási menü</string>
     <string name="power_menu_summary">Műveletek, záróképernyő</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Álcázás, hamisítás, fejlesztői lehetőségek</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">A ROM-unkról</string>
-    <string name="general_category_title">Általános</string>
     <string name="gestures_category_title">Mozdulatvezérlés</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Monet &amp; Színek</string>
@@ -279,7 +277,6 @@
     <string name="torch">Zseblámpa</string>
     <string name="controls_media_button_play">Lejátszás</string>
     <string name="weather">Időjárás</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="data">Adat</string>
     <string name="ringer">Csengés</string>
     <string name="bt">Bluetooth</string>
@@ -382,7 +379,7 @@
     <string name="ambient_user_name_title">Felhasználónév</string>
     <string name="display_icon_title">Ikonok</string>
     <string name="display_icon_summary">Ikonok megjelenítése a szint és a hőmérséklet mellett</string>
-    <string name="doze_always_on_wallpaper_title">Környezeti háttérkép</string>
+    <string name="ambient_wallpaper_title">Környezeti háttérkép</string>
     <string name="doze_always_on_wallpaper_summary">A záróképernyő háttérképének megjelenítése a környezeti kijelzőn</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Betekintő kijelző</string>
@@ -1399,7 +1396,7 @@ Beállítás:
     <string name="ts_fetch_keybox_expiring_refetch">A keybox hamarosan lejár, csere lekérése…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">A keybox lánca érvénytelen, csere lekérése…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">A háttérkép stílusa</string>
+    <string name="wallpaper_styles_title">A háttérkép stílusa</string>
     <string name="wallpaper_settings_summary">Háttérképstílusok és hatások beállítása</string>
     <string name="wallpaper_blur_title">Elmosási hatás</string>
     <string name="wallpaper_blur_filter">Elmosás típusa</string>

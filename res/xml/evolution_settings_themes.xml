@@ -145,7 +145,7 @@
 
         <Preference
             android:key="wallpaper_settings"
-            android:title="@string/wallpaper_settings_title"
+            android:title="@string/wallpaper_styles_title"
             android:summary="@string/wallpaper_settings_summary"
             android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
 

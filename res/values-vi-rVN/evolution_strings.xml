@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Cử chỉ, biểu tượng, logo, khoảng cách</string>
     <string name="quick_settings_title">Cài đặt nhanh</string>
     <string name="quick_settings_summary">Giao diện, thanh trượt độ sáng, bố cục</string>
-    <string name="notifications_title">Thông báo</string>
     <string name="notifications_summary">Chú ý, đèn viền, âm thanh</string>
     <string name="power_menu_title">Menu nguồn</string>
     <string name="power_menu_summary">Hành động, màn hình khóa</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Giả mạo, tùy chọn nhà phát triển</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Về ROM của chúng tôi</string>
-    <string name="general_category_title">Chung</string>
     <string name="gestures_category_title">Cử chỉ</string>
     <!-- Themes -->
     <string name="themes_monet_category">Màu Monet</string>
@@ -676,7 +674,7 @@
     <string name="shaded_layer_style">Kiểu lớp đổ bóng</string>
     <string name="volume_style_title">Kiểu bảng âm lượng</string>
     <!-- Wallpaper Styles -->
-    <string name="wallpaper_settings_title">Kiểu hình nền</string>
+    <string name="wallpaper_styles_title">Kiểu hình nền</string>
     <string name="wallpaper_settings_summary">Tùy chỉnh kiểu và cài đặt hình nền</string>
     <!-- Wallpaper Settings Titles -->
     <string name="wallpaper_blur_title">Làm mờ hình nền</string>
@@ -871,7 +869,7 @@ Thanh tiến trình tự động chuyển đổi giữa trạng thái phương t
     <string name="wireless_charging_dynamic_color_title">Màu sạc động</string>
     <string name="wireless_charging_dynamic_color_summary">Dùng mức pin để xác định màu hiệu ứng sạc</string>
     <!-- Ambient Wallpaper -->
-    <string name="doze_always_on_wallpaper_title">Hình nền Ambient</string>
+    <string name="ambient_wallpaper_title">Hình nền Ambient</string>
     <string name="doze_always_on_wallpaper_summary">Hiển thị hình nền màn hình khóa trên Ambient Display</string>
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Nút xoay nổi</string>

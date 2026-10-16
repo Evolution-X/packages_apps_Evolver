@@ -17,7 +17,6 @@
     <string name="status_bar_summary">Gestures, icons, logo, padding</string>
     <string name="quick_settings_title">Quick settings</string>
     <string name="quick_settings_summary">Interface, brightness slider, layout</string>
-    <string name="notifications_title">Notifications</string>
     <string name="notifications_summary">Heads up, edge light, sounds</string>
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Actions, lock screen</string>
@@ -27,11 +26,10 @@
     <string name="miscellaneous_summary">Spoofing, developer options</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">About our ROM</string>
-    <string name="general_category_title">General</string>
     <string name="gestures_category_title">Gestures</string>
 
     <!-- Reorganized categories -->
-    <string name="themes_monet_colors_category">Monet &amp; Colors</string>
+    <string name="themes_monet_colors_category">Monet and colors</string>
     <string name="themes_visual_effects_category">Visual effects</string>
     <string name="lock_screen_clock_category">Clock</string>
     <string name="lock_screen_media_category">Media</string>
@@ -88,20 +86,20 @@
     <string name="boot_animation_style_unknown">Unknown</string>
 
     <!-- Themes/Monet Settings -->
-    <string name="monet_settings_title">Color Customization</string>
+    <string name="monet_settings_title">Color customization</string>
     <string name="monet_settings_summary">Customize theme colors and style</string>
     <string name="color_settings_category">Color Settings</string>
     <string name="advanced_settings_category">Advanced Settings</string>
-    <string name="use_wallpaper_colors_title">Use Wallpaper Colors</string>
+    <string name="use_wallpaper_colors_title">Use wallpaper colors</string>
     <string name="use_wallpaper_colors_desc">Extract colors from your wallpaper</string>
-    <string name="custom_seed_color_title">Custom Seed Color</string>
-    <string name="theme_style_title">Theme Style</string>
+    <string name="custom_seed_color_title">Custom seed color</string>
+    <string name="theme_style_title">Theme style</string>
     <string name="theme_style_desc">Select color palette style</string>
-    <string name="fidelity_title">Color Fidelity</string>
+    <string name="fidelity_title">Color fidelity</string>
     <string name="fidelity_desc">Preserve the original seed color more accurately</string>
-    <string name="contrast_level_title">Contrast Level</string>
-    <string name="chroma_boost_title">Chroma Boost</string>
-    <string name="about_color_customization_title">About Color Customization</string>
+    <string name="contrast_level_title">Contrast level</string>
+    <string name="chroma_boost_title">Chroma boost</string>
+    <string name="about_color_customization_title">About color customization</string>
     <string name="about_color_customization_desc">Color changes apply system-wide to all apps that support Material You theming.\nAdjusting these colors may affect the appearance of apps across your device.</string>
     <string name="wallpaper_seed_color_title">Pick from Wallpaper</string>
     <string name="wallpaper_seed_color_desc">Extract color from your current wallpaper</string>
@@ -141,7 +139,7 @@
     <string name="chroma_neutral2_title">Neutral variant chroma</string>
 
     <!-- Hue / tone category -->
-    <string name="hue_tone_settings_category">Hue &amp; lightness</string>
+    <string name="hue_tone_settings_category">Hue and lightness</string>
 
     <!-- Hue rotation -->
     <string name="hue_shift_title">Hue rotation</string>
@@ -155,7 +153,7 @@
  
     <!-- Secondary seed -->
     <string name="secondary_seed_category">Secondary seed color</string>
-    <string name="use_secondary_seed_title">Enable secondary seed</string>
+    <string name="use_secondary_seed_title">Use secondary seed</string>
     <string name="use_secondary_seed_desc">Drive secondary and tertiary palettes from a separate seed color for two-tone theming.</string>
     <string name="secondary_seed_color_title">Secondary seed color</string>
 
@@ -212,15 +210,15 @@
     <string name="pulse_show_on_ambient_summary">Display visualizer on always-on display and ambient mode. Disable to show only on lock screen.</string>
     <string name="pulse_show_on_ambient_disabled_player">Visualizer is not available for ambient display when media player background is enabled</string>
     <string name="pulse_show_on_media_player_title">Show on media player background</string>
-    <string name="pulse_show_on_media_player_summary">Display visualizer on media player background for lockscreen and quick settings</string>
+    <string name="pulse_show_on_media_player_summary">Display visualizer on media player background for lock screen and quick settings</string>
     <string name="pulse_height_multiplier_title">Pulse height</string>
     <string name="pulse_height_multiplier_summary">Adjust the visualization height</string>
 
     <!-- Lockscreen Clock Highlight Guide -->
-    <string name="ls_clock_title">Lockscreen Clocks</string>
+    <string name="ls_clock_title">Lock screen clocks</string>
     <string name="ls_clock_summary">Set your clock style and widgets</string>
     <string name="clock_styles_disclaimer_title">Before you continue</string>
-    <string name="clock_styles_disclaimer_message">For the best experience with clock faces and widgets, please make sure to:\n\n• Disable lockscreen Smartspace\n• Disable lockscreen weather\n• Disable the large clock style\n\nYou can find these options in the Lockscreen settings.</string>
+    <string name="clock_styles_disclaimer_message">For the best experience with clock faces and widgets, please make sure to:\n\n• Disable lock screen Smartspace\n• Disable lock screen weather\n• Disable the large clock style\n\nYou can find these options in the lock screen settings.</string>
     <string name="ls_clock_face_highlight_text">Swipe left or right to preview clock styles</string>
 
     <!-- Lockscreen Clock Accent Color -->
@@ -264,13 +262,13 @@
     <string name="lockscreen_custom_clock_gradient_radius_summary">Control how far the gradient spreads from its anchor point</string>
     <string name="lockscreen_custom_clock_color_category_title">Color</string>
     <string name="lockscreen_custom_clock_gradient_category_title">Gradient</string>
-    <string name="lockscreen_custom_clock_layout_category_title">Size &amp; position</string>
+    <string name="lockscreen_custom_clock_layout_category_title">Size and position</string>
     <string name="lockscreen_custom_clock_animation_category_title">Animation</string>
     <string name="unit_degrees">°</string>
 
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">Size</string>
-    <string name="clock_size_summary">Scale the lockscreen clock (50–150%)</string>
+    <string name="clock_size_summary">Scale the lock screen clock (50–150%)</string>
 
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">Follow album art color</string>
@@ -278,11 +276,11 @@
 
     <!-- Lockscreen widgets -->
     <string name="lockscreen_widgets_title">Widgets</string>
-    <string name="lockscreen_widgets_enabled_title">Enable Lockscreen Widgets</string>
-    <string name="lockscreen_widgets_enabled_summary">Add widgets to lockscreen</string>
+    <string name="lockscreen_widgets_enabled_title">Use lock screen widgets</string>
+    <string name="lockscreen_widgets_enabled_summary">Add widgets to lock screen</string>
     <string name="lockscreen_display_widgets_title">Device info widget</string>
     <string name="lockscreen_widgets_color_mode_title">Info widget color mode</string>
-    <string name="lockscreen_display_widgets_summary">Show device info widget on lockscreen</string>
+    <string name="lockscreen_display_widgets_summary">Show device info widget on lock screen</string>
     <string name="large_widgets_category_title">Big widgets</string>
     <string name="main_custom_widgets1">Big widget 1</string>
     <string name="main_custom_widgets2">Big widget 2</string>
@@ -299,7 +297,6 @@
     <string name="torch">Torch</string>
     <string name="controls_media_button_play">Play</string>
     <string name="weather">Weather</string>
-    <string name="wifi">Wifi</string>
     <string name="data">Data</string>
     <string name="ringer">Ringer</string>
     <string name="bt">Bluetooth</string>
@@ -308,7 +305,7 @@
     <string name="qr_scanner">QR Scanner</string>
 
     <!-- Lockscreen Widgets Styles -->
-    <string name="lockscreen_widgets_style_title">Lockscreen widgets style</string>
+    <string name="lockscreen_widgets_style_title">Lock screen widgets style</string>
     <string name="lockscreen_widgets_style1">Material Rounded</string>
     <string name="lockscreen_widgets_style2">Material Square</string>
     <string name="lockscreen_widgets_style3">Square Translucent</string>
@@ -319,8 +316,8 @@
     <string name="lockscreen_widgets_transparency_summary">Configure translucent style widget opacity level</string>
 
     <!-- Lockscreen Weather -->
-    <string name="custom_clock_weather_title">Lockscreen weather</string>
-    <string name="custom_clock_weather_summary">Show weather on custom lockscreen clock</string>
+    <string name="custom_clock_weather_title">Lock screen weather</string>
+    <string name="custom_clock_weather_summary">Show weather on custom lock screen clock</string>
 
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Media cover art</string>
@@ -403,12 +400,12 @@
     <string name="ambient_bottom_title">AOD bottom content</string>
     <string name="ambient_battery_disable_title">Disabled</string>
     <string name="ambient_battery_percent_title">Battery level</string>
-    <string name="ambient_battery_both_title">Battery level &amp; temperature</string>
-    <string name="ambient_battery_cpu_battery_temperature_title">Battery level, temperature (battery &amp; CPU)</string>
+    <string name="ambient_battery_both_title">Battery level and temperature</string>
+    <string name="ambient_battery_cpu_battery_temperature_title">Battery level, temperature (battery and CPU)</string>
     <string name="ambient_user_name_title">User name</string>
     <string name="display_icon_title">Icons</string>
-    <string name="display_icon_summary">Display icons alongside level &amp; temperature</string>
-    <string name="doze_always_on_wallpaper_title">Ambient wallpaper</string>
+    <string name="display_icon_summary">Display icons alongside level and temperature</string>
+    <string name="ambient_wallpaper_title">Ambient wallpaper</string>
     <string name="doze_always_on_wallpaper_summary">Show the lock screen wallpaper on ambient display</string>
 
     <!-- Lock screen/Peek display -->
@@ -449,7 +446,7 @@
     <string name="depthwall_auto_subject_title">Depth wallpaper auto subject</string>
     <string name="depthwall_auto_subject_summary">Automatically extract subject from wallpaper for depth effect</string>
     <string name="depthwall_extract_now_title">Extract subject now</string>
-    <string name="depthwall_extract_now_summary">Trigger subject extraction from wallpaper immediately (Set wallpaper separatly for lockscreen)</string>
+    <string name="depthwall_extract_now_summary">Trigger subject extraction from wallpaper immediately (Set wallpaper separatly for lock screen)</string>
     <string name="depthwall_extracting_toast">Extracting subject from wallpaper…</string>
     <string name="depthwall_extraction_complete_toast">Subject extraction complete!</string>
     <string name="depthwall_storage_permission_denied">Storage permission is required to automatically extract subjects from wallpapers.</string>
@@ -462,7 +459,7 @@
     <!-- Status bar -->
     <string name="status_bar_toggle_brightness_title">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
-    <string name="status_bar_toggle_brightness_lockscreen_title">Brightness control on lockscreen</string>
+    <string name="status_bar_toggle_brightness_lockscreen_title">Brightness control on lock screen</string>
     <string name="status_bar_toggle_brightness_lockscreen_summary">Allow brightness control on the lock screen status bar</string>
     <string name="status_bar_quick_qs_pulldown_title">Quick pulldown</string>
     <string name="status_bar_quick_qs_pulldown_summary">%1$s edge of the status bar pulls down quick settings</string>
@@ -485,9 +482,9 @@
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Carrier label</string>
     <string name="lockscreen_show_carrier_title">Show carrier label</string>
-    <string name="carrier_show_lockscreen_only">Lockscreen only</string>
+    <string name="carrier_show_lockscreen_only">Lock screen only</string>
     <string name="carrier_show_statusbar_only">Status bar only</string>
-    <string name="carrier_show_both">Lockscreen &amp; status bar</string>
+    <string name="carrier_show_both">Lock screen and status bar</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_summary">Tap to set a custom carrier label</string>
     <string name="custom_carrier_label_dialog_message">Replace the carrier label with custom text. Leave empty to use the real carrier label.</string>
@@ -551,8 +548,8 @@
     <string name="battery_bar_animate_color">Charging animation color</string>
 
     <!-- Status bar/Clock & date -->
-    <string name="status_bar_clock_and_date_title">Clock &amp; date</string>
-    <string name="status_bar_clock_and_date_summary">Customize clock &amp; date</string>
+    <string name="status_bar_clock_and_date_title">Clock and date</string>
+    <string name="status_bar_clock_and_date_summary">Customize clock and date</string>
     <string name="status_bar_clock_position_title">Clock position</string>
     <string name="status_bar_clock_position_right">Right</string>
     <string name="status_bar_clock_position_left">Left</string>
@@ -871,7 +868,7 @@
     <string name="quick_settings_tile_ui_style_title">Tile style</string>
     <string name="quick_settings_tile_ui_style_a11_circle">Circle tiles</string>
     <string name="quick_settings_tile_ui_style_a11_square">Square tiles</string>
-    <string name="quick_settings_tile_ui_style_a11_mix">Circle &amp; square tiles</string>
+    <string name="quick_settings_tile_ui_style_a11_mix">Circle and square tiles</string>
     <string name="quick_settings_panel_style_title">Panel style</string>
     <string name="quick_settings_panel_style_outline">Outline</string>
     <string name="quick_settings_panel_style_two_tone">Two-tone accent</string>
@@ -891,7 +888,7 @@
     <string name="quick_settings_tile_label_hide_summary">Show icon only in tile</string>
     <string name="quick_settings_tile_layout_title">Vertical layout</string>
     <string name="quick_settings_tile_layout_summary">Show label below icon instead of beside it</string>
-    <string name="quick_settings_layout_columns_rows_title">Columns &amp; rows</string>
+    <string name="quick_settings_layout_columns_rows_title">Columns and rows</string>
     <string name="quick_settings_layout_columns_rows_summary">Customize QS columns and rows</string>
     <string name="quick_settings_layout_columns_rows_footer_text">QS rows must be equal to or greater than quick QS rows. Use a higher column count for circle or square tile styles.</string>
     <string name="quick_settings_columns_portrait_title">Columns (portrait)</string>
@@ -1047,7 +1044,7 @@
     <string name="notifications_interface_category">Interface</string>
     <string name="notifications_kill_app_button_title">Kill app</string>
     <string name="notifications_kill_app_button_summary">Show a kill app button in the notification long-press menu</string>
-    <string name="notifications_sounds_vibration_category">Sounds &amp; vibration</string>
+    <string name="notifications_sounds_vibration_category">Sounds and vibration</string>
     <string name="notifications_alert_display_on_title">Alert while display is on</string>
     <string name="notifications_alert_display_on_summary">Play sound and vibration for notifications while the display is on</string>
     <string name="compact_heads_up_notifications_enabled_title">Compact heads-up</string>
@@ -1207,16 +1204,16 @@
     <string name="tensor_targets_none_configured">No apps targeted</string>
     <string name="tensor_targets_count">%1$d apps targeted</string>
     <string name="tensor_targets_empty_description">Selected apps will report Tensor hardware features to unlock AI and Pixel-exclusive functionality</string>
-    <string name="user_selectable_app_spoofing_title">App &amp; game spoofing</string>
+    <string name="user_selectable_app_spoofing_title">App and game spoofing</string>
     <string name="user_selectable_app_spoofing_summary">Spoof device properties for specific apps and games</string>
     <string name="user_select_spoofing_profile_title">Select spoofing profile</string>
     <string name="app_spoofing_category_title">Per-app spoofing</string>
-    <string name="app_spoofing_header_title">Enable spoofing</string>
-    <string name="app_spoofing_configured_count">%1$d apps &amp; games spoofed</string>
+    <string name="app_spoofing_header_title">Use spoofing</string>
+    <string name="app_spoofing_configured_count">%1$d apps and games spoofed</string>
     <string name="app_spoofing_disabled">Disabled</string>
-    <string name="app_spoofing_add_apps">Add apps &amp; games</string>
+    <string name="app_spoofing_add_apps">Add apps and games</string>
     <string name="app_spoofing_clear_all">Clear all</string>
-    <string name="app_spoofing_configured_apps">Configured apps &amp; games</string>
+    <string name="app_spoofing_configured_apps">Configured apps and games</string>
     <string name="app_spoofing_no_apps_configured">No apps or games configured</string>
     <string name="app_spoofing_spoof_model">Spoof model</string>
     <string name="app_spoofing_select_spoof_model">Select spoof model</string>
@@ -1351,7 +1348,7 @@
     <string name="pif_footer_body">A Canary fingerprint is checked at most once a day and replaced automatically once it is within about two weeks of expiring. Canary configs expire roughly 6 weeks from their release date — the expiry is shown in the active config summary.\n\nFor manual setup:\n1. Tap "Fetch Pixel Canary fingerprint" and select a device.\n2. If no devices are found, import a working PIF config from a trusted source. Config files are not provided.\n3. Recheck your Play Integrity status.\n\nAlways delete the active configuration before importing a new one. Loading an expired PIF config will cause TrickyStore strong integrity to fail even with a valid keybox.\n\nAdvanced spoofing:\n• Play Store fingerprint spoof — leave disabled unless advised otherwise. Spoofing FINGERPRINT to Play Store is rarely needed and may cause issues.\n• Spoof SDK to Play Store — presents SDK 32 to the Play Store to force the legacy pre-Android 13 verdict path. It can break Play Store behavior, so leave it off unless testing.\n• Spoof build fields and system properties — leave on. They present the fingerprint to DroidGuard.\n• Spoof keystore provider — keep off when a keybox is in use, since it bypasses keybox attestation.\n• Spoof ROM signature — experimental.</string>
     <string name="pif_invalid_fingerprint">Invalid fingerprint format</string>
     <string name="pif_no_devices_found">No devices found</string>
-    <string name="pif_master_switch_title">Enable Play Integrity Fix</string>
+    <string name="pif_master_switch_title">Use Play Integrity Fix</string>
     <string name="pif_advanced_settings">Advanced spoofing</string>
     <string name="pif_spoof_vending_finger_title">Play Store fingerprint spoof</string>
     <string name="pif_spoof_vending_finger_summary">Controls which FINGERPRINT is presented to the Play Store process</string>
@@ -1359,7 +1356,7 @@
     <string name="pif_spoof_vending_sdk_summary">Present SDK 32 to the Play Store to force the legacy &lt;A13 verdict path. Never raised above the real SDK. Can break Play Store behavior, so leave off unless testing</string>
     <string name="pif_vending_finger_custom_summary">Custom fingerprint: %1$s</string>
     <string name="pif_spoof_build_title">Spoof build fields</string>
-    <string name="pif_spoof_build_summary">Present the fingerprint\'s Build fields (model, device, fingerprint, ...) to DroidGuard</string>
+    <string name="pif_spoof_build_summary">Present the fingerprint\'s Build fields (model, device, fingerprint, …) to DroidGuard</string>
     <string name="pif_spoof_props_title">Spoof system properties</string>
     <string name="pif_spoof_props_summary">Present the fingerprint\'s build id, security patch, API level and product identity to DroidGuard</string>
     <string name="pif_spoof_provider_title">Spoof keystore provider</string>
@@ -1459,7 +1456,7 @@
     <string name="ts_fetch_keybox_chain_invalid_refetch">Keybox chain invalid, fetching replacement…</string>
 
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Wallpaper styles</string>
+    <string name="wallpaper_styles_title">Wallpaper styles</string>
     <string name="wallpaper_settings_summary">Configure wallpaper styles and effects</string>
     <string name="wallpaper_blur_title">Blur effect</string>
     <string name="wallpaper_blur_filter">Blur type</string>
@@ -1484,7 +1481,7 @@
 
     <!-- Wallpaper Glymps -->
     <string name="lock_glymps_title">Wallpaper Glymps</string>
-    <string name="lock_glymps_enable_title">Enable Wallpaper Glymps</string>
+    <string name="lock_glymps_enable_title">Use Wallpaper Glymps</string>
     <string name="lock_glymps_enable_summary">Change the wallpaper each time the screen turns on</string>
     <string name="lock_glymps_wallpaper_target_title">Apply wallpaper to</string>
     <string name="lock_glymps_source_category">Wallpaper source</string>
@@ -1528,7 +1525,7 @@
     <string name="video_wallpaper_current_summary">No video wallpaper selected</string>
     <string name="video_wallpaper_pick_title">Select video or GIF</string>
     <string name="video_wallpaper_pick_summary">Choose a video or animated image file</string>
-    <string name="video_wallpaper_enable_title">Enable video wallpaper</string>
+    <string name="video_wallpaper_enable_title">Use video wallpaper</string>
     <string name="video_wallpaper_enable_summary">Apply the selected video as a live wallpaper</string>
     <string name="video_wallpaper_clear_title">Clear video wallpaper</string>
     <string name="video_wallpaper_clear_summary">Remove the current video wallpaper</string>
@@ -1830,7 +1827,7 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Redesigned power menu</string>
     <string name="global_actions_use_compose_dialog_summary">Use the new power menu with a customizable, draggable tile layout. Disable to use the classic power menu.</string>
-    <string name="global_actions_advanced_reboot_title">Enable Advanced Reboot</string>
+    <string name="global_actions_advanced_reboot_title">Use advanced reboot</string>
     <string name="global_actions_advanced_reboot_summary">Unlocks a new dialog that allows advanced rebooting</string>
 
     <!-- Screenshots -->
