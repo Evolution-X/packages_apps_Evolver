@@ -54,8 +54,8 @@
     <string name="themes_icon_shape_title">Kształt ikon</string>
     <string name="themes_signal_icon_title">Ikona sygnału</string>
     <string name="themes_signal_icon_summary">Ustaw styl ikony sygnału</string>
-    <string name="themes_wifi_icon_title">Ikona Wi-Fi</string>
-    <string name="themes_wifi_icon_summary">Ustaw styl ikony Wi-Fi</string>
+    <string name="themes_wifi_icon_title">Ikona sieci Wi-Fi</string>
+    <string name="themes_wifi_icon_summary">Ustaw styl ikony sieci Wi-Fi</string>
     <string name="themes_navigation_bar_icons_title">Ikony paska nawigacyjnego</string>
     <string name="themes_navigation_bar_icons_summary">Ustaw styl ikon paska nawigacyjnego</string>
     <string name="themes_udfps_icon_title">Ikona odcisku palca</string>
@@ -279,7 +279,7 @@
     <string name="torch">Latarka</string>
     <string name="controls_media_button_play">Odtwórz</string>
     <string name="weather">Pogoda</string>
-    <string name="wifi">Wi-Fi</string>
+    <string name="wifi">Sieć Wi-Fi</string>
     <string name="data">Dane</string>
     <string name="ringer">Dzwonek</string>
     <string name="bt">Bluetooth</string>
@@ -421,7 +421,7 @@
     <string name="depthwall_extract_now_summary">Natychmiastowe wyzwolenie wyodrębnienia obiektu z tapety (ustaw tapetę osobno dla ekranu blokady)</string>
     <string name="depthwall_extracting_toast">Wyodrębnianie obiektu z tapety…</string>
     <string name="depthwall_extraction_complete_toast">Wyodrębnianie obiektu ukończone!</string>
-    <string name="depthwall_storage_permission_denied">Aby automatycznie wyodrębnić obiekty z tapet, wymagane jest uprawnienie dostępu do pamięci wewnętrznej.</string>
+    <string name="depthwall_storage_permission_denied">Wymagane jest uprawnienie dostępu do pamięci, aby automatycznie wyodrębnić obiekty z tapet.</string>
     <string name="depthwall_clear_subject_title">Wyczyść obiekt obrazu</string>
     <string name="depthwall_clear_subject_summary">Usuń aktualnie wyodrębniony lub ręcznie ustawiony obiekt</string>
     <string name="depthwall_clear_subject_confirm_message">Spowoduje to usunięcie aktualnego obrazu głębi tapety. Kontynuować?</string>
@@ -524,7 +524,7 @@
     <string name="status_bar_clock_position_center">Na środku</string>
     <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
     <string name="status_bar_clock_seconds_summary">Wyświetl sekundy obok zegara na pasku stanu</string>
-    <string name="status_bar_clock_auto_hide_title">Automatyczne ukrywanie</string>
+    <string name="status_bar_clock_auto_hide_title">Auto-ukrywanie</string>
     <string name="status_bar_clock_auto_hide_summary">Ukryj zegar, gdy launcher jest widoczny</string>
     <string name="status_bar_am_pm_title">Styl AM/PM</string>
     <string name="status_bar_am_pm_info">24-godzinny zegar jest aktywny</string>
@@ -637,7 +637,7 @@
     <string name="network_traffic_mode_up">Tylko wysyłanie</string>
     <string name="network_traffic_mode_down">Tylko pobieranie</string>
     <string name="network_traffic_mode_all">Wysyłanie i pobieranie</string>
-    <string name="network_traffic_autohide">Automatyczne ukrywanie</string>
+    <string name="network_traffic_autohide">Auto-ukrywanie</string>
     <string name="network_traffic_autohide_summary">Ukryj monitor ruchu przy braku aktywności sieci</string>
     <string name="network_traffic_autohide_threshold">Próg bezczynności</string>
     <string name="network_traffic_refresh_interval_title">Częstotliwość odświeżania</string>
@@ -901,8 +901,8 @@
     <string name="quick_settings_brightness_slider_position_title">Pozycja suwaka</string>
     <string name="quick_settings_brightness_slider_position_top">U góry</string>
     <string name="quick_settings_brightness_slider_position_bottom">Na dole</string>
-    <string name="quick_settings_auto_brightness_icon_title">Ikona automatycznej jasności</string>
-    <string name="quick_settings_auto_brightness_icon_summary">Pokaż przełącznik adaptacyjnej jasności obok suwaka</string>
+    <string name="quick_settings_auto_brightness_icon_title">Ikona auto-jasności</string>
+    <string name="quick_settings_auto_brightness_icon_summary">Pokaż przełącznik jasności adaptacyjnej obok suwaka</string>
     <string name="quick_settings_brightness_slider_haptic_title">Wibracja dotykowa</string>
     <string name="quick_settings_brightness_slider_haptic_summary">Wibracja przy dostosowywaniu jasności suwakiem</string>
     <string name="qs_brightness_slider_gradient_title">Gradient suwaka jasności</string>
@@ -1430,8 +1430,8 @@
     <string name="lock_glymps_folder_title">Folder lokalny</string>
     <string name="lock_glymps_folder_summary">Wyświetl lokalizację folderu i liczbę tapet (maksymalnie 10 tapet)</string>
     <string name="lock_glymps_download_category">Ustawienia pobierania</string>
-    <string name="lock_glymps_wifi_only_title">Tylko Wi-Fi</string>
-    <string name="lock_glymps_wifi_only_summary">Pobierz tapety tylko po połączeniu z Wi-Fi</string>
+    <string name="lock_glymps_wifi_only_title">Tylko sieć Wi-Fi</string>
+    <string name="lock_glymps_wifi_only_summary">Pobierz tapety tylko po połączeniu z siecią Wi-Fi</string>
     <string name="lock_glymps_cache_size_title">Rozmiar pamięci podręcznej</string>
     <string name="lock_glymps_cache_size_summary">Liczba tapet do wstępnego pobrania</string>
     <string name="lock_glymps_advanced_category">Zaawansowane</string>
@@ -1539,6 +1539,8 @@
     <string name="add_font">Dodaj czcionkę</string>
     <string name="custom_font">Niestandardowa czcionka</string>
     <string name="no_custom_font">Brak niestandardowej czcionki</string>
+    <string name="sound_preview_play">Odtwórz podgląd</string>
+    <string name="sound_preview_stop">Zatrzymaj podgląd</string>
     <string name="change_custom_font">Zmień niestandardową czcionkę</string>
     <string name="reset_custom_font_content_desc">Resetuj niestandardową czcionkę</string>
     <string name="reboot_required_custom_font_title">Wymagany restart dla niestandardowej czcionki</string>
