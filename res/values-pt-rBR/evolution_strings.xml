@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Gestos, ícones, logotipo, preenchimento</string>
     <string name="quick_settings_title">Configurações rápidas</string>
     <string name="quick_settings_summary">Interface, controle deslizante de brilho, layout</string>
-    <string name="notifications_title">Notificações</string>
     <string name="notifications_summary">Notificações flutuantes, luz de borda, sons</string>
     <string name="power_menu_title">Menu de energia</string>
     <string name="power_menu_summary">Ações, tela de bloqueio</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Mascaramento, opções de desenvolvedor</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Sobre Evolution X</string>
-    <string name="general_category_title">Geral</string>
     <string name="gestures_category_title">Gestos</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Tema Monet e cores</string>
@@ -279,7 +277,6 @@
     <string name="torch">Tocha</string>
     <string name="controls_media_button_play">Jogar</string>
     <string name="weather">Clima</string>
-    <string name="wifi">Wi-fi</string>
     <string name="data">Dados</string>
     <string name="ringer">Campainha</string>
     <string name="bt">Bluetooth</string>
@@ -382,7 +379,7 @@
     <string name="ambient_user_name_title">Nome do usuário</string>
     <string name="display_icon_title">Ícones</string>
     <string name="display_icon_summary">Exibir ícones junto com nível e temperatura</string>
-    <string name="doze_always_on_wallpaper_title">Papel de parede ambiente</string>
+    <string name="ambient_wallpaper_title">Papel de parede ambiente</string>
     <string name="doze_always_on_wallpaper_summary">Exibir o papel de parede da tela de bloqueio na tela ambiente</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Espiar a tela</string>
@@ -1394,7 +1391,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">A keybox está prestes a expirar, estou providenciando uma substituta…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">Cadeia de keybox inválida, buscando substituição…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Estilos de papel de parede</string>
+    <string name="wallpaper_styles_title">Estilos de papel de parede</string>
     <string name="wallpaper_settings_summary">Configure estilos e efeitos de papel de parede</string>
     <string name="wallpaper_blur_title">Efeito desfoque</string>
     <string name="wallpaper_blur_filter">Tipo de desfoque</string>

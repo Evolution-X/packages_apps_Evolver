@@ -16,7 +16,6 @@
     <string name="status_bar_summary">ئاماژەکان، وێنۆچکەکان، لۆگۆ، پەدینگ</string>
     <string name="quick_settings_title">ڕێکخستنە خێراکان</string>
     <string name="quick_settings_summary">ڕووکار، شریتی ڕۆشنایی، شێوەی دەرکەوتن</string>
-    <string name="notifications_title">ئاگادارییەکان</string>
     <string name="notifications_summary">لایت، وەڵامی خێرا، هەمەجۆر</string>
     <string name="power_menu_title">مینیۆی وزە</string>
     <string name="power_menu_summary">تایبەتمەندکردنی بژاردەکانی دوگمەی وزە</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">یاری، نیشاندەری FPS، وێنەی ڕوونما</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">زانیاری دەربارەی تیمی پەرەپێدەر</string>
-    <string name="general_category_title">گشتی</string>
     <string name="gestures_category_title">ئاماژەکان</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">مۆنێت و ڕەنگەکان</string>
@@ -262,7 +260,7 @@
     <string name="ambient_user_name_title">ناوی بەکارهێنەر</string>
     <string name="display_icon_title">ئایکۆنەکان</string>
     <string name="display_icon_summary">پیشاندانی وێنۆچکەکان لەگەڵ ئاست و پلەی گەرمی</string>
-    <string name="doze_always_on_wallpaper_title">وێنەی پشتێنەی ئامبیێنت</string>
+    <string name="ambient_wallpaper_title">وێنەی پشتێنەی ئامبیێنت</string>
     <string name="doze_always_on_wallpaper_summary">پیشاندانی وێنەی پشتێنەی قوفڵی ڕوونما لەسەر ڕوونمای ئامبیێنت</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">پیشاندانی خێرا (Peek display)</string>
@@ -1181,7 +1179,7 @@
     <string name="ts_fetch_keybox_blocked">Keyboxـەکەت کارایە — پێویست بە هێنان ناکات</string>
     <string name="ts_fetch_keybox_last_fetched">دوایین هێنان: %1$s</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">شێوازەکانی وێنەی پاشبنەما</string>
+    <string name="wallpaper_styles_title">شێوازەکانی وێنەی پاشبنەما</string>
     <string name="wallpaper_settings_summary">ڕێکخستنی شێواز و کاریگەرییەکانی وێنەی پشتێنە</string>
     <string name="wallpaper_blur_title">کاریگەریی لێڵکردن</string>
     <string name="wallpaper_blur_filter">جۆری لێڵکردن</string>

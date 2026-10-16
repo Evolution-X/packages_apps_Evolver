@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Gesten, Icons, Privatsphäre-Indikatoren</string>
     <string name="quick_settings_title">Schnelleinstellungen</string>
     <string name="quick_settings_summary">Schnittstelle, Sperrbildschirm</string>
-    <string name="notifications_title">Benachrichtigungen</string>
     <string name="notifications_summary">Warnungen, Schnittstelle</string>
     <string name="power_menu_title">Power Menü</string>
     <string name="power_menu_summary">Auf dem Sperrbildschirm tippen</string>
@@ -618,7 +617,7 @@
     <string name="shaded_layer_style">Schattierter Ebenenstil</string>
     <string name="volume_style_title">Stil der Lautstärkeanzeige</string>
     <!-- Wallpaper Styles -->
-    <string name="wallpaper_settings_title">Hintergrundbild  Stil</string>
+    <string name="wallpaper_styles_title">Hintergrundbild  Stil</string>
     <string name="wallpaper_settings_summary">Hintergrundbilder Stile und Einstellungen konfigurieren</string>
     <string name="wallpaper_blur_title">Hintergrundbild Unschärfe</string>
     <string name="wallpaper_blur_summary">Hintergrund-Unschärfe-Effekt aktivieren oder deaktivieren</string>
@@ -713,7 +712,6 @@
     <string name="torch">Taschenlampe</string>
     <string name="controls_media_button_play">Wiedergabe</string>
     <string name="weather">Wetter</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="data">Mobile Daten</string>
     <string name="ringer">Klingelton</string>
     <string name="bt">Bluetooth</string>
