@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Gestos, iconos, logotipo, relleno</string>
     <string name="quick_settings_title">Ajustes rápidos</string>
     <string name="quick_settings_summary">Interfaz, deslizador de brillo, disposición</string>
-    <string name="notifications_title">Notificaciones</string>
     <string name="notifications_summary">Avisos, Edge, Sonidos</string>
     <string name="power_menu_title">Menú de apagado</string>
     <string name="power_menu_summary">Acciones, pantalla de bloqueo</string>
@@ -637,7 +636,7 @@
     <string name="shaded_layer_style">Estilo de capa sombreada</string>
     <string name="volume_style_title">Estilos del panel de volumen</string>
     <!-- Wallpaper Styles -->
-    <string name="wallpaper_settings_title">Estilos de fondo de pantalla</string>
+    <string name="wallpaper_styles_title">Estilos de fondo de pantalla</string>
     <string name="wallpaper_settings_summary">Configurar los estilos y ajustes del fondo de pantalla</string>
     <string name="wallpaper_blur_title">Desenfoque del fondo de pantalla</string>
     <string name="wallpaper_blur_summary">Activar o desactivar el efecto de desenfoque del fondo de pantalla</string>
@@ -743,7 +742,6 @@
     <string name="torch">Linterna</string>
     <string name="controls_media_button_play">Reproducir</string>
     <string name="weather">Clima</string>
-    <string name="wifi">Wifi</string>
     <string name="data">Datos</string>
     <string name="ringer">Timbre</string>
     <string name="bt">Bluetooth</string>
@@ -864,7 +862,7 @@
     <string name="wireless_charging_dynamic_color_title">Color dinámico de carga</string>
     <string name="wireless_charging_dynamic_color_summary">Usar el nivel de batería para determinar el color de la animación de la carga</string>
     <!-- Ambient Wallpaper -->
-    <string name="doze_always_on_wallpaper_title">Fondo ambiente</string>
+    <string name="ambient_wallpaper_title">Fondo ambiente</string>
     <string name="doze_always_on_wallpaper_summary">Mostrar fondo de bloqueo en Pantalla ambiente</string>
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Botón flotante de rotación</string>

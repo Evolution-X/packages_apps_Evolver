@@ -16,7 +16,6 @@
     <string name="status_bar_summary">圖示、隱私指示器</string>
     <string name="quick_settings_title">快速設定</string>
     <string name="quick_settings_summary">介面、鎖定螢幕</string>
-    <string name="notifications_title">通知</string>
     <string name="notifications_summary">通知、介面</string>
     <string name="power_menu_title">電源按鈕選單</string>
     <string name="power_menu_summary">操作、鎖定螢幕</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">開發者和系統偽裝選項</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">關於 Evolution X</string>
-    <string name="general_category_title">一般</string>
     <string name="gestures_category_title">手勢</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">莫内 &amp; 顔色</string>
@@ -284,7 +282,6 @@
     <string name="torch">手電筒</string>
     <string name="controls_media_button_play">播放</string>
     <string name="weather">天氣</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="data">行動數據</string>
     <string name="ringer">鈴聲</string>
     <string name="bt">藍牙</string>
@@ -387,7 +384,7 @@
     <string name="ambient_user_name_title">用戶名稱</string>
     <string name="display_icon_title">圖示</string>
     <string name="display_icon_summary">在電量 &amp; 溫度旁邊顯示圖示</string>
-    <string name="doze_always_on_wallpaper_title">設定桌布</string>
+    <string name="ambient_wallpaper_title">設定桌布</string>
     <string name="doze_always_on_wallpaper_summary">在環境顯示上顯示鎖定畫面桌布</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">預覽顯示</string>
@@ -1381,7 +1378,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">金鑰匣即將到期，正在擷取替換的金鑰匣…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">金鑰匣憑證鏈無效，正在擷取替換的金鑰匣…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">壁紙風格</string>
+    <string name="wallpaper_styles_title">壁紙風格</string>
     <string name="wallpaper_settings_summary">設定壁紙風格和設置</string>
     <string name="wallpaper_blur_title">壁紙模糊</string>
     <string name="wallpaper_blur_filter">壁纸模糊風格</string>

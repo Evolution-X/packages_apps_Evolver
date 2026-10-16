@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Gesty, ikony, logo, wypełnienie</string>
     <string name="quick_settings_title">Szybkie ustawienia</string>
     <string name="quick_settings_summary">Interfejs, suwak jasności, układ</string>
-    <string name="notifications_title">Powiadomienia</string>
     <string name="notifications_summary">Wyskakujące powiadomienia, podświetlenie krawędzi, dźwięki</string>
     <string name="power_menu_title">Menu zasilania</string>
     <string name="power_menu_summary">Akcje, ekran blokady</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Fałszowanie, opcje programisty</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">O naszym ROM-ie</string>
-    <string name="general_category_title">Ogólne</string>
     <string name="gestures_category_title">Gesty</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Motyw dynamiczny i kolory</string>
@@ -279,7 +277,6 @@
     <string name="torch">Latarka</string>
     <string name="controls_media_button_play">Odtwórz</string>
     <string name="weather">Pogoda</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="data">Dane</string>
     <string name="ringer">Dzwonek</string>
     <string name="bt">Bluetooth</string>
@@ -382,7 +379,7 @@
     <string name="ambient_user_name_title">Nazwa użytkownika</string>
     <string name="display_icon_title">Ikony</string>
     <string name="display_icon_summary">Wyświetlaj ikony obok poziomu i temperatury</string>
-    <string name="doze_always_on_wallpaper_title">Tapeta ekranu otoczenia</string>
+    <string name="ambient_wallpaper_title">Tapeta ekranu otoczenia</string>
     <string name="doze_always_on_wallpaper_summary">Pokaż tapetę ekranu blokady na ekranie otoczenia</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Podgląd ekranu</string>
@@ -1395,7 +1392,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">Ważność zestawu kluczy wkrótce wygaśnie, pobieranie zamiennika…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">Łańcuch zestawu kluczy jest nieprawidłowy, pobieranie zamiennika…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Style tapety</string>
+    <string name="wallpaper_styles_title">Style tapety</string>
     <string name="wallpaper_settings_summary">Konfiguruj style i efekty tapet</string>
     <string name="wallpaper_blur_title">Efekt rozmycia</string>
     <string name="wallpaper_blur_filter">Typ rozmycia</string>
