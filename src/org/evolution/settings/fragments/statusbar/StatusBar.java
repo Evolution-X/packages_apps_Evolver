@@ -41,7 +41,6 @@ import lineageos.preference.LineageSystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
-import org.evolution.settings.preferences.colorpicker.ColorPickerPreference;
 import org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
@@ -80,9 +79,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             "statusbar_clock_chip_gradient_mask_text";
 
     private static final int CLOCK_CHIP_STYLE_CUSTOM_GRADIENT = 13;
-
-    private static final int DEFAULT_CLOCK_CHIP_GRADIENT_START_COLOR = 0xFFFF6B6B;
-    private static final int DEFAULT_CLOCK_CHIP_GRADIENT_END_COLOR = 0xFF4ECDC4;
+    private static final int LOGO_COLOR_MODE_CUSTOM = 2;
 
     private static final int CARRIER_MODE_NEVER = 0;
 
@@ -100,7 +97,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mLogo;
     private Preference mLogoPosition;
     private SystemSettingListPreference mLogoColor;
-    private ColorPickerPreference mLogoColorPicker;
+    private SystemSettingColorPickerPreference mLogoColorPicker;
+    private int mLogoColorMode;
     private Preference mLogoCustomImage;
     private Preference mLogoStyle;
 
@@ -162,25 +160,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         mClockChipGradientStartColor = (SystemSettingColorPickerPreference)
                 findPreference(KEY_CLOCK_CHIP_GRADIENT_START_COLOR);
-        int chipStartColor = Settings.System.getIntForUser(
-                resolver,
-                Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_START_COLOR,
-                DEFAULT_CLOCK_CHIP_GRADIENT_START_COLOR,
-                UserHandle.USER_CURRENT);
-        mClockChipGradientStartColor.setNewPreviewColor(chipStartColor);
-        mClockChipGradientStartColor.setSummary(colorToHexSummary(chipStartColor));
-        mClockChipGradientStartColor.setOnPreferenceChangeListener(this);
-
         mClockChipGradientEndColor = (SystemSettingColorPickerPreference)
                 findPreference(KEY_CLOCK_CHIP_GRADIENT_END_COLOR);
-        int chipEndColor = Settings.System.getIntForUser(
-                resolver,
-                Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_END_COLOR,
-                DEFAULT_CLOCK_CHIP_GRADIENT_END_COLOR,
-                UserHandle.USER_CURRENT);
-        mClockChipGradientEndColor.setNewPreviewColor(chipEndColor);
-        mClockChipGradientEndColor.setSummary(colorToHexSummary(chipEndColor));
-        mClockChipGradientEndColor.setOnPreferenceChangeListener(this);
 
         mClockChipGradientAngle = (SystemSettingSeekBarPreference)
                 findPreference(KEY_CLOCK_CHIP_GRADIENT_ANGLE);
@@ -223,17 +204,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mLogoColor.setValue(String.valueOf(logoColor));
         mLogoColor.setSummary(mLogoColor.getEntry());
         mLogoColor.setOnPreferenceChangeListener(this);
-        mLogoColorPicker = (ColorPickerPreference) findPreference(LOGO_COLOR_PICKER);
-        int logoColorPicker = Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_LOGO_COLOR_PICKER, 0xFFFFFFFF);
-        mLogoColorPicker.setNewPreviewColor(logoColorPicker);
-        String logoColorPickerHex = String.format("#%08x", (0xFFFFFFFF & logoColorPicker));
-        if (logoColorPickerHex.equals("#ffffffff")) {
-            mLogoColorPicker.setSummary(R.string.default_value);
-        } else {
-            mLogoColorPicker.setSummary(logoColorPickerHex);
-        }
-        mLogoColorPicker.setOnPreferenceChangeListener(this);
+        mLogoColorPicker = (SystemSettingColorPickerPreference) findPreference(LOGO_COLOR_PICKER);
         updateColorPrefs(logoColor);
 
         mLogoStyle = findPreference(LOGO_CUSTOM_STYLE);
@@ -277,18 +248,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
             }
             updateCustomImagePrefVisibility((Integer) newValue);
             return true;
-        } else if (preference == mLogoColorPicker) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            if (hex.equals("#ffffffff")) {
-                preference.setSummary(R.string.default_value);
-            } else {
-                preference.setSummary(hex);
-            }
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(resolver,
-                    Settings.System.STATUS_BAR_LOGO_COLOR_PICKER, intHex);
-            return true;
         } else if (preference == mLogo) {
             boolean enabled = (boolean) newValue;
             updateLogoPrefsVisibility(enabled);
@@ -300,24 +259,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int style = (Integer) newValue;
             updateClockChipGradientPrefsVisibility(style);
             updateClockChipSummary(style);
-            return true;
-        } else if (preference == mClockChipGradientStartColor) {
-            int color = (int) newValue;
-            Settings.System.putIntForUser(
-                    resolver,
-                    Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_START_COLOR,
-                    color,
-                    UserHandle.USER_CURRENT);
-            mClockChipGradientStartColor.setSummary(colorToHexSummary(color));
-            return true;
-        } else if (preference == mClockChipGradientEndColor) {
-            int color = (int) newValue;
-            Settings.System.putIntForUser(
-                    resolver,
-                    Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_END_COLOR,
-                    color,
-                    UserHandle.USER_CURRENT);
-            mClockChipGradientEndColor.setSummary(colorToHexSummary(color));
             return true;
         } else if (preference == mClockChipGradientAngle) {
             int angle = (int) newValue;
@@ -379,7 +320,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
         if (mLogoPosition != null) mLogoPosition.setVisible(enabled);
         if (mLogoStyle != null) mLogoStyle.setVisible(enabled);
         if (mLogoColor != null) mLogoColor.setVisible(enabled);
-        if (mLogoColorPicker != null) mLogoColorPicker.setVisible(enabled);
+        if (mLogoColorPicker != null) {
+            mLogoColorPicker.setVisible(enabled && mLogoColorMode == LOGO_COLOR_MODE_CUSTOM);
+        }
         updateCustomImagePrefVisibility();
     }
 
@@ -427,8 +370,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
     }
 
     private void updateColorPrefs(int logoColor) {
+        mLogoColorMode = logoColor;
+        // Only show the custom color while the custom logo color mode is selected.
         if (mLogoColorPicker != null) {
-            mLogoColorPicker.setEnabled(logoColor == 2);
+            mLogoColorPicker.setVisible(
+                    mLogo != null && mLogo.isChecked() && logoColor == LOGO_COLOR_MODE_CUSTOM);
         }
     }
 
@@ -457,11 +403,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         if (mClockChipGradientMaskText != null) {
             mClockChipGradientMaskText.setVisible(isGradient);
         }
-    }
-
-    private static String colorToHexSummary(int color) {
-        String hex = String.format("#%08x", (0xFFFFFFFFL & color));
-        return hex.equalsIgnoreCase("#ffffffff") ? "" : hex;
     }
 
     private void updateClockChipSummary() {
