@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Gester, ikoner, logotyp, marginaler</string>
     <string name="quick_settings_title">Snabbinställningar</string>
     <string name="quick_settings_summary">Gränssnitt, ljusstyrkereglage, layout</string>
-    <string name="notifications_title">Aviseringar</string>
     <string name="notifications_summary">Popupaviseringar, kantbelysning, ljud</string>
     <string name="power_menu_title">Avstängningsmeny</string>
     <string name="power_menu_summary">Åtgärder, låsskärm</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Enhetsmaskering, utvecklaralternativ</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Om vår ROM</string>
-    <string name="general_category_title">Allmänt</string>
     <string name="gestures_category_title">Gester</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Monet &amp; färger</string>
@@ -283,7 +281,6 @@
     <string name="torch">Ficklampa</string>
     <string name="controls_media_button_play">Spela upp</string>
     <string name="weather">Väder</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="data">Data</string>
     <string name="ringer">Ringsignal</string>
     <string name="bt">Bluetooth</string>
@@ -386,7 +383,7 @@
     <string name="ambient_user_name_title">Användarnamn</string>
     <string name="display_icon_title">Ikoner</string>
     <string name="display_icon_summary">Visa ikoner bredvid nivå &amp; temperatur</string>
-    <string name="doze_always_on_wallpaper_title">Bakgrundsbild på omgivande skärm</string>
+    <string name="ambient_wallpaper_title">Bakgrundsbild på omgivande skärm</string>
     <string name="doze_always_on_wallpaper_summary">Visa låsskärmens bakgrundsbild på den inaktiva skärmen</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Förhandsvisningsskärm</string>
@@ -1378,7 +1375,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">Keybox upphör snart att gälla, hämtar en ersättare…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">Keybox-kedjan är ogiltig. En ersättning hämtas…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Bakgrundsbildsstilar</string>
+    <string name="wallpaper_styles_title">Bakgrundsbildsstilar</string>
     <string name="wallpaper_settings_summary">Konfigurera stilar och effekter för bakgrundsbilder</string>
     <string name="wallpaper_blur_title">Oskärpeeffekt</string>
     <string name="wallpaper_blur_filter">Typ av oskärpa</string>
