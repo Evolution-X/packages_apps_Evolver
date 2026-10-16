@@ -178,12 +178,12 @@ class ClockBackgroundChipPreference @JvmOverloads constructor(
             holder.clock.setPadding(8, 2, 8, 2)
             holder.clock.textAlignment = View.TEXT_ALIGNMENT_CENTER
 
-            if (styleIndex != 0 && styleIndex != 2 && styleIndex != 8) {
-                holder.clock.setTextColor(Color.WHITE)
-            } else {
-                holder.clock.setTextColor(
+            when (styleIndex) {
+                0, 2, 8 -> holder.clock.setTextColor(
                     holder.clock.context.getColorStateList(R.color.picker_option_text)
                 )
+                in LIGHT_CHIP_STYLES -> holder.clock.setTextColor(CHIP_TEXT_DARK)
+                else -> holder.clock.setTextColor(Color.WHITE)
             }
 
             holder.name.visibility = View.VISIBLE
@@ -236,6 +236,11 @@ class ClockBackgroundChipPreference @JvmOverloads constructor(
     companion object {
         private const val SETTING_KEY = "statusbar_clock_chip"
         private const val SYSTEMUI_PACKAGE = "com.android.systemui"
+
+        // Chip styles with a light/near-white center that need dark clock text.
+        // Keep in sync with SystemUI's HomeStatusBarViewBinder.
+        private val LIGHT_CHIP_STYLES = setOf(5)
+        private const val CHIP_TEXT_DARK = 0xFF1B1B1F.toInt()
         private const val DIALOG_MAX_WIDTH_DP = 360
         private const val DIALOG_MAX_WIDTH_DP_LANDSCAPE = 640
     }
