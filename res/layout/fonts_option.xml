@@ -12,7 +12,7 @@
     android:paddingEnd="@dimen/settingslib_expressive_space_small1"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:background="@drawable/bg_font_option">
+    android:background="@drawable/bg_picker_option">
 
     <TextView
         android:id="@+id/option_title"
@@ -22,7 +22,7 @@
         android:paddingVertical="@dimen/settingslib_expressive_space_extrasmall6"
         android:textAppearance="@style/TextAppearance.SettingsLib.BodyLarge"
         android:textAlignment="viewStart"
-        android:textColor="@color/font_option_text" />
+        android:textColor="@color/picker_option_text" />
 
     <ImageView
         android:id="@+id/option_check"

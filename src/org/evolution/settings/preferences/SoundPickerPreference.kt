@@ -13,12 +13,13 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.ImageButton
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
@@ -27,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.settings.R
 import org.evolution.settings.utils.SystemUtils
+import org.evolution.settings.utils.applyExpressiveButtonFeedback
 import java.io.File
 import kotlin.math.min
 
@@ -61,12 +63,15 @@ class SoundPickerPreference @JvmOverloads constructor(
 
     override fun onClick() {
         val ctx = context
-        val content = LayoutInflater.from(ctx).inflate(R.layout.selector_item_view, null)
+        val content = LayoutInflater.from(ctx).inflate(R.layout.sound_picker_dialog, null)
+
+        val soundAdapter = SoundAdapter(ctx)
 
         recyclerView = content.findViewById<RecyclerView>(R.id.recycler_view).apply {
             setHasFixedSize(true)
+            itemAnimator = null
             layoutManager = LinearLayoutManager(ctx)
-            adapter = SoundAdapter(ctx)
+            adapter = soundAdapter
 
             post {
                 val isLandscape = ctx.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
@@ -74,6 +79,8 @@ class SoundPickerPreference @JvmOverloads constructor(
                 val maxHeight = (ctx.resources.displayMetrics.heightPixels * fraction).toInt()
                 layoutParams.height = maxHeight
                 requestLayout()
+                (layoutManager as LinearLayoutManager)
+                    .scrollToPositionWithOffset(soundAdapter.selectedPosition(), maxHeight / 3)
             }
         }
 
@@ -89,8 +96,8 @@ class SoundPickerPreference @JvmOverloads constructor(
                     recyclerView = null
                 }
                 dlg.show()
+                dlg.applyExpressiveButtonFeedback()
                 applyDialogWidth(dlg)
-                tintDialogAccent(dlg)
             }
     }
 
@@ -112,20 +119,6 @@ class SoundPickerPreference @JvmOverloads constructor(
         val maxWidthPx = (maxDp * density + 0.5f).toInt()
         val targetPx = (boundsWidthPx * 0.90f).toInt()
         w.setLayout(min(maxWidthPx, targetPx), WindowManager.LayoutParams.WRAP_CONTENT)
-    }
-
-    private fun tintDialogAccent(dlg: AlertDialog) {
-        val tv = TypedValue()
-        if (!context.theme.resolveAttribute(android.R.attr.colorAccent, tv, true)) return
-        val accent = if (tv.resourceId != 0) context.getColor(tv.resourceId) else tv.data
-        if (accent == 0) return
-        val w = dlg.window
-        if (w != null) {
-            val titleId = context.resources.getIdentifier("alertTitle", "id", "android")
-            val titleView = if (titleId != 0) w.decorView.findViewById<TextView>(titleId) else null
-            titleView?.setTextColor(accent)
-        }
-        dlg.getButton(AlertDialog.BUTTON_NEGATIVE)?.setTextColor(accent)
     }
 
     private fun getCurrentValue(): String {
@@ -209,12 +202,13 @@ class SoundPickerPreference @JvmOverloads constructor(
             val isPlaying = currentPlayingPath == value && mediaPlayer?.isPlaying == true
 
             holder.title.text = label
-            holder.title.setTextColor(resolveTextColorPrimary(ctx))
-            holder.itemView.isActivated = (value == selectedValue)
+            bindSelected(holder, value == selectedValue)
 
             holder.playButton.setImageResource(
-                if (isPlaying) android.R.drawable.ic_media_pause
-                else android.R.drawable.ic_media_play
+                if (isPlaying) R.drawable.ic_sound_pause else R.drawable.ic_sound_play
+            )
+            holder.playButton.contentDescription = ctx.getString(
+                if (isPlaying) R.string.sound_preview_stop else R.string.sound_preview_play
             )
 
             holder.playButton.setOnClickListener {
@@ -238,11 +232,22 @@ class SoundPickerPreference @JvmOverloads constructor(
 
         override fun getItemCount(): Int = entries.size
 
-        private fun resolveTextColorPrimary(ctx: Context): Int {
-            val tv = TypedValue()
-            return if (ctx.theme.resolveAttribute(android.R.attr.textColorPrimary, tv, true)) {
-                if (tv.resourceId != 0) ctx.getColor(tv.resourceId) else tv.data
-            } else 0xff000000.toInt()
+        fun selectedPosition(): Int =
+            entryValues.indexOfFirst { it.toString() == selectedValue }.coerceAtLeast(0)
+
+        private fun bindSelected(holder: SoundViewHolder, selected: Boolean) {
+            holder.itemView.isActivated = selected
+            holder.itemView.accessibilityDelegate = object : View.AccessibilityDelegate() {
+                override fun onInitializeAccessibilityNodeInfo(
+                    host: View,
+                    info: AccessibilityNodeInfo
+                ) {
+                    super.onInitializeAccessibilityNodeInfo(host, info)
+                    info.className = RadioButton::class.java.name
+                    info.isCheckable = true
+                    info.isChecked = selected
+                }
+            }
         }
 
         inner class SoundViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

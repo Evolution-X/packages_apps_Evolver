@@ -12,23 +12,6 @@
     android:paddingTop="@dimen/settingslib_expressive_space_small1"
     android:paddingEnd="@dimen/settingslib_expressive_space_small4">
 
-    <TextView
-        android:id="@+id/add_custom_font_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/settingslib_expressive_space_extrasmall6"
-        android:minHeight="@dimen/settingslib_expressive_space_medium5"
-        android:gravity="center"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="@drawable/bg_add_custom_font"
-        android:drawableStart="@drawable/ic_menu_add_white"
-        android:drawableTint="@color/settingslib_materialColorOnPrimaryContainer"
-        android:drawablePadding="@dimen/settingslib_expressive_space_extrasmall4"
-        android:text="@string/add_custom_font"
-        android:textColor="@color/settingslib_materialColorOnPrimaryContainer"
-        android:textAppearance="@style/TextAppearance.SettingsLib.LabelLarge" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"

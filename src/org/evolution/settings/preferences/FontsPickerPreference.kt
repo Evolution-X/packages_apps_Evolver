@@ -41,6 +41,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.evolution.settings.fragments.themes.fonts.ExternalFontInstaller
 import org.evolution.settings.utils.SystemUtils
+import org.evolution.settings.utils.applyExpressiveButtonFeedback
 import kotlin.math.min
 
 class FontsPickerPreference @JvmOverloads constructor(
@@ -89,11 +90,6 @@ class FontsPickerPreference @JvmOverloads constructor(
 
         val content = LayoutInflater.from(ctx).inflate(R.layout.font_picker_dialog, null)
 
-        content.findViewById<View>(R.id.add_custom_font_button).setOnClickListener {
-            dialog?.dismiss()
-            fontPickerLauncher?.launch(arrayOf("font/ttf", "font/otf"))
-        }
-
         val fontsAdapter = FontsAdapter(ctx, pkgs, themeUtils, hasCustomFont, customFontName)
 
         recyclerView = content.findViewById<RecyclerView>(R.id.recycler_view).apply {
@@ -118,6 +114,9 @@ class FontsPickerPreference @JvmOverloads constructor(
         dialog = AlertDialog.Builder(ctx)
             .setTitle(title)
             .setView(content)
+            .setNeutralButton(R.string.add_custom_font) { _, _ ->
+                fontPickerLauncher?.launch(arrayOf("font/ttf", "font/otf"))
+            }
             .setNegativeButton(android.R.string.cancel, null)
             .create()
             .also { dlg ->
@@ -126,6 +125,7 @@ class FontsPickerPreference @JvmOverloads constructor(
                     recyclerView = null
                 }
                 dlg.show()
+                dlg.applyExpressiveButtonFeedback()
                 applyDialogWidth(dlg)
             }
     }
