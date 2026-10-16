@@ -26,11 +26,11 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
 import com.android.settingslib.spa.framework.theme.SettingsTheme
-import org.evolution.settings.utils.ColorPickerDialog
+import org.evolution.settings.utils.PreferenceColorPickerDialog
 
 class CutoutProgressColorPickerDialogFragment : DialogFragment() {
 
-    private var initialColor: Color = Color(0xFF2196F3)
+    private var initialColor: Int = 0xFF2196F3.toInt()
     private var dialogTitle: String = "Choose color"
     private var onColorSelected: ((Color) -> Unit)? = null
 
@@ -41,7 +41,7 @@ class CutoutProgressColorPickerDialogFragment : DialogFragment() {
         arguments?.let { args ->
             args.getString(ARG_COLOR_HEX)?.let { hex ->
                 try {
-                    initialColor = Color(AndroidColor.parseColor("#${hex.removePrefix("#")}"))
+                    initialColor = AndroidColor.parseColor("#${hex.removePrefix("#")}")
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -63,11 +63,13 @@ class CutoutProgressColorPickerDialogFragment : DialogFragment() {
             )
             setContent {
                 SettingsTheme {
-                    ColorPickerDialog(
+                    PreferenceColorPickerDialog(
+                        title = dialogTitle,
                         initialColor = initialColor,
+                        alphaEnabled = false,
                         onDismiss = { dismiss() },
-                        onColorSelected = { color ->
-                            onColorSelected?.invoke(color)
+                        onColorSelected = { argb ->
+                            onColorSelected?.invoke(Color(argb))
                             dismiss()
                         }
                     )
