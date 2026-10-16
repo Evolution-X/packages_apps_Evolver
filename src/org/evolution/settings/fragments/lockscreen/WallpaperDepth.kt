@@ -36,17 +36,17 @@ import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto
 
 import com.android.settings.R
+import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.search.SearchIndexable
 
 import java.io.File
 
-import org.evolution.settings.fragments.OptimizedSettingsFragment
 import org.evolution.settings.utils.ImageUtils
 import org.evolution.settings.utils.WallpaperSubjectExtractorService
 
 @SearchIndexable
-class WallpaperDepth : OptimizedSettingsFragment(), Preference.OnPreferenceChangeListener {
+class WallpaperDepth : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
 
     private var mDepthWallpaperCustomImagePicker: Preference? = null
     private var mExtractNowPref: Preference? = null
