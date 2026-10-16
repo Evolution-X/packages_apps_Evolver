@@ -98,6 +98,7 @@ class FontsPickerPreference @JvmOverloads constructor(
 
         recyclerView = content.findViewById<RecyclerView>(R.id.recycler_view).apply {
             setHasFixedSize(true)
+            itemAnimator = null
 
             val isLandscape = ctx.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
             val span = if (isLandscape) 2 else 1

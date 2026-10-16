@@ -6,7 +6,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clipChildren="true"
+    android:paddingStart="@dimen/settingslib_expressive_space_small4"
+    android:paddingTop="@dimen/settingslib_expressive_space_small1"
+    android:paddingEnd="@dimen/settingslib_expressive_space_small4">
 
     <TextView
         android:id="@+id/add_custom_font_button"
@@ -29,7 +33,11 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"
+        android:background="@drawable/bg_font_list_clip"
+        android:clipToOutline="true"
         android:clipToPadding="false"
-        android:paddingBottom="@dimen/settingslib_expressive_space_extrasmall2" />
+        android:fadingEdgeLength="@dimen/settingslib_expressive_space_small1"
+        android:paddingBottom="@dimen/settingslib_expressive_space_extrasmall2"
+        android:requiresFadingEdge="vertical"
+        android:scrollbars="none" />
 </LinearLayout>
