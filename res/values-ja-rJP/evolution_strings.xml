@@ -16,7 +16,6 @@
     <string name="status_bar_summary">ジェスチャー、アイコン、ロゴ、余白</string>
     <string name="quick_settings_title">クイック設定</string>
     <string name="quick_settings_summary">インターフェース、明るさスライダー、レイアウト</string>
-    <string name="notifications_title">通知</string>
     <string name="notifications_summary">ポップアップ通知、エッジライト、サウンド</string>
     <string name="power_menu_title">電源メニュー</string>
     <string name="power_menu_summary">ロック画面のアクション</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">偽装、開発者向けオプション</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">この ROM について</string>
-    <string name="general_category_title">一般</string>
     <string name="gestures_category_title">ジェスチャー</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Monet &amp; 色</string>
@@ -278,7 +276,6 @@
     <string name="torch">ライト</string>
     <string name="controls_media_button_play">再生</string>
     <string name="weather">天気</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="data">データ</string>
     <string name="ringer">着信音</string>
     <string name="bt">Bluetooth</string>
@@ -381,7 +378,7 @@
     <string name="ambient_user_name_title">ユーザー名</string>
     <string name="display_icon_title">アイコン</string>
     <string name="display_icon_summary">残量 &amp; 温度と一緒にアイコンを表示する</string>
-    <string name="doze_always_on_wallpaper_title">アンビエント壁紙</string>
+    <string name="ambient_wallpaper_title">アンビエント壁紙</string>
     <string name="doze_always_on_wallpaper_summary">アンビエント表示にロック画面の壁紙を表示する</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Peek 表示</string>
@@ -1393,7 +1390,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">キーボックスの期限が間もなく切れます。変更しています…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">キーボックスのチェーンが無効です。変更しています…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">壁紙のスタイル</string>
+    <string name="wallpaper_styles_title">壁紙のスタイル</string>
     <string name="wallpaper_settings_summary">壁紙のスタイルとエフェクトを設定する</string>
     <string name="wallpaper_blur_title">ぼかし効果</string>
     <string name="wallpaper_blur_filter">ぼかしの種類</string>

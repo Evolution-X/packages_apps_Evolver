@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Жесты, иконки, логотип, отступы</string>
     <string name="quick_settings_title">Быстрые настройки</string>
     <string name="quick_settings_summary">Интерфейс, ползунок яркости, экран блокировки</string>
-    <string name="notifications_title">Уведомления</string>
     <string name="notifications_summary">Головы вверх, краеугольный свет, звуки</string>
     <string name="power_menu_title">Меню питания</string>
     <string name="power_menu_summary">Действия, экран блокировки</string>
@@ -640,7 +639,7 @@
     <string name="shaded_layer_style">Затемненный стиль</string>
     <string name="volume_style_title">Стили панели громкости</string>
     <!-- Wallpaper Styles -->
-    <string name="wallpaper_settings_title">Стили обоев</string>
+    <string name="wallpaper_styles_title">Стили обоев</string>
     <string name="wallpaper_settings_summary">Настройка стилей и обоев</string>
     <string name="wallpaper_blur_title">Размытие обоев</string>
     <string name="wallpaper_blur_summary">Включить или отключить эффект размытия обоев</string>
@@ -748,7 +747,6 @@
     <string name="torch">Фонарик</string>
     <string name="controls_media_button_play">Играть</string>
     <string name="weather">Погода</string>
-    <string name="wifi">WiFi</string>
     <string name="data">Данные</string>
     <string name="ringer">Режим звука</string>
     <string name="bt">Bluetooth</string>
@@ -869,7 +867,7 @@
     <string name="wireless_charging_dynamic_color_title">Динамический цвет зарядки</string>
     <string name="wireless_charging_dynamic_color_summary">Цвет анимации зарядки зависит от уровня батареи</string>
     <!-- Ambient Wallpaper -->
-    <string name="doze_always_on_wallpaper_title">Обои в Ambient</string>
+    <string name="ambient_wallpaper_title">Обои в Ambient</string>
     <string name="doze_always_on_wallpaper_summary">Показывать обои экрана блокировки в режиме Ambient</string>
     <!-- Floating rotation button -->
     <string name="floating_rotation_button_title">Плавающая кнопка поворота</string>

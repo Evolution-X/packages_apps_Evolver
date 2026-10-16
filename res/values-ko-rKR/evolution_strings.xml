@@ -16,7 +16,6 @@
     <string name="status_bar_summary">제스처, 아이콘, 로고, 패딩</string>
     <string name="quick_settings_title">빠른 설정</string>
     <string name="quick_settings_summary">인터페이스, 밝기 조절 슬라이더, 레이아웃</string>
-    <string name="notifications_title">알림</string>
     <string name="notifications_summary">헤드업, 엣지 라이트, 사운드</string>
     <string name="power_menu_title">전원 메뉴</string>
     <string name="power_menu_summary">동작, 잠금 화면</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">스푸핑, 개발자 옵션</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">저희 ROM에 대하여</string>
-    <string name="general_category_title">일반</string>
     <string name="gestures_category_title">제스처</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">모네 &amp; 색채</string>
@@ -252,7 +250,7 @@
     <string name="ambient_user_name_title">사용자 이름</string>
     <string name="display_icon_title">아이콘</string>
     <string name="display_icon_summary">레벨 및 온도 옆에 아이콘을 표시합니다.</string>
-    <string name="doze_always_on_wallpaper_title">Ambient 배경화면</string>
+    <string name="ambient_wallpaper_title">Ambient 배경화면</string>
     <string name="doze_always_on_wallpaper_summary">주변 디스플레이에 잠금 화면 배경화면을 표시합니다.</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">엿보기 디스플레이</string>
@@ -1192,7 +1190,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">키박스 사용 기한이 곧 만료됩니다. 교체품을 준비 중입니다…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">키박스 체인이 잘못되었습니다. 교체품을 가져오는 중입니다…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Wallpaper styles</string>
+    <string name="wallpaper_styles_title">Wallpaper styles</string>
     <string name="wallpaper_settings_summary">배경화면 스타일 및 효과를 설정하세요</string>
     <string name="wallpaper_blur_title">흐림 효과</string>
     <string name="wallpaper_blur_filter">블러 종류:</string>

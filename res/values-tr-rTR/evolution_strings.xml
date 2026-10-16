@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Hareketler, simgeler, logo, dolgu</string>
     <string name="quick_settings_title">Hızlı ayarlar</string>
     <string name="quick_settings_summary">Arayüz, parlaklık kaydırıcısı, düzen</string>
-    <string name="notifications_title">Bildirimler</string>
     <string name="notifications_summary">Bildirim pencereleri, kenar ışığı, sesler</string>
     <string name="power_menu_title">Güç menüsü</string>
     <string name="power_menu_summary">Eylemler, kilit ekranı</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Kimlik yanıltma, geliştirici seçenekleri</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">ROM Hakkında</string>
-    <string name="general_category_title">Genel</string>
     <string name="gestures_category_title">Hareketler</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Tema &amp; Renkler</string>
@@ -283,7 +281,6 @@
     <string name="torch">El feneri</string>
     <string name="controls_media_button_play">Oynat</string>
     <string name="weather">Hava durumu</string>
-    <string name="wifi">Wifi</string>
     <string name="data">Veri</string>
     <string name="ringer">Zil sesi</string>
     <string name="bt">Bluetooth</string>
@@ -386,7 +383,7 @@
     <string name="ambient_user_name_title">Kullanıcı adı</string>
     <string name="display_icon_title">Simgeler</string>
     <string name="display_icon_summary">Seviye ve sıcaklığın yanında simgeleri görüntüleyin</string>
-    <string name="doze_always_on_wallpaper_title">Ortam duvar kağıdı</string>
+    <string name="ambient_wallpaper_title">Ortam duvar kağıdı</string>
     <string name="doze_always_on_wallpaper_summary">Kilit ekranı duvar kağıdını ortam ekranında göster</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Göz atma ekranı</string>
@@ -1372,7 +1369,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">Keybox süresi yakında dolacak, yenisi getiriliyor…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">Keybox zinciri geçersiz, yenisi getiriliyor…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Duvar kağıdı stilleri</string>
+    <string name="wallpaper_styles_title">Duvar kağıdı stilleri</string>
     <string name="wallpaper_settings_summary">Duvar kağıdı stillerini ve ayarlarını yapılandırma</string>
     <string name="wallpaper_blur_title">Duvar kağıdı bulanıklığı</string>
     <string name="wallpaper_blur_filter">Duvar kağıdı bulanıklaştırma stili</string>

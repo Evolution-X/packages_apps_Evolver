@@ -16,7 +16,6 @@
     <string name="status_bar_summary">Жести, значки, логотип, відступи</string>
     <string name="quick_settings_title">Швидкі налаштування</string>
     <string name="quick_settings_summary">Інтерфейс, повзунок яскравості, макет</string>
-    <string name="notifications_title">Сповіщення</string>
     <string name="notifications_summary">Спливаючі сповіщення, підсвітка країв, звуки</string>
     <string name="power_menu_title">Меню живлення</string>
     <string name="power_menu_summary">Дії, екран блокування</string>
@@ -26,7 +25,6 @@
     <string name="miscellaneous_summary">Спуфінг, налаштування для розробника</string>
     <string name="about_title">Еволюція X</string>
     <string name="about_summary">Про прошивку</string>
-    <string name="general_category_title">Загальні</string>
     <string name="gestures_category_title">Жести</string>
     <!-- Reorganized categories -->
     <string name="themes_monet_colors_category">Монет &amp; кольори</string>
@@ -278,7 +276,6 @@
     <string name="torch">Ліхтарик</string>
     <string name="controls_media_button_play">Грати</string>
     <string name="weather">Погода</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="data">Мобільний інтернет</string>
     <string name="ringer">Дзвінок</string>
     <string name="bt">Bluetooth</string>
@@ -381,7 +378,7 @@
     <string name="ambient_user_name_title">Ім\'я користувача</string>
     <string name="display_icon_title">Іконки</string>
     <string name="display_icon_summary">Відображення значків разом з рівнем &amp; температурою</string>
-    <string name="doze_always_on_wallpaper_title">Тло на Ambient Display</string>
+    <string name="ambient_wallpaper_title">Тло на Ambient Display</string>
     <string name="doze_always_on_wallpaper_summary">Показувати шпалери екрану блокування на Ambient Display</string>
     <!-- Lock screen/Peek display -->
     <string name="peek_display_notifications_title">Дисплей Peek</string>
@@ -1393,7 +1390,7 @@
     <string name="ts_fetch_keybox_expiring_refetch">Термін дії скриньки з ключами скоро закінчується, пошук заміни…</string>
     <string name="ts_fetch_keybox_chain_invalid_refetch">Недійсний ланцюжок для ключів, пошук заміни…</string>
     <!-- Wallpaper styles -->
-    <string name="wallpaper_settings_title">Стиль шпалер</string>
+    <string name="wallpaper_styles_title">Стиль шпалер</string>
     <string name="wallpaper_settings_summary">Налаштувати стилі та ефекти шпалер</string>
     <string name="wallpaper_blur_title">Ефект розмиття</string>
     <string name="wallpaper_blur_filter">Тип розмивання</string>
