@@ -54,7 +54,7 @@
     <string name="themes_icon_shape_title">Ikonforma</string>
     <string name="themes_signal_icon_title">Térerőkijelzés-ikon</string>
     <string name="themes_signal_icon_summary">Itt állíthatja be a térerő-ikon stílusát</string>
-    <string name="themes_wifi_icon_title">WiFi-ikon</string>
+    <string name="themes_wifi_icon_title">Wi-Fi ikon</string>
     <string name="themes_wifi_icon_summary">Itt állíthatja be a Wi-Fi-ikon stílusát</string>
     <string name="themes_navigation_bar_icons_title">A Navigációs sáv ikonjai</string>
     <string name="themes_navigation_bar_icons_summary">Itt állíthatja be a navigációssáv-ikonok stílusát</string>
@@ -69,13 +69,8 @@
     <string name="themes_screen_off_animation_scale">Összeugrás</string>
     <string name="themes_udfps_animation_title">Ujjlenyomat-animáció</string>
     <string name="themes_udfps_animation_summary">Itt állíthatja be az ujjlenyomat-animáció stílusát</string>
-    <string name="themes_launcher_category">Pixel Launcher</string>
     <string name="themes_launcher_background_blur_title">Háttér-homályosítás</string>
     <string name="themes_launcher_background_blur_summary">Az Előzmények-oldalháttér elmosási effektjének bekapcsolása</string>
-    <string name="themes_launcher_more_themed_icons_title">Még témázottabb ikonok</string>
-    <string name="themes_launcher_more_themed_icons_summary">A dinamikus színes témájú ikon-támogatás kibővítése a telepített alkalmazásokhoz</string>
-    <string name="themes_launcher_force_new_search_bar">Megújult keresősáv</string>
-    <string name="themes_launcher_force_new_search_bar_summary">Elérhetővé teszi az új stílusú Google keresősávot</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Bootanimáció</string>
     <string name="boot_animation_custom_pick">ZIP-fájl választása</string>
@@ -87,7 +82,24 @@
     <string name="boot_animation_preview_title">A Boot-animáció előnézete</string>
     <string name="boot_animation_no_preview">Nincs előnézeti kép</string>
     <string name="boot_animation_style_unknown">Ismeretlen</string>
-    <!-- Themes/Monet Engine -->
+    <!-- Themes/Monet Settings -->
+    <string name="monet_settings_title">Színbeállítások</string>
+    <string name="monet_settings_summary">A témaszínek és stílusok testreszabása</string>
+    <string name="color_settings_category">Színbeállítások</string>
+    <string name="advanced_settings_category">Speciális beállítások</string>
+    <string name="use_wallpaper_colors_title">A háttérkép-szín használata</string>
+    <string name="use_wallpaper_colors_desc">Az Ön háttéképéből veszi a színeket</string>
+    <string name="custom_seed_color_title">Egyéni magszín</string>
+    <string name="theme_style_title">Témastílus</string>
+    <string name="theme_style_desc">Válasszon színpaletta-stílust</string>
+    <string name="fidelity_title">Színhűség</string>
+    <string name="fidelity_desc">Pontosabban megőrzi az eredeti magszínt</string>
+    <string name="contrast_level_title">Kontraszt-erősség</string>
+    <string name="chroma_boost_title">Kroma-erősítés</string>
+    <string name="about_color_customization_title">A Színbeállításokról</string>
+    <string name="about_color_customization_desc">A színváltozások rendszerszinten érvényesek minden olyan alkalmazásra, amely támogatja a Material You témát.\nEzen színek módosítása befolyásolhatja az alkalmazások megjelenését a készüléken.</string>
+    <string name="wallpaper_seed_color_title">Választás a Háttérkképből</string>
+    <string name="wallpaper_seed_color_desc">Színválasztás a jelenlegi háttérkép színeiből</string>
     <string name="monet_engine_custom_color_title">Kiemelőszín</string>
     <string name="monet_engine_custom_color_summary">Válasszon egyéni kiemelőszínt</string>
     <string name="monet_engine_custom_bgcolor_title">Háttérszín</string>
@@ -115,6 +127,27 @@
     <string name="monet_engine_color_source_home">Fő háttérkép</string>
     <string name="monet_engine_color_source_lock">Záróképernyő háttere</string>
     <string name="monet_engine_color_source_preset">Előre beállatott</string>
+    <!-- Per-palette chroma override -->
+    <string name="chroma_accent1_title">Fő színtelítettség</string>
+    <string name="chroma_accent2_title">Másodlagos színtelítettség</string>
+    <string name="chroma_accent3_title">Harmadlagos színtelítettség</string>
+    <string name="chroma_neutral1_title">Semleges színtelítettség</string>
+    <string name="chroma_neutral2_title">Semleges, módosított színtelítettség</string>
+    <!-- Hue / tone category -->
+    <string name="hue_tone_settings_category">Színárnyalat és világosság</string>
+    <!-- Hue rotation -->
+    <string name="hue_shift_title">Színkép-forgatás</string>
+    <string name="hue_shift_desc">Kiindulási színárnyalat elforgatása. Harmonikus, egymás melletti árnyalatokat hoz létre anélkül, hogy manuálisan módosítaná a kiindulási színt.</string>
+    <!-- Tone shifts -->
+    <string name="tone_shift_light_title">Világosság-torzítás (világos mód)</string>
+    <string name="tone_shift_light_desc">Az összes világos módú színt világosabbá (+) vagy sötétebbé (−) tétele, a kontraszttól függetlenül.</string>
+    <string name="tone_shift_dark_title">Világosság-torzítás (sötét mód)</string>
+    <string name="tone_shift_dark_desc">Az összes sötét módú színt világosabbá (+) vagy sötétebbé (−) tétele, a kontraszttól függetlenül.</string>
+    <!-- Secondary seed -->
+    <string name="secondary_seed_category">Másodlagos magszín</string>
+    <string name="use_secondary_seed_title">A másodlagos mag engedélyezése</string>
+    <string name="use_secondary_seed_desc">Kéttónusú témákhoz külön kiindulási színből származtatja a másodlagos és harmadlagos színpalettákat.</string>
+    <string name="secondary_seed_color_title">Másodlagos magszín</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Kezelőfelület</string>
     <string name="lock_screen_charging_category">Töltés</string>
@@ -159,13 +192,29 @@
     <string name="pulse_renderer_matrix">Mátrix</string>
     <string name="pulse_renderer_particle">Részekre bontott</string>
     <string name="pulse_renderer_waveform">Hullámokra bontott</string>
+    <string name="pulse_renderer_dot_wave">Pont hullám</string>
     <string name="pulse_capture_mode_title">Hangfelvétel-mód</string>
     <string name="pulse_capture_mode_fft">FFT (Frekvencia)</string>
     <string name="pulse_capture_mode_amplitude">Amplitúdó (Hullámforma)</string>
     <string name="pulse_show_on_ambient_title">Megjelenítés a \'Környezeti kijelző\'-n</string>
     <string name="pulse_show_on_ambient_summary">A vizualizáció megjelenítése \'Mindig bekapcsolva\' és \'Környezeti kijelző\' módokban. Csak lezárt képernyőn nem.</string>
+    <string name="pulse_show_on_ambient_disabled_player">A vizualizáció nem érhető el ha a kiterjesztett képernyőn a médialejátszó-háttér van bekapcsolva</string>
+    <string name="pulse_show_on_media_player_title">Bekapcsolás médialejátszó-háttéren</string>
+    <string name="pulse_show_on_media_player_summary">A vizualizáció megjelenik médialejátszó-háttéren a záróképernyőn és a gyorsbeállításokon</string>
     <string name="pulse_height_multiplier_title">A pulzálás magassága</string>
     <string name="pulse_height_multiplier_summary">Beállíthatja a vizualizáció magasságát</string>
+    <!-- Lockscreen Clock Highlight Guide -->
+    <string name="ls_clock_title">Záróképernyő-órák</string>
+    <string name="ls_clock_summary">Beállíthatja az óratílust és a kisalkalmazásokat</string>
+    <string name="clock_styles_disclaimer_title">Mielőtt folytatná</string>
+    <string name="clock_styles_disclaimer_message">Ügyeljen a következőkre hogy az óraszámlapok és kisalkalmazások tökéletesen működjenek:\n\n• Kapcsolja ki a Smartspace-t a záróképernyőn\n• Kapcsolja ki az Időjárást a záróképernyőn\n• Kapcsolja ki a nagy órastílust a záróképernyőn\n\nEzeket a beállításokat a Záróképernyő beállításaiban találhatja meg.</string>
+    <string name="ls_clock_face_highlight_text">Csúsztassa balra vagy jobbra az órastílus-előnézetek megtekintéséhez</string>
+    <!-- Lockscreen Clock Accent Color -->
+    <string name="clock_text_accent_color_title">Kiemelőszín használata az órához</string>
+    <string name="clock_text_accent_color_summary">A fehér helyett a rendszer kiemelőszínét használja az óra szövegéhez</string>
+    <!-- Lockscreen Clock Opacity -->
+    <string name="clock_text_opacity_title">Áttetszőség</string>
+    <string name="clock_text_opacity_summary">Beállíthatja az óra szövegének átlátszóságát</string>
     <!-- Lock screen/Clock -->
     <string name="ls_clock_custom_font_not_supported">A kiválasztott óra nem támogat egyéni betűtípusokat</string>
     <string name="lockscreen_clock_category_title">Óra</string>
@@ -174,20 +223,82 @@
     <string name="theme_customization_lock_clock_face_summary">Módosíthatja a záróképernyő-óra megjelenését</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Egyéni órastílus</string>
+    <string name="lockscreen_custom_clock_style_summary">Itt állíthatja be a záróképernyő órastílusát</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Csúsztassa balra vagy jobbra az órastílus-előnézetek megtekintéséhez</string>
-    <string name="lockscreen_custom_clock_style_info">Az egyéni órastílus az AOSP órastílusokat egyéni órákra cseréli. A Smartspace letiltásra kerül. Helyette engedélyezheti és használhatja az egyéni időjárás-előrejelzést.</string>
+    <string name="lockscreen_custom_clock_style_info">Az egyéni órastílus az AOSP órastílusokat egyéni órákra cseréli. A Smartspace letiltásra kerül. Helyette egyéni időjárás-előrejelzést engedélyezhet és használhat.</string>
     <string name="lockscreen_custom_clock_opacity_title">Az Óra átlátszósága</string>
     <string name="lockscreen_custom_clock_opacity_summary">Az egyéni órastílus átlátszóságának beállítása</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_title">Az Óra magassága</string>
-    <string name="lockscreen_custom_clock_frame_margin_top_summary">Az egyéni Óra függőleges pozíciójának beállítása</string>
-    <string name="lockscreen_custom_clock_color_mode_title">Az Óra színmódja</string>
-    <string name="lockscreen_custom_clock_size_title">Óraméret</string>
-    <string name="lockscreen_custom_clock_size_summary">Méretezheti a záróképernyő óráját (50–150%)</string>
-    <string name="lockscreen_custom_clock_aod_anim_title">Egyéni \"Mindig bekapcsolva\" óraanimáció</string>
-    <string name="lockscreen_custom_clock_aod_anim_summary">AOD animáció beállítása az egyéni órastílushoz</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_title">Felső margó</string>
+    <string name="lockscreen_custom_clock_frame_margin_top_summary">Egyéni óramagasságot állíthat be</string>
+    <string name="lockscreen_custom_clock_color_mode_title">Színmód</string>
+    <string name="lockscreen_custom_clock_aod_anim_title">Az AOD animációja</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">\'Mindig bekapcsolva\'-animáció beállítása az egyéni órastílushoz</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_title">Ingadozó töltési effekt</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_summary">Töltéskor az órában egy ingadozó effekt jelenik meg</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Vízszintes eltolás</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_summary">Bla/Jobb pozicionálás</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_title">Színátmenetes szöveg</string>
+    <string name="lockscreen_custom_clock_gradient_enabled_summary">Kétszínű átmenetet állíthat be az egyszínű helyett. Felülír minden más színmódot</string>
+    <string name="lockscreen_custom_clock_gradient_start_title">A színátmenet kezdeti színe</string>
+    <string name="lockscreen_custom_clock_gradient_end_title">A színátmenet befejező színe</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_title">A színátmenet horgonya</string>
+    <string name="lockscreen_custom_clock_gradient_anchor_y_summary">Szabályozhatja a színátmenet függőleges középponti helyét</string>
+    <string name="lockscreen_custom_clock_gradient_radius_title">A színátmenet terjedése</string>
+    <string name="lockscreen_custom_clock_gradient_radius_summary">Szabályozhatja, hogy a színátmenet milyen messzire terjed a horgonyponttól</string>
+    <string name="lockscreen_custom_clock_color_category_title">Szín</string>
+    <string name="lockscreen_custom_clock_gradient_category_title">Színátmenet</string>
+    <string name="lockscreen_custom_clock_layout_category_title">Méret és helyzet</string>
+    <string name="lockscreen_custom_clock_animation_category_title">Animáció</string>
+    <string name="unit_degrees">°</string>
+    <!-- Lockscreen Clock Size -->
+    <string name="clock_size_title">Méret</string>
+    <string name="clock_size_summary">Méretezheti a záróképernyő óráját (50–150%)</string>
     <!-- Lockscreen clock: album art color override -->
-    <string name="clock_album_art_color_title">Lemezborító színű óra</string>
+    <string name="clock_album_art_color_title">Igazodás a lemezborító színeihez</string>
     <string name="clock_album_art_color_summary">Zenelejátszás közben felülírja az óra színét a lemezborító színeivel</string>
+    <!-- Lockscreen widgets -->
+    <string name="lockscreen_widgets_title">Kisalkalmazások</string>
+    <string name="lockscreen_widgets_enabled_title">Kisalkalmazások engedélyezése a záróképernyőn</string>
+    <string name="lockscreen_widgets_enabled_summary">Új kisalkalmazás hozzáadása</string>
+    <string name="lockscreen_display_widgets_title">Készülékinformáció kisalkalmazás</string>
+    <string name="lockscreen_widgets_color_mode_title">Az alkalmazás színmódja</string>
+    <string name="lockscreen_display_widgets_summary">Megjeleníti a készülékinfót a záróképernyőn</string>
+    <string name="large_widgets_category_title">Nagyméretű kisalkalmazások</string>
+    <string name="main_custom_widgets1">Nagyméretű 1</string>
+    <string name="main_custom_widgets2">Nagyméretű 2</string>
+    <string name="mini_widgets_category_title">Mini kisalkalmazások</string>
+    <string name="custom_widgets1">Kisméretű 1</string>
+    <string name="custom_widgets2">Kisméretű 2</string>
+    <string name="custom_widgets3">Kisméretű 3</string>
+    <string name="custom_widgets4">Kisméretű 4</string>
+    <string name="camera">Kamera</string>
+    <string name="clock_timer">Óra/Időzítő</string>
+    <string name="calculator">Számológép</string>
+    <string name="gallery">Galéria</string>
+    <string name="media">Médialejátszó</string>
+    <string name="torch">Zseblámpa</string>
+    <string name="controls_media_button_play">Lejátszás</string>
+    <string name="weather">Időjárás</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="data">Adat</string>
+    <string name="ringer">Csengés</string>
+    <string name="bt">Bluetooth</string>
+    <string name="hotspot">Hotspot</string>
+    <string name="wallet">Pénztárca</string>
+    <string name="qr_scanner">QR-kód olvasó</string>
+    <!-- Lockscreen Widgets Styles -->
+    <string name="lockscreen_widgets_style_title">Kisalkalmazások stílusa a záróképernyőn</string>
+    <string name="lockscreen_widgets_style1">Material lekerekített</string>
+    <string name="lockscreen_widgets_style2">Material négyzetes</string>
+    <string name="lockscreen_widgets_style3">Négyzetes áttetsző</string>
+    <string name="lockscreen_widgets_style4">Lekerekített áttetsző</string>
+    <string name="lockscreen_widgets_style5">Négyzetes elmosás</string>
+    <string name="lockscreen_widgets_style6">Lekerekített elmosás</string>
+    <string name="lockscreen_widgets_transparency_title">Az áttetsző stílus átlátszóság-erőssége</string>
+    <string name="lockscreen_widgets_transparency_summary">Szabályzhatja az áttetsző stílus átlátszósági szintjét</string>
+    <!-- Lockscreen Weather -->
+    <string name="custom_clock_weather_title">Zárképernyő időjárás</string>
+    <string name="custom_clock_weather_summary">Időjárás kijelzése az egyéni záróképernyő-órán</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Albumborító</string>
     <string name="ls_media_art_summary">Az albumborító megjelenítése, ha elérhető</string>
@@ -230,7 +341,7 @@
     <string name="nowplaying_icon_size_title">Ikonméret</string>
     <string name="nowplaying_icon_size_summary">Az ikonméret szabályzása</string>
     <string name="nowplaying_show_on_aod_title">Megjelenítés \'Mindig bekapcsolva\' módban</string>
-    <string name="nowplaying_show_on_aod_summary">A zenei infók AOD-módban is megjelennek</string>
+    <string name="nowplaying_show_on_aod_summary">A zenei infók a környezeti kijelzőn is megjelennek</string>
     <string name="nowplaying_compact_style_title">Kompakt stílus</string>
     <string name="nowplaying_compact_style_summary">Megjelenítés egyetlen sorban a számcím szövegméretének használatával</string>
     <string name="nowplaying_info_summary">A „Most hallható” funkció a lezárási képernyőn és az AOD-kijelzőn mutatja az aktuális számcímet és az előadót. Zenelejátszás közben automatikusan megjelenik, leállításkor pedig eltűnik. Pozíciója a képernyő tetejétől az aljáig állítható.</string>
@@ -238,6 +349,7 @@
     <string name="nowplaying_expand_dialog_summary">Nagyobbra nyitja a \'Most hallható\' paneljét</string>
     <string name="nowplaying_lyrics_mode_title">Dalszöveg-mód</string>
     <string name="nowplaying_lyrics_mode_summary">A szinkronba hozott dalszöveg megjelenítése a szám címe és ikonja helyett</string>
+    <string name="nowplaying_pixel_native_footer">Ez a készülék már natívan támogatja a \'Most hallható\' funkciót a Pixel környezeti kijelzőjén. Ezek a beállítások nem érhetők el, amíg a beépített verzió aktív.</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Időjárás-beállítások</string>
     <string name="weather_settings_summary">Ikoncsomag és időjárási szolgáltatás beállítása</string>
@@ -291,14 +403,29 @@
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Ha elérhető, akkor megjeleníti a Google Smartspace-t</string>
     <!-- Lock screen/Depth wallpaper -->
-    <string name="dw_wallpaper_enabled_title">Térhatású Háttérkép</string>
-    <string name="dw_wallpaper_enabled_summary_tile">Mélységi hatás\nalkalmazása a háttérre</string>
-    <string name="dw_wallpaper_enabled_summary">iOS ihlette mélységi háttérkép engedélyezése. Témaképet igényel</string>
-    <string name="dw_file_header_select_title">Témakép kiválasztása</string>
-    <string name="dw_file_header_select_summary">A mélységi hatáshoz használt témakép kiválasztása a tárhelyről</string>
-    <string name="dw_wallpaper_opacity_title">Témakép átlátszatlansága</string>
-    <string name="depth_wallpaper_offset_x_title">Vízszintes eltolás</string>
-    <string name="depth_wallpaper_offset_y_title">Függőleges eltolás</string>
+    <string name="depthwall_file_header_select_title">Tárgyválasztás a térhatású háttérképhez</string>
+    <string name="depthwall_file_header_select_summary">Válasszon térhatású háttérképtárgyat a tárhelyről.</string>
+    <string name="depthwall_wallpaper_enabled_title">Térhatású Háttérkép</string>
+    <string name="depthwall_wallpaper_enabled_summary_tile">Mélységi hatás\nalkalmazása a háttérre</string>
+    <string name="depthwall_wallpaper_enabled_summary">Itt kapcsolható be az iOS ihlette térhatású háttérkép. Egy tárgykép szükséges.</string>
+    <string name="depthwall_wallpaper_opacity_title">A térhatású háttér átlátszósága</string>
+    <string name="depth_wallpaper_bottom_fade_title">Alsó áttűnés</string>
+    <string name="depth_wallpaper_bottom_fade_summary">A háttérkép áttűnése az alsó részen</string>
+    <string name="depth_wallpaper_fade_curve_title">Átmeneti görbe</string>
+    <string name="depth_wallpaper_fade_curve_summary">A háttérkép átmeneti görbéjének beállítása</string>
+    <string name="depth_wallpaper_bottom_inset_title">Alsó beillesztés</string>
+    <string name="depth_wallpaper_bottom_inset_summary">Állítsa be a háttérkép alsó beillesztését</string>
+    <string name="depthwall_auto_subject_title">Automatikus téma a térhatású háttérképhez</string>
+    <string name="depthwall_auto_subject_summary">A tárgy automatikusan kerül kiválasztásra a mélységi effekthez</string>
+    <string name="depthwall_extract_now_title">Tárgykibontás most</string>
+    <string name="depthwall_extract_now_summary">Tárgykibontás azonnali indítása a háttérképről (Háttérkép beállítása külön a zárolási képernyőhöz)</string>
+    <string name="depthwall_extracting_toast">Tárgykibontás a háttérképből…</string>
+    <string name="depthwall_extraction_complete_toast">A tárgykibontás elkészült!</string>
+    <string name="depthwall_storage_permission_denied">Az automatikus tárgykibontáshoz tárhelyhozzáférés szükséges.</string>
+    <string name="depthwall_clear_subject_title">Tárgykép törlése</string>
+    <string name="depthwall_clear_subject_summary">Eltávolítja a jelenlegi kibontott vagy kézzel beállított tárgyat</string>
+    <string name="depthwall_clear_subject_confirm_message">Ez eltávolítja a térhatású háttérkép jelenlegi tárgyképét. Folytatja?</string>
+    <string name="depthwall_clear_subject_done_toast">Tárgykép törölve</string>
     <string name="dw_footer_text">A Mélységi háttérkép az iOS háttérképeinek témaszegmentálásához hasonlóan egy témaképet helyez a záróképernyő órája fölé.
 
 Beállítás:
@@ -424,6 +551,10 @@ Beállítás:
     <string name="status_bar_clock_date_position">Dátumelhelyezés</string>
     <string name="status_bar_clock_date_right">Az órától jobbra</string>
     <string name="status_bar_clock_date_left">Az órától balra</string>
+    <string name="status_bar_clock_period_separator_title">Elválasztójel</string>
+    <string name="status_bar_clock_period_separator_summary">Az időpontot kettőspont helyett ponttal jelzi (09:28 helyett 09.28)</string>
+    <string name="status_bar_clock_bold_title">Vastagbetűs óra</string>
+    <string name="status_bar_clock_bold_summary">Állapotsori óra megjelenítése félkövér betűtípussal</string>
     <string name="statusbar_clock_chip_title">Óraszámlap háttérrel</string>
     <string name="solid_accent">Egyszínű kiemelés</string>
     <string name="outline">Körvonal</string>
@@ -496,7 +627,6 @@ Beállítás:
     <string name="status_bar_logo_custom_image_summary">Kiválasztáshoz kattintson egy képre a galériában</string>
     <string name="status_bar_logo_custom_image_pick_summary">Kép kiválasztása a galériából</string>
     <!-- Statusbar logo color -->
-    <string name="default_string">Alapértelmezett</string>
     <string name="status_bar_logo_color_title">Szín</string>
     <string name="status_bar_logo_color_default">Alapértelmezett (fehér)</string>
     <string name="status_bar_logo_color_accent">Kiemelés</string>
@@ -529,25 +659,26 @@ Beállítás:
     <!-- Status bar/Dynamic Bar -->
     <string name="dynamic_bar">Dinamikus sáv</string>
     <string name="dynamic_bar_summary">Intelligens állapotsori elem, az aktív eseményekhez, például felvételhez, médiatartalomhoz, időzítőhöz és egyebekhez</string>
-    <string name="dynamic_bar_enable">A Dinamikus sáv bekapcsolása</string>
-    <string name="dynamic_bar_enable_summary">Dinamikus chip megjelenítése az állapotsoron az élő eseményekhez</string>
+    <string name="dynamic_bar_enable_summary">Dinamikus háttér megjelenítése az állapotsoron az élő eseményekhez</string>
     <string name="dynamic_bar_keyguard_enable">Dynamic Bar a záróképernyőn</string>
-    <string name="dynamic_bar_keyguard_enable_summary">A záróképernyő jelzésének lecserélése Dynamic Bar chipre</string>
+    <string name="dynamic_bar_keyguard_enable_summary">A záróképernyő jelzésének lecserélése Dinamikus Sávháttér-re</string>
     <string name="dynamic_bar_keyguard_battery_chip">A záróképernyő akkuinformációja</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Ne mutassa soha</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Csak töltés közben</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Mindig jelenítse meg</string>
     <string name="dynamic_bar_keyguard_compact_chip">Kompakt zárképernyő-kitöltés</string>
-    <string name="dynamic_bar_keyguard_compact_chip_summary">Mindig kompakt chipstílus használata a záróképernyőn. Kikapcsolva a kompakt mód csak helyhiány esetén használatos.</string>
+    <string name="dynamic_bar_keyguard_compact_chip_summary">Mindig kompakt kiemelés-stílus használata a záróképernyőn. Kikapcsolva a kompakt mód csak helyhiány esetén használatos.</string>
     <string name="dynamic_bar_events">Események</string>
     <string name="dynamic_bar_event_audio_recording">Hangfelvétel</string>
     <string name="dynamic_bar_event_audio_recording_summary">Hangfelvétel és audiómentés</string>
+    <string name="dynamic_bar_event_call">Épp zajló hívás</string>
+    <string name="dynamic_bar_event_call_summary">Bejövő és aktív hívások</string>
     <string name="dynamic_bar_event_media">Médialejátszás</string>
     <string name="dynamic_bar_event_media_summary">\'Most hallható\' zene és hangvezérlők</string>
     <string name="dynamic_bar_event_notification">Értesítések</string>
     <string name="dynamic_bar_event_notification_summary">Bejövő értesítések jelzése</string>
     <string name="dynamic_bar_compact_notifications">Kompakt értesítések</string>
-    <string name="dynamic_bar_compact_notifications_summary">Az értesítések először kis chipként jelenjenek meg; koppintással kibonthatók</string>
+    <string name="dynamic_bar_compact_notifications_summary">Az értesítések először kis kiemelésként jelenjenek meg; koppintással kibonthatók</string>
     <string name="dynamic_bar_event_timer">Időzítő</string>
     <string name="dynamic_bar_event_timer_summary">Visszaszámláló az Óra alkalmazásból</string>
     <string name="dynamic_bar_event_stopwatch">Stopperóra</string>
@@ -573,28 +704,25 @@ Beállítás:
     <string name="dynamic_bar_event_sports">Sport</string>
     <string name="dynamic_bar_event_sports_summary">Élő eredmények és mérkőzésfrissítések</string>
     <string name="dynamic_bar_event_app_switch">Legutóbbi alkalmazás váltása</string>
-    <string name="dynamic_bar_event_app_switch_summary">Chip megjelenítése a legutóbbi alkalmazások közötti váltáskor</string>
+    <string name="dynamic_bar_event_app_switch_summary">Kiemelés megjelenítése a legutóbbi alkalmazások közötti váltáskor</string>
     <string name="dynamic_bar_event_biometric">Biometrikus feloldás</string>
-    <string name="dynamic_bar_event_biometric_summary">Chip megjelenítése ujjlenyomatos vagy arcfelismeréses feloldáskor</string>
+    <string name="dynamic_bar_event_biometric_summary">Kiemelés megjelenítése ujjlenyomatos vagy arcfelismeréses feloldáskor</string>
     <string name="dynamic_bar_guide_title">A \'Dinamikus sáv\' használata</string>
     <string name="dynamic_bar_guide_chip">Az aktív események, például felvétel, médialejátszás és időzítők az állapotsoron jelennek meg</string>
-    <string name="dynamic_bar_guide_swipe">Több aktív esemény esetén húzza balra vagy jobbra a chipet a közötti váltáshoz</string>
-    <string name="dynamic_bar_guide_expand">Koppintson a chipre a vezérlőket és további információkat tartalmazó részletes kártya kibontásához</string>
+    <string name="dynamic_bar_guide_swipe">Több aktív esemény esetén húzza balra vagy jobbra a kiemelést az események közötti váltáshoz</string>
+    <string name="dynamic_bar_guide_expand">Koppintson a kiemelésre a vezérlőket és további információkat tartalmazó részletes kártya kibontásához</string>
     <string name="dynamic_bar_guide_dismiss">Húzza el a kibontott kártyát az elvetéséhez. Az esemény a háttérben folytatódik</string>
-    <string name="dynamic_bar_guide_keyguard">A Dynamic Bar chip a záróképernyő alján is megjelenik lejátszásvezérlőkkel és gyorsműveletekkel</string>
-    <string name="dynamic_bar_guide_chip_title">Chip megjelenése</string>
-    <string name="dynamic_bar_guide_swipe_title">Váltás a chipek között húzással</string>
+    <string name="dynamic_bar_guide_keyguard">A Dinamikus Sávháttér a záróképernyő alján is megjelenik lejátszásvezérlőkkel és gyorsműveletekkel</string>
+    <string name="dynamic_bar_guide_chip_title">A kiemelés megjelenése</string>
+    <string name="dynamic_bar_guide_swipe_title">Váltás a kiemelések között húzással</string>
     <string name="dynamic_bar_guide_expand_title">Koppintson a kibontáshoz</string>
     <string name="dynamic_bar_guide_dismiss_title">Húzza el az elvetéshez</string>
-    <string name="dynamic_bar_guide_keyguard_title">Záróképernyős chip</string>
+    <string name="dynamic_bar_guide_keyguard_title">Kiemelés a záróképernyőn</string>
     <string name="dynamic_bar_footer_title">A Dynamic Bar névjegye</string>
-    <string name="dynamic_bar_footer_body">A Dynamic Bar interaktív központtá alakítja az állapotsort. A chipek a rendszeresemények alapján jelennek meg és animálódnak, így a munkafolyamat megszakítása nélkül, egy pillantással tájékozódhat.
-
-Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó kibontott kártyával rendelkezik.</string>
+    <string name="dynamic_bar_footer_body">A Dinamikus Sév interaktív központtá alakítja az állapotsort. A kiemelések a rendszeresemények alapján jelennek meg és animálódnak, így a munkafolyamat megszakítása nélkül, egy pillantással tájékozódhat.\n\nMinden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó kibontott kártyával rendelkezik.</string>
     <!-- Status bar/Cutout progress ring -->
     <string name="cutout_progress_title">Kamerakivágás folyamatjelző gyűrűje</string>
     <string name="cutout_progress_summary">Folyamatjelző gyűrű megjelenítése a kamerakivágás körül</string>
-    <string name="cutout_progress_enabled_summary">Folyamatgyűrű megjelenítése a kamerakivágás körül letöltés közben</string>
     <string name="cutout_progress_cat_appearance">Kinézet</string>
     <string name="cutout_progress_cat_behaviour">Viselkedés</string>
     <string name="cutout_progress_cat_bg_ring">Háttér-gyűrű</string>
@@ -831,11 +959,12 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="quick_settings_transparency_summary">A gyorsbeállítási háttér átlátszósági szintjének beállítása</string>
     <string name="quick_settings_data_usage_title">Adathasználat</string>
     <string name="quick_settings_data_usage_summary">Adathasználat megjelenítése a gyorsbeállítások láblécében</string>
+    <string name="quick_settings_data_usage_window_title">Adathasználati időszak</string>
     <string name="quick_settings_lock_screen_category">Záróképernyő</string>
     <string name="quick_settings_secure_lock_screen_title">Gyorsbeállítások lefelé húzása a biztonságos záróképernyőn</string>
     <string name="quick_settings_secure_lock_screen_summary">A gyorsbeállítások megnyitásának engedélyezése a záróképernyő lehúzásával</string>
     <string name="quick_settings_require_unlock_title">A biztonságos csempék feloldást igényelnek</string>
-    <string name="quick_settings_require_unlock_summary">A következő csempék használata előtt fel kell oldani az eszközt: Repülőgép mód, Akkumulátorkímélő, Bluetooth, Mobilhálózat, Adatforgalom-csökkentő, Hotspot, Internet, NFC, Elforgatás zárolása és Wi-Fi</string>
+    <string name="quick_settings_require_unlock_summary">Az alábbi csempékkel való interakcióhoz fel kell oldani a készülék zárolását: Repülőgép üzemmód, Akkukímélő, Bluetooth, Adakímélő, Hotspot, Internet, NFC és az Elforgatás zárolása</string>
     <string name="quick_settings_footer_category">Lábléc</string>
     <string name="quick_settings_footer_edit_icon_title">Csempeikon-szerkesztés</string>
     <string name="quick_settings_footer_show_power_menu_title">Kikapcsolómenű-parancsikon</string>
@@ -843,7 +972,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="qs_split_shade_enabled_title">Osztott értesítési felület fekvő módban</string>
     <string name="qs_split_shade_enabled_summary">A kísérleti osztott gyorsbeállítási felület engedélyezése fekvő módban. Megzavarhatja a fekvő módban megjelenő felugró értesítéseket</string>
     <string name="qs_header_clock_style_title">A Gyorsbeállítások-fejléc órastílusa</string>
-    <string name="qs_header_style1">Hátteres</string>
+    <string name="qs_header_style1">Kiemelés</string>
     <string name="qs_header_style2">Oxygen</string>
     <string name="qs_header_style3">Analóg</string>
     <string name="qs_header_style4">Egyszerű</string>
@@ -878,6 +1007,8 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="compact_heads_up_notifications_enabled_summary">Értesítések megjelenítése kompakt méretben</string>
     <string name="notifications_less_boring_heads_up_title">Csak a fontosak</string>
     <string name="notifications_less_boring_heads_up_summary">Felugró értesítések megjelenítése csak riasztásokhoz, hívásokhoz és üzenetküldő alkalmazásokhoz</string>
+    <string name="notification_heads_up_timeout_title">Időkorlát</string>
+    <string name="notification_heads_up_timeout_summary">A felugró értesítések láthatósági ideje</string>
     <string name="notif_style_title">Értesítésstílusok</string>
     <string name="notif_style1">Cyberpunk</string>
     <string name="notif_style2">Kétvonalas</string>
@@ -980,6 +1111,8 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="miscellaneous_block_wallpaper_dimming_summary">A háttérkép elsötétítésének blokkolása minden alkalmazásnál, az elsötétítési szint 0-ra kényszerítésével</string>
     <string name="miscellaneous_ignore_window_secure_title">Biztonságos ablakjelzők figyelmen kívül hagyása</string>
     <string name="miscellaneous_ignore_window_secure_summary">A képernyőkép- és képernyőfelvétel-korlátozások eltávolítása minden alkalmazásnál. Személyes tartalmat tehet láthatóvá</string>
+    <string name="miscellaneous_screenshot_flash_title">Képernyőmentés villanással</string>
+    <string name="miscellaneous_screenshot_flash_summary">Röviden felvillantja a képernyőt képernyőkép készítésekor</string>
     <string name="miscellaneous_block_screenshot_detection_title">Képernyőmentés titkosítása</string>
     <string name="miscellaneous_block_screenshot_detection_summary">Az alkalmazások megakadályozása abban, hogy tudják, mikor készült képernyőkép a tartalmukról</string>
     <string name="miscellaneous_block_screenrecord_detection_title">Képernyőrögzítés titkosítása</string>
@@ -1009,6 +1142,12 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">A lehetséges csevegési problémák elkerüléséért a Snapchat átverése</string>
     <string name="spoofing_applying_changes">Az álcázás alkalmazása\u2026</string>
+    <string name="spoofing_reset_defaults_title">Visszaállítás alaphelyzetbe</string>
+    <string name="spoofing_reset_defaults_summary">A Play Integritás, a céllista, a javítási szint és a GameProps visszaállítása alapértelmezett értékekre. A kulcsbox megmarad</string>
+    <string name="spoofing_reset_defaults_dialog_title">Visszaállítja a hamisítási beállításokat?</string>
+    <string name="spoofing_reset_defaults_dialog_message">Ez törli a Play Integritás konfigurációját, a biztonsági javítás felülbírálását és a GameProps-konfigurációt, valamint visszaállítja a TrickyStore alapértelmezett céllistáját. A kulcsbox megmarad. A Play Integritás és a javítási szint adatai röviddel ezután újra lekérésre kerülnek. A kapcsolók állapota nem változik.</string>
+    <string name="spoofing_reset_defaults_confirm">Visszaállítás</string>
+    <string name="spoofing_reset_defaults_done">Hamisítási beállítások visszaállítása</string>
     <string name="tensor_spoof_title">Kijelölés Tensor-funkcióra</string>
     <string name="tensor_spoof_summary">Hozzáférést biztosít a kiválasztott alkalmazásoknak a Pixel Tensor exkluzív funkcióihoz</string>
     <string name="tensor_spoof_enable">Tensor-átverés</string>
@@ -1144,27 +1283,41 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="pif_delete_config_summary">Az aktuálisan aktív konfigurációs fájl eltávolítása</string>
     <string name="pif_delete_title">Törli ezt: %s?</string>
     <string name="pif_delete_message">A konfigurációs fájl véglegesen törlődik.</string>
+    <string name="pif_wipe_playstore_title">Törli a Play Áruház adatait?</string>
+    <string name="pif_wipe_playstore_message">Ennek az ujjlenyomatnak a használata egy friss munkamenettel működik a legjobban. Törli a Play Áruház adatait most? Ez kijelentkezteti Önt, és törli a helyi gyorsítótárat és a letöltési sort.</string>
+    <string name="pif_wipe_confirm">Adatok törlése</string>
     <string name="pif_deleted">Törölve: %s</string>
     <string name="pif_config_details">Konfiguráció részletei</string>
     <string name="pif_failed">Sikertelen: %s</string>
     <string name="pif_select_device">Eszköz kiválasztása</string>
+    <string name="pif_recommended_suffix">Ajánlott</string>
     <string name="pif_generating">Konfiguráció létrehozása…</string>
     <string name="pif_footer_title">Alapvető integritás</string>
-    <string name="pif_footer_body">1. Nyomja meg a „Pixel Béta ujjlenyomat lekérése” lehetőséget, és válasszon ki egy készüléket a listából.\n2. Ha nem található készülék, megbízható forrásból importáljon egy működő PIF-konfigurációt. Konfigurációs fájlok nem állnak rendelkezésre; Önnek kell találnia egyet.\n3. Ellenőrizze újra a Play Integrity állapotát.\n\nMindig törölje az aktív konfigurációt, mielőtt új konfigurációt töltene be. A lejárt PIF-konfiguráció betöltése a TrickyStore-on keresztüli az erős integritás hibáját okozza, még érvényes keybox esetén is.</string>
+    <string name="pif_footer_body">A Canary-ujjlenyomatot legfeljebb naponta egyszer ellenőrzik, és automatikusan lecserélik, amint a lejárata előtti két héten belülre kerül. A Canary konfigurációk a kiadási dátumuktól számított nagyjából 6 hét elteltével járnak le – a lejárati idő az aktív konfiguráció összefoglalójában látható.\n\nManuális beállításhoz:\n1. Koppintson a „Pixel Canary-ujjlenyomat lekérése” lehetőségre, és válasszon ki egy készüléket.\n2. Ha nem található készülék, importáljon egy működő PIF-konfigurációt megbízható forrásból. Konfigurációs fájlok nincsenek mellékelve.\n3. Ellenőrizze újra a Play Integritás állapotát.\n\nMindig törölje az aktív konfigurációt, mielőtt újat importálna. Lejárt PIF-konfiguráció betöltése esetén a TrickyStore „strong integrity” (erős integritás) ellenőrzése még érvényes kulcsbox esetén is sikertelen lesz.\n\nHaladó hamisítás:\n• Play Áruházi ujjlenyomat-hamisítás – hagyja kikapcsolva, hacsak nincs más utasítás. A Play Áruházi ujjlenyomat-hamisítás ritkán szükséges, és problémákat okozhat.\n• SDK-hamisítás a Play Áruház felé – az SDK 32-es verzióját mutatja a Play Áruháznak, hogy kikényszerítse az Android 13 előtti rendszerekre jellemző, hagyományos döntési útvonalat. Ez megzavarhatja a Play Áruház működését, ezért tesztelésen kívül tartsa kikapcsolva.\n• Build-mezők és rendszertulajdonságok hamisítása – hagyja bekapcsolva. Ez átadja az ujjlenyomatot a DroidGuardnak.\n• Spoof keystore-szolgáltató – tartsa kikapcsolva, ha kulcsbox van használatban, mivel ez megkerüli a kulcsbox-hitelesítést.\n• a ROM-aláírás hamisítása – kísérleti.</string>
     <string name="pif_invalid_fingerprint">Érvénytelen ujjlenyomat-formátum</string>
     <string name="pif_no_devices_found">Nem található készülék</string>
-    <string name="pif_no_api_key">A \'Flash Tool\' API-kulcsát nem lehet kibontani</string>
     <string name="pif_master_switch_title">Az Áruházi integritásjavítás bekapcsolása</string>
     <string name="pif_advanced_settings">Speciális álcázás</string>
     <string name="pif_spoof_vending_finger_title">Play Áruház-ujjlenyomat álcázása</string>
     <string name="pif_spoof_vending_finger_summary">A Play Áruház folyamatának átadott FINGERPRINT érték szabályozása</string>
-    <string name="pif_spoof_vending_sdk_title">SDK álcázása a DroidGuard számára</string>
-    <string name="pif_spoof_vending_sdk_summary">Az SDK_INT felülírása a DroidGuard számára a régi, Android 13 előtti hitelesítési útvonal kényszerítéséhez</string>
+    <string name="pif_spoof_vending_sdk_title">SDK-hamisítás a Play Áruház felé</string>
+    <string name="pif_spoof_vending_sdk_summary">SDK 32 beküldése a Play Áruházba, hogy kikényszerítsük az Android 13 előtti elbírálási útvonalat. Soha ne emelje a tényleges SDK fölé. Megzavarhatja a Play Áruház működését, ezért tesztelésen kívül ne használja</string>
+    <string name="pif_vending_finger_custom_summary">Egyéni ujjlenyomat: %1$s</string>
+    <string name="pif_spoof_build_title">Build-mezők hamisítása</string>
+    <string name="pif_spoof_build_summary">Az ujjlenyomat Build-mezőinek (modell, eszköz, ujjlenyomat stb.) átadása a DroidGuard számára</string>
+    <string name="pif_spoof_props_title">Rendszertulajdonságok hamisítása</string>
+    <string name="pif_spoof_props_summary">Elküldi az ujjlenyomat build-azonosítóját, biztonsági javítását, API-szintjét és termékazonosítóját a DroidGuardnak</string>
+    <string name="pif_spoof_provider_title">KeyStore szolgáltató hamisítása</string>
+    <string name="pif_spoof_provider_summary">Előidézi a DroidGuard tanúsítványlánc-lekérésének sikertelenségét. Ez megkerüli a kulcsbox-hitelesítést, ezért kapcsolja ki, ha kulcsboxot használsz</string>
+    <string name="pif_spoof_signature_title">ROM-aláírás hamisítása</string>
+    <string name="pif_spoof_signature_summary">Kisérleti jellegű. A DroidGuard tesztkulcs ROM-tiltásának megkerülése</string>
+    <string name="pif_reset_advanced_title">A Speciális hamisítás visszaállítása</string>
+    <string name="pif_reset_advanced_summary">Visszaállítja a fenti kapcsolók alapértelmezett értékét. Az ujjlenyomat megmarad</string>
+    <string name="pif_reset_advanced_message">Visszaállít minden hamisított értéket alapértelmezettre? A jelenlegi ujjlanyomat megmarad.</string>
     <string name="pif_vending_finger_disabled">Kikapcsolva (alapértelmezett)</string>
     <string name="pif_vending_finger_same">Azonos a DroidGuard ujjlenyomatával</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Keybox-ok és célalkalmazások kezelése az erős integritás-igazolás érdekében</string>
-    <string name="ts_master_switch_title">A Tenor TrickyStore álcázás bekapcsolása</string>
     <string name="ts_keybox_management">Keybox kezelés</string>
     <string name="ts_import_keybox">Keybox importálása</string>
     <string name="ts_no_keybox">Nincs telepítve keybox</string>
@@ -1188,6 +1341,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="ts_failed">Sikertelen: %s</string>
     <string name="ts_footer_title">Erős integritás</string>
     <string name="ts_footer_body">1. Megbízható forrásból szerezzen be egy érvényes keybox XML-t. A keybox-ok nem állnak rendelkezésre; Önnek kell találnia egyet.\n2. Koppintson a „Keybox importálása”-ra, és töltse be a fájlt.\n3. Nyissa meg a „Célalkalmazások kezelése”-t, és válassza a Google Play Szolgáltatások és a Google Play Áruház lehetőséget.\n4. Állítsa „Leaf (külső héj)” módra, ha a készülékén működik a TEE, egyébként hagyja Automatikus értéken.\n5. Ellenőrizze újra a Play integritás állapotát.\n\nMindig törölje a meglévő keybox-ot, mielőtt újat importálna. Ha a Google visszavon egy keybox-ot, akkor is engedélyezheti az eszköz integritásának átadását, még akkor is, ha az erős integritás meghiúsul.</string>
+    <string name="ts_patch_stale_warning">%1$s (túl régi, 12 hónapnál régebbi)</string>
     <string name="ts_security_patch">A biztonsági javítócsomag dátuma</string>
     <string name="ts_no_patch">Nincs beállítva (a készülék alapértelmezését használja)</string>
     <string name="ts_select_target_apps">Válassza ki a célalkalmazást</string>
@@ -1231,7 +1385,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="ts_revocation_status">Visszavonási állapot</string>
     <string name="ts_revocation_checking">Visszavonási állapot ellenőrzése…</string>
     <string name="ts_revocation_no_keybox">Nincs telepítve keybox</string>
-    <string name="ts_revocation_valid">✓ Érvényes — nem visszavont</string>
+    <string name="ts_revocation_valid">Nem szerepel a Google visszavonási listáján</string>
     <string name="ts_revocation_revoked">✗ Visszavont (%s)</string>
     <string name="ts_revocation_suspended">⚠ Felfüggesztett (%s)</string>
     <string name="ts_revocation_network_error">A szerver nem elérhető </string>
@@ -1394,6 +1548,8 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="custom_font">Egyéni betűtípus</string>
     <string name="no_custom_font">Nem áll rendelkezésre egyéni betűtípus</string>
     <string name="add_custom_font">Egyéni betűtípus hozzáadása</string>
+    <string name="sound_preview_play">Hang-előnézet lejátszása</string>
+    <string name="sound_preview_stop">Hang-előnézet leállítása</string>
     <string name="change_custom_font">Egyéni betűkészlet megváltoztatása</string>
     <string name="reset_custom_font_content_desc">Az egyéni betűtípus visszaállítása</string>
     <string name="reboot_required_custom_font_title">Az egyéni betűtípus újraindítást igényel</string>
@@ -1510,6 +1666,7 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Háromujjas húzás</string>
     <string name="shake_gestures_enabled_title">Rázási mozdulatok</string>
+    <string name="shake_gestures_enabled_summary">Egy feladat indításához rázza meg készülékét</string>
     <string name="shake_gestures_action_title">Rázási mozdulat művelete</string>
     <string name="shake_gestures_intensity_title">Rázás érzékenysége</string>
     <string name="shake_gestures_intensity_summary">A rázásérzékelés érzékenységének beállítása</string>
@@ -1566,7 +1723,21 @@ Minden eseménytípus saját kiemelőszínnel és gyorsműveleteket tartalmazó 
     <string name="qs_show_volume_slider_title">A csúszka lehetőségei</string>
     <string name="qs_show_volume_slider_hide">Csak a Fényerőcsúszka</string>
     <string name="qs_show_volume_slider_both">Mindkét csúszka</string>
+    <string name="qs_show_volume_slider_below">Hangerő-csúszka a fényerő-csúszka alatt</string>
     <string name="qs_show_volume_slider_only">Csak a Hangerőcsúszka</string>
     <string name="qs_show_ringer_mode_title">Csengési mód</string>
     <string name="qs_show_ringer_mode_summary">A hangerőcsúszka mellett a csengési mód ikonja is megjelenik</string>
+    <!-- Custom power menu style -->
+    <string name="global_actions_use_compose_dialog_title">Újratervezett kikapcsolómenü</string>
+    <string name="global_actions_use_compose_dialog_summary">Új, testreszabható, húzható csempeelrendezésű kikapcsolómenü használata. A klasszikus menü használatához tiltsa le ezt az újat.</string>
+    <string name="global_actions_advanced_reboot_title">Speciális újraindítás bekapcsolása</string>
+    <string name="global_actions_advanced_reboot_summary">Felold egy új párbeszédpanelt, amely lehetővé teszi a speciális újraindítást</string>
+    <!-- Screenshots -->
+    <string name="screenshot_clipboard_only_title">Csak a vágólapra másolja</string>
+    <string name="screenshot_clipboard_only_summary">A képernyőmentés nem kerül mentésre a tárhelyen, csak a vágólapra másolódik</string>
+    <string name="hide_status_bar_in_screenshot_title">Állapotsor elrejtése a képernyőmentésen</string>
+    <string name="hide_status_bar_in_screenshot_summary">Az értesítési sáv nem látható a képernyőmentésen</string>
+    <!-- Wallpaper zoom -->
+    <string name="wallpaper_zoom_title">Háttérkép-zoomolás</string>
+    <string name="wallpaper_zoom_summary">Ha kikapcsolja, nem tud extrán belenagyítani a háttérképbe</string>
 </resources>
