@@ -92,10 +92,10 @@
             android:summary="@string/pif_spoof_signature_summary"
             android:defaultValue="false" />
 
-        <Preference
+        <com.android.settingslib.widget.ButtonPreference
             android:key="pif_reset_advanced"
             android:title="@string/pif_reset_advanced_title"
-            android:summary="@string/pif_reset_advanced_summary" />
+            android:icon="@drawable/ic_history" />
 
     </PreferenceCategory>
 

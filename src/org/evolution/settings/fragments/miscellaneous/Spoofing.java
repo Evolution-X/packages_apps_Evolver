@@ -28,6 +28,7 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settingslib.widget.ButtonPreference;
 
 import org.evolution.settings.utils.PreferenceUtils;
 
@@ -78,12 +79,11 @@ public class Spoofing extends SettingsPreferenceFragment implements
         mPhotosSpoof = initAppSpoof(mPhotosSpoof, PHOTOS_PACKAGE);
         mSnapchatSpoof = initAppSpoof(mSnapchatSpoof, SNAPCHAT_PACKAGE);
 
-        final Preference resetDefaults = findPreference(KEY_RESET_DEFAULTS);
+        final ButtonPreference resetDefaults = findPreference(KEY_RESET_DEFAULTS);
         if (resetDefaults != null) {
-            resetDefaults.setOnPreferenceClickListener(pref -> {
-                showResetDefaultsDialog();
-                return true;
-            });
+            resetDefaults.setButtonStyle(
+                    ButtonPreference.TYPE_TONAL, ButtonPreference.SIZE_NORMAL);
+            resetDefaults.setOnClickListener(v -> showResetDefaultsDialog());
         }
     }
 

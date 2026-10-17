@@ -23,6 +23,7 @@ import com.android.internal.logging.nano.MetricsProto
 import com.android.internal.util.evolution.PixelDeviceRepository
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
+import com.android.settingslib.widget.ButtonPreference
 import java.nio.charset.StandardCharsets
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -138,9 +139,9 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             }
         }
 
-        findPreference<Preference>("pif_reset_advanced")?.setOnPreferenceClickListener {
-            showResetAdvancedDialog()
-            true
+        findPreference<ButtonPreference>("pif_reset_advanced")?.apply {
+            setButtonStyle(ButtonPreference.TYPE_TONAL, ButtonPreference.SIZE_NORMAL)
+            setOnClickListener { showResetAdvancedDialog() }
         }
 
         refreshStatus()

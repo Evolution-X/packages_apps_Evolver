@@ -83,9 +83,8 @@
     </PreferenceCategory>
 
     <!-- Reset -->
-    <Preference
+    <com.android.settingslib.widget.ButtonPreference
         android:key="spoofing_reset_defaults"
         android:title="@string/spoofing_reset_defaults_title"
-        android:summary="@string/spoofing_reset_defaults_summary"
-        android:persistent="false" />
+        android:icon="@drawable/ic_history" />
 </PreferenceScreen>
