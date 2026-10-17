@@ -54,6 +54,10 @@ class FontsPickerPreference @JvmOverloads constructor(
 
     private val themeUtils = ThemeUtils.getInstance(context)
     private val pkgs: List<String> = themeUtils.getOverlayPackagesForCategory(CATEGORY, "android")
+        .let { all ->
+            val (default, rest) = all.partition { it == "android" }
+            default + rest.sortedBy { getLabelSafe(context, it).lowercase() }
+        }
 
     private var fontPickerLauncher: ActivityResultLauncher<Array<String>>? = null
     private var pendingCustomFontTypeface: Typeface? = null
