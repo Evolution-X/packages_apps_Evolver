@@ -132,6 +132,7 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
             KEY_USE_WALLPAPER -> {
                 val useWallpaper = newValue as Boolean
                 applyWallpaperColorsSetting(useWallpaper)
+                updateSeedColor()
                 updateSeedColorVisibility(useWallpaper)
                 return true
             }
@@ -185,18 +186,27 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
     // Seed colors live in a JSON blob, so the prefs are non-persistent and are
     // synced from it here without triggering the change listener.
     private fun updateSeedColor() {
-        seedColorPref.setColor(parseSeed("_base_seed_color", DEFAULT_SEED_COLOR))
+        // system_palette is what SystemUI actually themes from and can be written
+        // without _base_seed_color (hardware defaults, Wallpaper & style), so it wins.
+        seedColorPref.setColor(
+            parseSeed(
+                DEFAULT_SEED_COLOR,
+                "android.theme.customization.system_palette",
+                "_base_seed_color"
+            )
+        )
     }
 
     private fun updateSecondarySeedColor() {
         secondarySeedColorPref.setColor(
-            parseSeed("_secondary_seed_color", DEFAULT_SECONDARY_SEED_COLOR)
+            parseSeed(DEFAULT_SECONDARY_SEED_COLOR, "_secondary_seed_color")
         )
     }
 
-    private fun parseSeed(jsonKey: String, default: String): Int {
+    private fun parseSeed(default: String, vararg jsonKeys: String): Int {
         val stored = try {
-            getCurrentSettings().optString(jsonKey, "")
+            val json = getCurrentSettings()
+            jsonKeys.firstNotNullOfOrNull { key -> json.optString(key, "").ifEmpty { null } } ?: ""
         } catch (e: Exception) {
             ""
         }
@@ -254,9 +264,19 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
             } else {
                 json.put("android.theme.customization.color_source", "preset")
                 if (!json.has("_base_seed_color")) {
-                    json.put("_base_seed_color", "6750A4")
-                    json.put("android.theme.customization.system_palette", "6750A4")
-                    json.put("android.theme.customization.accent_color", "6750A4")
+                    // Start from the color the wallpaper currently produces
+                    // instead of a hardcoded default.
+                    val hex = try {
+                        String.format(
+                            "%06X",
+                            0xFFFFFF and requireContext().getColor(android.R.color.system_accent1_500)
+                        )
+                    } catch (e: Exception) {
+                        "6750A4"
+                    }
+                    json.put("_base_seed_color", hex)
+                    json.put("android.theme.customization.system_palette", hex)
+                    json.put("android.theme.customization.accent_color", hex)
                 }
             }
             applySettings(json)
