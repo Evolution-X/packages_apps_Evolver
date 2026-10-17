@@ -144,7 +144,7 @@ private fun GithubAvatarImage(
     AndroidView(
         factory = { ctx ->
             ImageView(ctx).apply {
-                scaleType = ImageView.ScaleType.CENTER_CROP
+                scaleType = ImageView.ScaleType.FIT_CENTER
             }
         },
         update = { imageView ->

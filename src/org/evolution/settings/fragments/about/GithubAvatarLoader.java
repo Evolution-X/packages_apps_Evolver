@@ -9,11 +9,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.AdaptiveIconDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.InsetDrawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -36,6 +38,9 @@ public class GithubAvatarLoader {
 
     private static final String TAG = "GithubAvatarLoader";
     private static final String AVATAR_URL = "https://github.com/%s.png?size=256";
+
+    /** (108dp canvas - 72dp visible area) / 2 / 108dp. */
+    private static final float ADAPTIVE_FOREGROUND_INSET = 1f / 6f;
 
     private static final String PREFS_NAME = "github_avatar_cache";
     private static final String KEY_HASH_PREFIX = "hash_";
@@ -164,20 +169,31 @@ public class GithubAvatarLoader {
         }
     }
 
+    /**
+     * An AdaptiveIconDrawable lays its layers out on a 108dp canvas but only shows
+     * the centered 72dp (2/3) through the mask, so a foreground that fills the canvas
+     * is zoomed in and loses the avatar's edges. Inset the foreground by 18dp/108dp
+     * (1/6) per side so the whole avatar lands inside the visible area.
+     */
     private Drawable buildAdaptiveAvatar(Context context, Bitmap bitmap) {
-        Bitmap square = centerCropSquare(bitmap);
-        Drawable fg = new BitmapDrawable(context.getResources(), square);
+        Drawable fg = new InsetDrawable(
+                new BitmapDrawable(context.getResources(), padToSquare(bitmap)),
+                ADAPTIVE_FOREGROUND_INSET);
         return new AdaptiveIconDrawable(
                 new ColorDrawable(Color.TRANSPARENT),
                 fg
         );
     }
 
-    private Bitmap centerCropSquare(Bitmap src) {
-        int size = Math.min(src.getWidth(), src.getHeight());
-        int left = (src.getWidth() - size) / 2;
-        int top = (src.getHeight() - size) / 2;
-        return Bitmap.createBitmap(src, left, top, size, size);
+    /** Pads (rather than crops) to a square so no part of the avatar is lost. */
+    private Bitmap padToSquare(Bitmap src) {
+        final int w = src.getWidth();
+        final int h = src.getHeight();
+        if (w == h) return src;
+        final int size = Math.max(w, h);
+        final Bitmap out = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+        new Canvas(out).drawBitmap(src, (size - w) / 2f, (size - h) / 2f, null);
+        return out;
     }
 
     private File getAvatarFile(Context context, String userKey) {
