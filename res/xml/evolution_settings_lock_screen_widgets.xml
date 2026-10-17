@@ -124,8 +124,10 @@
     
     </PreferenceCategory>
 
-    <com.android.settingslib.widget.LayoutPreference
+    <!-- ButtonPreference only supports start/center alignment, not end; the
+         button is start-aligned here instead of the original's right alignment. -->
+    <com.android.settingslib.widget.ButtonPreference
         android:key="apply_change_button"
-        android:layout="@layout/apply_change_button" />
+        android:title="@string/action_apply" />
 
 </PreferenceScreen>
