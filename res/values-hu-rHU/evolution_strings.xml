@@ -25,7 +25,7 @@
     <string name="about_summary">A ROM-unkról</string>
     <string name="gestures_category_title">Mozdulatvezérlés</string>
     <!-- Reorganized categories -->
-    <string name="themes_monet_colors_category">Monet &amp; Színek</string>
+    <string name="themes_monet_colors_category">Monet és Színek</string>
     <string name="themes_visual_effects_category">Vizuális effektek</string>
     <string name="lock_screen_clock_category">Óra</string>
     <string name="lock_screen_media_category">Média</string>
@@ -58,7 +58,7 @@
     <string name="boot_animation_no_preview">Nincs előnézeti kép</string>
     <string name="boot_animation_style_unknown">Ismeretlen</string>
     <!-- Themes/Monet Settings -->
-    <string name="monet_settings_title">Színbeállítások</string>
+    <string name="monet_settings_title">Szín-testreszabás</string>
     <string name="color_settings_category">Színbeállítások</string>
     <string name="advanced_settings_category">Speciális beállítások</string>
     <string name="use_wallpaper_colors_title">A háttérkép-szín használata</string>
@@ -69,7 +69,7 @@
     <string name="fidelity_desc">Pontosabban megőrzi az eredeti magszínt</string>
     <string name="contrast_level_title">Kontraszt-erősség</string>
     <string name="chroma_boost_title">Kroma-erősítés</string>
-    <string name="about_color_customization_title">A Színbeállításokról</string>
+    <string name="about_color_customization_title">A Szín-testreszabásról</string>
     <string name="about_color_customization_desc">A színváltozások rendszerszinten érvényesek minden olyan alkalmazásra, amely támogatja a Material You témát.\nEzen színek módosítása befolyásolhatja az alkalmazások megjelenését a készüléken.</string>
     <string name="wallpaper_seed_color_title">Választás a Háttérkképből</string>
     <string name="wallpaper_seed_color_desc">Színválasztás a jelenlegi háttérkép színeiből</string>
@@ -102,7 +102,7 @@
     <string name="tone_shift_dark_desc">Az összes sötét módú színt világosabbá (+) vagy sötétebbé (−) tétele, a kontraszttól függetlenül.</string>
     <!-- Secondary seed -->
     <string name="secondary_seed_category">Másodlagos magszín</string>
-    <string name="use_secondary_seed_title">A másodlagos mag engedélyezése</string>
+    <string name="use_secondary_seed_title">A másodlagos mag használata</string>
     <string name="use_secondary_seed_desc">Kéttónusú témákhoz külön kiindulási színből származtatja a másodlagos és harmadlagos színpalettákat.</string>
     <string name="secondary_seed_color_title">Másodlagos magszín</string>
     <!-- Lock screen -->
@@ -157,13 +157,10 @@
     <string name="pulse_height_multiplier_title">A pulzálás magassága</string>
     <string name="pulse_height_multiplier_summary">Beállíthatja a vizualizáció magasságát</string>
     <!-- Lockscreen Clock Highlight Guide -->
-    <string name="ls_clock_title">Záróképernyő-órák</string>
+    <string name="ls_clock_title">A záróképernyő órái</string>
     <string name="ls_clock_summary">Beállíthatja az óratílust és a kisalkalmazásokat</string>
     <string name="clock_styles_disclaimer_title">Mielőtt folytatná</string>
-    <string name="clock_styles_disclaimer_message">Ügyeljen a következőkre hogy az óraszámlapok és kisalkalmazások tökéletesen működjenek:\n\n• Kapcsolja ki a Smartspace-t a záróképernyőn\n• Kapcsolja ki az Időjárást a záróképernyőn\n• Kapcsolja ki a nagy órastílust a záróképernyőn\n\nEzeket a beállításokat a Záróképernyő beállításaiban találhatja meg.</string>
-    <!-- Lockscreen Clock Accent Color -->
-    <!-- Lockscreen Clock Opacity -->
-    <!-- Lock screen/Clock -->
+    <string name="clock_styles_disclaimer_message">Ügyeljen a következőkre hogy az óraszámlapok és widgetek tökéletese működjenek:\n\n• Kapcsolja ki a Smartspace-t a záróképernyőn\n• Kapcsolja ki az Időjárást a záróképernyőn\n• Kapcsolja ki a nagy órastílust a záróképernyőn\n\nEzeket a beállításokat a Záróképernyő beállításaiban találhatja meg.</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">Egyéni órastílus</string>
     <string name="lockscreen_custom_clock_style_summary">Itt állíthatja be a záróképernyő órastílusát</string>
@@ -200,8 +197,8 @@
     <string name="clock_album_art_color_summary">Zenelejátszás közben felülírja az óra színét a lemezborító színeivel</string>
     <!-- Lockscreen widgets -->
     <string name="lockscreen_widgets_title">Kisalkalmazások</string>
-    <string name="lockscreen_widgets_enabled_title">Kisalkalmazások engedélyezése a záróképernyőn</string>
-    <string name="lockscreen_widgets_enabled_summary">Új kisalkalmazás hozzáadása</string>
+    <string name="lockscreen_widgets_enabled_title">Kisalkalmazások használata a záróképernyőn</string>
+    <string name="lockscreen_widgets_enabled_summary">Új kisalkalmazás hozzáadása a záróképernyőhöz</string>
     <string name="lockscreen_display_widgets_title">Készülékinformáció kisalkalmazás</string>
     <string name="lockscreen_widgets_color_mode_title">Az alkalmazás színmódja</string>
     <string name="lockscreen_display_widgets_summary">Megjeleníti a készülékinfót a záróképernyőn</string>
@@ -307,11 +304,9 @@
     <string name="ambient_battery_cpu_battery_temperature_title">Akkumulátorszint, hőmérséklet (akkumulátor és CPU)</string>
     <string name="ambient_user_name_title">Felhasználónév</string>
     <string name="display_icon_title">Ikonok</string>
-    <string name="display_icon_summary">Ikonok megjelenítése a szint és a hőmérséklet mellett</string>
+    <string name="display_icon_summary">Ikon-megjelenítés a szint és a hőmérséklet mellett</string>
     <string name="ambient_wallpaper_title">Környezeti háttérkép</string>
     <string name="doze_always_on_wallpaper_summary">A záróképernyő háttérképének megjelenítése a környezeti kijelzőn</string>
-    <!-- Lock screen/Peek display -->
-    <!-- Lock screen/Now bar -->
     <!-- Lock screen/Scrim -->
     <string name="keyguard_scrim_transparent_title">a Záróképernyő átlátszó rétege</string>
     <string name="keyguard_scrim_transparent_summary">Elrejti a záróképernyő-háttérkép elmosott rétegét</string>
@@ -371,7 +366,7 @@ Beállítás:
     <!-- Status bar/Carrier -->
     <string name="status_bar_carrier_category_title">Szolgáltatói felirat</string>
     <string name="lockscreen_show_carrier_title">Szolgáltatónév megjelenítése</string>
-    <string name="carrier_show_lockscreen_only">Csak a záróképernyőn</string>
+    <string name="carrier_show_lockscreen_only">Csak a Záróképernyőn</string>
     <string name="carrier_show_statusbar_only">Csak az állapotsoron</string>
     <string name="carrier_show_both">Záróképernyőn és állapotsoron is</string>
     <string name="custom_carrier_label_title">Egyéni szolgáltatónév</string>
@@ -962,10 +957,10 @@ Beállítás:
     <string name="tensor_targets_none_configured">Nincs célzott alkalmazás</string>
     <string name="tensor_targets_count">%1$d célzott alkalmazés</string>
     <string name="tensor_targets_empty_description">A kiválasztott alkalmazások Tensor-hardver visszajelzést fognak küldeni az AI és a Pixel exkluzív funkcióinak feloldásához</string>
-    <string name="user_selectable_app_spoofing_title">Alkalmazás- és játékálcázás</string>
+    <string name="user_selectable_app_spoofing_title">Álcázás játékokhoz ésalkalmazásokhoz</string>
     <string name="user_selectable_app_spoofing_summary">Eszköztulajdonságok álcázása meghatározott alkalmazásokhoz és játékokhoz</string>
     <string name="user_select_spoofing_profile_title">Válasszon hamis profilt</string>
-    <string name="app_spoofing_header_title">Álcázás engedélyezése</string>
+    <string name="app_spoofing_header_title">Az \'Álcázás\' használata</string>
     <string name="app_spoofing_configured_count">%1$d alkalmazás és játék hamisítva</string>
     <string name="app_spoofing_disabled">Kikapcsolva</string>
     <string name="app_spoofing_add_apps">Alkalmazások és játékok hozzáadása</string>
@@ -998,7 +993,6 @@ Beállítás:
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_title">Alkalmazásonkénti érzékelőblokkolás</string>
     <string name="sensor_block_summary">Energiatakarékosság érdekében bizonyos érzékelők elérésének blokkolása a kiválasztott alkalmazásoknál</string>
-    <!-- Miscellaneous/Idle Manager -->
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrity javítás</string>
     <string name="play_integrity_fix_summary">A PIF-konfiguráció és az ujjlenyomatok kezelése az alapvető összhang érdekében</string>
@@ -1181,8 +1175,6 @@ Beállítás:
     <string name="video_wallpaper_category">Háttérkép testreszabása</string>
     <string name="video_wallpaper_category_title">Videós háttérkép</string>
     <string name="video_wallpaper_category_summary">Animált háttérképek beállítása (MP4, GIF, WebP)</string>
-    <!-- Haptics settings -->
-    <!-- Volume panel styles -->
     <!-- Gradient styles -->
     <string name="gradient_settings_title">Színátmenet testreszabása</string>
     <string name="gradient_settings_summary">Színátmenetek alkalmazása a rendszerelemeken</string>
@@ -1195,7 +1187,6 @@ Beállítás:
     <string name="custom_gradient_color_mode_custom">Egyéni</string>
     <string name="custom_gradient_start_color_title">Kezdőszín</string>
     <string name="custom_gradient_end_color_title">Zárószín</string>
-    <!-- Progress bar styles -->
     <!-- Fonts -->
     <string name="font_styles_title">Betűtípusok</string>
     <string name="font_styles_summary">A rendszer betűtípusának módosítása</string>
@@ -1238,7 +1229,6 @@ Beállítás:
     <string name="rainbow_color">Szivárvány</string>
     <string name="custom_color">Egyéni szín</string>
     <string name="custom_color_summary">Egyedi szín néhány órastílushoz</string>
-    <!-- Custom seekbar -->
     <!-- SystemUI restart dialog -->
     <string name="systemui_restart_title">SystemUI újraindítása</string>
     <string name="systemui_restart_message">A módosítások érvénybe lépéséhez újra kell indítani a SystemUI-t. Újraindítja most?</string>
@@ -1338,7 +1328,7 @@ Beállítás:
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Újratervezett kikapcsolómenü</string>
     <string name="global_actions_use_compose_dialog_summary">Új, testreszabható, húzható csempeelrendezésű kikapcsolómenü használata. A klasszikus menü használatához tiltsa le ezt az újat.</string>
-    <string name="global_actions_advanced_reboot_title">Speciális újraindítás bekapcsolása</string>
+    <string name="global_actions_advanced_reboot_title">A \'Speciális újraindítás\' használata</string>
     <string name="global_actions_advanced_reboot_summary">Felold egy új párbeszédpanelt, amely lehetővé teszi a speciális újraindítást</string>
     <!-- Screenshots -->
     <string name="screenshot_clipboard_only_title">Csak a vágólapra másolja</string>
