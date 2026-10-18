@@ -42,6 +42,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun WallpaperColorPickerDialog(
     onDismiss: () -> Unit,
@@ -178,7 +179,7 @@ fun WallpaperColorPickerDialog(
                             .height(300.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        CircularProgressIndicator()
+                        LoadingIndicator()
                     }
                 } else if (wallpaperBitmap != null) {
                     Box(

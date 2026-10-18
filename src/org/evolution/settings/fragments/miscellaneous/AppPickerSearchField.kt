@@ -5,28 +5,34 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
+import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
+import com.android.settingslib.spa.framework.theme.SettingsShape
 import com.android.settings.R
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun AppPickerSearchField(
     query: String,
     onQueryChange: (String) -> Unit,
     enabled: Boolean = true,
 ) {
-    OutlinedTextField(
+    val container = MaterialTheme.colorScheme.surfaceBright
+    TextField(
         value = query,
         onValueChange = onQueryChange,
         modifier = Modifier.fillMaxWidth(),
@@ -34,7 +40,7 @@ fun AppPickerSearchField(
         leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
         trailingIcon = {
             if (query.isNotEmpty()) {
-                IconButton(onClick = { onQueryChange("") }) {
+                IconButton(shapes = IconButtonDefaults.shapes(), onClick = { onQueryChange("") }) {
                     Icon(
                         Icons.Default.Close,
                         contentDescription = stringResource(R.string.common_clear_search),
@@ -43,7 +49,17 @@ fun AppPickerSearchField(
             }
         },
         singleLine = true,
-        shape = RoundedCornerShape(12.dp),
+        shape = SettingsShape.CornerFull,
         enabled = enabled,
+        colors = TextFieldDefaults.colors(
+            focusedContainerColor = container,
+            unfocusedContainerColor = container,
+            disabledContainerColor = container,
+            errorContainerColor = container,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
+            errorIndicatorColor = Color.Transparent,
+        ),
     )
 }

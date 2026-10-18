@@ -255,6 +255,7 @@ private fun PresetTab(selected: Color, onSelect: (Color) -> Unit) {
     }
 }
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun WallpaperTab(
     bitmap: Bitmap?,
@@ -280,7 +281,7 @@ private fun WallpaperTab(
             contentAlignment = Alignment.Center
         ) {
             when {
-                isLoading -> CircularProgressIndicator()
+                isLoading -> LoadingIndicator()
                 bitmap != null -> {
                     ImageColorPicker(
                         modifier = Modifier

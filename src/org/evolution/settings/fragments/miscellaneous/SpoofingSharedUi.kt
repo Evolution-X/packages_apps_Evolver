@@ -5,6 +5,8 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
+import androidx.compose.material3.Surface
+import androidx.compose.ui.text.style.TextOverflow
 import android.app.ActivityManager
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -36,14 +38,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.Badge
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LoadingIndicator
@@ -67,6 +66,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
 import com.android.settings.R
+import com.android.settingslib.spa.framework.theme.SettingsShape
+import com.android.settingslib.spa.framework.theme.SettingsSpace
 import java.util.Locale
 
 // ---------------------------------------------------------------------------
@@ -195,7 +196,7 @@ fun AppIconOrPlaceholder(
             modifier = Modifier
                 .size(sizeDp.dp)
                 .clip(RoundedCornerShape(cornerDp))
-                .background(MaterialTheme.colorScheme.surfaceVariant),
+                .background(MaterialTheme.colorScheme.surfaceContainerHighest),
         )
     }
 }
@@ -234,6 +235,19 @@ fun SystemAppBadge(
 // of this and is left as-is).
 // ---------------------------------------------------------------------------
 
+/**
+ * Checked: light primary track, dark thumb, light check. Derived from the primary/onPrimary pair so
+ * the icon always contrasts with the thumb in both light and dark themes.
+ */
+@Composable
+fun spoofingSwitchColors() = SwitchDefaults.colors(
+    checkedTrackColor = MaterialTheme.colorScheme.primary,
+    checkedBorderColor = MaterialTheme.colorScheme.primary,
+    checkedThumbColor = MaterialTheme.colorScheme.onPrimary,
+    checkedIconColor = MaterialTheme.colorScheme.primary,
+    uncheckedIconColor = MaterialTheme.colorScheme.surfaceContainerHighest,
+)
+
 @Composable
 fun CheckCloseSwitch(
     checked: Boolean,
@@ -254,12 +268,7 @@ fun CheckCloseSwitch(
                 modifier = Modifier.size(SwitchDefaults.IconSize),
             )
         },
-        colors = SwitchDefaults.colors(
-            checkedThumbColor = MaterialTheme.colorScheme.primary,
-            checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
-            checkedIconColor = MaterialTheme.colorScheme.onPrimary,
-            uncheckedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-        ),
+        colors = spoofingSwitchColors(),
     )
 }
 
@@ -284,27 +293,25 @@ fun SpoofingHeaderCard(
     icon: @Composable () -> Unit,
 ) {
     val haptic = LocalHapticFeedback.current
-    Card(
+    Surface(
         modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceBright,
-        ),
+        shape = SettingsShape.CornerLarge3,
+        color = MaterialTheme.colorScheme.surfaceBright,
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp),
+                .padding(SettingsSpace.small3),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Box(
                 modifier = Modifier
                     .size(48.dp)
-                    .clip(CircleShape)
+                    .clip(SettingsShape.CornerFull)
                     .background(
                         when (checked) {
                             true  -> MaterialTheme.colorScheme.primary
-                            false -> MaterialTheme.colorScheme.surfaceVariant
+                            false -> MaterialTheme.colorScheme.surfaceContainerHighest
                             null  -> MaterialTheme.colorScheme.primaryContainer
                         },
                     ),
@@ -312,12 +319,14 @@ fun SpoofingHeaderCard(
             ) {
                 icon()
             }
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(SettingsSpace.small1))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
                 Text(
                     text = subtitle,
@@ -326,8 +335,10 @@ fun SpoofingHeaderCard(
                 )
             }
             if (checked != null && onCheckedChange != null) {
+                Spacer(modifier = Modifier.width(SettingsSpace.extraSmall6))
                 Switch(
                     checked = checked,
+                    colors = spoofingSwitchColors(),
                     onCheckedChange = { newValue ->
                         if (hapticOnToggle) {
                             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
@@ -410,25 +421,23 @@ fun SpoofingEmptyState(
     description: String,
     modifier: Modifier = Modifier,
 ) {
-    Card(
+    Surface(
         modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
-        ),
+        shape = SettingsShape.CornerLarge1,
+        color = MaterialTheme.colorScheme.surfaceBright,
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(32.dp),
+                .padding(SettingsSpace.medium1),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall4),
         ) {
             Icon(
                 imageVector = icon,
                 contentDescription = null,
                 modifier = Modifier.size(48.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Text(
                 text = title,
@@ -438,35 +447,11 @@ fun SpoofingEmptyState(
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )
         }
     }
-}
-
-// ---------------------------------------------------------------------------
-// SectionLabel
-// The small coloured "CONFIGURED APPS" / "RECENT ACTIVITY" labels
-// used in multiple screens
-// ---------------------------------------------------------------------------
-
-@Composable
-fun SectionLabel(
-    text: String,
-    modifier: Modifier = Modifier,
-    includeBottomPadding: Boolean = true,
-) {
-    Text(
-        text = text,
-        style = MaterialTheme.typography.labelMedium,
-        color = MaterialTheme.colorScheme.primary,
-        fontWeight = FontWeight.Bold,
-        modifier = if (includeBottomPadding)
-            modifier.padding(start = 4.dp, bottom = 8.dp)
-        else
-            modifier.padding(start = 4.dp),
-    )
 }
 
 // ---------------------------------------------------------------------------
