@@ -24,13 +24,11 @@ import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,20 +41,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.outlined.Animation
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -79,7 +71,6 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -91,6 +82,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
 import kotlinx.coroutines.withContext
+import org.evolution.settings.fragments.miscellaneous.ExpressiveChoiceRow
+import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
+import org.evolution.settings.fragments.miscellaneous.ExpressiveGroup
+import org.evolution.settings.fragments.miscellaneous.expressiveVerticalScroll
 import org.evolution.settings.utils.BootAnimationUtils
 import java.io.File
 import java.io.FileOutputStream
@@ -262,7 +257,7 @@ private fun BootAnimationScreen(context: android.content.Context) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .verticalScroll(rememberScrollState()),
+                .expressiveVerticalScroll(),
         ) {
             // ── Preview card ─────────────────────────────────────────────────
             PreviewCard(
@@ -315,7 +310,7 @@ private fun PreviewCard(
 ) {
     Surface(
         modifier = modifier,
-        shape = RoundedCornerShape(28.dp),
+        shape = ExpressiveCorners.single,
         color = MaterialTheme.colorScheme.surfaceContainerHigh,
         tonalElevation = 0.dp,
     ) {
@@ -368,7 +363,7 @@ private fun PreviewCard(
                 modifier = Modifier
                     .fillMaxWidth(0.55f)        // narrow like a phone screen
                     .aspectRatio(9f / 16f)
-                    .clip(RoundedCornerShape(16.dp))
+                    .clip(ExpressiveCorners.preview)
                     .background(Color.Black),
                 contentAlignment = Alignment.Center,
             ) {
@@ -411,7 +406,7 @@ private fun PreviewCard(
 }
 
 // ---------------------------------------------------------------------------
-// Style selector — M3 list inside a card, radio buttons, no thumbnails
+// Style selector — Expressive group of choice rows with a thumbnail slot
 // ---------------------------------------------------------------------------
 
 @Composable
@@ -422,98 +417,22 @@ private fun StyleSelectorCard(
     onSelect: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Surface(
-        modifier = modifier,
-        shape = RoundedCornerShape(28.dp),
-        color = MaterialTheme.colorScheme.surfaceContainerHigh,
-        tonalElevation = 0.dp,
-    ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            styleNames.forEachIndexed { index, name ->
-                StyleListItem(
-                    name = name,
-                    isSelected = selectedIndex == index,
-                    isCustom = index == BootAnimationUtils.STYLE_CUSTOM,
-                    thumbnail = thumbnails[index],
+    ExpressiveGroup(title = "", modifier = modifier, horizontalInset = 0.dp) {
+        styleNames.forEachIndexed { index, name ->
+            item {
+                ExpressiveChoiceRow(
+                    title = name,
+                    selected = selectedIndex == index,
                     onClick = { onSelect(index) },
-                )
-                if (index < styleNames.lastIndex) {
-                    HorizontalDivider(
-                        modifier = Modifier.padding(horizontal = 16.dp),
-                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f),
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun StyleListItem(
-    name: String,
-    isSelected: Boolean,
-    isCustom: Boolean,
-    thumbnail: Drawable?,
-    onClick: () -> Unit,
-) {
-    val alpha by animateFloatAsState(
-        targetValue = if (isSelected) 1f else 0.85f,
-        label = "itemAlpha",
-    )
-
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(role = Role.RadioButton, onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 14.dp)
-            .alpha(alpha),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        // Leading thumbnail or folder icon — 40×40 with rounded corners
-        ThumbnailSlot(
-            thumbnail = thumbnail,
-            isCustom = isCustom,
-            isSelected = isSelected,
-        )
-
-        Spacer(modifier = Modifier.width(16.dp))
-
-        // Label
-        Text(
-            text = name,
-            style = MaterialTheme.typography.bodyLarge,
-            color = if (isSelected)
-                MaterialTheme.colorScheme.onSurface
-            else
-                MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.weight(1f),
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-        )
-
-        Spacer(modifier = Modifier.width(8.dp))
-
-        // Trailing: radio for unselected, filled check circle for selected
-        if (isSelected) {
-            Box(
-                modifier = Modifier
-                    .size(24.dp)
-                    .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.primary),
-                contentAlignment = Alignment.Center,
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Check,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimary,
-                    modifier = Modifier.size(14.dp),
+                    leading = {
+                        ThumbnailSlot(
+                            thumbnail = thumbnails[index],
+                            isCustom = index == BootAnimationUtils.STYLE_CUSTOM,
+                            isSelected = selectedIndex == index,
+                        )
+                    },
                 )
             }
-        } else {
-            RadioButton(
-                selected = false,
-                onClick = null, // handled by row
-            )
         }
     }
 }
@@ -532,7 +451,7 @@ private fun ThumbnailSlot(
     Box(
         modifier = Modifier
             .size(44.dp)
-            .clip(RoundedCornerShape(10.dp))
+            .clip(ExpressiveCorners.picker)
             .background(bgColor),
         contentAlignment = Alignment.Center,
     ) {
@@ -556,7 +475,7 @@ private fun ThumbnailSlot(
                 update = { it.setImageDrawable(thumbnail) },
                 modifier = Modifier
                     .fillMaxSize()
-                    .clip(RoundedCornerShape(10.dp)),
+                    .clip(ExpressiveCorners.picker),
             )
             else -> Icon(
                 imageVector = Icons.Outlined.Animation,

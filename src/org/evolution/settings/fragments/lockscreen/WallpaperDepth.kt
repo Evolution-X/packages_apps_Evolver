@@ -17,7 +17,6 @@ package org.evolution.settings.fragments.lockscreen
 
 import android.Manifest
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -42,6 +41,7 @@ import com.android.settingslib.search.SearchIndexable
 
 import java.io.File
 
+import org.evolution.settings.preferences.showConfirmDialog
 import org.evolution.settings.utils.ImageUtils
 import org.evolution.settings.utils.WallpaperSubjectExtractorService
 
@@ -183,12 +183,14 @@ class WallpaperDepth : SettingsPreferenceFragment(), Preference.OnPreferenceChan
     private fun confirmClearSubject() {
         val ctx = context ?: return
 
-        AlertDialog.Builder(ctx)
-            .setTitle(R.string.depthwall_clear_subject_title)
-            .setMessage(R.string.depthwall_clear_subject_confirm_message)
-            .setPositiveButton(android.R.string.ok) { _, _ -> clearSubject() }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
+        showConfirmDialog(
+            context = ctx,
+            title = ctx.getString(R.string.depthwall_clear_subject_title),
+            message = ctx.getString(R.string.depthwall_clear_subject_confirm_message),
+            confirmText = ctx.getString(android.R.string.ok),
+            dismissText = ctx.getString(android.R.string.cancel),
+            onConfirm = { clearSubject() },
+        )
     }
 
     private fun clearSubject() {

@@ -6,10 +6,8 @@
 package org.evolution.settings.fragments.statusbar;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,10 +15,7 @@ import android.os.UserHandle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.preference.Preference;
@@ -39,6 +34,7 @@ import java.util.List;
 import lineageos.preference.LineageSystemSettingListPreference;
 
 import org.evolution.settings.preferences.SystemSettingListPreference;
+import org.evolution.settings.preferences.ExpressiveDialogs;
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference;
@@ -435,37 +431,19 @@ public class StatusBar extends SettingsPreferenceFragment implements
         if (CUSTOM_CARRIER_LABEL.equals(preference.getKey())) {
             final ContentResolver resolver = getActivity().getContentResolver();
 
-            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-            alert.setTitle(R.string.custom_carrier_label_title);
-            alert.setMessage(R.string.custom_carrier_label_dialog_message);
-
-            LinearLayout container = new LinearLayout(getActivity());
-            container.setOrientation(LinearLayout.VERTICAL);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(55, 20, 55, 20);
-
-            final EditText input = new EditText(getActivity());
-            input.setText(TextUtils.isEmpty(mCustomCarrierText) ? "" : mCustomCarrierText);
-            input.setSelection(input.getText().length());
-            input.setLayoutParams(lp);
-            input.setGravity(Gravity.START | Gravity.TOP);
-            container.addView(input);
-            alert.setView(container);
-
-            alert.setPositiveButton(getString(android.R.string.ok),
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String value = input.getText().toString();
-                            Settings.System.putStringForUser(resolver,
-                                    CUSTOM_CARRIER_LABEL, value, UserHandle.USER_CURRENT);
-                            updateCustomCarrierTextSummary();
-                        }
+            ExpressiveDialogs.showTextInputDialog(
+                    getActivity(),
+                    getString(R.string.custom_carrier_label_title),
+                    getString(R.string.custom_carrier_label_dialog_message),
+                    TextUtils.isEmpty(mCustomCarrierText) ? "" : mCustomCarrierText,
+                    getString(android.R.string.ok),
+                    getString(android.R.string.cancel),
+                    true,
+                    value -> {
+                        Settings.System.putStringForUser(resolver,
+                                CUSTOM_CARRIER_LABEL, value, UserHandle.USER_CURRENT);
+                        updateCustomCarrierTextSummary();
                     });
-            alert.setNegativeButton(getString(android.R.string.cancel), null);
-            alert.show();
             return true;
         }
         if (preference == mLogoCustomImage) {

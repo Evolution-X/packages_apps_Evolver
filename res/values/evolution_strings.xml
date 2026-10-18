@@ -21,7 +21,7 @@
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_summary">Actions, lock screen</string>
     <string name="miscellaneous_title">Miscellaneous</string>
-    <string name="miscellaneous_summary">Spoofing, developer options</string>
+    <string name="miscellaneous_summary">Spoofing hub, developer options</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">About our ROM</string>
     <string name="gestures_category_title">Gestures</string>
@@ -528,6 +528,7 @@
     <!-- Custom image logo style -->
     <string name="status_bar_logo_custom_image_title">Select custom logo image</string>
     <string name="status_bar_logo_custom_image_pick_summary">Choose an image from gallery</string>
+    <string name="status_bar_logo_add">Add logo</string>
 
     <!-- Statusbar logo color -->
     <string name="status_bar_logo_color_title">Color</string>
@@ -604,6 +605,9 @@
     <string name="dynamic_bar_event_biometric">Biometric unlock</string>
     <string name="dynamic_bar_event_biometric_summary">Show chip on fingerprint or face unlock</string>
     <string name="dynamic_bar_guide_title">How to use Dynamic Bar</string>
+    <!-- Dynamic Bar guide: expanded timer demo labels -->
+    <string name="dynamic_bar_demo_running">Running</string>
+    <string name="dynamic_bar_demo_add_minute">+1 min</string>
     <string name="dynamic_bar_guide_chip">Events appear in the status bar for active events like recording, media playback, and timers</string>
     <string name="dynamic_bar_guide_swipe">When multiple events are active, swipe left or right on the chip to cycle through them</string>
     <string name="dynamic_bar_guide_expand">Tap a chip to expand it into a detailed card with controls and additional info</string>
@@ -934,7 +938,7 @@
     <string name="advanced_reboot_secured_summary">Display advanced restart options on the secure lock screen</string>
 
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">Spoofing</string>
+    <string name="miscellaneous_spoofing_category">Spoofing hub</string>
     <string name="miscellaneous_developer_options_category">Developer options</string>
     <string name="miscellaneous_app_downgrade_title">Allow app downgrade</string>
     <string name="miscellaneous_app_downgrade_summary">Allow downgrading system apps. This may cause crashes and data loss.</string>
@@ -964,9 +968,9 @@
     <string name="smart_pixels_percent">Percentage of pixels to disable</string>
 
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Spoofing</string>
-    <string name="spoofing_summary">Play Integrity, device identity, and feature spoofing</string>
-    <string name="spoofing_integrity_category">Play Integrity</string>
+    <string name="spoofing_title">Spoofing hub</string>
+    <string name="spoofing_summary">Play Integrity Fix, device identity, and feature spoofing</string>
+    <string name="spoofing_integrity_category">Play Integrity Fix</string>
     <string name="spoofing_identity_category">Device identity</string>
     <string name="spoofing_features_category">Hardware features</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
@@ -978,13 +982,12 @@
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
     <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
     <string name="spoofing_reset_defaults_title">Reset to defaults</string>
-    <string name="spoofing_reset_defaults_summary">Restore Play Integrity, target list, patch level and GameProps to defaults. Your keybox is kept</string>
     <string name="spoofing_reset_defaults_dialog_title">Reset spoofing settings?</string>
     <string name="spoofing_reset_defaults_dialog_message">This clears the Play Integrity config, security patch override and GameProps config, and restores the default TrickyStore target list. Your keybox is kept. Play Integrity and the patch level are fetched again shortly afterwards. Enable toggles are not changed.</string>
     <string name="spoofing_reset_defaults_confirm">Reset</string>
     <string name="spoofing_reset_defaults_done">Spoofing settings reset</string>
-    <string name="tensor_spoof_title">Tensor feature targets</string>
-    <string name="tensor_spoof_summary">Grant selected apps access to Pixel Tensor-exclusive AI features</string>
+    <string name="tensor_spoof_title">Tensor spoofing</string>
+    <string name="tensor_spoof_summary">Grant selected apps access to Pixel Tensor-exclusive features</string>
     <string name="tensor_spoof_enable">Tensor spoofing</string>
     <string name="tensor_targets_none_configured">No apps targeted</string>
     <string name="tensor_targets_count">%1$d apps targeted</string>
@@ -1030,37 +1033,25 @@
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrity Fix</string>
     <string name="play_integrity_fix_summary">Manage PIF configuration and device fingerprints for basic integrity</string>
-    <string name="pif_status">Status</string>
     <string name="pif_active_config">Active configuration</string>
     <string name="pif_no_config">No configuration loaded</string>
-    <string name="pif_config_loaded">Configuration loaded</string>
     <string name="pif_fetch_pixel_beta">Fetch Pixel Canary fingerprint</string>
-    <string name="pif_fetch_pixel_beta_summary">Download the latest Pixel Canary fingerprint from Google</string>
-    <string name="pif_fetching">Fetching from Google\u2026</string>
     <string name="pif_fetched_model">Fetched fingerprint for %s</string>
-    <string name="pif_import_config">Import configuration</string>
-    <string name="pif_import_config_summary">Import a PIF config from a file</string>
     <string name="pif_imported_as">Imported as %s</string>
-    <string name="pif_delete_config">Delete active configuration</string>
-    <string name="pif_delete_config_summary">Remove the currently active configuration file</string>
     <string name="pif_delete_title">Delete %s?</string>
     <string name="pif_delete_message">This configuration file will be permanently removed.</string>
     <string name="pif_wipe_playstore_title">Clear Play Store data?</string>
     <string name="pif_wipe_playstore_message">Applying this fingerprint works best with a fresh Play Store session. Clear Play Store app data now? This will sign you out and clear its local cache and download queue.</string>
     <string name="pif_wipe_confirm">Clear data</string>
     <string name="pif_deleted">Deleted %s</string>
-    <string name="pif_config_details">Configuration details</string>
     <string name="pif_failed">Failed: %s</string>
     <string name="pif_select_device">Select device</string>
     <string name="pif_recommended_suffix">Recommended</string>
-    <string name="pif_generating">Generating configuration\u2026</string>
-    <string name="pif_footer_title">Passing basic integrity</string>
     <string name="pif_footer_body">A Canary fingerprint is checked at most once a day and replaced automatically once it is within about two weeks of expiring. Canary configs expire roughly 6 weeks from their release date — the expiry is shown in the active config summary.\n\nFor manual setup:\n1. Tap "Fetch Pixel Canary fingerprint" and select a device.\n2. If no devices are found, import a working PIF config from a trusted source. Config files are not provided.\n3. Recheck your Play Integrity status.\n\nAlways delete the active configuration before importing a new one. Loading an expired PIF config will cause TrickyStore strong integrity to fail even with a valid keybox.\n\nAdvanced spoofing:\n• Play Store fingerprint spoof — leave disabled unless advised otherwise. Spoofing FINGERPRINT to Play Store is rarely needed and may cause issues.\n• Spoof SDK to Play Store — presents SDK 32 to the Play Store to force the legacy pre-Android 13 verdict path. It can break Play Store behavior, so leave it off unless testing.\n• Spoof build fields and system properties — leave on. They present the fingerprint to DroidGuard.\n• Spoof keystore provider — keep off when a keybox is in use, since it bypasses keybox attestation.\n• Spoof ROM signature — experimental.</string>
     <string name="pif_invalid_fingerprint">Invalid fingerprint format</string>
     <string name="pif_no_devices_found">No devices found</string>
     <string name="pif_advanced_settings">Advanced spoofing</string>
     <string name="pif_spoof_vending_finger_title">Play Store fingerprint spoof</string>
-    <string name="pif_spoof_vending_finger_summary">Controls which FINGERPRINT is presented to the Play Store process</string>
     <string name="pif_spoof_vending_sdk_title">Spoof SDK to Play Store</string>
     <string name="pif_spoof_vending_sdk_summary">Present SDK 32 to the Play Store to force the legacy &lt;A13 verdict path. Never raised above the real SDK. Can break Play Store behavior, so leave off unless testing</string>
     <string name="pif_vending_finger_custom_summary">Custom fingerprint: %1$s</string>
@@ -1073,19 +1064,22 @@
     <string name="pif_spoof_signature_title">Spoof ROM signature</string>
     <string name="pif_spoof_signature_summary">Experimental. Work around the test-key ROM ban for DroidGuard</string>
     <string name="pif_reset_advanced_title">Reset advanced spoofing</string>
-    <string name="pif_reset_advanced_summary">Restore the default value of every switch above. The fingerprint is kept</string>
     <string name="pif_reset_advanced_message">Reset all advanced spoofing options to their defaults? The current fingerprint is kept.</string>
     <string name="pif_vending_finger_disabled">Disabled (default)</string>
     <string name="pif_vending_finger_same">Same as DroidGuard fingerprint</string>
+    <string name="pif_fingerprint_spoofing">Spoofing</string>
+    <string name="pif_active_model">Active: %1$s</string>
+    <string name="pif_canary_fingerprint">Canary fingerprint</string>
+    <string name="pif_patch_age">Patch %1$s \u00b7 %2$dd old</string>
+    <string name="pif_days_left">%1$dd left</string>
+    <string name="pif_expired">Expired</string>
+    <string name="pif_vending_finger_custom_clear_hint">Tap to turn off</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Manage keybox and target apps for strong integrity attestation</string>
     <string name="ts_keybox_management">Keybox management</string>
-    <string name="ts_import_keybox">Import keybox</string>
     <string name="ts_no_keybox">No keybox installed</string>
     <string name="ts_keybox_installed">Keybox installed</string>
     <string name="ts_keybox_imported">Keybox imported successfully</string>
-    <string name="ts_delete_keybox">Delete keybox</string>
-    <string name="ts_delete_keybox_summary">Remove the keybox file</string>
     <string name="ts_delete_keybox_title">Delete keybox?</string>
     <string name="ts_delete_keybox_message">The keybox file will be permanently removed.</string>
     <string name="ts_keybox_deleted">Keybox deleted</string>
@@ -1099,8 +1093,7 @@
     <string name="ts_invalid_patch_date">Invalid date format. Use YYYY-MM-DD</string>
     <string name="ts_target_list_imported">Target list imported</string>
     <string name="ts_failed">Failed: %s</string>
-    <string name="ts_footer_title">Passing strong integrity</string>
-    <string name="ts_footer_body">A keybox is fetched and kept valid automatically. The revocation status is checked every 24 hours, and a new keybox is fetched from the official source if the current one is revoked or suspended.\n\nFor manual setup:\n1. Tap \"Fetch official keybox\" to download one automatically, or import your own from a trusted source.\n2. Open \"Manage target apps\" and select the apps that require integrity checks.\n3. Set target mode to \"Leaf\" if your device has a working TEE; otherwise leave it as Auto.\n4. Recheck your Play Integrity status.\n\nNote: If no valid official keybox is available, auto-fetch is paused for 24 hours before retrying. Always delete the existing keybox before importing a new one.</string>
+    <string name="ts_footer_body">A keybox is fetched and kept valid automatically. The revocation status is checked every 24 hours, and a new keybox is fetched from the official source if the current one is revoked or suspended.\n\nFor manual setup:\n1. Tap \"Fetch latest keybox\" to download one automatically, or import your own from a trusted source.\n2. Open \"Manage target apps\" and select the apps that require integrity checks.\n3. Set target mode to \"Leaf\" if your device has a working TEE; otherwise leave it as Auto.\n4. Recheck your Play Integrity status.\n\nNote: If no valid latest keybox is available, auto-fetch is paused for 24 hours before retrying. Always delete the existing keybox before importing a new one.</string>
     <string name="ts_patch_date_hint" translatable="false">e.g. 2026-07-05, YYYY-MM-05, or per-package blocks</string>
     <string name="ts_patch_stale_warning">%1$s (stale, 12+ months old)</string>
     <string name="ts_security_patch">Security patch date</string>
@@ -1114,10 +1107,10 @@
     <string name="ts_verification_auto_count">%1$d auto</string>
     <string name="ts_verification_cert_count">%1$d cert</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
-    <string name="ts_fetch_keybox">Fetch official keybox</string>
+    <string name="ts_fetch_keybox">Fetch latest keybox</string>
     <string name="ts_fetch_keybox_summary">Download keybox from Evolution X servers</string>
     <string name="ts_fetch_keybox_fetching">Fetching keybox…</string>
-    <string name="ts_fetch_keybox_success">Official keybox fetched successfully</string>
+    <string name="ts_fetch_keybox_success">Latest keybox fetched successfully</string>
     <string name="ts_fetch_keybox_failed">Fetch failed: %s</string>
     <string name="ts_fetch_keybox_same_file">Keybox is already up to date</string>
     <string name="ts_fetch_keybox_blocked">Your keybox is valid — no fetch needed</string>
@@ -1127,12 +1120,12 @@
 
     <!-- Keybox info row -->
     <string name="ts_chain_invalid_title">Invalid certificate chain</string>
-    <string name="ts_chain_invalid_message">The keybox certificate chain is invalid or could not be verified. It may be corrupted or tampered with. Would you like to replace it with the official keybox?</string>
+    <string name="ts_chain_invalid_message">The keybox certificate chain is invalid or could not be verified. It may be corrupted or tampered with. Would you like to replace it with the latest keybox?</string>
     <string name="ts_expiring_soon_title">Keybox expiring soon</string>
-    <string name="ts_expiring_soon_message">This keybox\'s certificate expires on %1$s. It currently passes integrity but will stop working after expiry. Replace it now with the official keybox?</string>
+    <string name="ts_expiring_soon_message">This keybox\'s certificate expires on %1$s. It currently passes integrity but will stop working after expiry. Replace it now with the latest keybox?</string>
     <string name="ts_expiry_unknown">unknown expiry</string>
     <string name="ts_untrusted_root_title">Unrecognized keybox root</string>
-    <string name="ts_untrusted_root_message">This keybox has a certificate chain rooted at an authority not recognized by Evolution X. It may still pass Strong Integrity on some devices. Keep it installed or replace it with the official keybox?</string>
+    <string name="ts_untrusted_root_message">This keybox has a certificate chain rooted at an authority not recognized by Evolution X. It may still pass Strong Integrity on some devices. Keep it installed or replace it with the latest keybox?</string>
     <string name="ts_untrusted_root_keep">Keep</string>
     <string name="ts_untrusted_root_replace">Replace</string>
 
@@ -1151,6 +1144,12 @@
     <string name="ts_revocation_not_yet_checked">Not yet checked — tap to verify now</string>
 
     <!-- Toasts for new auto-replace triggers -->
+    <string name="ts_chip_valid">Valid</string>
+    <string name="ts_chip_expiring">Expiring</string>
+    <string name="ts_chip_invalid">Invalid chain</string>
+    <string name="ts_chip_unknown_root">Unknown root</string>
+    <string name="ts_chip_checking">Checking</string>
+    <string name="ts_chip_unchecked">Not checked</string>
     <string name="ts_fetch_keybox_revoked_refetch">Keybox revoked, fetching a newer one…</string>
     <string name="ts_fetch_keybox_suspended_refetch">Keybox suspended, fetching a newer one…</string>
 
@@ -1196,6 +1195,20 @@
     <string name="lock_glymps_advanced_category">Advanced</string>
     <string name="lock_glymps_clear_cache_title">Clear cache</string>
     <string name="lock_glymps_clear_cache_summary">Remove all cached wallpapers</string>
+    <string name="lock_glymps_folder_dialog_title">Local Wallpaper Folder</string>
+    <string name="lock_glymps_folder_missing_message">Folder does not exist yet.\n\nLocation: %1$s\n\nWould you like to create it?</string>
+    <string name="lock_glymps_folder_create">Create Folder</string>
+    <string name="lock_glymps_folder_created">Folder created: %1$s</string>
+    <string name="lock_glymps_folder_create_failed">Failed to create folder</string>
+    <string name="lock_glymps_folder_info_message">Folder location: %1$s\n\nWallpapers found: %2$d\n\nSupported formats: JPG, PNG, WEBP\n\nPlace your wallpaper images in this folder and they will be used randomly.</string>
+    <string name="lock_glymps_custom_urls_dialog_title">Custom Wallpaper URLs</string>
+    <string name="lock_glymps_custom_urls_dialog_message">Enter direct image URLs, one per line</string>
+    <string name="lock_glymps_custom_urls_hint">https://example.com/image1.jpg\nhttps://example.com/image2.png</string>
+    <string name="lock_glymps_custom_urls_saved">Custom URLs saved</string>
+    <string name="lock_glymps_clear_cache_dialog_title">Clear Cache</string>
+    <string name="lock_glymps_clear_cache_dialog_message">This will delete all cached wallpapers and they will be re-downloaded. Continue?</string>
+    <string name="lock_glymps_clear_cache_confirm">Clear</string>
+    <string name="lock_glymps_cache_cleared">Cache cleared. New wallpapers will be downloaded.</string>
     <string name="lock_glymps_behavior_category">Behavior</string>
     <string name="lock_glymps_change_on_title">Change wallpaper on</string>
     <string name="lock_glymps_change_on_summary">When to change the wallpaper</string>
@@ -1291,6 +1304,19 @@
     <string name="color_picker_hex" translatable="false">HEX</string>
     <string name="color_picker_argb" translatable="false">ARGB</string>
     <string name="color_picker_reset">Reset to default</string>
+    <string name="color_picker_apply">Apply</string>
+    <string name="color_picker_clock_title">Clock Color</string>
+    <string name="color_picker_tab_preset">Preset</string>
+    <string name="color_picker_tab_image">Image</string>
+    <string name="color_picker_tab_custom">Custom</string>
+    <string name="color_picker_import_gallery">Import from Gallery</string>
+    <string name="color_picker_import_image">Import Image</string>
+    <string name="color_picker_selected_color">Selected Color</string>
+    <string name="color_picker_title_image">Pick Color from Image</string>
+    <string name="color_picker_title_wallpaper">Pick Color from Wallpaper</string>
+    <string name="color_picker_wallpaper_error">Unable to load wallpaper</string>
+    <string name="color_picker_hint_image">Tap the image to pick a color</string>
+    <string name="color_picker_hint_wallpaper">Tap the wallpaper to pick a color</string>
     <string name="accent_color">Accent color</string>
     <string name="notification_color">Notification color</string>
     <string name="wallpaper_color">Wallpaper color</string>
@@ -1313,6 +1339,7 @@
     <string name="action_enable">Enable</string>
     <string name="action_apply">Apply</string>
     <string name="action_delete">Delete</string>
+    <string name="action_import">Import</string>
     <string name="action_yes">Yes</string>
     <string name="action_reset">Reset</string>
     <string name="action_search_apps">Search apps</string>

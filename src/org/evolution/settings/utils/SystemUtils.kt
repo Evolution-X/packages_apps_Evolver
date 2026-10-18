@@ -29,10 +29,23 @@ import androidx.appcompat.app.AlertDialog
 import com.android.settings.R
 import com.android.internal.util.evolution.Utils
 
+import org.evolution.settings.preferences.showChoiceDialog
+
 object SystemUtils {
 
     @JvmStatic
     fun showSystemUiRestartDialog(context: Context) {
+        val shown = context.showChoiceDialog(
+            title = context.getString(R.string.systemui_restart_title),
+            message = context.getString(R.string.systemui_restart_message),
+            confirmText = context.getString(R.string.action_yes),
+            laterText = context.getString(R.string.systemui_restart_not_now),
+            onConfirm = { restartSystemUI(context) },
+            onLater = {},
+        )
+        if (shown != null) return
+
+        // No activity behind the context, so there is no window to host the Compose dialog.
         AlertDialog.Builder(context)
             .setTitle(R.string.systemui_restart_title)
             .setMessage(R.string.systemui_restart_message)
