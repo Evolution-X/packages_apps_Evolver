@@ -81,7 +81,7 @@
         android:title="@string/quick_settings_brightness_slider_category">
 
         <!-- Brightness slider -->
-        <lineageos.preference.LineageSecureSettingListPreference
+        <org.evolution.settings.preferences.LineageSecureSettingPickerListPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/quick_settings_show_brightness_slider_title"
             android:entries="@array/quick_settings_show_brightness_slider_entries"
@@ -105,7 +105,7 @@
             android:defaultValue="0" />
 
         <!-- Brightness slider position -->
-        <lineageos.preference.LineageSecureSettingListPreference
+        <org.evolution.settings.preferences.LineageSecureSettingPickerListPreference
             android:key="qs_brightness_slider_position"
             android:title="@string/quick_settings_brightness_slider_position_title"
             android:entries="@array/quick_settings_brightness_slider_position_entries"

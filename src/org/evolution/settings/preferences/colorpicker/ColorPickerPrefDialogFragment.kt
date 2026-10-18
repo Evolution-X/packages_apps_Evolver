@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
-import com.android.settingslib.spa.framework.theme.SettingsTheme
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTheme
 import org.evolution.settings.utils.PreferenceColorPickerDialog
 
 /**
@@ -40,7 +40,7 @@ class ColorPickerPrefDialogFragment : DialogFragment() {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                SettingsTheme {
+                ExpressiveTheme {
                     PreferenceColorPickerDialog(
                         title = title,
                         initialColor = initialColor,

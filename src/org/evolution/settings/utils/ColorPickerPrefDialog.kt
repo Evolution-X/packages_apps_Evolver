@@ -9,7 +9,6 @@ import android.graphics.Color as AndroidColor
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -21,9 +20,13 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
 import com.android.settings.R
 import com.github.skydoves.colorpicker.compose.*
+import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
+import org.evolution.settings.fragments.miscellaneous.ExpressiveDialog
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTextButton
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTextField
+import org.evolution.settings.fragments.miscellaneous.expressiveVerticalScroll
 
 private fun toHex(argb: Int, withAlpha: Boolean): String =
     if (withAlpha) String.format("%08X", argb)
@@ -51,32 +54,22 @@ fun PreferenceColorPickerDialog(
     val controller = rememberColorPickerController()
     val expectedLength = if (alphaEnabled) 8 else 6
 
-    Dialog(onDismissRequest = onDismiss) {
-        Surface(
-            shape = RoundedCornerShape(28.dp),
-            color = MaterialTheme.colorScheme.surface,
-            tonalElevation = 6.dp
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(24.dp)
-                    .width(320.dp)
-            ) {
-                if (!title.isNullOrEmpty()) {
-                    Text(
-                        text = title,
-                        style = MaterialTheme.typography.headlineSmall,
-                        modifier = Modifier.padding(bottom = 12.dp)
-                    )
-                }
-
+    ExpressiveDialog(
+        onDismissRequest = onDismiss,
+        title = if (!title.isNullOrEmpty()) {
+            { Text(text = title, style = MaterialTheme.typography.headlineSmall) }
+        } else {
+            null
+        },
+        text = {
+            Column(modifier = Modifier.expressiveVerticalScroll()) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(48.dp)
-                        .clip(RoundedCornerShape(12.dp))
+                        .clip(ExpressiveCorners.picker)
                         .background(Color(selectedArgb))
-                        .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp))
+                        .border(1.dp, MaterialTheme.colorScheme.outline, ExpressiveCorners.picker)
                 )
 
                 Spacer(Modifier.height(16.dp))
@@ -85,7 +78,7 @@ fun PreferenceColorPickerDialog(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(180.dp)
-                        .clip(RoundedCornerShape(12.dp)),
+                        .clip(ExpressiveCorners.picker),
                     controller = controller,
                     initialColor = pickerStart,
                     onColorChanged = { envelope ->
@@ -103,7 +96,7 @@ fun PreferenceColorPickerDialog(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(32.dp)
-                        .clip(RoundedCornerShape(8.dp)),
+                        .clip(ExpressiveCorners.picker),
                     controller = controller,
                     initialColor = pickerStart
                 )
@@ -114,7 +107,7 @@ fun PreferenceColorPickerDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(32.dp)
-                            .clip(RoundedCornerShape(8.dp)),
+                            .clip(ExpressiveCorners.picker),
                         controller = controller,
                         tileOddColor = Color.White,
                         tileEvenColor = Color.LightGray,
@@ -124,7 +117,7 @@ fun PreferenceColorPickerDialog(
 
                 Spacer(Modifier.height(16.dp))
 
-                OutlinedTextField(
+                ExpressiveTextField(
                     value = hex,
                     onValueChange = { input ->
                         val cleaned = input.replace("#", "").uppercase()
@@ -144,38 +137,27 @@ fun PreferenceColorPickerDialog(
                             }
                         }
                     },
-                    label = {
-                        Text(
-                            stringResource(
-                                if (alphaEnabled) R.string.color_picker_argb
-                                else R.string.color_picker_hex
-                            )
-                        )
-                    },
-                    prefix = { Text("#") },
+                    label = stringResource(
+                        if (alphaEnabled) R.string.color_picker_argb
+                        else R.string.color_picker_hex
+                    ),
+                    leadingIcon = { Text("#") },
                     isError = hexError,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
                 )
-
-                Spacer(Modifier.height(20.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End
-                ) {
-                    TextButton(onClick = onDismiss) {
-                        Text(stringResource(android.R.string.cancel))
-                    }
-                    Spacer(Modifier.width(8.dp))
-                    Button(onClick = {
-                        val out = if (alphaEnabled) selectedArgb
-                                  else selectedArgb or 0xFF000000.toInt()
-                        onColorSelected(out)
-                    }) { Text(stringResource(android.R.string.ok)) }
-                }
             }
-        }
-    }
+        },
+        confirmButton = {
+            ExpressiveTextButton(onClick = {
+                val out = if (alphaEnabled) selectedArgb
+                          else selectedArgb or 0xFF000000.toInt()
+                onColorSelected(out)
+            }) { Text(stringResource(android.R.string.ok)) }
+        },
+        dismissButton = {
+            ExpressiveTextButton(onClick = onDismiss) {
+                Text(stringResource(android.R.string.cancel))
+            }
+        },
+    )
 }

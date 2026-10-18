@@ -21,6 +21,8 @@ import com.android.settings.deviceinfo.DeviceNameUtils
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.search.SearchIndexable
 
+import org.evolution.settings.preferences.PickerOption
+import org.evolution.settings.preferences.showPickerDialog
 import org.evolution.settings.utils.HttpCachePrefs
 import org.evolution.settings.utils.NetworkUtils
 import org.evolution.settings.utils.UrlUtils
@@ -261,16 +263,14 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
     private fun showMaintainerLinkDialog(name: String, githubUrl: String, donateUrl: String) {
         if (!isUiSafe()) return
-        val items = arrayOf<CharSequence>(
-            getString(R.string.maintainer_link_github),
-            getString(R.string.maintainer_link_donate),
+        val options = listOf(
+            PickerOption(getString(R.string.maintainer_link_github)),
+            PickerOption(getString(R.string.maintainer_link_donate)),
         )
-        android.app.AlertDialog.Builder(requireContext())
-            .setTitle(name)
-            .setItems(items) { _, which ->
-                if (which == 0) openUrl(githubUrl) else openUrl(donateUrl)
-            }
-            .show()
+        requireContext().showPickerDialog(name, options, selectedIndex = -1) { which ->
+            openUrl(if (which == 0) githubUrl else donateUrl)
+            true
+        }
     }
 
     private fun openUrl(url: String) {

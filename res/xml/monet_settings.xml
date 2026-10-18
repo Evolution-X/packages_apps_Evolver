@@ -47,7 +47,7 @@
             android:summary="@string/wallpaper_seed_color_desc"
             android:persistent="false" />
 
-        <ListPreference
+        <org.evolution.settings.preferences.PickerListPreference
             android:key="theme_style"
             android:title="@string/theme_style_title"
             android:summary="%s"
