@@ -16,7 +16,7 @@
     <string name="status_bar_summary">Жести, значки, логотип, відступи</string>
     <string name="quick_settings_title">Швидкі налаштування</string>
     <string name="quick_settings_summary">Інтерфейс, повзунок яскравості, макет</string>
-    <string name="notifications_summary">Спливаючі сповіщення, підсвітка країв, звуки</string>
+    <string name="notifications_summary">Вспливаючі сповіщення, прозорість інтерфейсу, звуки</string>
     <string name="power_menu_title">Меню живлення</string>
     <string name="power_menu_summary">Дії, екран блокування</string>
     <string name="miscellaneous_title">Різне</string>
@@ -254,27 +254,12 @@
     <string name="aod_brightness_title">AOD яскравість</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Зараз грає</string>
-    <string name="nowplaying_summary">Показувати поточну інформацію про музику на екрані блокування та на AOD</string>
-    <string name="nowplaying_color_mode_title">Кольоровий режим тексту</string>
-    <string name="nowplaying_track_text_size_title">Розмір заголовку пісні</string>
-    <string name="nowplaying_track_text_size_summary">Розмір заголовка треку</string>
-    <string name="nowplaying_artist_text_size_title">Розмір імені виконавця</string>
-    <string name="nowplaying_artist_text_size_summary">Розмір тексту назви виконавця або альбому</string>
-    <string name="nowplaying_display_title">Варіанти відображення</string>
-    <string name="nowplaying_show_on_lockscreen_title">Показати на екрані блокування</string>
-    <string name="nowplaying_show_on_lockscreen_summary">Показати інформацію про музику, коли пристрій заблоковано</string>
-    <string name="nowplaying_icon_style_title">Стиль піктограм</string>
-    <string name="nowplaying_icon_style_summary">Виберіть, які дії відображаються</string>
-    <string name="nowplaying_icon_size_title">Розмір іконок</string>
-    <string name="nowplaying_icon_size_summary">Регулювання розміру іконки</string>
-    <string name="nowplaying_show_on_aod_title">Показувати на завжди ввімкненому дисплеї</string>
-    <string name="nowplaying_show_on_aod_summary">Показати інформацію про музику на Ambient Display</string>
-    <string name="nowplaying_info_summary">Тепер гра показує поточний трек і художника на екрані блокування і завжди на дисплеї. Автоматично з\'являється, коли музика відтворюється і приховується, коли зупинено. Положення визначається зверху в нижній частині екрану.</string>
-    <string name="nowplaying_expand_dialog">Розгорнути діалог</string>
-    <string name="nowplaying_expand_dialog_summary">Розгорнути діалог «Зараз грає»</string>
+    <string name="nowplaying_summary">Слухати музику біля телефону і показати пісню на екрані блокування і AOD за замовчуванням.</string>
+    <string name="nowplaying_on_demand_title">Ярлик на вимогу</string>
+    <string name="nowplaying_on_demand_summary">Показувати іконку пошуку на екрані блокування. Довге натискання починається пошук.</string>
     <string name="nowplaying_lyrics_mode_title">Режим текстів</string>
-    <string name="nowplaying_lyrics_mode_summary">Показати тексти пісень замість назви та значка</string>
-    <string name="nowplaying_pixel_native_footer">Цей пристрій вже надає налаштування відтворення зараз через Ambient Display Pixel. Ці параметри недоступні при активній вбудованій версії.</string>
+    <string name="nowplaying_lyrics_mode_summary">Показати синхронізовані тексти музики, що грає на цьому телефоні на екрані блокування</string>
+    <string name="nowplaying_pixel_native_summary">Цей пристрій вже забезпечує функцію «Зараз грає» завдяки індикації навколишнього середовища Pixel</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Налаштування погоди</string>
     <string name="weather_settings_summary">Налаштуйте пакет значків та службу погоди</string>
@@ -1217,6 +1202,7 @@
     <string name="changelog_summary">Переглянути зміни в джерелі прошивки</string>
     <string name="changelog_error_no_official">Немає офіційного списку змін для цього пристрою чи збірки. Відвідайте %1$s для отримання додаткової інформації.</string>
     <!-- Color picker -->
+    <string name="color_picker_reset">Скинути до стандартних</string>
     <string name="accent_color">Колір акценту</string>
     <string name="notification_color">Колір сповіщення</string>
     <string name="wallpaper_color">Колір шпалер</string>
@@ -1299,7 +1285,9 @@
     <string name="charging_appearance_category_title">Зовнішній вигляд</string>
     <string name="charging_color_mode_title">Колір підсвічування контуру</string>
     <string name="charging_display_category_title">Параметри відображення</string>
+    <string name="charging_show_on_lockscreen_title">Показати на екрані блокування</string>
     <string name="charging_show_on_lockscreen_summary">Показувати анімацію, коли видно екран блокування</string>
+    <string name="charging_show_on_aod_title">Показувати на завжди ввімкненому дисплеї</string>
     <string name="charging_show_on_aod_summary">Показати анімацію в режимі активного екрану</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Стиль емодзі</string>
