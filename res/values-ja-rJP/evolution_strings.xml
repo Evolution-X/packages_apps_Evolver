@@ -16,11 +16,11 @@
     <string name="status_bar_summary">ジェスチャー、アイコン、ロゴ、余白</string>
     <string name="quick_settings_title">クイック設定</string>
     <string name="quick_settings_summary">インターフェース、明るさスライダー、レイアウト</string>
-    <string name="notifications_summary">ポップアップ通知、エッジライト、サウンド</string>
+    <string name="notifications_summary">ポップアップ通知、透過、音</string>
     <string name="power_menu_title">電源メニュー</string>
     <string name="power_menu_summary">ロック画面のアクション</string>
     <string name="miscellaneous_title">その他</string>
-    <string name="miscellaneous_summary">偽装、開発者向けオプション</string>
+    <string name="miscellaneous_summary">偽装ハブ、開発者向けオプション</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">この ROM について</string>
     <string name="gestures_category_title">ジェスチャー</string>
@@ -254,27 +254,12 @@
     <string name="aod_brightness_title">AOD の明るさ</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Now Playing</string>
-    <string name="nowplaying_summary">現在再生中の音楽情報をロック画面と AOD に表示する</string>
-    <string name="nowplaying_color_mode_title">テキストのカラーモード</string>
-    <string name="nowplaying_track_text_size_title">トラックタイトルのサイズ</string>
-    <string name="nowplaying_track_text_size_summary">トラック名のテキストサイズ</string>
-    <string name="nowplaying_artist_text_size_title">アーティスト名のサイズ</string>
-    <string name="nowplaying_artist_text_size_summary">アーティスト名またはアルバム名のテキストサイズ</string>
-    <string name="nowplaying_display_title">表示オプション</string>
-    <string name="nowplaying_show_on_lockscreen_title">ロック画面に表示</string>
-    <string name="nowplaying_show_on_lockscreen_summary">デバイスのロック中に音楽情報を表示する</string>
-    <string name="nowplaying_icon_style_title">アイコンスタイル</string>
-    <string name="nowplaying_icon_style_summary">表示するアイコンを選択する</string>
-    <string name="nowplaying_icon_size_title">アイコンサイズ</string>
-    <string name="nowplaying_icon_size_summary">アイコンのサイズを調整する</string>
-    <string name="nowplaying_show_on_aod_title">AOD に表示</string>
-    <string name="nowplaying_show_on_aod_summary">アンビエント表示に音楽情報を表示する</string>
-    <string name="nowplaying_info_summary">Now Playingはロック画面と常時オン画面に現在のトラックとアーティストを表示します。 音楽の再生中に自動的に表示され、停止時に非表示になります。位置は画面の上部から下部に調整可能です。</string>
-    <string name="nowplaying_expand_dialog">ダイアログを展開</string>
-    <string name="nowplaying_expand_dialog_summary">Now Playingのダイアログを展開する</string>
+    <string name="nowplaying_summary">デバイスの近くで流れている音楽を検出し、ロック画面やAODに曲名を表示します。デフォルトではオフになっています。</string>
+    <string name="nowplaying_on_demand_title">オンデマンドショートカット</string>
+    <string name="nowplaying_on_demand_summary">ロック画面に検索アイコンを表示します。長押しで検索を開始します。</string>
     <string name="nowplaying_lyrics_mode_title">歌詞モード</string>
-    <string name="nowplaying_lyrics_mode_summary">曲のタイトルとアイコンの代わりに、曲の歌詞を表示する</string>
-    <string name="nowplaying_pixel_native_footer">このデバイスでは、Pixelの「Now Playing」機能による表示がすでに標準で提供されています。組み込み機能が有効な間、これらの設定は利用できません。</string>
+    <string name="nowplaying_lyrics_mode_summary">ロック画面でこの端末で再生中の音楽の同期した歌詞を表示する</string>
+    <string name="nowplaying_pixel_native_summary">このデバイスでは、Pixelのアンビエント表示機能を通じて、すでに「Now Playing」が標準で提供されています</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">天気の設定</string>
     <string name="weather_settings_summary">アイコンパックと天気サービスを設定する</string>
@@ -898,7 +883,7 @@
     <string name="advanced_reboot_secured_title">保護されたロック画面に表示</string>
     <string name="advanced_reboot_secured_summary">セキュリティ保護されたロック画面に高度な再起動オプションを表示する</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">偽装</string>
+    <string name="miscellaneous_spoofing_category">偽装ハブ</string>
     <string name="miscellaneous_developer_options_category">開発者向けオプション</string>
     <string name="miscellaneous_app_downgrade_title">アプリのダウングレードを許可</string>
     <string name="miscellaneous_app_downgrade_summary">システムアプリケーションのダウングレードを許可します。クラッシュやデータの損失が発生する可能性があります。</string>
@@ -926,9 +911,9 @@
     <string name="smart_pixels_summary">画面ピクセルの一部を無効化してバッテリーを節約する</string>
     <string name="smart_pixels_percent">無効化するピクセルの割合</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">偽装</string>
-    <string name="spoofing_summary">Play Integrity、デバイス ID、機能の偽装</string>
-    <string name="spoofing_integrity_category">Play Integrity</string>
+    <string name="spoofing_title">偽装ハブ</string>
+    <string name="spoofing_summary">Play Integrity 修正、デバイス ID、機能の偽装</string>
+    <string name="spoofing_integrity_category">Play Integrityの修正</string>
     <string name="spoofing_identity_category">デバイスの識別情報</string>
     <string name="spoofing_features_category">ハードウェア機能</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
@@ -944,8 +929,8 @@
     <string name="spoofing_reset_defaults_dialog_message">これにより、Play Integrity 設定、セキュリティパッチの上書き、およびゲーム偽装の設定がクリアされ、TrickyStore のデフォルトのターゲットリストが復元されます。キーボックスは保持されます。Play Integrity とパッチレベルは、その後すぐに再度取得されます。有効化トグルは変更されません。</string>
     <string name="spoofing_reset_defaults_confirm">リセット</string>
     <string name="spoofing_reset_defaults_done">偽装の設定をリセットしました</string>
-    <string name="tensor_spoof_title">Tensor 機能のターゲット</string>
-    <string name="tensor_spoof_summary">選択したアプリに Google Tensor 専用の AI 機能へのアクセスを許可します</string>
+    <string name="tensor_spoof_title">Tensor 偽装</string>
+    <string name="tensor_spoof_summary">選択したアプリにGoogle Tensor専用機能へのアクセスを許可する</string>
     <string name="tensor_spoof_enable">Tensor 偽装</string>
     <string name="tensor_targets_none_configured">ターゲットアプリはありません</string>
     <string name="tensor_targets_count">%1$d 個のターゲットアプリ</string>
@@ -1023,6 +1008,13 @@
     <string name="pif_reset_advanced_message">すべての高度な偽装オプションをデフォルトにリセットしますか？現在のフィンガープリントは保持されます。</string>
     <string name="pif_vending_finger_disabled">無効 (デフォルト)</string>
     <string name="pif_vending_finger_same">DroidGuardの指紋と同じ</string>
+    <string name="pif_fingerprint_spoofing">偽装</string>
+    <string name="pif_active_model">アクティブ: %1$s</string>
+    <string name="pif_canary_fingerprint">Canaryフィンガープリント</string>
+    <string name="pif_patch_age">パッチ %1$s \u00b7 %2$d日前</string>
+    <string name="pif_days_left">%1$d日後</string>
+    <string name="pif_expired">期限切れ</string>
+    <string name="pif_vending_finger_custom_clear_hint">タップしてオフにする</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">強力な整合性認証のためのキーボックスとターゲットアプリを管理します</string>
     <string name="ts_keybox_management">キーボックスの管理</string>
@@ -1055,7 +1047,7 @@
     <string name="ts_verification_auto_count">%1$d 自動</string>
     <string name="ts_verification_cert_count">%1$d 証明書</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
-    <string name="ts_fetch_keybox">公式キーボックスを取得</string>
+    <string name="ts_fetch_keybox">最新のキーボックスを取得</string>
     <string name="ts_fetch_keybox_summary">EvolutionXのサーバーからキーボックスをダウンロードする</string>
     <string name="ts_fetch_keybox_fetching">キーボックスを取得中…</string>
     <string name="ts_fetch_keybox_success">公式キーボックスの取得に成功しました</string>
@@ -1089,6 +1081,12 @@
     <string name="ts_revocation_last_checked">最終確認: %1$s</string>
     <string name="ts_revocation_not_yet_checked">まだチェックされていません — 今すぐ確認するにはタップしてください</string>
     <!-- Toasts for new auto-replace triggers -->
+    <string name="ts_chip_valid">有効</string>
+    <string name="ts_chip_expiring">有効期限切れ</string>
+    <string name="ts_chip_invalid">無効なチェーン</string>
+    <string name="ts_chip_unknown_root">不明なルート</string>
+    <string name="ts_chip_checking">確認中</string>
+    <string name="ts_chip_unchecked">未チェック</string>
     <string name="ts_fetch_keybox_revoked_refetch">キーボックスが失効しています。新しいものを取得中…</string>
     <string name="ts_fetch_keybox_suspended_refetch">キーボックスが失効しています。新しいものを取得中…</string>
     <!-- Wallpaper styles -->
@@ -1218,6 +1216,7 @@
     <string name="action_enable">有効</string>
     <string name="action_apply">適用</string>
     <string name="action_delete">削除</string>
+    <string name="action_import">インポート</string>
     <string name="action_yes">はい</string>
     <string name="action_reset">リセット</string>
     <string name="action_search_apps">アプリを検索</string>
@@ -1282,7 +1281,9 @@
     <string name="charging_appearance_category_title">見た目</string>
     <string name="charging_color_mode_title">カラーモード</string>
     <string name="charging_display_category_title">表示オプション</string>
+    <string name="charging_show_on_lockscreen_title">ロック画面に表示</string>
     <string name="charging_show_on_lockscreen_summary">ロック画面が表示されている時にアニメーションを表示する</string>
+    <string name="charging_show_on_aod_title">AODに表示</string>
     <string name="charging_show_on_aod_summary">アンビエント表示モードでアニメーションを表示する</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">絵文字のスタイル</string>
