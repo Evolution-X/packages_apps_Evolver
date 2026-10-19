@@ -20,7 +20,7 @@
     <string name="power_menu_title">Menu zasilania</string>
     <string name="power_menu_summary">Akcje, ekran blokady</string>
     <string name="miscellaneous_title">Różne</string>
-    <string name="miscellaneous_summary">Fałszowanie, opcje programisty</string>
+    <string name="miscellaneous_summary">Centrum fałszowania, opcje programisty</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">O naszym ROM-ie</string>
     <string name="gestures_category_title">Gesty</string>
@@ -885,7 +885,7 @@
     <string name="advanced_reboot_secured_title">Pokaż na zabezpieczonym ekranie blokady</string>
     <string name="advanced_reboot_secured_summary">Wyświetl zaawansowane opcje restartu na zabezpieczonym ekranie blokady</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">Fałszowanie</string>
+    <string name="miscellaneous_spoofing_category">Centrum fałszowania</string>
     <string name="miscellaneous_developer_options_category">Opcje programisty</string>
     <string name="miscellaneous_app_downgrade_title">Zezwalaj na obniżanie wersji aplikacji</string>
     <string name="miscellaneous_app_downgrade_summary">Zezwól na obniżenie wersji aplikacji systemowych. Może to spowodować awarie i utratę danych.</string>
@@ -913,9 +913,9 @@
     <string name="smart_pixels_summary">Oszczędzaj baterię, wyłączając część pikseli ekranu</string>
     <string name="smart_pixels_percent">Procent pikseli do wyłączenia</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Fałszowanie</string>
-    <string name="spoofing_summary">Integralność Google Play, identyfikacja urządzenia i funkcje fałszowania</string>
-    <string name="spoofing_integrity_category">Integralność Google Play</string>
+    <string name="spoofing_title">Centrum fałszowania</string>
+    <string name="spoofing_summary">Poprawa integralności Google Play, identyfikacja urządzenia i fałszowanie funkcji</string>
+    <string name="spoofing_integrity_category">Poprawka integralności Google Play</string>
     <string name="spoofing_identity_category">Identyfikacja urządzenia</string>
     <string name="spoofing_features_category">Funkcje sprzętowe</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
@@ -931,8 +931,8 @@
     <string name="spoofing_reset_defaults_dialog_message">Spowoduje to wyczyszczenie konfiguracji integralności Google Play, obejścia poprawki zabezpieczeń i konfiguracji profilu gry oraz przywrócenie domyślnej listy docelowej TrickyStore. Twój zestaw kluczy zostanie zachowany. Integralność Google Play i poziom poprawki zostaną ponownie pobrane wkrótce potem. Przełączniki włączania nie ulegną zmianie.</string>
     <string name="spoofing_reset_defaults_confirm">Resetuj</string>
     <string name="spoofing_reset_defaults_done">Zresetuj ustawienia fałszowania</string>
-    <string name="tensor_spoof_title">Cele funkcji Tensor</string>
-    <string name="tensor_spoof_summary">Udziel wybranym aplikacjom dostępu do funkcji AI dostępnych tylko dla Pixel Tensor</string>
+    <string name="tensor_spoof_title">Fałszowanie Tensor</string>
+    <string name="tensor_spoof_summary">Przyznaj wybranym aplikacjom dostęp do funkcji ekskluzywnych dla Pixel Tensor</string>
     <string name="tensor_spoof_enable">Fałszowanie Tensor</string>
     <string name="tensor_targets_none_configured">Brak docelowych aplikacji</string>
     <string name="tensor_targets_count">%1$d aplikacji docelowych</string>
@@ -1010,6 +1010,13 @@
     <string name="pif_reset_advanced_message">Zresetować wszystkie zaawansowane opcje fałszowania do ustawień domyślnych? Bieżący odcisk palca zostanie zachowany.</string>
     <string name="pif_vending_finger_disabled">Wyłączone (domyślnie)</string>
     <string name="pif_vending_finger_same">Tak samo jak odcisk palca DroidGuard</string>
+    <string name="pif_fingerprint_spoofing">Fałszowanie</string>
+    <string name="pif_active_model">Aktywny: %1$s</string>
+    <string name="pif_canary_fingerprint">Testowy odcisk palca</string>
+    <string name="pif_patch_age">Poprawka %1$s \u00b7 %2$dd stara</string>
+    <string name="pif_days_left">Pozostało %1$dd</string>
+    <string name="pif_expired">Wygasła</string>
+    <string name="pif_vending_finger_custom_clear_hint">Naciśnij, aby wyłączyć</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Zarządzaj zestawem kluczy i aplikacjami docelowymi dla poświadczenia silnej integralności</string>
     <string name="ts_keybox_management">Zarządzanie zestawem kluczy</string>
@@ -1029,7 +1036,7 @@
     <string name="ts_invalid_patch_date">Nieprawidłowy format daty. Użyj RRRR-MM-DD</string>
     <string name="ts_target_list_imported">Zaimportowano listę docelową</string>
     <string name="ts_failed">Niepowodzenie: %s</string>
-    <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Status unieważnienia jest sprawdzany co 24 godziny, a nowy zestaw kluczy jest pobierany z oficjalnego źródła, jeśli obecny został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij „Pobierz oficjalny zestaw kluczy”, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz „Zarządzaj aplikacjami docelowymi” i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na \"Podmiana certyfikatu”, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw tryb Automatyczny.\n4. Sprawdź ponownie status integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden ważny oficjalny zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
+    <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Stan unieważnienia jest sprawdzany co 24 godziny, a nowy zestaws kluczy jest pobierany z oficjalnego źródła, jeśli obecn został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz najnowszy zestaw kluczy, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz Zarządzaj aplikacjami docelowymi i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na Podmiana certyfikatu, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw opcję Automatycznie.\n4. Sprawdź ponownie stan integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden prawidłowy najnowszy zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
     <string name="ts_patch_stale_warning">%1$s (nieaktualne, starsze niż 12 miesięcy)</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używane domyślne ustawienia urządzenia)</string>
@@ -1042,10 +1049,10 @@
     <string name="ts_verification_auto_count">%1$d automatycznie</string>
     <string name="ts_verification_cert_count">%1$d generowanie certyfikatu</string>
     <string name="ts_verification_leaf_count">%1$d podmiana certyfikatu</string>
-    <string name="ts_fetch_keybox">Pobierz oficjalny zestaw kluczy</string>
+    <string name="ts_fetch_keybox">Pobierz najnowszy zestaw kluczy</string>
     <string name="ts_fetch_keybox_summary">Pobieranie zestawu kluczy z serwerów Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Pobieranie zestawu kluczy…</string>
-    <string name="ts_fetch_keybox_success">Pobieranie oficjalnego zestawu kluczy powiodło się</string>
+    <string name="ts_fetch_keybox_success">Najnowszy zestaw kluczy pobrany pomyślnie</string>
     <string name="ts_fetch_keybox_failed">Pobieranie nieudane: %s</string>
     <string name="ts_fetch_keybox_same_file">Zestaw kluczy jest obecnie aktualny</string>
     <string name="ts_fetch_keybox_blocked">Twój zestaw kluczy jest ważny — nie trzeba go pobierać</string>
@@ -1054,12 +1061,12 @@
     <string name="ts_fetch_keybox_no_valid_found">Nie ma jeszcze dostępnego prawidłowego zestawu kluczy, spróbuj ponownie jutro</string>
     <!-- Keybox info row -->
     <string name="ts_chain_invalid_title">Nieprawidłowy łańcuch certyfikatów</string>
-    <string name="ts_chain_invalid_message">Łańcuch certyfikatu zestawu kluczy jest nieprawidłowy lub nie można go zweryfikować. Może być uszkodzony lub zmodyfikowany. Czy chcesz go zastąpić oficjalnym zestawem kluczy?</string>
+    <string name="ts_chain_invalid_message">Łańcuch certyfikatów zestawu kluczy jest nieprawidłowy lub nie można go zweryfikować. Może być uszkodzony lub zmodyfikowany. Zastąpić go najnowszą wersją zestawu kluczy?</string>
     <string name="ts_expiring_soon_title">Zestaw kluczy niedługo wygaśnie</string>
-    <string name="ts_expiring_soon_message">Certyfikat tego zestawu kluczy wygasa %1$s. Obecnie spełnia on kryteria integralności, ale przestanie działać po wygaśnięciu. Czy zastąpić go teraz oficjalnym zestawem kluczy?</string>
+    <string name="ts_expiring_soon_message">Łańcuch certyfikatów tego zestawu kluczy wygasa %1$s. Obecnie spełnia on kryteria integralności, ale przestanie działać po wygaśnięciu. Zastąpić go teraz najnowszym zestawem kluczy?</string>
     <string name="ts_expiry_unknown">nieznany termin ważności</string>
     <string name="ts_untrusted_root_title">Nierozpoznany główny zestaw kluczy</string>
-    <string name="ts_untrusted_root_message">Ten zestaw kluczy ma łańcuch certyfikatów oparty na urzędzie certyfikacji, który nie jest rozpoznawany przez Evolution X. Na niektórych urządzeniach może nadal przejść silną integralność. Zachować go czy zastąpić oficjalnym zestawem kluczy?</string>
+    <string name="ts_untrusted_root_message">Ten zestaw kluczy ma łańcuch certyfikatów powiązany z instytucją nieuznawaną przez Evolution X. Nadal może przejść test silnej integralności na niektórych urządzeniach. Zachować go, czy wymienić na najnowszy zestaw kluczy?</string>
     <string name="ts_untrusted_root_keep">Zachowaj</string>
     <string name="ts_untrusted_root_replace">Zastąp</string>
     <!-- Revocation status -->
@@ -1076,6 +1083,12 @@
     <string name="ts_revocation_last_checked">Ostatnio sprawdzono: %1$s</string>
     <string name="ts_revocation_not_yet_checked">Jeszcze nie sprawdzony — naciśnij, aby zweryfikować teraz</string>
     <!-- Toasts for new auto-replace triggers -->
+    <string name="ts_chip_valid">Ważny</string>
+    <string name="ts_chip_expiring">Wygasa</string>
+    <string name="ts_chip_invalid">Nieprawidłowy łańcuch</string>
+    <string name="ts_chip_unknown_root">Nieznany root</string>
+    <string name="ts_chip_checking">Sprawdzanie</string>
+    <string name="ts_chip_unchecked">Nie sprawdzony</string>
     <string name="ts_fetch_keybox_revoked_refetch">Zestaw na klucze został unieważniony, pobieranie nowego…</string>
     <string name="ts_fetch_keybox_suspended_refetch">Zestaw kluczy zawieszony, pobieram nowszy…</string>
     <!-- Wallpaper styles -->
@@ -1205,6 +1218,7 @@
     <string name="action_enable">Włącz</string>
     <string name="action_apply">Zastosuj</string>
     <string name="action_delete">Usuń</string>
+    <string name="action_import">Importuj</string>
     <string name="action_yes">Tak</string>
     <string name="action_reset">Resetuj</string>
     <string name="action_search_apps">Wyszukaj aplikacje</string>
