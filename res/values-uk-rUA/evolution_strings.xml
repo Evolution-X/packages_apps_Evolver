@@ -494,6 +494,7 @@
     <!-- Custom image logo style -->
     <string name="status_bar_logo_custom_image_title">Вибрати користувацьке зображення</string>
     <string name="status_bar_logo_custom_image_pick_summary">Вибрати зображення з галереї</string>
+    <string name="status_bar_logo_add">Додати логотип</string>
     <!-- Statusbar logo color -->
     <string name="status_bar_logo_color_title">Колір</string>
     <string name="status_bar_logo_color_default">Стандартний (білий)</string>
@@ -566,6 +567,9 @@
     <string name="dynamic_bar_event_biometric">Біометричне розблокування</string>
     <string name="dynamic_bar_event_biometric_summary">Показувати чіп на відбитку пальця або розблокуванні обличчям</string>
     <string name="dynamic_bar_guide_title">Як використовувати динамічний бар</string>
+    <!-- Dynamic Bar guide: expanded timer demo labels -->
+    <string name="dynamic_bar_demo_running">Працює</string>
+    <string name="dynamic_bar_demo_add_minute">+1 хв</string>
     <string name="dynamic_bar_guide_chip">Події відображаються в рядку стану для активних подій, таких як запис, відтворення медіа та таймери</string>
     <string name="dynamic_bar_guide_swipe">Коли кілька подій активні, проведіть ліворуч або праворуч для проходження через них</string>
     <string name="dynamic_bar_guide_expand">Торкніться чіпа, щоб розгорнути його в детальну картку з елементами керування та додатковою інформацією</string>
@@ -1130,6 +1134,20 @@
     <string name="lock_glymps_advanced_category">Додатково</string>
     <string name="lock_glymps_clear_cache_title">Очистити кеш</string>
     <string name="lock_glymps_clear_cache_summary">Вилучити всі кешовані шпалери</string>
+    <string name="lock_glymps_folder_dialog_title">Папка локальних шпалер</string>
+    <string name="lock_glymps_folder_missing_message">Папки ще не існує.\n\nРозташування: %1$s\n\nБажаєте створити її?</string>
+    <string name="lock_glymps_folder_create">Створити Папку</string>
+    <string name="lock_glymps_folder_created">Папку створено: %1$s</string>
+    <string name="lock_glymps_folder_create_failed">Помилка створення папки</string>
+    <string name="lock_glymps_folder_info_message">Розташування папки: %1$s\n\nЗнайдено шпалер: %2$d\n\nПідтримувані формати: JPG, PNG, WEBP\n\nПомістіть зображення шпалер у цю папку, і вони використовуватимуться у випадковому порядку.</string>
+    <string name="lock_glymps_custom_urls_dialog_title">URL користувацьких шпалер</string>
+    <string name="lock_glymps_custom_urls_dialog_message">Введіть URL-адреси прямих зображень, по одному в рядку</string>
+    <string name="lock_glymps_custom_urls_hint">https://example.com/image1.jpg\nhttps://example.com/image2.png</string>
+    <string name="lock_glymps_custom_urls_saved">Користувацькі URL-адреси, збережені</string>
+    <string name="lock_glymps_clear_cache_dialog_title">Очистити кеш</string>
+    <string name="lock_glymps_clear_cache_dialog_message">Буде видалено всі кешовані шпалери, вони будуть повторно завантажені. Продовжити?</string>
+    <string name="lock_glymps_clear_cache_confirm">Чиста</string>
+    <string name="lock_glymps_cache_cleared">Кеш очищено. Нові шпалери буде завантажено.</string>
     <string name="lock_glymps_behavior_category">Поведінка</string>
     <string name="lock_glymps_change_on_title">Змінити шпалери на</string>
     <string name="lock_glymps_change_on_summary">При зміні шпалер</string>
@@ -1198,6 +1216,19 @@
     <string name="changelog_error_no_official">Немає офіційного списку змін для цього пристрою чи збірки. Відвідайте %1$s для отримання додаткової інформації.</string>
     <!-- Color picker -->
     <string name="color_picker_reset">Скинути до стандартних</string>
+    <string name="color_picker_apply">Застосувати</string>
+    <string name="color_picker_clock_title">Колір годинника</string>
+    <string name="color_picker_tab_preset">Попередньо встановлене</string>
+    <string name="color_picker_tab_image">Зображення</string>
+    <string name="color_picker_tab_custom">Персоналізація</string>
+    <string name="color_picker_import_gallery">Завантажити з Галереї</string>
+    <string name="color_picker_import_image">Імпортувати зображення</string>
+    <string name="color_picker_selected_color">Вибраний колір</string>
+    <string name="color_picker_title_image">Взяти колір із зображення</string>
+    <string name="color_picker_title_wallpaper">Вибрати колір з шпалер</string>
+    <string name="color_picker_wallpaper_error">Не вдалося завантажити шпалери</string>
+    <string name="color_picker_hint_image">Натисніть на зображення, щоб вибрати колір</string>
+    <string name="color_picker_hint_wallpaper">Натисніть на шпалери, щоб обрати колір</string>
     <string name="accent_color">Колір акценту</string>
     <string name="notification_color">Колір сповіщення</string>
     <string name="wallpaper_color">Колір шпалер</string>
