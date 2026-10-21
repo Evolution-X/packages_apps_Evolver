@@ -7,6 +7,7 @@ package org.evolution.settings.utils;
 
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -59,6 +60,10 @@ public class DeviceUtils {
             return false;
         }
         return true;
+    }
+
+    public static boolean hasFace(Context context) {
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FACE);
     }
 
     public static boolean hasFingerprint(Context context) {
