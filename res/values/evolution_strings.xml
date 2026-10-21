@@ -61,6 +61,8 @@
     <string name="boot_animation_preview_title">Boot animation preview</string>
     <string name="boot_animation_no_preview">No preview available</string>
     <string name="boot_animation_style_unknown">Unknown</string>
+    <string name="boot_animation_custom_pick">Choose a boot animation zip</string>
+    <string name="boot_animation_custom_replace">Tap to choose a different zip</string>
 
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">Color customization</string>
@@ -1254,6 +1256,16 @@
     <string name="reboot_required_custom_font_title">Reboot required for custom font</string>
     <string name="toast_failed_apply_font">Failed to apply font</string>
     <string name="toast_invalid_font_file">Invalid font file</string>
+    <string name="add_emoji_font">Add emoji font</string>
+    <string name="emoji_preview_dialog_title">Emoji preview</string>
+    <string name="emoji_preview_sample" translatable="false">😀 🎉 ❤️ 👍🏽 🏳️‍🌈</string>
+    <string name="emoji_preview_coverage">Newest emoji (Unicode 15 and 16) in this font: %1$d of %2$d</string>
+    <string name="reboot_required_custom_emoji_title">A reboot is required to apply emoji changes. Reboot now?</string>
+    <string name="toast_failed_apply_emoji">Failed to apply emoji font</string>
+    <string name="toast_emoji_updater_disabled">Font updates are disabled on this device</string>
+    <string name="toast_emoji_slots_full">No free emoji font slot. Pick a built-in style to reset it, then try again</string>
+    <string name="toast_invalid_emoji_file">Invalid emoji font file</string>
+    <string name="toast_emoji_font_too_old">A newer version of this emoji font is already installed</string>
     <string name="custom_system_theme_title">Themes</string>
     <string name="custom_system_theme_summary">Customize system appearance with themes and icon packs</string>
 
@@ -1415,6 +1427,7 @@
     <!-- Emoji style -->
     <string name="emoji_style_title">Emoji style</string>
     <string name="emoji_style_stock">Stock</string>
+    <string name="emoji_custom_label">Custom: %1$s</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>

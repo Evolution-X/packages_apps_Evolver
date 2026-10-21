@@ -118,6 +118,22 @@
         <item>Custom</item>
     </string-array>
 
+    <string-array name="themes_boot_animation_values" translatable="false">
+        <item>default</item>
+        <item>evo_reveal</item>
+        <item>aokp</item>
+        <item>cm</item>
+        <item>ctos</item>
+        <item>cyberpunk</item>
+        <item>du</item>
+        <item>google</item>
+        <item>pac</item>
+        <item>rr</item>
+        <item>slim</item>
+        <item>valorant</item>
+        <item>custom</item>
+    </string-array>
+
     <!-- Themes - Screen off animation -->
     <string-array name="themes_screen_off_animation_entries">
         <item>@string/default_value</item>
