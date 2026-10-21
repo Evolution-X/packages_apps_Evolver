@@ -954,10 +954,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Remove screenshot and screen recording restrictions for all apps. May expose private content</string>
     <string name="miscellaneous_screenshot_flash_title">Show screenshot flash</string>
     <string name="miscellaneous_screenshot_flash_summary">Briefly flash the screen when a screenshot is taken</string>
-    <string name="miscellaneous_block_screenshot_detection_title">Block screenshot detection</string>
-    <string name="miscellaneous_block_screenshot_detection_summary">Prevent apps from knowing when their content has been screenshot</string>
-    <string name="miscellaneous_block_screenrecord_detection_title">Block screen recording detection</string>
-    <string name="miscellaneous_block_screenrecord_detection_summary">Prevent apps from knowing when their content is being screen recorded</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Unlimited screen record</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remove the 15 GiB file size limit. May result in a larger output file than needed</string>
     <string name="disable_flash_sms_title">Disable flash SMS</string>
@@ -1463,4 +1459,8 @@
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Wallpaper zoom</string>
     <string name="wallpaper_zoom_summary">Turn off to show the wallpaper without extra zoom</string>
+
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">Hide screen capture status</string>
+    <string name="hide_screen_capture_status_summary">Hide screen capture/record status from apps. Useful but may risk privacy. Restart apps to apply.</string>
 </resources>
