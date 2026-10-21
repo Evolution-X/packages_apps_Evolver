@@ -84,6 +84,13 @@
             android:summary="@string/doze_always_on_wallpaper_summary"
             android:defaultValue="@*android:bool/config_dozeSupportsAodWallpaper" />
 
+        <!-- Face unlock animation -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="face_unlock_animation"
+            android:title="@string/face_unlock_animation_title"
+            android:summary="@string/face_unlock_animation_summary"
+            android:defaultValue="true" />
+
         <!-- Charging stats -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_battery_info"
