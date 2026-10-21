@@ -185,15 +185,9 @@
             android:defaultValue="false" />
 
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
-            android:key="window_block_screenshot_detection"
-            android:title="@string/miscellaneous_block_screenshot_detection_title"
-            android:summary="@string/miscellaneous_block_screenshot_detection_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
-            android:key="window_block_screenrecord_detection"
-            android:title="@string/miscellaneous_block_screenrecord_detection_title"
-            android:summary="@string/miscellaneous_block_screenrecord_detection_summary"
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_status_title"
+            android:summary="@string/hide_screen_capture_status_summary"
             android:defaultValue="false" />
 
     </PreferenceCategory>
