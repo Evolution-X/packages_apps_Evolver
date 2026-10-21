@@ -257,6 +257,8 @@
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Media cover art</string>
     <string name="ls_media_art_summary">Display media cover art when available</string>
+    <string name="ls_media_art_status_bar_above_title">Status bar above cover art</string>
+    <string name="ls_media_art_status_bar_above_summary">Keep the battery, signal and clock visible on top of the cover art</string>
     <string name="ls_media_art_filter_title">Cover art filter</string>
     <string name="ls_media_art_filter_none">None</string>
     <string name="ls_media_art_filter_blur">Blur</string>
