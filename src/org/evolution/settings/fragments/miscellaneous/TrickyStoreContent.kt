@@ -61,6 +61,15 @@ internal class TsUiState {
     var verificationSummary by mutableStateOf("")
     var patchSummary by mutableStateOf("")
     var patchStale by mutableStateOf(false)
+
+    var rkpAvailable by mutableStateOf(false)
+    var rkpEnabled by mutableStateOf(false)
+    var rkpImported by mutableStateOf(false)
+    var rkpBusy by mutableStateOf(false)
+    var rkpActive by mutableStateOf(false)
+    var rkpChanging by mutableStateOf(false)
+    var rkpCanProvision by mutableStateOf(false)
+    var rkpStatus by mutableStateOf("")
 }
 
 internal interface TsActions {
@@ -86,6 +95,9 @@ internal interface TsActions {
 
     /** The user answered the Play Store wipe prompt shown after importing a keybox. */
     fun onWipePlayStore(wipe: Boolean)
+
+    fun onRkpEnabledChange(enabled: Boolean)
+    fun onRkpProvision()
 }
 
 @Composable
@@ -97,6 +109,7 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
             title = stringResource(R.string.tricky_store_title),
             subtitle = when {
                 !state.enabled -> stringResource(R.string.app_spoofing_disabled)
+                state.rkpActive -> stringResource(R.string.ts_rkp_active_subtitle)
                 !state.keyboxExists -> stringResource(R.string.ts_no_keybox)
                 else -> stringResource(R.string.ts_keybox_installed) + " \u00b7 " +
                     stringResource(R.string.ts_target_apps_count, state.targetCount)
@@ -120,12 +133,13 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
                     text = stringResource(R.string.ts_fetch_keybox),
                     icon = Icons.Rounded.CloudDownload,
                     onClick = actions::onFetchKeybox,
-                    enabled = state.fetchEnabled,
+                    enabled = state.fetchEnabled && !state.rkpEnabled,
                     loading = state.fetching,
                 )
                 if (state.fetchSummary.isNotEmpty()) {
                     Text(
-                        text = state.fetchSummary,
+                        text = if (state.rkpEnabled) stringResource(R.string.ts_rkp_fetch_disabled)
+                        else state.fetchSummary,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier
@@ -152,6 +166,33 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
                         ),
                     ),
                 )
+
+                ExpressiveGroup(title = stringResource(R.string.ts_rkp_title)) {
+                    item {
+                        ExpressiveSwitchRow(
+                            titleText = stringResource(R.string.ts_rkp_enabled),
+                            summaryText = stringResource(R.string.ts_rkp_enabled_summary),
+                            isChecked = state.rkpEnabled,
+                            onChange = actions::onRkpEnabledChange,
+                            isEnabled = state.rkpAvailable && !state.rkpImported &&
+                                !state.rkpBusy && !state.rkpChanging,
+                        )
+                    }
+                    item {
+                        ExpressiveNavRow(
+                            title = stringResource(R.string.ts_rkp_provision),
+                            summary = stringResource(R.string.ts_rkp_provision_summary),
+                            enabled = state.rkpCanProvision && !state.rkpChanging,
+                            onClick = actions::onRkpProvision,
+                        )
+                    }
+                    item {
+                        ExpressiveNavRow(
+                            title = stringResource(R.string.ts_rkp_status),
+                            summary = state.rkpStatus,
+                        )
+                    }
+                }
 
                 ExpressiveGroup(title = stringResource(R.string.ts_keybox_management)) {
                     item {
