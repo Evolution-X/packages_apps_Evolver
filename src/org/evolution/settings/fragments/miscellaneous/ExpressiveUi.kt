@@ -94,6 +94,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.disabled
@@ -498,9 +499,26 @@ private fun ExpressiveListItem(
 @Composable
 private fun ExpressiveTrailingFrame(content: @Composable () -> Unit) {
     Box(
-        modifier = Modifier.widthIn(min = 48.dp),
+        modifier = Modifier
+            .trailingWidthCap()
+            .widthIn(min = 48.dp),
         contentAlignment = Alignment.Center,
     ) { content() }
+}
+
+/**
+ * Caps trailing content at half of the width it is offered. Rows measure their trailing content
+ * first and hand the title what is left, so an uncapped chip squeezes the title to one letter
+ * per line.
+ */
+internal fun Modifier.trailingWidthCap(): Modifier = layout { measurable, constraints ->
+    val capped = if (constraints.hasBoundedWidth) {
+        constraints.copy(maxWidth = maxOf(constraints.minWidth, constraints.maxWidth / 2))
+    } else {
+        constraints
+    }
+    val placeable = measurable.measure(capped)
+    layout(placeable.width, placeable.height) { placeable.place(0, 0) }
 }
 
 /**

@@ -578,7 +578,7 @@ private fun AppConfigCard(
                         overflow = TextOverflow.Ellipsis
                     )
                 }
-                ExpressiveStatusChip(text = profileLabel)
+                ExpressiveStatusChip(text = profileLabel, modifier = Modifier.trailingWidthCap())
                 Spacer(modifier = Modifier.width(SettingsSpace.extraSmall4))
                 Icon(
                     if (expanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
