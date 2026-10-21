@@ -120,6 +120,8 @@
 
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
+    <string name="face_unlock_animation_title">Face unlock animation</string>
+    <string name="face_unlock_animation_summary">Show the scanning, success and failure animation on the lock screen while unlocking with your face</string>
     <string name="lock_screen_charging_stats_title">Charging stats</string>
     <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature while charging</string>
     <string name="lock_screen_charging_time_title">Charging time</string>
