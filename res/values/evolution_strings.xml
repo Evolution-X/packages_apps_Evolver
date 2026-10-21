@@ -1530,4 +1530,35 @@
     <string name="shade_color_style_aosp">Stock Android colors</string>
     <string name="shade_color_style_glass">Clear, frosted panel that lets your wallpaper show through</string>
     <string name="shade_color_style_tinted">Panel tinted with your accent color, with or without blur</string>
+
+    <!-- Device RKP (Duck) keybox generation in TrickyStore -->
+    <string name="ts_rkp_title">Device RKP · Duck V1</string>
+    <string name="ts_rkp_enabled">Use device RKP</string>
+    <string name="ts_rkp_enabled_summary">Use a generated keybox. Importing a keybox turns this off.</string>
+    <string name="ts_rkp_provision">Generate keybox</string>
+    <string name="ts_rkp_provision_summary">Request a keybox from Google using this device’s provisioning service. Requires compatible Qualcomm firmware.</string>
+    <string name="ts_rkp_status">Provisioning status</string>
+    <string name="ts_rkp_owner_only">Manage device RKP from the device owner’s profile</string>
+    <string name="ts_rkp_unavailable">Device RKP is unavailable</string>
+    <string name="ts_rkp_imported">Disabled while an imported keybox is installed</string>
+    <string name="ts_rkp_disabled">Off. Enable device RKP to use or generate a keybox.</string>
+    <string name="ts_rkp_idle">Ready to request a keybox</string>
+    <string name="ts_rkp_fetching">Getting a provisioning challenge…</string>
+    <string name="ts_rkp_hardware">Waiting for the device’s provisioning service…</string>
+    <string name="ts_rkp_signing">Requesting certificates from Google…</string>
+    <string name="ts_rkp_validating">Validating and saving the keybox…</string>
+    <string name="ts_rkp_ready">Generated keybox active. Expires %1$s</string>
+    <string name="ts_rkp_active_subtitle">Device RKP keybox active</string>
+    <string name="ts_rkp_fetch_disabled">Disabled while device RKP is on. Turn it off to use the online keybox.</string>
+    <string name="ts_rkp_expired">Generated keybox expired. Generate a replacement.</string>
+    <string name="ts_rkp_hal_rejected">Firmware rejected the request (code %1$d). Duck V1 may not be supported.</string>
+    <string name="ts_rkp_http_error">Provisioning server rejected the request (HTTP %1$d)</string>
+    <string name="ts_rkp_unsupported">The device does not expose a compatible V1 provisioning interface</string>
+    <string name="ts_rkp_network_error">Could not reach the provisioning server. Check your connection.</string>
+    <string name="ts_rkp_submission_unknown">The server response was lost. The request may have been processed; no automatic retry was made.</string>
+    <string name="ts_rkp_invalid_chain">Keybox certificates failed validation. The existing keybox was kept.</string>
+    <string name="ts_rkp_timeout">Provisioning timed out. If the device service is still busy, restart the device before trying again.</string>
+    <string name="ts_rkp_canceled">Request canceled because the keybox configuration changed</string>
+    <string name="ts_rkp_save_failed">Could not save the generated keybox</string>
+    <string name="ts_rkp_action_failed">Could not complete the keybox operation</string>
 </resources>
