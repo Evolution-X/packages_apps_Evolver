@@ -20,7 +20,7 @@
     <string name="power_menu_title">Меню живлення</string>
     <string name="power_menu_summary">Дії, екран блокування</string>
     <string name="miscellaneous_title">Різне</string>
-    <string name="miscellaneous_summary">Спуфінг, налаштування для розробника</string>
+    <string name="miscellaneous_summary">Spoofing hub, параметри розробника</string>
     <string name="about_title">Еволюція X</string>
     <string name="about_summary">Про прошивку</string>
     <string name="gestures_category_title">Жести</string>
@@ -56,6 +56,8 @@
     <string name="boot_animation_applied_error">Не вдалося застосувати бутанімацію</string>
     <string name="boot_animation_preview_title">Попередній перегляд анімації завантаження</string>
     <string name="boot_animation_no_preview">Попередній перегляд недоступний</string>
+    <string name="boot_animation_custom_pick">Виберіть zip-архів для завантаження</string>
+    <string name="boot_animation_custom_replace">Натисніть щоб вибрати інший zip</string>
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">Налаштування кольору</string>
     <string name="color_settings_category">Налаштування кольорів</string>
@@ -234,6 +236,8 @@
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Обкладинка медіа</string>
     <string name="ls_media_art_summary">Увімкнути обкладинки альбомів на екрані блокування</string>
+    <string name="ls_media_art_status_bar_above_title">Рядок стану над обкладинкою</string>
+    <string name="ls_media_art_status_bar_above_summary">Залишати заряд акумулятора, сигнал і годинник у верхній частині обкладинки</string>
     <string name="ls_media_art_filter_title">Фільтр обкладинки</string>
     <string name="ls_media_art_filter_none">Нічого</string>
     <string name="ls_media_art_filter_blur">Розмиття</string>
@@ -494,6 +498,7 @@
     <!-- Custom image logo style -->
     <string name="status_bar_logo_custom_image_title">Вибрати користувацьке зображення</string>
     <string name="status_bar_logo_custom_image_pick_summary">Вибрати зображення з галереї</string>
+    <string name="status_bar_logo_add">Додати логотип</string>
     <!-- Statusbar logo color -->
     <string name="status_bar_logo_color_title">Колір</string>
     <string name="status_bar_logo_color_default">Стандартний (білий)</string>
@@ -566,6 +571,9 @@
     <string name="dynamic_bar_event_biometric">Біометричне розблокування</string>
     <string name="dynamic_bar_event_biometric_summary">Показувати чіп на відбитку пальця або розблокуванні обличчям</string>
     <string name="dynamic_bar_guide_title">Як використовувати динамічний бар</string>
+    <!-- Dynamic Bar guide: expanded timer demo labels -->
+    <string name="dynamic_bar_demo_running">Працює</string>
+    <string name="dynamic_bar_demo_add_minute">+1 хв</string>
     <string name="dynamic_bar_guide_chip">Події відображаються в рядку стану для активних подій, таких як запис, відтворення медіа та таймери</string>
     <string name="dynamic_bar_guide_swipe">Коли кілька подій активні, проведіть ліворуч або праворуч для проходження через них</string>
     <string name="dynamic_bar_guide_expand">Торкніться чіпа, щоб розгорнути його в детальну картку з елементами керування та додатковою інформацією</string>
@@ -791,11 +799,6 @@
     <string name="quick_settings_footer_edit_icon_title">Піктограма редагування плиток</string>
     <string name="quick_settings_footer_show_power_menu_title">Меню живлення</string>
     <string name="quick_settings_footer_settings_icon_title">Ярлик налаштувань</string>
-    <string name="qs_header_clock_style_title">Стиль заголовку значка швидких налаштувань</string>
-    <string name="qs_header_style1">Мікросхема</string>
-    <string name="qs_header_style2">Кисень</string>
-    <string name="qs_header_style3">Аналоговий</string>
-    <string name="qs_header_style4">Простий</string>
     <string name="qs_compact_media_player_mode_title">Компактний медіаплеєр</string>
     <string name="qs_compact_media_player_mode_summary">Використовуйте компактний режим для медіаплеєра швидких налаштувань</string>
     <string name="qs_show_media_player_title">Положення медіаплеєра</string>
@@ -883,7 +886,7 @@
     <string name="advanced_reboot_secured_title">Показувати на захищеному екрані блокування</string>
     <string name="advanced_reboot_secured_summary">Відображати розширені параметри перезапуску на екрані захищеного блокування</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">Підміна</string>
+    <string name="miscellaneous_spoofing_category">Spoofing hub</string>
     <string name="miscellaneous_developer_options_category">Опції для розробника</string>
     <string name="miscellaneous_app_downgrade_title">Дозволити пониження версії додатка</string>
     <string name="miscellaneous_app_downgrade_summary">Дозволити зниження системних програм. Це може призвести до збоїв та втрати даних.</string>
@@ -895,10 +898,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Видаляти обмеження на запис з екрану та екрану для всіх програм. Може розкрити приватний вміст</string>
     <string name="miscellaneous_screenshot_flash_title">Показувати знімки екрану</string>
     <string name="miscellaneous_screenshot_flash_summary">Коротко блимає екран при знятті знімку екрану</string>
-    <string name="miscellaneous_block_screenshot_detection_title">Блокування визначення знімків екрану</string>
-    <string name="miscellaneous_block_screenshot_detection_summary">Заборонити додаткам знати, коли знімок екрану було створено</string>
-    <string name="miscellaneous_block_screenrecord_detection_title">Блокувати виявлення запису екрана</string>
-    <string name="miscellaneous_block_screenrecord_detection_summary">Заборонити програмам знати, коли їхній вміст записується з екрана</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Необмежений запис екрану</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Видаліть обмеження розміру файлу 15 ГіБ. Це може призвести до отримання більшого вихідного файлу, ніж потрібно</string>
     <string name="disable_flash_sms_title">Вимкнути Flash SMS</string>
@@ -911,9 +910,9 @@
     <string name="smart_pixels_summary">Збереження заряду батареї шляхом вимкнення частини пікселів екрана</string>
     <string name="smart_pixels_percent">Відсоток пікселів для вимкнення</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Підміна</string>
-    <string name="spoofing_summary">Цілісність відтворення, ідентифікація пристрою та підміна функцій</string>
-    <string name="spoofing_integrity_category">Play Integrity</string>
+    <string name="spoofing_title">Spoofing hub</string>
+    <string name="spoofing_summary">Play Integrity Fix, ідентифікація пристрою та спуфінг функцій</string>
+    <string name="spoofing_integrity_category">Play Integrity Fix</string>
     <string name="spoofing_identity_category">Ідентифікація пристрою</string>
     <string name="spoofing_features_category">Параметри устаткування</string>
     <string name="spoofing_pixel_props_title">Пропозиції Pixel</string>
@@ -925,13 +924,12 @@
     <string name="spoofing_snap_summary">Імітувати Pixel XL для Snapchat для вирішення можливих проблем чату</string>
     <string name="spoofing_applying_changes">Застосування spoof змін\u2026</string>
     <string name="spoofing_reset_defaults_title">Скинути до значень за замовчуванням</string>
-    <string name="spoofing_reset_defaults_summary">Відновлено режим \"Цілісний\", цільовий список, патч і GameProps до стандартних налаштувань. Використання ключової скриньки зберігаються</string>
     <string name="spoofing_reset_defaults_dialog_title">Скинути параметри Spoofs?</string>
     <string name="spoofing_reset_defaults_dialog_message">Це очищує конфігурацію конфігурації Playure, патч безпеки перекриває і GameProps налаштування й відновлює цільовий список TrickyStore. Ваш ключ збережений. Відтворити цілісність і рівень пропатчування знову незабаром після того як були проведені. Увімкніть перемикачі не змінені.</string>
     <string name="spoofing_reset_defaults_confirm">Скинути</string>
     <string name="spoofing_reset_defaults_done">Налаштування Spoofing скинуто</string>
-    <string name="tensor_spoof_title">Цільові об\'єкти тензора</string>
-    <string name="tensor_spoof_summary">Надати вибраним додаткам доступ до функцій Pixel Tensor-exclusive AI</string>
+    <string name="tensor_spoof_title">Тензорна підміна</string>
+    <string name="tensor_spoof_summary">Надати вибраним додаткам доступ до ексклюзивних функцій Pixel Tensor</string>
     <string name="tensor_spoof_enable">Тензорна підміна</string>
     <string name="tensor_targets_none_configured">Немає цільових додатків</string>
     <string name="tensor_targets_count">Цільових програм %1$d</string>
@@ -975,37 +973,25 @@
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrity Fix</string>
     <string name="play_integrity_fix_summary">Керуйте налаштуваннями PIF і відбитками пристроїв для основної цілісності</string>
-    <string name="pif_status">Статус</string>
     <string name="pif_active_config">Активна конфігурація</string>
     <string name="pif_no_config">Жодної конфігурації не завантажено</string>
-    <string name="pif_config_loaded">Конфігурацію завантажено</string>
     <string name="pif_fetch_pixel_beta">Отримання відбитка пальця Pixel Canary</string>
-    <string name="pif_fetch_pixel_beta_summary">Завантажте найновіший відбиток пальця Pixel Canary від Google</string>
-    <string name="pif_fetching">Отримання з Google\u2026</string>
     <string name="pif_fetched_model">Отримано відбиток для %s</string>
-    <string name="pif_import_config">Імпортувати конфігурацію</string>
-    <string name="pif_import_config_summary">Імпортувати PIF конфігурацію з файлу</string>
     <string name="pif_imported_as">Імпортовано: %s</string>
-    <string name="pif_delete_config">Видалити активну конфігурацію</string>
-    <string name="pif_delete_config_summary">Видалити поточний активний файл конфігурації</string>
     <string name="pif_delete_title">Видалити %s?</string>
     <string name="pif_delete_message">Цей файл конфігурації буде остаточно видалено.</string>
     <string name="pif_wipe_playstore_title">Очистити дані Play Store?</string>
     <string name="pif_wipe_playstore_message">Застосування цього відбитку пальця найкраще працює з новим сеансом Play Store. Очистити дані додатку Play Store зараз? Це вийде і очистить локальний кеш і завантажить чергу завантаження.</string>
     <string name="pif_wipe_confirm">Очистити дані</string>
     <string name="pif_deleted">Видалено %s</string>
-    <string name="pif_config_details">Подробиці налаштування</string>
     <string name="pif_failed">Не вдалося: %s</string>
     <string name="pif_select_device">Обрати пристрій</string>
     <string name="pif_recommended_suffix">Рекомендовано</string>
-    <string name="pif_generating">Генерування конфігурації\u2026</string>
-    <string name="pif_footer_title">Проходження основної цілісності</string>
     <string name="pif_footer_body">Канарський відбиток перевіряється щонайбільше раз на день і замінюється автоматично після закінчення протягом двох тижнів його дії. Термін дії канарських конфігурацій закінчується приблизно за 6 тижнів з дати їх релізу - термін дії відображається в активній резюме конфігурації.\n\nДля ручного налаштування:\n1. Натисніть \"Завантажити піксельний відбиток\" і виберіть пристрій.\n2. Якщо пристрої не знайдено, імпортуйте робочу конфігурацію PIF з довіреного джерела. Конфігураційні файли не передбачені.\n3. Перевірити статус Play Цілісності.\n\nЗавжди видаляти активну конфігурацію перед імпортом нового. Завантаження простроченого налаштування PIF призведе до сильної цілісності TrickyStore навіть до кінця ключа.\n\nРозширені перекодовані:\n• Play Store ідентифікатор, залишити вимкненим доки не радимо інакше. Програма Spoofing FINGERPRINT у Play Store рідко необхідна і може спричинити проблеми.\n• Споживання SDK в Play Store — презентує SDK 32 в Play Store, щоб змусити застарілий перед Android 13 вердиктний шлях. Порушення поведінки Play Store - припиніть роботу над тестом, якщо не буде перевірено.\n• СпоСпосіб будівництва полів та властивостей системи - залиште усередину. Вони представляють собою відбитки пальців DroidGuard.\n• Споживання постачальника ключів - не видаляйте якщо використовується клавіатура, оскільки вона ігнорує атестацію клавіш.\n• Підпис Spoof ROM - експериментальний.</string>
     <string name="pif_invalid_fingerprint">Недійсний формат відбитка пальця</string>
     <string name="pif_no_devices_found">Пристроїв не знайдено</string>
     <string name="pif_advanced_settings">Розширений спуфінг</string>
     <string name="pif_spoof_vending_finger_title">Підробка відбитків пальців у Play Store</string>
-    <string name="pif_spoof_vending_finger_summary">Контролює, який ВІДБИТОК ПАЛЬЦЯ відображається в процесі Play Store</string>
     <string name="pif_spoof_vending_sdk_title">Імітувати SDK для Play Store</string>
     <string name="pif_spoof_vending_sdk_summary">Представляє SDK 32 в Play Store, щоб змусити спадщину &lt;A13 вердикт. Ніколи не зростає над реальним SDK. Може зламати Play Store поведінку, тому залиште вимкненим, якщо не тестуєте</string>
     <string name="pif_vending_finger_custom_summary">Користувацький відбиток: %1$s</string>
@@ -1018,19 +1004,22 @@
     <string name="pif_spoof_signature_title">Імітація ROM-підпису</string>
     <string name="pif_spoof_signature_summary">Експериментально. Запрацюйте навколо тестового програмного забезпечення для DroidGuard</string>
     <string name="pif_reset_advanced_title">Скинути розширене спуфінг</string>
-    <string name="pif_reset_advanced_summary">Значення за замовчуванням кожного перемикача вище. Відбиток пальця зберігається</string>
     <string name="pif_reset_advanced_message">Скинути всі розширені параметри Spoofing до значень за замовчуванням? Поточний відбиток пальця збережено.</string>
     <string name="pif_vending_finger_disabled">Вимкнено (за замовчуванням)</string>
     <string name="pif_vending_finger_same">Такий самий як відбиток DroidGuard</string>
+    <string name="pif_fingerprint_spoofing">Підміна</string>
+    <string name="pif_active_model">Активно: %1$s</string>
+    <string name="pif_canary_fingerprint">Користувацький відбиток</string>
+    <string name="pif_patch_age">Пропатчено днем пізніше</string>
+    <string name="pif_days_left">Залишилось %1$d дн</string>
+    <string name="pif_expired">Термін дії закінчився</string>
+    <string name="pif_vending_finger_custom_clear_hint">Торкніться для вимкнення</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Керування сховищем ключів та цільовими програмами для strong integrity attestation</string>
     <string name="ts_keybox_management">Керування ключами</string>
-    <string name="ts_import_keybox">Імпортувати Keybox</string>
     <string name="ts_no_keybox">Не встановлено жодного набору ключів</string>
     <string name="ts_keybox_installed">Keybox встановлено</string>
     <string name="ts_keybox_imported">Keybox успішно імпортовано</string>
-    <string name="ts_delete_keybox">Видалити Keybox</string>
-    <string name="ts_delete_keybox_summary">Видалити файл keybox</string>
     <string name="ts_delete_keybox_title">Видалити Keybox?</string>
     <string name="ts_delete_keybox_message">Цей файл конфігурації буде остаточно видалено.</string>
     <string name="ts_keybox_deleted">Keybox видалено</string>
@@ -1044,8 +1033,7 @@
     <string name="ts_invalid_patch_date">Невірний формат дати. Використовуйте РРРР-ММ-ДД</string>
     <string name="ts_target_list_imported">Цільовий список імпортовано</string>
     <string name="ts_failed">Не вдалося: %s</string>
-    <string name="ts_footer_title">Проходження основної цілісності</string>
-    <string name="ts_footer_body">Скринька ключів отримується та залишається дійсною автоматично. Статус відкликання перевіряється кожні 24 години, а нова скринька ключів отримується з офіційного джерела, якщо поточну скасовано або призупинено.\n\nДля ручного налаштування:\n1. Натисніть «Отримати офіційну скриньку ключів», щоб завантажити її автоматично, або імпортуйте свою власну з надійного джерела.\n2. Відкрийте «Керування цільовими програмами» та виберіть програми, які потребують перевірки цілісності.\n3. Встановіть цільовий режим на «Лист», якщо на вашому пристрої є робоча скринька ключів; інакше залиште його на «Автоматично».\n4. Перевірте стан цілісності Play.\n\nПримітка. Якщо дійсна офіційна скринька ключів недоступна, автоматичне отримання призупиняється на 24 години перед повторною спробою. Завжди видаляйте існуючу скриньку ключів перед імпортом нової.</string>
+    <string name="ts_footer_body">Keybox завантажується та підтримується дійсним автоматично. Статус відкликання перевіряється кожні 24 години, і новий keybox завантажується з офіційного джерела, якщо поточний відкликано або призупинено.\n\nДля налаштування вручну:\n1. Натисніть \"Fetch latest keybox\", щоб завантажити його автоматично, або імпортуйте власний із надійного джерела.\n2. Відкрийте \"Manage target apps\" та виберіть додатки, які вимагають перевірки цілісності.\n3. Встановіть цільовий режим на \"Leaf\", якщо ваш пристрій має робочий TEE; інакше залиште значення Auto.\n4. Повторно перевірте статус Play Integrity.\n\nПримітка: якщо дійсний останній keybox недоступний, автозавантаження призупиняється на 24 години перед повторною спробою. Завжди видаляйте наявний keybox перед імпортом нового.</string>
     <string name="ts_patch_stale_warning">%1$s (несвіжий, більше 12 місяців)</string>
     <string name="ts_security_patch">Дата виправлення системи безпеки</string>
     <string name="ts_no_patch">Не встановлено (використовується типовим пристроєм)</string>
@@ -1058,10 +1046,10 @@
     <string name="ts_verification_auto_count">%1$d Автоматично</string>
     <string name="ts_verification_cert_count">%1$d Сертифікат</string>
     <string name="ts_verification_leaf_count">%1$d Листок</string>
-    <string name="ts_fetch_keybox">Отримати офіційний ключ</string>
+    <string name="ts_fetch_keybox">Завантажити останній keybox</string>
     <string name="ts_fetch_keybox_summary">Завантажити ключ з серверів Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Отримання keybox…</string>
-    <string name="ts_fetch_keybox_success">Офіційний ключ успішно отримано</string>
+    <string name="ts_fetch_keybox_success">Останній keybox успішно завантажено</string>
     <string name="ts_fetch_keybox_failed">Не вдалося отримати: %s</string>
     <string name="ts_fetch_keybox_same_file">Ключ вже оновлено</string>
     <string name="ts_fetch_keybox_blocked">Ваш keybox дійсний - не потрібно завантажувати</string>
@@ -1070,12 +1058,12 @@
     <string name="ts_fetch_keybox_no_valid_found">Немає доступних keybox, повторіть спробу завтра</string>
     <!-- Keybox info row -->
     <string name="ts_chain_invalid_title">Недійсний ланцюжок сертифікатів</string>
-    <string name="ts_chain_invalid_message">Ланцюжок сертифікатів Keybox недійсний або його не вдалося перевірити. Можливо, він пошкоджений або підроблений. Бажаєте замінити його офіційним Keybox?</string>
+    <string name="ts_chain_invalid_message">Ланцюжок сертифікатів keybox недійсний або його не вдалося перевірити. Можливо, його пошкоджено або підроблено. Бажаєте замінити його на останній keybox?</string>
     <string name="ts_expiring_soon_title">Термін дії скриньки з ключами скоро закінчиться</string>
-    <string name="ts_expiring_soon_message">Термін дії сертифіката цієї скриньки з ключами закінчується %1$s. Наразі він проходить перевірку цілісності, але перестане працювати після закінчення терміну дії. Замінити його зараз на офіційну скриньку з ключами?</string>
+    <string name="ts_expiring_soon_message">Термін дії сертифіката цього keybox закінчується %1$s. Наразі він проходить перевірку цілісності, але перестане працювати після закінчення терміну дії. Замінити його зараз на останній keybox?</string>
     <string name="ts_expiry_unknown">невідомий термін дії</string>
     <string name="ts_untrusted_root_title">Нерозпізнаний кореневий ключ</string>
-    <string name="ts_untrusted_root_message">У цій вікні \"Ключовий\" сертифікат має \"root-доступ до центру сертифікації, яку не розпізнає Evolution X. Це все ще може передати Сильну Цілісність на деяких пристроях. Залишити її встановленою або заміною офіційним ключем?</string>
+    <string name="ts_untrusted_root_message">Цей keybox має ланцюжок сертифікатів із кореневим центром сертифікації, який не розпізнається Evolution X. Він все ще може проходити Strong Integrity на деяких пристроях. Залишити його встановленим чи замінити на останній keybox?</string>
     <string name="ts_untrusted_root_keep">Зберегти</string>
     <string name="ts_untrusted_root_replace">Замінити</string>
     <!-- Revocation status -->
@@ -1092,6 +1080,12 @@
     <string name="ts_revocation_last_checked">Остання перевірка: %1$s</string>
     <string name="ts_revocation_not_yet_checked">Ще не відмічено - натисніть щоб перевірити зараз</string>
     <!-- Toasts for new auto-replace triggers -->
+    <string name="ts_chip_valid">Дійсний</string>
+    <string name="ts_chip_expiring">Закінчується</string>
+    <string name="ts_chip_invalid">Недійсний ланцюг</string>
+    <string name="ts_chip_unknown_root">Невідомий корінь</string>
+    <string name="ts_chip_checking">Перевірка</string>
+    <string name="ts_chip_unchecked">Не перевірено</string>
     <string name="ts_fetch_keybox_revoked_refetch">Keybox анульовано, отримання нового…</string>
     <string name="ts_fetch_keybox_suspended_refetch">Keybox анульовано, отримання нового…</string>
     <!-- Wallpaper styles -->
@@ -1135,6 +1129,20 @@
     <string name="lock_glymps_advanced_category">Додатково</string>
     <string name="lock_glymps_clear_cache_title">Очистити кеш</string>
     <string name="lock_glymps_clear_cache_summary">Вилучити всі кешовані шпалери</string>
+    <string name="lock_glymps_folder_dialog_title">Папка локальних шпалер</string>
+    <string name="lock_glymps_folder_missing_message">Папки ще не існує.\n\nРозташування: %1$s\n\nБажаєте створити її?</string>
+    <string name="lock_glymps_folder_create">Створити Папку</string>
+    <string name="lock_glymps_folder_created">Папку створено: %1$s</string>
+    <string name="lock_glymps_folder_create_failed">Помилка створення папки</string>
+    <string name="lock_glymps_folder_info_message">Розташування папки: %1$s\n\nЗнайдено шпалер: %2$d\n\nПідтримувані формати: JPG, PNG, WEBP\n\nПомістіть зображення шпалер у цю папку, і вони використовуватимуться у випадковому порядку.</string>
+    <string name="lock_glymps_custom_urls_dialog_title">URL користувацьких шпалер</string>
+    <string name="lock_glymps_custom_urls_dialog_message">Введіть URL-адреси прямих зображень, по одному в рядку</string>
+    <string name="lock_glymps_custom_urls_hint">https://example.com/image1.jpg\nhttps://example.com/image2.png</string>
+    <string name="lock_glymps_custom_urls_saved">Користувацькі URL-адреси, збережені</string>
+    <string name="lock_glymps_clear_cache_dialog_title">Очистити кеш</string>
+    <string name="lock_glymps_clear_cache_dialog_message">Буде видалено всі кешовані шпалери, вони будуть повторно завантажені. Продовжити?</string>
+    <string name="lock_glymps_clear_cache_confirm">Чиста</string>
+    <string name="lock_glymps_cache_cleared">Кеш очищено. Нові шпалери буде завантажено.</string>
     <string name="lock_glymps_behavior_category">Поведінка</string>
     <string name="lock_glymps_change_on_title">Змінити шпалери на</string>
     <string name="lock_glymps_change_on_summary">При зміні шпалер</string>
@@ -1177,6 +1185,15 @@
     <string name="reboot_required_custom_font_title">Для користувацького шрифту потрібне перезавантаження</string>
     <string name="toast_failed_apply_font">Не вдалося застосувати шрифт</string>
     <string name="toast_invalid_font_file">Некоректний файл шрифту</string>
+    <string name="add_emoji_font">Додати шрифт емодзі</string>
+    <string name="emoji_preview_dialog_title">Попередній перегляд емодзі</string>
+    <string name="emoji_preview_coverage">Нові emoji (Unicode 15 і 16) у цьому шрифті: %1$d від %2$d</string>
+    <string name="reboot_required_custom_emoji_title">Для застосування змін емодзі потрібне перезавантаження. Перезавантажити зараз?</string>
+    <string name="toast_failed_apply_emoji">Не вдалося застосувати шрифт емодзі</string>
+    <string name="toast_emoji_updater_disabled">Оновлення шрифтів вимкнено на цьому пристрої</string>
+    <string name="toast_emoji_slots_full">Вільний слот для емодзі відсутній. Оберіть вбудований стиль для скидання, а потім повторіть спробу</string>
+    <string name="toast_invalid_emoji_file">Недійсний файл шрифту емодзі</string>
+    <string name="toast_emoji_font_too_old">Встановлена новіша версія шрифту для смайликів</string>
     <string name="custom_system_theme_title">Теми</string>
     <string name="custom_system_theme_summary">Налаштування зовнішнього вигляду системи за допомогою тем та пакетів значків</string>
     <!-- About -->
@@ -1203,6 +1220,19 @@
     <string name="changelog_error_no_official">Немає офіційного списку змін для цього пристрою чи збірки. Відвідайте %1$s для отримання додаткової інформації.</string>
     <!-- Color picker -->
     <string name="color_picker_reset">Скинути до стандартних</string>
+    <string name="color_picker_apply">Застосувати</string>
+    <string name="color_picker_clock_title">Колір годинника</string>
+    <string name="color_picker_tab_preset">Попередньо встановлене</string>
+    <string name="color_picker_tab_image">Зображення</string>
+    <string name="color_picker_tab_custom">Персоналізація</string>
+    <string name="color_picker_import_gallery">Завантажити з Галереї</string>
+    <string name="color_picker_import_image">Імпортувати зображення</string>
+    <string name="color_picker_selected_color">Вибраний колір</string>
+    <string name="color_picker_title_image">Взяти колір із зображення</string>
+    <string name="color_picker_title_wallpaper">Вибрати колір з шпалер</string>
+    <string name="color_picker_wallpaper_error">Не вдалося завантажити шпалери</string>
+    <string name="color_picker_hint_image">Натисніть на зображення, щоб вибрати колір</string>
+    <string name="color_picker_hint_wallpaper">Натисніть на шпалери, щоб обрати колір</string>
     <string name="accent_color">Колір акценту</string>
     <string name="notification_color">Колір сповіщення</string>
     <string name="wallpaper_color">Колір шпалер</string>
@@ -1221,6 +1251,7 @@
     <string name="action_enable">Увімкнути</string>
     <string name="action_apply">Застосувати</string>
     <string name="action_delete">Видалити</string>
+    <string name="action_import">Iмпорт</string>
     <string name="action_yes">Так</string>
     <string name="action_reset">Скинути</string>
     <string name="action_search_apps">Пошук додатків</string>
@@ -1292,6 +1323,7 @@
     <!-- Emoji style -->
     <string name="emoji_style_title">Стиль емодзі</string>
     <string name="emoji_style_stock">Стандартний</string>
+    <string name="emoji_custom_label">Індивідуальний: %1$s</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
@@ -1320,4 +1352,7 @@
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Масштабування шпалер</string>
     <string name="wallpaper_zoom_summary">Вимкніть фоновий малюнок без додаткового масштабу</string>
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">Приховати статус захоплення екрану</string>
+    <string name="hide_screen_capture_status_summary">Приховати статус захоплення/запису з додатків. Корисно, але може ризикувати конфіденційністю. Перезапустіть програму, щоб продовжити.</string>
 </resources>
