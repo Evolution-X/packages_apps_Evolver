@@ -688,23 +688,6 @@
         <item>com.google.android.apps.pixel.creativeassistant</item>
     </string-array>
 
-    <!-- QS Header clock styles  -->
-    <string-array name="qs_header_clock_style_entries">
-        <item>@string/default_value</item>
-        <item>@string/qs_header_style1</item>
-        <item>@string/qs_header_style2</item>
-        <item>@string/qs_header_style3</item>
-        <item>@string/qs_header_style4</item>
-    </string-array>
-
-    <string-array name="qs_header_clock_style_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
     <!-- Wallpaper Blur  -->
     <string-array name="wallpaper_blur_entries">
         <item>@string/disabled</item>
