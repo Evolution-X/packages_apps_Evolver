@@ -43,6 +43,13 @@
         android:defaultValue="35"
         android:dependency="ls_media_art_aod_enabled" />
 
+    <org.evolution.settings.preferences.SystemSettingSwitchPreference
+        android:key="ls_media_art_status_bar_above"
+        android:title="@string/ls_media_art_status_bar_above_title"
+        android:summary="@string/ls_media_art_status_bar_above_summary"
+        android:defaultValue="false"
+        android:dependency="ls_media_art_enabled" />
+
     <org.evolution.settings.preferences.SystemSettingListPreference
         android:key="ls_media_art_filter"
         android:title="@string/ls_media_art_filter_title"
