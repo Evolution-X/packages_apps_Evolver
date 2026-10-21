@@ -16,11 +16,11 @@
     <string name="status_bar_summary">ジェスチャー、アイコン、ロゴ、余白</string>
     <string name="quick_settings_title">クイック設定</string>
     <string name="quick_settings_summary">インターフェース、明るさスライダー、レイアウト</string>
-    <string name="notifications_summary">ポップアップ通知、エッジライト、サウンド</string>
+    <string name="notifications_summary">ポップアップ通知、透過、音</string>
     <string name="power_menu_title">電源メニュー</string>
     <string name="power_menu_summary">ロック画面のアクション</string>
     <string name="miscellaneous_title">その他</string>
-    <string name="miscellaneous_summary">偽装、開発者向けオプション</string>
+    <string name="miscellaneous_summary">偽装ハブ、開発者向けオプション</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">この ROM について</string>
     <string name="gestures_category_title">ジェスチャー</string>
@@ -56,6 +56,8 @@
     <string name="boot_animation_applied_error">ブートアニメーションの適用に失敗しました</string>
     <string name="boot_animation_preview_title">ブートアニメーションのプレビュー</string>
     <string name="boot_animation_no_preview">プレビューは利用できません</string>
+    <string name="boot_animation_custom_pick">起動アニメーションの zip ファイルを選択してください</string>
+    <string name="boot_animation_custom_replace">タップして別のzipを選択</string>
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">色のカスタマイズ</string>
     <string name="color_settings_category">色設定</string>
@@ -254,27 +256,12 @@
     <string name="aod_brightness_title">AOD の明るさ</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Now Playing</string>
-    <string name="nowplaying_summary">現在再生中の音楽情報をロック画面と AOD に表示する</string>
-    <string name="nowplaying_color_mode_title">テキストのカラーモード</string>
-    <string name="nowplaying_track_text_size_title">トラックタイトルのサイズ</string>
-    <string name="nowplaying_track_text_size_summary">トラック名のテキストサイズ</string>
-    <string name="nowplaying_artist_text_size_title">アーティスト名のサイズ</string>
-    <string name="nowplaying_artist_text_size_summary">アーティスト名またはアルバム名のテキストサイズ</string>
-    <string name="nowplaying_display_title">表示オプション</string>
-    <string name="nowplaying_show_on_lockscreen_title">ロック画面に表示</string>
-    <string name="nowplaying_show_on_lockscreen_summary">デバイスのロック中に音楽情報を表示する</string>
-    <string name="nowplaying_icon_style_title">アイコンスタイル</string>
-    <string name="nowplaying_icon_style_summary">表示するアイコンを選択する</string>
-    <string name="nowplaying_icon_size_title">アイコンサイズ</string>
-    <string name="nowplaying_icon_size_summary">アイコンのサイズを調整する</string>
-    <string name="nowplaying_show_on_aod_title">AOD に表示</string>
-    <string name="nowplaying_show_on_aod_summary">アンビエント表示に音楽情報を表示する</string>
-    <string name="nowplaying_info_summary">Now Playingはロック画面と常時オン画面に現在のトラックとアーティストを表示します。 音楽の再生中に自動的に表示され、停止時に非表示になります。位置は画面の上部から下部に調整可能です。</string>
-    <string name="nowplaying_expand_dialog">ダイアログを展開</string>
-    <string name="nowplaying_expand_dialog_summary">Now Playingのダイアログを展開する</string>
+    <string name="nowplaying_summary">デバイスの近くで流れている音楽を検出し、ロック画面やAODに曲名を表示します。デフォルトではオフになっています。</string>
+    <string name="nowplaying_on_demand_title">オンデマンドショートカット</string>
+    <string name="nowplaying_on_demand_summary">ロック画面に検索アイコンを表示します。長押しで検索を開始します。</string>
     <string name="nowplaying_lyrics_mode_title">歌詞モード</string>
-    <string name="nowplaying_lyrics_mode_summary">曲のタイトルとアイコンの代わりに、曲の歌詞を表示する</string>
-    <string name="nowplaying_pixel_native_footer">このデバイスでは、Pixelの「Now Playing」機能による表示がすでに標準で提供されています。組み込み機能が有効な間、これらの設定は利用できません。</string>
+    <string name="nowplaying_lyrics_mode_summary">ロック画面でこの端末で再生中の音楽の同期した歌詞を表示する</string>
+    <string name="nowplaying_pixel_native_summary">このデバイスでは、Pixelのアンビエント表示機能を通じて、すでに「Now Playing」が標準で提供されています</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">天気の設定</string>
     <string name="weather_settings_summary">アイコンパックと天気サービスを設定する</string>
@@ -509,6 +496,7 @@
     <!-- Custom image logo style -->
     <string name="status_bar_logo_custom_image_title">カスタムロゴ画像を選択</string>
     <string name="status_bar_logo_custom_image_pick_summary">ギャラリーから画像を選択</string>
+    <string name="status_bar_logo_add">ロゴを追加</string>
     <!-- Statusbar logo color -->
     <string name="status_bar_logo_color_title">色</string>
     <string name="status_bar_logo_color_default">デフォルト (ホワイト)</string>
@@ -581,6 +569,9 @@
     <string name="dynamic_bar_event_biometric">生体認証によるロック解除</string>
     <string name="dynamic_bar_event_biometric_summary">指紋または顔認証によるロック解除時にチップを表示する</string>
     <string name="dynamic_bar_guide_title">ダイナミックバーの使い方</string>
+    <!-- Dynamic Bar guide: expanded timer demo labels -->
+    <string name="dynamic_bar_demo_running">実行中</string>
+    <string name="dynamic_bar_demo_add_minute">+1 分</string>
     <string name="dynamic_bar_guide_chip">録音、メディア再生、タイマーなどのアクティブなイベントがステータスバーに表示されます</string>
     <string name="dynamic_bar_guide_swipe">複数のイベントがアクティブな場合、チップを左右にスワイプして切り替えることができます</string>
     <string name="dynamic_bar_guide_expand">チップをタップすると、コントロールや詳細情報が含まれた詳細カードに展開されます</string>
@@ -898,7 +889,7 @@
     <string name="advanced_reboot_secured_title">保護されたロック画面に表示</string>
     <string name="advanced_reboot_secured_summary">セキュリティ保護されたロック画面に高度な再起動オプションを表示する</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">偽装</string>
+    <string name="miscellaneous_spoofing_category">偽装ハブ</string>
     <string name="miscellaneous_developer_options_category">開発者向けオプション</string>
     <string name="miscellaneous_app_downgrade_title">アプリのダウングレードを許可</string>
     <string name="miscellaneous_app_downgrade_summary">システムアプリケーションのダウングレードを許可します。クラッシュやデータの損失が発生する可能性があります。</string>
@@ -926,9 +917,9 @@
     <string name="smart_pixels_summary">画面ピクセルの一部を無効化してバッテリーを節約する</string>
     <string name="smart_pixels_percent">無効化するピクセルの割合</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">偽装</string>
-    <string name="spoofing_summary">Play Integrity、デバイス ID、機能の偽装</string>
-    <string name="spoofing_integrity_category">Play Integrity</string>
+    <string name="spoofing_title">偽装ハブ</string>
+    <string name="spoofing_summary">Play Integrity 修正、デバイス ID、機能の偽装</string>
+    <string name="spoofing_integrity_category">Play Integrityの修正</string>
     <string name="spoofing_identity_category">デバイスの識別情報</string>
     <string name="spoofing_features_category">ハードウェア機能</string>
     <string name="spoofing_pixel_props_title">Pixel props</string>
@@ -940,13 +931,12 @@
     <string name="spoofing_snap_summary">Snapchat を Pixel XL として偽装し、チャットの問題を修正します</string>
     <string name="spoofing_applying_changes">偽装設定を適用中\u2026</string>
     <string name="spoofing_reset_defaults_title">デフォルトに戻す</string>
-    <string name="spoofing_reset_defaults_summary">Play Integrity、ターゲットリスト、パッチレベル、ゲームの偽装をデフォルトに戻します。キーボックスは保持されます</string>
     <string name="spoofing_reset_defaults_dialog_title">偽装の設定をリセットしますか？</string>
     <string name="spoofing_reset_defaults_dialog_message">これにより、Play Integrity 設定、セキュリティパッチの上書き、およびゲーム偽装の設定がクリアされ、TrickyStore のデフォルトのターゲットリストが復元されます。キーボックスは保持されます。Play Integrity とパッチレベルは、その後すぐに再度取得されます。有効化トグルは変更されません。</string>
     <string name="spoofing_reset_defaults_confirm">リセット</string>
     <string name="spoofing_reset_defaults_done">偽装の設定をリセットしました</string>
-    <string name="tensor_spoof_title">Tensor 機能のターゲット</string>
-    <string name="tensor_spoof_summary">選択したアプリに Google Tensor 専用の AI 機能へのアクセスを許可します</string>
+    <string name="tensor_spoof_title">Tensor 偽装</string>
+    <string name="tensor_spoof_summary">選択したアプリにGoogle Tensor専用機能へのアクセスを許可する</string>
     <string name="tensor_spoof_enable">Tensor 偽装</string>
     <string name="tensor_targets_none_configured">ターゲットアプリはありません</string>
     <string name="tensor_targets_count">%1$d 個のターゲットアプリ</string>
@@ -990,37 +980,25 @@
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Play Integrityの修正</string>
     <string name="play_integrity_fix_summary">基本的な整合性のために PIF 設定とデバイスのフィンガープリントを管理します</string>
-    <string name="pif_status">ステータス</string>
     <string name="pif_active_config">アクティブな設定</string>
     <string name="pif_no_config">設定が読み込まれていません</string>
-    <string name="pif_config_loaded">設定を読み込みました</string>
     <string name="pif_fetch_pixel_beta">Pixel Canary フィンガープリントを取得</string>
-    <string name="pif_fetch_pixel_beta_summary">Google から最新の Pixel Canary フィンガープリントをダウンロードします</string>
-    <string name="pif_fetching">Google から取得中\u2026</string>
     <string name="pif_fetched_model">%s のフィンガープリントを取得しました</string>
-    <string name="pif_import_config">設定をインポート</string>
-    <string name="pif_import_config_summary">ファイルから PIF 設定をインポートします</string>
     <string name="pif_imported_as">%s としてインポートされました</string>
-    <string name="pif_delete_config">アクティブな設定を削除</string>
-    <string name="pif_delete_config_summary">現在アクティブな設定ファイルを削除します</string>
     <string name="pif_delete_title">%s を削除しますか？</string>
     <string name="pif_delete_message">この設定ファイルは完全に削除されます。</string>
     <string name="pif_wipe_playstore_title">Playストアのデータを消去しますか？</string>
     <string name="pif_wipe_playstore_message">このフィンガープリントを適用することは、新鮮なPlay Storeセッションで最適です。 Play Storeアプリのデータを消去しますか？これでサインアウトし、ローカルキャッシュとダウンロードキューを消去します。</string>
     <string name="pif_wipe_confirm">データを消去</string>
     <string name="pif_deleted">%s を削除しました</string>
-    <string name="pif_config_details">設定の詳細</string>
     <string name="pif_failed">失敗: %s</string>
     <string name="pif_select_device">デバイスを選択</string>
     <string name="pif_recommended_suffix">おすすめ</string>
-    <string name="pif_generating">設定を生成中\u2026</string>
-    <string name="pif_footer_title">基本的な整合性のパス方法</string>
     <string name="pif_footer_body">Canaryのフィンガープリントは 1 日に最大 1 回チェックされ、有効期限が切れる約 2 週間以内になると自動的に置き換えられます。Canary の設定はリリース日から約 6 週間で期限切れになります。有効期限はアクティブな設定の概要に表示されます。\n\n手動設定の場合：\n1. 「Pixel Canaryフィンガープリントを取得」をタップしてデバイスを選択します。\n2. デバイスが見つからない場合は、信頼できるソースから動作する PIF 設定をインポートします。設定ファイルは提供されません。\n3. Play の整合性ステータスを再確認します。\n\n新しい設定をインポートする前に、常にアクティブな設定を削除してください。期限切れの PIF 設定を読み込むと、有効なキーボックスがあっても TrickyStore の強力な整合性が失敗します。\n\n高度ななりすまし：\n• Play ストアのフィンガープリントのなりすまし - 特に指示がない限り無効にしておきます。Play ストアへの指紋のなりすましはあまり必要とされず、問題を引き起こす可能性があります。\n• Play ストアへの SDK のなりすまし - SDK 32 を Play ストアに提示して、Android 13 より前のレガシー判定パスを強制します。 Play ストアの動作が壊れる可能性があるため、テスト時以外はオフにしておいてください。\n• ビルド フィールドとシステム プロパティを偽装する - オンにしておいてください。これらは DroidGuard にフィンガープリントを提示します。\n• キー ストア プロバイダーを偽装する - キー ボックスが使用されている場合はオフにしてください。キー ボックスの認証をバイパスするためです。\n• ROM 署名を偽装する - 実験的機能です。</string>
     <string name="pif_invalid_fingerprint">フィンガープリントの形式が無効です</string>
     <string name="pif_no_devices_found">デバイスが見つかりません</string>
     <string name="pif_advanced_settings">高度な設定</string>
     <string name="pif_spoof_vending_finger_title">Playストアのフィンガープリントの偽装</string>
-    <string name="pif_spoof_vending_finger_summary">FINGERPRINTがPlayストアのプロセスに表示されるかを制御します</string>
     <string name="pif_spoof_vending_sdk_title">Play ストアにSDKを偽装する</string>
     <string name="pif_spoof_vending_sdk_summary">Play Storeに対してSDK 32を提示し、f古い&lt;「Android 13判定パス」を強制的に適用させます。実際のSDKバージョンより高い値を設定しないでください。Play Storeの動作に不具合が生じる可能性があるため、テスト目的以外では使用しないでください</string>
     <string name="pif_vending_finger_custom_summary">カスタムフィンガープリント: %1$s</string>
@@ -1033,19 +1011,22 @@
     <string name="pif_spoof_signature_title">ROM署名を偽装する</string>
     <string name="pif_spoof_signature_summary">実験中です。DroidGuardのtest-keyのROM禁止を回避します</string>
     <string name="pif_reset_advanced_title">高度な偽装をリセット</string>
-    <string name="pif_reset_advanced_summary">上記のすべてのスイッチのデフォルト値を復元します。フィンガープリントは保持されます</string>
     <string name="pif_reset_advanced_message">すべての高度な偽装オプションをデフォルトにリセットしますか？現在のフィンガープリントは保持されます。</string>
     <string name="pif_vending_finger_disabled">無効 (デフォルト)</string>
     <string name="pif_vending_finger_same">DroidGuardの指紋と同じ</string>
+    <string name="pif_fingerprint_spoofing">偽装</string>
+    <string name="pif_active_model">アクティブ: %1$s</string>
+    <string name="pif_canary_fingerprint">Canaryフィンガープリント</string>
+    <string name="pif_patch_age">パッチ %1$s \u00b7 %2$d日前</string>
+    <string name="pif_days_left">%1$d日後</string>
+    <string name="pif_expired">期限切れ</string>
+    <string name="pif_vending_finger_custom_clear_hint">タップしてオフにする</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">強力な整合性認証のためのキーボックスとターゲットアプリを管理します</string>
     <string name="ts_keybox_management">キーボックスの管理</string>
-    <string name="ts_import_keybox">キーボックスをインポート</string>
     <string name="ts_no_keybox">キーボックスがインストールされていません</string>
     <string name="ts_keybox_installed">キーボックスがインストール済みです</string>
     <string name="ts_keybox_imported">キーボックスのインポートに成功しました</string>
-    <string name="ts_delete_keybox">キーボックスを削除</string>
-    <string name="ts_delete_keybox_summary">キーボックスファイルを削除します</string>
     <string name="ts_delete_keybox_title">キーボックスを削除しますか？</string>
     <string name="ts_delete_keybox_message">キーボックスファイルは完全に削除されます。</string>
     <string name="ts_keybox_deleted">キーボックスを削除しました</string>
@@ -1059,7 +1040,6 @@
     <string name="ts_invalid_patch_date">日付形式が無効です。YYYY-MM-DD を使用してください</string>
     <string name="ts_target_list_imported">ターゲットリストをインポートしました</string>
     <string name="ts_failed">失敗: %s</string>
-    <string name="ts_footer_title">基本的な整合性のパス方法</string>
     <string name="ts_footer_body">キーボックスは自動的に取得され、有効な状態が維持されます。失効されいるかの状況は24時間ごとに確認され、現在のキーボックスが失効または停止されている場合は、公式ソースから新しいキーボックスが取得されます。\n\n手動で設定する場合：\n1. 「公式Keyboxを取得」をタップして自動的にダウンロードするか、信頼できるソースから独自のキーボックスをインポートします。\n2. 「対象アプリの管理」を開き、整合性チェックが必要なアプリを選択します。\n3. デバイスでTEEが機能している場合はターゲットモードを「Leaf」に設定し、そうでない場合は「自動」のままにします。\n4. Play Integrityのステータスを再確認します。\n5. \n注：有効な公式キーボックスが利用できない場合、自動取得は24時間停止され、その後再試行されます。また、新しいキーボックスをインポートする前に、必ず既存のキーボックスを削除してください。</string>
     <string name="ts_patch_stale_warning">%1$s (古い、12ヶ月以上)</string>
     <string name="ts_security_patch">セキュリティパッチの日付</string>
@@ -1073,7 +1053,7 @@
     <string name="ts_verification_auto_count">%1$d 自動</string>
     <string name="ts_verification_cert_count">%1$d 証明書</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
-    <string name="ts_fetch_keybox">公式キーボックスを取得</string>
+    <string name="ts_fetch_keybox">最新のキーボックスを取得</string>
     <string name="ts_fetch_keybox_summary">EvolutionXのサーバーからキーボックスをダウンロードする</string>
     <string name="ts_fetch_keybox_fetching">キーボックスを取得中…</string>
     <string name="ts_fetch_keybox_success">公式キーボックスの取得に成功しました</string>
@@ -1107,6 +1087,12 @@
     <string name="ts_revocation_last_checked">最終確認: %1$s</string>
     <string name="ts_revocation_not_yet_checked">まだチェックされていません — 今すぐ確認するにはタップしてください</string>
     <!-- Toasts for new auto-replace triggers -->
+    <string name="ts_chip_valid">有効</string>
+    <string name="ts_chip_expiring">有効期限切れ</string>
+    <string name="ts_chip_invalid">無効なチェーン</string>
+    <string name="ts_chip_unknown_root">不明なルート</string>
+    <string name="ts_chip_checking">確認中</string>
+    <string name="ts_chip_unchecked">未チェック</string>
     <string name="ts_fetch_keybox_revoked_refetch">キーボックスが失効しています。新しいものを取得中…</string>
     <string name="ts_fetch_keybox_suspended_refetch">キーボックスが失効しています。新しいものを取得中…</string>
     <!-- Wallpaper styles -->
@@ -1150,6 +1136,20 @@
     <string name="lock_glymps_advanced_category">高度な設定</string>
     <string name="lock_glymps_clear_cache_title">キャッシュをクリア</string>
     <string name="lock_glymps_clear_cache_summary">キャッシュされたすべての壁紙を削除する</string>
+    <string name="lock_glymps_folder_dialog_title">ローカル壁紙フォルダ</string>
+    <string name="lock_glymps_folder_missing_message">フォルダはまだ存在しません。\n\n場所: %1$s\n\n作成しますか？</string>
+    <string name="lock_glymps_folder_create">フォルダを作成</string>
+    <string name="lock_glymps_folder_created">作成されたフォルダ: %1$s</string>
+    <string name="lock_glymps_folder_create_failed">フォルダの作成に失敗しました</string>
+    <string name="lock_glymps_folder_info_message">フォルダーの場所: %1$s\n\n見つかった壁紙: %2$d\n\n対応形式: JPG, PNG, WEBP\n\nこのフォルダーに壁紙画像を配置すると、それらがランダムに使用されます。</string>
+    <string name="lock_glymps_custom_urls_dialog_title">カスタム壁紙URL</string>
+    <string name="lock_glymps_custom_urls_dialog_message">画像のURLを1行に1つずつ入力してください</string>
+    <string name="lock_glymps_custom_urls_hint">https://example.com/image1.jpg\nhttps://example.com/image2.png</string>
+    <string name="lock_glymps_custom_urls_saved">カスタムURLを保存しました</string>
+    <string name="lock_glymps_clear_cache_dialog_title">キャッシュをクリア</string>
+    <string name="lock_glymps_clear_cache_dialog_message">すべてのキャッシュされた壁紙が削除され、再ダウンロードされます。続行しますか？</string>
+    <string name="lock_glymps_clear_cache_confirm">クリア</string>
+    <string name="lock_glymps_cache_cleared">キャッシュをクリアしました。新しい壁紙がダウンロードされます。</string>
     <string name="lock_glymps_behavior_category">動作</string>
     <string name="lock_glymps_change_on_title">壁紙の変更タイミング</string>
     <string name="lock_glymps_change_on_summary">壁紙を変更する時</string>
@@ -1192,6 +1192,14 @@
     <string name="reboot_required_custom_font_title">カスタムフォントには再起動が必要です</string>
     <string name="toast_failed_apply_font">フォントの適用に失敗しました</string>
     <string name="toast_invalid_font_file">無効なフォントファイルです</string>
+    <string name="add_emoji_font">絵文字フォントを追加</string>
+    <string name="emoji_preview_dialog_title">絵文字のプレビュー</string>
+    <string name="reboot_required_custom_emoji_title">絵文字の変更を適用するには再起動が必要です。今すぐ再起動しますか？</string>
+    <string name="toast_failed_apply_emoji">絵文字の適用に失敗しました</string>
+    <string name="toast_emoji_updater_disabled">この端末ではフォントの更新は無効になっています</string>
+    <string name="toast_emoji_slots_full">無料の絵文字フォントスロットがありません。組み込みスタイルを選択してリセットしてから、もう一度やり直してください</string>
+    <string name="toast_invalid_emoji_file">無効な絵文字フォントファイル</string>
+    <string name="toast_emoji_font_too_old">絵文字はシステムの絵文字フォントより古いです</string>
     <string name="custom_system_theme_title">テーマ</string>
     <string name="custom_system_theme_summary">テーマやアイコンパックでシステムの見た目をカスタマイズする</string>
     <!-- About -->
@@ -1218,6 +1226,19 @@
     <string name="changelog_error_no_official">このデバイスでは公式の更新履歴は利用できません。詳細は %1$s をご覧ください。</string>
     <!-- Color picker -->
     <string name="color_picker_reset">デフォルトに戻す</string>
+    <string name="color_picker_apply">適用</string>
+    <string name="color_picker_clock_title">時計の色</string>
+    <string name="color_picker_tab_preset">プリセット</string>
+    <string name="color_picker_tab_image">画像</string>
+    <string name="color_picker_tab_custom">カスタム</string>
+    <string name="color_picker_import_gallery">ギャラリーからインポート</string>
+    <string name="color_picker_import_image">画像をインポート</string>
+    <string name="color_picker_selected_color">色を選択</string>
+    <string name="color_picker_title_image">画像から色を選択</string>
+    <string name="color_picker_title_wallpaper">壁紙から選択</string>
+    <string name="color_picker_wallpaper_error">壁紙を読み込めません</string>
+    <string name="color_picker_hint_image">画像をタップして色を選択</string>
+    <string name="color_picker_hint_wallpaper">壁紙をタップして色を選択</string>
     <string name="accent_color">アクセントカラー</string>
     <string name="notification_color">通知の色</string>
     <string name="wallpaper_color">壁紙の色</string>
@@ -1236,6 +1257,7 @@
     <string name="action_enable">有効</string>
     <string name="action_apply">適用</string>
     <string name="action_delete">削除</string>
+    <string name="action_import">インポート</string>
     <string name="action_yes">はい</string>
     <string name="action_reset">リセット</string>
     <string name="action_search_apps">アプリを検索</string>
@@ -1300,7 +1322,9 @@
     <string name="charging_appearance_category_title">見た目</string>
     <string name="charging_color_mode_title">カラーモード</string>
     <string name="charging_display_category_title">表示オプション</string>
+    <string name="charging_show_on_lockscreen_title">ロック画面に表示</string>
     <string name="charging_show_on_lockscreen_summary">ロック画面が表示されている時にアニメーションを表示する</string>
+    <string name="charging_show_on_aod_title">AODに表示</string>
     <string name="charging_show_on_aod_summary">アンビエント表示モードでアニメーションを表示する</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">絵文字のスタイル</string>
