@@ -288,6 +288,12 @@
     <string name="nowplaying_on_demand_summary">Show a search icon on the lock screen. A long press starts a search.</string>
     <string name="nowplaying_lyrics_mode_title">Lyrics mode</string>
     <string name="nowplaying_lyrics_mode_summary">Show synced lyrics of the music playing on this phone on the lock screen</string>
+    <string name="nowplaying_saved_title">Saved songs</string>
+    <string name="nowplaying_saved_summary">Songs you saved with the heart on the lock screen</string>
+    <string name="nowplaying_saved_empty_title">No saved songs yet</string>
+    <string name="nowplaying_saved_empty_summary">Tap the heart on a recognized song to save it here</string>
+    <string name="nowplaying_saved_remove">Remove</string>
+    <string name="nowplaying_saved_no_music_app">No music app found to play this song</string>
     <string name="nowplaying_pixel_native_summary">This device already provides Now Playing natively through Pixel\'s ambient indication</string>
 
     <!-- Lock screen/Weather -->
