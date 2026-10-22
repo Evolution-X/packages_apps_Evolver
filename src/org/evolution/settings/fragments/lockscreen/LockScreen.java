@@ -39,6 +39,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String KEY_NOW_PLAYING = "now_playing_enabled";
     private static final String KEY_NOW_PLAYING_ON_DEMAND = "now_playing_on_demand";
+    private static final String KEY_NOW_PLAYING_SAVED = "now_playing_saved_songs";
     private static final String KEY_FACE_ANIMATION = "face_unlock_animation";
     private static final String KEY_FP_ERROR = "fp_error_vibrate";
     private static final String KEY_FP_SUCCESS = "fp_success_vibrate";
@@ -83,6 +84,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
             nowPlaying.setEnabled(false);
             nowPlaying.setSummary(R.string.nowplaying_pixel_native_summary);
             onDemand.setEnabled(false);
+
+            // The saved songs list is only filled by the non-Pixel indication
+            final Preference savedSongs = findPreference(KEY_NOW_PLAYING_SAVED);
+            if (savedSongs != null) {
+                savedSongs.getParent().removePreference(savedSongs);
+            }
         }
 
         if (!DeviceUtils.hasFace(context)) {
