@@ -47,6 +47,13 @@
             android:summary="@string/nowplaying_lyrics_mode_summary"
             android:defaultValue="false" />
 
+        <!-- Now Playing saved songs -->
+        <Preference
+            android:key="now_playing_saved_songs"
+            android:title="@string/nowplaying_saved_title"
+            android:summary="@string/nowplaying_saved_summary"
+            android:fragment="org.evolution.settings.fragments.lockscreen.NowPlayingSavedSongs" />
+
         <!-- Edge light -->
         <org.evolution.settings.preferences.SystemSettingPrimarySwitchPreference
             android:key="edge_light_enabled"
