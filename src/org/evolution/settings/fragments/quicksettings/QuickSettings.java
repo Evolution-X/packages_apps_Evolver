@@ -30,6 +30,7 @@ import java.util.List;
 import lineageos.providers.LineageSettings;
 
 import org.evolution.settings.preferences.SecureSettingListPreference;
+import org.evolution.settings.preferences.SystemSettingListPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
@@ -49,6 +50,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_COMPACT_MEDIA_PLAYER_ENABLED = "qs_compact_media_player_mode";
     private static final String KEY_MEDIA_WAVEFORM_SEEKBAR = "media_waveform_seekbar";
     private static final String KEY_QS_COLOROS_MEDIA_ART_FILL = "qs_coloros_media_art_fill";
+    private static final String KEY_QS_HEADER_CLOCK_STYLE = "qs_header_clock_style";
     private static final String KEY_QS_NOTHING_COLOR_STYLE = "qs_nothing_color_style";
     private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
 //    private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
@@ -81,6 +83,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mQsTileLabelHide;
     private SwitchPreferenceCompat mShowAutoBrightness;
     private SwitchPreferenceCompat mShowRingerMode;
+    private SystemSettingListPreference mQsHeaderClockStyle;
     private SystemSettingSwitchPreference mCompactMediaPlayer;
     private SystemSettingSwitchPreference mMediaWaveformSeekBar;
 //    private SystemSettingSwitchPreference mQsWidgetIosMusic;
@@ -166,6 +169,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsColorOSMediaArtFill.setOnPreferenceChangeListener(this);
         mQsNothingColorStyle = findPreference(KEY_QS_NOTHING_COLOR_STYLE);
         mQsNothingColorStyle.setOnPreferenceChangeListener(this);
+        mQsHeaderClockStyle = findPreference(KEY_QS_HEADER_CLOCK_STYLE);
+        mQsHeaderClockStyle.setOnPreferenceChangeListener(this);
 
         int panelStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
@@ -232,6 +237,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 || preference == mBrightnessSliderHaptic
                 || preference == mMediaWaveformSeekBar
                 || preference == mQsColorOSMediaArtFill
+                || preference == mQsHeaderClockStyle
                 || preference == mQsNothingColorStyle) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
