@@ -362,6 +362,8 @@
     <string name="dw_footer_text">Depth Wallpaper overlays a subject image above the lock screen clock, inspired by iOS wallpaper subject segmentation.\n\nSetup:\n1. Set a wallpaper with the background you want behind the subject.\n2. Select a subject image to overlay above the lock screen clock.\n3. Adjust the offsets and opacity to your preference.</string>
 
     <!-- Status bar -->
+    <string name="status_bar_triple_tap_freeform_title">Triple tap to open in freeform</string>
+    <string name="status_bar_triple_tap_freeform_summary">Triple-tap on the status bar to open the current app in a freeform window</string>
     <string name="status_bar_toggle_brightness_title">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
     <string name="status_bar_toggle_brightness_lockscreen_title">Brightness control on lock screen</string>
