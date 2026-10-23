@@ -239,8 +239,8 @@
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Okładka multimediów</string>
     <string name="ls_media_art_summary">Wyświetl okładkę multimediów, gdy jest dostępna</string>
-    <string name="ls_media_art_status_bar_above_title">Pasek stanu nad okładką albumu</string>
-    <string name="ls_media_art_status_bar_above_summary">Utrzymuj wyświetlanie stanu baterii, sygnału i zegar w górnej części okładki albumu</string>
+    <string name="ls_media_art_status_bar_above_title">Pasek stanu nad okładką</string>
+    <string name="ls_media_art_status_bar_above_summary">Utrzymuj wskaźnik baterii, zasięg oraz zegar widoczny na tle okładki</string>
     <string name="ls_media_art_filter_title">Filtr okładek albumu</string>
     <string name="ls_media_art_filter_none">Brak</string>
     <string name="ls_media_art_filter_blur">Rozmycie</string>
@@ -267,7 +267,7 @@
     <string name="nowplaying_lyrics_mode_title">Tryb tekstów</string>
     <string name="nowplaying_lyrics_mode_summary">Pokaż zsynchronizowane teksty utworów odtwarzanych na tym telefonie na ekranie blokady</string>
     <string name="nowplaying_saved_title">Zapisane utwory</string>
-    <string name="nowplaying_saved_summary">Utwory zapisane z oznaczeniem \"serca\" na ekranie blokady</string>
+    <string name="nowplaying_saved_summary">Utwory zapisane za pomocą ikony serca na ekranie blokady</string>
     <string name="nowplaying_saved_empty_title">Brak zapisanych utworów</string>
     <string name="nowplaying_saved_empty_summary">Dotknij serca na rozpoznanym utworze, aby zapisać go tutaj</string>
     <string name="nowplaying_saved_remove">Usuń</string>
