@@ -269,7 +269,7 @@
     <string name="nowplaying_saved_title">Zapisane utwory</string>
     <string name="nowplaying_saved_summary">Utwory zapisane za pomocą ikony serca na ekranie blokady</string>
     <string name="nowplaying_saved_empty_title">Brak zapisanych utworów</string>
-    <string name="nowplaying_saved_empty_summary">Dotknij serca na rozpoznanym utworze, aby zapisać go tutaj</string>
+    <string name="nowplaying_saved_empty_summary">Naciśnij ikonę serca przy rozpoznanym utworze, aby zapisać go w tym miejscu</string>
     <string name="nowplaying_saved_remove">Usuń</string>
     <string name="nowplaying_saved_no_music_app">Nie znaleziono aplikacji muzycznej do odtworzenia tego utworu</string>
     <string name="nowplaying_pixel_native_summary">To urządzenie oferuje już natywnie funkcję Co jest grane za pośrednictwem wskaźnika otoczenia w urządzeniu Pixel</string>
@@ -1364,5 +1364,5 @@
     <string name="wallpaper_zoom_summary">Wyłącz, aby wyświetlić tapetę bez dodatkowego powiększenia</string>
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Ukryj status przechwytywania ekranu</string>
-    <string name="hide_screen_capture_status_summary">Ukryj status przechwytywania/nagrywania ekranu w aplikacjach. Przydatne, ale może zagrażać prywatności. Aby zastosować zmiany, uruchom ponownie aplikacje.</string>
+    <string name="hide_screen_capture_status_summary">Ukryj przed aplikacjami stan rejestrowania lub przechwytywania ekranu. Funkcja przydatna, lecz może wiązać się z ryzykiem dla prywatności. Zrestartuj aplikacje, aby zmiany zaczęły obowiązywać.</string>
 </resources>
