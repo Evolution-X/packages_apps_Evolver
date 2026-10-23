@@ -57,6 +57,8 @@
     <string name="boot_animation_preview_title">Podgląd animacji startowej</string>
     <string name="boot_animation_no_preview">Brak dostępnego podglądu</string>
     <string name="boot_animation_style_unknown">Nieznany</string>
+    <string name="boot_animation_custom_pick">Wybierz plik zip z animacją uruchamiania</string>
+    <string name="boot_animation_custom_replace">Naciśnij, aby wybrać inny plik zip</string>
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">Dostosowywanie kolorów</string>
     <string name="color_settings_category">Ustawienia koloru</string>
@@ -107,6 +109,8 @@
     <string name="secondary_seed_color_title">Kolor drugorzędny</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interfejs</string>
+    <string name="face_unlock_animation_title">Animacja odblokowywania twarzą</string>
+    <string name="face_unlock_animation_summary">Wyświetlaj animację skanowania, powodzenia lub niepowodzenia na ekranie blokady podczas odblokowywania za pomocą rozpoznawania twarzy</string>
     <string name="lock_screen_charging_stats_title">Statystyki ładowania</string>
     <string name="lock_screen_charging_stats_summary">Wyświetl obecne napięcie, moc i temperaturę podczas ładowania</string>
     <string name="lock_screen_charging_time_title">Czas ładowania</string>
@@ -235,6 +239,8 @@
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Okładka multimediów</string>
     <string name="ls_media_art_summary">Wyświetl okładkę multimediów, gdy jest dostępna</string>
+    <string name="ls_media_art_status_bar_above_title">Pasek stanu nad okładką albumu</string>
+    <string name="ls_media_art_status_bar_above_summary">Utrzymuj wyświetlanie stanu baterii, sygnału i zegar w górnej części okładki albumu</string>
     <string name="ls_media_art_filter_title">Filtr okładek albumu</string>
     <string name="ls_media_art_filter_none">Brak</string>
     <string name="ls_media_art_filter_blur">Rozmycie</string>
@@ -260,6 +266,12 @@
     <string name="nowplaying_on_demand_summary">Wyświetl ikonę wyszukiwania na ekranie blokady. Długie naciśnięcie uruchamia wyszukiwanie.</string>
     <string name="nowplaying_lyrics_mode_title">Tryb tekstów</string>
     <string name="nowplaying_lyrics_mode_summary">Pokaż zsynchronizowane teksty utworów odtwarzanych na tym telefonie na ekranie blokady</string>
+    <string name="nowplaying_saved_title">Zapisane utwory</string>
+    <string name="nowplaying_saved_summary">Utwory zapisane z oznaczeniem \"serca\" na ekranie blokady</string>
+    <string name="nowplaying_saved_empty_title">Brak zapisanych utworów</string>
+    <string name="nowplaying_saved_empty_summary">Dotknij serca na rozpoznanym utworze, aby zapisać go tutaj</string>
+    <string name="nowplaying_saved_remove">Usuń</string>
+    <string name="nowplaying_saved_no_music_app">Nie znaleziono aplikacji muzycznej do odtworzenia tego utworu</string>
     <string name="nowplaying_pixel_native_summary">To urządzenie oferuje już natywnie funkcję Co jest grane za pośrednictwem wskaźnika otoczenia w urządzeniu Pixel</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Ustawienia pogody</string>
@@ -797,11 +809,6 @@
     <string name="quick_settings_footer_edit_icon_title">Edytuj ikonę kafelków</string>
     <string name="quick_settings_footer_show_power_menu_title">Skrót menu zasilania</string>
     <string name="quick_settings_footer_settings_icon_title">Skrót do ustawień</string>
-    <string name="qs_header_clock_style_title">Styl zegara w nagłówku szybkich ustawień</string>
-    <string name="qs_header_style1">Znacznik</string>
-    <string name="qs_header_style2">Oxygen</string>
-    <string name="qs_header_style3">Analogowy</string>
-    <string name="qs_header_style4">Prosty</string>
     <string name="qs_compact_media_player_mode_title">Kompaktowy odtwarzacz multimediów</string>
     <string name="qs_compact_media_player_mode_summary">Użyj trybu kompaktowego dla odtwarzacza multimediów szybkich ustawień</string>
     <string name="qs_show_media_player_title">Pozycja odtwarzacza multimediów</string>
@@ -901,10 +908,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji. Może to spowodować ujawnienie prywatnych treści</string>
     <string name="miscellaneous_screenshot_flash_title">Pokaż podświetlenie zrzutu ekranu</string>
     <string name="miscellaneous_screenshot_flash_summary">Krótko podświetl ekran podczas robienia zrzutu ekranu</string>
-    <string name="miscellaneous_block_screenshot_detection_title">Blokuj wykrywanie zrzutu ekranu</string>
-    <string name="miscellaneous_block_screenshot_detection_summary">Uniemożliwiaj aplikacjom wykrywanie wykonywania zrzutów ekranu ich zawartości</string>
-    <string name="miscellaneous_block_screenrecord_detection_title">Blokuj wykrywanie nagrywania ekranu</string>
-    <string name="miscellaneous_block_screenrecord_detection_summary">Uniemożliwiaj aplikacjom wykrywanie, że ich zawartość jest nagrywana</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nieograniczone nagrywanie ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Usuń limit rozmiaru pliku 15 GB. Może to spowodować, że plik wyjściowy będzie większy niż potrzeba</string>
     <string name="disable_flash_sms_title">Wyłącz błyskawicznie SMS-y</string>
@@ -1192,6 +1195,15 @@
     <string name="reboot_required_custom_font_title">Wymagany restart dla niestandardowej czcionki</string>
     <string name="toast_failed_apply_font">Nie udało się zastosować czcionki</string>
     <string name="toast_invalid_font_file">Nieprawidłowy plik czcionki</string>
+    <string name="add_emoji_font">Dodaj czcionkę emoji</string>
+    <string name="emoji_preview_dialog_title">Podgląd emoji</string>
+    <string name="emoji_preview_coverage">Najnowsze emoji (Unicode 15 i 16) w tej czcionce: %1$d %2$d</string>
+    <string name="reboot_required_custom_emoji_title">Wymagany jest restart urządzenia, aby wprowadzić zmiany dotyczące emoji. Zrestartować teraz?</string>
+    <string name="toast_failed_apply_emoji">Nie udało się zastosować czcionki emoji</string>
+    <string name="toast_emoji_updater_disabled">Aktualizacje czcionek są wyłączone na tym urządzeniu</string>
+    <string name="toast_emoji_slots_full">Brak wolnego miejsca na czcionkę emoji. Wybierz wbudowany styl, aby zresetować ustawienia, a następnie spróbuj ponownie</string>
+    <string name="toast_invalid_emoji_file">Nieprawidłowy plik czcionki emoji</string>
+    <string name="toast_emoji_font_too_old">Nowsza wersja tej czcionki emoji jest już zainstalowana</string>
     <string name="custom_system_theme_title">Motywy</string>
     <string name="custom_system_theme_summary">Dostosuj wygląd systemu z motywami i paczkami ikon</string>
     <!-- About -->
@@ -1321,6 +1333,7 @@
     <!-- Emoji style -->
     <string name="emoji_style_title">Styl emoji</string>
     <string name="emoji_style_stock">Fabryczny</string>
+    <string name="emoji_custom_label">Niestandardowe: %1$s</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
@@ -1349,4 +1362,7 @@
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Powiększenie tapety</string>
     <string name="wallpaper_zoom_summary">Wyłącz, aby wyświetlić tapetę bez dodatkowego powiększenia</string>
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">Ukryj status przechwytywania ekranu</string>
+    <string name="hide_screen_capture_status_summary">Ukryj status przechwytywania/nagrywania ekranu w aplikacjach. Przydatne, ale może zagrażać prywatności. Aby zastosować zmiany, uruchom ponownie aplikacje.</string>
 </resources>
