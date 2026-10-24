@@ -16,11 +16,11 @@
     <string name="status_bar_summary">Gestos, ícones, logotipo, preenchimento</string>
     <string name="quick_settings_title">Configurações rápidas</string>
     <string name="quick_settings_summary">Interface, controle deslizante de brilho, layout</string>
-    <string name="notifications_summary">Notificações flutuantes, luz de borda, sons</string>
+    <string name="notifications_summary">Atenção, transparência, sons</string>
     <string name="power_menu_title">Menu de energia</string>
     <string name="power_menu_summary">Ações, tela de bloqueio</string>
     <string name="miscellaneous_title">Diversos</string>
-    <string name="miscellaneous_summary">Mascaramento, opções de desenvolvedor</string>
+    <string name="miscellaneous_summary">Central de falsificação, opções de desenvolvedor</string>
     <string name="about_title">Evolution X</string>
     <string name="about_summary">Sobre Evolution X</string>
     <string name="gestures_category_title">Gestos</string>
@@ -57,6 +57,8 @@
     <string name="boot_animation_preview_title">Visualização da animação de inicialização</string>
     <string name="boot_animation_no_preview">Nenhuma visualização disponível</string>
     <string name="boot_animation_style_unknown">Desconhecido</string>
+    <string name="boot_animation_custom_pick">Escolha um arquivo zip de animação de inicialização</string>
+    <string name="boot_animation_custom_replace">Toque para escolher um zip diferente</string>
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">Personalização de cores</string>
     <string name="color_settings_category">Configurações de cores</string>
@@ -107,6 +109,8 @@
     <string name="secondary_seed_color_title">Cor secundária</string>
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">Interface</string>
+    <string name="face_unlock_animation_title">Animação de desbloqueio facial</string>
+    <string name="face_unlock_animation_summary">Exiba a animação de digitalização, sucesso e falha na tela de bloqueio ao desbloquear com o seu rosto</string>
     <string name="lock_screen_charging_stats_title">Estatísticas de carregamento</string>
     <string name="lock_screen_charging_stats_summary">Exibir a corrente de carga, tensão e temperatura da bateria na tela de bloqueio durante o carregamento</string>
     <string name="lock_screen_charging_time_title">Tempo de carregamento</string>
@@ -235,6 +239,8 @@
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">Arte de capa da mídia</string>
     <string name="ls_media_art_summary">Exibir capa de mídia quando disponível</string>
+    <string name="ls_media_art_status_bar_above_title">Barra de status acima da capa</string>
+    <string name="ls_media_art_status_bar_above_summary">Mantenha a bateria, o sinal e o relógio visíveis na parte superior da capa</string>
     <string name="ls_media_art_filter_title">Filtro de arte de capa</string>
     <string name="ls_media_art_filter_none">Nenhum</string>
     <string name="ls_media_art_filter_blur">Desfoque</string>
@@ -255,27 +261,18 @@
     <string name="aod_brightness_title">Brilho AOD</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Now playing</string>
-    <string name="nowplaying_summary">Exibir informações de música atualmente reproduzidas na tela de bloqueio e AOD</string>
-    <string name="nowplaying_color_mode_title">Modo de cor do texto</string>
-    <string name="nowplaying_track_text_size_title">Tamanho do título da faixa</string>
-    <string name="nowplaying_track_text_size_summary">Tamanho do texto do título da faixa</string>
-    <string name="nowplaying_artist_text_size_title">Tamanho do nome do artista</string>
-    <string name="nowplaying_artist_text_size_summary">Tamanho do texto do nome do artista ou do álbum</string>
-    <string name="nowplaying_display_title">Opções de exibição</string>
-    <string name="nowplaying_show_on_lockscreen_title">Exibir na tela de bloqueio</string>
-    <string name="nowplaying_show_on_lockscreen_summary">Exibir informações de música quando o dispositivo estiver bloqueado</string>
-    <string name="nowplaying_icon_style_title">Estilos do ícone</string>
-    <string name="nowplaying_icon_style_summary">Escolha qual ícone exibir</string>
-    <string name="nowplaying_icon_size_title">Tamanho do ícone</string>
-    <string name="nowplaying_icon_size_summary">Ajustar o tamanho do ícone</string>
-    <string name="nowplaying_show_on_aod_title">Mostrar na tela sempre ativa</string>
-    <string name="nowplaying_show_on_aod_summary">Exibir informações de música na tela ambiente</string>
-    <string name="nowplaying_info_summary">Now Playing mostra a faixa e o artista atuais na tela de bloqueio e na tela sempre ativa. Ele aparece automaticamente quando a música está tocando e oculta quando parado. A posição é ajustável de cima para baixo da tela.</string>
-    <string name="nowplaying_expand_dialog">Expandir caixa de diálogo</string>
-    <string name="nowplaying_expand_dialog_summary">Expanda a caixa de diálogo Now Playing</string>
+    <string name="nowplaying_summary">Ouvir músicas próximas ao telefone e exibir a música na tela de bloqueio e no Always On Display. Desativado por padrão.</string>
+    <string name="nowplaying_on_demand_title">Atalho sob demanda</string>
+    <string name="nowplaying_on_demand_summary">Exibir um ícone de pesquisa na tela de bloqueio. Um toque longo inicia a pesquisa.</string>
     <string name="nowplaying_lyrics_mode_title">Modo de letras</string>
-    <string name="nowplaying_lyrics_mode_summary">Exibir letras sincronizadas em vez do título e ícone da faixa</string>
-    <string name="nowplaying_pixel_native_footer">Este dispositivo já fornece o Now Playing nativamente através da indicação do ambiente do Pixel. Estas configurações não estão disponíveis enquanto a versão built-in está ativa.</string>
+    <string name="nowplaying_lyrics_mode_summary">Exibir na tela de bloqueio a letra sincronizada da música que está tocando neste telefone</string>
+    <string name="nowplaying_saved_title">Músicas salvas</string>
+    <string name="nowplaying_saved_summary">Músicas que você salvou com o coração na tela de bloqueio</string>
+    <string name="nowplaying_saved_empty_title">Nenhuma música salva ainda</string>
+    <string name="nowplaying_saved_empty_summary">Toque no coração de uma música reconhecida para salvá-la aqui</string>
+    <string name="nowplaying_saved_remove">Remover</string>
+    <string name="nowplaying_saved_no_music_app">Nenhum app de música encontrado para reproduzir esta música</string>
+    <string name="nowplaying_pixel_native_summary">Este dispositivo já oferece a função \"Now Playing\" nativamente por meio da indicação de reprodução ambiente do Pixel</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Configurações de Clima</string>
     <string name="weather_settings_summary">Configure o pacote de ícones e o serviço meteorológico</string>
@@ -337,6 +334,8 @@
     <string name="depthwall_clear_subject_done_toast">Imagem do objeto liberada</string>
     <string name="dw_footer_text">O papel de parede de profundidade sobrepõe uma imagem de assunto acima do relógio da tela de bloqueio, inspirado na segmentação de assunto do papel de parede do iOS.\n\nConfiguração:\n1. Defina um papel de parede com o fundo desejado atrás do assunto.\n2. Selecione uma imagem de assunto para sobrepor acima do relógio da tela de bloqueio.\n3. Ajuste os deslocamentos e a opacidade de acordo com sua preferência.</string>
     <!-- Status bar -->
+    <string name="status_bar_triple_tap_freeform_title">Toque triplo para abrir em forma livre</string>
+    <string name="status_bar_triple_tap_freeform_summary">Toque três vezes na barra de status para abrir o aplicativo atual em uma janela de formato livre</string>
     <string name="status_bar_toggle_brightness_title">Controle de brilho</string>
     <string name="status_bar_toggle_brightness_summary">Ajuste o brilho deslizando pela barra de status</string>
     <string name="status_bar_toggle_brightness_lockscreen_title">Controle de brilho na tela de bloqueio</string>
@@ -510,6 +509,7 @@
     <!-- Custom image logo style -->
     <string name="status_bar_logo_custom_image_title">Selecione a imagem do logotipo personalizado</string>
     <string name="status_bar_logo_custom_image_pick_summary">Escolha uma imagem da galeria</string>
+    <string name="status_bar_logo_add">Adicionar logo</string>
     <!-- Statusbar logo color -->
     <string name="status_bar_logo_color_title">Cor</string>
     <string name="status_bar_logo_color_default">Padrão (branco)</string>
@@ -582,6 +582,9 @@
     <string name="dynamic_bar_event_biometric">Desbloqueio biométrico</string>
     <string name="dynamic_bar_event_biometric_summary">Mostrar chip na impressão digital ou desbloqueio facial</string>
     <string name="dynamic_bar_guide_title">Como usar a Dynamic Bar</string>
+    <!-- Dynamic Bar guide: expanded timer demo labels -->
+    <string name="dynamic_bar_demo_running">Em execução</string>
+    <string name="dynamic_bar_demo_add_minute">+1 minuto</string>
     <string name="dynamic_bar_guide_chip">Os eventos aparecem na barra de status para eventos ativos, como gravação, reprodução de mídia e temporizadores</string>
     <string name="dynamic_bar_guide_swipe">Quando vários eventos estiverem ativos, deslize para a esquerda ou direita no chip para alternar entre eles</string>
     <string name="dynamic_bar_guide_expand">Toque em um chip para expandi-lo em um cartão detalhado com controles e informações adicionais</string>
@@ -807,11 +810,6 @@
     <string name="quick_settings_footer_edit_icon_title">Ícone editar (lápis)</string>
     <string name="quick_settings_footer_show_power_menu_title">Atalho do menu de energia</string>
     <string name="quick_settings_footer_settings_icon_title">Atalho de configurações</string>
-    <string name="qs_header_clock_style_title">Estilo do relógio cabeçalho das configurações rápidas</string>
-    <string name="qs_header_style1">Chip</string>
-    <string name="qs_header_style2">Oxygen</string>
-    <string name="qs_header_style3">Analógico</string>
-    <string name="qs_header_style4">Simples</string>
     <string name="qs_compact_media_player_mode_title">Reprodutor de mídia compacto</string>
     <string name="qs_compact_media_player_mode_summary">Use o modo compacto para as configurações rápidas do media player</string>
     <string name="qs_show_media_player_title">Posição do reprodutor de mídia</string>
@@ -899,7 +897,7 @@
     <string name="advanced_reboot_secured_title">Exibir na tela segura de bloqueio</string>
     <string name="advanced_reboot_secured_summary">Opções avançadas de reinicialização da tela na tela segura de bloqueio</string>
     <!-- Miscellaneous -->
-    <string name="miscellaneous_spoofing_category">Mascarar dispositivo</string>
+    <string name="miscellaneous_spoofing_category">Central de falsificação</string>
     <string name="miscellaneous_developer_options_category">Opções do desenvolvedor</string>
     <string name="miscellaneous_app_downgrade_title">Permitir downgrade do aplicativo</string>
     <string name="miscellaneous_app_downgrade_summary">Permitir o downgrade de aplicativos do sistema. Isso pode causar travamentos e perda de dados.</string>
@@ -911,10 +909,6 @@
     <string name="miscellaneous_ignore_window_secure_summary">Removedor de captura de tela e restrições de gravação de tela para todos os aplicativos. Pode expor conteúdo privado</string>
     <string name="miscellaneous_screenshot_flash_title">Mostrar flash de captura</string>
     <string name="miscellaneous_screenshot_flash_summary">Piscar ligeiramente a tela quando uma captura de tela for capturada</string>
-    <string name="miscellaneous_block_screenshot_detection_title">Bloquear detecção de captura de tela</string>
-    <string name="miscellaneous_block_screenshot_detection_summary">Impedir que os aplicativos saibam quando seu conteúdo foi capturado</string>
-    <string name="miscellaneous_block_screenrecord_detection_title">Bloquear detecção de gravação de tela</string>
-    <string name="miscellaneous_block_screenrecord_detection_summary">Impedir que os aplicativos saibam quando seu conteúdo está sendo gravado na tela</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela ilimitada</string>
     <string name="miscellaneous_unlimit_screenrecord_summary">Remove o limite de tamanho de arquivo de 15 GiB. Pode resultar em um arquivo de saída maior do que o necessário</string>
     <string name="disable_flash_sms_title">Desativar o SMS flash</string>
@@ -927,9 +921,9 @@
     <string name="smart_pixels_summary">Poupar bateria desativando uma parte dos pixels da tela</string>
     <string name="smart_pixels_percent">Porcentagem de pixels a serem desativados</string>
     <!-- Miscellaneous/Spoofing -->
-    <string name="spoofing_title">Mascarar dispositivo</string>
-    <string name="spoofing_summary">Play Integrity, identidade do dispositivo e recurso mascaramento</string>
-    <string name="spoofing_integrity_category">Integridade do Google Play</string>
+    <string name="spoofing_title">Central de falsificação</string>
+    <string name="spoofing_summary">Play Integridade Fix, identidade do dispositivo e mascaramento de funcionalidades</string>
+    <string name="spoofing_integrity_category">Correção de Integridade do Google Play</string>
     <string name="spoofing_identity_category">Identidade do dispositivo</string>
     <string name="spoofing_features_category">Recursos de hardware</string>
     <string name="spoofing_pixel_props_title">Propriedades do Pixel</string>
@@ -941,13 +935,12 @@
     <string name="spoofing_snap_summary">Mascarar o Snapchat como um Pixel XL para corrigir possíveis problemas de bate-papo</string>
     <string name="spoofing_applying_changes">Aplicando alterações de mascaramento\u2026</string>
     <string name="spoofing_reset_defaults_title">Restaurar padrões</string>
-    <string name="spoofing_reset_defaults_summary">Restaure a integridade do jogo, a lista de alvos, o nível de patch e os GameProps para os valores padrão. Seu keybox será mantido</string>
     <string name="spoofing_reset_defaults_dialog_title">Redefinir configurações de mascaramento?</string>
     <string name="spoofing_reset_defaults_dialog_message">Isso limpa a configuração do Play Integrity, a sobrescrita do patch de segurança e a configuração do GameProps, além de restaurar a lista de destinos padrão do TrickyStore. Seu keybox é mantido. O Play Integrity e o nível do patch são obtidos novamente logo em seguida. As opções de ativação/desativação não são alteradas.</string>
     <string name="spoofing_reset_defaults_confirm">Redefinir</string>
     <string name="spoofing_reset_defaults_done">Configurações de mascaramento redefinidas</string>
-    <string name="tensor_spoof_title">Alvos do recurso tensor</string>
-    <string name="tensor_spoof_summary">Conceda aos aplicativos selecionados acesso aos recursos de IA exclusivos do Pixel Tensor</string>
+    <string name="tensor_spoof_title">Mascaramento tensor</string>
+    <string name="tensor_spoof_summary">Conceda acesso a recursos exclusivos do Pixel Tensor para aplicativos selecionados</string>
     <string name="tensor_spoof_enable">Mascaramento tensor</string>
     <string name="tensor_targets_none_configured">Nenhum aplicativo alvo</string>
     <string name="tensor_targets_count">%1$d aplicativos alvos</string>
@@ -991,37 +984,25 @@
     <!-- Miscellaneous/Play Integrity & TrickyStore -->
     <string name="play_integrity_fix_title">Correção de Integridade do Google Play</string>
     <string name="play_integrity_fix_summary">Gerencie a configuração do PIF e as impressões digitais do dispositivo para obter integridade básica</string>
-    <string name="pif_status">Estado</string>
     <string name="pif_active_config">Configuração ativa</string>
     <string name="pif_no_config">Nenhuma configuração carregada</string>
-    <string name="pif_config_loaded">Configuração carregada</string>
     <string name="pif_fetch_pixel_beta">Obter impressão digital Pixel Canary</string>
-    <string name="pif_fetch_pixel_beta_summary">Baixe a versão mais recente da impressão digital Pixel Canary do Google</string>
-    <string name="pif_fetching">Buscando no Google\u2026</string>
     <string name="pif_fetched_model">Impressão digital obtida para %s</string>
-    <string name="pif_import_config">Configuração de importação</string>
-    <string name="pif_import_config_summary">Importe uma configuração PIF de um arquivo</string>
     <string name="pif_imported_as">Importado como %s</string>
-    <string name="pif_delete_config">Excluir configuração ativa</string>
-    <string name="pif_delete_config_summary">Remove o arquivo de configuração ativo</string>
     <string name="pif_delete_title">Excluir %s?</string>
     <string name="pif_delete_message">Este arquivo de configuração será removido permanentemente.</string>
     <string name="pif_wipe_playstore_title">Limpar dados da Play Store?</string>
     <string name="pif_wipe_playstore_message">A aplicação desta impressão digital funciona melhor com uma sessão nova da Play Store. Deseja limpar os dados do aplicativo Play Store agora? Isso desconectará sua conta e limpará o cache local e a fila de downloads.</string>
     <string name="pif_wipe_confirm">Limpar Dados</string>
     <string name="pif_deleted">Excluído %s</string>
-    <string name="pif_config_details">Detalhes de configuração</string>
     <string name="pif_failed">Falha: %s</string>
     <string name="pif_select_device">Selecione o dispositivo</string>
     <string name="pif_recommended_suffix">Recomendado</string>
-    <string name="pif_generating">Gerando configuração\u2026</string>
-    <string name="pif_footer_title">Aprovando no teste de integridade básica</string>
     <string name="pif_footer_body">A impressão digital (fingerprint) do Canary é verificada no máximo uma vez por dia e substituída automaticamente quando faltam cerca de duas semanas para expirar. As configurações do Canary expiram aproximadamente 6 semanas após a data de lançamento; a data de expiração é exibida no resumo da configuração ativa.\n\nPara configuração manual:\n1. Toque em \"Fetch Pixel Canary fingerprint\" e selecione um dispositivo.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF funcional de uma fonte confiável. Arquivos de configuração não são fornecidos.\n3. Verifique novamente o status do Play Integrity.\n\nSempre exclua a configuração ativa antes de importar uma nova. Carregar uma configuração PIF expirada fará com que a integridade forte (strong integrity) do TrickyStore falhe, mesmo com um keybox válido.\n\nSpoofing avançado:\n• Spoof de impressão digital (fingerprint) para a Play Store — mantenha desativado, a menos que seja instruído de outra forma. O spoofing da impressão digital para a Play Store raramente é necessário e pode causar problemas.\n• Spoof de SDK para a Play Store — apresenta o SDK 32 à Play Store para forçar o caminho de verificação legado (anterior ao Android 13). Isso pode afetar o comportamento da Play Store, portanto, mantenha desativado, a menos que esteja realizando testes.\n• Spoof de campos de build e propriedades do sistema — mantenha ativado. Eles apresentam a impressão digital ao DroidGuard.\n• Spoof do provedor de keystore — mantenha desativado quando um keybox estiver em uso, pois isso ignora a atestação do keybox.\n• Spoof de assinatura da ROM — experimental.</string>
     <string name="pif_invalid_fingerprint">Formato de fingerprint inválido</string>
     <string name="pif_no_devices_found">Nenhum dispositivo encontrado</string>
     <string name="pif_advanced_settings">Mascaramento avançado</string>
     <string name="pif_spoof_vending_finger_title">Mascaramento de impressão digital na Play Store</string>
-    <string name="pif_spoof_vending_finger_summary">Controla qual IMPRESSÃO DIGITAL é apresentada ao processo da Play Store</string>
     <string name="pif_spoof_vending_sdk_title">Mascarar SDK para Play Store</string>
     <string name="pif_spoof_vending_sdk_summary">Informe o SDK 32 à Play Store para forçar o caminho de decisão legado do Android 13. Nunca defina um valor superior ao SDK real. Isso pode afetar o comportamento da Play Store; portanto, não utilize essa configuração, a menos que esteja realizando testes</string>
     <string name="pif_vending_finger_custom_summary">Impressão digital personalizada: %1$s</string>
@@ -1034,19 +1015,22 @@
     <string name="pif_spoof_signature_title">Forjar assinatura de ROM</string>
     <string name="pif_spoof_signature_summary">Experimental. Contorna o bloqueio de ROM com chaves de teste (test-key) do DroidGuard</string>
     <string name="pif_reset_advanced_title">Redefinir mascaramento avançado</string>
-    <string name="pif_reset_advanced_summary">Restaure o valor padrão de cada opção acima. A impressão digital é mantida</string>
     <string name="pif_reset_advanced_message">Redefinir todas as opções avançadas de spoofing para os padrões? A impressão digital atual será mantida.</string>
     <string name="pif_vending_finger_disabled">Desativado (padrão)</string>
     <string name="pif_vending_finger_same">Igual à impressão digital do DroidGuard</string>
+    <string name="pif_fingerprint_spoofing">Mascarar dispositivo</string>
+    <string name="pif_active_model">Ativo: %1$s</string>
+    <string name="pif_canary_fingerprint">Impressão digital Canária</string>
+    <string name="pif_patch_age">Patch %1$s \u00b7 %2$dd old</string>
+    <string name="pif_days_left">%1$dd restante</string>
+    <string name="pif_expired">Expirado</string>
+    <string name="pif_vending_finger_custom_clear_hint">Toque para desligar</string>
     <string name="tricky_store_title">TrickyStore</string>
     <string name="tricky_store_summary">Gerencie keybox e aplicativos alvos para um forte atestado de integridade</string>
     <string name="ts_keybox_management">Gerenciamento de keybox</string>
-    <string name="ts_import_keybox">Importar Keybox</string>
     <string name="ts_no_keybox">Nenhum keybox instalada</string>
     <string name="ts_keybox_installed">Keybox instalada</string>
     <string name="ts_keybox_imported">Keybox importada com sucesso</string>
-    <string name="ts_delete_keybox">Excluir keybox</string>
-    <string name="ts_delete_keybox_summary">Remover o arquivo de keybox</string>
     <string name="ts_delete_keybox_title">Excluir Keybox?</string>
     <string name="ts_delete_keybox_message">O arquivo keybox será removido permanentemente.</string>
     <string name="ts_keybox_deleted">Keybox excluído</string>
@@ -1060,8 +1044,7 @@
     <string name="ts_invalid_patch_date">Formato de data inválido. Use AAAA-MM-DD</string>
     <string name="ts_target_list_imported">Lista de alvos importada</string>
     <string name="ts_failed">Falha: %s</string>
-    <string name="ts_footer_title">Aprovando no teste de integridade forte</string>
-    <string name="ts_footer_body">Uma keybox é obtida e mantida válida automaticamente. O status de revogação é verificado a cada 24 horas e uma nova keybox é obtida da fonte oficial se a atual for revogada ou suspensa.\n\nPara configuração manual:\n1. Toque em \"Obter keybox oficial\" para baixar uma automaticamente ou importe a sua própria de uma fonte confiável.\n2. Abra \"Gerenciar apps de destino\" e selecione os apps que exigem verificações de integridade.\n3. Defina o modo de destino como \"Leaf\" se o seu dispositivo tiver um TEE funcionando; caso contrário, deixe como \"Automático\".\n4. Verifique novamente o status de integridade do Play.\n\nObservação: se nenhuma keybox oficial válida estiver disponível, a busca automática será pausada por 24 horas antes de tentar novamente. Sempre exclua a keybox existente antes de importar uma nova.</string>
+    <string name="ts_footer_body">Uma keybox é obtida e mantida válida automaticamente. O status de revogação é verificado a cada 24 horas e uma nova chave de ativação é obtida da fonte oficial se a atual for revogada ou suspensa.\n\nPara configuração manual:\n1. Toque em \"Obter chave de ativação mais recente\" para baixar uma automaticamente ou importe a sua própria de uma fonte confiável.\n2. Abra \"Gerenciar apps de destino\" e selecione os apps que exigem verificações de integridade.\n3. Defina o modo de destino como \"Folha\" se o seu dispositivo tiver um TEE funcionando; caso contrário, deixe como \"Automático\".\n4. Verifique novamente o status de integridade do Play.\n\nObservação: se nenhuma chave de ativação válida estiver disponível, a busca automática será pausada por 24 horas antes de tentar novamente. Sempre exclua a chave de ativação existente antes de importar uma nova.</string>
     <string name="ts_patch_stale_warning">%1$s (obsoleto, com mais de 12 meses)</string>
     <string name="ts_security_patch">Data do patch de segurança</string>
     <string name="ts_no_patch">Não definido (usando o padrão do dispositivo)</string>
@@ -1074,10 +1057,10 @@
     <string name="ts_verification_auto_count">%1$d Automático</string>
     <string name="ts_verification_cert_count">%1$d certificado</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
-    <string name="ts_fetch_keybox">Buscar keybox oficial</string>
+    <string name="ts_fetch_keybox">Buscando a última keybox</string>
     <string name="ts_fetch_keybox_summary">Baixe o keybox dos servidores Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Buscando keybox…</string>
-    <string name="ts_fetch_keybox_success">Keybox oficial encontrada com sucesso</string>
+    <string name="ts_fetch_keybox_success">Última caixa de chaves obtida com sucesso</string>
     <string name="ts_fetch_keybox_failed">Falha na busca: %s</string>
     <string name="ts_fetch_keybox_same_file">A Keybox já está atualizada</string>
     <string name="ts_fetch_keybox_blocked">Sua caixa de chave é válida — nenhuma busca necessária</string>
@@ -1086,9 +1069,9 @@
     <string name="ts_fetch_keybox_no_valid_found">Ainda não há nenhuma caixa de chaves válida disponível. Tentaremos novamente amanhã</string>
     <!-- Keybox info row -->
     <string name="ts_chain_invalid_title">Cadeia de certificados inválida</string>
-    <string name="ts_chain_invalid_message">A cadeia de certificados do keybox é inválida ou não pôde ser verificada. Ela pode estar corrompida ou adulterada. Deseja substituí-la pelo keybox oficial?</string>
+    <string name="ts_chain_invalid_message">O conjunto de certificados keybox é inválido ou não pôde ser verificado. Pode estar corrompido ou adulterado. Gostaria de substituí-lo com a última keybox?</string>
     <string name="ts_expiring_soon_title">O prazo de validade do Keybox está chegando</string>
-    <string name="ts_expiring_soon_message">O certificado desta keybox expira em %1$s. Atualmente, ela passa no teste de integridade, mas deixará de funcionar após a expiração. Deseja substituí-la agora pela keybox oficial?</string>
+    <string name="ts_expiring_soon_message">O certificado desta keybox expira em %1$s. Atualmente passa pela integridade, mas deixará de funcionar após o expirar. Substituir agora com a keybox mais recente?</string>
     <string name="ts_expiry_unknown">data de validade desconhecida</string>
     <string name="ts_untrusted_root_title">Raiz de keybox não reconhecida</string>
     <string name="ts_untrusted_root_message">Esta keybox possui uma cadeia de certificados com raiz em uma autoridade não reconhecida pelo Evolution X. Ela ainda pode passar no teste de Integridade Forte em alguns dispositivos. Devo mantê-la instalada ou substituí-la pela keybox oficial?</string>
@@ -1108,6 +1091,12 @@
     <string name="ts_revocation_last_checked">Última verificação: %1$s</string>
     <string name="ts_revocation_not_yet_checked">Ainda não verificado — toque para verificar agora</string>
     <!-- Toasts for new auto-replace triggers -->
+    <string name="ts_chip_valid">Válida</string>
+    <string name="ts_chip_expiring">Expirando</string>
+    <string name="ts_chip_invalid">Cadeia inválida</string>
+    <string name="ts_chip_unknown_root">Raiz desconhecido</string>
+    <string name="ts_chip_checking">Verificando</string>
+    <string name="ts_chip_unchecked">Não verificado</string>
     <string name="ts_fetch_keybox_revoked_refetch">A Keybox foi revogada, buscando uma mais recente…</string>
     <string name="ts_fetch_keybox_suspended_refetch">Keybox suspensa, providenciando uma mais nova…</string>
     <!-- Wallpaper styles -->
@@ -1151,6 +1140,20 @@
     <string name="lock_glymps_advanced_category">Avançado</string>
     <string name="lock_glymps_clear_cache_title">Limpar cache</string>
     <string name="lock_glymps_clear_cache_summary">Remova todos os papéis de parede em cache</string>
+    <string name="lock_glymps_folder_dialog_title">Pasta de papel de parede local</string>
+    <string name="lock_glymps_folder_missing_message">A pasta ainda não existe.\n\nLocalização: %1$s\n\nVocê gostaria de criá-la?</string>
+    <string name="lock_glymps_folder_create">Criar pasta</string>
+    <string name="lock_glymps_folder_created">Pasta criada: %1$s</string>
+    <string name="lock_glymps_folder_create_failed">Falha ao criar a pasta</string>
+    <string name="lock_glymps_folder_info_message">Localização da pasta: %1$s\n\nPapéis de parede: %2$d\n\nformatos suportados: JPG, PNG, WEBP\n\nColoque suas imagens de papel de parede nesta pasta e elas serão usadas aleatoriamente.</string>
+    <string name="lock_glymps_custom_urls_dialog_title">URLs de Papel de Parede personalizado</string>
+    <string name="lock_glymps_custom_urls_dialog_message">Insira as URLs diretas da imagem, uma por linha</string>
+    <string name="lock_glymps_custom_urls_hint">https://exemplo.com.br/image1.jpg\nhttps://example.com/image2.png</string>
+    <string name="lock_glymps_custom_urls_saved">URLs personalizadas salvas</string>
+    <string name="lock_glymps_clear_cache_dialog_title">Limpar o cache</string>
+    <string name="lock_glymps_clear_cache_dialog_message">Isto irá apagar todos os papéis de parede em cache e eles serão baixados novamente. Continuar?</string>
+    <string name="lock_glymps_clear_cache_confirm">Claro</string>
+    <string name="lock_glymps_cache_cleared">Cache limpo. Novos papéis de parede serão baixados.</string>
     <string name="lock_glymps_behavior_category">Comportamento</string>
     <string name="lock_glymps_change_on_title">Alterar papel de parede ativado</string>
     <string name="lock_glymps_change_on_summary">Quando mudar o papel de parede</string>
@@ -1193,6 +1196,15 @@
     <string name="reboot_required_custom_font_title">Reiniciar necessário para fonte personalizada</string>
     <string name="toast_failed_apply_font">Falha ao aplicar fonte</string>
     <string name="toast_invalid_font_file">Arquivo de fonte inválido</string>
+    <string name="add_emoji_font">Adicionar fonte de emoji</string>
+    <string name="emoji_preview_dialog_title">Pré-visualização de emoji</string>
+    <string name="emoji_preview_coverage">Emoji mais recentes (Unicode 15 e 16) nesta fonte: %1$d de %2$d</string>
+    <string name="reboot_required_custom_emoji_title">É necessário reiniciar o computador para aplicar as alterações de emoji. Reiniciar agora?</string>
+    <string name="toast_failed_apply_emoji">Falha ao aplicar fonte de emoji</string>
+    <string name="toast_emoji_updater_disabled">As atualizações de fonte estão desativadas neste dispositivo</string>
+    <string name="toast_emoji_slots_full">Sem slot de fonte para emojis. Escolha um estilo embutido para redefini-lo, e tente novamente</string>
+    <string name="toast_invalid_emoji_file">Arquivo de fonte emoji inválido</string>
+    <string name="toast_emoji_font_too_old">Uma nova versão desta fonte de emoji já está instalada</string>
     <string name="custom_system_theme_title">Temas</string>
     <string name="custom_system_theme_summary">Personalize a aparência do sistema com temas e pacotes de ícones</string>
     <!-- About -->
@@ -1218,6 +1230,20 @@
     <string name="changelog_summary">Ver alterações na ROM</string>
     <string name="changelog_error_no_official">Nenhum registro de mudanças está disponível para este dispositivo ou compilação. Visite %1$s para obter mais informações.</string>
     <!-- Color picker -->
+    <string name="color_picker_reset">Redefinir para padrão</string>
+    <string name="color_picker_apply">Aplicar</string>
+    <string name="color_picker_clock_title">Cor do relógio</string>
+    <string name="color_picker_tab_preset">Predefinido</string>
+    <string name="color_picker_tab_image">Imagem</string>
+    <string name="color_picker_tab_custom">Personalizado</string>
+    <string name="color_picker_import_gallery">Import from Gallery</string>
+    <string name="color_picker_import_image">Importar imagem</string>
+    <string name="color_picker_selected_color">Cor selecionada</string>
+    <string name="color_picker_title_image">Escolha a cor da imagem</string>
+    <string name="color_picker_title_wallpaper">Escolher Cor do Papel de Parede</string>
+    <string name="color_picker_wallpaper_error">Não é possível carregar o papel de parede</string>
+    <string name="color_picker_hint_image">Toque na imagem para escolher uma cor</string>
+    <string name="color_picker_hint_wallpaper">Toque no papel de parede para escolher uma cor</string>
     <string name="accent_color">Cor de destaque</string>
     <string name="notification_color">Cor da notificação</string>
     <string name="wallpaper_color">Cor do papel de parede</string>
@@ -1236,6 +1262,7 @@
     <string name="action_enable">Ativar</string>
     <string name="action_apply">Aplicar</string>
     <string name="action_delete">Excluir</string>
+    <string name="action_import">Importar</string>
     <string name="action_yes">Sim</string>
     <string name="action_reset">Redefinir</string>
     <string name="action_search_apps">Pesquisar aplicativos</string>
@@ -1300,11 +1327,14 @@
     <string name="charging_appearance_category_title">Aparência</string>
     <string name="charging_color_mode_title">Modo de cor</string>
     <string name="charging_display_category_title">Opções de exibição</string>
+    <string name="charging_show_on_lockscreen_title">Exibir na tela de bloqueio</string>
     <string name="charging_show_on_lockscreen_summary">Exibir animação quando a tela de bloqueio estiver visível</string>
+    <string name="charging_show_on_aod_title">Mostrar na tela sempre ativa</string>
     <string name="charging_show_on_aod_summary">Exibir animação no modo tela ambiente</string>
     <!-- Emoji style -->
     <string name="emoji_style_title">Estilo emoji</string>
     <string name="emoji_style_stock">Stock</string>
+    <string name="emoji_custom_label">Personalizado: %1$s</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
@@ -1333,4 +1363,7 @@
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Zoom do papel de parede</string>
     <string name="wallpaper_zoom_summary">Desative para exibir o papel de parede sem zoom adicional</string>
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">Ocultar o status da captura de tela</string>
+    <string name="hide_screen_capture_status_summary">Oculte o status de captura/gravação de tela dos aplicativos. Útil, mas pode arriscar a privacidade. Reinicie os aplicativos para aplicar.</string>
 </resources>
