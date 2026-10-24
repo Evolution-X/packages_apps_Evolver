@@ -333,6 +333,8 @@
     <string name="depthwall_clear_subject_done_toast">Тематичне зображення очищене</string>
     <string name="dw_footer_text">Шпалери глибини накладають зображення об\'єкта над годинником на екрані блокування, натхненні сегментацією за темами шпалер iOS.\n\nНалаштування:\n1. Встановіть шпалери з потрібним фоном позаду об\'єкта.\n2. Виберіть зображення об’єкта, яке потрібно накласти на годинник на екрані блокування.\n3. Налаштуйте зміщення та непрозорість на свій смак.</string>
     <!-- Status bar -->
+    <string name="status_bar_triple_tap_freeform_title">Потрійний дотик для відкриття у вільному режимі</string>
+    <string name="status_bar_triple_tap_freeform_summary">Потрійний дотик до рядка стану, щоб відкрити поточний додаток у вікні вільної форми</string>
     <string name="status_bar_toggle_brightness_title">Керування яскравістю</string>
     <string name="status_bar_toggle_brightness_summary">Регулювати яскравість екрану рухом пальця по рядку стану</string>
     <string name="status_bar_toggle_brightness_lockscreen_title">Керування яскравістю на екрані блокування</string>
