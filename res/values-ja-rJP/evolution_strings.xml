@@ -109,7 +109,7 @@
     <!-- Lock screen -->
     <string name="lock_screen_interface_category">インターフェース</string>
     <string name="face_unlock_animation_title">顔認証のアニメーション</string>
-    <string name="face_unlock_animation_summary">顔認証中、ロック画面にスキャン中、成功、および失敗のアニメーションを表示する</string>
+    <string name="face_unlock_animation_summary">顔認証によるロック解除時に、スキャン中・成功・失敗のアニメーションを表示します</string>
     <string name="lock_screen_charging_stats_title">充電ステータス</string>
     <string name="lock_screen_charging_stats_summary">充電中はロック画面に充電器の最大電流/電圧/バッテリー温度を表示する</string>
     <string name="lock_screen_charging_time_title">充電の時間</string>
@@ -264,7 +264,7 @@
     <string name="nowplaying_on_demand_title">オンデマンドショートカット</string>
     <string name="nowplaying_on_demand_summary">ロック画面に検索アイコンを表示します。長押しで検索を開始します。</string>
     <string name="nowplaying_lyrics_mode_title">歌詞モード</string>
-    <string name="nowplaying_lyrics_mode_summary">ロック画面でこの端末で再生中の音楽の同期した歌詞を表示する</string>
+    <string name="nowplaying_lyrics_mode_summary">ロック画面に現在再生中の楽曲の歌詞を表示します</string>
     <string name="nowplaying_saved_title">保存された曲</string>
     <string name="nowplaying_saved_summary">ロック画面でハートマークを付けて保存した曲</string>
     <string name="nowplaying_saved_empty_title">まだ保存されている曲はありません</string>
@@ -333,11 +333,11 @@
     <string name="depthwall_clear_subject_done_toast">被写体の画像を消去しました</string>
     <string name="dw_footer_text">奥行きのある壁紙は、iOS の壁紙の被写体切り抜きからインスピレーションを得て、ロック画面の時計の上に被写体画像を重ねます。\n\n設定方法:\n1. 被写体の後ろに配置したい背景で壁紙を設定します。\n2. ロック画面の時計の上に重ねる被写体画像を選択します。\n3. オフセットと不透明度を好みに合わせて調整します。</string>
     <!-- Status bar -->
-    <string name="status_bar_triple_tap_freeform_title">トリプルタップで自由形式で開く</string>
+    <string name="status_bar_triple_tap_freeform_title">3回タップでフリーフォーム</string>
     <string name="status_bar_triple_tap_freeform_summary">ステータスバーをトリプルタップして、現在のアプリをフリーフォームウィンドウで開く</string>
     <string name="status_bar_toggle_brightness_title">明るさコントロール</string>
     <string name="status_bar_toggle_brightness_summary">ステータスバーの上をスライドして明るさを調整する</string>
-    <string name="status_bar_toggle_brightness_lockscreen_title">ロック画面の明るさコントロール</string>
+    <string name="status_bar_toggle_brightness_lockscreen_title">ロック画面の輝度コントロール</string>
     <string name="status_bar_toggle_brightness_lockscreen_summary">ロック画面のステータスバーでの明るさ調節を許可する</string>
     <string name="status_bar_quick_qs_pulldown_title">クイックプルダウン</string>
     <string name="status_bar_quick_qs_pulldown_summary">ステータスバーの %1$s 端から引き下げるとクイック設定が開きます</string>
@@ -351,7 +351,7 @@
     <string name="status_bar_tuner_title">ステータスバーをカスタマイズ</string>
     <string name="status_bar_tuner_summary">ステータスバーに表示するアイコンを選択します</string>
     <string name="status_bar_colored_icons_title">色付きのアイコン</string>
-    <string name="status_bar_colored_icons_summary">アプリの通知にランチャーアイコンを使用</string>
+    <string name="status_bar_colored_icons_summary">アプリの通知にオリジナルのアプリアイコンを使用します</string>
     <string name="status_bar_notif_count_title">通知の数</string>
     <string name="status_bar_notif_count_summary">保留中の通知の数を表示する</string>
     <string name="status_bar_lyric_title">ステータスバーの歌詞</string>
@@ -1352,7 +1352,7 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">電源メニューの変更</string>
     <string name="global_actions_use_compose_dialog_summary">カスタマイズ可能なドラッグ可能なタイルレイアウトで新しい電源メニューを使用します。無効にすると、クラシックな電源メニューを使用します。</string>
-    <string name="global_actions_advanced_reboot_title">高度な再起動を有効にする</string>
+    <string name="global_actions_advanced_reboot_title">高度な再起動を有効</string>
     <string name="global_actions_advanced_reboot_summary">高度な再起動を可能にする新しいダイアログを表示します</string>
     <!-- Screenshots -->
     <string name="screenshot_clipboard_only_title">クリップボードにのみコピー</string>
