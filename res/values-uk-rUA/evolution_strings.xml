@@ -331,6 +331,10 @@
     <string name="depthwall_clear_subject_summary">Видалити поточну тему видобутого або набору вручну</string>
     <string name="depthwall_clear_subject_confirm_message">Будуть видалені глибинні шпалери даного зображення. Продовжити?</string>
     <string name="depthwall_clear_subject_done_toast">Тематичне зображення очищене</string>
+    <string name="depthwall_spatial_effect_title">Просторовий ефект</string>
+    <string name="depthwall_spatial_effect_summary">Додає 3D-просторовий ефект на шпалери глибини екрана блокування при нахилі пристрою.</string>
+    <string name="depthwall_spatial_sensitivity_title">Просторова чутливість</string>
+    <string name="depthwall_spatial_sensitivity_summary">Налаштування чутливості руху тривимірного просторового 3D ефекту</string>
     <string name="dw_footer_text">Шпалери глибини накладають зображення об\'єкта над годинником на екрані блокування, натхненні сегментацією за темами шпалер iOS.\n\nНалаштування:\n1. Встановіть шпалери з потрібним фоном позаду об\'єкта.\n2. Виберіть зображення об’єкта, яке потрібно накласти на годинник на екрані блокування.\n3. Налаштуйте зміщення та непрозорість на свій смак.</string>
     <!-- Status bar -->
     <string name="status_bar_triple_tap_freeform_title">Потрійний дотик для відкриття у вільному режимі</string>
@@ -1365,4 +1369,32 @@
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Приховати статус захоплення екрану</string>
     <string name="hide_screen_capture_status_summary">Приховати статус захоплення/запису з додатків. Корисно, але може ризикувати конфіденційністю. Перезапустіть програму, щоб продовжити.</string>
+    <!-- Dynamic island -->
+    <string name="status_bar_dynamic_island_title">Динамічний острів</string>
+    <string name="status_bar_dynamic_island_summary">Налаштувати острів і вибрати функції, які можуть з\'являтися</string>
+    <string name="dynamic_island_footer_title">Про динамічний острів</string>
+    <string name="dynamic_island_intro">Увімкніть динамічний острів, виберіть потрібні вам функції в центрі уваги.</string>
+    <string name="dynamic_island_features_title">Особливості</string>
+    <string name="dynamic_island_media_controls_title">Елементи керування медіа</string>
+    <string name="dynamic_island_media_controls_summary">Показувати елементи керування і керування відтворенням на цьому острові</string>
+    <string name="dynamic_island_screen_recording_title">Запис екрану</string>
+    <string name="dynamic_island_screen_recording_summary">Показати таймер запису і контролює на острові</string>
+    <string name="dynamic_island_alarms_title">Будильники</string>
+    <string name="dynamic_island_alarms_summary">Показувати сповіщення про наступний будильник або активний на острові</string>
+    <string name="dynamic_island_flashlight_title">Ліхтарик</string>
+    <string name="dynamic_island_flashlight_summary">Показувати стан ліхтарика на острові, коли він увімкнений</string>
+    <string name="dynamic_island_stopwatch_title">Секундомір</string>
+    <string name="dynamic_island_stopwatch_summary">Показувати прогрес секундоміра і контролю на острові</string>
+    <string name="dynamic_island_live_scores_title">Результати в реальному часі</string>
+    <string name="dynamic_island_live_scores_summary">Показувати спортивні ігри на острові для програм, які дають сповіщення про результати в реальному часі.</string>
+    <string name="dynamic_island_lyrics_title">Показати текст</string>
+    <string name="dynamic_island_lyrics_summary">Показувати текст пісні для підтримуваних програм у картці під музичною карткою в «динамічному острові»</string>
+    <string name="dynamic_island_customization_title">Управління динамічним островом</string>
+    <string name="dynamic_island_width_scale_title">Масштаб ширини</string>
+    <string name="dynamic_island_height_scale_title">Шкала висоти</string>
+    <string name="dynamic_island_popup_color_mode_title">Фон спливаючих вікон</string>
+    <string name="dynamic_island_popup_color_mode_summary">Виберіть вигляд розгорнутих спливаючих вікон: стандартний, із розмитим фоном або суцільний чорний</string>
+    <string name="dynamic_island_popup_color_mode_entry_default">За замовчуванням</string>
+    <string name="dynamic_island_popup_color_mode_entry_blur">Розмиття</string>
+    <string name="dynamic_island_popup_color_mode_entry_solid_black">Суцільний чорний</string>
 </resources>
