@@ -845,6 +845,7 @@
     <string name="quick_settings_header_needs_gallery">A gallery app is required</string>
     <string name="quick_settings_header_offset_title">Header image offset</string>
     <string name="quick_settings_header_offset_summary">Adjust the header image size</string>
+    <string name="quick_settings_header_file_failed">Couldn\'t load the selected image</string>
 
     <!-- Quick settings/Misc -->
     <string name="quick_settings_data_usage_title">Data usage</string>
