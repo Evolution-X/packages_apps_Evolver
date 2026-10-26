@@ -331,6 +331,10 @@
     <string name="depthwall_clear_subject_summary">現在抽出されている、または手動で設定された被写体を削除します。</string>
     <string name="depthwall_clear_subject_confirm_message">現在の深度壁紙の被写体画像が削除されます。続行しますか？</string>
     <string name="depthwall_clear_subject_done_toast">被写体の画像を消去しました</string>
+    <string name="depthwall_spatial_effect_title">空間エフェクト</string>
+    <string name="depthwall_spatial_effect_summary">端末を傾けると、ロック画面の深度壁紙に3Dの立体効果が追加されます。</string>
+    <string name="depthwall_spatial_sensitivity_title">空間感度</string>
+    <string name="depthwall_spatial_sensitivity_summary">3D空間効果の移動感度を調整する</string>
     <string name="dw_footer_text">奥行きのある壁紙は、iOS の壁紙の被写体切り抜きからインスピレーションを得て、ロック画面の時計の上に被写体画像を重ねます。\n\n設定方法:\n1. 被写体の後ろに配置したい背景で壁紙を設定します。\n2. ロック画面の時計の上に重ねる被写体画像を選択します。\n3. オフセットと不透明度を好みに合わせて調整します。</string>
     <!-- Status bar -->
     <string name="status_bar_triple_tap_freeform_title">3回タップでフリーフォーム</string>
@@ -1365,4 +1369,32 @@
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">スクリーンキャプチャの状態を非表示にする</string>
     <string name="hide_screen_capture_status_summary">アプリに対して、画面キャプチャや録画の実行中であることを隠します。プライバシー上のリスクを伴う可能性があります。設定を反映させるには、アプリを再起動してください。</string>
+    <!-- Dynamic island -->
+    <string name="status_bar_dynamic_island_title">Dynamic Island</string>
+    <string name="status_bar_dynamic_island_summary">Islandを設定し、表示可能な機能を選択します</string>
+    <string name="dynamic_island_footer_title">Dynamic Islandについて</string>
+    <string name="dynamic_island_intro">Dynamic Islandをオンにして、中央のチップに表示する機能を選択します。</string>
+    <string name="dynamic_island_features_title">機能</string>
+    <string name="dynamic_island_media_controls_title">再生のコントロール</string>
+    <string name="dynamic_island_media_controls_summary">Island内に再生コントロールとアートワークを表示します</string>
+    <string name="dynamic_island_screen_recording_title">画面録画</string>
+    <string name="dynamic_island_screen_recording_summary">Island内に録音のタイマーとコントロールを表示します</string>
+    <string name="dynamic_island_alarms_title">アラーム</string>
+    <string name="dynamic_island_alarms_summary">Island内に次のアラームやアクティブなアラーム通知を表示します</string>
+    <string name="dynamic_island_flashlight_title">トーチ</string>
+    <string name="dynamic_island_flashlight_summary">フラッシュライトの点灯時に、Island内にステータスを表示します</string>
+    <string name="dynamic_island_stopwatch_title">ストップウォッチ</string>
+    <string name="dynamic_island_stopwatch_summary">Island内にストップウォッチの進行状況とコントロールを表示します</string>
+    <string name="dynamic_island_live_scores_title">ライブスコア</string>
+    <string name="dynamic_island_live_scores_summary">ライブスコア通知に対応したアプリの試合経過をIsland内に表示します。</string>
+    <string name="dynamic_island_lyrics_title">歌詞を表示</string>
+    <string name="dynamic_island_lyrics_summary">対応アプリの歌詞を、Island内の音楽カードの下にカード形式で表示します</string>
+    <string name="dynamic_island_customization_title">Dynamic islandのカスタマイズ</string>
+    <string name="dynamic_island_width_scale_title">幅</string>
+    <string name="dynamic_island_height_scale_title">高さ</string>
+    <string name="dynamic_island_popup_color_mode_title">ポップアップの背景</string>
+    <string name="dynamic_island_popup_color_mode_summary">展開時のポップアップの外観を選択：デフォルト、壁紙のぼかし、または単色ブラック</string>
+    <string name="dynamic_island_popup_color_mode_entry_default">既定</string>
+    <string name="dynamic_island_popup_color_mode_entry_blur">ぼかし</string>
+    <string name="dynamic_island_popup_color_mode_entry_solid_black">単色ブラック</string>
 </resources>
