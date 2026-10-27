@@ -800,6 +800,7 @@
     <string name="quick_settings_header_needs_gallery">Потрібен додаток-галерея</string>
     <string name="quick_settings_header_offset_title">Зміщення зображення заголовка</string>
     <string name="quick_settings_header_offset_summary">Налаштуйте розмір зображення заголовка</string>
+    <string name="quick_settings_header_file_failed">Не вдалося завантажити вибране зображення</string>
     <!-- Quick settings/Misc -->
     <string name="quick_settings_data_usage_title">Використання даних</string>
     <string name="quick_settings_data_usage_summary">Відображення використання даних у нижньому колонтитулі швидких налаштувань</string>
@@ -1034,6 +1035,7 @@
     <string name="ts_no_keybox">Не встановлено жодного набору ключів</string>
     <string name="ts_keybox_installed">Keybox встановлено</string>
     <string name="ts_keybox_imported">Keybox успішно імпортовано</string>
+    <string name="ts_wipe_playstore_message">Play Store кешує вердикти цілісності. Очистити його дані зараз, щоб новий keybox почав діяти негайно? Це призведе до виходу з акаунта та очистить його локальний кеш і чергу завантажень.</string>
     <string name="ts_delete_keybox_title">Видалити Keybox?</string>
     <string name="ts_delete_keybox_message">Цей файл конфігурації буде остаточно видалено.</string>
     <string name="ts_keybox_deleted">Keybox видалено</string>
