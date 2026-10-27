@@ -519,7 +519,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                 put("DEVICE", profile.device)
                 put("FINGERPRINT", profile.fingerprint)
                 put("SECURITY_PATCH", profile.securityPatch)
-                put("DEVICE_INITIAL_SDK_INT", "32")
+                put("DEVICE_INITIAL_SDK_INT", PixelDeviceRepository.getInitialSdkInt(profile.device))
                 if (profile.isCanary && canaryMonth.length == 7) put("_canary_month", canaryMonth)
                 if (profile.isCanary) profile.releaseDate?.let { put("_canary_release_date", it) }
                 put("manually_imported", false)
