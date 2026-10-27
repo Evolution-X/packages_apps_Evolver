@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Кастомізація Evo-X</string>
-    <string name="evolver_dashboard_summary">Еволюція вашого пристрою на ваш смак</string>
+    <string name="evolver_dashboard_summary">У душі — Pixel. Створений саме для вас</string>
     <!-- Categories -->
     <string name="themes_title">Теми</string>
     <string name="themes_summary">Рушій Monet, шрифти, значки, анімації</string>
@@ -1399,4 +1399,10 @@
     <string name="dynamic_island_popup_color_mode_entry_default">За замовчуванням</string>
     <string name="dynamic_island_popup_color_mode_entry_blur">Розмиття</string>
     <string name="dynamic_island_popup_color_mode_entry_solid_black">Суцільний чорний</string>
+    <!-- Shade style -->
+    <string name="shade_color_style_title">Стиль штор</string>
+    <string name="shade_color_style_summary">Виберіть, як виглядатимуть панель сповіщень та елементи на екрані блокування</string>
+    <string name="shade_color_style_aosp">Кольори стандартного Android</string>
+    <string name="shade_color_style_glass">Прозора матова панель, крізь яку видно шпалери</string>
+    <string name="shade_color_style_tinted">Панель, тонована вашим акцентним кольором, — з розмиттям або без нього</string>
 </resources>
