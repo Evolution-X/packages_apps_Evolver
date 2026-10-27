@@ -88,6 +88,7 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         refreshStatus()
                     }
                 } catch (e: Exception) {
+                    Log.e(TAG, "Failed to import config", e)
                     toast(getString(R.string.pif_failed, e.message ?: ""))
                 }
             }
@@ -352,9 +353,14 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         it.model
                     }
                 }
+                // Preselect the device the active config already spoofs, if it is still
+                // offered; otherwise the recommended one.
                 val preselectedIndex = sortedProfiles
-                    .indexOfFirst { it.codename == PixelDeviceRepository.PIF_DEFAULT_CODENAME }
-                    .let { if (it < 0) 0 else it }
+                    .indexOfFirst { it.device == activeConfigData["DEVICE"] }
+                    .takeIf { it >= 0 }
+                    ?: sortedProfiles
+                        .indexOfFirst { it.codename == PixelDeviceRepository.PIF_DEFAULT_CODENAME }
+                        .let { if (it < 0) 0 else it }
 
                 pickerProfiles = sortedProfiles
                 ui.dialog = PifDialog.DevicePicker(modelNames, preselectedIndex)
@@ -574,7 +580,10 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                         val l = line.trim()
                         if (l.isNotEmpty() && !l.startsWith("#") && !l.startsWith("//")) {
                             val eq = l.indexOf('=')
-                            if (eq > 0) result[l.substring(0, eq).trim()] = l.substring(eq + 1).trim()
+                            if (eq > 0) {
+                                result[l.substring(0, eq).trim()] =
+                                    l.substring(eq + 1).substringBefore('#').trim()
+                            }
                         }
                     }
                 }
@@ -586,24 +595,32 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         }
 
         /**
-         * Normalises an imported PIF payload (JSON or prop-format) to a JSON string
-         * suitable for storage in Settings.Secure.
+         * Validates an imported PIF payload (JSON or prop-format) and normalises it
+         * to a JSON string for Settings.Secure. Throws if the payload is empty or
+         * malformed, so a broken file is never stored.
          */
         private fun normalizePifPayload(raw: String): String {
             val trimmed = raw.trim()
-            if (trimmed.isEmpty()) return "{}"
-            if (trimmed.startsWith("{")) return trimmed
-            val json = JSONObject()
-            trimmed.lines().forEach { line ->
-                val stripped = line.trim()
-                if (stripped.isEmpty() || stripped.startsWith("#") || stripped.startsWith("//")) return@forEach
-                val eq = stripped.indexOf('=')
-                if (eq > 0) {
-                    val key = stripped.substring(0, eq).trim()
-                    val value = stripped.substring(eq + 1).trim().substringBefore('#').trim()
-                    if (key.isNotEmpty()) json.put(key, value)
+            require(trimmed.isNotEmpty()) { "Config file is empty" }
+
+            val json = if (trimmed.startsWith("{")) {
+                JSONObject(trimmed)
+            } else {
+                JSONObject().apply {
+                    trimmed.lines().forEach { line ->
+                        val stripped = line.trim()
+                        if (stripped.isEmpty() || stripped.startsWith("#") || stripped.startsWith("//")) return@forEach
+                        val eq = stripped.indexOf('=')
+                        if (eq > 0) {
+                            val key = stripped.substring(0, eq).trim()
+                            val value = stripped.substring(eq + 1).trim().substringBefore('#').trim()
+                            if (key.isNotEmpty()) put(key, value)
+                        }
+                    }
                 }
             }
+
+            require(json.length() > 0) { "Config file has no valid entries" }
             return json.toString(2)
         }
     }

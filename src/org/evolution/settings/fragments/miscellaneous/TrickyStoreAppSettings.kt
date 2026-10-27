@@ -138,6 +138,52 @@ class TrickyStoreAppSettings : SettingsPreferenceFragment() {
 
         /** The default target list, as written to SPOOF_TRICKYSTORE_TARGET. */
         fun buildDefaultTargetSeed(): String = TrickyStoreService.DEFAULT_TARGET_LIST
+
+        /**
+         * The targets that are installed for this user. Uninstalled defaults stay in the
+         * stored list (so an app installed later is covered at once) but are not counted
+         * as configured anywhere in the UI.
+         */
+        fun installedTargets(pm: PackageManager, targets: Map<String, TargetMode>) =
+            targets.filterKeys { isInstalled(pm, it) }
+
+        /**
+         * Parses the text target format ("pkg", "pkg?", "pkg!", "pkg-", "#" comments) or the
+         * JSON array form ({"package", "mode"}) into package -> mode, keeping order. Skip
+         * entries are kept: dropping them here would silently remove them on the next save.
+         */
+        fun parseTargetList(list: String?): Map<String, TargetMode> {
+            val result = LinkedHashMap<String, TargetMode>()
+            if (list.isNullOrBlank()) return result
+            val trimmed = list.trim()
+            if (trimmed.startsWith("[")) {
+                runCatching {
+                    val array = org.json.JSONArray(trimmed)
+                    for (i in 0 until array.length()) {
+                        val obj = array.optJSONObject(i) ?: continue
+                        val pkg = obj.optString("package").takeIf { it.isNotEmpty() } ?: continue
+                        result[pkg] = when (obj.optString("mode").uppercase()) {
+                            "LEAF_HACK" -> TargetMode.LEAF_HACK
+                            "GENERATE" -> TargetMode.CERT_GEN
+                            "SKIP" -> TargetMode.SKIP
+                            else -> TargetMode.AUTO
+                        }
+                    }
+                }
+                return result
+            }
+            trimmed.lines().forEach { raw ->
+                val t = raw.trim()
+                if (t.isEmpty() || t.startsWith("#")) return@forEach
+                when {
+                    t.endsWith("?") -> result[t.dropLast(1).trim()] = TargetMode.LEAF_HACK
+                    t.endsWith("!") -> result[t.dropLast(1).trim()] = TargetMode.CERT_GEN
+                    t.endsWith("-") -> result[t.dropLast(1).trim()] = TargetMode.SKIP
+                    else -> result[t] = TargetMode.AUTO
+                }
+            }
+            return result
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -166,6 +212,13 @@ class TrickyStoreAppSettings : SettingsPreferenceFragment() {
 // Internal model that pairs AppListEntry (isSelected = isInTarget) with a TargetMode.
 // We keep a parallel mutableStateList for targetModes so that changing a mode
 // does not recreate the full AppListEntry list.
+private fun isInstalled(pm: PackageManager, pkg: String): Boolean = try {
+    pm.getPackageInfo(pkg, 0)
+    true
+} catch (_: PackageManager.NameNotFoundException) {
+    false
+}
+
 private data class TrickyAppState(
     val entry: AppListEntry,
     val mode: TargetMode,
@@ -185,28 +238,12 @@ private fun TrickyStoreAppSettingsContent(
     var isLoading by remember { mutableStateOf(true) }
     val allApps = remember { mutableStateListOf<TrickyAppState>() }
 
-    fun loadTargetMap(): Map<String, TargetMode> {
-        val result = mutableMapOf<String, TargetMode>()
-        val content = Settings.Secure.getString(
-            context.contentResolver, TrickyStoreAppSettings.TARGET_KEY,
-        ) ?: return result
-        content.lines().forEach { line ->
-            val trimmed = line.trim()
-            if (trimmed.isNotBlank()) {
-                when {
-                    trimmed.endsWith("?") ->
-                        result[trimmed.dropLast(1)] = TargetMode.LEAF_HACK
-                    trimmed.endsWith("!") ->
-                        result[trimmed.dropLast(1)] = TargetMode.CERT_GEN
-                    trimmed.endsWith("-") ->
-                        result[trimmed.dropLast(1)] = TargetMode.SKIP
-                    else ->
-                        result[trimmed] = TargetMode.AUTO
-                }
-            }
-        }
-        return result
-    }
+    fun loadTargetMap(): Map<String, TargetMode> =
+        TrickyStoreAppSettings.parseTargetList(
+            Settings.Secure.getString(
+                context.contentResolver, TrickyStoreAppSettings.TARGET_KEY,
+            ),
+        )
 
     fun saveTargets() {
         val lines = allApps
