@@ -1090,6 +1090,7 @@
     <string name="ts_no_keybox">No keybox installed</string>
     <string name="ts_keybox_installed">Keybox installed</string>
     <string name="ts_keybox_imported">Keybox imported successfully</string>
+    <string name="ts_wipe_playstore_message">Play Store caches integrity verdicts. Clear its data now so the new keybox takes effect right away? This will sign you out and clear its local cache and download queue.</string>
     <string name="ts_delete_keybox_title">Delete keybox?</string>
     <string name="ts_delete_keybox_message">The keybox file will be permanently removed.</string>
     <string name="ts_keybox_deleted">Keybox deleted</string>
