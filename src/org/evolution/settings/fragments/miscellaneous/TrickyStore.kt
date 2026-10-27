@@ -65,6 +65,10 @@ class TrickyStore : SettingsPreferenceFragment() {
     private var isCheckInProgress = false
     private var isKeyboxPickerOpen = false
 
+    // Set by a manual keybox import; consumed once the revocation check that follows it
+    // finishes, so the Play Store wipe prompt never competes with a keep/replace dialog.
+    private var offerWipeAfterCheck = false
+
     // ---- Trust anchors (SHA-256 of DER-encoded cert) ------------------------
 
     companion object {
@@ -190,6 +194,7 @@ class TrickyStore : SettingsPreferenceFragment() {
                 Settings.Secure.putString(
                     requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
                 refreshStatus()
+                offerWipeAfterCheck = true
                 checkKeyboxRevocation()
             } catch (e: Exception) {
                 toast(getString(R.string.ts_failed, e.message ?: ""))
@@ -270,6 +275,13 @@ class TrickyStore : SettingsPreferenceFragment() {
             Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, value)
             refreshStatus()
             return null
+        }
+
+        override fun onWipePlayStore(wipe: Boolean) {
+            if (!wipe) return
+            try {
+                requireContext().packageManager.clearApplicationUserData(VENDING_PACKAGE, null)
+            } catch (_: Exception) {}
         }
 
         override fun onDeletePatch() {
@@ -470,10 +482,12 @@ class TrickyStore : SettingsPreferenceFragment() {
                     refreshStatus()  // update keybox-info row too
 
                     handleActionableStatus(status)
+                    offerWipeIfPending(status)
                 },
                 onFailure = { e ->
                     ui.revocationChecking = false
                     ui.revocationSummary = getString(R.string.ts_revocation_error, e.message)
+                    offerWipeIfPending(null)
                 }
             )
         }
@@ -1091,6 +1105,19 @@ class TrickyStore : SettingsPreferenceFragment() {
         } catch (e: Exception) {
             toast(getString(R.string.ts_failed, e.message ?: ""))
         }
+    }
+
+    /**
+     * Offers to clear Play Store data once per manual keybox import, after its revocation check.
+     * Skipped when the check raised its own dialog, or flagged the keybox revoked/suspended (it is
+     * about to be replaced), and never for the silent auto-fetch, which only force-stops.
+     */
+    private fun offerWipeIfPending(status: RevocationStatus?) {
+        if (!offerWipeAfterCheck) return
+        offerWipeAfterCheck = false
+        if (!isAdded || ui.dialog != null) return
+        if (status == RevocationStatus.REVOKED || status == RevocationStatus.SUSPENDED) return
+        ui.dialog = TsDialog.WipePlayStore
     }
 
     // The three prompts below are raised from the async revocation check. They never replace a
