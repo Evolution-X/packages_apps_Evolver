@@ -1019,11 +1019,13 @@
     <string-array name="qs_panel_style_entries" translatable="false">
         <item>@string/qs_panel_style_card</item>
         <item>@string/qs_panel_style_classic</item>
+        <item>@string/qs_panel_style_coloros</item>
     </string-array>
 
     <string-array name="qs_panel_style_values" translatable="false">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="qs_tile_icon_shape_entries" translatable="false">
