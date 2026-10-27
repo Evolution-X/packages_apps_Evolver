@@ -37,6 +37,7 @@ internal sealed interface TsDialog {
     object ChainInvalid : TsDialog
     class ExpiringSoon(val expiry: String) : TsDialog
     class PatchDate(val current: String) : TsDialog
+    object WipePlayStore : TsDialog
 }
 
 /** Observable state the [TrickyStore] fragment pushes into the Compose screen. */
@@ -81,6 +82,9 @@ internal interface TsActions {
     fun onSavePatch(value: String): String?
 
     fun onDeletePatch()
+
+    /** The user answered the Play Store wipe prompt shown after importing a keybox. */
+    fun onWipePlayStore(wipe: Boolean)
 }
 
 @Composable
@@ -236,6 +240,37 @@ private fun TsDialogs(state: TsUiState, actions: TsActions) {
             onDelete = actions::onDeletePatch,
             onDismiss = dismiss,
         )
+        TsDialog.WipePlayStore -> {
+            // Cancel and tap-outside both mean "don't wipe".
+            val decline = { dismiss(); actions.onWipePlayStore(false) }
+            ExpressiveDialog(
+                onDismissRequest = decline,
+                title = {
+                    Text(
+                        text = stringResource(R.string.pif_wipe_playstore_title),
+                        style = MaterialTheme.typography.headlineSmall,
+                    )
+                },
+                text = {
+                    Column(Modifier.expressiveVerticalScroll()) {
+                        Text(
+                            text = stringResource(R.string.ts_wipe_playstore_message),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                    }
+                },
+                confirmButton = {
+                    ExpressiveTextButton(onClick = { dismiss(); actions.onWipePlayStore(true) }) {
+                        Text(stringResource(R.string.pif_wipe_confirm))
+                    }
+                },
+                dismissButton = {
+                    ExpressiveTextButton(onClick = decline) {
+                        Text(stringResource(android.R.string.cancel))
+                    }
+                },
+            )
+        }
     }
 }
 
