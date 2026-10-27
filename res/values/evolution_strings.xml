@@ -1509,4 +1509,11 @@
     <string name="dynamic_island_popup_color_mode_entry_default">Default</string>
     <string name="dynamic_island_popup_color_mode_entry_blur">Blur</string>
     <string name="dynamic_island_popup_color_mode_entry_solid_black">Solid black</string>
+
+    <!-- Shade style -->
+    <string name="shade_color_style_title">Shade style</string>
+    <string name="shade_color_style_summary">Choose how the notification shade and lock screen bouncer look</string>
+    <string name="shade_color_style_aosp">Stock Android colors</string>
+    <string name="shade_color_style_glass">Clear, frosted panel that lets your wallpaper show through</string>
+    <string name="shade_color_style_tinted">Panel tinted with your accent color, with or without blur</string>
 </resources>
