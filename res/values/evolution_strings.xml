@@ -1103,6 +1103,7 @@
     <string name="ts_import_target_list_summary">Import target.txt from a file</string>
     <string name="ts_invalid_patch_date">Invalid date format. Use YYYY-MM-DD</string>
     <string name="ts_target_list_imported">Target list imported</string>
+    <string name="ts_target_list_invalid">Target list rejected near: %s</string>
     <string name="ts_failed">Failed: %s</string>
     <string name="ts_footer_body">A keybox is fetched and kept valid automatically. The revocation status is checked every 24 hours, and a new keybox is fetched from the official source if the current one is revoked or suspended.\n\nFor manual setup:\n1. Tap \"Fetch latest keybox\" to download one automatically, or import your own from a trusted source.\n2. Open \"Manage target apps\" and select the apps that require integrity checks.\n3. Set target mode to \"Leaf\" if your device has a working TEE; otherwise leave it as Auto.\n4. Recheck your Play Integrity status.\n\nNote: If no valid latest keybox is available, auto-fetch is paused for 24 hours before retrying. Always delete the existing keybox before importing a new one.</string>
     <string name="ts_patch_date_hint" translatable="false">e.g. 2026-07-05, YYYY-MM-05, or per-package blocks</string>
@@ -1118,6 +1119,7 @@
     <string name="ts_verification_auto_count">%1$d auto</string>
     <string name="ts_verification_cert_count">%1$d cert</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
+    <string name="ts_verification_skip_count">%1$d skip</string>
     <string name="ts_fetch_keybox">Fetch latest keybox</string>
     <string name="ts_fetch_keybox_summary">Download keybox from Evolution X servers</string>
     <string name="ts_fetch_keybox_fetching">Fetching keybox…</string>
