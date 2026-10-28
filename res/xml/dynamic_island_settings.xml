@@ -35,6 +35,24 @@
             settings:units="%"
             android:defaultValue="100" />
 
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="status_bar_dynamic_island_offset_x_dp10"
+            android:title="@string/dynamic_island_offset_x_title"
+            android:max="200"
+            settings:min="-200"
+            settings:interval="5"
+            settings:units=" (×0.1 dp)"
+            android:defaultValue="0" />
+
+        <org.evolution.settings.preferences.SystemSettingSeekBarPreference
+            android:key="status_bar_dynamic_island_offset_y_dp10"
+            android:title="@string/dynamic_island_offset_y_title"
+            android:max="200"
+            settings:min="-200"
+            settings:interval="5"
+            settings:units=" (×0.1 dp)"
+            android:defaultValue="0" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="status_bar_dynamic_island_popup_color_mode"
             android:title="@string/dynamic_island_popup_color_mode_title"
