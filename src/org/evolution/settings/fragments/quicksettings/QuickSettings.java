@@ -48,6 +48,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_COMPACT_MEDIA_PLAYER_ENABLED = "qs_compact_media_player_mode";
     private static final String KEY_MEDIA_WAVEFORM_SEEKBAR = "media_waveform_seekbar";
+    private static final String KEY_QS_COLOROS_MEDIA_ART_FILL = "qs_coloros_media_art_fill";
     private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
 //    private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
 //    private static final String KEY_QS_TILE_ALTERNATE_COLOR = "qs_tile_alternate_color";
@@ -68,6 +69,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mQsPanelStyle;
     private ListPreference mShowBrightnessSlider;
     private ListPreference mVolumeSliderMode;
+    private Preference mQsColorOSMediaArtFill;
     private Preference mQsTileIconShape;
     private Preference mQsTileShape;
 //    private SecureSettingListPreference mQsShowMediaPlayer;
@@ -158,6 +160,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsTileShape = findPreference(KEY_QS_TILE_SHAPE);
         mQsTileIconShape = findPreference(KEY_QS_TILE_ICON_SHAPE);
         mQsTileLabelHide = findPreference(KEY_QS_TILE_LABEL_HIDE);
+        mQsColorOSMediaArtFill = findPreference(KEY_QS_COLOROS_MEDIA_ART_FILL);
 
         int panelStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
@@ -177,7 +180,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         boolean isClassic = panelStyle == 1;
         boolean isColorOS = panelStyle == 2;
 
-        // ColorOS pins the tile shapes and always shows labels
+        // ColorOS pins the tile shapes, but still lets the labels be hidden
         if (mQsTileShape != null) {
             mQsTileShape.setVisible(!isClassic && !isColorOS);
         }
@@ -185,7 +188,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             mQsTileIconShape.setVisible(isClassic);
         }
         if (mQsTileLabelHide != null) {
-            mQsTileLabelHide.setVisible(isClassic);
+            mQsTileLabelHide.setVisible(isClassic || isColorOS);
+        }
+        if (mQsColorOSMediaArtFill != null) {
+            mQsColorOSMediaArtFill.setVisible(isColorOS);
         }
     }
 
