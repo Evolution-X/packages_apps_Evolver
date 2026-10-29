@@ -707,6 +707,8 @@
     <string name="quick_settings_layout_category_title">レイアウト</string>
     <string name="quick_settings_tile_label_hide_title">ラベルを非表示</string>
     <string name="quick_settings_tile_label_hide_summary">タイル内にアイコンのみを表示する</string>
+    <string name="qs_coloros_media_art_fill_title">メディアカードをアートで埋める</string>
+    <string name="qs_coloros_media_art_fill_summary">メディアカード全体に、サムネイルではなくアルバムアートを表示する</string>
     <string name="quick_settings_layout_columns_rows_title">列数と行数</string>
     <string name="quick_settings_layout_columns_rows_summary">クイック設定の列と行を編集します</string>
     <string name="quick_settings_layout_columns_rows_footer_text">クイック設定の行はクイック設定の行と同じかそれ以上である必要があります。円またはタイルのスタイルには列数が多いです。</string>
