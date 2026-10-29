@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Кастомізація Evo-X</string>
-    <string name="evolver_dashboard_summary">Еволюція вашого пристрою на ваш смак</string>
+    <string name="evolver_dashboard_summary">У душі — Pixel. Створений саме для вас</string>
     <!-- Categories -->
     <string name="themes_title">Теми</string>
     <string name="themes_summary">Рушій Monet, шрифти, значки, анімації</string>
@@ -53,7 +53,7 @@
     <string name="themes_udfps_animation_summary">Встановити стиль анімації UDFPS</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Анімація завантаження</string>
-    <string name="boot_animation_applied_error">Не вдалося застосувати бутанімацію</string>
+    <string name="boot_animation_applied_error">Не вдалося застосувати анімацію завантаження</string>
     <string name="boot_animation_preview_title">Попередній перегляд анімації завантаження</string>
     <string name="boot_animation_no_preview">Попередній перегляд недоступний</string>
     <string name="boot_animation_custom_pick">Виберіть zip-архів для завантаження</string>
@@ -707,6 +707,8 @@
     <string name="quick_settings_layout_category_title">Макет</string>
     <string name="quick_settings_tile_label_hide_title">Приховати підписи</string>
     <string name="quick_settings_tile_label_hide_summary">Показувати іконку тільки на плитці</string>
+    <string name="qs_coloros_media_art_fill_title">Заповніть носій творчими роботами</string>
+    <string name="qs_coloros_media_art_fill_summary">Відображати обкладинку альбому на всю картку медіавмісту замість мініатюри</string>
     <string name="quick_settings_layout_columns_rows_title">Колонки і рядки</string>
     <string name="quick_settings_layout_columns_rows_summary">Налаштуйте стовпці та рядки QS</string>
     <string name="quick_settings_layout_columns_rows_footer_text">Рядки швидких налаштувань повинні бути однаковими або більшими, ніж стрілки швидких налаштувань. Використовуйте більше стовпців для кола або квадратних стилів.</string>
@@ -1048,6 +1050,7 @@
     <string name="ts_import_target_list_summary">Імпортувати цільовий список з файлу</string>
     <string name="ts_invalid_patch_date">Невірний формат дати. Використовуйте РРРР-ММ-ДД</string>
     <string name="ts_target_list_imported">Цільовий список імпортовано</string>
+    <string name="ts_target_list_invalid">Список цілей відхилено біля: %s</string>
     <string name="ts_failed">Не вдалося: %s</string>
     <string name="ts_footer_body">Keybox завантажується та підтримується дійсним автоматично. Статус відкликання перевіряється кожні 24 години, і новий keybox завантажується з офіційного джерела, якщо поточний відкликано або призупинено.\n\nДля налаштування вручну:\n1. Натисніть \"Fetch latest keybox\", щоб завантажити його автоматично, або імпортуйте власний із надійного джерела.\n2. Відкрийте \"Manage target apps\" та виберіть додатки, які вимагають перевірки цілісності.\n3. Встановіть цільовий режим на \"Leaf\", якщо ваш пристрій має робочий TEE; інакше залиште значення Auto.\n4. Повторно перевірте статус Play Integrity.\n\nПримітка: якщо дійсний останній keybox недоступний, автозавантаження призупиняється на 24 години перед повторною спробою. Завжди видаляйте наявний keybox перед імпортом нового.</string>
     <string name="ts_patch_stale_warning">%1$s (несвіжий, більше 12 місяців)</string>
@@ -1062,6 +1065,7 @@
     <string name="ts_verification_auto_count">%1$d Автоматично</string>
     <string name="ts_verification_cert_count">%1$d Сертифікат</string>
     <string name="ts_verification_leaf_count">%1$d Листок</string>
+    <string name="ts_verification_skip_count">%1$d Пропустити</string>
     <string name="ts_fetch_keybox">Завантажити останній keybox</string>
     <string name="ts_fetch_keybox_summary">Завантажити ключ з серверів Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Отримання keybox…</string>
@@ -1393,10 +1397,18 @@
     <string name="dynamic_island_lyrics_summary">Показувати текст пісні для підтримуваних програм у картці під музичною карткою в «динамічному острові»</string>
     <string name="dynamic_island_customization_title">Управління динамічним островом</string>
     <string name="dynamic_island_width_scale_title">Масштаб ширини</string>
-    <string name="dynamic_island_height_scale_title">Шкала висоти</string>
+    <string name="dynamic_island_height_scale_title">Масштаб висоти</string>
+    <string name="dynamic_island_offset_x_title">Горизонтальний зсув</string>
+    <string name="dynamic_island_offset_y_title">Вертикальний зсув</string>
     <string name="dynamic_island_popup_color_mode_title">Фон спливаючих вікон</string>
     <string name="dynamic_island_popup_color_mode_summary">Виберіть вигляд розгорнутих спливаючих вікон: стандартний, із розмитим фоном або суцільний чорний</string>
     <string name="dynamic_island_popup_color_mode_entry_default">За замовчуванням</string>
     <string name="dynamic_island_popup_color_mode_entry_blur">Розмиття</string>
     <string name="dynamic_island_popup_color_mode_entry_solid_black">Суцільний чорний</string>
+    <!-- Shade style -->
+    <string name="shade_color_style_title">Стиль штор</string>
+    <string name="shade_color_style_summary">Виберіть, як виглядатимуть панель сповіщень та елементи на екрані блокування</string>
+    <string name="shade_color_style_aosp">Кольори стандартного Android</string>
+    <string name="shade_color_style_glass">Прозора матова панель, крізь яку видно шпалери</string>
+    <string name="shade_color_style_tinted">Панель, тонована вашим акцентним кольором, — з розмиттям або без нього</string>
 </resources>
