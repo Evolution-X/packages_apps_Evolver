@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">Rozwijaj swoje urządzenie na swój sposób</string>
+    <string name="evolver_dashboard_summary">Piksel w sercu. Stworzony dla ciebie</string>
     <!-- Categories -->
     <string name="themes_title">Motywy</string>
     <string name="themes_summary">Motyw dynamiczny, czcionki, ikony, animacje</string>
@@ -332,8 +332,14 @@
     <string name="depthwall_clear_subject_summary">Usuń aktualnie wyodrębniony lub ręcznie ustawiony obiekt</string>
     <string name="depthwall_clear_subject_confirm_message">Spowoduje to usunięcie aktualnego obrazu głębi tapety. Kontynuować?</string>
     <string name="depthwall_clear_subject_done_toast">Obraz obiektu został wyczyszczony</string>
+    <string name="depthwall_spatial_effect_title">Efekt przestrzenny</string>
+    <string name="depthwall_spatial_effect_summary">Dodaje efekt przestrzenny 3D do tapety z efektem głębi na ekranie blokady po pochyleniu urządzenia.</string>
+    <string name="depthwall_spatial_sensitivity_title">Czułość przestrzenna</string>
+    <string name="depthwall_spatial_sensitivity_summary">Dostosuj czułość ruchu efektu przestrzennego 3D</string>
     <string name="dw_footer_text">Tapeta z efektem głębi nakłada obraz obiektu nad zegarem ekranu blokady, inspirowana segmentacją obiektu tapety iOS.\n\nKonfiguracja:\n1. Ustaw tapetę z tłem, które ma być za obiektem.\n2. Wybierz obraz obiektu do nałożenia nad zegarem ekranu blokady.\n3. Dostosuj przesunięcia i przezroczystość według preferencji.</string>
     <!-- Status bar -->
+    <string name="status_bar_triple_tap_freeform_title">Naciśnij trzykrotnie, aby otworzyć w trybie swobodnym</string>
+    <string name="status_bar_triple_tap_freeform_summary">Naciśnij trzykrotnie pasek stanu, aby otworzyć bieżącą aplikację w trybie swobodnym</string>
     <string name="status_bar_toggle_brightness_title">Kontrola jasności</string>
     <string name="status_bar_toggle_brightness_summary">Dostosuj jasność, przeciągając palcem po pasku stanu</string>
     <string name="status_bar_toggle_brightness_lockscreen_title">Kontrola jasności na ekranie blokady</string>
@@ -796,6 +802,7 @@
     <string name="quick_settings_header_needs_gallery">Wymagana jest aplikacja galerii</string>
     <string name="quick_settings_header_offset_title">Przesunięcie obrazu nagłówka</string>
     <string name="quick_settings_header_offset_summary">Dostosuj rozmiar obrazu nagłówka</string>
+    <string name="quick_settings_header_file_failed">Nie udało się wczytać wybranego obrazu</string>
     <!-- Quick settings/Misc -->
     <string name="quick_settings_data_usage_title">Wykorzystanie danych</string>
     <string name="quick_settings_data_usage_summary">Wyświetl użycie danych w stopce szybkich ustawień</string>
@@ -1030,6 +1037,7 @@
     <string name="ts_no_keybox">Nie zainstalowano zestawu kluczy</string>
     <string name="ts_keybox_installed">Zainstalowano zestaw kluczy</string>
     <string name="ts_keybox_imported">Zestaw kluczy zaimportowano pomyślnie</string>
+    <string name="ts_wipe_playstore_message">Sklep Google Play buforuje werdykty integralności. Wyczyścić jego dane teraz, aby nowy zestaw kluczy zaczął działać natychmiast? \nSpowoduje to wylogowanie oraz wyczyszczenie lokalnej pamięci podręcznej i kolejki pobierania.</string>
     <string name="ts_delete_keybox_title">Usunąć zestaw kluczy?</string>
     <string name="ts_delete_keybox_message">Ten plik zestawu kluczy zostanie trwale usunięty.</string>
     <string name="ts_keybox_deleted">Usunięto zestaw kluczy</string>
@@ -1042,6 +1050,7 @@
     <string name="ts_import_target_list_summary">Importuj target.txt z pliku</string>
     <string name="ts_invalid_patch_date">Nieprawidłowy format daty. Użyj RRRR-MM-DD</string>
     <string name="ts_target_list_imported">Zaimportowano listę docelową</string>
+    <string name="ts_target_list_invalid">Odrzucono listę celów w pobliżu: %s</string>
     <string name="ts_failed">Niepowodzenie: %s</string>
     <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Stan unieważnienia jest sprawdzany co 24 godziny, a nowy zestaws kluczy jest pobierany z oficjalnego źródła, jeśli obecn został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz najnowszy zestaw kluczy, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz Zarządzaj aplikacjami docelowymi i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na Podmiana certyfikatu, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw opcję Automatycznie.\n4. Sprawdź ponownie stan integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden prawidłowy najnowszy zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
     <string name="ts_patch_stale_warning">%1$s (nieaktualne, starsze niż 12 miesięcy)</string>
@@ -1056,6 +1065,7 @@
     <string name="ts_verification_auto_count">%1$d automatycznie</string>
     <string name="ts_verification_cert_count">%1$d generowanie certyfikatu</string>
     <string name="ts_verification_leaf_count">%1$d podmiana certyfikatu</string>
+    <string name="ts_verification_skip_count">%1$d pomiń</string>
     <string name="ts_fetch_keybox">Pobierz najnowszy zestaw kluczy</string>
     <string name="ts_fetch_keybox_summary">Pobieranie zestawu kluczy z serwerów Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Pobieranie zestawu kluczy…</string>
@@ -1365,4 +1375,40 @@
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Ukryj status przechwytywania ekranu</string>
     <string name="hide_screen_capture_status_summary">Ukryj przed aplikacjami stan rejestrowania lub przechwytywania ekranu. Funkcja przydatna, lecz może wiązać się z ryzykiem dla prywatności. Zrestartuj aplikacje, aby zmiany zaczęły obowiązywać.</string>
+    <!-- Dynamic island -->
+    <string name="status_bar_dynamic_island_title">Wyspa dynamiczna</string>
+    <string name="status_bar_dynamic_island_summary">Skonfiguruj wyspę i wybierz, które funkcje mogą się na niej pojawić</string>
+    <string name="dynamic_island_footer_title">O wyspie dynamicznej</string>
+    <string name="dynamic_island_intro">Włącz wyspę dynamiczną i wybierz funkcje, które chcesz umieścić na środkowym znaczniku.</string>
+    <string name="dynamic_island_features_title">Funkcje</string>
+    <string name="dynamic_island_media_controls_title">Sterowanie multimediami</string>
+    <string name="dynamic_island_media_controls_summary">Pokaż sterowanie odtwarzaniem i grafikę na wyspie</string>
+    <string name="dynamic_island_screen_recording_title">Nagrywanie ekranu</string>
+    <string name="dynamic_island_screen_recording_summary">Pokaż licznik nagrywania i sterowanie na wyspie</string>
+    <string name="dynamic_island_alarms_title">Alarmy</string>
+    <string name="dynamic_island_alarms_summary">Pokaż na wyspie następny alarm lub powiadomienie o aktywnym alarmie</string>
+    <string name="dynamic_island_flashlight_title">Latarka</string>
+    <string name="dynamic_island_flashlight_summary">Pokaż stan latarki na wyspie, gdy jest włączona</string>
+    <string name="dynamic_island_stopwatch_title">Stoper</string>
+    <string name="dynamic_island_stopwatch_summary">Pokaż postęp stopera i sterowanie na wyspie</string>
+    <string name="dynamic_island_live_scores_title">Wyniki na żywo</string>
+    <string name="dynamic_island_live_scores_summary">Wyświetlaj wyniki na żywo wydarzeń sportowych na wyspie dla aplikacji, które oferują powiadomienia o wynikach na żywo.</string>
+    <string name="dynamic_island_lyrics_title">Wyświetl tekst piosenek</string>
+    <string name="dynamic_island_lyrics_summary">Wyświetl teksty piosenek dla obsługiwanych aplikacji na karcie pod kartą muzyczną na wyspie</string>
+    <string name="dynamic_island_customization_title">Dostosuj wyspę dynamiczną</string>
+    <string name="dynamic_island_width_scale_title">Skala szerokości</string>
+    <string name="dynamic_island_height_scale_title">Skala wysokości</string>
+    <string name="dynamic_island_offset_x_title">Przesunięcie poziome</string>
+    <string name="dynamic_island_offset_y_title">Przesunięcie pionowe</string>
+    <string name="dynamic_island_popup_color_mode_title">Wyskakujące tło</string>
+    <string name="dynamic_island_popup_color_mode_summary">Wybierz wygląd rozwiniętych okienek: domyślnie, rozmyta tapeta lub całkowicie czarne</string>
+    <string name="dynamic_island_popup_color_mode_entry_default">Domyślny</string>
+    <string name="dynamic_island_popup_color_mode_entry_blur">Rozmycie</string>
+    <string name="dynamic_island_popup_color_mode_entry_solid_black">Pełny czarny</string>
+    <!-- Shade style -->
+    <string name="shade_color_style_title">Styl cieniowania</string>
+    <string name="shade_color_style_summary">Wybierz wygląd paska powiadomień i ekranu blokady</string>
+    <string name="shade_color_style_aosp">Standardowe kolory Androida</string>
+    <string name="shade_color_style_glass">Przezroczysty, matowy panel, przez który widać tapetę</string>
+    <string name="shade_color_style_tinted">Panel barwiony na wybrany kolor akcentu, z rozmyciem lub bez</string>
 </resources>
