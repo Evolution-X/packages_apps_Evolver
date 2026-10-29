@@ -171,6 +171,12 @@
             android:summary="@string/quick_settings_tile_label_hide_summary"
             android:defaultValue="false" />
 
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="qs_coloros_media_art_fill"
+            android:title="@string/qs_coloros_media_art_fill_title"
+            android:summary="@string/qs_coloros_media_art_fill_summary"
+            android:defaultValue="false" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_tile_animation_style"
             android:title="@string/qs_tile_animation_style_title"
