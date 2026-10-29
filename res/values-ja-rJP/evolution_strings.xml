@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">The Evolver</string>
-    <string name="evolver_dashboard_summary">自分好みにデバイスを進化させよう！</string>
+    <string name="evolver_dashboard_summary">心はPixel、デザインは自分らしく</string>
     <!-- Categories -->
     <string name="themes_title">テーマ</string>
     <string name="themes_summary">Monet エンジン、フォント、アイコン、アニメーション</string>
@@ -707,6 +707,8 @@
     <string name="quick_settings_layout_category_title">レイアウト</string>
     <string name="quick_settings_tile_label_hide_title">ラベルを非表示</string>
     <string name="quick_settings_tile_label_hide_summary">タイル内にアイコンのみを表示する</string>
+    <string name="qs_coloros_media_art_fill_title">メディアカードをアートで埋める</string>
+    <string name="qs_coloros_media_art_fill_summary">メディアカード全体に、サムネイルではなくアルバムアートを表示する</string>
     <string name="quick_settings_layout_columns_rows_title">列数と行数</string>
     <string name="quick_settings_layout_columns_rows_summary">クイック設定の列と行を編集します</string>
     <string name="quick_settings_layout_columns_rows_footer_text">クイック設定の行はクイック設定の行と同じかそれ以上である必要があります。円またはタイルのスタイルには列数が多いです。</string>
@@ -800,6 +802,7 @@
     <string name="quick_settings_header_needs_gallery">ギャラリーアプリが必要です</string>
     <string name="quick_settings_header_offset_title">ヘッダー画像のオフセット</string>
     <string name="quick_settings_header_offset_summary">ヘッダー画像のサイズを調整する</string>
+    <string name="quick_settings_header_file_failed">選択した画像を読み込めませんでした</string>
     <!-- Quick settings/Misc -->
     <string name="quick_settings_data_usage_title">データ使用量</string>
     <string name="quick_settings_data_usage_summary">クイック設定のフッターにデータ使用量を表示する</string>
@@ -1034,6 +1037,7 @@
     <string name="ts_no_keybox">キーボックスがインストールされていません</string>
     <string name="ts_keybox_installed">キーボックスがインストール済みです</string>
     <string name="ts_keybox_imported">キーボックスのインポートに成功しました</string>
+    <string name="ts_wipe_playstore_message">Playストアが整合性の判定結果をキャッシュしています。新しいキーボックスをすぐに反映させるため、今すぐデータを消去しますか？ログアウトされ、ローカルキャッシュやダウンロードキューがクリアされます。</string>
     <string name="ts_delete_keybox_title">キーボックスを削除しますか？</string>
     <string name="ts_delete_keybox_message">キーボックスファイルは完全に削除されます。</string>
     <string name="ts_keybox_deleted">キーボックスを削除しました</string>
@@ -1046,6 +1050,7 @@
     <string name="ts_import_target_list_summary">ファイルから target.txt をインポートします</string>
     <string name="ts_invalid_patch_date">日付形式が無効です。YYYY-MM-DD を使用してください</string>
     <string name="ts_target_list_imported">ターゲットリストをインポートしました</string>
+    <string name="ts_target_list_invalid">ターゲットリストが拒否されました: %s</string>
     <string name="ts_failed">失敗: %s</string>
     <string name="ts_footer_body">キーボックスは自動的に取得され、有効な状態が維持されます。失効状況は24時間ごとにチェックされ、現在のキーボックスが失効または停止された場合は、公式ソースから新しいキーボックスが取得されます。\n\n【手動で設定する場合】\n1.「最新のキーボックスを取得」をタップして自動ダウンロードするか、信頼できる情報元から独自のキーボックスをインポートしてください。\n2. 「ターゲットアプリの管理」を開き、整合性チェックが必要なアプリを選択します。\n3. 端末の TEE が正常に機能している場合はターゲットモードを「Leaf」に設定し、そうでない場合は「自動」のままにしてください。\n4. 再度 Play Integrity のステータスを確認します。\n\n注: 有効な最新キーボックスが利用できない場合、自動取得は24時間停止された後に再試行されます。新しいキーボックスをインポートする前に、必ず既存のキーボックスを削除してください。</string>
     <string name="ts_patch_stale_warning">%1$s (古い、12ヶ月以上)</string>
@@ -1060,6 +1065,7 @@
     <string name="ts_verification_auto_count">%1$d 自動</string>
     <string name="ts_verification_cert_count">%1$d 証明書</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
+    <string name="ts_verification_skip_count">%1$d スキップ</string>
     <string name="ts_fetch_keybox">最新のキーボックスを取得</string>
     <string name="ts_fetch_keybox_summary">EvolutionXのサーバーからキーボックスをダウンロードする</string>
     <string name="ts_fetch_keybox_fetching">キーボックスを取得中…</string>
@@ -1390,11 +1396,19 @@
     <string name="dynamic_island_lyrics_title">歌詞を表示</string>
     <string name="dynamic_island_lyrics_summary">対応アプリの歌詞を、Island内の音楽カードの下にカード形式で表示します</string>
     <string name="dynamic_island_customization_title">Dynamic islandのカスタマイズ</string>
-    <string name="dynamic_island_width_scale_title">幅</string>
-    <string name="dynamic_island_height_scale_title">高さ</string>
+    <string name="dynamic_island_width_scale_title">幅のスケール</string>
+    <string name="dynamic_island_height_scale_title">高さのスケール</string>
+    <string name="dynamic_island_offset_x_title">水平方向の位置調整</string>
+    <string name="dynamic_island_offset_y_title">垂直方向の位置調整</string>
     <string name="dynamic_island_popup_color_mode_title">ポップアップの背景</string>
     <string name="dynamic_island_popup_color_mode_summary">展開時のポップアップの外観を選択：デフォルト、壁紙のぼかし、または単色ブラック</string>
     <string name="dynamic_island_popup_color_mode_entry_default">既定</string>
     <string name="dynamic_island_popup_color_mode_entry_blur">ぼかし</string>
     <string name="dynamic_island_popup_color_mode_entry_solid_black">単色ブラック</string>
+    <!-- Shade style -->
+    <string name="shade_color_style_title">通知シェードのスタイル</string>
+    <string name="shade_color_style_summary">通知シェードとロック画面の通知表示の見た目を選択する</string>
+    <string name="shade_color_style_aosp">Android のストックカラー</string>
+    <string name="shade_color_style_glass">壁紙が透けて見える、すりガラス風のクリアパネル</string>
+    <string name="shade_color_style_tinted">アクセントカラーで色付けされたパネル（ぼかしの有無を選択可能）</string>
 </resources>
