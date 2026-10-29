@@ -750,6 +750,8 @@
     <string name="quick_settings_layout_category_title">Layout</string>
     <string name="quick_settings_tile_label_hide_title">Hide label</string>
     <string name="quick_settings_tile_label_hide_summary">Show icon only in tile</string>
+    <string name="qs_coloros_media_art_fill_title">Fill media card with art</string>
+    <string name="qs_coloros_media_art_fill_summary">Show the album art over the whole media card instead of a thumbnail</string>
     <string name="quick_settings_layout_columns_rows_title">Columns and rows</string>
     <string name="quick_settings_layout_columns_rows_summary">Customize QS columns and rows</string>
     <string name="quick_settings_layout_columns_rows_footer_text">QS rows must be equal to or greater than quick QS rows. Use a higher column count for circle or square tile styles.</string>
