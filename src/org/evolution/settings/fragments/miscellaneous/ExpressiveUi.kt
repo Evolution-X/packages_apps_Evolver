@@ -43,6 +43,7 @@ import androidx.compose.material.icons.rounded.DoneAll
 import androidx.compose.material.icons.rounded.ExpandLess
 import androidx.compose.material.icons.rounded.ExpandMore
 import androidx.compose.material.icons.rounded.History
+import androidx.compose.material.icons.rounded.RemoveDone
 import androidx.compose.material.icons.rounded.PhoneAndroid
 import androidx.compose.ui.text.input.VisualTransformation
 import android.graphics.Typeface
@@ -931,6 +932,7 @@ fun AppPickerActions(
     onReset: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    onDeselectUnnecessary: (() -> Unit)? = null,
 ) {
     Column(
         modifier = modifier,
@@ -955,13 +957,21 @@ fun AppPickerActions(
             inset = false,
         )
         ExpressiveActionRow(
-            actions = listOf(
+            actions = listOfNotNull(
                 ExpressiveAction(
                     text = stringResource(R.string.action_reset),
                     icon = Icons.Rounded.History,
                     enabled = enabled,
                     onClick = onReset,
                 ),
+                onDeselectUnnecessary?.let {
+                    ExpressiveAction(
+                        text = stringResource(R.string.action_deselect_unnecessary),
+                        icon = Icons.Rounded.RemoveDone,
+                        enabled = enabled,
+                        onClick = it,
+                    )
+                },
             ),
             inset = false,
         )

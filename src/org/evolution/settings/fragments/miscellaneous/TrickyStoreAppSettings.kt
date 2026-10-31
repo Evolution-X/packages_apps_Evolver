@@ -386,6 +386,29 @@ private fun TrickyStoreAppSettingsContent(
                     }
                     scope.launch(Dispatchers.IO) { saveTargets() }
                 },
+                onDeselectUnnecessary = {
+                    // Root managers, root tools and general apps that never check the
+                    // bootloader, as listed by the framework.
+                    val deselected = allApps
+                        .filter {
+                            it.entry.isSelected &&
+                                it.entry.packageName in TrickyStoreService.UNNECESSARY_PACKAGES
+                        }
+                        .map { it.entry.packageName }
+                        .toSet()
+                    if (deselected.isNotEmpty()) {
+                        allApps.indices.forEach { i ->
+                            if (allApps[i].entry.packageName in deselected) {
+                                allApps[i] = allApps[i].copy(
+                                    entry = allApps[i].entry.copy(isSelected = false))
+                            }
+                        }
+                        scope.launch(Dispatchers.IO) {
+                            saveTargets()
+                            killPackages(activityManager, deselected)
+                        }
+                    }
+                },
                 onReset = {
                     val previouslySelected = allApps
                         .filter { it.entry.isSelected }
