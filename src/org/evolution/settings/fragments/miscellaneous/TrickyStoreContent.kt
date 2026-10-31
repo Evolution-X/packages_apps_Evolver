@@ -5,6 +5,7 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
+import android.security.trickystore.TrickyStoreService
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -320,6 +321,13 @@ private fun TsPatchDateDialog(
 ) {
     var text by remember { mutableStateOf(current) }
     var error by remember { mutableStateOf<String?>(null) }
+    // What a single template value (today, YYYY-MM-05, ...) resolves to right now. Blocks
+    // with several values are left alone, and so is a plain date, which resolves to itself.
+    val resolved = remember(text) {
+        val v = text.trim()
+        if (v.isEmpty() || v.contains('\n') || v.contains('=')) null
+        else TrickyStoreService.resolvePatchTemplate(v).takeIf { it != v }
+    }
     ExpressiveDialog(
         onDismissRequest = onDismiss,
         title = {
@@ -337,7 +345,8 @@ private fun TsPatchDateDialog(
                 minLines = 3,
                 maxLines = 10,
                 isError = error != null,
-                supportingText = error,
+                supportingText = error
+                    ?: resolved?.let { stringResource(R.string.ts_patch_resolves_to, it) },
             )
         },
         confirmButton = {
