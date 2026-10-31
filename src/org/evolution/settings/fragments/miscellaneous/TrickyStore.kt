@@ -20,6 +20,8 @@ import android.provider.Settings
 import android.security.trickystore.KeyBoxManager
 import android.security.trickystore.TrickyStoreService
 import android.util.Base64
+import android.util.JsonReader
+import android.util.JsonToken
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
@@ -29,6 +31,7 @@ import com.android.settings.SettingsPreferenceFragment
 import java.io.BufferedReader
 import java.io.ByteArrayInputStream
 import java.io.InputStreamReader
+import java.io.StringReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.StandardCharsets
@@ -108,6 +111,8 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val KEYBOX_SOURCE_USER         = "user"
         private const val TARGET_KEY                 = TrickyStoreAppSettings.TARGET_KEY
         internal const val PATCH_KEY                 = "spoof_trickystore_patch"
+        // The patch level keys the framework reads, in both the text and the JSON format.
+        private val PATCH_KEYS = setOf("system", "vendor", "boot", "all")
         private const val LAST_FETCHED_KEY           = "spoof_trickystore_last_fetched"
         private const val LAST_REVOCATION_CHECK_KEY  = "spoof_trickystore_last_revocation_check"
         private const val LAST_NO_VALID_KEY          = "spoof_trickystore_last_no_valid"
@@ -1206,7 +1211,9 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     /**
      * Returns true if [value] is valid security_patch.txt content. Each value is checked by
-     * the framework, so what is accepted here is what the framework will use.
+     * the framework, so what is accepted here is what the framework will use. A key the
+     * framework doesn't know is refused: it would skip it, and a typo such as "sytem=..."
+     * would silently do nothing.
      * Accepts:
      *   - A single value: YYYY-MM-DD, YYYY-MM, a date with placeholders such as
      *     "YYYY-MM-05", or "today"
@@ -1214,21 +1221,71 @@ class TrickyStore : SettingsPreferenceFragment() {
      *       [com.package.name]
      *       system=no
      *       all=2026-07-05
+     *   - The JSON form of the same, which the framework also reads:
+     *       {"all": "2026-07-05", "packages": {"com.package.name": {"system": "no"}}}
      */
     private fun isValidPatchContent(value: String): Boolean {
-        if (TrickyStoreService.isValidPatchValue(value)) return true
-        return value.lines()
+        val trimmed = value.trim()
+        if (trimmed.startsWith("{")) return isValidPatchJson(trimmed)
+        if (TrickyStoreService.isValidPatchValue(trimmed)) return true
+        return trimmed.lines()
             .filter { it.isNotBlank() && !it.trim().startsWith("#") }
             .all { line ->
                 val t = line.trim()
                 when {
                     t.startsWith("[") && t.endsWith("]") -> true  // section header
                     t.contains("=") ->
-                        TrickyStoreService.isValidPatchValue(t.substringAfter("=").trim())
+                        t.substringBefore("=").trim().lowercase() in PATCH_KEYS &&
+                            TrickyStoreService.isValidPatchValue(t.substringAfter("=").trim())
                     else -> false
                 }
             }
     }
+
+    /**
+     * Reads [text] with the parser and shape TrickyStoreService.parsePatchJson uses, but
+     * refuses what it would skip (unknown keys) or fail on (a value that isn't a string or
+     * number, a package entry that isn't an object), since the framework answers the latter
+     * by silently keeping the previous patch levels.
+     */
+    private fun isValidPatchJson(text: String): Boolean {
+        return try {
+            JsonReader(StringReader(text)).use { reader ->
+                reader.beginObject()
+                while (reader.hasNext()) {
+                    when (reader.nextName()) {
+                        in PATCH_KEYS -> if (!isValidPatchJsonValue(reader)) return false
+                        "packages" -> {
+                            reader.beginObject()
+                            while (reader.hasNext()) {
+                                reader.nextName()
+                                reader.beginObject()
+                                while (reader.hasNext()) {
+                                    if (reader.nextName() !in PATCH_KEYS ||
+                                        !isValidPatchJsonValue(reader)) return false
+                                }
+                                reader.endObject()
+                            }
+                            reader.endObject()
+                        }
+                        else -> return false
+                    }
+                }
+                reader.endObject()
+                true
+            }
+        } catch (_: Exception) {
+            false
+        }
+    }
+
+    // JsonReader.nextString() also reads a number, as the framework does.
+    private fun isValidPatchJsonValue(reader: JsonReader): Boolean =
+        when (reader.peek()) {
+            JsonToken.STRING, JsonToken.NUMBER ->
+                TrickyStoreService.isValidPatchValue(reader.nextString())
+            else -> false
+        }
 
     private fun showPatchDateDialog() {
         val current = Settings.Secure.getString(
