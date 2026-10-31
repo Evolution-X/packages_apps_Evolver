@@ -17,8 +17,9 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import com.android.settings.core.SubSettingLauncher
 import android.provider.Settings
+import android.security.trickystore.KeyBoxManager
+import android.security.trickystore.TrickyStoreService
 import android.util.Base64
-import android.util.Xml
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
@@ -28,7 +29,6 @@ import com.android.settings.SettingsPreferenceFragment
 import java.io.BufferedReader
 import java.io.ByteArrayInputStream
 import java.io.InputStreamReader
-import java.io.StringReader
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.StandardCharsets
@@ -44,7 +44,6 @@ import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.xmlpull.v1.XmlPullParser
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -179,33 +178,40 @@ class TrickyStore : SettingsPreferenceFragment() {
         isKeyboxPickerOpen = false
         if (result.resultCode != Activity.RESULT_OK) return@registerForActivityResult
         result.data?.data?.let { uri ->
-            try {
-                val bytes = requireContext().contentResolver.openInputStream(uri)
-                    ?.use { it.readBytes() } ?: ByteArray(0)
-                // The framework rejects a keybox that fails these checks, so refuse it here
-                // instead of storing something that silently never takes effect.
-                val problem = keyboxProblem(bytes.toString(Charsets.UTF_8))
-                if (problem != null) {
-                    toast(getString(R.string.ts_fetch_keybox_failed, problem))
-                    return@registerForActivityResult
+            val ctx = requireContext()
+            lifecycleScope.launch {
+                try {
+                    val bytes = withContext(Dispatchers.IO) {
+                        ctx.contentResolver.openInputStream(uri)?.use { it.readBytes() }
+                            ?: ByteArray(0)
+                    }
+                    // Dry run of the framework's own loader: refuse a keybox it would reject
+                    // instead of storing something that silently never takes effect.
+                    val problem = withContext(Dispatchers.IO) {
+                        KeyBoxManager.validate(bytes.toString(Charsets.UTF_8))
+                    }
+                    if (!isAdded) return@launch
+                    if (problem != null) {
+                        toast(getString(R.string.ts_fetch_keybox_failed, problem))
+                        return@launch
+                    }
+                    val encoded = Base64.encodeToString(bytes, Base64.NO_WRAP)
+                    Settings.Secure.putString(ctx.contentResolver, KEYBOX_KEY, encoded)
+                    Settings.Secure.putString(
+                        ctx.contentResolver, KEYBOX_SOURCE_KEY, KEYBOX_SOURCE_USER)
+                    saveLastFetchedTimestamp()
+                    killGms()
+                    toast(getString(R.string.ts_keybox_imported))
+                    currentRevocationStatus = RevocationStatus.UNKNOWN
+                    currentRevocationReason = ""
+                    Settings.Secure.putString(
+                        ctx.contentResolver, LAST_REVOCATION_STATUS_KEY, "")
+                    refreshStatus()
+                    offerWipeAfterCheck = true
+                    checkKeyboxRevocation()
+                } catch (e: Exception) {
+                    if (isAdded) toast(getString(R.string.ts_failed, e.message ?: ""))
                 }
-                val encoded = Base64.encodeToString(bytes, Base64.NO_WRAP)
-                Settings.Secure.putString(
-                    requireContext().contentResolver, KEYBOX_KEY, encoded)
-                Settings.Secure.putString(
-                    requireContext().contentResolver, KEYBOX_SOURCE_KEY, KEYBOX_SOURCE_USER)
-                saveLastFetchedTimestamp()
-                killGms()
-                toast(getString(R.string.ts_keybox_imported))
-                currentRevocationStatus = RevocationStatus.UNKNOWN
-                currentRevocationReason = ""
-                Settings.Secure.putString(
-                    requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
-                refreshStatus()
-                offerWipeAfterCheck = true
-                checkKeyboxRevocation()
-            } catch (e: Exception) {
-                toast(getString(R.string.ts_failed, e.message ?: ""))
             }
         }
     }
@@ -644,27 +650,49 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Certificate parsing ------------------------------------------------
 
-    private fun decodeKeyboxXml(payload: String): String? {
-        val trimmed = payload.trim()
-        if (trimmed.startsWith("<")) return trimmed
-        return try {
-            val decoded = Base64.decode(trimmed, Base64.DEFAULT)
-            val asXml = String(decoded, Charsets.UTF_8).trim()
-            if (asXml.startsWith("<")) asXml else null
-        } catch (_: Exception) { null }
-    }
+    /** XML or base64 payload to XML text, decoded the way the framework decodes it. */
+    private fun decodeKeyboxXml(payload: String): String? =
+        TrickyStoreService.decodeKeybox(payload)
 
     /**
      * The certificate chain of each <Key>, leaf first. A document without <Key> blocks is
      * treated as one chain.
      */
-    private fun extractChains(xml: String): List<List<X509Certificate>> {
+    private fun extractChains(rawXml: String): List<List<X509Certificate>> {
+        // Same cleanup the framework does before parsing: invisible characters inside a PEM
+        // block would otherwise make its certificate silently disappear from the chain.
+        val xml = KeyBoxManager.sanitizeXml(rawXml)
         val chains = Regex("<Key\\b[^>]*>([\\s\\S]*?)</Key>").findAll(xml)
-            .map { extractCertificates(it.groupValues[1]) }
+            .map { orderChain(extractCertificates(it.groupValues[1])) }
             .filter { it.isNotEmpty() }
             .toList()
         if (chains.isNotEmpty()) return chains
-        return extractCertificates(xml).let { if (it.isEmpty()) emptyList() else listOf(it) }
+        return orderChain(extractCertificates(xml)).let { if (it.isEmpty()) emptyList() else listOf(it) }
+    }
+
+    /**
+     * Puts a chain in leaf-to-root order and drops exact duplicates, as KeyBoxManager does
+     * when it loads the keybox. There is no private key to find the leaf with here, so the
+     * leaf is the one certificate that issued none of the others. Anything that isn't a
+     * single path is returned as found, for validateChain() to report.
+     */
+    private fun orderChain(certs: List<X509Certificate>): List<X509Certificate> {
+        val unique = certs.distinct()
+        if (unique.size < 2) return unique
+        val leaves = unique.filter { c ->
+            unique.none { it != c && it.issuerX500Principal == c.subjectX500Principal }
+        }
+        val ordered = mutableListOf(leaves.singleOrNull() ?: return unique)
+        while (true) {
+            val current = ordered.last()
+            val next = unique.firstOrNull { c ->
+                c !in ordered &&
+                    c.subjectX500Principal == current.issuerX500Principal &&
+                    runCatching { current.verify(c.publicKey) }.isSuccess
+            } ?: break
+            ordered.add(next)
+        }
+        return if (ordered.size == unique.size) ordered else unique
     }
 
     /**
@@ -972,8 +1000,9 @@ class TrickyStore : SettingsPreferenceFragment() {
                             return@fold
                         }
 
-                        keyboxProblem(xml)?.let { reason ->
-                            if (!silent) toast(getString(R.string.ts_fetch_keybox_failed, reason))
+                        val problem = withContext(Dispatchers.IO) { KeyBoxManager.validate(xml) }
+                        if (problem != null) {
+                            if (!silent) toast(getString(R.string.ts_fetch_keybox_failed, problem))
                             markNoValidKeyboxFound()
                             return@fold
                         }
@@ -1176,33 +1205,26 @@ class TrickyStore : SettingsPreferenceFragment() {
     }
 
     /**
-     * Returns true if [value] is valid security_patch.txt content.
+     * Returns true if [value] is valid security_patch.txt content. Each value is checked by
+     * the framework, so what is accepted here is what the framework will use.
      * Accepts:
-     *   - A single YYYY-MM-DD date
-     *   - A YYYY-MM-<DD> template (e.g. "YYYY-MM-05")
+     *   - A single value: YYYY-MM-DD, YYYY-MM, a date with placeholders such as
+     *     "YYYY-MM-05", or "today"
      *   - Multi-line per-package block format:
      *       [com.package.name]
      *       system=no
      *       all=2026-07-05
      */
     private fun isValidPatchContent(value: String): Boolean {
-        val dateRe    = Regex("""\d{4}-\d{2}-\d{2}""")
-        val templateRe = Regex("""YYYY-MM-\d{2}""")
-        if (dateRe.matches(value.trim())) return true
-        if (templateRe.matches(value.trim())) return true
+        if (TrickyStoreService.isValidPatchValue(value)) return true
         return value.lines()
             .filter { it.isNotBlank() && !it.trim().startsWith("#") }
             .all { line ->
                 val t = line.trim()
                 when {
                     t.startsWith("[") && t.endsWith("]") -> true  // section header
-                    t.contains("=") -> {
-                        val v = t.substringAfter("=").trim()
-                        dateRe.matches(v) ||
-                        templateRe.matches(v) ||
-                        v.equals("no", ignoreCase = true) ||
-                        v.equals("prop", ignoreCase = true)
-                    }
+                    t.contains("=") ->
+                        TrickyStoreService.isValidPatchValue(t.substringAfter("=").trim())
                     else -> false
                 }
             }
@@ -1232,108 +1254,6 @@ class TrickyStore : SettingsPreferenceFragment() {
             // Force-stop only, like AxSpoofManager.killGmsFamily(). Clearing Play Store data
             // on every keybox import/fetch (including the silent auto-replace) signed users out.
         } catch (_: Exception) {}
-    }
-
-    /**
-     * Same acceptance rules as the framework: TrickyStoreService.isValidKeyboxXml() plus
-     * KeyBoxManager's check that NumberOfKeyboxes matches either the number of <Keybox>
-     * elements or the number of <Key> elements holding a complete key (algorithm + private
-     * key + certificate). Returns null when the keybox is acceptable, otherwise a short
-     * reason.
-     */
-    private fun keyboxProblem(rawXml: String): String? {
-        // isValidKeyboxXml() looks at the raw text, KeyBoxManager parses the sanitized one.
-        if (!rawXml.contains("<Key algorithm=\"ecdsa\">") && !rawXml.contains("<Key algorithm=\"rsa\">")) {
-            return "No ECDSA or RSA key block"
-        }
-        if (!rawXml.contains("<serial>") && !rawXml.contains("DeviceID")) {
-            return "No serial or DeviceID"
-        }
-        val xml = sanitizeKeyboxXml(rawXml)
-        var declared: Int? = null
-        var parsedBoxes = 0
-        var parsedKeys = 0
-        var sawKeyboxTag = false
-        var boxHasKey = false
-        try {
-            val p = Xml.newPullParser()
-            p.setInput(StringReader(xml))
-            var inKey = false
-            var algorithm: String? = null
-            var hasPrivateKey = false
-            var certs = 0
-            var text: StringBuilder? = null
-            var event = p.eventType
-            while (event != XmlPullParser.END_DOCUMENT) {
-                when (event) {
-                    XmlPullParser.START_TAG -> {
-                        when (p.name) {
-                            "Keybox" -> {
-                                sawKeyboxTag = true
-                                boxHasKey = false
-                            }
-                            "Key" -> {
-                                inKey = true
-                                algorithm = p.getAttributeValue(null, "algorithm")
-                                hasPrivateKey = false
-                                certs = 0
-                            }
-                            "PrivateKey", "Certificate" -> if (inKey) text = StringBuilder()
-                            "NumberOfKeyboxes" -> if (!inKey) text = StringBuilder()
-                        }
-                    }
-                    XmlPullParser.TEXT -> text?.append(p.text)
-                    XmlPullParser.END_TAG -> {
-                        when (p.name) {
-                            "PrivateKey" -> {
-                                if (text?.isNotBlank() == true) hasPrivateKey = true
-                                text = null
-                            }
-                            "Certificate" -> {
-                                if (text?.isNotBlank() == true) certs++
-                                text = null
-                            }
-                            "NumberOfKeyboxes" -> {
-                                declared = text?.toString()?.trim()?.toIntOrNull()
-                                text = null
-                            }
-                            "Key" -> {
-                                inKey = false
-                                if (algorithm != null && hasPrivateKey && certs > 0) {
-                                    parsedKeys++
-                                    boxHasKey = true
-                                }
-                            }
-                            "Keybox" -> {
-                                if (boxHasKey) parsedBoxes++
-                                boxHasKey = false
-                            }
-                        }
-                    }
-                }
-                event = p.next()
-            }
-        } catch (_: Exception) {
-            return "Not a valid keybox XML"
-        }
-        // A document without <Keybox> wrappers holds a single implicit box.
-        if (!sawKeyboxTag && parsedKeys > 0) parsedBoxes = 1
-        val count = declared
-        // Generators disagree on whether NumberOfKeyboxes counts <Keybox> or <Key> elements,
-        // and KeyBoxManager accepts either. Only a document matching neither is incomplete.
-        if (count != null && count != parsedBoxes && count != parsedKeys) {
-            return "Declares $count keybox(es) but $parsedBoxes box(es) / $parsedKeys key(s) parsed"
-        }
-        return null
-    }
-
-    /** KeyBoxManager.sanitizeXml(): trim, strip a leading BOM, strip XML comments. */
-    private fun sanitizeKeyboxXml(content: String): String {
-        var s = content.trim()
-        for (bom in listOf("\uFEFF", "\uFFFE", "\u0000\uFEFF")) {
-            if (s.startsWith(bom)) s = s.substring(bom.length)
-        }
-        return s.replace(Regex("<!--.*?-->", RegexOption.DOT_MATCHES_ALL), "").trim()
     }
 
     // ---- Crypto helpers -----------------------------------------------------
