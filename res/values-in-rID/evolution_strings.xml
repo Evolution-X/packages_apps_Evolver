@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">The Evolver</string>
-    <string name="evolver_dashboard_summary">Kembangkan perangkatmu, sesuai keinginanmu</string>
+    <string name="evolver_dashboard_summary">Pixel at heart. Yours by design</string>
     <!-- Categories -->
     <string name="themes_title">Tema</string>
     <string name="themes_summary">Mesin Monet, font, ikon, animasi</string>
@@ -16,7 +16,7 @@
     <string name="status_bar_summary">Gestur, ikon, logo, lapisan</string>
     <string name="quick_settings_title">Setelan Cepat</string>
     <string name="quick_settings_summary">Antarmuka, penggeser kecerahan, tata letak</string>
-    <string name="notifications_summary">Peringatam, transparansi, suara</string>
+    <string name="notifications_summary">Peringatan, transparansi, suara</string>
     <string name="power_menu_title">Menu daya</string>
     <string name="power_menu_summary">Tindakan, layar kunci</string>
     <string name="miscellaneous_title">Lain-lain</string>
@@ -332,6 +332,10 @@
     <string name="depthwall_clear_subject_summary">Hapus subjek yang sudah diambil otomatis dan manual</string>
     <string name="depthwall_clear_subject_confirm_message">Ini akan menghapus subjek foto wallpaper kedalaman sekarang. Lanjutkan?</string>
     <string name="depthwall_clear_subject_done_toast">Subjek foto dihapus</string>
+    <string name="depthwall_spatial_effect_title">Efek Spasial</string>
+    <string name="depthwall_spatial_effect_summary">Tambahkan efek spesial 3D pada wallpaper depth layar kunci saat Anda memiringkan ponsel.</string>
+    <string name="depthwall_spatial_sensitivity_title">Sensitivitas Spasial</string>
+    <string name="depthwall_spatial_sensitivity_summary">Atur sensitivitas pergerakan efek spasial 3D</string>
     <string name="dw_footer_text">Wallpaper Kedalaman menempatkan gambar subjek di atas jam layar kunci, terinspirasi oleh segmentasi subjek wallpaper iOS.\n\nPengaturan:\n1. Atur wallpaper dengan latar belakang yang Anda inginkan di belakang subjek.\n2. Pilih gambar subjek untuk ditempatkan di atas jam layar kunci.\n3. Sesuaikan batas dan opasitas sesuai preferensi Anda.</string>
     <!-- Status bar -->
     <string name="status_bar_triple_tap_freeform_title">Ketuk tiga kali untuk membuka dalam bentuk bebas</string>
@@ -704,6 +708,8 @@
     <string name="quick_settings_layout_category_title">Tata letak</string>
     <string name="quick_settings_tile_label_hide_title">Sembunyikan label</string>
     <string name="quick_settings_tile_label_hide_summary">Tampilkan ikon hanya di ubin</string>
+    <string name="qs_coloros_media_art_fill_title">Isi kartu media dengan foto cover</string>
+    <string name="qs_coloros_media_art_fill_summary">Tampilkan foto cover album di seluruh kartu media daripada thumbnail</string>
     <string name="quick_settings_layout_columns_rows_title">Kolom dan baris</string>
     <string name="quick_settings_layout_columns_rows_summary">Sesuaikan kolom dan baris Setelan Cepat</string>
     <string name="quick_settings_layout_columns_rows_footer_text">Jumlah baris Setelan Cepat harus sama dengan atau lebih besar dari jumlah baris cepat. Gunakan jumlah kolom yang lebih tinggi untuk gaya ubin lingkaran atau persegi.</string>
@@ -797,6 +803,7 @@
     <string name="quick_settings_header_needs_gallery">Diperlukan aplikasi galeri</string>
     <string name="quick_settings_header_offset_title">Offset gambar header</string>
     <string name="quick_settings_header_offset_summary">Sesuaikan ukuran gambar header</string>
+    <string name="quick_settings_header_file_failed">Tidak dapat memuat foto terpilih</string>
     <!-- Quick settings/Misc -->
     <string name="quick_settings_data_usage_title">Penggunaan data</string>
     <string name="quick_settings_data_usage_summary">Tampilkan penggunaan data di bagian bawah Setelan Cepat</string>
@@ -1031,6 +1038,7 @@
     <string name="ts_no_keybox">Tidak ada keybox terpasang</string>
     <string name="ts_keybox_installed">Keybox terpasang</string>
     <string name="ts_keybox_imported">Keybox berhasil diimpor</string>
+    <string name="ts_wipe_playstore_message">Play Store membuat cache verdict integritas. Bersihkan data untuk terapkan keybox baru? Seluruh akun Anda akan logout, cache lokal dan antrean download akan dibersihkan.</string>
     <string name="ts_delete_keybox_title">Hapus keybox?</string>
     <string name="ts_delete_keybox_message">File keybox akan dihapus secara permanen.</string>
     <string name="ts_keybox_deleted">Keybox dihapus</string>
@@ -1043,6 +1051,7 @@
     <string name="ts_import_target_list_summary">Impor target.txt dari sebuah file</string>
     <string name="ts_invalid_patch_date">Format tanggal tidak valid. Gunakan YYYY-MM-DD</string>
     <string name="ts_target_list_imported">Daftar target diimpor</string>
+    <string name="ts_target_list_invalid">Daftar target ditolak pada: %s</string>
     <string name="ts_failed">Gagal: %s</string>
     <string name="ts_footer_body">Keybox diambil dan dipastikan validitasnya secara otomatis. Status pencabutan diperiksa setiap 24 jam, dan keybox baru diambil dari sumber resmi jika yang saat ini dicabut atau ditangguhkan.\n\nUntuk pengaturan manual:\n1. Ketuk \"Ambil keybox terbaru\" untuk mengunduhnya secara otomatis, atau impor milik Anda sendiri dari sumber tepercaya.\n2. Buka \"Kelola aplikasi target\" dan pilih aplikasi yang memerlukan pemeriksaan integritas.\n3. Atur mode target ke \"Leaf\" jika perangkat Anda memiliki TEE yang berfungsi; jika tidak, biarkan sebagai Otomatis.\n4. Periksa kembali status Integritas Play Anda.\n\nCatatan: Jika tidak ada keybox terbaru yang valid, pengambilan otomatis akan dijeda selama 24 jam sebelum dicoba lagi. Selalu hapus keybox yang ada sebelum mengimpor yang baru.</string>
     <string name="ts_patch_stale_warning">%1$s (basi, berumur 12 bulan ke atas)</string>
@@ -1057,6 +1066,7 @@
     <string name="ts_verification_auto_count">%1$d otomatis</string>
     <string name="ts_verification_cert_count">%1$d sertifikat</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
+    <string name="ts_verification_skip_count">%1$d lewat</string>
     <string name="ts_fetch_keybox">Ambil keybox terbaru</string>
     <string name="ts_fetch_keybox_summary">Unduh keybox dari server Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Mengambil keybox…</string>
@@ -1366,4 +1376,40 @@
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Sembunyikan status tangkapan layar</string>
     <string name="hide_screen_capture_status_summary">Sembunyikan status pengambilan/perekaman layar dari aplikasi. Berguna, namun dapat menimbulkan risiko privasi. Mulai ulang aplikasi untuk menerapkan perubahan.</string>
+    <!-- Dynamic island -->
+    <string name="status_bar_dynamic_island_title">Dynamic island</string>
+    <string name="status_bar_dynamic_island_summary">Atur island dan pilih fitur apa yang akan ditampilkan</string>
+    <string name="dynamic_island_footer_title">Tentang Dynamic Island</string>
+    <string name="dynamic_island_intro">Nyalakan Dynamic Island dan pilih fitur yang ingin ditampilkan di chip tengah,</string>
+    <string name="dynamic_island_features_title">Fitur</string>
+    <string name="dynamic_island_media_controls_title">Kontrol media</string>
+    <string name="dynamic_island_media_controls_summary">Tampilkan kontrol pemutaran dan foto cover di island</string>
+    <string name="dynamic_island_screen_recording_title">Perekaman layar</string>
+    <string name="dynamic_island_screen_recording_summary">Tampilkan timer dan kontrol perekaman di island</string>
+    <string name="dynamic_island_alarms_title">Alarm</string>
+    <string name="dynamic_island_alarms_summary">Tampilkan notifikasi alarm berikutnya atau aktif di island</string>
+    <string name="dynamic_island_flashlight_title">Senter</string>
+    <string name="dynamic_island_flashlight_summary">Tampilkan status senter di island saat dinyalakan</string>
+    <string name="dynamic_island_stopwatch_title">Stopwatch</string>
+    <string name="dynamic_island_stopwatch_summary">Tampilkan progres dan kontrol stopwatch di island</string>
+    <string name="dynamic_island_live_scores_title">Live score</string>
+    <string name="dynamic_island_live_scores_summary">Tampilkan live score olahraga di island untuk aplikasi pengirim notifikasi live score.</string>
+    <string name="dynamic_island_lyrics_title">Tampilkan lirik</string>
+    <string name="dynamic_island_lyrics_summary">Tampilkan lirik pada aplikasi terdukung di bawah kartu musik di island</string>
+    <string name="dynamic_island_customization_title">Kustomisasi Dynamic Island</string>
+    <string name="dynamic_island_width_scale_title">Lebar</string>
+    <string name="dynamic_island_height_scale_title">Tinggi</string>
+    <string name="dynamic_island_offset_x_title">Offset horizontal</string>
+    <string name="dynamic_island_offset_y_title">Offset vertikal</string>
+    <string name="dynamic_island_popup_color_mode_title">Background popup</string>
+    <string name="dynamic_island_popup_color_mode_summary">Pilih tampilan popup yang diperlebar: default, blur wallpaper, atau hitam pekat</string>
+    <string name="dynamic_island_popup_color_mode_entry_default">Warna bawaan</string>
+    <string name="dynamic_island_popup_color_mode_entry_blur">Efek blur</string>
+    <string name="dynamic_island_popup_color_mode_entry_solid_black">Hitam pekat</string>
+    <!-- Shade style -->
+    <string name="shade_color_style_title">Gaya shade</string>
+    <string name="shade_color_style_summary">Pilih tampilan shade notifikasi dan bouncer lock screen</string>
+    <string name="shade_color_style_aosp">Warna Stock Android</string>
+    <string name="shade_color_style_glass">Jernih, panel frosted yang biarkan wallpaper Anda terlihat</string>
+    <string name="shade_color_style_tinted">Panel berwarna aksen pilihan Anda, dengan atau tanpa blur</string>
 </resources>
