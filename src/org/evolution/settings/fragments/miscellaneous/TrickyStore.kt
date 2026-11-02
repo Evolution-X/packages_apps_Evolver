@@ -1418,7 +1418,17 @@ class TrickyStore : SettingsPreferenceFragment() {
         }
         if (state.getBoolean("imported")) return getString(R.string.ts_rkp_imported)
         if (!state.getBoolean("enabled")) return getString(R.string.ts_rkp_disabled)
-        if (!state.getString("error").isNullOrEmpty()) return duckRkpError(state)
+        if (!state.getString("error").isNullOrEmpty()) {
+            val error = duckRkpError(state)
+            return when {
+                state.getBoolean("automatic_paused") ->
+                    getString(R.string.ts_rkp_auto_paused, error)
+                state.getLong("next_automatic_at") > 0 -> getString(
+                    R.string.ts_rkp_auto_retry, error,
+                    formatTime(state.getLong("next_automatic_at")))
+                else -> error
+            }
+        }
         if (state.getBoolean("busy")) {
             return getString(when (state.getString("stage")) {
                 "fetching" -> R.string.ts_rkp_fetching
@@ -1428,7 +1438,12 @@ class TrickyStore : SettingsPreferenceFragment() {
             })
         }
         if (state.getBoolean("active")) {
-            return getString(R.string.ts_rkp_ready, formatTime(state.getLong("expires_at")))
+            return getString(R.string.ts_rkp_ready,
+                formatTime(state.getLong("expires_at")),
+                formatTime(state.getLong("renew_at")))
+        }
+        if (state.getBoolean("waiting_for_network")) {
+            return getString(R.string.ts_rkp_waiting_network)
         }
         val expiresAt = state.getLong("expires_at")
         if (expiresAt in 1..System.currentTimeMillis()) return getString(R.string.ts_rkp_expired)
