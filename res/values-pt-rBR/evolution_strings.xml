@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Evolução</string>
-    <string name="evolver_dashboard_summary">Evolua seu dispositivo, do seu jeito</string>
+    <string name="evolver_dashboard_summary">Pixel no coração. Seu por design</string>
     <!-- Categories -->
     <string name="themes_title">Temas</string>
     <string name="themes_summary">Tema, fontes, ícones, animações</string>
@@ -179,7 +179,7 @@
     <string name="lockscreen_custom_clock_aod_anim_summary">Ativar animação do AOD para estilo de relógio personalizado</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_title">Efeito de carregamento oscilante</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_summary">Exibir efeito de oscilação no relógio quando conectado ao carregador</string>
-    <string name="lockscreen_custom_clock_frame_margin_start_title">Offset horizontal</string>
+    <string name="lockscreen_custom_clock_frame_margin_start_title">Deslocamento horizontal</string>
     <string name="lockscreen_custom_clock_frame_margin_start_summary">Posicionamento à esquerda/direita</string>
     <string name="lockscreen_custom_clock_gradient_enabled_title">Texto gradiente</string>
     <string name="lockscreen_custom_clock_gradient_enabled_summary">Aplique um gradiente de duas cores ao texto do relógio em vez de uma cor sólida. Substitui outros modos de cor</string>
@@ -332,6 +332,10 @@
     <string name="depthwall_clear_subject_summary">Remova o tema extraído ou definido manualmente atualmente</string>
     <string name="depthwall_clear_subject_confirm_message">Isso removerá a imagem do objeto em primeiro plano do papel de parede com efeito de profundidade atual. Continuar?</string>
     <string name="depthwall_clear_subject_done_toast">Imagem do objeto liberada</string>
+    <string name="depthwall_spatial_effect_title">Efeito espacial</string>
+    <string name="depthwall_spatial_effect_summary">Adiciona um efeito espacial 3D ao papel de parede de profundidade da tela de bloqueio quando você inclina o dispositivo.</string>
+    <string name="depthwall_spatial_sensitivity_title">Sensibilidade espacial</string>
+    <string name="depthwall_spatial_sensitivity_summary">Ajuste a sensibilidade de movimento do efeito espacial 3D</string>
     <string name="dw_footer_text">O papel de parede de profundidade sobrepõe uma imagem de assunto acima do relógio da tela de bloqueio, inspirado na segmentação de assunto do papel de parede do iOS.\n\nConfiguração:\n1. Defina um papel de parede com o fundo desejado atrás do assunto.\n2. Selecione uma imagem de assunto para sobrepor acima do relógio da tela de bloqueio.\n3. Ajuste os deslocamentos e a opacidade de acordo com sua preferência.</string>
     <!-- Status bar -->
     <string name="status_bar_triple_tap_freeform_title">Toque triplo para abrir em forma livre</string>
@@ -377,7 +381,7 @@
     <string name="status_bar_battery_style_filled_circle">Círculo preenchido</string>
     <string name="status_bar_battery_style_text">Texto</string>
     <string name="status_bar_battery_style_hidden">Oculto</string>
-    <string name="status_bar_battery_percent_title">Porcentagem de bateria</string>
+    <string name="status_bar_battery_percent_title">Porcentagem da bateria</string>
     <string name="status_bar_battery_percent_hidden">Oculto</string>
     <string name="status_bar_battery_percent_text_inside">Dentro do ícone</string>
     <string name="status_bar_battery_percent_text_next">Ao lado do ícone</string>
@@ -704,6 +708,8 @@
     <string name="quick_settings_layout_category_title">Layout</string>
     <string name="quick_settings_tile_label_hide_title">Ocultar rótulo</string>
     <string name="quick_settings_tile_label_hide_summary">Exibir ícone apenas no bloco</string>
+    <string name="qs_coloros_media_art_fill_title">Preencher o cartão de mídia com a arte</string>
+    <string name="qs_coloros_media_art_fill_summary">Mostrar a capa do álbum em todo o cartão de mídia, em vez de uma miniatura</string>
     <string name="quick_settings_layout_columns_rows_title">Colunas e linhas</string>
     <string name="quick_settings_layout_columns_rows_summary">Personalizar colunas e linhas das configurações rápidas</string>
     <string name="quick_settings_layout_columns_rows_footer_text">As linhas de configurações rápidas devem ser iguais ou maiores que as linhas de configurações rápidas. Use uma contagem de colunas mais alta para estilos de blocos circulares ou quadrados.</string>
@@ -797,6 +803,7 @@
     <string name="quick_settings_header_needs_gallery">É necessário um aplicativo de galeria</string>
     <string name="quick_settings_header_offset_title">Deslocamento da imagem do cabeçalho</string>
     <string name="quick_settings_header_offset_summary">Ajustar o tamanho da imagem do cabeçalho</string>
+    <string name="quick_settings_header_file_failed">Não foi possível carregar a imagem selecionada</string>
     <!-- Quick settings/Misc -->
     <string name="quick_settings_data_usage_title">Uso de dados</string>
     <string name="quick_settings_data_usage_summary">Exibir o uso de dados no rodapé das configurações rápidas</string>
@@ -817,7 +824,7 @@
     <string name="qs_show_media_player_top">Exibir no topo</string>
     <string name="qs_show_media_player_bottom">Exibir na parte inferior</string>
     <string name="qs_tile_gradient_title">Gradiente das configurações rápidas</string>
-    <string name="qs_tile_gradient_summary">Habilite fundos gradientes para blocos de configurações rápidas</string>
+    <string name="qs_tile_gradient_summary">Ative fundos gradientes para blocos de configurações rápidas</string>
     <!-- QS widget -->
     <string name="qs_widget_panel_title">Mostrar widget no painel de configurações rápidas</string>
     <string name="qs_widget_panel_summary">Mostrar mídia e volume, widget de brilho nas configurações rápidas</string>
@@ -890,7 +897,7 @@
     <string name="power_menu_actions_lockdown_unavailable">O bloqueio não está disponível porque a tela de bloqueio não está segura</string>
     <string name="power_menu_actions_users_title">Usuários</string>
     <string name="power_menu_actions_emergency_title">Emergência</string>
-    <string name="power_menu_actions_devicecontrols_title">Controle do dispositivo</string>
+    <string name="power_menu_actions_devicecontrols_title">Controles do dispositivo</string>
     <string name="power_menu_advanced_title">Menu de reinicialização avançada</string>
     <string name="advanced_reboot_title">Reinicialização avançada</string>
     <string name="advanced_reboot_summary">Quando desbloqueado, inclua opções para reiniciar em recovery ou bootloader no menu de energia</string>
@@ -1021,7 +1028,7 @@
     <string name="pif_fingerprint_spoofing">Mascarar dispositivo</string>
     <string name="pif_active_model">Ativo: %1$s</string>
     <string name="pif_canary_fingerprint">Impressão digital Canária</string>
-    <string name="pif_patch_age">Patch %1$s \u00b7 %2$dd old</string>
+    <string name="pif_patch_age">Patch %1$s \u00b7 %2$dd atrás</string>
     <string name="pif_days_left">%1$dd restante</string>
     <string name="pif_expired">Expirado</string>
     <string name="pif_vending_finger_custom_clear_hint">Toque para desligar</string>
@@ -1031,6 +1038,7 @@
     <string name="ts_no_keybox">Nenhum keybox instalada</string>
     <string name="ts_keybox_installed">Keybox instalada</string>
     <string name="ts_keybox_imported">Keybox importada com sucesso</string>
+    <string name="ts_wipe_playstore_message">A Play Store armazena em cache os veredictos de integridade. Limpar os dados dela agora para que a nova keybox entre em vigor imediatamente? Isso encerrará sua sessão e limpará o cache local e a fila de downloads.</string>
     <string name="ts_delete_keybox_title">Excluir Keybox?</string>
     <string name="ts_delete_keybox_message">O arquivo keybox será removido permanentemente.</string>
     <string name="ts_keybox_deleted">Keybox excluído</string>
@@ -1043,6 +1051,7 @@
     <string name="ts_import_target_list_summary">Importar target.txt de um arquivo</string>
     <string name="ts_invalid_patch_date">Formato de data inválido. Use AAAA-MM-DD</string>
     <string name="ts_target_list_imported">Lista de alvos importada</string>
+    <string name="ts_target_list_invalid">Lista de destinos rejeitada perto de: %s</string>
     <string name="ts_failed">Falha: %s</string>
     <string name="ts_footer_body">Uma keybox é obtida e mantida válida automaticamente. O status de revogação é verificado a cada 24 horas e uma nova chave de ativação é obtida da fonte oficial se a atual for revogada ou suspensa.\n\nPara configuração manual:\n1. Toque em \"Obter chave de ativação mais recente\" para baixar uma automaticamente ou importe a sua própria de uma fonte confiável.\n2. Abra \"Gerenciar apps de destino\" e selecione os apps que exigem verificações de integridade.\n3. Defina o modo de destino como \"Folha\" se o seu dispositivo tiver um TEE funcionando; caso contrário, deixe como \"Automático\".\n4. Verifique novamente o status de integridade do Play.\n\nObservação: se nenhuma chave de ativação válida estiver disponível, a busca automática será pausada por 24 horas antes de tentar novamente. Sempre exclua a chave de ativação existente antes de importar uma nova.</string>
     <string name="ts_patch_stale_warning">%1$s (obsoleto, com mais de 12 meses)</string>
@@ -1057,6 +1066,7 @@
     <string name="ts_verification_auto_count">%1$d Automático</string>
     <string name="ts_verification_cert_count">%1$d certificado</string>
     <string name="ts_verification_leaf_count">%1$d leaf</string>
+    <string name="ts_verification_skip_count">%1$d ignorado(s)</string>
     <string name="ts_fetch_keybox">Buscando a última keybox</string>
     <string name="ts_fetch_keybox_summary">Baixe o keybox dos servidores Evolution X</string>
     <string name="ts_fetch_keybox_fetching">Buscando keybox…</string>
@@ -1236,7 +1246,7 @@
     <string name="color_picker_tab_preset">Predefinido</string>
     <string name="color_picker_tab_image">Imagem</string>
     <string name="color_picker_tab_custom">Personalizado</string>
-    <string name="color_picker_import_gallery">Import from Gallery</string>
+    <string name="color_picker_import_gallery">Importar da galeria</string>
     <string name="color_picker_import_image">Importar imagem</string>
     <string name="color_picker_selected_color">Cor selecionada</string>
     <string name="color_picker_title_image">Escolha a cor da imagem</string>
@@ -1267,6 +1277,7 @@
     <string name="action_reset">Redefinir</string>
     <string name="action_search_apps">Pesquisar aplicativos</string>
     <string name="action_select_all">Selecionar tudo</string>
+    <string name="action_deselect_unnecessary">Desmarcar desnecessários</string>
     <string name="action_reboot_now">Reiniciar agora</string>
     <string name="action_add_installed">Adicionar Instalado</string>
     <string name="show_system_apps">Mostrar aplicativos do sistema</string>
@@ -1320,7 +1331,7 @@
     <string name="charging_animation_style_title">Tipo de efeito</string>
     <string name="charging_ripple_opacity_title">Opacidade da ondulação</string>
     <string name="charging_ripple_opacity_summary">Ajustar a visibilidade das ondas onduladas</string>
-    <string name="charging_glow_intensity_title">Intensidade de Brilho</string>
+    <string name="charging_glow_intensity_title">Intensidade de brilho</string>
     <string name="charging_glow_intensity_summary">Ajustar o brilho e o brilho das partículas</string>
     <string name="charging_arc_count_title">Número de ondas</string>
     <string name="charging_arc_count_summary">Defina quantas ondas aparecem</string>
@@ -1366,4 +1377,52 @@
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Ocultar o status da captura de tela</string>
     <string name="hide_screen_capture_status_summary">Oculte o status de captura/gravação de tela dos aplicativos. Útil, mas pode arriscar a privacidade. Reinicie os aplicativos para aplicar.</string>
+    <!-- Dynamic island -->
+    <string name="status_bar_dynamic_island_title">Dynamic Island</string>
+    <string name="status_bar_dynamic_island_summary">Configure a ilha e escolha quais recursos podem aparecer</string>
+    <string name="dynamic_island_footer_title">Sobre a Dynamic Island</string>
+    <string name="dynamic_island_intro">Ative a Dynamic Island e escolha os recursos que você quer na pílula central.</string>
+    <string name="dynamic_island_features_title">Recursos</string>
+    <string name="dynamic_island_media_controls_title">Controles de mídia</string>
+    <string name="dynamic_island_media_controls_summary">Mostrar controles de reprodução e a capa na ilha</string>
+    <string name="dynamic_island_screen_recording_title">Gravação de tela</string>
+    <string name="dynamic_island_screen_recording_summary">Mostrar o cronômetro e os controles da gravação na ilha</string>
+    <string name="dynamic_island_alarms_title">Alarmes</string>
+    <string name="dynamic_island_alarms_summary">Mostrar seu próximo alarme ou a notificação de alarme ativo na ilha</string>
+    <string name="dynamic_island_charging_title">Carregando</string>
+    <string name="dynamic_island_charging_summary">Mostrar o nível da bateria na ilha enquanto um carregador está conectado, com detalhes da carga ao tocar</string>
+    <string name="dynamic_island_bluetooth_title">Dispositivos Bluetooth</string>
+    <string name="dynamic_island_bluetooth_summary">Mostrar um dispositivo Bluetooth conectado na ilha, com os níveis de bateria ao tocar</string>
+    <string name="dynamic_island_hotspot_title">Ponto de acesso</string>
+    <string name="dynamic_island_hotspot_summary">Mostrar na ilha o número de dispositivos conectados ao seu ponto de acesso</string>
+    <string name="dynamic_island_vpn_title">VPN</string>
+    <string name="dynamic_island_vpn_summary">Mostrar a ilha quando uma VPN se conectar</string>
+    <string name="dynamic_island_calls_title">Chamadas</string>
+    <string name="dynamic_island_calls_summary">Mostrar chamadas recebidas e em andamento na ilha</string>
+    <string name="dynamic_island_flashlight_title">Lanterna</string>
+    <string name="dynamic_island_flashlight_summary">Mostrar o status da lanterna na ilha quando ela estiver ativada</string>
+    <string name="dynamic_island_stopwatch_title">Cronômetro</string>
+    <string name="dynamic_island_stopwatch_summary">Mostrar o progresso e os controles do cronômetro na ilha</string>
+    <string name="dynamic_island_live_scores_title">Placares ao vivo</string>
+    <string name="dynamic_island_live_scores_summary">Mostrar placares esportivos ao vivo na ilha para aplicativos que enviam notificações de placar ao vivo.</string>
+    <string name="dynamic_island_lyrics_title">Mostrar letras</string>
+    <string name="dynamic_island_lyrics_summary">Mostrar letras de músicas de aplicativos compatíveis em um cartão abaixo do cartão de música na ilha</string>
+    <string name="dynamic_island_customization_title">Personalização da Dynamic Island</string>
+    <string name="dynamic_island_width_scale_title">Escala da largura</string>
+    <string name="dynamic_island_height_scale_title">Escala da altura</string>
+    <string name="dynamic_island_offset_x_title">Deslocamento horizontal</string>
+    <string name="dynamic_island_offset_y_title">Deslocamento vertical</string>
+    <string name="dynamic_island_landscape_top_title">Manter no topo na orientação horizontal</string>
+    <string name="dynamic_island_landscape_top_summary">Mostrar a ilha na parte superior da tela na orientação horizontal, em vez de ao lado da câmera</string>
+    <string name="dynamic_island_popup_color_mode_title">Fundo do pop-up</string>
+    <string name="dynamic_island_popup_color_mode_summary">Escolha a aparência dos pop-ups expandidos: padrão, papel de parede desfocado ou preto sólido</string>
+    <string name="dynamic_island_popup_color_mode_entry_default">Padrão</string>
+    <string name="dynamic_island_popup_color_mode_entry_blur">Desfoque</string>
+    <string name="dynamic_island_popup_color_mode_entry_solid_black">Preto sólido</string>
+    <!-- Shade style -->
+    <string name="shade_color_style_title">Estilo do painel</string>
+    <string name="shade_color_style_summary">Escolha a aparência do painel de notificações e da tela de desbloqueio</string>
+    <string name="shade_color_style_aosp">Cores padrão do Android</string>
+    <string name="shade_color_style_glass">Painel translúcido e fosco que deixa o papel de parede aparecer</string>
+    <string name="shade_color_style_tinted">Painel com tom da cor de destaque, com ou sem desfoque</string>
 </resources>
