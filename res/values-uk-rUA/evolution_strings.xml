@@ -1388,6 +1388,16 @@
     <string name="dynamic_island_screen_recording_summary">Показати таймер запису і контролює на острові</string>
     <string name="dynamic_island_alarms_title">Будильники</string>
     <string name="dynamic_island_alarms_summary">Показувати сповіщення про наступний будильник або активний на острові</string>
+    <string name="dynamic_island_charging_title">Заряджається</string>
+    <string name="dynamic_island_charging_summary">Показувати рівень заряду акумулятора в «острові» під час підключення зарядного пристрою, а також показувати деталі заряджання, якщо торкнутися його</string>
+    <string name="dynamic_island_bluetooth_title">Пристрої Bluetooth</string>
+    <string name="dynamic_island_bluetooth_summary">Показувати підключений Bluetooth-пристрій в «острові», а при натисканні на нього — рівень заряду його акумулятора</string>
+    <string name="dynamic_island_hotspot_title">Точка доступу</string>
+    <string name="dynamic_island_hotspot_summary">Показувати кількість пристроїв, підключених до вашої точки доступу на острові</string>
+    <string name="dynamic_island_vpn_title">Мережа VPN</string>
+    <string name="dynamic_island_vpn_summary">Показувати острів, коли VPN приєднано</string>
+    <string name="dynamic_island_calls_title">Дзвінки</string>
+    <string name="dynamic_island_calls_summary">Показувати вхідні та поточні дзвінки на острові</string>
     <string name="dynamic_island_flashlight_title">Ліхтарик</string>
     <string name="dynamic_island_flashlight_summary">Показувати стан ліхтарика на острові, коли він увімкнений</string>
     <string name="dynamic_island_stopwatch_title">Секундомір</string>
