@@ -1390,6 +1390,14 @@
     <string name="dynamic_island_alarms_summary">Island内に次のアラームやアクティブなアラーム通知を表示します</string>
     <string name="dynamic_island_charging_title">中程度</string>
     <string name="dynamic_island_charging_summary">充電器が接続されている間、タップしたときに充電の詳細をDynamic Islandに表示する</string>
+    <string name="dynamic_island_bluetooth_title">Bluetooth デバイス</string>
+    <string name="dynamic_island_bluetooth_summary">タップ時に、接続されているBluetoothデバイスと装置のバッテリー残量をDynamic Island内に表示する</string>
+    <string name="dynamic_island_hotspot_title">ホットスポット</string>
+    <string name="dynamic_island_hotspot_summary">Dynamic Island内に表示されているホットスポットに接続されているデバイスの数を表示します</string>
+    <string name="dynamic_island_vpn_title">VPN</string>
+    <string name="dynamic_island_vpn_summary">VPN接続時にDynamic Islandを表示する</string>
+    <string name="dynamic_island_calls_title">通話</string>
+    <string name="dynamic_island_calls_summary">Dynamic Island内に、着信および進行中の通話を表示します</string>
     <string name="dynamic_island_flashlight_title">トーチ</string>
     <string name="dynamic_island_flashlight_summary">フラッシュライトの点灯時に、Island内にステータスを表示します</string>
     <string name="dynamic_island_stopwatch_title">ストップウォッチ</string>
