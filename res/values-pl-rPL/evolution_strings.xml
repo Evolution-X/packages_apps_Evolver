@@ -1278,6 +1278,7 @@
     <string name="action_reset">Resetuj</string>
     <string name="action_search_apps">Wyszukaj aplikacje</string>
     <string name="action_select_all">Zaznacz wszystko</string>
+    <string name="action_deselect_unnecessary">Odznacz niepotrzebne</string>
     <string name="action_reboot_now">Zrestartuj teraz</string>
     <string name="action_add_installed">Dodaj zainstalowane</string>
     <string name="show_system_apps">Pokaż aplikacje systemowe</string>
@@ -1389,6 +1390,16 @@
     <string name="dynamic_island_screen_recording_summary">Pokaż licznik nagrywania i sterowanie na wyspie</string>
     <string name="dynamic_island_alarms_title">Alarmy</string>
     <string name="dynamic_island_alarms_summary">Pokaż na wyspie następny alarm lub powiadomienie o aktywnym alarmie</string>
+    <string name="dynamic_island_charging_title">Ładowanie</string>
+    <string name="dynamic_island_charging_summary">Pokaż poziom naładowania baterii na wyspie, gdy ładowarka jest podłączona, ze szczegółami ładowania po naciśnięciu</string>
+    <string name="dynamic_island_bluetooth_title">Urządzenia Bluetooth</string>
+    <string name="dynamic_island_bluetooth_summary">Wyświetla połączone urządzenie Bluetooth na wyspie wraz z poziomem naładowania baterii po naciśnięciu</string>
+    <string name="dynamic_island_hotspot_title">Punkt dostępu</string>
+    <string name="dynamic_island_hotspot_summary">Pokaż liczbę urządzeń połączonych do punktu dostępu na wyspie</string>
+    <string name="dynamic_island_vpn_title">VPN</string>
+    <string name="dynamic_island_vpn_summary">Pokaż wyspę, gdy połączysz się z VPN</string>
+    <string name="dynamic_island_calls_title">Połączenia</string>
+    <string name="dynamic_island_calls_summary">Pokaż połączenia przychodzące i trwające na wyspie</string>
     <string name="dynamic_island_flashlight_title">Latarka</string>
     <string name="dynamic_island_flashlight_summary">Pokaż stan latarki na wyspie, gdy jest włączona</string>
     <string name="dynamic_island_stopwatch_title">Stoper</string>
@@ -1402,6 +1413,8 @@
     <string name="dynamic_island_height_scale_title">Skala wysokości</string>
     <string name="dynamic_island_offset_x_title">Przesunięcie poziome</string>
     <string name="dynamic_island_offset_y_title">Przesunięcie pionowe</string>
+    <string name="dynamic_island_landscape_top_title">Utrzymuj na górze w poziomie</string>
+    <string name="dynamic_island_landscape_top_summary">Wyświetl wyspę na górze ekranu w orientacji poziomej, a nie obok aparatu z boku</string>
     <string name="dynamic_island_popup_color_mode_title">Wyskakujące tło</string>
     <string name="dynamic_island_popup_color_mode_summary">Wybierz wygląd rozwiniętych okienek: domyślnie, rozmyta tapeta lub całkowicie czarne</string>
     <string name="dynamic_island_popup_color_mode_entry_default">Domyślny</string>
