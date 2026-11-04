@@ -1209,7 +1209,7 @@
     <string name="add_emoji_font">Adicionar fonte de emoji</string>
     <string name="emoji_preview_dialog_title">Pré-visualização de emoji</string>
     <string name="emoji_preview_coverage">Emoji mais recentes (Unicode 15 e 16) nesta fonte: %1$d de %2$d</string>
-    <string name="reboot_required_custom_emoji_title">É necessário reiniciar o computador para aplicar as alterações de emoji. Reiniciar agora?</string>
+    <string name="reboot_required_custom_emoji_title">É necessário reiniciar o dispositivo para aplicar as alterações de emoji. Reiniciar agora?</string>
     <string name="toast_failed_apply_emoji">Falha ao aplicar fonte de emoji</string>
     <string name="toast_emoji_updater_disabled">As atualizações de fonte estão desativadas neste dispositivo</string>
     <string name="toast_emoji_slots_full">Sem slot de fonte para emojis. Escolha um estilo embutido para redefini-lo, e tente novamente</string>
@@ -1226,7 +1226,7 @@
     <string name="about_github_summary">Navegue pelo nosso código no GitHub</string>
     <string name="about_founders_title">Fundadores</string>
     <string name="about_team_members_title">Membros da equipe</string>
-    <string name="about_remembering_title">Memorizando</string>
+    <string name="about_remembering_title">Em memória</string>
     <string name="about_current_maintainers_title">Mantenedores atuais</string>
     <string name="about_current_maintainers_loading_summary">Buscando mantenedores atuais via OTA</string>
     <string name="about_current_maintainers_empty_title">Nenhum mantenedor ativo encontrado</string>
