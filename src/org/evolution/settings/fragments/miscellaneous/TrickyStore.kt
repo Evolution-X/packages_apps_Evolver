@@ -1451,14 +1451,18 @@ class TrickyStore : SettingsPreferenceFragment() {
     }
 
     private fun duckRkpError(state: Bundle): String = when (state.getString("error")) {
-        "hal_rejected" -> getString(R.string.ts_rkp_hal_rejected, state.getInt("detail"))
+        "hal_rejected", "native_rejected" ->
+            getString(R.string.ts_rkp_hal_rejected, state.getInt("detail"))
+        "native_unavailable" -> getString(R.string.ts_rkp_native_unavailable)
+        "native_transport" -> getString(R.string.ts_rkp_native_transport)
+        "invalid_hal_response" -> getString(R.string.ts_rkp_invalid_response)
         "http_error" -> getString(R.string.ts_rkp_http_error, state.getInt("detail"))
         "hal_unsupported", "hal_unavailable", "missing_eek" ->
             getString(R.string.ts_rkp_unsupported)
         "network_error" -> getString(R.string.ts_rkp_network_error)
         "submission_unknown" -> getString(R.string.ts_rkp_submission_unknown)
         "certificate_invalid", "stored_key_invalid" -> getString(R.string.ts_rkp_invalid_chain)
-        "timeout" -> getString(R.string.ts_rkp_timeout)
+        "timeout", "native_timeout" -> getString(R.string.ts_rkp_timeout)
         "canceled" -> getString(R.string.ts_rkp_canceled)
         "save_failed" -> getString(R.string.ts_rkp_save_failed)
         else -> getString(R.string.ts_rkp_action_failed)
