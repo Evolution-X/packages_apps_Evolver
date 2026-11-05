@@ -1381,7 +1381,7 @@
     <string name="status_bar_dynamic_island_title">Dynamic island</string>
     <string name="status_bar_dynamic_island_summary">Atur island dan pilih fitur apa yang akan ditampilkan</string>
     <string name="dynamic_island_footer_title">Tentang Dynamic Island</string>
-    <string name="dynamic_island_intro">Nyalakan Dynamic Island dan pilih fitur yang ingin ditampilkan di chip tengah,</string>
+    <string name="dynamic_island_intro">Nyalakan Dynamic Island dan pilih fitur yang ingin ditampilkan di chip tengah.</string>
     <string name="dynamic_island_features_title">Fitur</string>
     <string name="dynamic_island_media_controls_title">Kontrol media</string>
     <string name="dynamic_island_media_controls_summary">Tampilkan kontrol pemutaran dan foto cover di island</string>
@@ -1389,6 +1389,16 @@
     <string name="dynamic_island_screen_recording_summary">Tampilkan timer dan kontrol perekaman di island</string>
     <string name="dynamic_island_alarms_title">Alarm</string>
     <string name="dynamic_island_alarms_summary">Tampilkan notifikasi alarm berikutnya atau aktif di island</string>
+    <string name="dynamic_island_charging_title">Baterai sedang</string>
+    <string name="dynamic_island_charging_summary">Tampilkan sisa baterai di island saat sedang diisi daya, dan tampilkan detail pengisian saat diketuk.</string>
+    <string name="dynamic_island_bluetooth_title">Perangkat bluetooth</string>
+    <string name="dynamic_island_bluetooth_summary">Tampilkan perangkat bluetooth terhubung di island, dan sisa baterainya saat diketuk</string>
+    <string name="dynamic_island_hotspot_title">Hostpot</string>
+    <string name="dynamic_island_hotspot_summary">Tampilkan jumlah perangkat terhubung ke hostpot Anda di island</string>
+    <string name="dynamic_island_vpn_title">VPN</string>
+    <string name="dynamic_island_vpn_summary">Tampilkan VPN di island bila terhubung</string>
+    <string name="dynamic_island_calls_title">Panggilan</string>
+    <string name="dynamic_island_calls_summary">Tampilkan panggilan masuk dan keluar di island</string>
     <string name="dynamic_island_flashlight_title">Senter</string>
     <string name="dynamic_island_flashlight_summary">Tampilkan status senter di island saat dinyalakan</string>
     <string name="dynamic_island_stopwatch_title">Stopwatch</string>
@@ -1402,6 +1412,8 @@
     <string name="dynamic_island_height_scale_title">Tinggi</string>
     <string name="dynamic_island_offset_x_title">Offset horizontal</string>
     <string name="dynamic_island_offset_y_title">Offset vertikal</string>
+    <string name="dynamic_island_landscape_top_title">Jaga island tetap di atas</string>
+    <string name="dynamic_island_landscape_top_summary">Tampilkan island tetap di atas layar di mode lanskap alih-alih tetap berada di sekitar kamera.</string>
     <string name="dynamic_island_popup_color_mode_title">Background popup</string>
     <string name="dynamic_island_popup_color_mode_summary">Pilih tampilan popup yang diperlebar: default, blur wallpaper, atau hitam pekat</string>
     <string name="dynamic_island_popup_color_mode_entry_default">Warna bawaan</string>
@@ -1413,4 +1425,41 @@
     <string name="shade_color_style_aosp">Warna Stock Android</string>
     <string name="shade_color_style_glass">Jernih, panel frosted yang biarkan wallpaper Anda terlihat</string>
     <string name="shade_color_style_tinted">Panel berwarna aksen pilihan Anda, dengan atau tanpa blur</string>
+    <!-- Device RKP (Duck) keybox generation in TrickyStore -->
+    <string name="ts_rkp_title">RKP Perangkat · Duck</string>
+    <string name="ts_rkp_enabled">Gunakan RKP perangkat</string>
+    <string name="ts_rkp_enabled_summary">Otomatis membuat keybox dan diupdate sebelum kedaluarsa. Mengimpor keybox akan menonaktifkan ini.</string>
+    <string name="ts_rkp_provision">Buat keybox</string>
+    <string name="ts_rkp_provision_summary">Minta penggantian sekarang, atau coba jeda provisioning otomatis. Butuh firmware Qualcomm yang kompatibel.</string>
+    <string name="ts_rkp_status">Status provisioning</string>
+    <string name="ts_rkp_owner_only">Atur RKP perangkat dari profil pemilik perangkat</string>
+    <string name="ts_rkp_unavailable">RKP perangkat tak tersedia</string>
+    <string name="ts_rkp_imported">Dinonaktifkan jika gunakan keybox yang diimpor</string>
+    <string name="ts_rkp_disabled">Mati. Hidupkan RKP perangkat untuk buat dan update otomatis keybox.</string>
+    <string name="ts_rkp_idle">Buat otomatis dijadwalkan</string>
+    <string name="ts_rkp_fetching">Mendapatkan verifikasi provisioning…</string>
+    <string name="ts_rkp_hardware">Menunggu layanan provisioning perangkat…</string>
+    <string name="ts_rkp_signing">Meminta sertifikat dari Google…</string>
+    <string name="ts_rkp_validating">Memvalidasi dan menyimpan keybox…</string>
+    <string name="ts_rkp_ready">Keybox diaktifkan. Kedaluarsa %1$s.
+Update otomatis dijadwalkan pada %2$s.</string>
+    <string name="ts_rkp_active_subtitle">Keybox RKP perangkat aktif</string>
+    <string name="ts_rkp_fetch_disabled">Dinonaktifkan jika RKP perangkat nyala. Nonaktifkan untuk pakai keybox online.</string>
+    <string name="ts_rkp_expired">Keybox kedaluarsa. Akan diubah otomatis jika terhubung ke jaringan.</string>
+    <string name="ts_rkp_hal_rejected">Firmware menolak permintaan (kode %1$d). Tak ada metode provisioning yang berhasil.</string>
+    <string name="ts_rkp_http_error">Server provisioning menolak permintaan (HTTP %1$d)</string>
+    <string name="ts_rkp_unsupported">Perangkat ini tak tampilkan antarmuka provisioning yang kompatibel</string>
+    <string name="ts_rkp_network_error">Tak dapat mengakses server provisioning. Periksa koneksi Anda.</string>
+    <string name="ts_rkp_submission_unknown">Respons server hilang. Permintaan mungkin sudah diproses; percobaan tidak dilakukan lagi.</string>
+    <string name="ts_rkp_invalid_chain">Gagal validasi sertifikat keybox. Keybox yang sekarang tak diubah.</string>
+    <string name="ts_rkp_timeout">Waktu habis. Jika layanan perangkat sibuk, mulai ulang sebelum coba lagi.</string>
+    <string name="ts_rkp_canceled">Permintaan dibatalkan karena konfigurasi keybox diubah</string>
+    <string name="ts_rkp_save_failed">Tak dapat menyimpan keybox yang dibuat</string>
+    <string name="ts_rkp_action_failed">Tak dapat selesaikan operasi keybox</string>
+    <string name="ts_rkp_waiting_network">Menunggu koneksi internet untuk buat atau update keybox</string>
+    <string name="ts_rkp_auto_paused">%1$s provisioning otomatis dijeda. Buat keybox untuk coba lagi.</string>
+    <string name="ts_rkp_auto_retry">%1$s Percobaan selanjutnya: %2$s.</string>
+    <string name="ts_rkp_native_unavailable">Helper native provisioning tak tersedia atau kompatibel dengan firmware ini</string>
+    <string name="ts_rkp_native_transport">Layanan provisioning native berhenti tak terduga. Proivisioning otomatis dijeda.</string>
+    <string name="ts_rkp_invalid_response">Perangkat mengembalikan respons provisioning yang tak valid. Keybox sekarang tak diubah</string>
 </resources>
