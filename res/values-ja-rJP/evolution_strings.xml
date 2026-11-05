@@ -351,6 +351,7 @@
     <string name="status_bar_quick_qs_pulldown_left">左</string>
     <string name="status_bar_quick_qs_pulldown_right">右</string>
     <string name="status_bar_quick_qs_pulldown_always">ステータスバーを引き下げたら常にクイック設定を開く</string>
+    <string name="status_bar_quick_qs_pulldown_dual_shade_summary">通知パネルとクイック設定パネルが分離して表示されている間は利用できません。ステータスバーの左半分を操作すると通知パネルが、右半分を操作するとクイック設定パネルが開きます。</string>
     <string name="status_bar_icons_category">アイコン</string>
     <string name="status_bar_tuner_title">ステータスバーをカスタマイズ</string>
     <string name="status_bar_tuner_summary">ステータスバーに表示するアイコンを選択します</string>
