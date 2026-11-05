@@ -179,10 +179,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private void updatePanelStylePrefs(int panelStyle) {
         boolean isClassic = panelStyle == 1;
         boolean isColorOS = panelStyle == 2;
+        boolean isNothingOS = panelStyle == 3;
 
-        // ColorOS pins the tile shapes, but still lets the labels be hidden
+        // ColorOS pins the tile shapes, but still lets the labels be hidden.
+        // NothingOS pins both the shapes and the labels.
         if (mQsTileShape != null) {
-            mQsTileShape.setVisible(!isClassic && !isColorOS);
+            mQsTileShape.setVisible(!isClassic && !isColorOS && !isNothingOS);
         }
         if (mQsTileIconShape != null) {
             mQsTileIconShape.setVisible(isClassic);
