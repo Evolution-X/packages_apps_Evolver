@@ -154,6 +154,12 @@
             android:entryValues="@array/qs_panel_style_values"
             android:defaultValue="0" />
 
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="dual_shade"
+            android:title="@string/qs_dual_shade_title"
+            android:summary="@string/qs_dual_shade_summary"
+            android:defaultValue="false" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_tile_shape"
             android:title="@string/quick_settings_tile_shape_title"
