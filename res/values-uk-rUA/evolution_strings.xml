@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Кастомізація Evo-X</string>
-    <string name="evolver_dashboard_summary">У душі — Pixel. Створений саме для вас</string>
+    <string name="evolver_dashboard_summary">У душі — піксель. За задумом — ваш.</string>
     <!-- Categories -->
     <string name="themes_title">Теми</string>
     <string name="themes_summary">Рушій Monet, шрифти, значки, анімації</string>
@@ -351,6 +351,7 @@
     <string name="status_bar_quick_qs_pulldown_left">Ліворуч</string>
     <string name="status_bar_quick_qs_pulldown_right">Праворуч</string>
     <string name="status_bar_quick_qs_pulldown_always">Завжди показувати швидкі налаштування під час згортанні шторки вниз</string>
+    <string name="status_bar_quick_qs_pulldown_dual_shade_summary">Недоступно, коли панелі сповіщень і швидких налаштувань розділені. Ліва частина рядка стану відкриває сповіщення, а права — швидкі налаштування.</string>
     <string name="status_bar_icons_category">Іконки</string>
     <string name="status_bar_tuner_title">Налаштування панелі статусу</string>
     <string name="status_bar_tuner_summary">Виберіть, які значки в рядку стану можуть бути показані</string>
@@ -1411,8 +1412,8 @@
     <string name="dynamic_island_height_scale_title">Масштаб висоти</string>
     <string name="dynamic_island_offset_x_title">Горизонтальний зсув</string>
     <string name="dynamic_island_offset_y_title">Вертикальний зсув</string>
-    <string name="dynamic_island_landscape_top_title">Тримайте пристрій горизонтально</string>
-    <string name="dynamic_island_landscape_top_summary">Розмістіть острівець у верхній частині екрана в горизонтальній орієнтації, а не поруч із камерою збоку</string>
+    <string name="dynamic_island_landscape_top_title">Утримувати вгорі в альбомній орієнтації</string>
+    <string name="dynamic_island_landscape_top_summary">Показувати острівець угорі екрана в альбомній орієнтації замість розміщення поруч із камерою збоку</string>
     <string name="dynamic_island_popup_color_mode_title">Фон спливаючих вікон</string>
     <string name="dynamic_island_popup_color_mode_summary">Виберіть вигляд розгорнутих спливаючих вікон: стандартний, із розмитим фоном або суцільний чорний</string>
     <string name="dynamic_island_popup_color_mode_entry_default">За замовчуванням</string>
@@ -1424,4 +1425,40 @@
     <string name="shade_color_style_aosp">Кольори стандартного Android</string>
     <string name="shade_color_style_glass">Прозора матова панель, крізь яку видно шпалери</string>
     <string name="shade_color_style_tinted">Панель, тонована вашим акцентним кольором, — з розмиттям або без нього</string>
+    <!-- Device RKP (Duck) keybox generation in TrickyStore -->
+    <string name="ts_rkp_title">Пристрій RKP · Качка</string>
+    <string name="ts_rkp_enabled">Використовуйте пристрій RKP</string>
+    <string name="ts_rkp_enabled_summary">Автоматично створюйте сховище ключів і оновлюйте його до закінчення терміну дії. Імпорт сховища ключів вимикає цю функцію.</string>
+    <string name="ts_rkp_provision">Згенерувати сховище ключів</string>
+    <string name="ts_rkp_provision_summary">Запитайте заміну зараз або повторіть спробу виконання призупиненого автоматичного налаштування. Потрібна сумісна мікропрограма Qualcomm.</string>
+    <string name="ts_rkp_status">Стан підготовки</string>
+    <string name="ts_rkp_owner_only">Управління RKP пристроєм з профілю власника пристрою</string>
+    <string name="ts_rkp_unavailable">Пристрій RKP недоступний</string>
+    <string name="ts_rkp_imported">Вимкнено, доки встановлено імпортований сейф для ключів</string>
+    <string name="ts_rkp_disabled">Вимк. Дозволити пристрою RKP автоматично створювати та оновлювати сховище ключів.</string>
+    <string name="ts_rkp_idle">Заплановано автоматичну генерацію</string>
+    <string name="ts_rkp_fetching">Отримання запиту на підтвердження…</string>
+    <string name="ts_rkp_hardware">Очікування служби підготовки пристрою…</string>
+    <string name="ts_rkp_signing">Запит сертифікатів у Google…</string>
+    <string name="ts_rkp_validating">Перевірка та збереження сейфа для ключів…</string>
+    <string name="ts_rkp_ready">Створений набір ключів активний. Термін дії спливає %1$s. Автоматичне поновлення заплановано на %2$s.</string>
+    <string name="ts_rkp_active_subtitle">Пристрій RKP keybox активний</string>
+    <string name="ts_rkp_fetch_disabled">Вимкнено, доки пристрій RKP увімкнено. Вимкніть його, щоб скористатися онлайн-сейфом для ключів.</string>
+    <string name="ts_rkp_expired">Термін дії згенерованого сховища ключів (keybox) минув. Автоматична заміна буде виконана, щойно з’явиться з’єднання.</string>
+    <string name="ts_rkp_hal_rejected">Прошивка відхилила запит (код %1$d). Сумісний метод не може бути успішним.</string>
+    <string name="ts_rkp_http_error">Сервер надання послуг відхилив запит (HTTP %1$d)</string>
+    <string name="ts_rkp_unsupported">Пристрій не надає сумісного інтерфейсу для підготовки до роботи</string>
+    <string name="ts_rkp_network_error">Не вдалося зв’язатися із сервером налаштування. Перевірте підключення.</string>
+    <string name="ts_rkp_submission_unknown">Відповідь сервера було втрачено. Запит, можливо, було оброблено; автоматичної повторної спроби не виконувалося.</string>
+    <string name="ts_rkp_invalid_chain">Сертифікати сховища ключів не пройшли перевірку. Наявне сховище ключів було збережено.</string>
+    <string name="ts_rkp_timeout">Час очікування налаштування вичерпано. Якщо служба пристрою все ще зайнята, перезавантажте пристрій, перш ніж спробувати знову.</string>
+    <string name="ts_rkp_canceled">Запит скасовано, оскільки конфігурація сейфа для ключів змінилася</string>
+    <string name="ts_rkp_save_failed">Не вдалося зберегти згенерований набір ключів</string>
+    <string name="ts_rkp_action_failed">Не вдалося виконати операцію з сейфом для ключів</string>
+    <string name="ts_rkp_waiting_network">Очікування підключення до інтернету для створення або оновлення сейфа для ключів</string>
+    <string name="ts_rkp_auto_paused">%1$s Автоматичне надання ресурсів призупинено. Щоб повторити спробу, скористайтеся функцією «Створити набір ключів» (Generate keybox).</string>
+    <string name="ts_rkp_auto_retry">%1$s наступна автоматична спроба: %2$s.</string>
+    <string name="ts_rkp_native_unavailable">Вбудований допоміжний засіб для налаштування недоступний або несумісний із цією мікропрограмою</string>
+    <string name="ts_rkp_native_transport">Служба нативного надання ресурсів несподівано зупинилася. Автоматичне надання ресурсів призупинено.</string>
+    <string name="ts_rkp_invalid_response">Пристрій повернув неприпустиму відповідь на запит щодо ініціалізації. Наявне сховище ключів було збережено.</string>
 </resources>
