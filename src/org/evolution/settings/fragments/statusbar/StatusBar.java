@@ -136,13 +136,13 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mQuickPulldown =
                 (LineageSystemSettingListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
-        updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
         // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries_rtl);
             mQuickPulldown.setEntryValues(R.array.status_bar_quick_qs_pulldown_values_rtl);
         }
+        updateQuickPulldownAvailability();
 
         mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
         mBluetoothBatteryStatus = findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
@@ -474,6 +474,27 @@ public class StatusBar extends SettingsPreferenceFragment implements
         }
     }
 
+    /**
+     * With Dual Shade (separate notification and Control Center panels) enabled, SystemUI
+     * splits the status bar at 50% width and ignores the quick pulldown setting, so make the
+     * preference unavailable instead of letting it appear to do nothing.
+     */
+    private void updateQuickPulldownAvailability() {
+        if (mQuickPulldown == null) return;
+        if (isDualShadeEnabled()) {
+            mQuickPulldown.setEnabled(false);
+            mQuickPulldown.setSummary(R.string.status_bar_quick_qs_pulldown_dual_shade_summary);
+        } else {
+            mQuickPulldown.setEnabled(true);
+            updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
+        }
+    }
+
+    private boolean isDualShadeEnabled() {
+        return Settings.Secure.getIntForUser(getActivity().getContentResolver(),
+                Settings.Secure.DUAL_SHADE, 0, UserHandle.USER_CURRENT) == 1;
+    }
+
     private void updateQuickPulldownSummary(int value) {
         String summary="";
         switch (value) {
@@ -501,6 +522,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     public void onResume() {
         super.onResume();
         updateClockChipSummary();
+        updateQuickPulldownAvailability();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
