@@ -1688,4 +1688,8 @@
     <string name="ts_rkp_native_unavailable">The native provisioning helper is unavailable or incompatible with this firmware</string>
     <string name="ts_rkp_native_transport">The native provisioning service stopped unexpectedly. Automatic provisioning is paused.</string>
     <string name="ts_rkp_invalid_response">The device returned an invalid provisioning response. The existing keybox was kept.</string>
+
+    <!-- Lockscreen lock icon -->
+    <string name="lockscreen_hide_lock_icon_title">Hide lock icon</string>
+    <string name="lockscreen_hide_lock_icon_summary">Hide the lock and unlock icons on the lockscreen while keeping the fingerprint icon visible</string>
 </resources>

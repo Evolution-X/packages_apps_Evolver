@@ -98,6 +98,13 @@
             android:summary="@string/face_unlock_animation_summary"
             android:defaultValue="true" />
 
+        <!-- Lockscreen lock icon -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_hide_lock_icon"
+            android:title="@string/lockscreen_hide_lock_icon_title"
+            android:summary="@string/lockscreen_hide_lock_icon_summary"
+            android:defaultValue="false" />
+
         <!-- Charging stats -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_battery_info"
