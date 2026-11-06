@@ -144,6 +144,13 @@
             android:defaultValue="true" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_dynamic_island_live_updates"
+            android:title="@string/dynamic_island_live_updates_title"
+            android:summary="@string/dynamic_island_live_updates_summary"
+            android:dependency="status_bar_show_dynamic_island"
+            android:defaultValue="true" />
+
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="status_bar_dynamic_island_live_scores"
             android:title="@string/dynamic_island_live_scores_title"
             android:summary="@string/dynamic_island_live_scores_summary"
