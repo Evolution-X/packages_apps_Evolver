@@ -351,7 +351,6 @@
     <string name="status_bar_quick_qs_pulldown_left">Ліворуч</string>
     <string name="status_bar_quick_qs_pulldown_right">Праворуч</string>
     <string name="status_bar_quick_qs_pulldown_always">Завжди показувати швидкі налаштування під час згортанні шторки вниз</string>
-    <string name="status_bar_quick_qs_pulldown_dual_shade_summary">Недоступно, коли панелі сповіщень і швидких налаштувань розділені. Ліва частина рядка стану відкриває сповіщення, а права — швидкі налаштування.</string>
     <string name="status_bar_icons_category">Іконки</string>
     <string name="status_bar_tuner_title">Налаштування панелі статусу</string>
     <string name="status_bar_tuner_summary">Виберіть, які значки в рядку стану можуть бути показані</string>
@@ -1422,6 +1421,7 @@
     <!-- Shade style -->
     <string name="shade_color_style_title">Стиль штор</string>
     <string name="shade_color_style_summary">Виберіть, як виглядатимуть панель сповіщень та елементи на екрані блокування</string>
+    <string name="shade_color_style_summary_coloros">Панель швидких налаштувань (QS) у ColorOS завжди використовує прозорий стиль. Це рішення також поширюється на екран введення даних (bouncer) на екрані блокування</string>
     <string name="shade_color_style_aosp">Кольори стандартного Android</string>
     <string name="shade_color_style_glass">Прозора матова панель, крізь яку видно шпалери</string>
     <string name="shade_color_style_tinted">Панель, тонована вашим акцентним кольором, — з розмиттям або без нього</string>
