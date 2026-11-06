@@ -62,6 +62,7 @@ internal class TsUiState {
     var patchSummary by mutableStateOf("")
     var patchStale by mutableStateOf(false)
 
+    var rkpSupported by mutableStateOf(false)
     var rkpAvailable by mutableStateOf(false)
     var rkpEnabled by mutableStateOf(false)
     var rkpImported by mutableStateOf(false)
@@ -167,30 +168,32 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
                     ),
                 )
 
-                ExpressiveGroup(title = stringResource(R.string.ts_rkp_title)) {
-                    item {
-                        ExpressiveSwitchRow(
-                            titleText = stringResource(R.string.ts_rkp_enabled),
-                            summaryText = stringResource(R.string.ts_rkp_enabled_summary),
-                            isChecked = state.rkpEnabled,
-                            onChange = actions::onRkpEnabledChange,
-                            isEnabled = state.rkpAvailable && !state.rkpImported &&
-                                !state.rkpBusy && !state.rkpChanging,
-                        )
-                    }
-                    item {
-                        ExpressiveNavRow(
-                            title = stringResource(R.string.ts_rkp_provision),
-                            summary = stringResource(R.string.ts_rkp_provision_summary),
-                            enabled = state.rkpCanProvision && !state.rkpChanging,
-                            onClick = actions::onRkpProvision,
-                        )
-                    }
-                    item {
-                        ExpressiveNavRow(
-                            title = stringResource(R.string.ts_rkp_status),
-                            summary = state.rkpStatus,
-                        )
+                if (state.rkpSupported) {
+                    ExpressiveGroup(title = stringResource(R.string.ts_rkp_title)) {
+                        item {
+                            ExpressiveSwitchRow(
+                                titleText = stringResource(R.string.ts_rkp_enabled),
+                                summaryText = stringResource(R.string.ts_rkp_enabled_summary),
+                                isChecked = state.rkpEnabled,
+                                onChange = actions::onRkpEnabledChange,
+                                isEnabled = state.rkpAvailable && !state.rkpImported &&
+                                    !state.rkpBusy && !state.rkpChanging,
+                            )
+                        }
+                        item {
+                            ExpressiveNavRow(
+                                title = stringResource(R.string.ts_rkp_provision),
+                                summary = stringResource(R.string.ts_rkp_provision_summary),
+                                enabled = state.rkpCanProvision && !state.rkpChanging,
+                                onClick = actions::onRkpProvision,
+                            )
+                        }
+                        item {
+                            ExpressiveNavRow(
+                                title = stringResource(R.string.ts_rkp_status),
+                                summary = state.rkpStatus,
+                            )
+                        }
                     }
                 }
 
