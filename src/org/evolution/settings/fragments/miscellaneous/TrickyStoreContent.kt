@@ -62,6 +62,7 @@ internal class TsUiState {
     var patchSummary by mutableStateOf("")
     var patchStale by mutableStateOf(false)
 
+    var rkpSupported by mutableStateOf(false)
     var rkpAvailable by mutableStateOf(false)
     var rkpEnabled by mutableStateOf(false)
     var rkpImported by mutableStateOf(false)
@@ -129,81 +130,92 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
             Column {
                 Spacer(Modifier.height(SettingsSpace.extraSmall6))
 
-                ExpressivePrimaryAction(
-                    text = stringResource(R.string.ts_fetch_keybox),
-                    icon = Icons.Rounded.CloudDownload,
-                    onClick = actions::onFetchKeybox,
-                    enabled = state.fetchEnabled && !state.rkpEnabled,
-                    loading = state.fetching,
-                )
-                if (state.fetchSummary.isNotEmpty()) {
-                    Text(
-                        text = if (state.rkpEnabled) stringResource(R.string.ts_rkp_fetch_disabled)
-                        else state.fetchSummary,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier
-                            .expressiveInset()
-                            .padding(
-                                horizontal = SettingsSpace.small1,
-                                vertical = SettingsSpace.extraSmall3,
-                            ),
+                if (!state.rkpEnabled) {
+                    ExpressivePrimaryAction(
+                        text = stringResource(R.string.ts_fetch_keybox),
+                        icon = Icons.Rounded.CloudDownload,
+                        onClick = actions::onFetchKeybox,
+                        enabled = state.fetchEnabled,
+                        loading = state.fetching,
                     )
+                    if (state.fetchSummary.isNotEmpty()) {
+                        Text(
+                            text = state.fetchSummary,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier
+                                .expressiveInset()
+                                .padding(
+                                    horizontal = SettingsSpace.small1,
+                                    vertical = SettingsSpace.extraSmall3,
+                                ),
+                        )
+                    }
+                    Spacer(Modifier.height(SettingsSpace.extraSmall2))
                 }
-                Spacer(Modifier.height(SettingsSpace.extraSmall2))
                 ExpressiveActionRow(
-                    listOf(
-                        ExpressiveAction(
-                            stringResource(R.string.action_import),
-                            Icons.Rounded.FileOpen,
-                            onClick = actions::onImportKeybox,
-                        ),
-                        ExpressiveAction(
-                            stringResource(R.string.action_delete),
-                            Icons.Rounded.DeleteOutline,
-                            enabled = state.keyboxExists,
-                            onClick = actions::onDeleteKeybox,
-                        ),
-                    ),
+                    buildList {
+                        add(
+                            ExpressiveAction(
+                                stringResource(R.string.action_import),
+                                Icons.Rounded.FileOpen,
+                                onClick = actions::onImportKeybox,
+                            ),
+                        )
+                        if (!state.rkpEnabled) {
+                            add(
+                                ExpressiveAction(
+                                    stringResource(R.string.action_delete),
+                                    Icons.Rounded.DeleteOutline,
+                                    enabled = state.keyboxExists,
+                                    onClick = actions::onDeleteKeybox,
+                                ),
+                            )
+                        }
+                    },
                 )
 
-                ExpressiveGroup(title = stringResource(R.string.ts_rkp_title)) {
-                    item {
-                        ExpressiveSwitchRow(
-                            titleText = stringResource(R.string.ts_rkp_enabled),
-                            summaryText = stringResource(R.string.ts_rkp_enabled_summary),
-                            isChecked = state.rkpEnabled,
-                            onChange = actions::onRkpEnabledChange,
-                            isEnabled = state.rkpAvailable && !state.rkpImported &&
-                                !state.rkpBusy && !state.rkpChanging,
-                        )
-                    }
-                    item {
-                        ExpressiveNavRow(
-                            title = stringResource(R.string.ts_rkp_provision),
-                            summary = stringResource(R.string.ts_rkp_provision_summary),
-                            enabled = state.rkpCanProvision && !state.rkpChanging,
-                            onClick = actions::onRkpProvision,
-                        )
-                    }
-                    item {
-                        ExpressiveNavRow(
-                            title = stringResource(R.string.ts_rkp_status),
-                            summary = state.rkpStatus,
-                        )
+                if (state.rkpSupported) {
+                    ExpressiveGroup(title = stringResource(R.string.ts_rkp_title)) {
+                        item {
+                            ExpressiveSwitchRow(
+                                titleText = stringResource(R.string.ts_rkp_enabled),
+                                summaryText = stringResource(R.string.ts_rkp_enabled_summary),
+                                isChecked = state.rkpEnabled,
+                                onChange = actions::onRkpEnabledChange,
+                                isEnabled = state.rkpAvailable && !state.rkpImported &&
+                                    !state.rkpBusy && !state.rkpChanging,
+                            )
+                        }
+                        item {
+                            ExpressiveNavRow(
+                                title = stringResource(R.string.ts_rkp_provision),
+                                summary = stringResource(R.string.ts_rkp_provision_summary),
+                                enabled = state.rkpCanProvision && !state.rkpChanging,
+                                onClick = actions::onRkpProvision,
+                            )
+                        }
+                        item {
+                            ExpressiveNavRow(
+                                title = stringResource(R.string.ts_rkp_status),
+                                summary = state.rkpStatus,
+                            )
+                        }
                     }
                 }
 
-                ExpressiveGroup(title = stringResource(R.string.ts_keybox_management)) {
-                    item {
-                        ExpressiveNavRow(
-                            title = stringResource(R.string.ts_revocation_status),
-                            summary = state.revocationSummary,
-                            chip = state.revocationChip,
-                            chipTone = state.revocationTone,
-                            enabled = !state.revocationChecking,
-                            onClick = actions::onCheckRevocation,
-                        )
+                if (!state.rkpEnabled) {
+                    ExpressiveGroup(title = stringResource(R.string.ts_keybox_management)) {
+                        item {
+                            ExpressiveNavRow(
+                                title = stringResource(R.string.ts_revocation_status),
+                                summary = state.revocationSummary,
+                                chip = state.revocationChip,
+                                chipTone = state.revocationTone,
+                                enabled = !state.revocationChecking,
+                                onClick = actions::onCheckRevocation,
+                            )
+                        }
                     }
                 }
 
