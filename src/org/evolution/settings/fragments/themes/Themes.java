@@ -45,9 +45,13 @@ public class Themes extends SettingsPreferenceFragment {
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_LOCK_SOUND = "lock_sound";
     private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
+    private static final String KEY_SHADE_COLOR_STYLE = "shade_color_style";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_UDFPS_ICON = "udfps_icon";
     private static final String KEY_UNLOCK_SOUND = "unlock_sound";
+
+    /** Value of {@link Settings.System#QS_PANEL_STYLE} for the ColorOS panel. */
+    private static final int QS_PANEL_STYLE_COLOROS = 2;
 
     private Preference mNavbarIcons;
     private Preference mUdfpsAnimation;
@@ -113,6 +117,19 @@ public class Themes extends SettingsPreferenceFragment {
 
         updateBootAnimationSummary();
         updateIconShapeSummary();
+        updateShadeStyleState();
+    }
+
+    private void updateShadeStyleState() {
+        Preference pref = findPreference(KEY_SHADE_COLOR_STYLE);
+        if (pref == null) return;
+        // The ColorOS QS panel is always drawn with the clear shade, so the style is locked.
+        final boolean colorOS = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.QS_PANEL_STYLE, 0,
+                UserHandle.USER_CURRENT) == QS_PANEL_STYLE_COLOROS;
+        pref.setEnabled(!colorOS);
+        pref.setSummary(colorOS ? R.string.shade_color_style_summary_coloros
+                : R.string.shade_color_style_summary);
     }
 
     private void updateBootAnimationSummary() {
@@ -132,6 +149,7 @@ public class Themes extends SettingsPreferenceFragment {
         super.onResume();
         updateBootAnimationSummary();
         updateIconShapeSummary();
+        updateShadeStyleState();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
