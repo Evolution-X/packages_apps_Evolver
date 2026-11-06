@@ -79,6 +79,8 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // Revision of the last device RKP keybox seen by the poll loop.
     private var lastDuckRkpRevision = -1L
+    // Set once the framework has reported device RKP as unavailable on this device.
+    private var duckRkpUnsupported = false
 
     // ---- Trust anchors (SHA-256 of DER-encoded cert) ------------------------
 
@@ -407,7 +409,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         val lastChecked = Settings.Secure.getLong(
             requireContext().contentResolver, LAST_REVOCATION_CHECK_KEY, 0L)
         val overADay = System.currentTimeMillis() - lastChecked > TimeUnit.HOURS.toMillis(24)
-        if (overADay && !isCheckInProgress) {
+        if (overADay && !isCheckInProgress && !isDuckRkpEnabled()) {
             checkKeyboxRevocation()
         } else {
             autoFetchIfNoKeybox()
@@ -1370,7 +1372,7 @@ class TrickyStore : SettingsPreferenceFragment() {
      * While device RKP is on, the framework serves a generated keybox and the online
      * keybox must not replace it, so the official fetch is skipped.
      */
-    private fun isDuckRkpEnabled(): Boolean =
+    private fun isDuckRkpEnabled(): Boolean = !duckRkpUnsupported &&
         Settings.Secure.getInt(requireContext().contentResolver, DUCK_RKP_ENABLED_KEY, 0) != 0
 
     private fun startDuckRkpPolling() {
@@ -1401,8 +1403,10 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     private fun applyDuckRkpState(state: Bundle?) {
         val owner = UserHandle.myUserId() == UserHandle.USER_SYSTEM
-        ui.rkpAvailable = owner && state?.getBoolean("available") == true
-        ui.rkpEnabled = state?.getBoolean("enabled") == true
+        ui.rkpSupported = state?.getBoolean("available") == true
+        duckRkpUnsupported = state != null && !ui.rkpSupported
+        ui.rkpAvailable = owner && ui.rkpSupported
+        ui.rkpEnabled = ui.rkpSupported && state?.getBoolean("enabled") == true
         ui.rkpImported = state?.getBoolean("imported") == true
         ui.rkpBusy = state?.getBoolean("busy") == true
         ui.rkpActive = state?.getBoolean("active") == true
