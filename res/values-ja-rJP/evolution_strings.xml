@@ -1402,6 +1402,8 @@
     <string name="dynamic_island_flashlight_summary">フラッシュライトの点灯時に、Island内にステータスを表示します</string>
     <string name="dynamic_island_stopwatch_title">ストップウォッチ</string>
     <string name="dynamic_island_stopwatch_summary">Island内にストップウォッチの進行状況とコントロールを表示します</string>
+    <string name="dynamic_island_live_updates_title">ライブアップデート</string>
+    <string name="dynamic_island_live_updates_summary">タイマー、ナビ、配達状況など、アプリのリアルタイム情報をアイランドに表示する</string>
     <string name="dynamic_island_live_scores_title">ライブスコア</string>
     <string name="dynamic_island_live_scores_summary">ライブスコア通知に対応したアプリの試合経過をIsland内に表示します。</string>
     <string name="dynamic_island_lyrics_title">歌詞を表示</string>
@@ -1421,6 +1423,7 @@
     <!-- Shade style -->
     <string name="shade_color_style_title">通知シェードのスタイル</string>
     <string name="shade_color_style_summary">通知シェードとロック画面の通知表示の見た目を選択する</string>
+    <string name="shade_color_style_summary_coloros">ColorOSのクイック設定スタイル選択時は常に「すべて消去」を適用</string>
     <string name="shade_color_style_aosp">Android のストックカラー</string>
     <string name="shade_color_style_glass">壁紙が透けて見える、すりガラス風のクリアパネル</string>
     <string name="shade_color_style_tinted">アクセントカラーで色付けされたパネル（ぼかしの有無を選択可能）</string>
