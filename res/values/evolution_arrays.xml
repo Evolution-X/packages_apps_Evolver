@@ -1030,6 +1030,18 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="qs_nothing_color_style_entries" translatable="false">
+        <item>@string/qs_nothing_color_style_flat</item>
+        <item>@string/qs_nothing_color_style_translucent</item>
+        <item>@string/qs_nothing_color_style_classic</item>
+    </string-array>
+
+    <string-array name="qs_nothing_color_style_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+
     <string-array name="qs_tile_icon_shape_entries" translatable="false">
         <item>@string/shape_circle</item>
         <item>@string/shape_square</item>
