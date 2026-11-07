@@ -178,6 +178,13 @@
             android:defaultValue="false" />
 
         <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_nothing_color_style"
+            android:title="@string/qs_nothing_color_style_title"
+            android:entries="@array/qs_nothing_color_style_entries"
+            android:entryValues="@array/qs_nothing_color_style_values"
+            android:defaultValue="1" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_tile_animation_style"
             android:title="@string/qs_tile_animation_style_title"
             android:entries="@array/qs_tile_animation_style_entries"
