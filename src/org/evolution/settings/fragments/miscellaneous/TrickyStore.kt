@@ -802,12 +802,18 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Network helpers ----------------------------------------------------
 
+    /**
+     * Google's status list, or null when it could not be read. A response without an
+     * "entries" object (error page, truncated body, format change) counts as no response:
+     * it must neither clear the cached bad serials nor be taken as a clean answer.
+     */
     private fun fetchRevocationJson(): JSONObject? {
         var conn: HttpURLConnection? = null
         return try {
             conn = openFreshConnection(REVOCATION_URL)
             if (conn.responseCode == HttpURLConnection.HTTP_OK) {
                 JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
+                    .takeIf { it.optJSONObject("entries") != null }
             } else {
                 null
             }
