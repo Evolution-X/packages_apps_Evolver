@@ -709,6 +709,10 @@
     <string name="quick_settings_tile_label_hide_summary">Показувати іконку тільки на плитці</string>
     <string name="qs_coloros_media_art_fill_title">Заповніть носій творчими роботами</string>
     <string name="qs_coloros_media_art_fill_summary">Відображати обкладинку альбому на всю картку медіавмісту замість мініатюри</string>
+    <string name="qs_nothing_color_style_title">Стиль Nothing</string>
+    <string name="qs_nothing_color_style_flat">Nothing OS 5.0, плоска</string>
+    <string name="qs_nothing_color_style_translucent">Nothing OS 5.0, напівпрозорий</string>
+    <string name="qs_nothing_color_style_classic">Класичний темний</string>
     <string name="quick_settings_layout_columns_rows_title">Колонки і рядки</string>
     <string name="quick_settings_layout_columns_rows_summary">Налаштуйте стовпці та рядки QS</string>
     <string name="quick_settings_layout_columns_rows_footer_text">Рядки швидких налаштувань повинні бути однаковими або більшими, ніж стрілки швидких налаштувань. Використовуйте більше стовпців для кола або квадратних стилів.</string>
@@ -1415,6 +1419,8 @@
     <string name="dynamic_island_offset_y_title">Вертикальний зсув</string>
     <string name="dynamic_island_landscape_top_title">Утримувати вгорі в альбомній орієнтації</string>
     <string name="dynamic_island_landscape_top_summary">Показувати острівець угорі екрана в альбомній орієнтації замість розміщення поруч із камерою збоку</string>
+    <string name="dynamic_island_coloros_style_title">Стиль ColorOS</string>
+    <string name="dynamic_island_coloros_style_summary">Розширюйте «острівець» із вирізу для камери та використовуйте картки в стилі ColorOS</string>
     <string name="dynamic_island_popup_color_mode_title">Фон спливаючих вікон</string>
     <string name="dynamic_island_popup_color_mode_summary">Виберіть вигляд розгорнутих спливаючих вікон: стандартний, із розмитим фоном або суцільний чорний</string>
     <string name="dynamic_island_popup_color_mode_entry_default">За замовчуванням</string>
