@@ -516,6 +516,7 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     private fun checkKeyboxRevocation() {
         if (isCheckInProgress) return
+        if (isDuckRkpEnabled()) return
         val raw = Settings.Secure.getString(requireContext().contentResolver, KEYBOX_KEY)
         if (raw.isNullOrEmpty()) {
             currentRevocationStatus = RevocationStatus.UNKNOWN

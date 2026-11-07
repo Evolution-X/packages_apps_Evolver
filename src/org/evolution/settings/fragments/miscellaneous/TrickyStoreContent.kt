@@ -197,16 +197,18 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
                     }
                 }
 
-                ExpressiveGroup(title = stringResource(R.string.ts_keybox_management)) {
-                    item {
-                        ExpressiveNavRow(
-                            title = stringResource(R.string.ts_revocation_status),
-                            summary = state.revocationSummary,
-                            chip = state.revocationChip,
-                            chipTone = state.revocationTone,
-                            enabled = !state.revocationChecking,
-                            onClick = actions::onCheckRevocation,
-                        )
+                if (!state.rkpEnabled) {
+                    ExpressiveGroup(title = stringResource(R.string.ts_keybox_management)) {
+                        item {
+                            ExpressiveNavRow(
+                                title = stringResource(R.string.ts_revocation_status),
+                                summary = state.revocationSummary,
+                                chip = state.revocationChip,
+                                chipTone = state.revocationTone,
+                                enabled = !state.revocationChecking,
+                                onClick = actions::onCheckRevocation,
+                            )
+                        }
                     }
                 }
 
