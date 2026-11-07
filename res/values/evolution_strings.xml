@@ -1520,6 +1520,8 @@
     <string name="dynamic_island_offset_y_title">Vertical offset</string>
     <string name="dynamic_island_landscape_top_title">Keep on top in landscape</string>
     <string name="dynamic_island_landscape_top_summary">Show the island at the top of the screen in landscape instead of next to the camera on the side</string>
+    <string name="dynamic_island_coloros_style_title">ColorOS style</string>
+    <string name="dynamic_island_coloros_style_summary">Grow the island out of the camera hole and use ColorOS style cards</string>
     <string name="dynamic_island_popup_color_mode_title">Popup background</string>
     <string name="dynamic_island_popup_color_mode_summary">Choose how expanded popups look: default, blurred wallpaper, or solid black</string>
     <string name="dynamic_island_popup_color_mode_entry_default">Default</string>
