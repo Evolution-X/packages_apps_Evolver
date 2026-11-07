@@ -352,7 +352,6 @@
     <string name="status_bar_quick_qs_pulldown_left">Kiri</string>
     <string name="status_bar_quick_qs_pulldown_right">Kanan</string>
     <string name="status_bar_quick_qs_pulldown_always">Selalu tampilkan setelan cepat saat menurunkan bilah status</string>
-    <string name="status_bar_quick_qs_pulldown_dual_shade_summary">Tak tersedia bila panel notifikasi dan cepat dipisah. Bagian kiri bar status membuka panel notifikasi dan bagian kanan membuka panel cepat.</string>
     <string name="status_bar_icons_category">Ikon</string>
     <string name="status_bar_tuner_title">Penyetel bilah status</string>
     <string name="status_bar_tuner_summary">Pilih ikon sistem mana yang dapat ditampilkan</string>
@@ -711,6 +710,10 @@
     <string name="quick_settings_tile_label_hide_summary">Tampilkan ikon hanya di ubin</string>
     <string name="qs_coloros_media_art_fill_title">Isi kartu media dengan foto cover</string>
     <string name="qs_coloros_media_art_fill_summary">Tampilkan foto cover album di seluruh kartu media daripada thumbnail</string>
+    <string name="qs_nothing_color_style_title">Gaya warna Nothing</string>
+    <string name="qs_nothing_color_style_flat">Nothing OS 5.0, datar</string>
+    <string name="qs_nothing_color_style_translucent">Nothing OS 5.0, translucent</string>
+    <string name="qs_nothing_color_style_classic">Gelap klasik</string>
     <string name="quick_settings_layout_columns_rows_title">Kolom dan baris</string>
     <string name="quick_settings_layout_columns_rows_summary">Sesuaikan kolom dan baris Setelan Cepat</string>
     <string name="quick_settings_layout_columns_rows_footer_text">Jumlah baris Setelan Cepat harus sama dengan atau lebih besar dari jumlah baris cepat. Gunakan jumlah kolom yang lebih tinggi untuk gaya ubin lingkaran atau persegi.</string>
@@ -1404,6 +1407,8 @@
     <string name="dynamic_island_flashlight_summary">Tampilkan status senter di island saat dinyalakan</string>
     <string name="dynamic_island_stopwatch_title">Stopwatch</string>
     <string name="dynamic_island_stopwatch_summary">Tampilkan progres dan kontrol stopwatch di island</string>
+    <string name="dynamic_island_live_updates_title">Live update</string>
+    <string name="dynamic_island_live_updates_summary">Tampilkan live update aplikasi, seperti timer, navigasi, dan pengantaran di island</string>
     <string name="dynamic_island_live_scores_title">Live score</string>
     <string name="dynamic_island_live_scores_summary">Tampilkan live score olahraga di island untuk aplikasi pengirim notifikasi live score.</string>
     <string name="dynamic_island_lyrics_title">Tampilkan lirik</string>
@@ -1415,6 +1420,8 @@
     <string name="dynamic_island_offset_y_title">Offset vertikal</string>
     <string name="dynamic_island_landscape_top_title">Jaga island tetap di atas</string>
     <string name="dynamic_island_landscape_top_summary">Tampilkan island tetap di atas layar di mode lanskap alih-alih tetap berada di sekitar kamera.</string>
+    <string name="dynamic_island_coloros_style_title">Gaya ColorOS</string>
+    <string name="dynamic_island_coloros_style_summary">Memindah island ke luar kamera dan gunakan gaya kartu ColorOS</string>
     <string name="dynamic_island_popup_color_mode_title">Background popup</string>
     <string name="dynamic_island_popup_color_mode_summary">Pilih tampilan popup yang diperlebar: default, blur wallpaper, atau hitam pekat</string>
     <string name="dynamic_island_popup_color_mode_entry_default">Warna bawaan</string>
@@ -1423,6 +1430,7 @@
     <!-- Shade style -->
     <string name="shade_color_style_title">Gaya shade</string>
     <string name="shade_color_style_summary">Pilih tampilan shade notifikasi dan bouncer lock screen</string>
+    <string name="shade_color_style_summary_coloros">Selalu Bening jika menggunakan gaya panel cepat ColorOS</string>
     <string name="shade_color_style_aosp">Warna Stock Android</string>
     <string name="shade_color_style_glass">Jernih, panel frosted yang biarkan wallpaper Anda terlihat</string>
     <string name="shade_color_style_tinted">Panel berwarna aksen pilihan Anda, dengan atau tanpa blur</string>
