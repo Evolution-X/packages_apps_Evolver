@@ -49,9 +49,13 @@
     <string name="themes_navigation_bar_icons_summary">Set navigation bar icon style</string>
     <string name="themes_udfps_icon_title">UDFPS icon</string>
     <string name="themes_udfps_icon_summary">Set UDFPS icon style</string>
-    <string name="themes_screen_off_animation_title">Screen off animation</string>
-    <string name="themes_screen_off_animation_crt">CRT</string>
-    <string name="themes_screen_off_animation_scale">Scale</string>
+    <string name="screen_off_animation_title">Screen off animation</string>
+    <string name="screen_off_animation_colorfade">ColorFade</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
+    <string name="screen_off_animation_iris">Iris</string>
+    <string name="screen_off_animation_desaturate">Desaturate</string>
+    <string name="screen_off_animation_shutter">Shutter</string>
     <string name="themes_udfps_animation_title">UDFPS animation</string>
     <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
 
