@@ -46,9 +46,13 @@
     <string name="themes_navigation_bar_icons_summary">ナビゲーションバーアイコンのスタイルを設定する</string>
     <string name="themes_udfps_icon_title">画面内指紋認証アイコン</string>
     <string name="themes_udfps_icon_summary">画面内指紋認証のアイコンスタイルを設定する</string>
-    <string name="themes_screen_off_animation_title">画面消灯時のアニメーション</string>
-    <string name="themes_screen_off_animation_crt">ブラウン管</string>
-    <string name="themes_screen_off_animation_scale">縮小</string>
+    <string name="screen_off_animation_title">画面消灯時のアニメーション</string>
+    <string name="screen_off_animation_colorfade">色のフェード</string>
+    <string name="screen_off_animation_crt">ブラウン管</string>
+    <string name="screen_off_animation_scale">縮小</string>
+    <string name="screen_off_animation_iris">アイリス</string>
+    <string name="screen_off_animation_desaturate">彩度を下げる</string>
+    <string name="screen_off_animation_shutter">シャッター</string>
     <string name="themes_udfps_animation_title">画面内指紋認証のアニメーション</string>
     <string name="themes_udfps_animation_summary">画面内指紋認証アニメーションを設定する</string>
     <!-- Themes/Boot animation -->
