@@ -46,9 +46,13 @@
     <string name="themes_navigation_bar_icons_summary">Встановити стиль значка панелі навігації</string>
     <string name="themes_udfps_icon_title">Значок UDFPS</string>
     <string name="themes_udfps_icon_summary">Установити стиль значка UDFPS</string>
-    <string name="themes_screen_off_animation_title">Анімація вимкнення екрану</string>
-    <string name="themes_screen_off_animation_crt">Ефект старого телевізора</string>
-    <string name="themes_screen_off_animation_scale">Масштабування</string>
+    <string name="screen_off_animation_title">Анімація вимкнення екрану</string>
+    <string name="screen_off_animation_colorfade">Згасання кольору</string>
+    <string name="screen_off_animation_crt">Ефект старого телевізора</string>
+    <string name="screen_off_animation_scale">Масштабування</string>
+    <string name="screen_off_animation_iris">Ірис</string>
+    <string name="screen_off_animation_desaturate">Зі зниженою насиченістю</string>
+    <string name="screen_off_animation_shutter">Затвор</string>
     <string name="themes_udfps_animation_title">Анімації відбитка пальця</string>
     <string name="themes_udfps_animation_summary">Встановити стиль анімації UDFPS</string>
     <!-- Themes/Boot animation -->
