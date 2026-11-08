@@ -333,39 +333,11 @@ private fun PifDialogs(state: PifUiState, actions: PifActions) {
             onDismiss = dismiss,
             destructive = true,
         )
-        is PifDialog.DevicePicker -> ExpressiveDialog(
-            onDismissRequest = dismiss,
-            title = {
-                Text(
-                    text = stringResource(R.string.pif_select_device),
-                    style = MaterialTheme.typography.headlineSmall,
-                )
-            },
-            text = {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .heightIn(max = 360.dp)
-                        .expressiveVerticalScroll(),
-                ) {
-                    ExpressiveGroup(title = "", horizontalInset = 0.dp) {
-                        dialog.names.forEachIndexed { index, name ->
-                            item {
-                                ExpressiveChoiceRow(
-                                    title = name,
-                                    selected = index == dialog.selected,
-                                    onClick = { dismiss(); actions.onPickDevice(index) },
-                                )
-                            }
-                        }
-                    }
-                }
-            },
-            confirmButton = {
-                ExpressiveTextButton(onClick = dismiss) {
-                    Text(stringResource(android.R.string.cancel))
-                }
-            },
+        is PifDialog.DevicePicker -> PifDevicePickerDialog(
+            names = dialog.names,
+            selected = dialog.selected,
+            onPick = actions::onPickDevice,
+            onDismiss = dismiss,
         )
         PifDialog.WipePlayStore -> {
             // Cancel and tap-outside both mean "don't wipe", so the pending follow-up
@@ -400,4 +372,59 @@ private fun PifDialogs(state: PifUiState, actions: PifActions) {
             )
         }
     }
+}
+
+/**
+ * Single-choice device list. Tapping a row only moves the selection; Select dismisses the
+ * dialog and calls [onPick] with it, and stays disabled until a row is selected.
+ * [selected] is the initial selection (-1 for none).
+ */
+@Composable
+private fun PifDevicePickerDialog(
+    names: List<String>,
+    selected: Int,
+    onPick: (Int) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var current by rememberSaveable(names, selected) { mutableStateOf(selected) }
+    ExpressiveDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(
+                text = stringResource(R.string.pif_select_device),
+                style = MaterialTheme.typography.headlineSmall,
+            )
+        },
+        text = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(max = 360.dp)
+                    .expressiveVerticalScroll(),
+            ) {
+                ExpressiveGroup(title = "", horizontalInset = 0.dp) {
+                    names.forEachIndexed { index, name ->
+                        item {
+                            ExpressiveChoiceRow(
+                                title = name,
+                                selected = index == current,
+                                onClick = { current = index },
+                            )
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            ExpressiveTextButton(
+                onClick = { val pick = current; onDismiss(); onPick(pick) },
+                enabled = current in names.indices,
+            ) { Text(stringResource(R.string.spoof_choice_select)) }
+        },
+        dismissButton = {
+            ExpressiveTextButton(onClick = onDismiss) {
+                Text(stringResource(android.R.string.cancel))
+            }
+        },
+    )
 }
