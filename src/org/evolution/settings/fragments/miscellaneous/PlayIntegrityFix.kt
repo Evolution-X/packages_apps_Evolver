@@ -24,6 +24,7 @@ import com.android.internal.util.evolution.PixelDeviceRepository
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import java.nio.charset.StandardCharsets
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -364,8 +365,10 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
 
                 pickerProfiles = sortedProfiles
                 ui.dialog = PifDialog.DevicePicker(modelNames, preselectedIndex)
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Exception) {
-                toast(getString(R.string.pif_failed, e.message ?: ""))
+                if (isAdded) toast(getString(R.string.pif_failed, e.message ?: ""))
             } finally {
                 ui.fetching = false
             }
@@ -398,8 +401,10 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                     toast(getString(R.string.pif_fetched_model, profile.model))
                     refreshStatus()
                 }
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Exception) {
-                toast(getString(R.string.pif_failed, e.message ?: ""))
+                if (isAdded) toast(getString(R.string.pif_failed, e.message ?: ""))
             } finally {
                 ui.fetching = false
             }
@@ -471,7 +476,8 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
     }
 
     private fun toast(msg: String) {
-        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+        val ctx = context ?: return
+        Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show()
     }
 
     override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.EVOLVER
