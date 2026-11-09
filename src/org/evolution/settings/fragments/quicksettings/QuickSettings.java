@@ -163,7 +163,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsTileIconShape = findPreference(KEY_QS_TILE_ICON_SHAPE);
         mQsTileLabelHide = findPreference(KEY_QS_TILE_LABEL_HIDE);
         mQsColorOSMediaArtFill = findPreference(KEY_QS_COLOROS_MEDIA_ART_FILL);
+        mQsColorOSMediaArtFill.setOnPreferenceChangeListener(this);
         mQsNothingColorStyle = findPreference(KEY_QS_NOTHING_COLOR_STYLE);
+        mQsNothingColorStyle.setOnPreferenceChangeListener(this);
 
         int panelStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
@@ -219,11 +221,18 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mQsPanelStyle) {
             int value = Integer.parseInt((String) newValue);
+            int current = Settings.System.getIntForUser(resolver,
+                    Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
             updatePanelStylePrefs(value);
+            if (value != current) {
+                SystemUtils.showSystemUiRestartDialog(getActivity());
+            }
             return true;
         } else if (preference == mCompactMediaPlayer
                 || preference == mBrightnessSliderHaptic
-                || preference == mMediaWaveformSeekBar) {
+                || preference == mMediaWaveformSeekBar
+                || preference == mQsColorOSMediaArtFill
+                || preference == mQsNothingColorStyle) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         }
