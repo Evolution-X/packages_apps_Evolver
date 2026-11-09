@@ -9,6 +9,7 @@ import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -24,6 +25,7 @@ import com.android.internal.util.evolution.PixelDeviceRepository
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import java.nio.charset.StandardCharsets
+import kotlin.math.abs
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -347,12 +349,15 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
                             .let { idx -> if (idx < 0) Int.MAX_VALUE else idx }
                     }
                 )
+                val suggested = suggestedDevices(sortedProfiles, currentInitialSdk())
                 val modelNames = sortedProfiles.map {
-                    if (it.codename == PixelDeviceRepository.PIF_DEFAULT_CODENAME) {
+                    val name = if (it.codename == PixelDeviceRepository.PIF_DEFAULT_CODENAME) {
                         "${it.model} — ${getString(R.string.pif_recommended_suffix)}"
                     } else {
                         it.model
                     }
+                    if (it.device in suggested) getString(R.string.pif_device_suggested, name)
+                    else name
                 }
                 // Preselect the device the active config already spoofs, if it is still
                 // offered; otherwise the recommended one.
@@ -499,6 +504,33 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         private const val PIF_ENABLED_KEY = "spoof_pif_enabled"
         internal const val LAST_AUTO_FETCH_KEY = "spoof_pif_last_auto_fetch"
         private const val MATCH_DEVICE_PROP = "ro.evolution.device"
+
+        /** Lowest launch SDK of any Pixel offered; older phones are matched to it. */
+        private const val MIN_PIXEL_INITIAL_SDK = 31
+
+        /** The SDK level this phone first shipped with. */
+        private fun currentInitialSdk(): Int =
+            Build.VERSION.DEVICE_INITIAL_SDK_INT.takeIf { it > 0 } ?: Build.VERSION.SDK_INT
+
+        /**
+         * Codenames in [profiles] whose launch SDK best matches [deviceInitialSdk]: the
+         * closest level offered, the lower one on a tie. Phones at or below 31 are matched
+         * as 31, so oriole/raven are preferred, then bluejay. Display only: it never
+         * changes the order or which device is recommended.
+         */
+        private fun suggestedDevices(
+            profiles: List<PixelDeviceRepository.PixelProfile>,
+            deviceInitialSdk: Int,
+        ): Set<String> {
+            val levels = profiles.associate {
+                it.device to PixelDeviceRepository.getInitialSdkInt(it.device).toIntOrNull()
+            }
+            val offered = levels.values.filterNotNull().distinct()
+            if (offered.isEmpty()) return emptySet()
+            val target = deviceInitialSdk.coerceAtLeast(MIN_PIXEL_INITIAL_SDK)
+            val best = offered.minWith(compareBy<Int>({ abs(it - target) }, { it }))
+            return levels.filterValues { it == best }.keys
+        }
 
         private data class Flag(val name: String, val default: Boolean)
 
