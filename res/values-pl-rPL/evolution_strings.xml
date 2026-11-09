@@ -46,9 +46,13 @@
     <string name="themes_navigation_bar_icons_summary">Ustaw styl ikon paska nawigacyjnego</string>
     <string name="themes_udfps_icon_title">Ikona odcisku palca</string>
     <string name="themes_udfps_icon_summary">Ustaw styl ikony odcisku palca</string>
-    <string name="themes_screen_off_animation_title">Animacja wyłączania ekranu</string>
-    <string name="themes_screen_off_animation_crt">CRT</string>
-    <string name="themes_screen_off_animation_scale">Skala</string>
+    <string name="screen_off_animation_title">Animacja wyłączania ekranu</string>
+    <string name="screen_off_animation_colorfade">Zanikanie koloru</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Skala</string>
+    <string name="screen_off_animation_iris">Irys</string>
+    <string name="screen_off_animation_desaturate">Zmniejsz nasycenie</string>
+    <string name="screen_off_animation_shutter">Migawka</string>
     <string name="themes_udfps_animation_title">Animacja odcisku palca</string>
     <string name="themes_udfps_animation_summary">Ustaw styl animacji odcisku palca</string>
     <!-- Themes/Boot animation -->
@@ -711,6 +715,10 @@
     <string name="quick_settings_tile_label_hide_summary">Pokaż tylko ikonę w kafelku</string>
     <string name="qs_coloros_media_art_fill_title">Wypełnij kartę multimedialną grafiką</string>
     <string name="qs_coloros_media_art_fill_summary">Wyświetlaj okładkę albumu na całej karcie multimedialnej zamiast miniatury</string>
+    <string name="qs_nothing_color_style_title">Styl koloru Nothing</string>
+    <string name="qs_nothing_color_style_flat">Nothing OS 5.0, płaski</string>
+    <string name="qs_nothing_color_style_translucent">Nothing OS 5.0, półprzeźroczysty</string>
+    <string name="qs_nothing_color_style_classic">Klasyczny ciemny</string>
     <string name="quick_settings_layout_columns_rows_title">Kolumny i wiersze</string>
     <string name="quick_settings_layout_columns_rows_summary">Dostosuj kolumny i wiersze szybkich ustawień</string>
     <string name="quick_settings_layout_columns_rows_footer_text">Wiersze szybkich ustawień muszą być równe lub większe niż szybkie wiersze szybkich ustawień. Użyj większej liczby kolumn dla stylów kafelków okrągłych lub kwadratowych.</string>
@@ -1278,6 +1286,7 @@
     <string name="action_reset">Resetuj</string>
     <string name="action_search_apps">Wyszukaj aplikacje</string>
     <string name="action_select_all">Zaznacz wszystko</string>
+    <string name="action_deselect_unnecessary">Odznacz niepotrzebne</string>
     <string name="action_reboot_now">Zrestartuj teraz</string>
     <string name="action_add_installed">Dodaj zainstalowane</string>
     <string name="show_system_apps">Pokaż aplikacje systemowe</string>
@@ -1389,10 +1398,22 @@
     <string name="dynamic_island_screen_recording_summary">Pokaż licznik nagrywania i sterowanie na wyspie</string>
     <string name="dynamic_island_alarms_title">Alarmy</string>
     <string name="dynamic_island_alarms_summary">Pokaż na wyspie następny alarm lub powiadomienie o aktywnym alarmie</string>
+    <string name="dynamic_island_charging_title">Ładowanie</string>
+    <string name="dynamic_island_charging_summary">Pokaż poziom naładowania baterii na wyspie, gdy ładowarka jest podłączona, ze szczegółami ładowania po naciśnięciu</string>
+    <string name="dynamic_island_bluetooth_title">Urządzenia Bluetooth</string>
+    <string name="dynamic_island_bluetooth_summary">Wyświetla połączone urządzenie Bluetooth na wyspie wraz z poziomem naładowania baterii po naciśnięciu</string>
+    <string name="dynamic_island_hotspot_title">Punkt dostępu</string>
+    <string name="dynamic_island_hotspot_summary">Pokaż liczbę urządzeń połączonych do punktu dostępu na wyspie</string>
+    <string name="dynamic_island_vpn_title">VPN</string>
+    <string name="dynamic_island_vpn_summary">Pokaż wyspę, gdy połączysz się z VPN</string>
+    <string name="dynamic_island_calls_title">Połączenia</string>
+    <string name="dynamic_island_calls_summary">Pokaż połączenia przychodzące i trwające na wyspie</string>
     <string name="dynamic_island_flashlight_title">Latarka</string>
     <string name="dynamic_island_flashlight_summary">Pokaż stan latarki na wyspie, gdy jest włączona</string>
     <string name="dynamic_island_stopwatch_title">Stoper</string>
     <string name="dynamic_island_stopwatch_summary">Pokaż postęp stopera i sterowanie na wyspie</string>
+    <string name="dynamic_island_live_updates_title">Aktualizacje na żywo</string>
+    <string name="dynamic_island_live_updates_summary">Pokaż aplikacje i aktualizacje na żywo, takie jak liczniki, nawigacja i dostawy, na wyspie</string>
     <string name="dynamic_island_live_scores_title">Wyniki na żywo</string>
     <string name="dynamic_island_live_scores_summary">Wyświetlaj wyniki na żywo wydarzeń sportowych na wyspie dla aplikacji, które oferują powiadomienia o wynikach na żywo.</string>
     <string name="dynamic_island_lyrics_title">Wyświetl tekst piosenek</string>
@@ -1402,6 +1423,10 @@
     <string name="dynamic_island_height_scale_title">Skala wysokości</string>
     <string name="dynamic_island_offset_x_title">Przesunięcie poziome</string>
     <string name="dynamic_island_offset_y_title">Przesunięcie pionowe</string>
+    <string name="dynamic_island_landscape_top_title">Utrzymuj na górze w poziomie</string>
+    <string name="dynamic_island_landscape_top_summary">Wyświetl wyspę na górze ekranu w orientacji poziomej, a nie obok aparatu z boku</string>
+    <string name="dynamic_island_coloros_style_title">Styl ColorOS</string>
+    <string name="dynamic_island_coloros_style_summary">Rozbuduj wyspę, wysuwając ją z otworu aparatu, i zastosuj karty w stylu ColorOS</string>
     <string name="dynamic_island_popup_color_mode_title">Wyskakujące tło</string>
     <string name="dynamic_island_popup_color_mode_summary">Wybierz wygląd rozwiniętych okienek: domyślnie, rozmyta tapeta lub całkowicie czarne</string>
     <string name="dynamic_island_popup_color_mode_entry_default">Domyślny</string>
@@ -1410,7 +1435,58 @@
     <!-- Shade style -->
     <string name="shade_color_style_title">Styl cieniowania</string>
     <string name="shade_color_style_summary">Wybierz wygląd paska powiadomień i ekranu blokady</string>
+    <string name="shade_color_style_summary_coloros">Zawsze czyść, gdy wybrany jest styl panelu szybkich ustawień ColorOS</string>
     <string name="shade_color_style_aosp">Standardowe kolory Androida</string>
     <string name="shade_color_style_glass">Przezroczysty, matowy panel, przez który widać tapetę</string>
     <string name="shade_color_style_tinted">Panel barwiony na wybrany kolor akcentu, z rozmyciem lub bez</string>
+    <!-- Device RKP (Duck) keybox generation in TrickyStore -->
+    <string name="ts_rkp_title">Ochrona jądra systemu urządzenia · Duck</string>
+    <string name="ts_rkp_enabled">Użyj ochrony jądra systemu urządzenia</string>
+    <string name="ts_rkp_enabled_summary">Autogenerowanie zestawu kluczy i odnawianie przed upływem terminu ważności.
+\nImport zestawu kluczy wyłącza tę opcję.</string>
+    <string name="ts_rkp_provision">Generuj zestaw kluczy</string>
+    <string name="ts_rkp_provision_summary">Zażądaj teraz wymiany lub ponów wstrzymane autoprzydzielanie. 
+\nWymagane jest zgodne oprogramowanie Qualcomm.</string>
+    <string name="ts_rkp_status">Stan dostarczania</string>
+    <string name="ts_rkp_owner_only">Zarządzaj ochroną jądra systemu urządzenia z profilu właściciela urządzenia</string>
+    <string name="ts_rkp_unavailable">Ochroną jądra systemu urządzenia jest niedostępna</string>
+    <string name="ts_rkp_imported">Wyłączone, gdy zainstalowany jest zaimportowany zestaw kluczy</string>
+    <string name="ts_rkp_disabled">Wyłączone. 
+\nWłącz ochronę jądra systemu urządzenia, aby autogenerować i odnawiać zestaw kluczy.</string>
+    <string name="ts_rkp_idle">Autogenerowanie jest zaplanowane</string>
+    <string name="ts_rkp_fetching">Pobieranie wyzwania dostarczania…</string>
+    <string name="ts_rkp_hardware">Oczekiwanie na usługę dostarczania urządzenia…</string>
+    <string name="ts_rkp_signing">Żądanie certyfikatów od Google…</string>
+    <string name="ts_rkp_validating">Sprawdzanie i zapisywanie zestawu kluczy…</string>
+    <string name="ts_rkp_ready">Wygenerowany zestaw kluczy jest aktywny. 
+\nWygasa %1$s. 
+\nAutoodnowienie zaplanowano na %2$s.</string>
+    <string name="ts_rkp_active_subtitle">Zestaw kluczy ochrony jądra systemu urządzenia jest aktywny</string>
+    <string name="ts_rkp_fetch_disabled">Wyłączone, gdy ochrona jądra systemu urządzenia jest włączona. 
+\nWyłącz, aby korzystać z zestawu kluczy z internetu.</string>
+    <string name="ts_rkp_expired">Wygenerowany zestaw kluczy wygasł. 
+\nAutowymiana nastąpi po nawiązaniu połączenia.</string>
+    <string name="ts_rkp_hal_rejected">Oprogramowanie odrzuciło żądanie (kod %1$d). 
+\nŻadna zgodna metoda dostarczania nie powiodła się.</string>
+    <string name="ts_rkp_http_error">Serwer dostarczający odrzucił żądanie (HTTP %1$d)</string>
+    <string name="ts_rkp_unsupported">Urządzenie nie udostępnia zgodnego interfejsu dostarczającego</string>
+    <string name="ts_rkp_network_error">Nie można nawiązać połączenia z serwerem dostarczającym. 
+\nSprawdź połączenie.</string>
+    <string name="ts_rkp_submission_unknown">Odpowiedź serwera została utracona. 
+\nŻądanie mogło zostać przetworzone, nie wykonano automatycznej próby ponownego przesłania.</string>
+    <string name="ts_rkp_invalid_chain">Certyfikaty zestawu kluczy nie przeszły weryfikacji. Istniejący zestaw kluczy został zachowany.</string>
+    <string name="ts_rkp_timeout">Przekroczono limit czasu dostarczania. 
+\nJeśli usługa urządzenia jest nadal zajęta, zrestartuj urządzenie przed ponowną próbą.</string>
+    <string name="ts_rkp_canceled">Żądanie anulowane z powodu zmiany konfiguracji zestawu kluczy</string>
+    <string name="ts_rkp_save_failed">Nie udało się zapisać wygenerowanego zestawu kluczy</string>
+    <string name="ts_rkp_action_failed">Nie udało się dokończyć operacji zestawu kluczy</string>
+    <string name="ts_rkp_waiting_network">Oczekiwanie na połączenie internetowe w celu wygenerowania lub odnowienia zestawu kluczy</string>
+    <string name="ts_rkp_auto_paused">%1$s autodostarczanie jest wstrzymane. 
+\nUżyj opcji Generuj zestaw kluczy, aby spróbować ponownie.</string>
+    <string name="ts_rkp_auto_retry">%1$s Następna automatyczna próba: %2$s.</string>
+    <string name="ts_rkp_native_unavailable">Natywny pomocnik dostarczania jest niedostępny lub niezgodny z tym oprogramowaniem</string>
+    <string name="ts_rkp_native_transport">Usługa natywnego dostarczania została nieoczekiwanie zatrzymana.
+\nAutodostarczanie jest wstrzymane.</string>
+    <string name="ts_rkp_invalid_response">Urządzenie zwróciło nieprawidłową odpowiedź dotyczącą dostarczania.
+\nIstniejący zestaw kluczy został zachowany.</string>
 </resources>

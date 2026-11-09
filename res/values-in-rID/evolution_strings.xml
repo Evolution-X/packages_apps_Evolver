@@ -46,9 +46,13 @@
     <string name="themes_navigation_bar_icons_summary">Atur gaya ikon bilah navigasi</string>
     <string name="themes_udfps_icon_title">Ikon Sidik Jari Dalam Layar</string>
     <string name="themes_udfps_icon_summary">Setel gaya ikon Sidik Jari Dalam Layar</string>
-    <string name="themes_screen_off_animation_title">Animasi layar mati</string>
-    <string name="themes_screen_off_animation_crt">CRT</string>
-    <string name="themes_screen_off_animation_scale">Skala</string>
+    <string name="screen_off_animation_title">Animasi layar mati</string>
+    <string name="screen_off_animation_colorfade">Warna Pudar</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Skala</string>
+    <string name="screen_off_animation_iris">Iris</string>
+    <string name="screen_off_animation_desaturate">Desaturasi</string>
+    <string name="screen_off_animation_shutter">Jepret</string>
     <string name="themes_udfps_animation_title">Animasi Sidik Jari</string>
     <string name="themes_udfps_animation_summary">Setel gaya animasi Sidik Jari Dalam Layar</string>
     <!-- Themes/Boot animation -->
