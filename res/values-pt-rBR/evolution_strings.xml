@@ -103,9 +103,9 @@
     <string name="hue_shift_desc">Rotacionar o matiz da cor de origem. Produz matizes adjacentes harmoniosos sem alterar manualmente a cor de origem.</string>
     <!-- Tone shifts -->
     <string name="tone_shift_light_title">Viés de luminosidade (modo claro)</string>
-    <string name="tone_shift_light_desc">Muda todas as cores do modo claro para mais claras (+) ou mais escuras (-), independentemente do contraste.</string>
+    <string name="tone_shift_light_desc">Mudar todas as cores do modo claro para mais claras (+) ou mais escuras (-), independentemente do contraste.</string>
     <string name="tone_shift_dark_title">Viés de luminosidade (modo escuro)</string>
-    <string name="tone_shift_dark_desc">Muda todas as cores do modo escuro para mais claro (+) ou mais escuro (-) independentemente do contraste.</string>
+    <string name="tone_shift_dark_desc">Mudar todas as cores do modo escuro para mais claras (+) ou mais escuras (-) independentemente do contraste.</string>
     <!-- Secondary seed -->
     <string name="secondary_seed_category">Cor de origem secundária</string>
     <string name="use_secondary_seed_title">Usar cor de origem secundária</string>
@@ -158,7 +158,7 @@
     <string name="pulse_capture_mode_fft">FFT (Frequência)</string>
     <string name="pulse_capture_mode_amplitude">Amplitude (forma de onda)</string>
     <string name="pulse_show_on_ambient_title">Mostrar na tela ambiente</string>
-    <string name="pulse_show_on_ambient_summary">Mostra o visualizador na tela sempre ativa e na tela ambiente. Desative para mostrar apenas na tela de bloqueio.</string>
+    <string name="pulse_show_on_ambient_summary">Mostrar o visualizador na tela sempre ativa e na tela ambiente. Desative para mostrar apenas na tela de bloqueio.</string>
     <string name="pulse_show_on_ambient_disabled_player">O visualizador não está disponível para a tela ambiente quando o plano de fundo do reprodutor de mídia está ativado</string>
     <string name="pulse_show_on_media_player_title">Mostrar no plano de fundo do reprodutor de mídia</string>
     <string name="pulse_show_on_media_player_summary">Mostrar visualizador no fundo do reprodutor de mídia na tela de bloqueio e nas configurações rápidas</string>
@@ -425,7 +425,7 @@
     <string name="status_bar_clock_auto_hide_title">Ocultar automaticamente</string>
     <string name="status_bar_clock_auto_hide_summary">Ocultar o relógio quando o launcher estiver visível</string>
     <string name="status_bar_am_pm_title">Estilo AM/PM</string>
-    <string name="status_bar_am_pm_info">Relógio 24 horas ativado</string>
+    <string name="status_bar_am_pm_info">Relógio de 24 horas ativado</string>
     <string name="status_bar_am_pm_normal">Normal</string>
     <string name="status_bar_am_pm_small">Pequeno</string>
     <string name="status_bar_am_pm_hidden">Oculto</string>
@@ -580,7 +580,7 @@
     <string name="dynamic_bar_event_clipboard">Área de transferência</string>
     <string name="dynamic_bar_event_clipboard_summary">Texto copiado e pré-visualização da imagem</string>
     <string name="dynamic_bar_event_torch">Lanterna</string>
-    <string name="dynamic_bar_event_torch_summary">Ligar/desligar lanterna e brilho</string>
+    <string name="dynamic_bar_event_torch_summary">Ligar/desligar a lanterna e o brilho</string>
     <string name="dynamic_bar_event_ongoing">Atividades em andamento</string>
     <string name="dynamic_bar_event_ongoing_summary">Navegação, entregas e outras atividades ao vivo</string>
     <string name="dynamic_bar_event_sports">Esportes</string>
@@ -872,7 +872,7 @@
     <string name="essential_notifications_summary">Escolher apps que sempre aparecem no painel de notificações</string>
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">Iluminação nas bordas da tela</string>
-    <string name="edge_light_summary">Ilumina as bordas da tela no pulso de notificação</string>
+    <string name="edge_light_summary">Iluminar as bordas da tela no pulso de notificação</string>
     <string name="edge_light_color_mode_title">Modo de cor</string>
     <string name="edge_light_pulse_count_title">Contagem de pulso</string>
     <string name="edge_light_pulse_count_summary">Número de pulsos para a luz de borda</string>
@@ -923,9 +923,9 @@
     <string name="miscellaneous_ignore_window_secure_title">Ignorar sinalizadores de janela segura</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remover restrições de captura e gravação de tela de todos os apps. Pode expor conteúdo privado</string>
     <string name="miscellaneous_screenshot_flash_title">Mostrar flash de captura</string>
-    <string name="miscellaneous_screenshot_flash_summary">Piscar ligeiramente a tela quando uma captura de tela for feita</string>
+    <string name="miscellaneous_screenshot_flash_summary">Piscar levemente a tela quando uma captura de tela for feita</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Gravação de tela ilimitada</string>
-    <string name="miscellaneous_unlimit_screenrecord_summary">Remove o limite de tamanho de arquivo de 15 GiB. Pode resultar em um arquivo de saída maior do que o necessário</string>
+    <string name="miscellaneous_unlimit_screenrecord_summary">Remover o limite de tamanho de arquivo de 15 GiB. Pode resultar em um arquivo de saída maior do que o necessário</string>
     <string name="disable_flash_sms_title">Desativar o SMS flash</string>
     <string name="disable_flash_sms_summary">Converter mensagens flash de tela cheia em notificações padrão.</string>
     <string name="common_clear_search">Limpar pesquisa</string>
@@ -1009,10 +1009,12 @@
     <string name="pif_wipe_playstore_title">Limpar dados da Play Store?</string>
     <string name="pif_wipe_playstore_message">Aplicar este fingerprint funciona melhor com uma sessão nova da Play Store. Deseja limpar os dados do app Play Store agora? Isso desconectará sua conta e limpará o cache local e a fila de downloads.</string>
     <string name="pif_wipe_confirm">Limpar dados</string>
+    <string name="spoof_choice_select">Selecionar</string>
     <string name="pif_deleted">Excluído %s</string>
     <string name="pif_failed">Falha: %s</string>
     <string name="pif_select_device">Selecione o dispositivo</string>
     <string name="pif_recommended_suffix">Recomendado</string>
+    <string name="pif_device_suggested">%1$s · Sugerido</string>
     <string name="pif_footer_body">O fingerprint do Canary é verificado no máximo uma vez por dia e substituído automaticamente quando faltam cerca de duas semanas para expirar. As configurações do Canary expiram aproximadamente 6 semanas após a data de lançamento; a data de expiração é mostrada no resumo da configuração ativa.\n\nPara configuração manual:\n1. Toque em \"Obter fingerprint do Pixel Canary\" e selecione um dispositivo.\n2. Se nenhum dispositivo for encontrado, importe uma configuração PIF funcional de uma fonte confiável. Arquivos de configuração não são fornecidos.\n3. Verifique novamente o status do Play Integrity.\n\nSempre exclua a configuração ativa antes de importar uma nova. Carregar uma configuração PIF expirada fará com que a integridade forte (strong integrity) do TrickyStore falhe, mesmo com uma keybox válida.\n\nFalsificação avançada:\n• Falsificação de fingerprint na Play Store — mantenha desativado, a menos que seja instruído de outra forma. A falsificação do fingerprint na Play Store raramente é necessária e pode causar problemas.\n• Falsificação de SDK para a Play Store — apresenta o SDK 32 à Play Store para forçar o caminho de verificação legado (anterior ao Android 13). Isso pode afetar o comportamento da Play Store, portanto, mantenha desativado, a menos que esteja realizando testes.\n• Falsificação de campos de build e propriedades do sistema — mantenha ativado. Eles apresentam o fingerprint ao DroidGuard.\n• Falsificação do provedor de keystore — mantenha desativado quando uma keybox estiver em uso, pois isso contorna a atestação da keybox.\n• Falsificação de assinatura da ROM — experimental.</string>
     <string name="pif_invalid_fingerprint">Formato de fingerprint inválido</string>
     <string name="pif_no_devices_found">Nenhum dispositivo encontrado</string>
@@ -1026,7 +1028,7 @@
     <string name="pif_spoof_props_title">Falsificar propriedades do sistema</string>
     <string name="pif_spoof_props_summary">Fornecer ao DroidGuard o ID de compilação, patch de segurança, nível de API e identidade do produto do fingerprint</string>
     <string name="pif_spoof_provider_title">Falsificar provedor de keystore</string>
-    <string name="pif_spoof_provider_summary">Faz a solicitação da cadeia de certificados do DroidGuard falhar. Isso ignora a atestação de keybox; portanto, mantenha essa opção desativada quando uma keybox estiver em uso</string>
+    <string name="pif_spoof_provider_summary">Fazer a solicitação da cadeia de certificados do DroidGuard falhar. Isso ignora a atestação de keybox; portanto, mantenha essa opção desativada quando uma keybox estiver em uso</string>
     <string name="pif_spoof_signature_title">Falsificar assinatura da ROM</string>
     <string name="pif_spoof_signature_summary">Experimental. Contorna o bloqueio de ROM com chaves de teste (test-key) do DroidGuard</string>
     <string name="pif_reset_advanced_title">Redefinir falsificação avançada</string>
@@ -1178,7 +1180,7 @@
     <string name="lock_glymps_timer_interval_title">Intervalo do temporizador</string>
     <string name="lock_glymps_timer_interval_summary">Com que frequência alterar o papel de parede automaticamente</string>
     <string name="lock_glymps_footer_title">Informação</string>
-    <string name="lock_glymps_footer_text">📁 Pasta local: /sdcard/Glymps\n\n⚠ Dispositivos de baixo custo podem apresentar um ligeiro atraso.\n\n🎨 Dica: use um destaque personalizado nas configurações do Monet para obter cores estáveis.</string>
+    <string name="lock_glymps_footer_text">📁 Pasta local: /sdcard/Glymps\n\n⚠ Dispositivos de baixo custo podem apresentar um leve atraso.\n\n🎨 Dica: use um destaque personalizado nas configurações do Monet para obter cores estáveis.</string>
     <string name="lock_glymps_preview_title">Pré-visualização do papel de parede</string>
     <string name="lock_glymps_preview_summary">Tela de bloqueio atual e papéis de parede de tela inicial</string>
     <string name="lock_glymps_lock_screen">Tela de bloqueio</string>
@@ -1309,7 +1311,7 @@
     <string name="hardware_keys_action_split_screen">Dividir a tela</string>
     <string name="hardware_keys_action_close_app">Encerrar app</string>
     <string name="hardware_keys_action_play_pause_music">Reproduzir/pausar música</string>
-    <string name="hardware_keys_action_torch">Ligar/desligar lanterna</string>
+    <string name="hardware_keys_action_torch">Ligar/desligar a lanterna</string>
     <string name="hardware_keys_action_screenshot">Tirar uma captura de tela</string>
     <string name="hardware_keys_action_partial_screenshot">Captura parcial da tela</string>
     <string name="hardware_keys_action_volume_panel">Alternar painel de volume</string>
