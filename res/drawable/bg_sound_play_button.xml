@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!-- 40dp tonal circle inside a 48dp touch target. The button is filled
+     with primary on the selected row, which is already a secondary
+     container. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:inset="4dp">
+    <ripple android:color="?android:attr/colorControlHighlight">
+        <item>
+            <selector>
+                <item android:state_activated="true">
+                    <shape android:shape="oval">
+                        <solid android:color="@color/settingslib_materialColorPrimary" />
+                    </shape>
+                </item>
+                <item>
+                    <shape android:shape="oval">
+                        <solid android:color="@color/settingslib_materialColorSecondaryContainer" />
+                    </shape>
+                </item>
+            </selector>
+        </item>
+        <item android:id="@android:id/mask">
+            <shape android:shape="oval">
+                <solid android:color="@android:color/white" />
+            </shape>
+        </item>
+    </ripple>
+</inset>

@@ -42,6 +42,7 @@
 
                 <TextView
                     android:id="@+id/changelog_text"
+                    android:textAppearance="@style/TextAppearance.SettingsLib.BodyMedium"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:padding="6dp"/>

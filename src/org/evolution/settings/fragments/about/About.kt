@@ -12,15 +12,20 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import androidx.preference.Preference
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.deviceinfo.DeviceNameUtils
+import com.android.settings.deviceinfo.firmwareversion.EvolutionLogoAnimator
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.search.SearchIndexable
+import com.android.settingslib.widget.LayoutPreference
 
+import org.evolution.settings.preferences.PickerOption
+import org.evolution.settings.preferences.showPickerDialog
 import org.evolution.settings.utils.HttpCachePrefs
 import org.evolution.settings.utils.NetworkUtils
 import org.evolution.settings.utils.UrlUtils
@@ -28,6 +33,7 @@ import org.evolution.settings.utils.UrlUtils
 import org.json.JSONArray
 import org.json.JSONObject
 
+import java.util.Calendar
 import java.util.Collections
 import java.util.LinkedHashMap
 import java.util.LinkedHashSet
@@ -53,6 +59,10 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         // who already has a CNB entry is never shadowed by a bka/vic entry for the
         // same key, even if that lower-priority entry covers different devices.
         private val OTA_BRANCHES = listOf("cnb", "bka", "vic")
+
+        // A maintainer is listed only if at least one of their devices has an
+        // OTA build whose "timestamp" falls inside this many months.
+        private const val ACTIVE_BUILD_WINDOW_MONTHS = 3
 
         private const val PREFS_NAME = "about_ota_maintainers_cache"
         private const val PREF_ENTRIES_JSON = "entries_json"
@@ -84,6 +94,10 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.evolution_settings_about)
+
+        findPreference<LayoutPreference>("evolution_logo")
+            ?.findViewById<View>(R.id.evolution_logo_container)
+            ?.let { EvolutionLogoAnimator.bind(it) }
 
         mPrefs = requireContext().getSharedPreferences(PREFS_NAME, android.content.Context.MODE_PRIVATE)
         mTreeCaches = OTA_BRANCHES.associateWith { branch ->
@@ -158,6 +172,10 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         if (hasCache && !anyStale && !notifySheet) return
 
         mExecutor.execute {
+            // No usable cache (first run, old cache format, or every cached entry
+            // aged out of the active window): drop the conditional headers so a
+            // 304 can't leave us with an empty list.
+            if (!hasCache) mTreeCaches.values.forEach { it.invalidate() }
             val result = fetchMaintainersFromOtaWithConditionalTree()
             if (result == null) {
                 mTreeCaches.values.forEach { it.touchLastCheck() }
@@ -205,7 +223,6 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
     private fun setupTeamMemberPreferences(githubToPaypal: Map<String, String>) {
         val hardcodedDonate = mapOf(
             "joeyhuab"      to "https://linktr.ee/joeyhuab",
-            "anierinbliss"  to "https://www.paypal.me/AnierinB",
             "realakito"     to "https://t.me/RealAkito",
             "aidanwarner97" to "https://linktr.ee/aidanlw",
             "apelete"       to "https://www.linkedin.com/posts/apelete_evolutionx-activity-7429791532091797504-ND3i",
@@ -252,16 +269,14 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
     private fun showMaintainerLinkDialog(name: String, githubUrl: String, donateUrl: String) {
         if (!isUiSafe()) return
-        val items = arrayOf<CharSequence>(
-            getString(R.string.maintainer_link_github),
-            getString(R.string.maintainer_link_donate),
+        val options = listOf(
+            PickerOption(getString(R.string.maintainer_link_github)),
+            PickerOption(getString(R.string.maintainer_link_donate)),
         )
-        android.app.AlertDialog.Builder(requireContext())
-            .setTitle(name)
-            .setItems(items) { _, which ->
-                if (which == 0) openUrl(githubUrl) else openUrl(donateUrl)
-            }
-            .show()
+        requireContext().showPickerDialog(name, options, selectedIndex = -1) { which ->
+            openUrl(if (which == 0) githubUrl else donateUrl)
+            true
+        }
     }
 
     private fun openUrl(url: String) {
@@ -296,10 +311,11 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         val githubToPaypal = LinkedHashMap<String, String>()
         var anyBranchSucceeded = false
         var allBranchesNotModified = true
+        val cutoffSec = activeCutoffSeconds()
 
         for (branch in OTA_BRANCHES) {
             val branchCache = mTreeCaches.getValue(branch)
-            val branchResult = fetchBranchTree(branch, branchCache) ?: continue
+            val branchResult = fetchBranchTree(branch, branchCache, cutoffSec) ?: continue
 
             anyBranchSucceeded = true
             branchEtags[branch] = branchResult.treeEtag
@@ -331,7 +347,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
             val forumUrls = sortedEntries
                 .filter { it.forumUrl != null }
                 .map { it.label to it.forumUrl!! }
-            result.add(MaintainerInfo(m.maintainer, summary, m.github, donateUrl, clickUrl, forumUrls))
+            result.add(MaintainerInfo(m.maintainer, summary, m.github, donateUrl, clickUrl, forumUrls, m.newestBuildTs))
         }
         result.sortWith(Comparator.comparing { it.maintainer.lowercase(Locale.ROOT) })
 
@@ -344,7 +360,11 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
      * an empty or all-unmaintained tree still returns a (possibly empty)
      * successful result so its ETag is recorded and it isn't retried every load.
      */
-    private fun fetchBranchTree(branch: String, branchCache: HttpCachePrefs): BranchFetchResult? {
+    private fun fetchBranchTree(
+        branch: String,
+        branchCache: HttpCachePrefs,
+        cutoffSec: Long,
+    ): BranchFetchResult? {
         return try {
             val treeApi = String.format(OTA_TREE_API_TEMPLATE, branch)
             val rawBase = String.format(OTA_RAW_BASE_TEMPLATE, branch)
@@ -417,11 +437,18 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                     }
                     val forumLink = if (UrlUtils.isValidHttpUrl(forum)) forum else null
                     bucket.deviceEntries.add(DeviceEntry(deviceLabel, forumLink))
+                    val buildTs = entry.optLong("timestamp", 0L)
+                    if (buildTs > bucket.newestBuildTs) bucket.newestBuildTs = buildTs
 
                 } catch (e: Exception) {
                     Log.d(TAG, "Failed parsing OTA JSON: $branch/$path", e)
                 }
             }
+
+            // Drop maintainers with no build inside the active window. Doing this
+            // per branch (before the cross-branch merge) means a maintainer whose
+            // cnb builds are all stale can still be picked up from bka/vic.
+            aggregate.entries.removeAll { it.value.newestBuildTs < cutoffSec }
 
             BranchFetchResult(aggregate, r.etag, r.lastModified)
 
@@ -438,6 +465,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
     private fun readCachedMaintainers(): List<MaintainerInfo> {
         val json = UrlUtils.trimToEmpty(mPrefs.getString(PREF_ENTRIES_JSON, ""))
         if (json.isEmpty()) return emptyList()
+        val cutoffSec = activeCutoffSeconds()
         return try {
             val arr = JSONArray(json)
             val list = mutableListOf<MaintainerInfo>()
@@ -449,6 +477,10 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                 val clickUrl   = UrlUtils.trimToEmpty(obj.optString("click_url", ""))
                 if (maintainer.isEmpty()) continue
                 if (summary.isEmpty() && clickUrl.isEmpty()) continue
+                // Re-apply the window on read: the tree ETag may not change for a
+                // long time, so an entry cached earlier can age out on its own.
+                val newestBuildTs = obj.optLong("newest_build_ts", 0L)
+                if (newestBuildTs < cutoffSec) continue
                 val cachedDonate = if (clickUrl.contains("github.com")) null else clickUrl.ifEmpty { null }
                 val forumsArr = obj.optJSONArray("forum_urls")
                 val cachedForumUrls = mutableListOf<Pair<String, String>>()
@@ -462,7 +494,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                         }
                     }
                 }
-                list.add(MaintainerInfo(maintainer, summary, github, cachedDonate, clickUrl, cachedForumUrls))
+                list.add(MaintainerInfo(maintainer, summary, github, cachedDonate, clickUrl, cachedForumUrls, newestBuildTs))
             }
             list
         } catch (e: Exception) {
@@ -484,6 +516,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
                 obj.put("summary",    info.summary)
                 obj.put("github",     info.github)
                 obj.put("click_url",  info.clickUrl ?: "")
+                obj.put("newest_build_ts", info.newestBuildTs)
                 val forumsArr = JSONArray()
                 for ((label, url) in info.forumUrls) {
                     val fo = JSONObject()
@@ -542,6 +575,11 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
 
     private fun isUiSafe() = !mDestroyed && isAdded && context != null
 
+    /** Unix seconds (same unit as the OTA "timestamp" field) of the active-window start. */
+    private fun activeCutoffSeconds(): Long =
+        Calendar.getInstance().apply { add(Calendar.MONTH, -ACTIVE_BUILD_WINDOW_MONTHS) }
+            .timeInMillis / 1000L
+
     private fun formatDeviceLabel(oem: String, device: String): String {
         val clean = UrlUtils.trimToEmpty(device)
         if (clean.isEmpty()) return ""
@@ -566,6 +604,9 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         var paypal: String,
         val deviceEntries: LinkedHashSet<DeviceEntry> = LinkedHashSet(),
     ) {
+        /** Newest OTA "timestamp" (unix seconds) across this maintainer's devices. */
+        var newestBuildTs: Long = 0L
+
         init {
             paypal = if (UrlUtils.isValidHttpUrl(paypal)) paypal else ""
         }
@@ -578,6 +619,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListene
         val donateUrl: String?,
         val clickUrl: String?,
         val forumUrls: List<Pair<String, String>>,
+        val newestBuildTs: Long,
     )
 
     private data class BranchFetchResult(

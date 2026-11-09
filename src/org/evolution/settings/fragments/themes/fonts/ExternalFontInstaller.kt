@@ -17,11 +17,8 @@ package org.evolution.settings.fragments.themes.fonts
 
 import android.content.Context
 import android.graphics.Typeface
-import android.graphics.fonts.FontFamilyUpdateRequest
-import android.graphics.fonts.FontFileUpdateRequest
 import android.graphics.fonts.FontFileUtil
 import android.graphics.fonts.FontManager
-import android.graphics.fonts.FontStyle
 import android.net.Uri
 import android.os.ParcelFileDescriptor
 import android.os.ServiceManager
@@ -79,6 +76,17 @@ class ExternalFontInstaller(private val context: Context) {
         }.getOrNull()
     }
 
+    // The saved font is re-applied after every FontManager.clearUpdates(), so it lives in
+    // filesDir where the system can't purge it. Installs from before that were kept in
+    // cacheDir, so look there too.
+    private fun savedFontFile(): File? =
+        File(context.filesDir, CUSTOM_FONT_FILE).takeIf { it.isFile }
+            ?: File(context.cacheDir, CUSTOM_FONT_FILE).takeIf { it.isFile }
+
+    fun loadInstalledTypeface(): Typeface? = runCatching {
+        savedFontFile()?.let { Typeface.createFromFile(it) }
+    }.getOrNull()
+
     suspend fun installFontFromUri(uri: Uri): String? {
         val fontFile = copyUriToCache(uri, CUSTOM_FONT_FILE) ?: run {
             showToast(R.string.toast_failed_apply_font)
@@ -91,11 +99,19 @@ class ExternalFontInstaller(private val context: Context) {
             return null
         }
 
-        if (!applyFontToSystem(fontFile, postScriptName)) {
+        withContext(Dispatchers.IO) { dropLegacyCustomFont() }
+
+        if (!applyFontToSystem(fontFile)) {
             fontFile.delete()
             return null
         }
 
+        withContext(Dispatchers.IO) {
+            runCatching {
+                fontFile.copyTo(File(context.filesDir, CUSTOM_FONT_FILE), overwrite = true)
+                fontFile.delete()
+            }.onFailure { Log.e(TAG, "Failed to keep the custom font in filesDir", it) }
+        }
         updateThemeOverlays()
         cleanupPreviewFont()
         return postScriptName
@@ -161,32 +177,13 @@ class ExternalFontInstaller(private val context: Context) {
         Log.e(TAG, "Failed to inspect font file", it)
     }.getOrNull()
 
-    private fun applyFontToSystem(fontFile: File, postScriptName: String): Boolean {
+    private fun applyFontToSystem(fontFile: File): Boolean {
         return runCatching {
-            val pfd = ParcelFileDescriptor.open(fontFile, ParcelFileDescriptor.MODE_READ_ONLY)
-            val fontFileUpdateRequest = FontFileUpdateRequest(pfd, ByteArray(0))
-
-            val fontRegular = FontFamilyUpdateRequest.Font.Builder(
-                postScriptName,
-                FontStyle()
-            ).build()
-
-            val familyRegular = FontFamilyUpdateRequest.FontFamily.Builder(
-                DEFAULT_FONT_FAMILY,
-                listOf(fontRegular)
-            ).build()
-
-            val updateRequest = FontFamilyUpdateRequest.Builder()
-                .addFontFileUpdateRequest(fontFileUpdateRequest)
-                .addFontFamily(familyRegular)
-                .build()
-
-            val result = fontManager.updateFontFamily(
-                updateRequest,
-                fontManager.fontConfig.configVersion
-            )
+            val result = ParcelFileDescriptor.open(fontFile, ParcelFileDescriptor.MODE_READ_ONLY)
+                .use { fontManager.installCustomFont(it) }
 
             if (result != FontManager.RESULT_SUCCESS) {
+                Log.e(TAG, "installCustomFont failed with result $result")
                 showToast(R.string.toast_failed_apply_font)
                 false
             } else true
@@ -194,6 +191,32 @@ class ExternalFontInstaller(private val context: Context) {
             Log.e(TAG, "Failed to update system font", it)
             false
         }
+    }
+
+    /**
+     * Custom fonts used to be installed as a replacement of the [DEFAULT_FONT_FAMILY] family.
+     * That family is merged after the font from [FontManager.installCustomFont] and would keep
+     * winning, so such an install is dropped before the new one goes in. The emoji font goes
+     * down with it and is put back. Blocking.
+     */
+    private fun dropLegacyCustomFont() {
+        val saved = Settings.Secure.getString(context.contentResolver, "custom_font_name")
+        if (saved.isNullOrEmpty() || fontManager.customFontName != null) return
+        runCatching { fontManager.clearUpdates() }
+            .onFailure { Log.e(TAG, "Failed to clear the legacy custom font", it) }
+        ExternalEmojiInstaller(context).reinstallSaved()
+    }
+
+    /**
+     * Re-applies the saved custom text font. Used after [FontManager.clearUpdates], which also
+     * drops it. Blocking; call off the main thread.
+     */
+    fun reinstallSavedFont(): Boolean {
+        val name = Settings.Secure.getString(context.contentResolver, "custom_font_name")
+        if (name.isNullOrEmpty()) return false
+        val fontFile = savedFontFile() ?: return false
+        if (extractPostScriptName(fontFile) == null) return false
+        return applyFontToSystem(fontFile)
     }
 
     private fun updateThemeOverlays() {
@@ -228,6 +251,8 @@ class ExternalFontInstaller(private val context: Context) {
 
     fun resetFontUpdates() {
         fontManager.clearUpdates()
+        // clearUpdates() drops the custom emoji font too; put it back.
+        ExternalEmojiInstaller(context).reinstallSaved()
         ThemeUtils.getInstance(context).setOverlayEnabled(
             OVERLAY_CATEGORY_FONT, DEFAULT_FONT_PACKAGE, DEFAULT_FONT_PACKAGE
         )

@@ -9,18 +9,13 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
-    <style name="op_control_text_style_body1" parent="@style/op_control_text_style_base">
-        <item name="android:textSize">13.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
-    </style>
-    
     <style name="op_control_text_style_h6" parent="@style/op_control_text_style_base">
         <item name="android:textSize">18.0sp</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:elevation">0dp</item>
     </style>
 
-    <style name="OptionTitleTextAppearance" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+    <style name="OptionTitleTextAppearance" parent="@style/TextAppearance.SettingsLib.LabelMedium">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">15sp</item>
         <item name="android:lineHeight">15sp</item>

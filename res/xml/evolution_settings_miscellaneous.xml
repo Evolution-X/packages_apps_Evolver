@@ -25,7 +25,7 @@
         android:title="@string/gestures_category_title">
 
         <!-- Three fingers swipe action -->
-        <ListPreference
+        <org.evolution.settings.preferences.PickerListPreference
             android:key="three_fingers_swipe"
             android:dialogTitle="@string/three_fingers_swipe_title"
             android:title="@string/three_fingers_swipe_title"
@@ -39,7 +39,7 @@
             android:summary="@string/shake_gestures_enabled_summary"
             android:defaultValue="false" />
 
-        <lineageos.preference.LineageSystemSettingListPreference
+        <org.evolution.settings.preferences.LineageSystemSettingPickerListPreference
             android:key="shake_gestures_action"
             android:title="@string/shake_gestures_action_title"
             android:summary="%s"
@@ -60,7 +60,7 @@
             android:min="1" />
 
         <!-- Flashlight on call -->
-        <!--<org.evolution.settings.preferences.SystemSettingListPreference
+        <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="flashlight_on_call"
             android:title="@string/flashlight_on_call_title"
             android:entries="@array/flashlight_on_call_entries"
@@ -79,7 +79,7 @@
             android:defaultValue="1"
             android:max="5"
             settings:min="1"
-            settings:units="@string/unit_hz" />-->
+            settings:units="@string/unit_hz" />
 
     </PreferenceCategory>
 
@@ -103,13 +103,13 @@
             android:key="notification_bubble_apps"
             android:title="@string/notification_bubble_apps_title"
             android:summary="@string/notification_bubble_apps_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="disable_flash_sms"
             android:title="@string/disable_flash_sms_title"
             android:summary="@string/disable_flash_sms_summary"
-            android:defaultValue="false"/>-->
+            android:defaultValue="false"/>
 
         <org.evolution.settings.preferences.SecureSettingPrimarySwitchPreference
             android:key="smart_pixel_filter_enabled"
@@ -123,6 +123,12 @@
             android:title="@string/screenshot_clipboard_only_title"
             android:summary="@string/screenshot_clipboard_only_summary"
             android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="show_clipboard_overlay"
+            android:title="@string/show_clipboard_overlay_title"
+            android:summary="@string/show_clipboard_overlay_summary"
+            android:defaultValue="true" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="hide_status_bar_in_screenshot"
@@ -185,15 +191,9 @@
             android:defaultValue="false" />
 
         <org.evolution.settings.preferences.GlobalSettingSwitchPreference
-            android:key="window_block_screenshot_detection"
-            android:title="@string/miscellaneous_block_screenshot_detection_title"
-            android:summary="@string/miscellaneous_block_screenshot_detection_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
-            android:key="window_block_screenrecord_detection"
-            android:title="@string/miscellaneous_block_screenrecord_detection_title"
-            android:summary="@string/miscellaneous_block_screenrecord_detection_summary"
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_status_title"
+            android:summary="@string/hide_screen_capture_status_summary"
             android:defaultValue="false" />
 
     </PreferenceCategory>

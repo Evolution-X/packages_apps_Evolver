@@ -19,7 +19,6 @@ package org.evolution.settings.fragments.themes
 import android.graphics.Color
 import android.os.Bundle
 import android.provider.Settings
-import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.SwitchPreferenceCompat
@@ -28,6 +27,7 @@ import com.android.settings.SettingsPreferenceFragment
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import org.json.JSONObject
 import org.evolution.settings.preferences.CustomSeekBarPreference
+import org.evolution.settings.preferences.colorpicker.ColorPickerPreference
 import org.evolution.settings.utils.toArgb
 
 class ColorsSettingsFragment : SettingsPreferenceFragment(), 
@@ -41,15 +41,21 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
         private const val KEY_FIDELITY = "fidelity_enabled"
         private const val KEY_CONTRAST = "contrast_level"
         private const val KEY_CHROMA = "chroma_boost"
+        private const val KEY_USE_SECONDARY_SEED = "use_secondary_seed"
+        private const val KEY_SECONDARY_SEED_COLOR = "secondary_seed_color"
+        private const val DEFAULT_SEED_COLOR = "6750A4"
+        private const val DEFAULT_SECONDARY_SEED_COLOR = "FF5500"
     }
 
     private lateinit var useWallpaperColors: SwitchPreferenceCompat
-    private lateinit var seedColorPref: Preference
+    private lateinit var seedColorPref: ColorPickerPreference
     private lateinit var wallpaperSeedColorPref: Preference
     private lateinit var themeStyle: ListPreference
     private lateinit var fidelity: SwitchPreferenceCompat
     private var contrast: CustomSeekBarPreference? = null
     private var chroma: CustomSeekBarPreference? = null
+    private lateinit var useSecondarySeed: SwitchPreferenceCompat
+    private lateinit var secondarySeedColorPref: ColorPickerPreference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.monet_settings)
@@ -64,11 +70,8 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
 
         useWallpaperColors.onPreferenceChangeListener = this
         
-        seedColorPref.setOnPreferenceClickListener {
-            showColorPickerDialog()
-            true
-        }
-        
+        seedColorPref.onPreferenceChangeListener = this
+
         wallpaperSeedColorPref.setOnPreferenceClickListener {
             showWallpaperColorPickerDialog()
             true
@@ -79,9 +82,18 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
         contrast?.onPreferenceChangeListener = this
         chroma?.onPreferenceChangeListener = this
 
+        useSecondarySeed = findPreference(KEY_USE_SECONDARY_SEED)!!
+        secondarySeedColorPref = findPreference(KEY_SECONDARY_SEED_COLOR)!!
+
+        useSecondarySeed.onPreferenceChangeListener = this
+
+        secondarySeedColorPref.onPreferenceChangeListener = this
+
         loadCurrentSettings()
-        updateSeedColorSummary()
-        updateSeedColorDependency(useWallpaperColors.isChecked)
+        updateSeedColor()
+        updateSeedColorVisibility(useWallpaperColors.isChecked)
+        updateSecondarySeedColor()
+        updateSecondarySeedVisibility(useSecondarySeed.isChecked)
     }
 
     private fun loadCurrentSettings() {
@@ -107,6 +119,9 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
                 val chromaValue = json.optDouble("_chroma_boost", 0.0).toInt()
                 it.value = chromaValue
             }
+
+            val secondarySeedHex = json.optString("_secondary_seed_color", "")
+            useSecondarySeed.isChecked = secondarySeedHex.isNotEmpty()
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -117,7 +132,8 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
             KEY_USE_WALLPAPER -> {
                 val useWallpaper = newValue as Boolean
                 applyWallpaperColorsSetting(useWallpaper)
-                updateSeedColorDependency(useWallpaper)
+                updateSeedColor()
+                updateSeedColorVisibility(useWallpaper)
                 return true
             }
             KEY_THEME_STYLE -> {
@@ -136,32 +152,30 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
                 applyChromaBoost(newValue as Int)
                 return true
             }
+            KEY_USE_SECONDARY_SEED -> {
+                val useSecondary = newValue as Boolean
+                applyUseSecondarySeedSetting(useSecondary)
+                updateSecondarySeedVisibility(useSecondary)
+                return true
+            }
+            KEY_SEED_COLOR -> {
+                applySeedColor(newValue as Int)
+                return true
+            }
+            KEY_SECONDARY_SEED_COLOR -> {
+                applySecondarySeedColor(newValue as Int)
+                return true
+            }
         }
         return false
-    }
-
-    private fun showColorPickerDialog() {
-        try {
-            val json = getCurrentSettings()
-            val seedColorHex = json.optString("_base_seed_color", "6750A4")
-
-            val dialog = ColorPickerDialogFragment.newInstance(seedColorHex)
-            dialog.setOnColorSelectedListener { color ->
-                applySeedColor(color)
-                updateSeedColorSummary()
-            }
-            dialog.show(parentFragmentManager, ColorPickerDialogFragment.TAG)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
     }
 
     private fun showWallpaperColorPickerDialog() {
         try {
             val dialog = WallpaperColorPickerDialogFragment.newInstance()
             dialog.setOnColorSelectedListener { color ->
-                applySeedColor(color)
-                updateSeedColorSummary()
+                applySeedColor(color.toArgb())
+                updateSeedColor()
             }
             dialog.show(parentFragmentManager, WallpaperColorPickerDialogFragment.TAG)
         } catch (e: Exception) {
@@ -169,19 +183,49 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
         }
     }
 
-    private fun updateSeedColorSummary() {
-        try {
+    // Seed colors live in a JSON blob, so the prefs are non-persistent and are
+    // synced from it here without triggering the change listener.
+    private fun updateSeedColor() {
+        // system_palette is what SystemUI actually themes from and can be written
+        // without _base_seed_color (hardware defaults, Wallpaper & style), so it wins.
+        seedColorPref.setColor(
+            parseSeed(
+                DEFAULT_SEED_COLOR,
+                "android.theme.customization.system_palette",
+                "_base_seed_color"
+            )
+        )
+    }
+
+    private fun updateSecondarySeedColor() {
+        secondarySeedColorPref.setColor(
+            parseSeed(DEFAULT_SECONDARY_SEED_COLOR, "_secondary_seed_color")
+        )
+    }
+
+    private fun parseSeed(default: String, vararg jsonKeys: String): Int {
+        val stored = try {
             val json = getCurrentSettings()
-            val seedColor = json.optString("_base_seed_color", "6750A4")
-            seedColorPref.summary = "#${seedColor.uppercase().replace("#", "")}"
+            jsonKeys.firstNotNullOfOrNull { key -> json.optString(key, "").ifEmpty { null } } ?: ""
         } catch (e: Exception) {
-            seedColorPref.summary = "#6750A4"
+            ""
+        }
+        val hex = stored.ifEmpty { default }.removePrefix("#")
+        return try {
+            Color.parseColor("#$hex") or 0xFF000000.toInt()
+        } catch (e: Exception) {
+            Color.parseColor("#$default")
         }
     }
 
-    private fun updateSeedColorDependency(useWallpaper: Boolean) {
-        seedColorPref.isEnabled = !useWallpaper
-        wallpaperSeedColorPref.isEnabled = !useWallpaper
+    // Hide the custom seed color rows unless custom colors are in use.
+    private fun updateSeedColorVisibility(useWallpaper: Boolean) {
+        seedColorPref.isVisible = !useWallpaper
+        wallpaperSeedColorPref.isVisible = !useWallpaper
+    }
+
+    private fun updateSecondarySeedVisibility(useSecondary: Boolean) {
+        secondarySeedColorPref.isVisible = useSecondary
     }
 
     private fun getCurrentSettings(): JSONObject {
@@ -220,9 +264,19 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
             } else {
                 json.put("android.theme.customization.color_source", "preset")
                 if (!json.has("_base_seed_color")) {
-                    json.put("_base_seed_color", "6750A4")
-                    json.put("android.theme.customization.system_palette", "6750A4")
-                    json.put("android.theme.customization.accent_color", "6750A4")
+                    // Start from the color the wallpaper currently produces
+                    // instead of a hardcoded default.
+                    val hex = try {
+                        String.format(
+                            "%06X",
+                            0xFFFFFF and requireContext().getColor(android.R.color.system_accent1_500)
+                        )
+                    } catch (e: Exception) {
+                        "6750A4"
+                    }
+                    json.put("_base_seed_color", hex)
+                    json.put("android.theme.customization.system_palette", hex)
+                    json.put("android.theme.customization.accent_color", hex)
                 }
             }
             applySettings(json)
@@ -231,11 +285,10 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
         }
     }
 
-    private fun applySeedColor(color: ComposeColor) {
+    private fun applySeedColor(argb: Int) {
         try {
             val json = getCurrentSettings()
 
-            val argb = color.toArgb()
             val hexColor = String.format("%06X", 0xFFFFFF and argb)
 
             json.put("_base_seed_color", hexColor)
@@ -284,6 +337,39 @@ class ColorsSettingsFragment : SettingsPreferenceFragment(),
             val json = getCurrentSettings()
             json.put("_chroma_boost", value.toDouble())
             applySettings(json)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun applySecondarySeedColor(argb: Int) {
+        try {
+            val json = getCurrentSettings()
+
+            val hexColor = String.format("%06X", 0xFFFFFF and argb)
+
+            json.put("_secondary_seed_color", hexColor)
+            applySettings(json)
+
+            useSecondarySeed.isChecked = true
+            updateSecondarySeedVisibility(true)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun applyUseSecondarySeedSetting(enabled: Boolean) {
+        try {
+            val json = getCurrentSettings()
+            if (enabled) {
+                if (json.optString("_secondary_seed_color", "").isEmpty()) {
+                    json.put("_secondary_seed_color", DEFAULT_SECONDARY_SEED_COLOR)
+                }
+            } else {
+                json.put("_secondary_seed_color", "")
+            }
+            applySettings(json)
+            updateSecondarySeedColor()
         } catch (e: Exception) {
             e.printStackTrace()
         }

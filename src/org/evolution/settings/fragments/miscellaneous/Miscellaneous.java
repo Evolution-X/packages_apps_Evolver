@@ -21,13 +21,18 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.evolution.Utils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import java.util.List;
+
 import lineageos.providers.LineageSettings;
 
+import org.evolution.settings.preferences.CustomSeekBarPreference;
+import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.PreferenceUtils;
 
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
@@ -39,8 +44,14 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
     private static final String TAG = "Miscellaneous";
 
     private static final String KEY_THREE_FINGERS_SWIPE = "three_fingers_swipe";
+    private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
+    private static final String FLASHLIGHT_DND_PREF = "flashlight_on_call_ignore_dnd";
+    private static final String FLASHLIGHT_RATE_PREF = "flashlight_on_call_rate";
 
     private ListPreference mThreeFingersSwipeAction;
+    private ListPreference mFlashOnCall;
+    private SwitchPreferenceCompat mFlashOnCallIgnoreDND;
+    private CustomSeekBarPreference mFlashOnCallRate;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +67,27 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
                 LineageSettings.System.KEY_THREE_FINGERS_SWIPE_ACTION,
                 Action.NOTHING);
         mThreeFingersSwipeAction = initList(KEY_THREE_FINGERS_SWIPE, threeFingersSwipeAction);
+
+        if (!Utils.deviceHasFlashlight(mContext)) {
+            prefScreen.removePreference(prefScreen.findPreference(FLASHLIGHT_CALL_PREF));
+            prefScreen.removePreference(prefScreen.findPreference(FLASHLIGHT_DND_PREF));
+            prefScreen.removePreference(prefScreen.findPreference(FLASHLIGHT_RATE_PREF));
+        } else {
+            mFlashOnCall = (ListPreference)
+                    prefScreen.findPreference(FLASHLIGHT_CALL_PREF);
+            mFlashOnCall.setOnPreferenceChangeListener(this);
+
+            mFlashOnCallIgnoreDND = (SwitchPreferenceCompat)
+                    prefScreen.findPreference(FLASHLIGHT_DND_PREF);
+            int value = Settings.System.getInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL, 0);
+
+            mFlashOnCallRate = (CustomSeekBarPreference)
+                    prefScreen.findPreference(FLASHLIGHT_RATE_PREF);
+
+            mFlashOnCallIgnoreDND.setEnabled(value > 1);
+            mFlashOnCallRate.setEnabled(value > 0);
+        }
     }
 
     private ListPreference initList(String key, Action value) {
@@ -99,6 +131,11 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         if (preference == mThreeFingersSwipeAction) {
             return handleListChange((ListPreference) preference, newValue,
                     LineageSettings.System.KEY_THREE_FINGERS_SWIPE_ACTION);
+        } else if (preference == mFlashOnCall) {
+            int value = Integer.parseInt((String) newValue);
+            mFlashOnCallIgnoreDND.setEnabled(value > 1);
+            mFlashOnCallRate.setEnabled(value > 0);
+            return true;
         }
         return false;
     }
@@ -115,5 +152,20 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.evolution_settings_miscellaneous);
+            new BaseSearchIndexProvider(R.xml.evolution_settings_miscellaneous) {
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources res = context.getResources();
+
+                    if (!Utils.deviceHasFlashlight(context)) {
+                        keys.add(FLASHLIGHT_CALL_PREF);
+                        keys.add(FLASHLIGHT_DND_PREF);
+                        keys.add(FLASHLIGHT_RATE_PREF);
+                    }
+
+                    return keys;
+                }
+            };
 }

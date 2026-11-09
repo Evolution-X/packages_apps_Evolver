@@ -87,14 +87,14 @@
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="charging_show_on_lockscreen"
-            android:title="@string/nowplaying_show_on_lockscreen_title"
+            android:title="@string/charging_show_on_lockscreen_title"
             android:summary="@string/charging_show_on_lockscreen_summary"
             android:defaultValue="true"
             android:dependency="charging_animation_enabled" />
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="charging_show_on_aod"
-            android:title="@string/nowplaying_show_on_aod_title"
+            android:title="@string/charging_show_on_aod_title"
             android:summary="@string/charging_show_on_aod_summary"
             android:defaultValue="true"
             android:dependency="charging_animation_enabled" />

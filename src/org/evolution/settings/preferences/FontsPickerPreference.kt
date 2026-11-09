@@ -7,7 +7,6 @@ package org.evolution.settings.preferences
 
 import android.content.Context
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Typeface
 import android.net.Uri
@@ -16,31 +15,31 @@ import android.os.Looper
 import android.provider.Settings
 import android.util.AttributeSet
 import android.util.Log
-import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.FragmentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceManager
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.internal.util.evolution.ThemeUtils.FONT_KEY
 import com.android.settings.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.evolution.settings.fragments.miscellaneous.ExpressiveDialog
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTextButton
+import org.evolution.settings.fragments.miscellaneous.expressiveVerticalScroll
 import org.evolution.settings.fragments.themes.fonts.ExternalFontInstaller
 import org.evolution.settings.utils.SystemUtils
-import kotlin.math.min
 
 class FontsPickerPreference @JvmOverloads constructor(
     context: Context,
@@ -48,17 +47,26 @@ class FontsPickerPreference @JvmOverloads constructor(
     defStyleAttr: Int = androidx.preference.R.attr.preferenceStyle
 ) : Preference(context, attrs, defStyleAttr) {
 
-    private var dialog: AlertDialog? = null
-    private var recyclerView: RecyclerView? = null
+    private var dialog: ComposeDialogHandle? = null
+    private val mainHandler = Handler(Looper.getMainLooper())
 
     private val themeUtils = ThemeUtils.getInstance(context)
     private val pkgs: List<String> = themeUtils.getOverlayPackagesForCategory(CATEGORY, "android")
+        .let { all ->
+            val (default, rest) = all.partition { it == "android" }
+            default + rest.sortedBy { getLabelSafe(context, it).lowercase() }
+        }
 
     private var fontPickerLauncher: ActivityResultLauncher<Array<String>>? = null
     private var pendingCustomFontTypeface: Typeface? = null
     private var pendingCustomFontUri: Uri? = null
     private var customFontName: String = ""
     private var hasCustomFont: Boolean = false
+
+    private val customTypeface: Typeface by lazy {
+        ExternalFontInstaller(context).loadInstalledTypeface()
+            ?: Typeface.create(ExternalFontInstaller.DEFAULT_FONT_FAMILY, Typeface.NORMAL)
+    }
 
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
         super.onAttachedToHierarchy(preferenceManager)
@@ -77,7 +85,6 @@ class FontsPickerPreference @JvmOverloads constructor(
     override fun onDetached() {
         dialog?.dismiss()
         dialog = null
-        recyclerView = null
         fontPickerLauncher?.unregister()
         fontPickerLauncher = null
         super.onDetached()
@@ -85,83 +92,121 @@ class FontsPickerPreference @JvmOverloads constructor(
 
     override fun onClick() {
         val ctx = context
+        dialog?.dismiss()
 
-        val content = LayoutInflater.from(ctx).inflate(R.layout.selector_item_view, null)
-
-        recyclerView = content.findViewById<RecyclerView>(R.id.recycler_view).apply {
-            setHasFixedSize(true)
-
-            val isLandscape = ctx.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-            val span = if (isLandscape) 2 else 1
-            layoutManager = GridLayoutManager(ctx, span)
-            adapter = FontsAdapter(ctx, pkgs, themeUtils, hasCustomFont, customFontName)
-
-            post {
-                val fraction = if (isLandscape) 0.75f else 0.6f
-                val maxHeight = (ctx.resources.displayMetrics.heightPixels * fraction).toInt()
-                layoutParams.height = maxHeight
-                requestLayout()
+        // The custom font, when installed, is listed first and is the selected row.
+        val offset = if (hasCustomFont) 1 else 0
+        val current = if (hasCustomFont) CUSTOM_PKG_KEY else getAppliedPkg()
+        val options = buildList {
+            if (hasCustomFont) {
+                add(PickerOption(customFontName, labelFontFamily = { FontFamily(customTypeface) }))
+            }
+            pkgs.forEach { pkg ->
+                add(
+                    PickerOption(
+                        label = if (pkg == "android") "Default" else getLabelSafe(ctx, pkg),
+                        labelFontFamily = { getTypefaceSafe(ctx, pkg)?.let { FontFamily(it) } },
+                    )
+                )
             }
         }
-
-        dialog = AlertDialog.Builder(ctx)
-            .setTitle(title)
-            .setView(content)
-            .setNegativeButton(android.R.string.cancel, null)
-            .create()
-            .also { dlg ->
-                dlg.setOnDismissListener {
-                    dialog = null
-                    recyclerView = null
-                }
-                dlg.show()
-                applyDialogWidth(dlg)
-                tintDialogAccent(dlg)
-            }
-    }
-
-    private fun applyDialogWidth(dlg: AlertDialog) {
-        val w = dlg.window ?: return
-        val ctx = context
-
-        val wm = ctx.getSystemService(WindowManager::class.java)
-
-        val boundsWidthPx = try {
-            wm.currentWindowMetrics.bounds.width()
-        } catch (_: Throwable) {
-            ctx.resources.displayMetrics.widthPixels
-        }
-
-        val density = ctx.resources.displayMetrics.density
-
-        val maxDp = if (ctx.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            DIALOG_MAX_WIDTH_DP_LANDSCAPE
+        val selectedIndex = if (hasCustomFont) {
+            0
         } else {
-            DIALOG_MAX_WIDTH_DP
+            pkgs.indexOf(current).let { if (it < 0) 0 else it }
         }
-        val maxWidthPx = (maxDp * density + 0.5f).toInt()
 
-        val targetPx = (boundsWidthPx * 0.90f).toInt()
-        w.setLayout(min(maxWidthPx, targetPx), WindowManager.LayoutParams.WRAP_CONTENT)
-        w.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        dialog = ctx.showPickerDialog(
+            title = title,
+            options = options,
+            selectedIndex = selectedIndex,
+            action = PickerAction(ctx.getString(R.string.add_font)) {
+                fontPickerLauncher?.launch(arrayOf("font/ttf", "font/otf"))
+            },
+            onClosed = { dialog = null },
+        ) { index ->
+            // The active custom font can't be re-applied; leave the picker open.
+            if (hasCustomFont && index == 0) return@showPickerDialog false
+            val pkg = pkgs[index - offset]
+            if (pkg == current) return@showPickerDialog false
+            applyFont(ctx, old = current, pkg = pkg)
+            true
+        }
     }
 
-    private fun tintDialogAccent(dlg: AlertDialog) {
-        val tv = TypedValue()
-        val theme = context.theme
-        if (!theme.resolveAttribute(android.R.attr.colorAccent, tv, true)) return
+    private fun applyFont(ctx: Context, old: String, pkg: String) {
+        val reboot = old == CUSTOM_PKG_KEY
+        ctx.showChoiceDialog(
+            title = ctx.getString(
+                if (reboot) R.string.reboot_required_title else R.string.systemui_restart_title
+            ),
+            message = ctx.getString(
+                if (reboot) R.string.reboot_required_message else R.string.systemui_restart_message
+            ),
+            confirmText = ctx.getString(if (reboot) R.string.action_reboot_now else R.string.action_yes),
+            laterText = ctx.getString(
+                if (reboot) R.string.action_later else R.string.systemui_restart_not_now
+            ),
+            onConfirm = {
+                applyOverlayInBackground(
+                    ctx,
+                    if (reboot) getAppliedPkg() else old,
+                    pkg,
+                    resetCustom = reboot,
+                    onFailed = {
+                        Toast.makeText(ctx, R.string.toast_failed_apply_font, Toast.LENGTH_SHORT).show()
+                    }
+                ) {
+                    if (reboot) clearCustomFontState()
+                    updateSummary()
+                    if (reboot) {
+                        ExternalFontInstaller.rebootDevice()
+                    } else {
+                        SystemUtils.restartSystemUI(ctx)
+                    }
+                }
+            },
+            onLater = {
+                Thread({
+                    if (reboot) ExternalFontInstaller(ctx).resetFontUpdates()
+                    mainHandler.post {
+                        if (reboot) clearCustomFontState()
+                        themeUtils.setOverlayEnabled(
+                            CATEGORY, if (reboot) getAppliedPkg() else old, old
+                        )
+                        themeUtils.setOverlayEnabled(CATEGORY, pkg, "android")
+                        updateSummary()
+                    }
+                }, "FontOverlay").start()
+            },
+        )
+    }
 
-        val accent = if (tv.resourceId != 0) context.getColor(tv.resourceId) else tv.data
-        if (accent == 0) return
+    private fun applyOverlayInBackground(
+        ctx: Context,
+        oldPkg: String,
+        newPkg: String,
+        resetCustom: Boolean,
+        onFailed: () -> Unit,
+        onDone: () -> Unit
+    ) {
+        Thread({
+            try {
+                if (resetCustom) ExternalFontInstaller(ctx).resetFontUpdates()
+                themeUtils.setOverlayEnabled(CATEGORY, oldPkg, oldPkg)
+                themeUtils.setOverlayEnabled(CATEGORY, newPkg, "android")
+                mainHandler.post { onDone() }
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to apply font overlay", e)
+                mainHandler.post { onFailed() }
+            }
+        }, "FontOverlay").start()
+    }
 
-        val w = dlg.window
-        if (w != null) {
-            val titleId = context.resources.getIdentifier("alertTitle", "id", "android")
-            val titleView = if (titleId != 0) w.decorView.findViewById<TextView>(titleId) else null
-            titleView?.setTextColor(accent)
-        }
-
-        dlg.getButton(AlertDialog.BUTTON_NEGATIVE)?.setTextColor(accent)
+    private fun clearCustomFontState() {
+        customFontName = ""
+        hasCustomFont = false
+        Settings.Secure.putString(context.contentResolver, "custom_font_name", "")
     }
 
     private fun getAppliedPkg(): String {
@@ -206,256 +251,81 @@ class FontsPickerPreference @JvmOverloads constructor(
         installer: ExternalFontInstaller,
         activity: FragmentActivity
     ) {
-        val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_font_preview, null)
-        dialogView.findViewById<TextView>(R.id.preview_text).typeface = typeface
-
-        AlertDialog.Builder(context)
-            .setTitle(R.string.font_preview_dialog_title)
-            .setView(dialogView)
-            .setPositiveButton(R.string.add_font) { _, _ ->
-                activity.lifecycleScope.launch {
-                    val postScriptName = installer.installFontFromUri(uri)
-                    if (postScriptName != null) {
-                        Settings.Secure.putString(
-                            context.contentResolver, "custom_font_name", postScriptName
+        val clear = {
+            pendingCustomFontUri = null
+            pendingCustomFontTypeface = null
+        }
+        context.showComposeDialog { dismiss ->
+            ExpressiveDialog(
+                onDismissRequest = { dismiss(); clear() },
+                title = {
+                    Text(
+                        text = stringResource(R.string.font_preview_dialog_title),
+                        style = MaterialTheme.typography.headlineSmall,
+                    )
+                },
+                text = {
+                    Column(Modifier.expressiveVerticalScroll()) {
+                        Text(
+                            text = stringResource(R.string.font_preview_quote),
+                            style = MaterialTheme.typography.bodyLarge.copy(fontSize = 18.sp),
+                            fontFamily = FontFamily(typeface),
                         )
-                        customFontName = postScriptName
-                        hasCustomFont = true
-                        updateSummary()
-                        AlertDialog.Builder(context)
-                            .setTitle(R.string.reboot_required_title)
-                            .setMessage(R.string.reboot_required_custom_font_title)
-                            .setPositiveButton(R.string.action_reboot_now) { _, _ ->
-                                ExternalFontInstaller.rebootDevice()
-                            }
-                            .setNegativeButton(R.string.action_later, null)
-                            .show()
                     }
-                    pendingCustomFontUri = null
-                    pendingCustomFontTypeface = null
-                }
-            }
-            .setNegativeButton(android.R.string.cancel) { _, _ ->
-                pendingCustomFontUri = null
-                pendingCustomFontTypeface = null
-            }
-            .show()
+                },
+                confirmButton = {
+                    ExpressiveTextButton(onClick = {
+                        dismiss()
+                        installCustomFont(uri, installer, activity)
+                    }) { Text(stringResource(R.string.add_font)) }
+                },
+                dismissButton = {
+                    ExpressiveTextButton(onClick = { dismiss(); clear() }) {
+                        Text(stringResource(android.R.string.cancel))
+                    }
+                },
+            )
+        }
     }
 
-    private inner class FontsAdapter(
-        private val ctx: Context,
-        private val pkgs: List<String>,
-        private val themeUtils: ThemeUtils,
-        private var hasCustomFont: Boolean,
-        private var customFontName: String
-    ) : RecyclerView.Adapter<FontsAdapter.FontViewHolder>() {
-
-        private val ITEM_TYPE_SYSTEM = 0
-        private val ITEM_TYPE_CUSTOM_ACTIVE = 1
-        private val ITEM_TYPE_ADD_CUSTOM = 2
-        private val CUSTOM_PKG_KEY = "__custom_font__"
-
-        private var selectedPkg: String = if (hasCustomFont) CUSTOM_PKG_KEY else getApplied(themeUtils)
-        private val mainHandler = Handler(Looper.getMainLooper())
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FontViewHolder {
-            val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.fonts_option, parent, false)
-            return FontViewHolder(v)
-        }
-
-        override fun onBindViewHolder(holder: FontViewHolder, position: Int) {
-            when (getItemTypeForPosition(position)) {
-                ITEM_TYPE_ADD_CUSTOM -> {
-                    holder.title.text = ctx.getString(R.string.add_custom_font)
-                    holder.title.typeface = Typeface.DEFAULT_BOLD
-                    holder.title.setTextColor(resolveAccentColor(holder.title.context))
-                    holder.itemView.isActivated = false
-                    holder.itemView.setOnClickListener {
-                        dialog?.dismiss()
-                        fontPickerLauncher?.launch(arrayOf("font/ttf", "font/otf"))
-                    }
-                }
-                ITEM_TYPE_CUSTOM_ACTIVE -> {
-                    holder.title.text = customFontName
-                    try {
-                        holder.title.typeface = Typeface.create(
-                            ExternalFontInstaller.DEFAULT_FONT_FAMILY, Typeface.NORMAL
-                        )
-                    } catch (_: Exception) { }
-                    holder.title.setTextColor(resolveTextColorPrimary(holder.title.context))
-                    holder.itemView.isActivated = (selectedPkg == CUSTOM_PKG_KEY)
-                    holder.itemView.setOnClickListener {
-                        showResetCustomFontDialog()
-                    }
-                }
-                else -> {
-                    val pkg = pkgForPosition(position)
-                    val label = if (pkg == "android") "Default" else getLabelSafe(ctx, pkg)
-                    val tf = getTypefaceSafe(ctx, pkg)
-
-                    holder.title.text = label
-                    if (tf != null) holder.title.typeface = tf
-                    holder.title.setTextColor(resolveTextColorPrimary(holder.title.context))
-                    holder.itemView.isActivated = (pkg == selectedPkg)
-
-                    holder.itemView.setOnClickListener {
-                        if (pkg == selectedPkg) return@setOnClickListener
-
-                        val old = selectedPkg
-                        selectedPkg = pkg
-                        notifyDataSetChanged()
-                        dialog?.dismiss()
-
-                        showSystemUiRestartDialogWithAction(
-                            ctx,
-                            onConfirm = {
-                                applyOverlayInBackground(
-                                    if (old == CUSTOM_PKG_KEY) getApplied(themeUtils) else old,
-                                    pkg,
-                                    onFailed = {
-                                        selectedPkg = old
-                                        notifyDataSetChanged()
-                                        Toast.makeText(
-                                            ctx, R.string.toast_failed_apply_font,
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                ) {
-                                    if (old == CUSTOM_PKG_KEY) clearCustomFontState()
-                                    updateSummary()
-                                    SystemUtils.restartSystemUI(ctx)
-                                }
-                            },
-                            onLater = {
-                                mainHandler.post {
-                                    if (old == CUSTOM_PKG_KEY) clearCustomFontState()
-                                    themeUtils.setOverlayEnabled(CATEGORY,
-                                        if (old == CUSTOM_PKG_KEY) getApplied(themeUtils) else old, old)
-                                    themeUtils.setOverlayEnabled(CATEGORY, pkg, "android")
-                                    updateSummary()
-                                }
-                            }
-                        )
-                    }
-                }
+    private fun installCustomFont(
+        uri: Uri,
+        installer: ExternalFontInstaller,
+        activity: FragmentActivity
+    ) {
+        activity.lifecycleScope.launch {
+            val postScriptName = installer.installFontFromUri(uri)
+            if (postScriptName != null) {
+                Settings.Secure.putString(
+                    context.contentResolver, "custom_font_name", postScriptName
+                )
+                customFontName = postScriptName
+                hasCustomFont = true
+                updateSummary()
+                context.showChoiceDialog(
+                    title = context.getString(R.string.reboot_required_title),
+                    message = context.getString(R.string.reboot_required_custom_font_title),
+                    confirmText = context.getString(R.string.action_reboot_now),
+                    laterText = context.getString(R.string.action_later),
+                    onConfirm = { ExternalFontInstaller.rebootDevice() },
+                    onLater = {},
+                )
             }
+            pendingCustomFontUri = null
+            pendingCustomFontTypeface = null
         }
+    }
 
-        override fun getItemCount(): Int =
-            pkgs.size + (if (hasCustomFont) 1 else 0) + 1
-
-        private fun clearCustomFontState() {
-            customFontName = ""
-            hasCustomFont = false
-            this@FontsPickerPreference.customFontName = ""
-            this@FontsPickerPreference.hasCustomFont = false
-            Settings.Secure.putString(ctx.contentResolver, "custom_font_name", "")
-        }
-
-        private fun getItemTypeForPosition(position: Int): Int {
-            if (hasCustomFont && position == 0) return ITEM_TYPE_CUSTOM_ACTIVE
-            if (position == itemCount - 1) return ITEM_TYPE_ADD_CUSTOM
-            return ITEM_TYPE_SYSTEM
-        }
-
-        private fun pkgForPosition(position: Int): String {
-            val offset = if (hasCustomFont) 1 else 0
-            return pkgs[position - offset]
-        }
-
-        private fun applyOverlayInBackground(
-            oldPkg: String,
-            newPkg: String,
-            onFailed: () -> Unit,
-            onDone: () -> Unit
-        ) {
-            Thread({
-                try {
-                    themeUtils.setOverlayEnabled(CATEGORY, oldPkg, oldPkg)
-                    themeUtils.setOverlayEnabled(CATEGORY, newPkg, "android")
-                    mainHandler.post { onDone() }
-                } catch (e: Exception) {
-                    Log.e(TAG, "Failed to apply font overlay", e)
-                    mainHandler.post { onFailed() }
-                }
-            }, "FontOverlay").start()
-        }
-
-        private fun showSystemUiRestartDialogWithAction(
-            ctx: Context,
-            onConfirm: () -> Unit,
-            onLater: () -> Unit
-        ) {
-            AlertDialog.Builder(ctx)
-                .setTitle(R.string.systemui_restart_title)
-                .setMessage(R.string.systemui_restart_message)
-                .setPositiveButton(R.string.action_yes) { _, _ -> onConfirm() }
-                .setNegativeButton(R.string.systemui_restart_not_now) { _, _ -> onLater() }
-                .show()
-        }
-
-        private fun resolveTextColorPrimary(ctx: Context): Int {
-            val tv = TypedValue()
-            return if (ctx.theme.resolveAttribute(android.R.attr.textColorPrimary, tv, true)) {
-                if (tv.resourceId != 0) ctx.getColor(tv.resourceId) else tv.data
-            } else {
-                0xff000000.toInt()
-            }
-        }
-
-        private fun resolveAccentColor(ctx: Context): Int {
-            val tv = TypedValue()
-            return if (ctx.theme.resolveAttribute(android.R.attr.colorAccent, tv, true)) {
-                if (tv.resourceId != 0) ctx.getColor(tv.resourceId) else tv.data
-            } else 0xff3DDC84.toInt()
-        }
-
-        private fun showResetCustomFontDialog() {
-            AlertDialog.Builder(ctx)
-                .setTitle(R.string.reset_default_title)
-                .setMessage(R.string.reset_default_message)
-                .setPositiveButton(android.R.string.ok) { _, _ ->
-                    (context as? FragmentActivity)?.lifecycleScope?.launch {
-                        withContext(Dispatchers.IO) {
-                            Settings.Secure.putString(
-                                ctx.contentResolver, "custom_font_name", ""
-                            )
-                            ExternalFontInstaller(ctx).resetFontUpdates()
-                        }
-                        customFontName = ""
-                        hasCustomFont = false
-                        selectedPkg = getApplied(themeUtils)
-                        this@FontsPickerPreference.customFontName = ""
-                        this@FontsPickerPreference.hasCustomFont = false
-                        updateSummary()
-                        notifyDataSetChanged()
-                        showSystemUiRestartDialogWithAction(
-                            ctx,
-                            onConfirm = { ExternalFontInstaller.rebootDevice() },
-                            onLater = { }
-                        )
-                    }
-                }
-                .setNegativeButton(android.R.string.cancel, null)
-                .show()
-        }
-
-        inner class FontViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val title: TextView = itemView.findViewById(R.id.option_title)
-        }
-
-        private fun getTypefaceSafe(context: Context, pkg: String): Typeface? {
-            return try {
-                val pm = context.packageManager
-                val res = if (pkg == "android") Resources.getSystem() else pm.getResourcesForApplication(pkg)
-                val id = res.getIdentifier("config_bodyFontFamily", "string", pkg)
-                if (id == 0) return null
-                Typeface.create(res.getString(id), Typeface.NORMAL)
-            } catch (e: Exception) {
-                Log.e(TAG, "Typeface load failed for pkg: $pkg", e)
-                null
-            }
+    private fun getTypefaceSafe(context: Context, pkg: String): Typeface? {
+        return try {
+            val pm = context.packageManager
+            val res = if (pkg == "android") Resources.getSystem() else pm.getResourcesForApplication(pkg)
+            val id = res.getIdentifier("config_bodyFontFamily", "string", pkg)
+            if (id == 0) return null
+            Typeface.create(res.getString(id), Typeface.NORMAL)
+        } catch (e: Exception) {
+            Log.e(TAG, "Typeface load failed for pkg: $pkg", e)
+            null
         }
     }
 
@@ -463,14 +333,6 @@ class FontsPickerPreference @JvmOverloads constructor(
         private const val TAG = "FontsPickerPreference"
         private const val CATEGORY = FONT_KEY
         private const val CUSTOM_PKG_KEY = "__custom_font__"
-
-        private const val DIALOG_MAX_WIDTH_DP = 360
-        private const val DIALOG_MAX_WIDTH_DP_LANDSCAPE = 640
-
-        private fun getApplied(themeUtils: ThemeUtils): String {
-            return themeUtils.getOverlayInfos(CATEGORY)
-                .firstOrNull { it.isEnabled }?.packageName ?: "android"
-        }
 
         private fun getLabelSafe(context: Context, pkg: String): String {
             return try {

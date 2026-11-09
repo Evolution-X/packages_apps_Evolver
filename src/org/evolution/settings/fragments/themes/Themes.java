@@ -19,7 +19,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.SystemRestartUtils;
 import com.android.internal.util.evolution.ThemeUtils;
 import com.android.internal.util.evolution.Utils;
 import com.android.settings.R;
@@ -31,43 +30,36 @@ import java.util.List;
 
 import org.evolution.settings.fragments.themes.IconShapeController;
 import org.evolution.settings.preferences.SoundPickerPreference;
-import org.evolution.settings.preferences.SystemPropertyListPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PreferenceUtils;
 
 @SearchIndexable
-public class Themes extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class Themes extends SettingsPreferenceFragment {
 
     private static final String TAG = "Themes";
 
-    private static final String VELVET_PACKAGE = "com.google.android.googlequicksearchbox";
-    private static final String VELVET_NEW_SEARCH_CLASS = VELVET_PACKAGE + ".OneSearchAimActivity";
-    private static final String VELVET_ONESEARCH_COMPONENT = VELVET_PACKAGE + "/" + VELVET_NEW_SEARCH_CLASS;
-
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_visual_effects_category";
     private static final String KEY_BOOT_ANIMATION = "boot_animation";
-    private static final String KEY_EMOJI_STYLE = "persist.sys.ax_emoji_style";
     private static final String KEY_ICON_SHAPE = "android.theme.customization.adaptive_icon_shape";
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
-    private static final String KEY_LAUNCHER_CATEGORY = "themes_launcher_category";
-    private static final String KEY_LAUNCHER_SEARCH_BAR = "persist.sys.velvet.force_onesearch";
     private static final String KEY_LOCK_SOUND = "lock_sound";
     private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
+    private static final String KEY_SHADE_COLOR_STYLE = "shade_color_style";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
     private static final String KEY_UDFPS_ICON = "udfps_icon";
     private static final String KEY_UNLOCK_SOUND = "unlock_sound";
+
+    /** Value of {@link Settings.System#QS_PANEL_STYLE} for the ColorOS panel. */
+    private static final int QS_PANEL_STYLE_COLOROS = 2;
 
     private Preference mNavbarIcons;
     private Preference mUdfpsAnimation;
     private Preference mUdfpsIcon;
     private PreferenceCategory mAnimationsCategory;
     private PreferenceCategory mIconsCategory;
-    private PreferenceCategory mLauncherCategory;
     private SoundPickerPreference mLockSound;
     private SoundPickerPreference mUnlockSound;
-    private SystemPropertyListPreference mEmojiStyle;
     private SystemPropertySwitchPreference mSearchBar;
     private ThemeUtils mThemeUtils;
 
@@ -98,14 +90,11 @@ public class Themes extends SettingsPreferenceFragment implements
             mUnlockSound.applyConfig();
         }
 
-        mLauncherCategory = findPreference(KEY_LAUNCHER_CATEGORY);
-        mSearchBar = findPreference(KEY_LAUNCHER_SEARCH_BAR);
         mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
         mNavbarIcons = findPreference(KEY_NAVBAR_ICONS);
         mUdfpsIcon = findPreference(KEY_UDFPS_ICON);
         mAnimationsCategory = findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = findPreference(KEY_UDFPS_ANIMATION);
-        mEmojiStyle = findPreference(KEY_EMOJI_STYLE);
 
         FingerprintManager fingerprintManager = (FingerprintManager)
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
@@ -122,39 +111,25 @@ public class Themes extends SettingsPreferenceFragment implements
             }
         }
 
-        if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
-            prefScreen.removePreference(mLauncherCategory);
-        }
-
         if (mNavbarIcons != null && isGestureNavigationEnabled(context)) {
             mIconsCategory.removePreference(mNavbarIcons);
         }
 
-        if (mSearchBar != null) {
-            mSearchBar.setChecked(isOneSearchAimActivityEnabled(context)
-                    && SystemProperties.getBoolean(KEY_LAUNCHER_SEARCH_BAR, false));
-            mSearchBar.setOnPreferenceClickListener(pref -> {
-                DeviceUtils.setComponentEnabled(context, VELVET_ONESEARCH_COMPONENT,
-                        mSearchBar.isChecked());
-                return false;
-            });
-        }
-
-        if (mEmojiStyle != null) {
-            mEmojiStyle.setOnPreferenceChangeListener(this);
-        }
-
         updateBootAnimationSummary();
         updateIconShapeSummary();
+        updateShadeStyleState();
     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (KEY_EMOJI_STYLE.equals(preference.getKey())) {
-            SystemRestartUtils.showSystemRestartDialog(getActivity());
-            return true;
-        }
-        return false;
+    private void updateShadeStyleState() {
+        Preference pref = findPreference(KEY_SHADE_COLOR_STYLE);
+        if (pref == null) return;
+        // The ColorOS QS panel is always drawn with the clear shade, so the style is locked.
+        final boolean colorOS = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.QS_PANEL_STYLE, 0,
+                UserHandle.USER_CURRENT) == QS_PANEL_STYLE_COLOROS;
+        pref.setEnabled(!colorOS);
+        pref.setSummary(colorOS ? R.string.shade_color_style_summary_coloros
+                : R.string.shade_color_style_summary);
     }
 
     private void updateBootAnimationSummary() {
@@ -174,16 +149,13 @@ public class Themes extends SettingsPreferenceFragment implements
         super.onResume();
         updateBootAnimationSummary();
         updateIconShapeSummary();
+        updateShadeStyleState();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
     }
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.EVOLVER;
-    }
-
-    private static boolean isOneSearchAimActivityEnabled(Context context) {
-        return DeviceUtils.isActivityEnabled(context, VELVET_ONESEARCH_COMPONENT);
     }
 
     private static boolean isGestureNavigationEnabled(Context context) {
@@ -200,10 +172,6 @@ public class Themes extends SettingsPreferenceFragment implements
 
                     FingerprintManager fingerprintManager = (FingerprintManager)
                             context.getSystemService(Context.FINGERPRINT_SERVICE);
-
-                    if (!Utils.isPackageInstalled(context, "com.google.android.apps.nexuslauncher")) {
-                        keys.add(KEY_LAUNCHER_CATEGORY);
-                    }
 
                     if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
                         keys.add(KEY_UDFPS_ICON);

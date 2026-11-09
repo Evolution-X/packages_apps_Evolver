@@ -24,7 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.DialogFragment
-import com.android.settingslib.spa.framework.theme.SettingsTheme
+import org.evolution.settings.fragments.miscellaneous.ExpressiveTheme
 import org.evolution.settings.utils.WallpaperColorPickerDialog
 
 class WallpaperColorPickerDialogFragment : DialogFragment() {
@@ -45,7 +45,7 @@ class WallpaperColorPickerDialogFragment : DialogFragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             
             setContent {
-                SettingsTheme {
+                ExpressiveTheme {
                     WallpaperColorPickerDialog(
                         onDismiss = { dismiss() },
                         onColorSelected = { color ->

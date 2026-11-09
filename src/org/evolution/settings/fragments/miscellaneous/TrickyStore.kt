@@ -10,14 +10,24 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.UserHandle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import com.android.settings.core.SubSettingLauncher
 import android.provider.Settings
+import android.security.trickystore.KeyBoxManager
+import android.security.trickystore.TrickyStoreService
 import android.util.Base64
-import android.util.Xml
+import android.util.JsonReader
+import android.util.JsonToken
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.preference.Preference
+import androidx.lifecycle.repeatOnLifecycle
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
@@ -38,12 +48,16 @@ import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.xmlpull.v1.XmlPullParser
+import org.json.JSONArray
 import org.json.JSONObject
 
 class TrickyStore : SettingsPreferenceFragment() {
+
+    private val ui = TsUiState()
 
     // ----- Revocation status enum -------------------------------------------
 
@@ -59,10 +73,26 @@ class TrickyStore : SettingsPreferenceFragment() {
     private var isCheckInProgress = false
     private var isKeyboxPickerOpen = false
 
+    // Set by a manual keybox import; consumed once the revocation check that follows it
+    // finishes, so the Play Store wipe prompt never competes with a keep/replace dialog.
+    private var offerWipeAfterCheck = false
+
+    // Revision of the last device RKP keybox seen by the poll loop.
+    private var lastDuckRkpRevision = -1L
+    // Set once the framework has reported device RKP as unavailable on this device.
+    private var duckRkpUnsupported = false
+
     // ---- Trust anchors (SHA-256 of DER-encoded cert) ------------------------
 
     companion object {
         private const val TAG = "TrickyStore"
+
+        private val PACKAGE_REGEX = Regex("""[A-Za-z0-9_]+(\.[A-Za-z0-9_]+)*""")
+        private val TARGET_LINE_REGEX = Regex("""[A-Za-z0-9_]+(\.[A-Za-z0-9_]+)*\s*[?!-]?""")
+
+        // Mode strings TrickyStoreService.parseTargetsJson accepts; anything else there
+        // falls back to AUTO, so the UI refuses it rather than let it degrade silently.
+        private val VALID_TARGET_MODES = setOf("AUTO", "LEAF_HACK", "GENERATE", "SKIP")
 
         // Fallback trust anchors, used only if the live roots fetch fails and
         // no cached copy exists yet. Google may add/rotate roots at any time;
@@ -91,6 +121,8 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val KEYBOX_SOURCE_USER         = "user"
         private const val TARGET_KEY                 = TrickyStoreAppSettings.TARGET_KEY
         internal const val PATCH_KEY                 = "spoof_trickystore_patch"
+        // The patch level keys the framework reads, in both the text and the JSON format.
+        private val PATCH_KEYS = setOf("system", "vendor", "boot", "all")
         private const val LAST_FETCHED_KEY           = "spoof_trickystore_last_fetched"
         private const val LAST_REVOCATION_CHECK_KEY  = "spoof_trickystore_last_revocation_check"
         private const val LAST_NO_VALID_KEY          = "spoof_trickystore_last_no_valid"
@@ -102,6 +134,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         private val CACHE_TRUST_WINDOW_MS = TimeUnit.DAYS.toMillis(7)
 
         private const val TRICKYSTORE_ENABLED_KEY    = "spoof_trickystore_enabled"
+        private const val DUCK_RKP_ENABLED_KEY       = "spoof_duck_rkp_enabled"
 
         private const val VENDING_PACKAGE            = "com.android.vending"
         private const val DROIDGUARD_PACKAGE         = "com.google.android.gms.unstable"
@@ -116,10 +149,10 @@ class TrickyStore : SettingsPreferenceFragment() {
         private const val REVOCATION_URL     =
             "https://android.googleapis.com/attestation/status?encrypted=0"
         private const val OFFICIAL_KEYBOX_URL =
-            "https://git.evolution-x.org/EvoX/keybox/raw/branch/main/keybox.xml"
+            "https://gitea.com/Evolution-X/keybox/raw/branch/main/keybox.xml"
 
         /** Warn user when the leaf cert expires within this window. */
-        private val EXPIRY_WARN_MS = TimeUnit.DAYS.toMillis(14)
+        private val EXPIRY_WARN_MS = TimeUnit.DAYS.toMillis(7)
 
         /**
          * Puts the spoofing settings back to a fresh-install state: the PIF
@@ -161,32 +194,40 @@ class TrickyStore : SettingsPreferenceFragment() {
         isKeyboxPickerOpen = false
         if (result.resultCode != Activity.RESULT_OK) return@registerForActivityResult
         result.data?.data?.let { uri ->
-            try {
-                val bytes = requireContext().contentResolver.openInputStream(uri)
-                    ?.use { it.readBytes() } ?: ByteArray(0)
-                // The framework rejects a keybox that fails these checks, so refuse it here
-                // instead of storing something that silently never takes effect.
-                val problem = keyboxProblem(bytes.toString(Charsets.UTF_8))
-                if (problem != null) {
-                    toast(getString(R.string.ts_fetch_keybox_failed, problem))
-                    return@registerForActivityResult
+            val ctx = requireContext()
+            lifecycleScope.launch {
+                try {
+                    val bytes = withContext(Dispatchers.IO) {
+                        ctx.contentResolver.openInputStream(uri)?.use { it.readBytes() }
+                            ?: ByteArray(0)
+                    }
+                    // Dry run of the framework's own loader: refuse a keybox it would reject
+                    // instead of storing something that silently never takes effect.
+                    val problem = withContext(Dispatchers.IO) {
+                        KeyBoxManager.validate(bytes.toString(Charsets.UTF_8))
+                    }
+                    if (!isAdded) return@launch
+                    if (problem != null) {
+                        toast(getString(R.string.ts_fetch_keybox_failed, problem))
+                        return@launch
+                    }
+                    val encoded = Base64.encodeToString(bytes, Base64.NO_WRAP)
+                    Settings.Secure.putString(ctx.contentResolver, KEYBOX_KEY, encoded)
+                    Settings.Secure.putString(
+                        ctx.contentResolver, KEYBOX_SOURCE_KEY, KEYBOX_SOURCE_USER)
+                    saveLastFetchedTimestamp()
+                    killGms()
+                    toast(getString(R.string.ts_keybox_imported))
+                    currentRevocationStatus = RevocationStatus.UNKNOWN
+                    currentRevocationReason = ""
+                    Settings.Secure.putString(
+                        ctx.contentResolver, LAST_REVOCATION_STATUS_KEY, "")
+                    refreshStatus()
+                    offerWipeAfterCheck = true
+                    checkKeyboxRevocation()
+                } catch (e: Exception) {
+                    if (isAdded) toast(getString(R.string.ts_failed, e.message ?: ""))
                 }
-                val encoded = Base64.encodeToString(bytes, Base64.NO_WRAP)
-                Settings.Secure.putString(
-                    requireContext().contentResolver, KEYBOX_KEY, encoded)
-                Settings.Secure.putString(
-                    requireContext().contentResolver, KEYBOX_SOURCE_KEY, KEYBOX_SOURCE_USER)
-                saveLastFetchedTimestamp()
-                killGms()
-                toast(getString(R.string.ts_keybox_imported))
-                currentRevocationStatus = RevocationStatus.UNKNOWN
-                currentRevocationReason = ""
-                Settings.Secure.putString(
-                    requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
-                refreshStatus()
-                checkKeyboxRevocation()
-            } catch (e: Exception) {
-                toast(getString(R.string.ts_failed, e.message ?: ""))
             }
         }
     }
@@ -199,60 +240,146 @@ class TrickyStore : SettingsPreferenceFragment() {
             try {
                 val text = requireContext().contentResolver.openInputStream(uri)
                     ?.use { it.readBytes().toString(StandardCharsets.UTF_8) } ?: ""
-                Settings.Secure.putString(
-                    requireContext().contentResolver, TARGET_KEY, text)
-                toast(getString(R.string.ts_target_list_imported))
-                refreshStatus()
+                importTargets(text)
             } catch (e: Exception) {
                 toast(getString(R.string.ts_failed, e.message ?: ""))
             }
         }
     }
 
+    /**
+     * Accepts the framework's two target formats: one package per line with an optional
+     * mode suffix (`?` leaf, `!` cert, `-` skip, `#` comments), or a JSON array of
+     * {"package", "mode"} objects. Anything else is refused instead of being stored.
+     */
+    private fun importTargets(raw: String) {
+        val text = raw.removePrefix("\uFEFF").trim()
+        if (text.isEmpty()) {
+            toast(getString(R.string.ts_target_list_invalid, "-"))
+            return
+        }
+        if (text.startsWith("[")) {
+            try {
+                val array = JSONArray(text)
+                for (i in 0 until array.length()) {
+                    val obj = array.get(i) as JSONObject
+                    val pkg = obj.getString("package")
+                    require(PACKAGE_REGEX.matches(pkg)) { pkg }
+                    obj.optString("mode").takeIf { it.isNotEmpty() }?.let { mode ->
+                        require(mode.uppercase() in VALID_TARGET_MODES) { "mode: $mode" }
+                    }
+                }
+            } catch (e: Exception) {
+                toast(getString(R.string.ts_target_list_invalid, e.message ?: "JSON"))
+                return
+            }
+        } else {
+            val bad = text.lines().map { it.trim() }
+                .firstOrNull { it.isNotEmpty() && !it.startsWith("#") && !TARGET_LINE_REGEX.matches(it) }
+            if (bad != null) {
+                toast(getString(R.string.ts_target_list_invalid, bad))
+                return
+            }
+        }
+        Settings.Secure.putString(requireContext().contentResolver, TARGET_KEY, text)
+        toast(getString(R.string.ts_target_list_imported))
+        refreshStatus()
+    }
+
     // ---- Lifecycle ----------------------------------------------------------
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        addPreferencesFromResource(R.xml.tricky_store)
+    private val actions = object : TsActions {
+        override fun onEnabledChange(enabled: Boolean) {
+            Settings.System.putInt(
+                requireContext().contentResolver, TRICKYSTORE_ENABLED_KEY, if (enabled) 1 else 0)
+            ui.enabled = enabled
+            if (enabled) refreshStatus()
+        }
 
-        findPreference<Preference>("ts_import_keybox")?.setOnPreferenceClickListener {
+        override fun onFetchKeybox() = fetchOfficialKeybox()
+
+        override fun onImportKeybox() {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "*/*"
             }
             isKeyboxPickerOpen = true
             keyboxPicker.launch(intent)
-            true
         }
 
-        findPreference<Preference>("ts_delete_keybox")?.setOnPreferenceClickListener {
-            showDeleteKeyboxDialog()
-            true
+        override fun onDeleteKeybox() = showDeleteKeyboxDialog()
+
+        override fun onCheckRevocation() = checkKeyboxRevocation()
+
+        override fun onManageTargets() {
+            SubSettingLauncher(requireContext())
+                .setDestination(TrickyStoreAppSettings::class.java.name)
+                .setTitleRes(R.string.ts_manage_target_apps)
+                .setSourceMetricsCategory(getMetricsCategory())
+                .launch()
         }
 
-        findPreference<Preference>("ts_security_patch")?.setOnPreferenceClickListener {
-            showPatchDateDialog()
-            true
-        }
-
-        findPreference<Preference>("ts_import_targets")?.setOnPreferenceClickListener {
+        override fun onImportTargets() {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "text/*"
             }
             targetPicker.launch(intent)
-            true
         }
 
-        findPreference<Preference>("ts_fetch_keybox")?.setOnPreferenceClickListener {
-            fetchOfficialKeybox()
-            true
+        override fun onEditPatch() = showPatchDateDialog()
+
+        override fun onConfirmDeleteKeybox() = deleteKeybox()
+
+        // Explicit request: ignore the cooldown, keep the old keybox on failure
+        override fun onReplaceKeybox() = fetchOfficialKeybox(silent = false)
+
+        override fun onSavePatch(value: String): String? {
+            if (value.isNotEmpty() && !isValidPatchContent(value)) {
+                return getString(R.string.ts_invalid_patch_date)
+            }
+            Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, value)
+            refreshStatus()
+            return null
         }
 
-        findPreference<Preference>("ts_revocation_status")?.setOnPreferenceClickListener {
-            checkKeyboxRevocation()
-            true
+        override fun onWipePlayStore(wipe: Boolean) {
+            if (!wipe) return
+            try {
+                requireContext().packageManager.clearApplicationUserData(VENDING_PACKAGE, null)
+            } catch (_: Exception) {}
         }
+
+        override fun onRkpEnabledChange(enabled: Boolean) =
+            changeDuckRkp { ActivityManager.getService().setDuckRkpEnabled(enabled) }
+
+        override fun onRkpProvision() =
+            changeDuckRkp { ActivityManager.getService().provisionDuckRkp() }
+
+        override fun onDeletePatch() {
+            Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, "")
+            refreshStatus()
+        }
+    }
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {}
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View = ComposeView(requireContext()).apply {
+        setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+        setContent {
+            ExpressiveTheme {
+                TrickyStoreContent(state = ui, actions = actions)
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().title = getString(R.string.tricky_store_title)
 
         // Restore persisted status
         currentRevocationStatus = when (
@@ -271,6 +398,7 @@ class TrickyStore : SettingsPreferenceFragment() {
             requireContext().contentResolver, LAST_REVOCATION_REASON_KEY) ?: ""
 
         refreshStatus()
+        startDuckRkpPolling()
     }
 
     override fun onResume() {
@@ -281,7 +409,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         val lastChecked = Settings.Secure.getLong(
             requireContext().contentResolver, LAST_REVOCATION_CHECK_KEY, 0L)
         val overADay = System.currentTimeMillis() - lastChecked > TimeUnit.HOURS.toMillis(24)
-        if (overADay && !isCheckInProgress) {
+        if (overADay && !isCheckInProgress && !isDuckRkpEnabled()) {
             checkKeyboxRevocation()
         } else {
             autoFetchIfNoKeybox()
@@ -291,106 +419,93 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- UI refresh ---------------------------------------------------------
 
     private fun refreshStatus() {
-        val keyboxExists = !Settings.Secure.getString(
-            requireContext().contentResolver, KEYBOX_KEY).isNullOrEmpty()
+        val resolver = requireContext().contentResolver
+        val keyboxExists = !Settings.Secure.getString(resolver, KEYBOX_KEY).isNullOrEmpty()
 
-        val targetContent = Settings.Secure.getString(
-            requireContext().contentResolver, TARGET_KEY)
-        val targetCount = targetContent?.lines()?.count { it.isNotBlank() } ?: 0
+        // Count only installed targets: uninstalled defaults stay in the stored list so they
+        // apply once installed, but they aren't "configured" from the user's view.
+        val targets = TrickyStoreAppSettings.installedTargets(
+            requireContext().packageManager,
+            TrickyStoreAppSettings.parseTargetList(Settings.Secure.getString(resolver, TARGET_KEY)),
+        )
+        ui.enabled = isTrickyStoreEnabled
+        ui.keyboxExists = keyboxExists
+        ui.targetCount = targets.size
 
-        findPreference<Preference>("ts_import_keybox")?.summary =
-            if (keyboxExists) getString(R.string.ts_keybox_installed)
-            else getString(R.string.ts_no_keybox)
-
-        findPreference<Preference>("ts_delete_keybox")?.isEnabled = keyboxExists
-
-        findPreference<Preference>("ts_manage_targets")?.summary =
-            if (targetCount > 0) getString(R.string.ts_target_apps_count, targetCount)
-            else getString(R.string.ts_no_targets)
-
-        val patchDate = Settings.Secure.getString(requireContext().contentResolver, PATCH_KEY)
-        findPreference<Preference>("ts_security_patch")?.summary =
+        val patchDate = Settings.Secure.getString(resolver, PATCH_KEY)
+        ui.patchStale = !patchDate.isNullOrEmpty() && isPatchDateStale(patchDate)
+        ui.patchSummary =
             if (!patchDate.isNullOrEmpty()) {
-                if (isPatchDateStale(patchDate)) {
-                    getString(R.string.ts_patch_stale_warning, patchDate)
-                } else {
-                    patchDate
-                }
+                if (ui.patchStale) getString(R.string.ts_patch_stale_warning, patchDate)
+                else patchDate
             } else {
                 getString(R.string.ts_no_patch)
             }
 
-        findPreference<Preference>("ts_verification_mode")?.summary = buildVerificationSummary()
+        ui.verificationSummary = buildVerificationSummary(targets)
 
         applyRevocationUi(currentRevocationStatus, currentRevocationReason)
         updateFetchButtonState(keyboxExists)
     }
 
     private fun applyRevocationUi(status: RevocationStatus, reason: String = "") {
-        val pref = findPreference<Preference>("ts_revocation_status") ?: return
         if (!isAdded) return
 
         val reasonSuffix = if (reason.isNotEmpty()) " ($reason)" else ""
 
-        val (iconRes, summary) = when (status) {
-            RevocationStatus.VALID -> Pair(
-                R.drawable.ic_ts_status_valid,
-                getString(R.string.ts_revocation_valid)
-            )
-            RevocationStatus.REVOKED -> Pair(
-                R.drawable.ic_ts_status_revoked,
-                getString(R.string.ts_revocation_revoked, reasonSuffix)
-            )
-            RevocationStatus.SUSPENDED -> Pair(
-                R.drawable.ic_ts_status_suspended,
-                getString(R.string.ts_revocation_suspended, reasonSuffix)
-            )
-            RevocationStatus.EXPIRING_SOON -> Pair(
-                R.drawable.ic_ts_status_suspended,  // amber warning icon
-                getString(R.string.ts_revocation_expiring_soon)
-            )
-            RevocationStatus.CHAIN_INVALID -> Pair(
-                R.drawable.ic_ts_status_suspended,
-                getString(R.string.ts_revocation_chain_invalid)
-            )
-            RevocationStatus.UNTRUSTED_ROOT -> Pair(
-                R.drawable.ic_ts_status_suspended,  // amber
-                getString(R.string.ts_revocation_untrusted_root)
-            )
-            RevocationStatus.CHECKING -> Pair(
-                R.drawable.ic_ts_status_unknown,
-                getString(R.string.ts_revocation_checking)
-            )
-            RevocationStatus.UNKNOWN -> Pair(
-                R.drawable.ic_ts_status_unknown,
+        // Chip label, chip tone and the descriptive summary for each status.
+        val (chip, tone, summary) = when (status) {
+            RevocationStatus.VALID -> Triple(
+                getString(R.string.ts_chip_valid), ExpressiveTone.Positive,
+                getString(R.string.ts_revocation_valid))
+            RevocationStatus.REVOKED -> Triple(
+                getString(R.string.ts_revocation_revoked, ""), ExpressiveTone.Negative,
+                getString(R.string.ts_revocation_revoked, reasonSuffix))
+            RevocationStatus.SUSPENDED -> Triple(
+                getString(R.string.ts_revocation_suspended, ""), ExpressiveTone.Warning,
+                getString(R.string.ts_revocation_suspended, reasonSuffix))
+            RevocationStatus.EXPIRING_SOON -> Triple(
+                getString(R.string.ts_chip_expiring), ExpressiveTone.Warning,
+                getString(R.string.ts_revocation_expiring_soon))
+            RevocationStatus.CHAIN_INVALID -> Triple(
+                getString(R.string.ts_chip_invalid), ExpressiveTone.Negative,
+                getString(R.string.ts_revocation_chain_invalid))
+            RevocationStatus.UNTRUSTED_ROOT -> Triple(
+                getString(R.string.ts_chip_unknown_root), ExpressiveTone.Warning,
+                getString(R.string.ts_revocation_untrusted_root))
+            RevocationStatus.CHECKING -> Triple(
+                getString(R.string.ts_chip_checking), ExpressiveTone.Neutral,
+                getString(R.string.ts_revocation_checking))
+            RevocationStatus.UNKNOWN -> Triple(
+                getString(R.string.ts_chip_unchecked), ExpressiveTone.Neutral,
                 if (!Settings.Secure.getString(
                         requireContext().contentResolver, KEYBOX_KEY).isNullOrEmpty())
                     getString(R.string.ts_revocation_not_yet_checked)
                 else
-                    getString(R.string.ts_revocation_no_keybox)
-            )
+                    getString(R.string.ts_revocation_no_keybox))
         }
 
-        pref.setIcon(iconRes)
+        ui.revocationChip = chip
+        ui.revocationTone = tone
+        ui.revocationChecking = status == RevocationStatus.CHECKING
         val lastChecked = getLastRevocationCheckedFormatted()
-        pref.summary = if (status == RevocationStatus.CHECKING || lastChecked == null)
+        ui.revocationSummary = if (status == RevocationStatus.CHECKING || lastChecked == null)
             summary
         else
             "$summary\n${getString(R.string.ts_revocation_last_checked, lastChecked)}"
     }
 
     private fun updateFetchButtonState(keyboxExists: Boolean) {
-        val fetchPref = findPreference<Preference>("ts_fetch_keybox") ?: return
-
+        ui.fetching = false
         val isBlockingStatus = currentRevocationStatus == RevocationStatus.VALID
 
         if (isBlockingStatus) {
-            fetchPref.isEnabled = false
-            fetchPref.summary = getString(R.string.ts_fetch_keybox_blocked)
+            ui.fetchEnabled = false
+            ui.fetchSummary = getString(R.string.ts_fetch_keybox_blocked)
         } else {
-            fetchPref.isEnabled = true
+            ui.fetchEnabled = true
             val timestamp = getLastFetchedFormatted()
-            fetchPref.summary = if (timestamp != null && keyboxExists)
+            ui.fetchSummary = if (timestamp != null && keyboxExists)
                 getString(R.string.ts_fetch_keybox_last_fetched, timestamp)
             else
                 getString(R.string.ts_fetch_keybox_summary)
@@ -445,20 +560,12 @@ class TrickyStore : SettingsPreferenceFragment() {
                     refreshStatus()  // update keybox-info row too
 
                     handleActionableStatus(status)
+                    offerWipeIfPending(status)
                 },
                 onFailure = { e ->
-                    val pref = findPreference<Preference>("ts_revocation_status")
-                        ?: return@fold
-                    pref.setIcon(when (currentRevocationStatus) {
-                        RevocationStatus.VALID                         -> R.drawable.ic_ts_status_valid
-                        RevocationStatus.REVOKED,
-                        RevocationStatus.CHAIN_INVALID                 -> R.drawable.ic_ts_status_revoked
-                        RevocationStatus.UNTRUSTED_ROOT,
-                        RevocationStatus.SUSPENDED,
-                        RevocationStatus.EXPIRING_SOON                 -> R.drawable.ic_ts_status_suspended
-                        else                                           -> R.drawable.ic_ts_status_unknown
-                    })
-                    pref.summary = getString(R.string.ts_revocation_error, e.message)
+                    ui.revocationChecking = false
+                    ui.revocationSummary = getString(R.string.ts_revocation_error, e.message)
+                    offerWipeIfPending(null)
                 }
             )
         }
@@ -566,27 +673,49 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Certificate parsing ------------------------------------------------
 
-    private fun decodeKeyboxXml(payload: String): String? {
-        val trimmed = payload.trim()
-        if (trimmed.startsWith("<")) return trimmed
-        return try {
-            val decoded = Base64.decode(trimmed, Base64.DEFAULT)
-            val asXml = String(decoded, Charsets.UTF_8).trim()
-            if (asXml.startsWith("<")) asXml else null
-        } catch (_: Exception) { null }
-    }
+    /** XML or base64 payload to XML text, decoded the way the framework decodes it. */
+    private fun decodeKeyboxXml(payload: String): String? =
+        TrickyStoreService.decodeKeybox(payload)
 
     /**
      * The certificate chain of each <Key>, leaf first. A document without <Key> blocks is
      * treated as one chain.
      */
-    private fun extractChains(xml: String): List<List<X509Certificate>> {
+    private fun extractChains(rawXml: String): List<List<X509Certificate>> {
+        // Same cleanup the framework does before parsing: invisible characters inside a PEM
+        // block would otherwise make its certificate silently disappear from the chain.
+        val xml = KeyBoxManager.sanitizeXml(rawXml)
         val chains = Regex("<Key\\b[^>]*>([\\s\\S]*?)</Key>").findAll(xml)
-            .map { extractCertificates(it.groupValues[1]) }
+            .map { orderChain(extractCertificates(it.groupValues[1])) }
             .filter { it.isNotEmpty() }
             .toList()
         if (chains.isNotEmpty()) return chains
-        return extractCertificates(xml).let { if (it.isEmpty()) emptyList() else listOf(it) }
+        return orderChain(extractCertificates(xml)).let { if (it.isEmpty()) emptyList() else listOf(it) }
+    }
+
+    /**
+     * Puts a chain in leaf-to-root order and drops exact duplicates, as KeyBoxManager does
+     * when it loads the keybox. There is no private key to find the leaf with here, so the
+     * leaf is the one certificate that issued none of the others. Anything that isn't a
+     * single path is returned as found, for validateChain() to report.
+     */
+    private fun orderChain(certs: List<X509Certificate>): List<X509Certificate> {
+        val unique = certs.distinct()
+        if (unique.size < 2) return unique
+        val leaves = unique.filter { c ->
+            unique.none { it != c && it.issuerX500Principal == c.subjectX500Principal }
+        }
+        val ordered = mutableListOf(leaves.singleOrNull() ?: return unique)
+        while (true) {
+            val current = ordered.last()
+            val next = unique.firstOrNull { c ->
+                c !in ordered &&
+                    c.subjectX500Principal == current.issuerX500Principal &&
+                    runCatching { current.verify(c.publicKey) }.isSuccess
+            } ?: break
+            ordered.add(next)
+        }
+        return if (ordered.size == unique.size) ordered else unique
     }
 
     /**
@@ -673,12 +802,18 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Network helpers ----------------------------------------------------
 
+    /**
+     * Google's status list, or null when it could not be read. A response without an
+     * "entries" object (error page, truncated body, format change) counts as no response:
+     * it must neither clear the cached bad serials nor be taken as a clean answer.
+     */
     private fun fetchRevocationJson(): JSONObject? {
         var conn: HttpURLConnection? = null
         return try {
             conn = openFreshConnection(REVOCATION_URL)
             if (conn.responseCode == HttpURLConnection.HTTP_OK) {
                 JSONObject(BufferedReader(InputStreamReader(conn.inputStream)).use { it.readText() })
+                    .takeIf { it.optJSONObject("entries") != null }
             } else {
                 null
             }
@@ -832,6 +967,7 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     private fun autoFetchIfNoKeybox() {
         if (!isTrickyStoreEnabled) return
+        if (isDuckRkpEnabled()) return
         if (isKeyboxPickerOpen) return
         if (isCheckInProgress) return
         if (isNoValidCooldownActive()) return
@@ -851,10 +987,13 @@ class TrickyStore : SettingsPreferenceFragment() {
     // ---- Official keybox fetch ----------------------------------------------
 
     private fun fetchOfficialKeybox(silent: Boolean = false) {
-        val pref = findPreference<Preference>("ts_fetch_keybox")
+        if (isDuckRkpEnabled()) {
+            if (!silent) toast(getString(R.string.ts_rkp_fetch_disabled))
+            return
+        }
         if (!silent) {
-            pref?.isEnabled = false
-            pref?.summary = getString(R.string.ts_fetch_keybox_fetching)
+            ui.fetching = true
+            ui.fetchSummary = getString(R.string.ts_fetch_keybox_fetching)
         }
 
         lifecycleScope.launch {
@@ -895,8 +1034,9 @@ class TrickyStore : SettingsPreferenceFragment() {
                             return@fold
                         }
 
-                        keyboxProblem(xml)?.let { reason ->
-                            if (!silent) toast(getString(R.string.ts_fetch_keybox_failed, reason))
+                        val problem = withContext(Dispatchers.IO) { KeyBoxManager.validate(xml) }
+                        if (problem != null) {
+                            if (!silent) toast(getString(R.string.ts_fetch_keybox_failed, problem))
                             markNoValidKeyboxFound()
                             return@fold
                         }
@@ -1024,181 +1164,162 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // ---- Verification-mode summary ------------------------------------------
 
-    private fun buildVerificationSummary(): String {
-        val content = Settings.Secure.getString(
-            requireContext().contentResolver, TARGET_KEY)
-            ?: return getString(R.string.ts_verification_mode_auto)
-
-        var auto = 0; var cert = 0; var leaf = 0
-        content.lines().forEach { line ->
-            val t = line.trim()
-            if (t.isNotBlank()) when {
-                t.endsWith("!") -> cert++
-                t.endsWith("?") -> leaf++
-                else            -> auto++
-            }
-        }
-
-        if (auto == 0 && cert == 0 && leaf == 0)
-            return getString(R.string.ts_verification_mode_auto)
-
+    private fun buildVerificationSummary(targets: Map<String, TargetMode>): String {
+        if (targets.isEmpty()) return getString(R.string.ts_verification_mode_auto)
+        val counts = targets.values.groupingBy { it }.eachCount()
         return buildList {
-            if (auto > 0) add(getString(R.string.ts_verification_auto_count, auto))
-            if (cert > 0) add(getString(R.string.ts_verification_cert_count, cert))
-            if (leaf > 0) add(getString(R.string.ts_verification_leaf_count, leaf))
+            counts[TargetMode.AUTO]?.let { add(getString(R.string.ts_verification_auto_count, it)) }
+            counts[TargetMode.CERT_GEN]?.let { add(getString(R.string.ts_verification_cert_count, it)) }
+            counts[TargetMode.LEAF_HACK]?.let { add(getString(R.string.ts_verification_leaf_count, it)) }
+            counts[TargetMode.SKIP]?.let { add(getString(R.string.ts_verification_skip_count, it)) }
         }.joinToString(" · ")
     }
 
     // ---- Dialogs ------------------------------------------------------------
 
     private fun showDeleteKeyboxDialog() {
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_delete_keybox_title)
-            .setMessage(R.string.ts_delete_keybox_message)
-            .setPositiveButton(R.string.action_delete) { _, _ ->
-                try {
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, KEYBOX_KEY, "")
-                    Settings.Secure.putLong(
-                        requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
-                    toast(getString(R.string.ts_keybox_deleted))
-                    currentRevocationStatus = RevocationStatus.UNKNOWN
-                    currentRevocationReason = ""
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, LAST_REVOCATION_REASON_KEY, "")
-                    Settings.Secure.putString(
-                        requireContext().contentResolver, KEYBOX_SOURCE_KEY, "")
-                    clearNoValidKeyboxCooldown()
-                    Settings.Secure.putLong(
-                        requireContext().contentResolver, LAST_REVOCATION_CHECK_KEY, 0L)
-                    refreshStatus()
-                } catch (e: Exception) {
-                    toast(getString(R.string.ts_failed, e.message ?: ""))
-                }
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
+        ui.dialog = TsDialog.DeleteKeybox
     }
 
-    private fun showUntrustedRootDialog() {
-        if (!isAdded) return
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_untrusted_root_title)
-            .setMessage(R.string.ts_untrusted_root_message)
-            .setPositiveButton(R.string.ts_untrusted_root_keep) { _, _ ->
-                // User acknowledges — leave keybox installed, don't refetch
-            }
-            .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                // Explicit request: ignore the cooldown, keep the old keybox on failure
-                fetchOfficialKeybox(silent = false)
-            }
-            .setCancelable(false)
-            .show()
-    }
-
-    private fun showChainInvalidDialog() {
-        if (!isAdded) return
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_chain_invalid_title)
-            .setMessage(R.string.ts_chain_invalid_message)
-            .setPositiveButton(R.string.ts_untrusted_root_keep) { _, _ -> }
-            .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                // Explicit request: ignore the cooldown, keep the old keybox on failure
-                fetchOfficialKeybox(silent = false)
-            }
-            .setCancelable(false)
-            .show()
-    }
-
-    private fun showExpiringSoonDialog() {
-        if (!isAdded) return
-        val expiryStr = currentRevocationReason.ifEmpty { getString(R.string.ts_expiry_unknown) }
-        AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_expiring_soon_title)
-            .setMessage(getString(R.string.ts_expiring_soon_message, expiryStr))
-            .setPositiveButton(R.string.ts_untrusted_root_keep) { _, _ -> }
-            .setNegativeButton(R.string.ts_untrusted_root_replace) { _, _ ->
-                // Explicit request: ignore the cooldown, keep the old keybox on failure
-                fetchOfficialKeybox(silent = false)
-            }
-            .setCancelable(false)
-            .show()
+    private fun deleteKeybox() {
+        try {
+            Settings.Secure.putString(
+                requireContext().contentResolver, KEYBOX_KEY, "")
+            Settings.Secure.putLong(
+                requireContext().contentResolver, LAST_FETCHED_KEY, 0L)
+            toast(getString(R.string.ts_keybox_deleted))
+            currentRevocationStatus = RevocationStatus.UNKNOWN
+            currentRevocationReason = ""
+            Settings.Secure.putString(
+                requireContext().contentResolver, LAST_REVOCATION_STATUS_KEY, "")
+            Settings.Secure.putString(
+                requireContext().contentResolver, LAST_REVOCATION_REASON_KEY, "")
+            Settings.Secure.putString(
+                requireContext().contentResolver, KEYBOX_SOURCE_KEY, "")
+            clearNoValidKeyboxCooldown()
+            Settings.Secure.putLong(
+                requireContext().contentResolver, LAST_REVOCATION_CHECK_KEY, 0L)
+            refreshStatus()
+        } catch (e: Exception) {
+            toast(getString(R.string.ts_failed, e.message ?: ""))
+        }
     }
 
     /**
-     * Returns true if [value] is valid security_patch.txt content.
+     * Offers to clear Play Store data once per manual keybox import, after its revocation check.
+     * Skipped when the check raised its own dialog, or flagged the keybox revoked/suspended (it is
+     * about to be replaced), and never for the silent auto-fetch, which only force-stops.
+     */
+    private fun offerWipeIfPending(status: RevocationStatus?) {
+        if (!offerWipeAfterCheck) return
+        offerWipeAfterCheck = false
+        if (!isAdded || ui.dialog != null) return
+        if (status == RevocationStatus.REVOKED || status == RevocationStatus.SUSPENDED) return
+        ui.dialog = TsDialog.WipePlayStore
+    }
+
+    // The three prompts below are raised from the async revocation check. They never replace a
+    // dialog that is already open, so a half-typed patch date is not lost; the status is
+    // persisted and prompts again on the next check.
+
+    private fun showUntrustedRootDialog() {
+        if (!isAdded || ui.dialog != null) return
+        ui.dialog = TsDialog.UntrustedRoot
+    }
+
+    private fun showChainInvalidDialog() {
+        if (!isAdded || ui.dialog != null) return
+        ui.dialog = TsDialog.ChainInvalid
+    }
+
+    private fun showExpiringSoonDialog() {
+        if (!isAdded || ui.dialog != null) return
+        val expiryStr = currentRevocationReason.ifEmpty { getString(R.string.ts_expiry_unknown) }
+        ui.dialog = TsDialog.ExpiringSoon(expiryStr)
+    }
+
+    /**
+     * Returns true if [value] is valid security_patch.txt content. Each value is checked by
+     * the framework, so what is accepted here is what the framework will use. A key the
+     * framework doesn't know is refused: it would skip it, and a typo such as "sytem=..."
+     * would silently do nothing.
      * Accepts:
-     *   - A single YYYY-MM-DD date
-     *   - A YYYY-MM-<DD> template (e.g. "YYYY-MM-05")
+     *   - A single value: YYYY-MM-DD, YYYY-MM, a date with placeholders such as
+     *     "YYYY-MM-05", or "today"
      *   - Multi-line per-package block format:
      *       [com.package.name]
      *       system=no
      *       all=2026-07-05
+     *   - The JSON form of the same, which the framework also reads:
+     *       {"all": "2026-07-05", "packages": {"com.package.name": {"system": "no"}}}
      */
     private fun isValidPatchContent(value: String): Boolean {
-        val dateRe    = Regex("""\d{4}-\d{2}-\d{2}""")
-        val templateRe = Regex("""YYYY-MM-\d{2}""")
-        if (dateRe.matches(value.trim())) return true
-        if (templateRe.matches(value.trim())) return true
-        return value.lines()
+        val trimmed = value.trim()
+        if (trimmed.startsWith("{")) return isValidPatchJson(trimmed)
+        if (TrickyStoreService.isValidPatchValue(trimmed)) return true
+        return trimmed.lines()
             .filter { it.isNotBlank() && !it.trim().startsWith("#") }
             .all { line ->
                 val t = line.trim()
                 when {
                     t.startsWith("[") && t.endsWith("]") -> true  // section header
-                    t.contains("=") -> {
-                        val v = t.substringAfter("=").trim()
-                        dateRe.matches(v) ||
-                        templateRe.matches(v) ||
-                        v.equals("no", ignoreCase = true) ||
-                        v.equals("prop", ignoreCase = true)
-                    }
+                    t.contains("=") ->
+                        t.substringBefore("=").trim().lowercase() in PATCH_KEYS &&
+                            TrickyStoreService.isValidPatchValue(t.substringAfter("=").trim())
                     else -> false
                 }
             }
     }
 
+    /**
+     * Reads [text] with the parser and shape TrickyStoreService.parsePatchJson uses, but
+     * refuses what it would skip (unknown keys) or fail on (a value that isn't a string or
+     * number, a package entry that isn't an object), since the framework answers the latter
+     * by silently keeping the previous patch levels.
+     */
+    private fun isValidPatchJson(text: String): Boolean {
+        return try {
+            JsonReader(StringReader(text)).use { reader ->
+                reader.beginObject()
+                while (reader.hasNext()) {
+                    when (reader.nextName()) {
+                        in PATCH_KEYS -> if (!isValidPatchJsonValue(reader)) return false
+                        "packages" -> {
+                            reader.beginObject()
+                            while (reader.hasNext()) {
+                                reader.nextName()
+                                reader.beginObject()
+                                while (reader.hasNext()) {
+                                    if (reader.nextName() !in PATCH_KEYS ||
+                                        !isValidPatchJsonValue(reader)) return false
+                                }
+                                reader.endObject()
+                            }
+                            reader.endObject()
+                        }
+                        else -> return false
+                    }
+                }
+                reader.endObject()
+                true
+            }
+        } catch (_: Exception) {
+            false
+        }
+    }
+
+    // JsonReader.nextString() also reads a number, as the framework does.
+    private fun isValidPatchJsonValue(reader: JsonReader): Boolean =
+        when (reader.peek()) {
+            JsonToken.STRING, JsonToken.NUMBER ->
+                TrickyStoreService.isValidPatchValue(reader.nextString())
+            else -> false
+        }
+
     private fun showPatchDateDialog() {
         val current = Settings.Secure.getString(
             requireContext().contentResolver, PATCH_KEY) ?: ""
-        val input = android.widget.EditText(requireContext()).apply {
-            setText(current)
-            hint = getString(R.string.ts_patch_date_hint)
-            inputType = android.text.InputType.TYPE_CLASS_TEXT or
-                android.text.InputType.TYPE_TEXT_FLAG_MULTI_LINE
-            minLines = 3
-            maxLines = 10
-            setHorizontallyScrolling(false)
-            setPadding(48, 24, 48, 24)
-        }
-        val dialog = AlertDialog.Builder(requireContext())
-            .setTitle(R.string.ts_security_patch)
-            .setView(input)
-            .setPositiveButton(android.R.string.ok, null)
-            .setNegativeButton(android.R.string.cancel, null)
-            .setNeutralButton(R.string.action_delete) { _, _ ->
-                Settings.Secure.putString(requireContext().contentResolver, PATCH_KEY, "")
-                refreshStatus()
-            }
-            .create()
-
-        dialog.setOnShowListener {
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                val value = input.text.toString().trim()
-                if (value.isNotEmpty() && !isValidPatchContent(value)) {
-                    toast(getString(R.string.ts_invalid_patch_date))
-                    return@setOnClickListener
-                }
-                Settings.Secure.putString(
-                    requireContext().contentResolver, PATCH_KEY, value)
-                refreshStatus()
-                dialog.dismiss()
-            }
-            dialog.getButton(AlertDialog.BUTTON_NEUTRAL).isEnabled = current.isNotEmpty()
-        }
-        dialog.show()
+        ui.dialog = TsDialog.PatchDate(current)
     }
 
     private fun isUserImportedKeybox(): Boolean =
@@ -1219,108 +1340,6 @@ class TrickyStore : SettingsPreferenceFragment() {
             // Force-stop only, like AxSpoofManager.killGmsFamily(). Clearing Play Store data
             // on every keybox import/fetch (including the silent auto-replace) signed users out.
         } catch (_: Exception) {}
-    }
-
-    /**
-     * Same acceptance rules as the framework: TrickyStoreService.isValidKeyboxXml() plus
-     * KeyBoxManager's check that NumberOfKeyboxes matches either the number of <Keybox>
-     * elements or the number of <Key> elements holding a complete key (algorithm + private
-     * key + certificate). Returns null when the keybox is acceptable, otherwise a short
-     * reason.
-     */
-    private fun keyboxProblem(rawXml: String): String? {
-        // isValidKeyboxXml() looks at the raw text, KeyBoxManager parses the sanitized one.
-        if (!rawXml.contains("<Key algorithm=\"ecdsa\">") && !rawXml.contains("<Key algorithm=\"rsa\">")) {
-            return "No ECDSA or RSA key block"
-        }
-        if (!rawXml.contains("<serial>") && !rawXml.contains("DeviceID")) {
-            return "No serial or DeviceID"
-        }
-        val xml = sanitizeKeyboxXml(rawXml)
-        var declared: Int? = null
-        var parsedBoxes = 0
-        var parsedKeys = 0
-        var sawKeyboxTag = false
-        var boxHasKey = false
-        try {
-            val p = Xml.newPullParser()
-            p.setInput(StringReader(xml))
-            var inKey = false
-            var algorithm: String? = null
-            var hasPrivateKey = false
-            var certs = 0
-            var text: StringBuilder? = null
-            var event = p.eventType
-            while (event != XmlPullParser.END_DOCUMENT) {
-                when (event) {
-                    XmlPullParser.START_TAG -> {
-                        when (p.name) {
-                            "Keybox" -> {
-                                sawKeyboxTag = true
-                                boxHasKey = false
-                            }
-                            "Key" -> {
-                                inKey = true
-                                algorithm = p.getAttributeValue(null, "algorithm")
-                                hasPrivateKey = false
-                                certs = 0
-                            }
-                            "PrivateKey", "Certificate" -> if (inKey) text = StringBuilder()
-                            "NumberOfKeyboxes" -> if (!inKey) text = StringBuilder()
-                        }
-                    }
-                    XmlPullParser.TEXT -> text?.append(p.text)
-                    XmlPullParser.END_TAG -> {
-                        when (p.name) {
-                            "PrivateKey" -> {
-                                if (text?.isNotBlank() == true) hasPrivateKey = true
-                                text = null
-                            }
-                            "Certificate" -> {
-                                if (text?.isNotBlank() == true) certs++
-                                text = null
-                            }
-                            "NumberOfKeyboxes" -> {
-                                declared = text?.toString()?.trim()?.toIntOrNull()
-                                text = null
-                            }
-                            "Key" -> {
-                                inKey = false
-                                if (algorithm != null && hasPrivateKey && certs > 0) {
-                                    parsedKeys++
-                                    boxHasKey = true
-                                }
-                            }
-                            "Keybox" -> {
-                                if (boxHasKey) parsedBoxes++
-                                boxHasKey = false
-                            }
-                        }
-                    }
-                }
-                event = p.next()
-            }
-        } catch (_: Exception) {
-            return "Not a valid keybox XML"
-        }
-        // A document without <Keybox> wrappers holds a single implicit box.
-        if (!sawKeyboxTag && parsedKeys > 0) parsedBoxes = 1
-        val count = declared
-        // Generators disagree on whether NumberOfKeyboxes counts <Keybox> or <Key> elements,
-        // and KeyBoxManager accepts either. Only a document matching neither is incomplete.
-        if (count != null && count != parsedBoxes && count != parsedKeys) {
-            return "Declares $count keybox(es) but $parsedBoxes box(es) / $parsedKeys key(s) parsed"
-        }
-        return null
-    }
-
-    /** KeyBoxManager.sanitizeXml(): trim, strip a leading BOM, strip XML comments. */
-    private fun sanitizeKeyboxXml(content: String): String {
-        var s = content.trim()
-        for (bom in listOf("\uFEFF", "\uFFFE", "\u0000\uFEFF")) {
-            if (s.startsWith(bom)) s = s.substring(bom.length)
-        }
-        return s.replace(Regex("<!--.*?-->", RegexOption.DOT_MATCHES_ALL), "").trim()
     }
 
     // ---- Crypto helpers -----------------------------------------------------
@@ -1352,6 +1371,135 @@ class TrickyStore : SettingsPreferenceFragment() {
             false
         }
     }
+
+    // ---- Device RKP (Duck V1) -----------------------------------------------
+
+    /**
+     * While device RKP is on, the framework serves a generated keybox and the online
+     * keybox must not replace it, so the official fetch is skipped.
+     */
+    private fun isDuckRkpEnabled(): Boolean = !duckRkpUnsupported &&
+        Settings.Secure.getInt(requireContext().contentResolver, DUCK_RKP_ENABLED_KEY, 0) != 0
+
+    private fun startDuckRkpPolling() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                while (isActive) {
+                    refreshDuckRkp()
+                    delay(1500)
+                }
+            }
+        }
+    }
+
+    private suspend fun refreshDuckRkp() {
+        val next = withContext(Dispatchers.IO) {
+            runCatching { ActivityManager.getService().duckRkpState }.getOrNull()
+        }
+        if (!isAdded) return
+        val revision = next?.getLong("revision", 0L) ?: -1L
+        applyDuckRkpState(next)
+        if (next != null && lastDuckRkpRevision != -1L && revision != lastDuckRkpRevision &&
+            next.getBoolean("active") && !next.getBoolean("imported")) {
+            // A new generated keybox was saved; cached attestation verdicts must go.
+            withContext(Dispatchers.IO) { stopPlayPackages() }
+        }
+        lastDuckRkpRevision = revision
+    }
+
+    private fun applyDuckRkpState(state: Bundle?) {
+        val owner = UserHandle.myUserId() == UserHandle.USER_SYSTEM
+        ui.rkpSupported = state?.getBoolean("available") == true
+        duckRkpUnsupported = state != null && !ui.rkpSupported
+        ui.rkpAvailable = owner && ui.rkpSupported
+        ui.rkpEnabled = ui.rkpSupported && state?.getBoolean("enabled") == true
+        ui.rkpImported = state?.getBoolean("imported") == true
+        ui.rkpBusy = state?.getBoolean("busy") == true
+        ui.rkpActive = state?.getBoolean("active") == true
+        ui.rkpCanProvision = ui.rkpAvailable && ui.rkpEnabled && !ui.rkpImported &&
+            !ui.rkpBusy && (state?.getLong("retry_after_ms") ?: 0L) == 0L
+        ui.rkpStatus = duckRkpStatus(state, owner)
+    }
+
+    private fun duckRkpStatus(state: Bundle?, owner: Boolean): String {
+        if (!owner) return getString(R.string.ts_rkp_owner_only)
+        if (state == null || !state.getBoolean("available")) {
+            return getString(R.string.ts_rkp_unavailable)
+        }
+        if (state.getBoolean("imported")) return getString(R.string.ts_rkp_imported)
+        if (!state.getBoolean("enabled")) return getString(R.string.ts_rkp_disabled)
+        if (!state.getString("error").isNullOrEmpty()) {
+            val error = duckRkpError(state)
+            return when {
+                state.getBoolean("automatic_paused") ->
+                    getString(R.string.ts_rkp_auto_paused, error)
+                state.getLong("next_automatic_at") > 0 -> getString(
+                    R.string.ts_rkp_auto_retry, error,
+                    formatTime(state.getLong("next_automatic_at")))
+                else -> error
+            }
+        }
+        if (state.getBoolean("busy")) {
+            return getString(when (state.getString("stage")) {
+                "fetching" -> R.string.ts_rkp_fetching
+                "signing" -> R.string.ts_rkp_signing
+                "validating", "saving" -> R.string.ts_rkp_validating
+                else -> R.string.ts_rkp_hardware
+            })
+        }
+        if (state.getBoolean("active")) {
+            return getString(R.string.ts_rkp_ready,
+                formatTime(state.getLong("expires_at")),
+                formatTime(state.getLong("renew_at")))
+        }
+        if (state.getBoolean("waiting_for_network")) {
+            return getString(R.string.ts_rkp_waiting_network)
+        }
+        val expiresAt = state.getLong("expires_at")
+        if (expiresAt in 1..System.currentTimeMillis()) return getString(R.string.ts_rkp_expired)
+        return getString(R.string.ts_rkp_idle)
+    }
+
+    private fun duckRkpError(state: Bundle): String = when (state.getString("error")) {
+        "hal_rejected", "native_rejected" ->
+            getString(R.string.ts_rkp_hal_rejected, state.getInt("detail"))
+        "native_unavailable" -> getString(R.string.ts_rkp_native_unavailable)
+        "native_transport" -> getString(R.string.ts_rkp_native_transport)
+        "invalid_hal_response" -> getString(R.string.ts_rkp_invalid_response)
+        "http_error" -> getString(R.string.ts_rkp_http_error, state.getInt("detail"))
+        "hal_unsupported", "hal_unavailable", "missing_eek" ->
+            getString(R.string.ts_rkp_unsupported)
+        "network_error" -> getString(R.string.ts_rkp_network_error)
+        "submission_unknown" -> getString(R.string.ts_rkp_submission_unknown)
+        "certificate_invalid", "stored_key_invalid" -> getString(R.string.ts_rkp_invalid_chain)
+        "timeout", "native_timeout" -> getString(R.string.ts_rkp_timeout)
+        "canceled" -> getString(R.string.ts_rkp_canceled)
+        "save_failed" -> getString(R.string.ts_rkp_save_failed)
+        else -> getString(R.string.ts_rkp_action_failed)
+    }
+
+    private fun stopPlayPackages() {
+        val am = ActivityManager.getService()
+        for (pkg in listOf(VENDING_PACKAGE, GMS_PACKAGE)) {
+            runCatching { am.forceStopPackage(pkg, UserHandle.USER_SYSTEM) }
+        }
+    }
+
+    /** Runs one framework call off the main thread, then refreshes the status rows. */
+    private fun changeDuckRkp(action: () -> Unit) {
+        if (ui.rkpChanging) return
+        ui.rkpChanging = true
+        lifecycleScope.launch {
+            val result = withContext(Dispatchers.IO) { runCatching(action) }
+            ui.rkpChanging = false
+            if (!isAdded) return@launch
+            if (result.isFailure) toast(getString(R.string.ts_rkp_action_failed))
+            refreshDuckRkp()
+        }
+    }
+
+    private fun formatTime(millis: Long): String =
+        SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(millis))
 
     // ---- Misc ---------------------------------------------------------------
 

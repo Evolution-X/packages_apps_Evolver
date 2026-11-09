@@ -19,13 +19,9 @@
             android:summary="@string/font_styles_summary" />
 
         <!-- Emoji style -->
-        <org.evolution.settings.preferences.SystemPropertyListPreference
+        <org.evolution.settings.preferences.EmojiStylePickerPreference
             android:key="persist.sys.ax_emoji_style"
-            android:title="@string/emoji_style_title"
-            android:summary="%s"
-            android:entries="@array/emoji_style_entries"
-            android:entryValues="@array/emoji_style_values"
-            android:defaultValue="android" />
+            android:title="@string/emoji_style_title" />
 
     </PreferenceCategory>
 
@@ -40,12 +36,22 @@
             android:summary="@string/themes_monet_summary"
             android:fragment="org.evolution.settings.fragments.themes.ColorsSettingsFragment" />
 
+        <!-- Shade style -->
+        <org.evolution.settings.preferences.SecureSettingListPreference
+            android:key="shade_color_style"
+            android:title="@string/shade_color_style_title"
+            android:summary="@string/shade_color_style_summary"
+            android:dialogTitle="@string/shade_color_style_title"
+            android:entries="@array/shade_color_style_entries"
+            android:entryValues="@array/shade_color_style_values"
+            android:defaultValue="0" />
+
         <!-- Gradient Customization -->
-        <!--<Preference
+        <Preference
             android:key="gradient_settings"
             android:title="@string/gradient_settings_title"
             android:summary="@string/gradient_settings_summary"
-            android:fragment="org.evolution.settings.fragments.themes.GradientSettings" />-->
+            android:fragment="org.evolution.settings.fragments.themes.GradientSettings" />
 
     </PreferenceCategory>
 
@@ -54,7 +60,7 @@
         android:title="@string/themes_icons_category">
 
         <!-- Themes -->
-        <!--<Preference
+        <Preference
             android:key="custom_system_theme"
             android:title="@string/custom_system_theme_title"
             android:summary="@string/custom_system_theme_summary">
@@ -64,7 +70,7 @@
                 android:targetClass="com.android.axion.axthemestore.MainActivity" />
         </Preference>
 
-        <Preference
+        <!--<Preference
             android:key="settings_icon"
             android:title="@string/settings_icon_title"
             android:summary="@string/settings_icon_summary"
@@ -106,9 +112,9 @@
         <!-- Screen off animation -->
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="screen_off_animation"
-            android:title="@string/themes_screen_off_animation_title"
-            android:entries="@array/themes_screen_off_animation_entries"
-            android:entryValues="@array/themes_screen_off_animation_values"
+            android:title="@string/screen_off_animation_title"
+            android:entries="@array/screen_off_animation_entries"
+            android:entryValues="@array/screen_off_animation_values"
             android:defaultValue="0" />
 
         <!-- Udfps animation -->
@@ -117,24 +123,6 @@
             android:title="@string/themes_udfps_animation_title"
             android:summary="@string/themes_udfps_animation_summary"
             android:fragment="org.evolution.settings.fragments.themes.UdfpsAnimation" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="themes_launcher_category"
-        android:title="@string/themes_launcher_category">
-
-        <org.evolution.settings.preferences.OverlaySwitchPreference
-            android:key="com.google.android.apps.nexuslauncher.icons.overlay"
-            android:title="@string/themes_launcher_more_themed_icons_title"
-            android:summary="@string/themes_launcher_more_themed_icons_summary"
-            android:defaultValue="true" />
-
-        <!--<org.evolution.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.velvet.force_onesearch"
-            android:title="@string/themes_launcher_force_new_search_bar"
-            android:summary="@string/themes_launcher_force_new_search_bar_summary"
-            android:defaultValue="true" />-->
 
     </PreferenceCategory>
 
@@ -163,7 +151,7 @@
 
         <Preference
             android:key="wallpaper_settings"
-            android:title="@string/wallpaper_settings_title"
+            android:title="@string/wallpaper_styles_title"
             android:summary="@string/wallpaper_settings_summary"
             android:fragment="org.evolution.settings.fragments.themes.Wallpaper" />
 
