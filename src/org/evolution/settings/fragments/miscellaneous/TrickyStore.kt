@@ -152,7 +152,7 @@ class TrickyStore : SettingsPreferenceFragment() {
             "https://gitea.com/Evolution-X/keybox/raw/branch/main/keybox.xml"
 
         /** Warn user when the leaf cert expires within this window. */
-        private val EXPIRY_WARN_MS = TimeUnit.DAYS.toMillis(14)
+        private val EXPIRY_WARN_MS = TimeUnit.DAYS.toMillis(7)
 
         /**
          * Puts the spoofing settings back to a fresh-install state: the PIF
