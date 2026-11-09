@@ -1219,7 +1219,6 @@
     <string name="lock_glymps_selected_count">%1$d selected</string>
     <string name="lock_glymps_provider_strategy_title">Provider strategy</string>
     <string name="lock_glymps_api_keys_title">Provider API keys</string>
-    <string name="lock_glymps_api_keys_summary">Optional keys for Pexels, Unsplash and Pixabay; stored on this device</string>
     <string name="lock_glymps_api_keys_dialog_title">Provider API keys</string>
     <string name="lock_glymps_pexels_key_hint">Pexels API key</string>
     <string name="lock_glymps_unsplash_key_hint">Unsplash access key</string>
@@ -1263,7 +1262,6 @@
     <string name="lock_glymps_custom_urls_saved">Custom URLs saved</string>
     <string name="lock_glymps_clear_cache_dialog_title">Clear Cache</string>
     <string name="lock_glymps_clear_cache_dialog_message">This will delete all cached wallpapers and they will be re-downloaded. Continue?</string>
-    <string name="lock_glymps_clear_cache_confirm">Clear</string>
     <string name="lock_glymps_cache_cleared">Cache cleared. New wallpapers will be downloaded.</string>
     <string name="lock_glymps_behavior_category">Behavior</string>
     <string name="lock_glymps_change_on_title">Change wallpaper on</string>
