@@ -1008,10 +1008,12 @@
     <string name="pif_wipe_playstore_title">Playストアのデータを消去しますか？</string>
     <string name="pif_wipe_playstore_message">このフィンガープリントを適用することは、新鮮なPlay Storeセッションで最適です。 Play Storeアプリのデータを消去しますか？これでサインアウトし、ローカルキャッシュとダウンロードキューを消去します。</string>
     <string name="pif_wipe_confirm">データを消去</string>
+    <string name="spoof_choice_select">選択</string>
     <string name="pif_deleted">%s を削除しました</string>
     <string name="pif_failed">失敗: %s</string>
     <string name="pif_select_device">デバイスを選択</string>
     <string name="pif_recommended_suffix">おすすめ</string>
+    <string name="pif_device_suggested">%1$s ・提案</string>
     <string name="pif_footer_body">Canary フィンガープリントは1日に最大1回チェックされ、有効期限が切れる約2週間以内になると自動的に置き換えられます。Canary の設定はリリース日から約6週間で期限切れになります。有効期限はアクティブな設定の概要に表示されます。\n\n【手動で設定する場合】\n1.「Pixel Canary フィンガープリントを取得」をタップしてデバイスを選択します。\n2.デバイスが見つからない場合は、信頼できる情報元から動作する PIF 設定をインポートします。（※設定ファイルは同梱されていません）\n3.Play Integrity のステータスを再確認します。\n\n新しい設定をインポートする前に、必ず既存のアクティブな設定を削除してください。期限切れの PIF 設定を読み込むと、有効なキーボックスがあっても TrickyStore の Strong integrity（強力な整合性）の検証に失敗します。\n\n【高度な偽装設定】\n・Play ストアのフィンガープリントを偽装: 特に指示がない限り無効にしておきます。Play ストアへの FINGERPRINT の偽装はほとんど必要とされず、不具合を引き起こす可能性があります。\n・Play ストアに SDK を偽装: Play ストアに対して SDK 32 を提示し、Android 13 より前のレガシー判定パスを強制します。Play ストアの動作に影響が出る可能性があるため、テスト時以外はオフにしてください。\n・ビルドフィールドとシステムプロパティを偽装: オンにしておきます。これらは DroidGuard に偽装したフィンガープリント情報を報告します。\n・Keystore プロバイダを偽装: キーボックスを使用している場合はオフにしてください。キーボックスのアテステーション（認証）をバイパスしてしまうためです。\n・ROM 署名を偽装: 実験的な機能です。</string>
     <string name="pif_invalid_fingerprint">フィンガープリントの形式が無効です</string>
     <string name="pif_no_devices_found">デバイスが見つかりません</string>
