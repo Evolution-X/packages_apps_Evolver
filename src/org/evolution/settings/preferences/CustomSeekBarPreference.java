@@ -143,6 +143,24 @@ public class CustomSeekBarPreference extends SliderPreference {
         updateSummaryNow();
     }
 
+    /**
+     * Material's slider throws on a value between its steps, which a page whose steps changed,
+     * or adb, can leave saved. Hand the slider the step nearest the saved value instead.
+     */
+    @Override
+    protected int getPersistedInt(int defaultReturnValue) {
+        return snapToStep(super.getPersistedInt(defaultReturnValue));
+    }
+
+    private int snapToStep(int value) {
+        int step = getSliderIncrement();
+        int min = getMin();
+        if (step <= 1 || value <= min || value >= getMax()) {
+            return value;
+        }
+        return min + Math.round((value - min) / (float) step) * step;
+    }
+
     @Override
     public void setValue(int sliderValue) {
         super.setValue(sliderValue);
