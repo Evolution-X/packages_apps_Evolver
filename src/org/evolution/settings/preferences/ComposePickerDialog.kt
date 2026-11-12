@@ -116,19 +116,24 @@ class PickerOption(
     val icon: (@Composable () -> Unit)? = null,
 )
 
-/** Extra text button next to Cancel, like "Add font". It closes the picker, then runs [onClick]. */
+/**
+ * Extra text button next to Cancel, like "Add font" or "Reset". It closes the picker, then runs
+ * [onClick].
+ */
 class PickerAction(val label: String, val onClick: () -> Unit)
 
 /**
  * Picker dialog: [options] in a scrollable list (two columns in landscape) with the current one
  * highlighted. [onSelect] returns true to close the dialog, false to keep it open. [action] adds
- * a button before Cancel, and [onClosed] runs however the dialog goes away.
+ * a button before Cancel, [secondaryAction] another one before that (shown only when the caller
+ * passes it, for a rarely needed action), and [onClosed] runs however the dialog goes away.
  */
 fun Context.showPickerDialog(
     title: CharSequence?,
     options: List<PickerOption>,
     selectedIndex: Int,
     action: PickerAction? = null,
+    secondaryAction: PickerAction? = null,
     onClosed: () -> Unit = {},
     onSelect: (Int) -> Boolean,
 ): ComposeDialogHandle? = showComposeDialog { dismiss ->
@@ -138,6 +143,7 @@ fun Context.showPickerDialog(
         options = options,
         selectedIndex = selectedIndex,
         action = action,
+        secondaryAction = secondaryAction,
         onSelect = { index -> if (onSelect(index)) dismiss() },
         onDismiss = dismiss,
     )
@@ -174,6 +180,7 @@ private fun PickerDialog(
     options: List<PickerOption>,
     selectedIndex: Int,
     action: PickerAction?,
+    secondaryAction: PickerAction?,
     onSelect: (Int) -> Unit,
     onDismiss: () -> Unit,
 ) {
@@ -212,10 +219,16 @@ private fun PickerDialog(
                 Text(stringResource(android.R.string.cancel))
             }
         },
-        dismissButton = action?.let { extra ->
+        dismissButton = if (action == null && secondaryAction == null) {
+            null
+        } else {
             {
-                ExpressiveTextButton(onClick = { onDismiss(); extra.onClick() }) {
-                    Text(extra.label)
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    listOfNotNull(secondaryAction, action).forEach { extra ->
+                        ExpressiveTextButton(onClick = { onDismiss(); extra.onClick() }) {
+                            Text(extra.label)
+                        }
+                    }
                 }
             }
         },
