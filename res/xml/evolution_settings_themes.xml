@@ -29,6 +29,13 @@
         android:key="themes_monet_colors_category"
         android:title="@string/themes_monet_colors_category">
 
+        <!-- Dialog and toast blur -->
+        <org.evolution.settings.preferences.SystemSettingSwitchPreference
+            android:key="dialog_blur_enabled"
+            android:title="@string/dialog_blur_title"
+            android:summary="@string/dialog_blur_summary"
+            android:defaultValue="true" />
+
         <!-- Monet settings -->
         <Preference
             android:key="monet_settings"
