@@ -1292,6 +1292,17 @@
     <string name="toast_emoji_slots_full">No free emoji font slot. Pick a built-in style to reset it, then try again</string>
     <string name="toast_invalid_emoji_file">Invalid emoji font file</string>
     <string name="toast_emoji_font_too_old">A newer version of this emoji font is already installed</string>
+    <string name="toast_emoji_not_installed">Add a custom emoji font first</string>
+    <string name="emoji_restart_title">Restart to apply emoji</string>
+    <string name="emoji_restart_message">These emoji replace the system emoji in every app that uses the system font. Restarting now restarts SystemUI and closes all running apps so they pick up the new emoji. If you restart later, each app switches the next time it starts.</string>
+    <string name="emoji_restart_now">Restart now</string>
+    <string name="emoji_apps_reset">Reset third-party apps</string>
+    <string name="emoji_apps_confirm">This copies your emoji font over every emoji font stored in app data, stops Facebook and Messenger from downloading their own, clears the caches of those apps and Gboard, and turns off the Google Play services font provider. Affected apps are force stopped. Run it again after those apps update.</string>
+    <string name="emoji_apps_reset_button">Reset</string>
+    <plurals name="emoji_apps_done">
+        <item quantity="one">Replaced %1$d emoji font in app data. Apps that use downloadable emoji now fall back to the system emoji.</item>
+        <item quantity="other">Replaced %1$d emoji fonts in app data. Apps that use downloadable emoji now fall back to the system emoji.</item>
+    </plurals>
     <string name="custom_system_theme_title">Themes</string>
     <string name="custom_system_theme_summary">Customize system appearance with themes and icon packs</string>
 
