@@ -116,8 +116,6 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
             entries.forEachIndexed { i, entry ->
                 add(PickerOption(entry, trailing = previewTrailing(STYLE_FONTS[values[i]]?.let(::File))))
             }
-            // Only useful with a custom font to copy into the apps.
-            if (hasCustom) add(PickerOption(ctx.getString(R.string.emoji_apps_reset)))
         }
         val selectedIndex = if (hasCustom) {
             0
@@ -140,14 +138,18 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
                     )
                 )
             },
+            // Only useful with a custom font to copy into the apps.
+            secondaryAction = if (hasCustom) {
+                PickerAction(ctx.getString(R.string.emoji_apps_reset_short)) {
+                    confirmResetApps(ctx)
+                }
+            } else {
+                null
+            },
             onClosed = { dialog = null },
         ) { index ->
             // The active custom font can't be re-applied; leave the picker open.
             if (hasCustom && index == 0) return@showPickerDialog false
-            if (hasCustom && index == options.lastIndex) {
-                confirmResetApps(ctx)
-                return@showPickerDialog true
-            }
             val value = values[index - offset]
             if (!hasCustom && value == current) return@showPickerDialog false
             applyStyle(ctx, value, hadCustom = hasCustom)
