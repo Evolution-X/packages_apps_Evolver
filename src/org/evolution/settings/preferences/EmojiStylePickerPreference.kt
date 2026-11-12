@@ -5,8 +5,10 @@
 
 package org.evolution.settings.preferences
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Typeface
+import android.graphics.fonts.FontManager
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
@@ -33,18 +35,24 @@ import androidx.preference.PreferenceManager
 import com.android.internal.util.evolution.SystemRestartUtils
 import com.android.settings.R
 import com.android.settingslib.development.SystemPropPoker
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.evolution.settings.fragments.miscellaneous.ExpressiveDialog
 import org.evolution.settings.fragments.miscellaneous.ExpressiveTextButton
 import org.evolution.settings.fragments.miscellaneous.expressiveVerticalScroll
 import org.evolution.settings.fragments.themes.fonts.ExternalEmojiInstaller
 import org.evolution.settings.fragments.themes.fonts.ExternalFontInstaller
+import org.evolution.settings.utils.SystemUtils
 import java.io.File
 
 /**
  * Emoji style picker: the bundled styles from persist.sys.ax_emoji_style, plus a user-picked
  * emoji font installed as the top priority und-Zsye fallback. An installed custom font wins
  * over any bundled style, so picking a bundled style removes it first.
+ *
+ * The custom font goes through the framework's emoji API and takes effect once SystemUI and the
+ * running apps restart. A bundled style is read at boot, so changing it still asks for a reboot.
  */
 class EmojiStylePickerPreference @JvmOverloads constructor(
     context: Context,
@@ -61,6 +69,10 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
     private val values: Array<String> =
         context.resources.getStringArray(R.array.emoji_style_values)
 
+    // Read off the main thread, because asking the framework is a binder call.
+    private var customName: String = ""
+    private var customFile: File? = null
+
     private var emojiPickerLauncher: ActivityResultLauncher<Array<String>>? = null
     private val previewFamilies = HashMap<String, FontFamily?>()
 
@@ -68,9 +80,9 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
         super.onAttachedToHierarchy(preferenceManager)
         updateSummary()
         Thread({
-            installer.repairIfStale()
-            mainHandler.post { updateSummary() }
-        }, "EmojiRepair").start()
+            installer.dropLegacyInstall()
+            refreshState()
+        }, "EmojiState").start()
 
         val activity = context as? FragmentActivity ?: return
         emojiPickerLauncher = activity.activityResultRegistry.register(
@@ -94,16 +106,18 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
         dialog?.dismiss()
 
         // The custom emoji font, when installed, is listed first and is the selected row.
-        val hasCustom = installer.hasCustomEmoji()
+        val hasCustom = customName.isNotEmpty()
         val offset = if (hasCustom) 1 else 0
         val current = SystemProperties.get(key, DEFAULT_STYLE)
         val options = buildList {
             if (hasCustom) {
-                add(PickerOption(customLabel(ctx), trailing = previewTrailing(installer.installedFile())))
+                add(PickerOption(customLabel(ctx), trailing = previewTrailing(customFile)))
             }
             entries.forEachIndexed { i, entry ->
                 add(PickerOption(entry, trailing = previewTrailing(STYLE_FONTS[values[i]]?.let(::File))))
             }
+            // Only useful with a custom font to copy into the apps.
+            if (hasCustom) add(PickerOption(ctx.getString(R.string.emoji_apps_reset)))
         }
         val selectedIndex = if (hasCustom) {
             0
@@ -130,6 +144,10 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
         ) { index ->
             // The active custom font can't be re-applied; leave the picker open.
             if (hasCustom && index == 0) return@showPickerDialog false
+            if (hasCustom && index == options.lastIndex) {
+                confirmResetApps(ctx)
+                return@showPickerDialog true
+            }
             val value = values[index - offset]
             if (!hasCustom && value == current) return@showPickerDialog false
             applyStyle(ctx, value, hadCustom = hasCustom)
@@ -161,10 +179,20 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
 
     private fun applyStyle(ctx: Context, value: String, hadCustom: Boolean) {
         Thread({
-            if (hadCustom) installer.resetEmojiUpdates()
+            if (hadCustom) {
+                val result = installer.clear()
+                if (result != ExternalEmojiInstaller.Result.SUCCESS) {
+                    mainHandler.post { showResult(result) }
+                    return@Thread
+                }
+            }
             SystemProperties.set(key, value)
             SystemPropPoker.getInstance().poke()
             mainHandler.post {
+                if (hadCustom) {
+                    customName = ""
+                    customFile = null
+                }
                 updateSummary()
                 if (hadCustom) {
                     showRebootDialog(ctx)
@@ -176,14 +204,30 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
     }
 
     private fun customLabel(ctx: Context): String =
-        ctx.getString(R.string.emoji_custom_label, installer.installedName())
+        ctx.getString(R.string.emoji_custom_label, customName)
 
-    private fun updateSummary() {
-        summary = if (installer.hasCustomEmoji()) {
+    private fun applySummary() {
+        summary = if (customName.isNotEmpty()) {
             customLabel(context)
         } else {
             val index = values.indexOf(SystemProperties.get(key, DEFAULT_STYLE))
             entries[if (index < 0) 0 else index]
+        }
+    }
+
+    /** Asks the framework for the installed font, then updates the summary. */
+    private fun updateSummary() {
+        applySummary()
+        Thread({ refreshState() }, "EmojiState").start()
+    }
+
+    private fun refreshState() {
+        val name = installer.installedName()
+        val file = if (name.isNotEmpty()) installer.installedFile() else null
+        mainHandler.post {
+            customName = name
+            customFile = file
+            applySummary()
         }
     }
 
@@ -211,16 +255,11 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
                 showResult(problem)
                 return@launch
             }
-            showEmojiPreviewDialog(uri, typeface, installer.previewCoverage(), activity)
+            showEmojiPreviewDialog(typeface, installer.previewCoverage())
         }
     }
 
-    private fun showEmojiPreviewDialog(
-        uri: Uri,
-        typeface: Typeface,
-        coverage: Pair<Int, Int>,
-        activity: FragmentActivity
-    ) {
+    private fun showEmojiPreviewDialog(typeface: Typeface, coverage: Pair<Int, Int>) {
         context.showComposeDialog { dismiss ->
             ExpressiveDialog(
                 onDismissRequest = { dismiss(); installer.discardPreview() },
@@ -249,7 +288,7 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
                 confirmButton = {
                     ExpressiveTextButton(onClick = {
                         dismiss()
-                        installEmojiFont(uri, activity)
+                        installEmojiFont()
                     }) { Text(stringResource(R.string.add_emoji_font)) }
                 },
                 dismissButton = {
@@ -261,14 +300,66 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
         }
     }
 
-    private fun installEmojiFont(uri: Uri, activity: FragmentActivity) {
-        activity.lifecycleScope.launch {
-            val result = installer.installEmojiFromUri(uri)
+    // Runs in the process-wide scope so leaving the screen can't cancel it halfway.
+    private fun installEmojiFont() {
+        ExternalEmojiInstaller.scope.launch {
+            val result = installer.installPreview()
             updateSummary()
             if (result == ExternalEmojiInstaller.Result.SUCCESS) {
-                showRebootDialog(context)
+                if (isScreenAlive()) showRestartDialog(context)
             } else {
                 showResult(result)
+            }
+        }
+    }
+
+    private fun isScreenAlive(): Boolean {
+        val activity = context as? Activity ?: return false
+        return !activity.isFinishing && !activity.isDestroyed
+    }
+
+    /** SystemUI picks the font up when it restarts; running apps when their process does. */
+    private fun showRestartDialog(ctx: Context) {
+        ctx.showChoiceDialog(
+            title = ctx.getString(R.string.emoji_restart_title),
+            message = ctx.getString(R.string.emoji_restart_message),
+            confirmText = ctx.getString(R.string.emoji_restart_now),
+            laterText = ctx.getString(R.string.action_later),
+            onConfirm = { restartNow(ctx) },
+            onLater = {},
+        )
+    }
+
+    private fun restartNow(ctx: Context) {
+        Thread({
+            installer.killRunningApps()
+            mainHandler.post { SystemUtils.restartSystemUI(ctx) }
+        }, "EmojiRestart").start()
+    }
+
+    private fun confirmResetApps(ctx: Context) {
+        ctx.showChoiceDialog(
+            title = ctx.getString(R.string.emoji_apps_reset),
+            message = ctx.getString(R.string.emoji_apps_confirm),
+            confirmText = ctx.getString(R.string.emoji_apps_reset_button),
+            laterText = ctx.getString(android.R.string.cancel),
+            onConfirm = { resetApps() },
+            onLater = {},
+        )
+    }
+
+    private fun resetApps() {
+        ExternalEmojiInstaller.scope.launch {
+            val count = withContext(Dispatchers.IO) { installer.applyToApps() }
+            when {
+                count >= 0 -> Toast.makeText(
+                    context,
+                    context.resources.getQuantityString(R.plurals.emoji_apps_done, count, count),
+                    Toast.LENGTH_LONG
+                ).show()
+                count == FontManager.RESULT_ERROR_FONT_NOT_FOUND ->
+                    toast(R.string.toast_emoji_not_installed)
+                else -> toast(R.string.toast_failed_apply_emoji)
             }
         }
     }
@@ -276,11 +367,10 @@ class EmojiStylePickerPreference @JvmOverloads constructor(
     private fun showResult(result: ExternalEmojiInstaller.Result) {
         when (result) {
             ExternalEmojiInstaller.Result.SUCCESS -> Unit
-            ExternalEmojiInstaller.Result.REVISION_TOO_OLD -> toast(R.string.toast_emoji_font_too_old)
             ExternalEmojiInstaller.Result.INVALID_FONT -> toast(R.string.toast_invalid_emoji_file)
             ExternalEmojiInstaller.Result.UPDATER_DISABLED ->
                 toast(R.string.toast_emoji_updater_disabled)
-            ExternalEmojiInstaller.Result.SLOTS_FULL -> toast(R.string.toast_emoji_slots_full)
+            ExternalEmojiInstaller.Result.NOT_INSTALLED -> toast(R.string.toast_emoji_not_installed)
             ExternalEmojiInstaller.Result.FAILED -> toast(R.string.toast_failed_apply_emoji)
         }
     }
