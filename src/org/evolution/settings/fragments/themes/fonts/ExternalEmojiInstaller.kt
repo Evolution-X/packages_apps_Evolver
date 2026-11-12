@@ -4,74 +4,99 @@
  */
 package org.evolution.settings.fragments.themes.fonts
 
+import android.app.ActivityManager
 import android.content.Context
+import android.content.pm.ApplicationInfo
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.graphics.fonts.Font
 import android.graphics.fonts.FontFamily
-import android.graphics.fonts.FallbackFontUpdateRequest
-import android.graphics.fonts.FontFamilyUpdateRequest
-import android.graphics.fonts.FontFileUpdateRequest
 import android.graphics.fonts.FontFileUtil
 import android.graphics.fonts.FontManager
-import android.graphics.fonts.FontStyle
 import android.net.Uri
 import android.os.ParcelFileDescriptor
+import android.os.Process
+import android.os.UserHandle
 import android.provider.Settings
 import android.util.Log
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
 
-class ExternalEmojiInstaller(private val context: Context) {
+/**
+ * Talks to the custom emoji API of [FontManager]. The framework stores the font and puts it in
+ * front of the system emoji fallbacks, so it takes effect in every process started afterwards
+ * and needs no reboot.
+ */
+class ExternalEmojiInstaller(context: Context) {
 
     companion object {
         private const val TAG = "ExternalEmojiInstaller"
-        private const val CUSTOM_EMOJI_FILE = "cust_emoji.ttf"
         private const val TEMP_PREVIEW_EMOJI = "preview_emoji.ttf"
-        private const val MAX_EMOJI_BYTES = 64L * 1024L * 1024L
-        private const val EMOJI_LANG = "und-Zsye"
-        private const val STOCK_EMOJI_PS_NAME = "NotoColorEmoji"
-        const val CUSTOM_EMOJI_NAME_KEY = "custom_emoji_name"
+        private const val RESULT_EXCEPTION = Int.MIN_VALUE
+        private const val KILL_REASON = "system emoji changed"
+        private const val GMS_PACKAGE = "com.google.android.gms"
+
+        /** Where FontManagerService keeps the installed font (UpdatableFontDir). */
+        private const val INSTALLED_EMOJI_DIR = "/data/fonts/emoji"
+
+        /** Same limit as UpdatableFontDir.MAX_CUSTOM_EMOJI_FILE_SIZE. */
+        private const val MAX_EMOJI_BYTES = 128L * 1024L * 1024L
+
+        // Earlier builds kept their own copy of the font and its name.
+        private const val LEGACY_EMOJI_FILE = "cust_emoji.ttf"
+        private const val LEGACY_NAME_KEY = "custom_emoji_name"
+
         // Unicode 15.0 and 16.0 emoji: moose, goose, shaking face, fingerprint, leafless tree,
         // splatter, face with bags under eyes.
         private val NEWEST_EMOJI = intArrayOf(
             0x1FACE, 0x1FABF, 0x1FAE8, 0x1FAC6, 0x1FABE, 0x1FADF, 0x1FAE9
         )
+
+        /**
+         * Runs emoji work that must outlive the screen, so leaving it can't cancel an install
+         * halfway and skip the restart prompt that follows.
+         */
+        val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     }
 
-    enum class Result { SUCCESS, FAILED, INVALID_FONT, REVISION_TOO_OLD, UPDATER_DISABLED, SLOTS_FULL }
+    enum class Result { SUCCESS, FAILED, INVALID_FONT, UPDATER_DISABLED, NOT_INSTALLED }
 
-    private val fontManager: FontManager = context.getSystemService(FontManager::class.java)
+    private val context: Context = context.applicationContext
 
-    fun installedName(): String =
-        Settings.Secure.getString(context.contentResolver, CUSTOM_EMOJI_NAME_KEY) ?: ""
+    private val fontManager: FontManager = this.context.getSystemService(FontManager::class.java)
 
-    fun hasCustomEmoji(): Boolean = installedName().isNotEmpty()
+    /** Name of the installed custom emoji font, empty when there is none. Blocking. */
+    fun installedName(): String = runCatching { fontManager.customEmojiName }
+        .onFailure { Log.e(TAG, "getCustomEmojiName failed", it) }
+        .getOrNull()
+        .orEmpty()
 
-    fun installedFile(): File = File(context.filesDir, CUSTOM_EMOJI_FILE)
-
-    private fun isCustomEmojiActive(): Boolean {
-        val name = installedName()
-        return fontManager.fontConfig.fontFamilies
-            .filter { it.localeList.toLanguageTags() == EMOJI_LANG }
-            .any { family -> family.fontList.any { it.postScriptName == name } }
-    }
+    /** The installed custom emoji font, for previews. Blocking. */
+    fun installedFile(): File? = runCatching {
+        fontManager.fontConfig.fontFamilies
+            .flatMap { it.fontList }
+            .firstOrNull { it.file.parent == INSTALLED_EMOJI_DIR }
+            ?.file
+    }.onFailure { Log.e(TAG, "getFontConfig failed", it) }.getOrNull()
 
     /**
-     * The framework drops an updated emoji font that is older than the preinstalled one, for
-     * example after an update, while the saved name stays set. Re-applies the saved font when
-     * it is no longer in the font config and forgets it when that fails. Blocking.
+     * Earlier builds installed the font as an unsigned font update and kept a copy and its name
+     * here. The framework stores the font now and keeps its name, so drop the leftovers.
+     * Blocking.
      */
-    fun repairIfStale() {
-        if (!hasCustomEmoji() || isCustomEmojiActive()) return
-        if (reinstallSaved() && isCustomEmojiActive()) return
-        Log.w(TAG, "Custom emoji font is no longer active, clearing it")
-        File(context.filesDir, CUSTOM_EMOJI_FILE).delete()
-        Settings.Secure.putString(context.contentResolver, CUSTOM_EMOJI_NAME_KEY, "")
+    fun dropLegacyInstall() {
+        val resolver = context.contentResolver
+        val hadName = !Settings.Secure.getString(resolver, LEGACY_NAME_KEY).isNullOrEmpty()
+        val files = listOf("", ".new", ".bak").map { File(context.filesDir, LEGACY_EMOJI_FILE + it) }
+        if (!hadName && files.none { it.exists() }) return
+        files.forEach { it.delete() }
+        Settings.Secure.putString(resolver, LEGACY_NAME_KEY, "")
     }
 
     private fun mapFile(file: File): ByteBuffer = FileInputStream(file).use { fis ->
@@ -80,23 +105,13 @@ class ExternalEmojiInstaller(private val context: Context) {
 
     /** Null when [file] can be installed as an emoji font, otherwise the reason it can't. */
     private fun checkFont(file: File): Result? = runCatching {
-        val buffer = mapFile(file)
-        val psName = FontFileUtil.getPostScriptName(buffer, 0)
+        val psName = FontFileUtil.getPostScriptName(mapFile(file), 0)
         when {
-            psName == null -> Result.INVALID_FONT
-            // Installing under a name the system already uses would replace that font.
-            psName != STOCK_EMOJI_PS_NAME && psName != installedName() &&
-                usesSystemName(psName) -> Result.INVALID_FONT
+            psName.isNullOrEmpty() -> Result.INVALID_FONT
             !hasEmojiGlyph(file) -> Result.INVALID_FONT
             else -> null
         }
     }.getOrDefault(Result.INVALID_FONT)
-
-    private fun usesSystemName(psName: String): Boolean {
-        val config = fontManager.fontConfig
-        return (config.fontFamilies + config.namedFamilyLists.flatMap { it.families })
-            .any { family -> family.fontList.any { it.postScriptName == psName } }
-    }
 
     // Checked without the system fallback so a text font can't pass on the system emoji font.
     private fun hasGlyphs(file: File, text: String): Boolean = runCatching {
@@ -169,117 +184,70 @@ class ExternalEmojiInstaller(private val context: Context) {
         File(context.cacheDir, TEMP_PREVIEW_EMOJI).delete()
     }
 
-    suspend fun installEmojiFromUri(uri: Uri): Result = withContext(Dispatchers.IO) {
-        // Check the new font before touching the installed one, so a bad pick can't remove it.
-        val candidate = File(context.filesDir, "$CUSTOM_EMOJI_FILE.new")
-        if (!copyUriToFile(uri, candidate)) return@withContext Result.FAILED
-        val problem = checkFont(candidate)
-        if (problem != null) {
-            candidate.delete()
-            return@withContext problem
-        }
-        val file = File(context.filesDir, CUSTOM_EMOJI_FILE)
-        val backup = File(context.filesDir, "$CUSTOM_EMOJI_FILE.bak")
-        val oldName = installedName()
-        backup.delete()
-        // Fallback slots are limited and priorities only go up, so replacing an
-        // installed emoji font starts from a clean slate. Keep the old one to put back.
-        if (oldName.isNotEmpty()) {
-            runCatching { file.copyTo(backup, overwrite = true) }
-            resetEmojiUpdates()
-        }
-        file.delete()
-        val result = if (candidate.renameTo(file)) {
-            applyEmojiFile(file, persistName = true)
-        } else {
-            candidate.delete()
-            Result.FAILED
-        }
-        if (result != Result.SUCCESS) {
-            file.delete()
-            if (backup.isFile && backup.renameTo(file)) {
-                Settings.Secure.putString(context.contentResolver, CUSTOM_EMOJI_NAME_KEY, oldName)
-                reinstallSaved()
+    /** Installs the font loaded by [loadTypefaceFromUri] as the system emoji. */
+    suspend fun installPreview(): Result = withContext(Dispatchers.IO) {
+        val file = File(context.cacheDir, TEMP_PREVIEW_EMOJI)
+        if (!file.isFile) return@withContext Result.FAILED
+        checkFont(file)?.let { return@withContext it }
+        val code = runCatching {
+            ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY).use {
+                fontManager.installCustomEmoji(it)
             }
+        }.onFailure { Log.e(TAG, "installCustomEmoji failed", it) }
+            .getOrDefault(RESULT_EXCEPTION)
+        resultFor(code).also { if (it == Result.SUCCESS) file.delete() }
+    }
+
+    /** Removes the custom emoji font. Blocking; call off the main thread. */
+    fun clear(): Result {
+        val code = runCatching { fontManager.clearCustomEmoji() }
+            .onFailure { Log.e(TAG, "clearCustomEmoji failed", it) }
+            .getOrDefault(RESULT_EXCEPTION)
+        return resultFor(code)
+    }
+
+    /**
+     * Copies the custom emoji font over the emoji fonts that apps bundle or download and stops
+     * the Google Play services font provider from serving its own. Returns the number of app
+     * files written, or a negative FontManager.RESULT_* code. Blocking.
+     */
+    fun applyToApps(): Int = runCatching { fontManager.applyCustomEmojiToApps() }
+        .onFailure { Log.e(TAG, "applyCustomEmojiToApps failed", it) }
+        .getOrDefault(RESULT_EXCEPTION)
+
+    /**
+     * Apps such as Gboard keep rendered emoji until their process dies. killUid rather than a
+     * force stop, so apps keep their alarms and pushes. Blocking.
+     */
+    fun killRunningApps() {
+        val am = context.getSystemService(ActivityManager::class.java) ?: return
+        val uids = runCatching { am.runningAppProcesses }
+            .onFailure { Log.e(TAG, "getRunningAppProcesses failed", it) }
+            .getOrNull().orEmpty()
+            .filter { Process.isApplicationUid(it.uid) && it.uid != Process.myUid() }
+            .filterNot { proc ->
+                proc.pkgList.orEmpty().any { it == GMS_PACKAGE || isPersistent(it) }
+            }
+            .mapTo(HashSet()) { it.uid }
+        val service = ActivityManager.getService()
+        uids.forEach { uid ->
+            runCatching {
+                service.killUid(UserHandle.getAppId(uid), UserHandle.getUserId(uid), KILL_REASON)
+            }.onFailure { Log.w(TAG, "killUid $uid failed", it) }
         }
-        backup.delete()
-        File(context.cacheDir, TEMP_PREVIEW_EMOJI).delete()
-        result
     }
 
-    /**
-     * Re-applies the saved custom emoji font. Used after [FontManager.clearUpdates], which
-     * drops emoji and text font updates together. Blocking; call off the main thread.
-     */
-    fun reinstallSaved(): Boolean {
-        if (!hasCustomEmoji()) return false
-        val file = File(context.filesDir, CUSTOM_EMOJI_FILE)
-        if (!file.isFile) return false
-        return applyEmojiFile(file, persistName = false) == Result.SUCCESS
-    }
+    private fun isPersistent(pkg: String): Boolean = runCatching {
+        (context.packageManager.getApplicationInfo(pkg, 0).flags and
+            ApplicationInfo.FLAG_PERSISTENT) != 0
+    }.getOrDefault(false)
 
-    /**
-     * Removes the custom emoji font. [FontManager.clearUpdates] also drops the custom text
-     * font, so that one is re-applied from its saved file. Blocking.
-     */
-    fun resetEmojiUpdates() {
-        runCatching { fontManager.clearUpdates() }
-            .onFailure { Log.e(TAG, "Failed to clear font updates", it) }
-        ExternalFontInstaller(context).reinstallSavedFont()
-        File(context.filesDir, CUSTOM_EMOJI_FILE).delete()
-        File(context.cacheDir, TEMP_PREVIEW_EMOJI).delete()
-        Settings.Secure.putString(context.contentResolver, CUSTOM_EMOJI_NAME_KEY, "")
-    }
-
-    // A downgrade means an older revision when installing the file, but a priority that is
-    // not above the existing fallbacks when adding the fallback; both mean the slots are stale.
-    private fun resultFor(code: Int, fallbackStep: Boolean): Result = when (code) {
+    private fun resultFor(code: Int): Result = when (code) {
+        FontManager.RESULT_SUCCESS -> Result.SUCCESS
         FontManager.RESULT_ERROR_FONT_UPDATER_DISABLED -> Result.UPDATER_DISABLED
         FontManager.RESULT_ERROR_INVALID_FONT_FILE,
         FontManager.RESULT_ERROR_INVALID_FONT_NAME -> Result.INVALID_FONT
-        FontManager.RESULT_ERROR_DOWNGRADING ->
-            if (fallbackStep) Result.SLOTS_FULL else Result.REVISION_TOO_OLD
-        FontManager.RESULT_ERROR_INVALID_ARGUMENT,
-        FontManager.RESULT_ERROR_INVALID_PRIORITY -> Result.SLOTS_FULL
+        FontManager.RESULT_ERROR_FONT_NOT_FOUND -> Result.NOT_INSTALLED
         else -> Result.FAILED
-    }.also { Log.w(TAG, "Emoji font update failed with code $code -> $it") }
-
-    private fun applyEmojiFile(file: File, persistName: Boolean): Result = runCatching {
-        checkFont(file)?.let { return@runCatching it }
-        val psName = FontFileUtil.getPostScriptName(mapFile(file), 0)
-            ?: return@runCatching Result.INVALID_FONT
-
-        // 1) install the file (empty signature is accepted on this ROM)
-        ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY).use { pfd ->
-            val result = fontManager.updateFontFamily(
-                FontFamilyUpdateRequest.Builder()
-                    .addFontFileUpdateRequest(FontFileUpdateRequest(pfd, ByteArray(0)))
-                    .build(),
-                fontManager.fontConfig.configVersion
-            )
-            if (result != FontManager.RESULT_SUCCESS) {
-                return@runCatching resultFor(result, fallbackStep = false)
-            }
-        }
-
-        // 2) insert it above every existing und-Zsye family
-        val maxPriority = fontManager.fontConfig.fontFamilies
-            .filter { it.localeList.toLanguageTags() == EMOJI_LANG }
-            .maxOfOrNull { it.priority } ?: -1
-        val font = FontFamilyUpdateRequest.Font.Builder(psName, FontStyle()).build()
-        val request = FallbackFontUpdateRequest.Builder()
-            .addFont(font)
-            .setLanguages(EMOJI_LANG)
-            .setPriority(maxPriority + 1)
-            .build()
-        val fallbackResult = fontManager.updateFontFallbacks(listOf(request))
-        if (fallbackResult != FontManager.RESULT_SUCCESS) {
-            return@runCatching resultFor(fallbackResult, fallbackStep = true)
-        }
-        if (persistName) {
-            Settings.Secure.putString(context.contentResolver, CUSTOM_EMOJI_NAME_KEY, psName)
-        }
-        Result.SUCCESS
-    }.onFailure { Log.e(TAG, "Failed to apply emoji font", it) }
-        .getOrDefault(Result.FAILED)
+    }.also { if (it != Result.SUCCESS) Log.w(TAG, "Emoji font update failed with code $code -> $it") }
 }
