@@ -1297,6 +1297,7 @@
     <string name="emoji_restart_message">These emoji replace the system emoji in every app that uses the system font. Restarting now restarts SystemUI and closes all running apps so they pick up the new emoji. If you restart later, each app switches the next time it starts.</string>
     <string name="emoji_restart_now">Restart now</string>
     <string name="emoji_apps_reset">Reset third-party apps</string>
+    <string name="emoji_apps_reset_short">Reset apps</string>
     <string name="emoji_apps_confirm">This copies your emoji font over every emoji font stored in app data, stops Facebook and Messenger from downloading their own, clears the caches of those apps and Gboard, and turns off the Google Play services font provider. Affected apps are force stopped. Run it again after those apps update.</string>
     <string name="emoji_apps_reset_button">Reset</string>
     <plurals name="emoji_apps_done">
