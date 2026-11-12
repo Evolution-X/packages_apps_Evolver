@@ -55,6 +55,8 @@
     <string name="screen_off_animation_shutter">Obturador</string>
     <string name="themes_udfps_animation_title">Animação da impressão digital</string>
     <string name="themes_udfps_animation_summary">Definir estilo de animação da impressão digital</string>
+    <string name="dialog_blur_title">Desfoque em diálogos e avisos rápidos</string>
+    <string name="dialog_blur_summary">Desfoca o fundo dos diálogos do sistema e dos avisos rápidos</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animação de inicialização</string>
     <string name="boot_animation_applied_error">Falha ao aplicar animação de inicialização</string>
@@ -1225,6 +1227,18 @@
     <string name="toast_emoji_slots_full">Sem slot de fonte para emojis. Escolha um estilo embutido para redefini-lo, e tente novamente</string>
     <string name="toast_invalid_emoji_file">Arquivo de fonte emoji inválido</string>
     <string name="toast_emoji_font_too_old">Uma versão mais recente desta fonte de emoji já está instalada</string>
+    <string name="toast_emoji_not_installed">Adicione uma fonte de emoji personalizada primeiro</string>
+    <string name="emoji_restart_title">Reinicie para aplicar os emoji</string>
+    <string name="emoji_restart_message">Esses emoji substituem os emoji do sistema em todos os apps que usam a fonte do sistema. Reiniciar agora reinicia a interface do sistema e fecha todos os apps em execução para que eles carreguem os novos emoji. Se você reiniciar depois, cada app passará a usá-los na próxima vez em que for aberto.</string>
+    <string name="emoji_restart_now">Reiniciar agora</string>
+    <string name="emoji_apps_reset">Redefinir apps de terceiros</string>
+    <string name="emoji_apps_reset_short">Redefinir apps</string>
+    <string name="emoji_apps_confirm">Isso copia sua fonte de emoji sobre todas as fontes de emoji armazenadas nos dados dos apps, impede que o Facebook e o Messenger baixem as próprias fontes, limpa o cache desses apps e do Gboard e desativa o provedor de fontes dos Serviços do Google Play. Os apps afetados são forçados a parar. Execute novamente após a atualização desses apps.</string>
+    <string name="emoji_apps_reset_button">Redefinir</string>
+    <plurals name="emoji_apps_done">
+        <item quantity="one">Foi substituída %1$d fonte de emoji nos dados dos apps. Os apps que usam emoji baixáveis agora voltam a usar os emoji do sistema.</item>
+        <item quantity="other">Foram substituídas %1$d fontes de emoji nos dados dos apps. Os apps que usam emoji baixáveis agora voltam a usar os emoji do sistema.</item>
+    </plurals>
     <string name="custom_system_theme_title">Temas</string>
     <string name="custom_system_theme_summary">Personalize a aparência do sistema com temas e pacotes de ícones</string>
     <!-- About -->
