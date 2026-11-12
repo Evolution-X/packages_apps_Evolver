@@ -76,9 +76,8 @@ class ExternalFontInstaller(private val context: Context) {
         }.getOrNull()
     }
 
-    // The saved font is re-applied after every FontManager.clearUpdates(), so it lives in
-    // filesDir where the system can't purge it. Installs from before that were kept in
-    // cacheDir, so look there too.
+    // The saved copy lives in filesDir where the system can't purge it. Installs from before
+    // that were kept in cacheDir, so look there too.
     private fun savedFontFile(): File? =
         File(context.filesDir, CUSTOM_FONT_FILE).takeIf { it.isFile }
             ?: File(context.cacheDir, CUSTOM_FONT_FILE).takeIf { it.isFile }
@@ -98,8 +97,6 @@ class ExternalFontInstaller(private val context: Context) {
             fontFile.delete()
             return null
         }
-
-        withContext(Dispatchers.IO) { dropLegacyCustomFont() }
 
         if (!applyFontToSystem(fontFile)) {
             fontFile.delete()
@@ -193,32 +190,6 @@ class ExternalFontInstaller(private val context: Context) {
         }
     }
 
-    /**
-     * Custom fonts used to be installed as a replacement of the [DEFAULT_FONT_FAMILY] family.
-     * That family is merged after the font from [FontManager.installCustomFont] and would keep
-     * winning, so such an install is dropped before the new one goes in. The emoji font goes
-     * down with it and is put back. Blocking.
-     */
-    private fun dropLegacyCustomFont() {
-        val saved = Settings.Secure.getString(context.contentResolver, "custom_font_name")
-        if (saved.isNullOrEmpty() || fontManager.customFontName != null) return
-        runCatching { fontManager.clearUpdates() }
-            .onFailure { Log.e(TAG, "Failed to clear the legacy custom font", it) }
-        ExternalEmojiInstaller(context).reinstallSaved()
-    }
-
-    /**
-     * Re-applies the saved custom text font. Used after [FontManager.clearUpdates], which also
-     * drops it. Blocking; call off the main thread.
-     */
-    fun reinstallSavedFont(): Boolean {
-        val name = Settings.Secure.getString(context.contentResolver, "custom_font_name")
-        if (name.isNullOrEmpty()) return false
-        val fontFile = savedFontFile() ?: return false
-        if (extractPostScriptName(fontFile) == null) return false
-        return applyFontToSystem(fontFile)
-    }
-
     private fun updateThemeOverlays() {
         val resolver = context.contentResolver
         val userId = UserHandle.myUserId()
@@ -249,10 +220,12 @@ class ExternalFontInstaller(private val context: Context) {
         Toast.makeText(context, resId, Toast.LENGTH_SHORT).show()
     }
 
+    /** Removes the custom text font. The custom emoji font is separate and stays. Blocking. */
     fun resetFontUpdates() {
-        fontManager.clearUpdates()
-        // clearUpdates() drops the custom emoji font too; put it back.
-        ExternalEmojiInstaller(context).reinstallSaved()
+        val result = fontManager.clearCustomFont()
+        if (result != FontManager.RESULT_SUCCESS) {
+            Log.e(TAG, "clearCustomFont failed with result $result")
+        }
         ThemeUtils.getInstance(context).setOverlayEnabled(
             OVERLAY_CATEGORY_FONT, DEFAULT_FONT_PACKAGE, DEFAULT_FONT_PACKAGE
         )
