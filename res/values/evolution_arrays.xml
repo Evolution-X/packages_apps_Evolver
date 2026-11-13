@@ -512,11 +512,61 @@
     <string-array name="edge_light_style_entries" translatable="false">
         <item>@string/edge_light_style_default</item>
         <item>@string/edge_light_style_frame</item>
+        <item>@string/edge_light_design_chase_around</item>
+        <item>@string/edge_light_design_mirror_rain</item>
+        <item>@string/edge_light_design_corner_out</item>
+        <item>@string/edge_light_design_fire_dance</item>
+        <item>@string/edge_light_design_side_ripples</item>
+        <item>@string/edge_light_design_flat_ripples</item>
+        <item>@string/edge_light_design_flat_bars</item>
+        <item>@string/edge_light_design_side_bars</item>
+        <item>@string/edge_light_design_flat_streaks</item>
+        <item>@string/edge_light_design_side_streaks</item>
+        <item>@string/edge_light_design_side_flutter</item>
+        <item>@string/edge_light_design_flat_flutter</item>
+        <item>@string/edge_light_design_flat_waves</item>
+        <item>@string/edge_light_design_side_waves</item>
+        <item>@string/edge_light_design_waves_around</item>
+        <item>@string/edge_light_design_lights_around</item>
+        <item>@string/edge_light_design_bars_around</item>
+        <item>@string/edge_light_design_side_braids</item>
+        <item>@string/edge_light_design_side_lights</item>
+        <item>@string/edge_light_design_serial_lights</item>
+        <item>@string/edge_light_design_serials_around</item>
+        <item>@string/edge_light_design_snow_particles</item>
+        <item>@string/edge_light_design_bubble_particles</item>
+        <item>@string/edge_light_design_dot_particles</item>
+        <item>@string/edge_light_design_strings_around</item>
     </string-array>
 
     <string-array name="edge_light_style_values" translatable="false">
         <item>default</item>
         <item>rounded</item>
+        <item>chase_around</item>
+        <item>mirror_rain</item>
+        <item>corner_out</item>
+        <item>fire_dance</item>
+        <item>side_ripples</item>
+        <item>flat_ripples</item>
+        <item>flat_bars</item>
+        <item>side_bars</item>
+        <item>flat_streaks</item>
+        <item>side_streaks</item>
+        <item>side_flutter</item>
+        <item>flat_flutter</item>
+        <item>flat_waves</item>
+        <item>side_waves</item>
+        <item>waves_around</item>
+        <item>lights_around</item>
+        <item>bars_around</item>
+        <item>side_braids</item>
+        <item>side_lights</item>
+        <item>serial_lights</item>
+        <item>serials_around</item>
+        <item>snow_particles</item>
+        <item>bubble_particles</item>
+        <item>dot_particles</item>
+        <item>strings_around</item>
     </string-array>
 
     <string-array name="edge_light_animation_entries" translatable="false">
@@ -535,6 +585,16 @@
         <item>sparkle</item>
         <item>chase</item>
         <item>comet</item>
+    </string-array>
+
+    <string-array name="edge_light_direction_entries" translatable="false">
+        <item>@string/edge_light_direction_normal</item>
+        <item>@string/edge_light_direction_reversed</item>
+    </string-array>
+
+    <string-array name="edge_light_direction_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
     </string-array>
 
     <!-- Hardware key rebinding -->
