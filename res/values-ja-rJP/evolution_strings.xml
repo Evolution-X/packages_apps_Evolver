@@ -55,6 +55,8 @@
     <string name="screen_off_animation_shutter">シャッター</string>
     <string name="themes_udfps_animation_title">画面内指紋認証のアニメーション</string>
     <string name="themes_udfps_animation_summary">画面内指紋認証アニメーションを設定する</string>
+    <string name="dialog_blur_title">ダイアログとトーストのぼかし</string>
+    <string name="dialog_blur_summary">システムダイアログとトーストの背景をぼかす</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">起動アニメーション</string>
     <string name="boot_animation_applied_error">ブートアニメーションの適用に失敗しました</string>
@@ -466,7 +468,7 @@
     <string name="clock_chip_gradient_end_color_title">グラデーションの終了色</string>
     <string name="clock_chip_gradient_end_color_summary">グラデーション終了位置の色</string>
     <string name="clock_chip_gradient_angle_title">グラデーションの角度</string>
-    <string name="clock_chip_gradient_angle_summary">グラデーションの方向 (0° = 左から右、90° = 上から下)</string>
+    <string name="clock_chip_gradient_angle_summary">グラデーションの方向 (0° = 左から右、90° = 下から上)</string>
     <string name="clock_chip_gradient_mask_text_title">時計のテキストスタイル</string>
     <string name="clock_chip_gradient_mask_text_default">既定</string>
     <string name="clock_chip_gradient_mask_text_mask">透明 (マスク)</string>
@@ -871,7 +873,13 @@
     <string name="essential_notifications_summary">通知シェードに常に表示するアプリを選択する</string>
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">エッジライト</string>
-    <string name="edge_light_summary">通知を受信したときに画面の端をライトアップします</string>
+    <string name="edge_light_summary">通知またはロック解除時に画面の端を点灯する</string>
+    <string name="edge_light_display_mode_title">ディスプレイモード</string>
+    <string name="edge_light_trigger_unlock_only_title">ロック解除時のみのエッジライト点灯</string>
+    <string name="edge_light_trigger_unlock_only_description">有効にすると、エッジライトはデバイスのロックが解除されている場合にのみ点灯し、通知の際には点灯しません</string>
+    <string name="edge_light_display_mode_lockscreen">ロック画面のみ</string>
+    <string name="edge_light_display_mode_unlocked">アンロックされたデバイスのみ</string>
+    <string name="edge_light_display_mode_both">両方</string>
     <string name="edge_light_color_mode_title">カラーモード</string>
     <string name="edge_light_pulse_count_title">点滅する回数</string>
     <string name="edge_light_pulse_count_summary">エッジライトの点滅する回数</string>
@@ -887,6 +895,42 @@
     <string name="edge_light_animation_effect_sparkle">スパークル</string>
     <string name="edge_light_animation_effect_chase">チェイス</string>
     <string name="edge_light_animation_effect_comet">コメット</string>
+    <string name="edge_light_design_chase_around">周りを追跡する</string>
+    <string name="edge_light_design_mirror_rain">鏡の雨</string>
+    <string name="edge_light_design_corner_out">コーナーアウト</string>
+    <string name="edge_light_design_fire_dance">ファイヤーダンス</string>
+    <string name="edge_light_design_side_ripples">サイドリップ</string>
+    <string name="edge_light_design_flat_ripples">平らな波</string>
+    <string name="edge_light_design_flat_bars">フラットバー</string>
+    <string name="edge_light_design_side_bars">サイドバー</string>
+    <string name="edge_light_design_flat_streaks">平らなストリーム</string>
+    <string name="edge_light_design_side_streaks">サイドストリーク</string>
+    <string name="edge_light_design_side_flutter">サイドフラッター</string>
+    <string name="edge_light_design_flat_flutter">フラットフラッター</string>
+    <string name="edge_light_design_flat_waves">フラットウェーブ</string>
+    <string name="edge_light_design_side_waves">サイドウェーブ</string>
+    <string name="edge_light_design_waves_around">外周ウェーブ</string>
+    <string name="edge_light_design_lights_around">外周ライト</string>
+    <string name="edge_light_design_bars_around">外周バー</string>
+    <string name="edge_light_design_side_braids">サイドブレイズ</string>
+    <string name="edge_light_design_side_lights">サイドライト</string>
+    <string name="edge_light_design_serial_lights">シリアルライト</string>
+    <string name="edge_light_design_serials_around">外周シリアル</string>
+    <string name="edge_light_design_snow_particles">雪のパーティクル</string>
+    <string name="edge_light_design_bubble_particles">泡のパーティクル</string>
+    <string name="edge_light_design_dot_particles">ドットパーティクル</string>
+    <string name="edge_light_design_strings_around">外周ストリングス</string>
+    <string name="edge_light_animation_speed_title">アニメーションの速度</string>
+    <string name="edge_light_animation_speed_summary">エッジデザインの動く速さを設定する</string>
+    <string name="edge_light_design_length_title">デザインの長さ</string>
+    <string name="edge_light_design_length_summary">光の軌跡の長さやパーティクルの届く範囲を設定する</string>
+    <string name="edge_light_design_size_title">デザインの大きさ</string>
+    <string name="edge_light_design_size_summary">バーや波の高さ、またはパーティクルの大きさを設定する</string>
+    <string name="edge_light_design_density_title">デザインの密度</string>
+    <string name="edge_light_design_density_summary">ライト、バー、波、またはパーティクルの数を設定する</string>
+    <string name="edge_light_animation_direction_title">アニメーションの向き</string>
+    <string name="edge_light_direction_normal">標準</string>
+    <string name="edge_light_direction_reversed">反転</string>
     <string name="edge_light_spread_title">グロースプレッド</string>
     <string name="edge_light_spread_summary">エッジからどのくらい内側の光が伸びているのか</string>
     <string name="edge_light_intensity_title">グローの強度</string>
@@ -1224,6 +1268,17 @@
     <string name="toast_emoji_slots_full">無料の絵文字フォントスロットがありません。組み込みスタイルを選択してリセットしてから、もう一度やり直してください</string>
     <string name="toast_invalid_emoji_file">無効な絵文字フォントファイル</string>
     <string name="toast_emoji_font_too_old">この絵文字フォントの新しいバージョンは既にインストールされています</string>
+    <string name="toast_emoji_not_installed">先にカスタム絵文字フォントを追加してください</string>
+    <string name="emoji_restart_title">絵文字を適用するには再起動してください</string>
+    <string name="emoji_restart_message">システムフォントを使用しているすべてのアプリで、標準の絵文字がこの絵文字に置き換わります。今すぐ再起動するとシステムUIが再起動し、新しい絵文字を反映するために実行中のアプリがすべて終了します。後で再起動する場合は、各アプリの次回起動時に切り替わります。</string>
+    <string name="emoji_restart_now">今すぐ再起動</string>
+    <string name="emoji_apps_reset">サードパーティのアプリをリセット</string>
+    <string name="emoji_apps_reset_short">アプリをリセット</string>
+    <string name="emoji_apps_confirm">アプリデータ内に保存されているすべての絵文字フォントにカスタム絵文字フォントを上書きコピーし、FacebookとMessengerによる独自絵文字のダウンロードを停止します。また、対象アプリとGboardのキャッシュを消去し、Google Play開発者サービスのフォントプロバイダを無効にします。影響を受けるアプリは強制停止されます。これらのアプリがアップデートされた場合は、再度実行してください。</string>
+    <string name="emoji_apps_reset_button">リセット</string>
+    <plurals name="emoji_apps_done">
+        <item quantity="other">アプリデータ内の %1$d 個の絵文字フォントを置き換えました。ダウンロード可能な絵文字を使用するアプリでは、システムの絵文字が使用されるようになります。</item>
+    </plurals>
     <string name="custom_system_theme_title">テーマ</string>
     <string name="custom_system_theme_summary">テーマやアイコンパックでシステムの見た目をカスタマイズする</string>
     <!-- About -->

@@ -55,6 +55,8 @@
     <string name="screen_off_animation_shutter">Затвор</string>
     <string name="themes_udfps_animation_title">Анімації відбитка пальця</string>
     <string name="themes_udfps_animation_summary">Встановити стиль анімації UDFPS</string>
+    <string name="dialog_blur_title">Розмиття діалогового вікна та спливаючого повідомлення</string>
+    <string name="dialog_blur_summary">Розмивайте фон системних діалогових вікон і спливаючих повідомлень</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Анімація завантаження</string>
     <string name="boot_animation_applied_error">Не вдалося застосувати анімацію завантаження</string>
@@ -466,7 +468,7 @@
     <string name="clock_chip_gradient_end_color_title">Градієнт кінцевого кольору</string>
     <string name="clock_chip_gradient_end_color_summary">Колір у кінці градієнту</string>
     <string name="clock_chip_gradient_angle_title">Градієнтний кут</string>
-    <string name="clock_chip_gradient_angle_summary">Напрямок градієнта (0° = ліворуч→правильно, 90° = зверху→внизу)</string>
+    <string name="clock_chip_gradient_angle_summary">Напрямок градієнта (0° = зліва направо, 90° = знизу вгору)</string>
     <string name="clock_chip_gradient_mask_text_title">Стиль тексту годинника</string>
     <string name="clock_chip_gradient_mask_text_default">За замовчуванням</string>
     <string name="clock_chip_gradient_mask_text_mask">Прозорість (Маска)</string>
@@ -871,7 +873,13 @@
     <string name="essential_notifications_summary">Виберіть додатки, які завжди показуються в заголовку сповіщень</string>
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">Яскравість підсвітки екрана</string>
-    <string name="edge_light_summary">Підсвічувати краї екрана під час імпульсного сповіщення</string>
+    <string name="edge_light_summary">Підсвічуйте краї екрана під час отримання сповіщень або розблокування</string>
+    <string name="edge_light_display_mode_title">Режим дисплея</string>
+    <string name="edge_light_trigger_unlock_only_title">Активація підсвічування країв екрана лише під час розблокування</string>
+    <string name="edge_light_trigger_unlock_only_description">Якщо цю функцію ввімкнено, підсвічування країв екрана спрацьовуватиме лише тоді, коли пристрій розблоковано, а не у випадках отримання сповіщень.</string>
+    <string name="edge_light_display_mode_lockscreen">Тільки на екрані блокування</string>
+    <string name="edge_light_display_mode_unlocked">Тільки розблокований пристрій</string>
+    <string name="edge_light_display_mode_both">Обидва</string>
     <string name="edge_light_color_mode_title">Колір підсвічування контуру</string>
     <string name="edge_light_pulse_count_title">Кількість імпульсів</string>
     <string name="edge_light_pulse_count_summary">Кількість імпульсів для світла по краях</string>
@@ -887,6 +895,42 @@
     <string name="edge_light_animation_effect_sparkle">Іскра</string>
     <string name="edge_light_animation_effect_chase">Переслідування</string>
     <string name="edge_light_animation_effect_comet">Комета</string>
+    <string name="edge_light_design_chase_around">Гонитва навколо</string>
+    <string name="edge_light_design_mirror_rain">Дзеркальний дощ</string>
+    <string name="edge_light_design_corner_out">Вихід у кут</string>
+    <string name="edge_light_design_fire_dance">Танець вогню</string>
+    <string name="edge_light_design_side_ripples">Бічні брижі</string>
+    <string name="edge_light_design_flat_ripples">Пологі брижі</string>
+    <string name="edge_light_design_flat_bars">Смуги</string>
+    <string name="edge_light_design_side_bars">Бічні панелі</string>
+    <string name="edge_light_design_flat_streaks">Рівні смуги</string>
+    <string name="edge_light_design_side_streaks">Бічні смуги</string>
+    <string name="edge_light_design_side_flutter">Бічне тремтіння</string>
+    <string name="edge_light_design_flat_flutter">Плаский флаттер</string>
+    <string name="edge_light_design_flat_waves">Рівні хвилі</string>
+    <string name="edge_light_design_side_waves">Бічні хвилі</string>
+    <string name="edge_light_design_waves_around">Хвилі навколо</string>
+    <string name="edge_light_design_lights_around">Вогні навколо</string>
+    <string name="edge_light_design_bars_around">Бари поруч</string>
+    <string name="edge_light_design_side_braids">Бічні коси</string>
+    <string name="edge_light_design_side_lights">Бічні вогні</string>
+    <string name="edge_light_design_serial_lights">Гірлянда</string>
+    <string name="edge_light_design_serials_around">Гірлянди довкола</string>
+    <string name="edge_light_design_snow_particles">Снігові частинки</string>
+    <string name="edge_light_design_bubble_particles">Частинки-бульбашки</string>
+    <string name="edge_light_design_dot_particles">Точкові частинки</string>
+    <string name="edge_light_design_strings_around">Струни навколо</string>
+    <string name="edge_light_animation_speed_title">Швидкість анімації</string>
+    <string name="edge_light_animation_speed_summary">Як швидко розвивається дизайн периферійних рішень</string>
+    <string name="edge_light_design_length_title">Розрахункова довжина</string>
+    <string name="edge_light_design_length_summary">Довжина слідів і дальність пробігу частинок</string>
+    <string name="edge_light_design_size_title">Розмір дизайну</string>
+    <string name="edge_light_design_size_summary">Висота стовпчиків і хвиль або розмір частинок</string>
+    <string name="edge_light_design_density_title">Щільність проектування</string>
+    <string name="edge_light_design_density_summary">Кількість джерел світла, смуг, хвиль або частинок</string>
+    <string name="edge_light_animation_direction_title">Режисура анімації</string>
+    <string name="edge_light_direction_normal">Звичайний</string>
+    <string name="edge_light_direction_reversed">У зворотньому порядку</string>
     <string name="edge_light_spread_title">Поширення світіння</string>
     <string name="edge_light_spread_summary">Як далеко всередину поширюється світіння від краю</string>
     <string name="edge_light_intensity_title">Інтенсивність світіння</string>
@@ -1224,6 +1268,21 @@
     <string name="toast_emoji_slots_full">Вільний слот для емодзі відсутній. Оберіть вбудований стиль для скидання, а потім повторіть спробу</string>
     <string name="toast_invalid_emoji_file">Недійсний файл шрифту емодзі</string>
     <string name="toast_emoji_font_too_old">Встановлена новіша версія шрифту для смайликів</string>
+    <string name="toast_emoji_not_installed">Спочатку додайте власний шрифт емодзі</string>
+    <string name="emoji_restart_title">Перезапустіть, щоб застосувати емодзі</string>
+    <string name="emoji_restart_message">Ці емодзі замінюють системні емодзі в усіх програмах, що використовують системний шрифт. Якщо виконати перезапуск зараз, буде перезапущено інтерфейс системи (SystemUI) і закрито всі запущені програми, щоб вони підхопили нові емодзі. Якщо ж перезапустити пристрій пізніше, кожна програма оновиться під час наступного запуску.</string>
+    <string name="emoji_restart_now">Перезавантажити зараз</string>
+    <string name="emoji_apps_reset">Скинути сторонні програми</string>
+    <string name="emoji_apps_reset_short">Скидання додатків</string>
+    <string name="emoji_apps_confirm">Цей процес копіює ваш шрифт емодзі, замінюючи ним усі шрифти емодзі, що зберігаються в даних програм; блокує завантаження власних шрифтів програмами Facebook і Messenger; очищує кеш цих програм, а також клавіатури Gboard; і вимикає постачальника шрифтів у сервісах Google Play. Робота відповідних програм примусово завершується. Виконайте цю процедуру повторно після оновлення вказаних програм.</string>
+    <string name="emoji_apps_reset_button">Скинути</string>
+    <plurals name="emoji_apps_done">
+        <item quantity="one">Замінено шрифт емодзі %1$d у даному застосунку. У застосунку, який використовує
+завантажувані емодзі, тепер застосовуються системні емодзі.</item>
+        <item quantity="few">Шрифт emoji %1$d у даних застосунків. Застосунки, які використовують завантажувані emoji тепер повертаються до системних смайлів.</item>
+        <item quantity="many"></item>
+        <item quantity="other">У даних програми замінено шрифти emoji %1$d застосунки, які використовують завантажувані emoji тепер повертаються до системних emoji.</item>
+    </plurals>
     <string name="custom_system_theme_title">Теми</string>
     <string name="custom_system_theme_summary">Налаштування зовнішнього вигляду системи за допомогою тем та пакетів значків</string>
     <!-- About -->
