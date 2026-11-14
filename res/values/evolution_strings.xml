@@ -500,7 +500,7 @@
     <string name="clock_chip_gradient_end_color_title">Gradient end color</string>
     <string name="clock_chip_gradient_end_color_summary">Color at the end of the gradient</string>
     <string name="clock_chip_gradient_angle_title">Gradient angle</string>
-    <string name="clock_chip_gradient_angle_summary">Direction of the gradient (0° = left to right, 90° = top to bottom)</string>
+    <string name="clock_chip_gradient_angle_summary">Direction of the gradient (0° = left to right, 90° = bottom to top)</string>
     <string name="clock_chip_gradient_mask_text_title">Clock text style</string>
     <string name="clock_chip_gradient_mask_text_default">Default</string>
     <string name="clock_chip_gradient_mask_text_mask">Transparent (mask)</string>
