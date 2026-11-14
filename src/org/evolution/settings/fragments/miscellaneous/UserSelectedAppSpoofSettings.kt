@@ -664,6 +664,7 @@ private fun AddAppDialog(
     var showProfileSelector by remember { mutableStateOf(false) }
     var showAddCustomProfileDialog by remember { mutableStateOf(false) }
     var customProfileToEdit by remember { mutableStateOf<CustomSpoofProfile?>(null) }
+    val clickSound = rememberClickSound()
 
     val addableProfiles = profileValues.filter { it != "None" }
     val profileLabelMap = profileValues.indices.associate { idx ->
@@ -776,7 +777,7 @@ private fun AddAppDialog(
                                 val rowShapes = expressiveRowShapes(index = index, count = filteredApps.size)
                                 SegmentedListItem(
                                     selected = isSelected,
-                                    onClick = { selectedApp = app },
+                                    onClick = { clickSound(); selectedApp = app },
                                     shapes = rowShapes,
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -827,7 +828,7 @@ private fun AddAppDialog(
                     if (selectedApp != null) {
                         val selectorShapes = ButtonDefaults.shapes()
                         FilledTonalButton(
-                            onClick = { showProfileSelector = true },
+                            onClick = { clickSound(); showProfileSelector = true },
                             shapes = selectorShapes,
                             modifier = Modifier
                                 .fillMaxWidth()
