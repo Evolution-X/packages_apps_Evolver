@@ -55,6 +55,8 @@
     <string name="screen_off_animation_shutter">Migawka</string>
     <string name="themes_udfps_animation_title">Animacja odcisku palca</string>
     <string name="themes_udfps_animation_summary">Ustaw styl animacji odcisku palca</string>
+    <string name="dialog_blur_title">Rozmycie dialogów i dymków</string>
+    <string name="dialog_blur_summary">Rozmyj tło dialogów systemowych i komunikatów</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animacja startowa</string>
     <string name="boot_animation_applied_error">Nie udało się zastosować animacji startowej</string>
@@ -467,7 +469,7 @@
     <string name="clock_chip_gradient_end_color_title">Kolor końca gradientu</string>
     <string name="clock_chip_gradient_end_color_summary">Kolor na końcu gradientu</string>
     <string name="clock_chip_gradient_angle_title">Kąt gradientu</string>
-    <string name="clock_chip_gradient_angle_summary">Kierunek gradientu (0° = od lewej do prawej, 90° = od góry do dołu)</string>
+    <string name="clock_chip_gradient_angle_summary">Kierunek nachylenia (0° = od lewej do prawej, 90° = od dołu do góry)</string>
     <string name="clock_chip_gradient_mask_text_title">Styl tekstu zegara</string>
     <string name="clock_chip_gradient_mask_text_default">Domyślny</string>
     <string name="clock_chip_gradient_mask_text_mask">Przezroczysty (maska)</string>
@@ -873,7 +875,13 @@
     <string name="essential_notifications_summary">Wybierz aplikacje, które zawsze pojawiają się w panelu powiadomień</string>
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">Podświetlenie krawędzi</string>
-    <string name="edge_light_summary">Podświetl krawędzie ekranu podczas impulsu powiadomienia</string>
+    <string name="edge_light_summary">Podświetl krawędzie ekranu podczas powiadomień lub odblokowywania</string>
+    <string name="edge_light_display_mode_title">Tryb ekranu</string>
+    <string name="edge_light_trigger_unlock_only_title">Wyzwalanie światła krawędziowego tylko przy odblokowaniu</string>
+    <string name="edge_light_trigger_unlock_only_description">Po włączeniu tej opcji światło krawędziowe będzie włączane tylko przy odblokowaniu urządzenia, a nie przy powiadomieniach</string>
+    <string name="edge_light_display_mode_lockscreen">Tylko ekran blokady</string>
+    <string name="edge_light_display_mode_unlocked">Tylko odblokowane urządzenie</string>
+    <string name="edge_light_display_mode_both">Obydwa</string>
     <string name="edge_light_color_mode_title">Tryb kolorów</string>
     <string name="edge_light_pulse_count_title">Liczba impulsów</string>
     <string name="edge_light_pulse_count_summary">Liczba impulsów dla podświetlenia krawędzi</string>
@@ -889,6 +897,42 @@
     <string name="edge_light_animation_effect_sparkle">Iskierki</string>
     <string name="edge_light_animation_effect_chase">Pościg</string>
     <string name="edge_light_animation_effect_comet">Kometa</string>
+    <string name="edge_light_design_chase_around">Pościg dookoła</string>
+    <string name="edge_light_design_mirror_rain">Lustrzany deszcz</string>
+    <string name="edge_light_design_corner_out">Wyjście z narożnika</string>
+    <string name="edge_light_design_fire_dance">Taniec ognia</string>
+    <string name="edge_light_design_side_ripples">Boczne fale</string>
+    <string name="edge_light_design_flat_ripples">Płaskie fale</string>
+    <string name="edge_light_design_flat_bars">Płaskie paski</string>
+    <string name="edge_light_design_side_bars">Boczne paski</string>
+    <string name="edge_light_design_flat_streaks">Płaskie smugi</string>
+    <string name="edge_light_design_side_streaks">Boczne smugi</string>
+    <string name="edge_light_design_side_flutter">Boczne migotanie</string>
+    <string name="edge_light_design_flat_flutter">Płaskie migotanie</string>
+    <string name="edge_light_design_flat_waves">Płaskie fale</string>
+    <string name="edge_light_design_side_waves">Boczne fale</string>
+    <string name="edge_light_design_waves_around">Fale dookoła</string>
+    <string name="edge_light_design_lights_around">Światła dookoła</string>
+    <string name="edge_light_design_bars_around">Paski dookoła</string>
+    <string name="edge_light_design_side_braids">Boczne warkocze</string>
+    <string name="edge_light_design_side_lights">Boczne światła</string>
+    <string name="edge_light_design_serial_lights">Seryjne światła</string>
+    <string name="edge_light_design_serials_around">Serie dookoła</string>
+    <string name="edge_light_design_snow_particles">Cząsteczki śniegu</string>
+    <string name="edge_light_design_bubble_particles">Cząsteczki bąbelków</string>
+    <string name="edge_light_design_dot_particles">Cząsteczki kropkowe</string>
+    <string name="edge_light_design_strings_around">Ciągi dookoła</string>
+    <string name="edge_light_animation_speed_title">Prędkość animacji</string>
+    <string name="edge_light_animation_speed_summary">Szybkość ruchu wzoru podświetlenia krawędzi</string>
+    <string name="edge_light_design_length_title">Długość wzoru</string>
+    <string name="edge_light_design_length_summary">Długość smug i zasięg cząsteczek</string>
+    <string name="edge_light_design_size_title">Rozmiar wzoru</string>
+    <string name="edge_light_design_size_summary">Wysokość pasków i fal lub rozmiar cząsteczek</string>
+    <string name="edge_light_design_density_title">Gęstość wzoru</string>
+    <string name="edge_light_design_density_summary">Liczba świateł, pasków, fal lub cząsteczek</string>
+    <string name="edge_light_animation_direction_title">Kierunek animacji</string>
+    <string name="edge_light_direction_normal">Normalny</string>
+    <string name="edge_light_direction_reversed">Odwrócenie</string>
     <string name="edge_light_spread_title">Rozchodzenie się blasku</string>
     <string name="edge_light_spread_summary">Jak daleko blask rozchodzi się do wewnątrz od krawędzi</string>
     <string name="edge_light_intensity_title">Intensywność blasku</string>
@@ -1010,10 +1054,12 @@
     <string name="pif_wipe_playstore_title">Wyczyścić dane Sklepu Google Play?</string>
     <string name="pif_wipe_playstore_message">Zastosowanie tego odcisku palca działa najlepiej po rozpoczęciu nowej sesji w Sklepie Google Play. Wyczyścić dane aplikacji w Sklepie Google Play? Spowoduje to wylogowanie i wyczyszczenie lokalnej pamięci podręcznej oraz kolejki pobierania.</string>
     <string name="pif_wipe_confirm">Wyczyść dane</string>
+    <string name="spoof_choice_select">Wybierz</string>
     <string name="pif_deleted">Usunięto %s</string>
     <string name="pif_failed">Niepowodzenie: %s</string>
     <string name="pif_select_device">Wybierz urządzenie</string>
     <string name="pif_recommended_suffix">Zalecane</string>
+    <string name="pif_device_suggested">%1$s · Sugerowane</string>
     <string name="pif_footer_body">Odcisk palca Canary jest sprawdzany maksymalnie raz dziennie i automatycznie zastępowany, gdy upłynie około dwa tygodnie od daty jego wygaśnięcia. Konfiguracje Canary wygasają po około 6 tygodniach od daty wydania — data wygaśnięcia jest wyświetlana w podsumowaniu aktywnej konfiguracji.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz odcisk palca Pixel Canary i wybierz urządzenie.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostarczane.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed zaimportowaniem nowej. Wczytanie wygasłej konfiguracji poprawki integralności Google Play spowoduje awarię silnej integralności TrickyStore, nawet z prawidłowym kluczem.\n\nZaawansowane fałszowanie:\n• Fałszowanie odcisku palca Sklepu Google Play — pozostaw wyłączone, chyba że zalecono inaczej. Fałszowanie odcisku palca w Sklepie Google Play jest rzadko potrzebne i może powodować problemy.\n• Fałszowanie SDK w Sklepie Google Play — wprowadza SDK 32 do Sklepu Google Play, aby wymusić ścieżkę werdyktu starszej wersji sprzed Androida 13. Może to zakłócić działanie Sklepu Google Play, więc wyłącz tę opcję, chyba że jest to testowane.\n• Fałszowanie pól kompilacji i właściwości systemu — pozostaw włączone. Przekazują one odcisk palca do DroidGuard.\n• Fałszowanie dostawcy zestawu kluczy — wyłącz, gdy używany jest zestaw kluczy, ponieważ omija to atestację zestawu kluczy.\n• Fałszowanie podpisu ROM — eksperymentalne.</string>
     <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
     <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
@@ -1224,6 +1270,20 @@
     <string name="toast_emoji_slots_full">Brak wolnego miejsca na czcionkę emoji. Wybierz wbudowany styl, aby zresetować ustawienia, a następnie spróbuj ponownie</string>
     <string name="toast_invalid_emoji_file">Nieprawidłowy plik czcionki emoji</string>
     <string name="toast_emoji_font_too_old">Nowsza wersja tej czcionki emoji jest już zainstalowana</string>
+    <string name="toast_emoji_not_installed">Najpierw dodaj niestandardową czcionkę emoji</string>
+    <string name="emoji_restart_title">Zrestartuj, aby zastosować emoji</string>
+    <string name="emoji_restart_message">Te emoji zastępują systemowe emoji we wszystkich aplikacjach korzystających z czcionki systemowej. \nRestart interfejsu systemu zamyka wszystkie uruchomione aplikacje, aby zaczęły używać nowych emoji. \nJeśli zrestartujesz później, każda aplikacja przełączy się na nowe emoji przy następnym uruchomieniu.</string>
+    <string name="emoji_restart_now">Zrestartuj teraz</string>
+    <string name="emoji_apps_reset">Zresetuj aplikacje innych firm</string>
+    <string name="emoji_apps_reset_short">Zresetuj aplikacje</string>
+    <string name="emoji_apps_confirm">Ta opcja kopiuje czcionkę emoji do wszystkich czcionek emoji przechowywanych w danych aplikacji, uniemożliwia Facebookowi i Messengerowi pobieranie własnych czcionek, czyści pamięć podręczną tych aplikacji oraz klawiatury Google i wyłącza dostawcę czcionek Usług Google Play. \nNaciśnięcie aplikacje są wymuszane do zatrzymania. \nUruchom tę opcję ponownie po aktualizacji tych aplikacji.</string>
+    <string name="emoji_apps_reset_button">Resetuj</string>
+    <plurals name="emoji_apps_done">
+        <item quantity="one">Zastąpiono %1$d czcionkę emoji w danych aplikacji. \nAplikacja korzystające z emoji pobieranych z internetu będzie teraz używać systemowych emoji.</item>
+        <item quantity="few">Zastąpiono %1$d czcionkę emoji w danych aplikacji. \nAplikacje korzystające z emoji pobieranych z internetu będą teraz używać systemowych emoji.</item>
+        <item quantity="many">Zastąpiono %1$d czcionkę emoji w danych aplikacji. \nAplikacje korzystające z emoji pobieranych z internetu będą teraz używać systemowych emoji.</item>
+        <item quantity="other">Zastąpiono %1$d czcionkę emoji w danych aplikacji. \nAplikacje korzystające z emoji pobieranych z internetu będą teraz używać systemowych emoji.</item>
+    </plurals>
     <string name="custom_system_theme_title">Motywy</string>
     <string name="custom_system_theme_summary">Dostosuj wygląd systemu z motywami i paczkami ikon</string>
     <!-- About -->
