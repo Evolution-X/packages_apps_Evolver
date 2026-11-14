@@ -65,6 +65,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String LOGO_CUSTOM_STYLE = "status_bar_logo_style";
     private static final String LOGO_CUSTOM_IMAGE = "status_bar_logo_custom_image";
 
+    private static final String KEY_CLOCK_CHIP_GRADIENT_COLOR_MODE =
+            "statusbar_clock_chip_gradient_color_mode";
     private static final String KEY_CLOCK_CHIP_GRADIENT_START_COLOR =
             "statusbar_clock_chip_gradient_start_color";
     private static final String KEY_CLOCK_CHIP_GRADIENT_END_COLOR =
@@ -75,6 +77,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             "statusbar_clock_chip_gradient_mask_text";
 
     private static final int CLOCK_CHIP_STYLE_CUSTOM_GRADIENT = 13;
+    private static final int CLOCK_CHIP_GRADIENT_COLOR_MODE_CUSTOM = 1;
     private static final int LOGO_COLOR_MODE_CUSTOM = 2;
 
     private static final int CARRIER_MODE_NEVER = 0;
@@ -99,6 +102,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private Preference mLogoStyle;
 
     private Preference mClockChip;
+    private SystemSettingListPreference mClockChipGradientColorMode;
     private SystemSettingColorPickerPreference mClockChipGradientStartColor;
     private SystemSettingColorPickerPreference mClockChipGradientEndColor;
     private SystemSettingSeekBarPreference mClockChipGradientAngle;
@@ -154,6 +158,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mClockChip = findPreference(KEY_CLOCK_CHIP);
         updateClockChipSummary();
 
+        mClockChipGradientColorMode = (SystemSettingListPreference)
+                findPreference(KEY_CLOCK_CHIP_GRADIENT_COLOR_MODE);
+        mClockChipGradientColorMode.setOnPreferenceChangeListener(this);
+
         mClockChipGradientStartColor = (SystemSettingColorPickerPreference)
                 findPreference(KEY_CLOCK_CHIP_GRADIENT_START_COLOR);
         mClockChipGradientEndColor = (SystemSettingColorPickerPreference)
@@ -171,7 +179,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
                 Settings.System.STATUSBAR_CLOCK_CHIP,
                 0,
                 UserHandle.USER_CURRENT);
-        updateClockChipGradientPrefsVisibility(currentChipStyle);
+        updateClockChipGradientPrefsVisibility(currentChipStyle,
+                getClockChipGradientColorMode());
 
         if (!TelephonyUtils.isVoiceCapable(getContext())) {
             Preference carrierCategory = findPreference(STATUS_BAR_CARRIER_KEY);
@@ -253,8 +262,15 @@ public class StatusBar extends SettingsPreferenceFragment implements
                 return false;
             }
             int style = (Integer) newValue;
-            updateClockChipGradientPrefsVisibility(style);
+            updateClockChipGradientPrefsVisibility(style, getClockChipGradientColorMode());
             updateClockChipSummary(style);
+            return true;
+        } else if (preference == mClockChipGradientColorMode) {
+            Integer mode = parseIntegerValue(newValue);
+            if (mode == null) {
+                return false;
+            }
+            updateClockChipGradientPrefsVisibility(getClockChipStyle(), mode);
             return true;
         } else if (preference == mClockChipGradientAngle) {
             int angle = (int) newValue;
@@ -385,13 +401,35 @@ public class StatusBar extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateClockChipGradientPrefsVisibility(int chipStyle) {
+    private int getClockChipStyle() {
+        return Settings.System.getIntForUser(
+                requireContext().getContentResolver(),
+                Settings.System.STATUSBAR_CLOCK_CHIP,
+                0,
+                UserHandle.USER_CURRENT);
+    }
+
+    private int getClockChipGradientColorMode() {
+        return Settings.System.getIntForUser(
+                requireContext().getContentResolver(),
+                Settings.System.STATUSBAR_CLOCK_CHIP_GRADIENT_COLOR_MODE,
+                0,
+                UserHandle.USER_CURRENT);
+    }
+
+    // The picked colors only matter in custom mode, so hide them otherwise.
+    private void updateClockChipGradientPrefsVisibility(int chipStyle, int colorMode) {
         boolean isGradient = (chipStyle == CLOCK_CHIP_STYLE_CUSTOM_GRADIENT);
+        boolean isCustomColors = isGradient
+                && colorMode == CLOCK_CHIP_GRADIENT_COLOR_MODE_CUSTOM;
+        if (mClockChipGradientColorMode != null) {
+            mClockChipGradientColorMode.setVisible(isGradient);
+        }
         if (mClockChipGradientStartColor != null) {
-            mClockChipGradientStartColor.setVisible(isGradient);
+            mClockChipGradientStartColor.setVisible(isCustomColors);
         }
         if (mClockChipGradientEndColor != null) {
-            mClockChipGradientEndColor.setVisible(isGradient);
+            mClockChipGradientEndColor.setVisible(isCustomColors);
         }
         if (mClockChipGradientAngle != null) {
             mClockChipGradientAngle.setVisible(isGradient);
