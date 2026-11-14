@@ -237,7 +237,7 @@ fun SystemAppBadge(
 @Composable
 fun CheckCloseSwitch(
     checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit,
+    onCheckedChange: ((Boolean) -> Unit)?,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
@@ -283,6 +283,7 @@ fun ExpressiveHeaderCard(
     icon: @Composable () -> Unit,
 ) {
     val haptic = LocalHapticFeedback.current
+    val clickSound = rememberClickSound()
     Surface(
         modifier = modifier.fillMaxWidth(),
         shape = ExpressiveCorners.single,
@@ -329,6 +330,7 @@ fun ExpressiveHeaderCard(
                     checked = checked,
                     modifier = Modifier.switchFocusRing(),
                     onCheckedChange = { newValue ->
+                        clickSound()
                         if (hapticOnToggle) {
                             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                         }

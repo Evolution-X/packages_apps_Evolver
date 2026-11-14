@@ -41,8 +41,9 @@ fun AppPickerItem(
     shapes: ListItemShapes = expressiveRowShapes(index = 0, count = 1),
     extraContent: @Composable (() -> Unit)? = null,
 ) {
+    val clickSound = rememberClickSound()
     SegmentedListItem(
-        onClick = { onToggle(!checked) },
+        onClick = { clickSound(); onToggle(!checked) },
         shapes = shapes,
         modifier = Modifier
             .fillMaxWidth()
@@ -65,7 +66,7 @@ fun AppPickerItem(
         trailingContent = {
             CheckCloseSwitch(
                 checked = checked,
-                onCheckedChange = onToggle,
+                onCheckedChange = null,
                 enabled = enabled,
             )
         },
