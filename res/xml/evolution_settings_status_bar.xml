@@ -124,6 +124,15 @@
             android:key="statusbar_clock_chip"
             android:title="@string/statusbar_clock_chip_title" />
 
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="statusbar_clock_chip_gradient_color_mode"
+            android:title="@string/custom_gradient_color_mode_title"
+            android:summary="%s"
+            android:entries="@array/custom_gradient_color_mode_entries"
+            android:entryValues="@array/custom_gradient_color_mode_values"
+            android:defaultValue="0"
+            android:visible="false" />
+
         <org.evolution.settings.preferences.colorpicker.SystemSettingColorPickerPreference
             android:key="statusbar_clock_chip_gradient_start_color"
             android:title="@string/clock_chip_gradient_start_color_title"
