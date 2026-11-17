@@ -198,6 +198,7 @@
     <string name="lockscreen_custom_clock_gradient_category_title">グラデーション</string>
     <string name="lockscreen_custom_clock_layout_category_title">サイズと位置</string>
     <string name="lockscreen_custom_clock_animation_category_title">アニメーション</string>
+    <string name="lockscreen_custom_clock_browse_all_clocks">すべての時計を見る</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">サイズ</string>
     <string name="clock_size_summary">ロック画面の時計の大きさを変更する (50–150%)</string>
@@ -1239,6 +1240,19 @@
     <!-- Gradient styles -->
     <string name="gradient_settings_title">グラデーションのカスタマイズ</string>
     <string name="gradient_settings_summary">システム要素にグラデーションカラーを適用する</string>
+    <!-- Liquid Glass -->
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">ぼやけた表面を、縁が光るガラスとして描く</string>
+    <string name="liquid_glass_use_title">Liquid Glassを使用</string>
+    <string name="liquid_glass_use_summary">Dynamic Islandのカードなど、システムのすりガラス状の表面を、ガラスの質感に変更</string>
+    <string name="liquid_glass_style_title">スタイル</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">屈折</string>
+    <string name="liquid_glass_refraction_summary">グラスの縁が、そのすぐ向こうにあるものの中で、どれほど曲がっているか</string>
+    <string name="liquid_glass_shade_category">シェード</string>
+    <string name="liquid_glass_dual_tone_title">デュアルトーンシェード</string>
+    <string name="liquid_glass_dual_tone_summary">通知の背景にうっすらと色をつけ、クイック設定と区別しやすくする</string>
     <string name="gradient_elements_category">システムの要素</string>
     <string name="gradient_colors_category">グラデーションの色</string>
     <string name="volume_slider_gradient_title">音量スライダーのグラデーション</string>
