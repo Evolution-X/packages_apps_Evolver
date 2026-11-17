@@ -77,10 +77,10 @@
         android:key="cutout_progress_ring_gap_x1000"
         android:title="@string/cutout_progress_ring_gap_title"
         android:max="2000"
-        settings:min="1000"
+        settings:min="800"
         settings:interval="10"
         settings:units=" (×0.001)"
-        android:defaultValue="1160"
+        android:defaultValue="1000"
         android:dependency="cutout_progress_enabled" />
 
     <PreferenceCategory
