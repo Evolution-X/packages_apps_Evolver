@@ -199,6 +199,7 @@
     <string name="lockscreen_custom_clock_gradient_category_title">Gradientowy</string>
     <string name="lockscreen_custom_clock_layout_category_title">Rozmiar i pozycja</string>
     <string name="lockscreen_custom_clock_animation_category_title">Animacja</string>
+    <string name="lockscreen_custom_clock_browse_all_clocks">Przeglądaj wszystkie zegary</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">Rozmiar</string>
     <string name="clock_size_summary">Skaluj zegar ekranu blokady (50–150%)</string>
@@ -278,7 +279,7 @@
     <string name="nowplaying_saved_empty_summary">Naciśnij ikonę serca przy rozpoznanym utworze, aby zapisać go w tym miejscu</string>
     <string name="nowplaying_saved_remove">Usuń</string>
     <string name="nowplaying_saved_no_music_app">Nie znaleziono aplikacji muzycznej do odtworzenia tego utworu</string>
-    <string name="nowplaying_pixel_native_summary">To urządzenie oferuje już natywnie funkcję Co jest grane za pośrednictwem wskaźnika otoczenia w urządzeniu Pixel</string>
+    <string name="nowplaying_pixel_native_summary">Ten telefon oferuje już natywnie funkcję Co jest grane za pośrednictwem wskaźnika otoczenia w telefonie Pixel</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">Ustawienia pogody</string>
     <string name="weather_settings_summary">Skonfiguruj zestaw ikon i usługę pogody</string>
@@ -692,7 +693,7 @@
     <string name="cutout_progress_music_clockwise_title">Kierunek zgodny z ruchem wskazówek zegara</string>
     <!-- Status bar/Bluetooth -->
     <string name="status_bar_bluetooth_battery_title">Stan baterii urządzenia Bluetooth</string>
-    <string name="status_bar_bluetooth_battery_summary">Wyświetl stan baterii podłączonego urządzenia Bluetooth, jeśli jest dostępne</string>
+    <string name="status_bar_bluetooth_battery_summary">Wyświetl stan baterii połączonego urządzenia Bluetooth, jeśli jest dostępne</string>
     <!-- Status bar/Misc -->
     <string name="statusbar_extra_padding_category">Dodatkowe wypełnienie</string>
     <string name="statusbar_extra_padding_start_title">Początkowe wypełnienie</string>
@@ -880,7 +881,7 @@
     <string name="edge_light_trigger_unlock_only_title">Wyzwalanie światła krawędziowego tylko przy odblokowaniu</string>
     <string name="edge_light_trigger_unlock_only_description">Po włączeniu tej opcji światło krawędziowe będzie włączane tylko przy odblokowaniu urządzenia, a nie przy powiadomieniach</string>
     <string name="edge_light_display_mode_lockscreen">Tylko ekran blokady</string>
-    <string name="edge_light_display_mode_unlocked">Tylko odblokowane urządzenie</string>
+    <string name="edge_light_display_mode_unlocked">Tylko odblokowany telefon</string>
     <string name="edge_light_display_mode_both">Obydwa</string>
     <string name="edge_light_color_mode_title">Tryb kolorów</string>
     <string name="edge_light_pulse_count_title">Liczba impulsów</string>
@@ -942,7 +943,7 @@
     <string name="power_menu_actions_title">Akcje menu zasilania</string>
     <string name="power_menu_actions_summary">Wybierz, które opcje mają być wyświetlane</string>
     <string name="power_menu_lock_screen_secure_title">Pokaż na zabezpieczonym ekranie blokady</string>
-    <string name="power_menu_lock_screen_secure_summary">Pokaż menu zasilania, gdy urządzenie jest zablokowane</string>
+    <string name="power_menu_lock_screen_secure_summary">Pokaż menu zasilania, gdy telefon jest zablokowany</string>
     <string name="power_menu_actions_screenshot_title">Zrzut ekranu</string>
     <string name="power_menu_actions_onthego_title">Przeźroczysty ekran</string>
     <string name="power_menu_actions_airplane_title">Tryb samolotowy</string>
@@ -950,7 +951,7 @@
     <string name="power_menu_actions_lockdown_unavailable">Blokada jest niedostępna, ponieważ ekran blokady nie jest zabezpieczony</string>
     <string name="power_menu_actions_users_title">Użytkownicy</string>
     <string name="power_menu_actions_emergency_title">Tryb awaryjny</string>
-    <string name="power_menu_actions_devicecontrols_title">Sterowanie urządzeniem</string>
+    <string name="power_menu_actions_devicecontrols_title">Sterowanie telefonem</string>
     <string name="power_menu_advanced_title">Zaawansowane opcje restartu</string>
     <string name="advanced_reboot_title">Zaawansowany restart</string>
     <string name="advanced_reboot_summary">Po odblokowaniu dodaj w menu zasilania opcje restartu do trybu odzyskiwania lub bootloadera</string>
@@ -987,7 +988,7 @@
     <string name="spoofing_identity_category">Identyfikacja urządzenia</string>
     <string name="spoofing_features_category">Funkcje sprzętowe</string>
     <string name="spoofing_pixel_props_title">Właściwości Pixela</string>
-    <string name="spoofing_pixel_props_summary">Sfałszuj wybrane aplikacje jako urządzenie Pixel, aby odblokować funkcje dostępne wyłącznie dla urządzeń Pixel</string>
+    <string name="spoofing_pixel_props_summary">Sfałszuj wybrane aplikacje jako telefon Pixel, aby odblokować funkcje dostępne wyłącznie dla telefonów Pixel</string>
     <string name="spoofing_app_specific_category">Zastąpienie dla konkretnych aplikacji</string>
     <string name="spoofing_photos_title">Zdjęcia Google</string>
     <string name="spoofing_photos_summary">Sfałszuj Zdjęcia Google udając Pixel XL</string>
@@ -1037,7 +1038,7 @@
     <string name="pp_target_count">Sfałszuj %1$d aplikacje jako Pixel</string>
     <string name="pp_spoof_as">Sfałszuj jako</string>
     <string name="pp_empty_description">Wybrane aplikacje będą zgłaszać tożsamość wybranego urządzenia Pixel, aby odblokować funkcje dostępne wyłącznie dla urządzeń Pixel</string>
-    <string name="pp_mainline_unsupported">To urządzenie jest już Pixelem. Funkcja podszywania się nie jest dostępna na popularnych urządzeniach Pixel.</string>
+    <string name="pp_mainline_unsupported">Ten telefon jest już Pixelem. \nFunkcja fałszowania się nie jest dostępna na popularnych telefonach Pixel.</string>
     <!-- Miscellaneous/Sensor block -->
     <string name="sensor_block_title">Blokada czujników dla aplikacji</string>
     <string name="sensor_block_summary">Zablokuj dostęp do niektórych czujników dla wybranych aplikacji, aby oszczędzać baterię</string>
@@ -1057,10 +1058,10 @@
     <string name="spoof_choice_select">Wybierz</string>
     <string name="pif_deleted">Usunięto %s</string>
     <string name="pif_failed">Niepowodzenie: %s</string>
-    <string name="pif_select_device">Wybierz urządzenie</string>
+    <string name="pif_select_device">Wybierz telefon</string>
     <string name="pif_recommended_suffix">Zalecane</string>
     <string name="pif_device_suggested">%1$s · Sugerowane</string>
-    <string name="pif_footer_body">Odcisk palca Canary jest sprawdzany maksymalnie raz dziennie i automatycznie zastępowany, gdy upłynie około dwa tygodnie od daty jego wygaśnięcia. Konfiguracje Canary wygasają po około 6 tygodniach od daty wydania — data wygaśnięcia jest wyświetlana w podsumowaniu aktywnej konfiguracji.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz odcisk palca Pixel Canary i wybierz urządzenie.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostarczane.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed zaimportowaniem nowej. Wczytanie wygasłej konfiguracji poprawki integralności Google Play spowoduje awarię silnej integralności TrickyStore, nawet z prawidłowym kluczem.\n\nZaawansowane fałszowanie:\n• Fałszowanie odcisku palca Sklepu Google Play — pozostaw wyłączone, chyba że zalecono inaczej. Fałszowanie odcisku palca w Sklepie Google Play jest rzadko potrzebne i może powodować problemy.\n• Fałszowanie SDK w Sklepie Google Play — wprowadza SDK 32 do Sklepu Google Play, aby wymusić ścieżkę werdyktu starszej wersji sprzed Androida 13. Może to zakłócić działanie Sklepu Google Play, więc wyłącz tę opcję, chyba że jest to testowane.\n• Fałszowanie pól kompilacji i właściwości systemu — pozostaw włączone. Przekazują one odcisk palca do DroidGuard.\n• Fałszowanie dostawcy zestawu kluczy — wyłącz, gdy używany jest zestaw kluczy, ponieważ omija to atestację zestawu kluczy.\n• Fałszowanie podpisu ROM — eksperymentalne.</string>
+    <string name="pif_footer_body">Odcisk palca Canary jest sprawdzany maksymalnie raz dziennie i automatycznie zastępowany, gdy upłynie około dwa tygodnie od daty jego wygaśnięcia. Konfiguracje Canary wygasają po około 6 tygodniach od daty wydania — data wygaśnięcia jest wyświetlana w podsumowaniu aktywnej konfiguracji.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz odcisk palca Pixel Canary i wybierz telefon.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostarczane.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed zaimportowaniem nowej. Wczytanie wygasłej konfiguracji poprawki integralności Google Play spowoduje awarię silnej integralności TrickyStore, nawet z prawidłowym kluczem.\n\nZaawansowane fałszowanie:\n• Fałszowanie odcisku palca Sklepu Google Play — pozostaw wyłączone, chyba że zalecono inaczej. Fałszowanie odcisku palca w Sklepie Google Play jest rzadko potrzebne i może powodować problemy.\n• Fałszowanie SDK w Sklepie Google Play — wprowadza SDK 32 do Sklepu Google Play, aby wymusić ścieżkę werdyktu starszej wersji sprzed Androida 13. Może to zakłócić działanie Sklepu Google Play, więc wyłącz tę opcję, chyba że jest to testowane.\n• Fałszowanie pól kompilacji i właściwości systemu — pozostaw włączone. Przekazują one odcisk palca do DroidGuard.\n• Fałszowanie dostawcy zestawu kluczy — wyłącz, gdy używany jest zestaw kluczy, ponieważ omija to atestację zestawu kluczy.\n• Fałszowanie podpisu ROM — eksperymentalne.</string>
     <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
     <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
     <string name="pif_advanced_settings">Zaawansowane fałszowanie</string>
@@ -1069,7 +1070,7 @@
     <string name="pif_spoof_vending_sdk_summary">Wyświetla SDK 32 w Sklepie Google Play, aby wymusić starszą ścieżkę werdyktu &lt;A13. Nigdy nie ustawiaj wersji wyższej niż rzeczywisty SDK. Może to zakłócić działanie Sklepu Google Play, więc nie ustawiaj wyższego, chyba że w celach testowych</string>
     <string name="pif_vending_finger_custom_summary">Niestandardowy odcisk palca: %1$s</string>
     <string name="pif_spoof_build_title">Sfałszuj pola kompilacji</string>
-    <string name="pif_spoof_build_summary">Przedstaw pola kompilacji odcisku palca (model, urządzenie, odcisk palca, …) w programie DroidGuard</string>
+    <string name="pif_spoof_build_summary">Przedstaw pola kompilacji odcisku palca (model, telefonu, odcisk palca, …) w programie DroidGuard</string>
     <string name="pif_spoof_props_title">Sfałszuj właściwości systemu</string>
     <string name="pif_spoof_props_summary">Podmień identyfikator kompilacji odcisku palca, poprawkę zabezpieczeń, poziom API oraz tożsamość produktu dla DroidGuard</string>
     <string name="pif_spoof_provider_title">Sfałszuj dostawcę zestawu kluczy</string>
@@ -1108,7 +1109,7 @@
     <string name="ts_target_list_imported">Zaimportowano listę docelową</string>
     <string name="ts_target_list_invalid">Odrzucono listę celów w pobliżu: %s</string>
     <string name="ts_failed">Niepowodzenie: %s</string>
-    <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Stan unieważnienia jest sprawdzany co 24 godziny, a nowy zestaws kluczy jest pobierany z oficjalnego źródła, jeśli obecn został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz najnowszy zestaw kluczy, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz Zarządzaj aplikacjami docelowymi i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na Podmiana certyfikatu, jeśli urządzenie ma działający moduł TEE; w przeciwnym razie pozostaw opcję Automatycznie.\n4. Sprawdź ponownie stan integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden prawidłowy najnowszy zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
+    <string name="ts_footer_body">Zestaw kluczy jest pobierany i utrzymywany automatycznie. Stan unieważnienia jest sprawdzany co 24 godziny, a nowy zestaws kluczy jest pobierany z oficjalnego źródła, jeśli obecn został unieważniony lub zawieszony.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz najnowszy zestaw kluczy, aby pobrać go automatycznie, lub zaimportuj własny z zaufanego źródła.\n2. Otwórz Zarządzaj aplikacjami docelowymi i wybierz aplikacje wymagające sprawdzenia integralności.\n3. Ustaw tryb docelowy na Podmiana certyfikatu, jeśli telefon ma działający moduł TEE; w przeciwnym razie pozostaw opcję Automatycznie.\n4. Sprawdź ponownie stan integralności Google Play.\n\nUwaga: Jeśli nie jest dostępny żaden prawidłowy najnowszy zestaw kluczy, automatyczne pobieranie zostanie wstrzymane na 24 godziny przed ponowną próbą. Zawsze usuwaj istniejący zestaw kluczy przed zaimportowaniem nowego.</string>
     <string name="ts_patch_stale_warning">%1$s (nieaktualne, starsze niż 12 miesięcy)</string>
     <string name="ts_security_patch">Data poprawki bezpieczeństwa</string>
     <string name="ts_no_patch">Nie ustawiono (używane domyślne ustawienia urządzenia)</string>
@@ -1241,6 +1242,19 @@
     <!-- Gradient styles -->
     <string name="gradient_settings_title">Personalizacja gradientu</string>
     <string name="gradient_settings_summary">Zastosuj kolory gradientowe do elementów systemowych</string>
+    <!-- Liquid Glass -->
+    <string name="liquid_glass_title">Płynne szkło</string>
+    <string name="liquid_glass_summary">Rysuj rozmyte powierzchnie jako szkło z oświetloną krawędzią</string>
+    <string name="liquid_glass_use_title">Użyj płynnego szkła</string>
+    <string name="liquid_glass_use_summary">Zmień matowe powierzchnie systemu, takie jak karty wyspy dynamicznej, na szklane</string>
+    <string name="liquid_glass_style_title">Styl</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Załamanie</string>
+    <string name="liquid_glass_refraction_summary">Jak bardzo krawędź szkła załamuje to, co znajduje się tuż za nim</string>
+    <string name="liquid_glass_shade_category">Cieniowanie</string>
+    <string name="liquid_glass_dual_tone_title">Dwutonowy odcień</string>
+    <string name="liquid_glass_dual_tone_summary">Delikatne zabarwienie tła powiadomień, dzięki któremu wyróżniają się na tle szybkich ustawień</string>
     <string name="gradient_elements_category">Elementy systemu</string>
     <string name="gradient_colors_category">Kolory gradientu</string>
     <string name="volume_slider_gradient_title">Gradient suwaka głośności</string>
@@ -1381,7 +1395,7 @@
     <!-- Gestures -->
     <string name="three_fingers_swipe_title">Przesunięcie trzema palcami</string>
     <string name="shake_gestures_enabled_title">Gesty potrząsania</string>
-    <string name="shake_gestures_enabled_summary">Potrząśnij urządzeniem, aby wykonać akcje</string>
+    <string name="shake_gestures_enabled_summary">Potrząśnij telefonem, aby wykonać aktywności</string>
     <string name="shake_gestures_action_title">Akcja gestu potrząsania</string>
     <string name="shake_gestures_intensity_title">Czułość potrząsania</string>
     <string name="shake_gestures_intensity_summary">Dostosuj czułość wykrywania potrząsania</string>
@@ -1529,14 +1543,14 @@
     <string name="ts_rkp_hal_rejected">Oprogramowanie odrzuciło żądanie (kod %1$d). 
 \nŻadna zgodna metoda dostarczania nie powiodła się.</string>
     <string name="ts_rkp_http_error">Serwer dostarczający odrzucił żądanie (HTTP %1$d)</string>
-    <string name="ts_rkp_unsupported">Urządzenie nie udostępnia zgodnego interfejsu dostarczającego</string>
+    <string name="ts_rkp_unsupported">Telefon nie udostępnia zgodnego interfejsu dostarczającego</string>
     <string name="ts_rkp_network_error">Nie można nawiązać połączenia z serwerem dostarczającym. 
 \nSprawdź połączenie.</string>
     <string name="ts_rkp_submission_unknown">Odpowiedź serwera została utracona. 
 \nŻądanie mogło zostać przetworzone, nie wykonano automatycznej próby ponownego przesłania.</string>
     <string name="ts_rkp_invalid_chain">Certyfikaty zestawu kluczy nie przeszły weryfikacji. Istniejący zestaw kluczy został zachowany.</string>
     <string name="ts_rkp_timeout">Przekroczono limit czasu dostarczania. 
-\nJeśli usługa urządzenia jest nadal zajęta, zrestartuj urządzenie przed ponowną próbą.</string>
+\nJeśli usługa urządzenia jest nadal zajęta, zrestartuj telefon przed ponowną próbą.</string>
     <string name="ts_rkp_canceled">Żądanie anulowane z powodu zmiany konfiguracji zestawu kluczy</string>
     <string name="ts_rkp_save_failed">Nie udało się zapisać wygenerowanego zestawu kluczy</string>
     <string name="ts_rkp_action_failed">Nie udało się dokończyć operacji zestawu kluczy</string>
@@ -1547,6 +1561,6 @@
     <string name="ts_rkp_native_unavailable">Natywny pomocnik dostarczania jest niedostępny lub niezgodny z tym oprogramowaniem</string>
     <string name="ts_rkp_native_transport">Usługa natywnego dostarczania została nieoczekiwanie zatrzymana.
 \nAutodostarczanie jest wstrzymane.</string>
-    <string name="ts_rkp_invalid_response">Urządzenie zwróciło nieprawidłową odpowiedź dotyczącą dostarczania.
+    <string name="ts_rkp_invalid_response">Telefon zwrócił nieprawidłową odpowiedź dotyczącą dostarczania.
 \nIstniejący zestaw kluczy został zachowany.</string>
 </resources>
