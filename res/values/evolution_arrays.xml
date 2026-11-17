@@ -1518,6 +1518,16 @@
     </string-array>
 
     <!-- Shade style -->
+    <string-array name="liquid_glass_style_entries">
+        <item>@string/liquid_glass_style_ios</item>
+        <item>@string/liquid_glass_style_coloros</item>
+    </string-array>
+
+    <string-array name="liquid_glass_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
     <string-array name="shade_color_style_entries">
         <item>@string/shade_color_style_aosp</item>
         <item>@string/shade_color_style_glass</item>
