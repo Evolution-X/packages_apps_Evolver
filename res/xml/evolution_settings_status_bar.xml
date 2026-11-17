@@ -12,12 +12,6 @@
         android:key="status_bar_gestures_category"
         android:title="@string/gestures_category_title">
 
-        <lineageos.preference.LineageSystemSettingSwitchPreference
-            android:key="double_tap_sleep_gesture"
-            android:title="@string/status_bar_double_tap_to_sleep_title"
-            android:summary="@string/status_bar_double_tap_to_sleep_summary"
-            android:defaultValue="true" />
-
         <!-- Triple tap status bar to open the current app in a freeform window -->
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="status_bar_triple_tap_freeform"
