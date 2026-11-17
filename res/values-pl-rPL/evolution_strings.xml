@@ -18,7 +18,7 @@
     <string name="quick_settings_summary">Interfejs, suwak jasności, układ</string>
     <string name="notifications_summary">Wyskakujące powiadomienia, przeźroczystość, dźwięki</string>
     <string name="power_menu_title">Menu zasilania</string>
-    <string name="power_menu_summary">Akcje, ekran blokady</string>
+    <string name="power_menu_summary">Aktywności, ekran blokady</string>
     <string name="miscellaneous_title">Różne</string>
     <string name="miscellaneous_summary">Centrum fałszowania, opcje programisty</string>
     <string name="about_title">Evolution X</string>
@@ -600,7 +600,7 @@
     <string name="dynamic_bar_guide_swipe">Gdy aktywnych jest wiele zdarzeń, przesuń palcem w lewo lub w prawo na wskaźniku, aby je przeglądać</string>
     <string name="dynamic_bar_guide_expand">Naciśnij znacznik, aby rozwinąć go do szczegółowej karty ze sterowaniem i dodatkowymi informacjami</string>
     <string name="dynamic_bar_guide_dismiss">Przesuń rozwiniętą kartę, aby ją zamknąć. Zdarzenie będzie kontynuowane w tle</string>
-    <string name="dynamic_bar_guide_keyguard">Znacznik paska dynamicznego pojawia się również na dole ekranu blokady, oferując sterowanie odtwarzaniem i szybkie akcje</string>
+    <string name="dynamic_bar_guide_keyguard">Znacznik paska dynamicznego pojawia się również na dole ekranu blokady, oferując sterowanie odtwarzaniem i szybkie aktywności</string>
     <string name="dynamic_bar_guide_chip_title">Wygląd znacznika</string>
     <string name="dynamic_bar_guide_swipe_title">Przesuwaj między wskaźnikami</string>
     <string name="dynamic_bar_guide_expand_title">Naciśnij, aby rozwinąć</string>
@@ -608,7 +608,7 @@
     <string name="dynamic_bar_guide_keyguard_title">Wskaźnik na ekranie blokady</string>
     <string name="dynamic_bar_footer_title">O pasku dynamicznym</string>
     <string name="dynamic_bar_footer_body">Pasek dynamiczny przekształca pasek stanu w interaktywny hub. Elementy pojawiają się i animują na podstawie zdarzeń systemowych, zapewniając szybki dostęp do informacji bez przerywania pracy. 
-\n\nKażdy typ zdarzenia ma swój własny kolor akcentu i rozszerzoną kartę z szybkimi akcjami.</string>
+\n\nKażdy typ zdarzenia ma swój własny kolor akcentu i rozszerzoną kartę z szybkimi aktywnościami.</string>
     <!-- Status bar/Cutout progress ring -->
     <string name="cutout_progress_title">Pierścień postępu wokół wycięcia</string>
     <string name="cutout_progress_summary">Pokaż pierścień postępu wokół wycięcia aparatu</string>
@@ -940,7 +940,7 @@
     <string name="edge_light_intensity_summary">Maksymalna jasność efektu blasku</string>
     <!-- Power menu -->
     <string name="power_menu_interface_category">Interfejs</string>
-    <string name="power_menu_actions_title">Akcje menu zasilania</string>
+    <string name="power_menu_actions_title">Aktywności menu zasilania</string>
     <string name="power_menu_actions_summary">Wybierz, które opcje mają być wyświetlane</string>
     <string name="power_menu_lock_screen_secure_title">Pokaż na zabezpieczonym ekranie blokady</string>
     <string name="power_menu_lock_screen_secure_summary">Pokaż menu zasilania, gdy telefon jest zablokowany</string>
@@ -1061,7 +1061,7 @@
     <string name="pif_select_device">Wybierz telefon</string>
     <string name="pif_recommended_suffix">Zalecane</string>
     <string name="pif_device_suggested">%1$s · Sugerowane</string>
-    <string name="pif_footer_body">Odcisk palca Canary jest sprawdzany maksymalnie raz dziennie i automatycznie zastępowany, gdy upłynie około dwa tygodnie od daty jego wygaśnięcia. Konfiguracje Canary wygasają po około 6 tygodniach od daty wydania — data wygaśnięcia jest wyświetlana w podsumowaniu aktywnej konfiguracji.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz odcisk palca Pixel Canary i wybierz telefon.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostarczane.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed zaimportowaniem nowej. Wczytanie wygasłej konfiguracji poprawki integralności Google Play spowoduje awarię silnej integralności TrickyStore, nawet z prawidłowym kluczem.\n\nZaawansowane fałszowanie:\n• Fałszowanie odcisku palca Sklepu Google Play — pozostaw wyłączone, chyba że zalecono inaczej. Fałszowanie odcisku palca w Sklepie Google Play jest rzadko potrzebne i może powodować problemy.\n• Fałszowanie SDK w Sklepie Google Play — wprowadza SDK 32 do Sklepu Google Play, aby wymusić ścieżkę werdyktu starszej wersji sprzed Androida 13. Może to zakłócić działanie Sklepu Google Play, więc wyłącz tę opcję, chyba że jest to testowane.\n• Fałszowanie pól kompilacji i właściwości systemu — pozostaw włączone. Przekazują one odcisk palca do DroidGuard.\n• Fałszowanie dostawcy zestawu kluczy — wyłącz, gdy używany jest zestaw kluczy, ponieważ omija to atestację zestawu kluczy.\n• Fałszowanie podpisu ROM — eksperymentalne.</string>
+    <string name="pif_footer_body">Testowy odcisk palca jest sprawdzany maksymalnie raz dziennie i automatycznie zastępowany, gdy upłynie około dwa tygodnie od daty jego wygaśnięcia. Konfiguracje testowe wygasają po około 6 tygodniach od daty wydania — data wygaśnięcia jest wyświetlana w podsumowaniu aktywnej konfiguracji.\n\nKonfiguracja ręczna:\n1. Naciśnij Pobierz odcisk palca Pixel Canary i wybierz telefon.\n2. Jeśli nie znaleziono żadnych urządzeń, zaimportuj działającą konfigurację poprawki integralności Google Play z zaufanego źródła. Pliki konfiguracyjne nie są dostarczane.\n3. Sprawdź ponownie stan integralności Google Play.\n\nZawsze usuwaj aktywną konfigurację przed zaimportowaniem nowej. Wczytanie wygasłej konfiguracji poprawki integralności Google Play spowoduje awarię silnej integralności TrickyStore, nawet z prawidłowym kluczem.\n\nZaawansowane fałszowanie:\n• Fałszowanie odcisku palca Sklepu Google Play — pozostaw wyłączone, chyba że zalecono inaczej. Fałszowanie odcisku palca w Sklepie Google Play jest rzadko potrzebne i może powodować problemy.\n• Fałszowanie SDK w Sklepie Google Play — wprowadza SDK 32 do Sklepu Google Play, aby wymusić ścieżkę werdyktu starszej wersji sprzed Androida 13. Może to zakłócić działanie Sklepu Google Play, więc wyłącz tę opcję, chyba że jest to testowane.\n• Fałszowanie pól kompilacji i właściwości systemu — pozostaw włączone. Przekazują one odcisk palca do DroidGuard.\n• Fałszowanie dostawcy zestawu kluczy — wyłącz, gdy używany jest zestaw kluczy, ponieważ omija to atestację zestawu kluczy.\n• Fałszowanie podpisu ROM — eksperymentalne.</string>
     <string name="pif_invalid_fingerprint">Nieprawidłowy format odcisku palca</string>
     <string name="pif_no_devices_found">Nie znaleziono urządzeń</string>
     <string name="pif_advanced_settings">Zaawansowane fałszowanie</string>
@@ -1102,7 +1102,7 @@
     <string name="ts_manage_target_apps">Zarządzaj aplikacjami docelowymi</string>
     <string name="ts_no_targets">Nie skonfigurowano aplikacji docelowych</string>
     <string name="ts_target_apps_count">%d skonfigurowanych aplikacji</string>
-    <string name="ts_target_apps_empty_description">Brak aplikacji odpowiadających twojemu wyszukiwaniu lub konfiguracji</string>
+    <string name="ts_target_apps_empty_description">Brak aplikacji odpowiadających wyszukiwaniu lub konfiguracji</string>
     <string name="ts_import_target_list">Importuj listę docelową</string>
     <string name="ts_import_target_list_summary">Importuj target.txt z pliku</string>
     <string name="ts_invalid_patch_date">Nieprawidłowy format daty. Użyj RRRR-MM-DD</string>
@@ -1178,7 +1178,7 @@
     <string name="glass_blur">Szklane rozmycie</string>
     <string name="frosted_blur">Matowe rozmycie</string>
     <string name="wallpaper_dim_level_summary">Konfiguracja poziomu przyciemnienia tapety</string>
-    <string name="wallpaper_styles_footer">Aby style tapet działały skutecznie, ustaw tapety na ekranie blokady i ekranie głównym oddzielnie. Używanie tego samego obrazu jest dozwolone, ale unikaj stosowania go na obu jednocześnie. Nie jest to konieczne w przypadku korzystania z opcji „Oba” dla stylów rozmycia lub przyciemnienia.</string>
+    <string name="wallpaper_styles_footer">W celu skutecznego działania stylu tapet, ustaw tapety na ekranie blokady i ekranie głównym oddzielnie. \nUżywanie tego samego obrazu jest dozwolone, ale unikaj stosowania go na obu jednocześnie.\nNie jest to konieczne w przypadku korzystania z opcji Oba dla stylów rozmycia lub przyciemnienia.</string>
     <string name="wallpaper_performance_warning">⚠ Uwaga dotycząca wydajności: Efekty te wymagają dużej ilości zasobów i mogą wpływać na wydajność na urządzeniach o niższej wydajności. Mogą powodować opóźnienia, rozładowywanie baterii lub zacinanie się na starszych telefonach.</string>
     <string name="wallpaper_saturation_title">Poziom nasycenia</string>
     <string name="wallpaper_saturation_summary">Zwiększ lub zmniejsz intensywność kolorów</string>
@@ -1316,7 +1316,7 @@
     <string name="about_current_maintainers_tap_to_view">Naciśnij, aby wyświetlić aktywnych opiekunów</string>
     <string name="about_current_maintainers_sheet_subtitle">%1$d aktywnych opiekunów</string>
     <string name="about_current_maintainers_search_hint">Wyszukaj opiekunów lub urządzenia…</string>
-    <string name="about_current_maintainers_no_results">Brak opiekunów odpowiadających twojemu wyszukiwaniu</string>
+    <string name="about_current_maintainers_no_results">Brak opiekunów odpowiadających wyszukiwaniu</string>
     <string name="maintainer_link_forum">Forum</string>
     <!-- Changelog -->
     <string name="changelog_title">Dziennik zmian</string>
@@ -1372,7 +1372,7 @@
     <string name="reboot_required_message">Wymagany jest restart, aby zastosować zmianę czcionki. Zrestartować teraz?</string>
     <string name="action_later">Później</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
-    <string name="hardware_keys_action_nothing">Brak akcji</string>
+    <string name="hardware_keys_action_nothing">Brak aktywności</string>
     <string name="hardware_keys_action_menu">Otwórz/zamknij menu</string>
     <string name="hardware_keys_action_app_switch">Ostatnie aplikacje</string>
     <string name="hardware_keys_action_search">Asystent wyszukiwania</string>
@@ -1396,7 +1396,7 @@
     <string name="three_fingers_swipe_title">Przesunięcie trzema palcami</string>
     <string name="shake_gestures_enabled_title">Gesty potrząsania</string>
     <string name="shake_gestures_enabled_summary">Potrząśnij telefonem, aby wykonać aktywności</string>
-    <string name="shake_gestures_action_title">Akcja gestu potrząsania</string>
+    <string name="shake_gestures_action_title">Aktywność gestu potrząsania</string>
     <string name="shake_gestures_intensity_title">Czułość potrząsania</string>
     <string name="shake_gestures_intensity_summary">Dostosuj czułość wykrywania potrząsania</string>
     <string name="flashlight_on_call_title">Migaj latarką podczas połączenia przychodzącego</string>
