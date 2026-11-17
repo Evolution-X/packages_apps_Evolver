@@ -24,6 +24,13 @@
         android:key="miscellaneous_gestures_category"
         android:title="@string/gestures_category_title">
 
+        <!-- Double tap to sleep on home screen -->
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="double_tap_sleep_gesture"
+            android:title="@string/status_bar_double_tap_to_sleep_title"
+            android:summary="@string/status_bar_double_tap_to_sleep_summary"
+            android:defaultValue="true" />
+
         <!-- Three fingers swipe action -->
         <org.evolution.settings.preferences.PickerListPreference
             android:key="three_fingers_swipe"
