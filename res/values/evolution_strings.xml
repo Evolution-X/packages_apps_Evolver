@@ -1306,6 +1306,20 @@
     <!-- Gradient styles -->
     <string name="gradient_settings_title">Gradient customization</string>
     <string name="gradient_settings_summary">Apply gradient colors to system elements</string>
+
+    <!-- Liquid Glass -->
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Draw blurred surfaces as glass with a lit rim</string>
+    <string name="liquid_glass_use_title">Use Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Turn the frosted surfaces of the system, such as the Dynamic Island cards, into glass</string>
+    <string name="liquid_glass_style_title">Style</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Refraction</string>
+    <string name="liquid_glass_refraction_summary">How far the rim of the glass bends in what lies just beyond it</string>
+    <string name="liquid_glass_shade_category">Shade</string>
+    <string name="liquid_glass_dual_tone_title">Dual tone shade</string>
+    <string name="liquid_glass_dual_tone_summary">A faint tint behind notifications, so they stand apart from Quick Settings</string>
     <string name="gradient_elements_category">System elements</string>
     <string name="gradient_colors_category">Gradient colors</string>
     <string name="volume_slider_gradient_title">Volume slider gradient</string>

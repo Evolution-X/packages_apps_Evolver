@@ -60,6 +60,13 @@
             android:summary="@string/gradient_settings_summary"
             android:fragment="org.evolution.settings.fragments.themes.GradientSettings" />
 
+        <!-- Liquid Glass -->
+        <Preference
+            android:key="liquid_glass_settings"
+            android:title="@string/liquid_glass_title"
+            android:summary="@string/liquid_glass_summary"
+            android:fragment="org.evolution.settings.fragments.themes.LiquidGlassSettings" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
