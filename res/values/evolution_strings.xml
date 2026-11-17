@@ -70,6 +70,34 @@
     <string name="boot_animation_custom_pick">Choose a boot animation zip</string>
     <string name="boot_animation_custom_replace">Tap to choose a different zip</string>
 
+    <!-- Boot/shutdown animation tools -->
+<string name="boot_animation_target_boot">Boot</string>
+<string name="boot_animation_target_shutdown">Power off</string>
+<string name="boot_animation_style_random">Random</string>
+<string name="boot_animation_random_note">A different installed animation on every boot</string>
+<string name="boot_animation_shutdown_default">Stock (system)</string>
+<string name="boot_animation_shutdown_no_default">This build ships no shutdown animation</string>
+<string name="boot_animation_shutdown_custom_pick">Choose a shutdown animation zip</string>
+<string name="boot_animation_shutdown_custom_replace">Tap to choose a different zip</string>
+<string name="boot_animation_part_indicator">Part %1$d/%2$d \u00b7 Loop %3$d</string>
+<string name="boot_animation_details_parts">%1$d parts \u00b7 %2$d frames</string>
+<string name="boot_animation_badge_sound">Sound</string>
+<string name="boot_animation_badge_trim">Trim</string>
+<string name="boot_animation_badge_dynamic">Dynamic colors</string>
+<string name="boot_animation_badge_progress">Progress</string>
+<string name="boot_animation_aspect_warning">The animation aspect ratio does not match this screen and will be letterboxed.</string>
+<string name="boot_animation_fullscreen_play">Play</string>
+<string name="boot_animation_fullscreen_pause">Pause</string>
+<string name="boot_animation_fullscreen_close">Close</string>
+<string name="boot_animation_delete_row_title">Remove custom animation</string>
+<string name="boot_animation_delete_row_summary">Deletes the installed zip and restores the default selection</string>
+<string name="boot_animation_delete_title">Remove custom animation?</string>
+<string name="boot_animation_delete_message">The custom boot animation will be deleted from /data/misc/bootanim and the default style will be selected.</string>
+<string name="boot_animation_delete_message_shutdown">The custom shutdown animation will be deleted from /data/misc/bootanim and the stock animation will be restored.</string>
+<string name="boot_animation_delete_confirm">Delete</string>
+<string name="boot_animation_delete_cancel">Cancel</string>
+<string name="boot_animation_delete_done">Custom animation removed</string>
+
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">Color customization</string>
     <string name="color_settings_category">Color Settings</string>

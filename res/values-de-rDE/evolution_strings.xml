@@ -310,6 +310,38 @@
     <!-- Custom seekbar -->
     <!-- General -->
     <string name="boot_animation_applied">Boot-Animation angewendet</string>
+    <!-- Boot animation management -->
+    <string name="boot_animation_target_boot">Boot</string>
+    <string name="boot_animation_target_shutdown">Ausschalten</string>
+    <string name="boot_animation_style_random">Zufällig</string>
+    <string name="boot_animation_random_note">Bei jedem Start eine andere installierte Animation</string>
+    <string name="boot_animation_shutdown_default">Standard (System)</string>
+    <string name="boot_animation_shutdown_no_default">Dieser Build enthält keine Ausschaltanimation</string>
+    <string name="boot_animation_shutdown_custom_pick">Ausschaltanimation als ZIP auswählen</string>
+    <string name="boot_animation_shutdown_custom_replace">Tippen, um eine andere ZIP auszuwählen</string>
+    <string name="boot_animation_part_indicator">Teil %1$d/%2$d · Schleife %3$d</string>
+    <string name="boot_animation_details_parts">%1$d Teile · %2$d Einzelbilder</string>
+    <string name="boot_animation_badge_sound">Ton</string>
+    <string name="boot_animation_badge_trim">Zuschnitt</string>
+    <string name="boot_animation_badge_dynamic">Dynamische Farben</string>
+    <string name="boot_animation_badge_progress">Fortschritt</string>
+    <string name="boot_animation_aspect_warning">Das Seitenverhältnis der Animation passt nicht zu diesem Bildschirm und wird mit schwarzen Balken dargestellt.</string>
+    <string name="boot_animation_fullscreen_play">Wiedergeben</string>
+    <string name="boot_animation_fullscreen_pause">Pausieren</string>
+    <string name="boot_animation_fullscreen_close">Schließen</string>
+    <string name="boot_animation_delete_row_title">Benutzerdefinierte Animation entfernen</string>
+    <string name="boot_animation_delete_row_summary">Löscht die installierte ZIP und stellt die Standardauswahl wieder her</string>
+    <string name="boot_animation_delete_title">Benutzerdefinierte Animation entfernen?</string>
+    <string name="boot_animation_delete_message">Die benutzerdefinierte Boot-Animation wird aus /data/misc/bootanim gelöscht und der Standardstil ausgewählt.</string>
+    <string name="boot_animation_delete_message_shutdown">Die benutzerdefinierte Ausschaltanimation wird aus /data/misc/bootanim gelöscht und die Standardanimation wiederhergestellt.</string>
+    <string name="boot_animation_delete_confirm">Löschen</string>
+    <string name="boot_animation_delete_cancel">Abbrechen</string>
+    <string name="boot_animation_delete_done">Benutzerdefinierte Animation entfernt</string>
+    <string name="boot_animation_applied_error">Boot-Animation konnte nicht angewendet werden</string>
+    <string name="boot_animation_no_preview">Keine Vorschau verfügbar</string>
+    <string name="boot_animation_style_unknown">Unbekannt</string>
+    <string name="boot_animation_custom_pick">Boot-Animation als ZIP auswählen</string>
+    <string name="boot_animation_custom_replace">Tippen, um eine andere ZIP auszuwählen</string>
     <string name="default_value">Standard</string>
     <!-- Units -->
     <string name="unit_seconds">Sekunden</string>

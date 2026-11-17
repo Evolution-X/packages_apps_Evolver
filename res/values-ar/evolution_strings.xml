@@ -1240,6 +1240,34 @@
     <string name="dialog_blur_summary">ضبابية خلفية مربعات حوار النظام والتنبيهات المنبثقة</string>
     <string name="boot_animation_custom_pick">اختيار ملف zip لحركة الإقلاع</string>
     <string name="boot_animation_custom_replace">انقر لاختيار ملف zip مختلف</string>
+
+    <!-- أدوات حركة الإقلاع والإطفاء -->
+<string name="boot_animation_target_boot">الإقلاع</string>
+<string name="boot_animation_target_shutdown">إيقاف التشغيل</string>
+<string name="boot_animation_style_random">عشوائي</string>
+<string name="boot_animation_random_note">حركة مختلفة من الأنماط المثبتة عند كل إقلاع</string>
+<string name="boot_animation_shutdown_default">افتراضية (النظام)</string>
+<string name="boot_animation_shutdown_no_default">لم تتضمن هذه النسخة حركة إيقاف تشغيل افتراضية</string>
+<string name="boot_animation_shutdown_custom_pick">اختر ملف ZIP لحركة إيقاف التشغيل</string>
+<string name="boot_animation_shutdown_custom_replace">انقر لاختيار ملف ZIP مختلف</string>
+<string name="boot_animation_part_indicator">الجزء %1$d/%2$d \u00b7 الدورة %3$d</string>
+<string name="boot_animation_details_parts">%1$d أجزاء \u00b7 %2$d إطارًا</string>
+<string name="boot_animation_badge_sound">صوت</string>
+<string name="boot_animation_badge_trim">قص</string>
+<string name="boot_animation_badge_dynamic">ألوان ديناميكية</string>
+<string name="boot_animation_badge_progress">شريط تقدم</string>
+<string name="boot_animation_aspect_warning">لا تناسب نسبة أبعاد الحركة شاشة هذا الجهاز وستظهر بهوامش.</string>
+<string name="boot_animation_fullscreen_play">تشغيل</string>
+<string name="boot_animation_fullscreen_pause">إيقاف مؤقت</string>
+<string name="boot_animation_fullscreen_close">إغلاق</string>
+<string name="boot_animation_delete_row_title">إزالة الحركة المخصصة</string>
+<string name="boot_animation_delete_row_summary">تحذف ملف ZIP المثبّت وتعيد الاختيار إلى الافتراضي</string>
+<string name="boot_animation_delete_title">إزالة الحركة المخصصة؟</string>
+<string name="boot_animation_delete_message">ستُحذف حركة الإقلاع المخصصة من /data/misc/bootanim وسيُعاد اختيار النمط الافتراضي.</string>
+<string name="boot_animation_delete_message_shutdown">ستُحذف حركة إيقاف التشغيل المخصصة من /data/misc/bootanim وستُستعاد حركة النظام.</string>
+<string name="boot_animation_delete_confirm">حذف</string>
+<string name="boot_animation_delete_cancel">إلغاء</string>
+<string name="boot_animation_delete_done">أُزيلت الحركة المخصصة</string>
     <string name="face_unlock_animation_title">حركة فتح القفل بالوجه</string>
     <string name="face_unlock_animation_summary">عرض حركة المسح والنجاح والفشل على شاشة القفل أثناء فتح القفل بوجهك</string>
     <string name="lockscreen_custom_clock_browse_all_clocks">استعراض كل الساعات</string>
