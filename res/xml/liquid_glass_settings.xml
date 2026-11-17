@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/liquid_glass_title">
+
+    <PreferenceCategory
+        android:key="liquid_glass_category"
+        android:title="@string/liquid_glass_title">
+
+        <!-- Liquid Glass -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="liquid_glass"
+            android:title="@string/liquid_glass_use_title"
+            android:summary="@string/liquid_glass_use_summary"
+            android:defaultValue="false" />
+
+        <!-- Style -->
+        <org.evolution.settings.preferences.SecureSettingListPreference
+            android:key="liquid_glass_style"
+            android:title="@string/liquid_glass_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/liquid_glass_style_title"
+            android:entries="@array/liquid_glass_style_entries"
+            android:entryValues="@array/liquid_glass_style_values"
+            android:dependency="liquid_glass"
+            android:defaultValue="0" />
+
+        <!-- Refraction, only for the iOS style -->
+        <org.evolution.settings.preferences.SecureSettingSeekBarPreference
+            android:key="liquid_glass_refraction"
+            android:title="@string/liquid_glass_refraction_title"
+            android:summary="@string/liquid_glass_refraction_summary"
+            android:max="100"
+            settings:min="0"
+            settings:interval="1"
+            settings:units="%"
+            android:dependency="liquid_glass"
+            android:defaultValue="60" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="liquid_glass_shade_category"
+        android:title="@string/liquid_glass_shade_category">
+
+        <!-- Dual tone shade -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="liquid_glass_dual_tone"
+            android:title="@string/liquid_glass_dual_tone_title"
+            android:summary="@string/liquid_glass_dual_tone_summary"
+            android:dependency="liquid_glass"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
