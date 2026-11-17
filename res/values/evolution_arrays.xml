@@ -1551,4 +1551,124 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <!-- Wallpaper Glymps: zero-key source portfolio (engine ids must match
+         com.android.systemui.lockglymps.GlympsProviders). -->
+    <string-array name="lock_glymps_provider_entries">
+        <item>Lorem Picsum (default)</item>
+        <item>Wallhaven</item>
+        <item>Wikimedia Commons</item>
+        <item>Openverse (Creative Commons)</item>
+        <item>Local folder (/sdcard/Glymps)</item>
+        <item>Custom URL list</item>
+    </string-array>
+
+    <string-array name="lock_glymps_provider_values" translatable="false">
+        <item>picsum</item>
+        <item>wallhaven</item>
+        <item>commons</item>
+        <item>openverse</item>
+        <item>local</item>
+        <item>custom</item>
+    </string-array>
+
+    <!-- Wallhaven category flags (verified live 2026-11-17). -->
+    <string-array name="lock_glymps_wh_category_entries">
+        <item>General</item>
+        <item>Anime</item>
+        <item>People</item>
+        <item>General + Anime</item>
+        <item>General + People</item>
+        <item>Anime + People</item>
+        <item>All categories</item>
+    </string-array>
+
+    <string-array name="lock_glymps_wh_category_values" translatable="false">
+        <item>100</item>
+        <item>010</item>
+        <item>001</item>
+        <item>110</item>
+        <item>101</item>
+        <item>011</item>
+        <item>111</item>
+    </string-array>
+
+    <!-- Wallhaven dominant colors (verified palette; empty = any color). -->
+    <string-array name="lock_glymps_wh_color_entries">
+        <item>Any color</item>
+        <item>Dark maroon</item>
+        <item>Dark red</item>
+        <item>Red</item>
+        <item>Crimson</item>
+        <item>Fuchsia pink</item>
+        <item>Dark purple</item>
+        <item>Royal purple</item>
+        <item>Indigo</item>
+        <item>Blue</item>
+        <item>Sky blue</item>
+        <item>Light cyan</item>
+        <item>Lime green</item>
+        <item>Light olive</item>
+        <item>Dark green</item>
+        <item>Olive</item>
+        <item>Mustard</item>
+        <item>Dark yellow</item>
+        <item>Yellow</item>
+        <item>Gold</item>
+        <item>Orange</item>
+        <item>Burnt orange</item>
+        <item>Copper</item>
+        <item>Brown</item>
+        <item>Dark brown</item>
+        <item>Black</item>
+        <item>Gray</item>
+        <item>Light gray</item>
+        <item>White</item>
+        <item>Charcoal gray</item>
+    </string-array>
+
+    <string-array name="lock_glymps_wh_color_values" translatable="false">
+        <item></item>
+        <item>660000</item>
+        <item>990000</item>
+        <item>cc0000</item>
+        <item>cc3333</item>
+        <item>ea4c88</item>
+        <item>993399</item>
+        <item>663399</item>
+        <item>333399</item>
+        <item>0066cc</item>
+        <item>0099cc</item>
+        <item>66cccc</item>
+        <item>77cc33</item>
+        <item>669900</item>
+        <item>336600</item>
+        <item>666600</item>
+        <item>999900</item>
+        <item>cccc33</item>
+        <item>ffff00</item>
+        <item>ffcc33</item>
+        <item>ff9900</item>
+        <item>ff6600</item>
+        <item>cc6633</item>
+        <item>996633</item>
+        <item>663300</item>
+        <item>000000</item>
+        <item>999999</item>
+        <item>cccccc</item>
+        <item>ffffff</item>
+        <item>424153</item>
+    </string-array>
+
+    <!-- Wikimedia Commons curated collections (verified live 2026-11-17). -->
+    <string-array name="lock_glymps_commons_preset_entries">
+        <item>Quality images (curated)</item>
+        <item>Featured pictures</item>
+    </string-array>
+
+    <string-array name="lock_glymps_commons_preset_values" translatable="false">
+        <item>quality</item>
+        <item>featured</item>
+    </string-array>
+
 </resources>

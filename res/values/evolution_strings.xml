@@ -1673,4 +1673,48 @@
     <string name="ts_rkp_native_unavailable">The native provisioning helper is unavailable or incompatible with this firmware</string>
     <string name="ts_rkp_native_transport">The native provisioning service stopped unexpectedly. Automatic provisioning is paused.</string>
     <string name="ts_rkp_invalid_response">The device returned an invalid provisioning response. The existing keybox was kept.</string>
+
+    <!-- Wallpaper Glymps: per-target sources, taste filters, current wallpaper -->
+    <string name="lock_glymps_provider_lock_title">Lock screen source</string>
+    <string name="lock_glymps_provider_home_title">Home screen source</string>
+
+    <string name="lock_glymps_taste_category">Taste &amp; filters</string>
+    <string name="lock_glymps_taste_lock_topics_title">Topics (lock screen)</string>
+    <string name="lock_glymps_taste_lock_topics_summary">Keywords like mountains, night, minimal</string>
+    <string name="lock_glymps_taste_home_topics_title">Topics (home screen)</string>
+    <string name="lock_glymps_taste_home_topics_summary">Keywords like mountains, night, minimal</string>
+    <string name="lock_glymps_taste_dialog_title">Filter topics</string>
+    <string name="lock_glymps_taste_dialog_message">Enter keywords separated by spaces or commas. Leave empty for no filter.</string>
+    <string name="lock_glymps_taste_hint">mountains night minimal</string>
+    <string name="lock_glymps_taste_saved">Taste updated</string>
+    <string name="lock_glymps_taste_unset">Not set</string>
+
+    <string name="lock_glymps_taste_lock_categories_title">Categories (lock screen)</string>
+    <string name="lock_glymps_taste_lock_categories_summary">Wallhaven categories filter</string>
+    <string name="lock_glymps_taste_home_categories_title">Categories (home screen)</string>
+    <string name="lock_glymps_taste_home_categories_summary">Wallhaven categories filter</string>
+
+    <string name="lock_glymps_taste_lock_color_title">Dominant color (lock screen)</string>
+    <string name="lock_glymps_taste_lock_color_summary">Wallhaven dominant color filter</string>
+    <string name="lock_glymps_taste_home_color_title">Dominant color (home screen)</string>
+    <string name="lock_glymps_taste_home_color_summary">Wallhaven dominant color filter</string>
+
+    <string name="lock_glymps_taste_lock_preset_title">Collection (lock screen)</string>
+    <string name="lock_glymps_taste_lock_preset_summary">Which Wikimedia Commons collection to use</string>
+    <string name="lock_glymps_taste_home_preset_title">Collection (home screen)</string>
+    <string name="lock_glymps_taste_home_preset_summary">Which Wikimedia Commons collection to use</string>
+
+    <string name="lock_glymps_apply_now_summary">Change immediately using the selected source</string>
+
+    <string name="lock_glymps_current_title">About this wallpaper</string>
+    <string name="lock_glymps_current_summary_empty">No wallpaper applied yet</string>
+    <string name="lock_glymps_current_summary_format">%1$s \u2022 %2$s</string>
+    <string name="lock_glymps_current_detail_format">Source: %1$s\nImage: %2$s\nLicense: %3$s\nApplied: %4$s</string>
+    <string name="lock_glymps_current_open">Open source page</string>
+    <string name="lock_glymps_current_no_page">No source page available</string>
+
+    <!-- Localized folder info (fixes v1 hardcoded-English summaries) -->
+    <string name="lock_glymps_folder_missing_short">Folder not found. Tap to create.</string>
+    <string name="lock_glymps_folder_count_format">%1$d wallpapers found in %2$s</string>
+
 </resources>

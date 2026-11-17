@@ -1527,4 +1527,47 @@
     <string name="liquid_glass_shade_category">لوحة الإشعارات</string>
     <string name="liquid_glass_dual_tone_title">تظليل ثنائي اللون</string>
     <string name="liquid_glass_dual_tone_summary">تلوين خفيف خلف الإشعارات لتمييزها عن الإعدادات السريعة</string>
+    <!-- Wallpaper Glymps: مصدر لكل شاشة + الذوق والمرشحات + معلومات الخلفية الحالية -->
+    <string name="lock_glymps_provider_lock_title">مصدر شاشة القفل</string>
+    <string name="lock_glymps_provider_home_title">مصدر الشاشة الرئيسية</string>
+
+    <string name="lock_glymps_taste_category">الذوق والمرشّحات</string>
+    <string name="lock_glymps_taste_lock_topics_title">المواضيع (شاشة القفل)</string>
+    <string name="lock_glymps_taste_lock_topics_summary">كلمات مفتاحية مثل: جبال، ليل، بسيط</string>
+    <string name="lock_glymps_taste_home_topics_title">المواضيع (الشاشة الرئيسية)</string>
+    <string name="lock_glymps_taste_home_topics_summary">كلمات مفتاحية مثل: جبال، ليل، بسيط</string>
+    <string name="lock_glymps_taste_dialog_title">كلمات المواضيع</string>
+    <string name="lock_glymps_taste_dialog_message">أدخل الكلمات مفصولة بمسافات أو فواصل. اتركها فارغة لعدم التصفية.</string>
+    <string name="lock_glymps_taste_hint">جبال ليل بسيط</string>
+    <string name="lock_glymps_taste_saved">تم تحديث الذوق</string>
+    <string name="lock_glymps_taste_unset">غير محدد</string>
+
+    <string name="lock_glymps_taste_lock_categories_title">الفئات (شاشة القفل)</string>
+    <string name="lock_glymps_taste_lock_categories_summary">تصفية فئات Wallhaven</string>
+    <string name="lock_glymps_taste_home_categories_title">الفئات (الشاشة الرئيسية)</string>
+    <string name="lock_glymps_taste_home_categories_summary">تصفية فئات Wallhaven</string>
+
+    <string name="lock_glymps_taste_lock_color_title">اللون السائد (شاشة القفل)</string>
+    <string name="lock_glymps_taste_lock_color_summary">تصفية اللون السائد في Wallhaven</string>
+    <string name="lock_glymps_taste_home_color_title">اللون السائد (الشاشة الرئيسية)</string>
+    <string name="lock_glymps_taste_home_color_summary">تصفية اللون السائد في Wallhaven</string>
+
+    <string name="lock_glymps_taste_lock_preset_title">المجموعة (شاشة القفل)</string>
+    <string name="lock_glymps_taste_lock_preset_summary">مجموعة ويكيميديا كومنز المستخدمة</string>
+    <string name="lock_glymps_taste_home_preset_title">المجموعة (الشاشة الرئيسية)</string>
+    <string name="lock_glymps_taste_home_preset_summary">مجموعة ويكيميديا كومنز المستخدمة</string>
+
+    <string name="lock_glymps_apply_now_summary">تغيير الخلفية فورًا باستخدام المصدر المحدد</string>
+
+    <string name="lock_glymps_current_title">عن هذه الخلفية</string>
+    <string name="lock_glymps_current_summary_empty">لم تُطبَّق أي خلفية بعد</string>
+    <string name="lock_glymps_current_summary_format">%1$s \u2022 %2$s</string>
+    <string name="lock_glymps_current_detail_format">المصدر: %1$s\nالصورة: %2$s\nالرخصة: %3$s\nطُبِّقت: %4$s</string>
+    <string name="lock_glymps_current_open">فتح صفحة المصدر</string>
+    <string name="lock_glymps_current_no_page">لا توجد صفحة مصدر متاحة</string>
+
+    <!-- معلومات المجلد المعربة (تصحيح نصوص v1 الإنجليزية المضمّنة) -->
+    <string name="lock_glymps_folder_missing_short">المجلد غير موجود. انقر لإنشائه.</string>
+    <string name="lock_glymps_folder_count_format">توجد %1$d خلفية في %2$s</string>
+
 </resources>

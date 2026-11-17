@@ -278,4 +278,65 @@
         <item>@string/liquid_glass_style_ios</item>
         <item>@string/liquid_glass_style_coloros</item>
     </string-array>
+    <!-- محفظة المصادر بلا مفاتيح (يجب أن تطابق GlympsProviders في SystemUI) -->
+    <string-array name="lock_glymps_provider_entries">
+        <item>لور بيكسَم (الافتراضي)</item>
+        <item>والهافن</item>
+        <item>ويكيميديا كومنز</item>
+        <item>أوبنفيرس (رخص المشاع الإبداعي)</item>
+        <item>مجلد محلي (/sdcard/Glymps)</item>
+        <item>قائمة روابط مخصصة</item>
+    </string-array>
+
+    <!-- فئات Wallhaven -->
+    <string-array name="lock_glymps_wh_category_entries">
+        <item>عام</item>
+        <item>أنمي</item>
+        <item>أشخاص</item>
+        <item>عام + أنمي</item>
+        <item>عام + أشخاص</item>
+        <item>أنمي + أشخاص</item>
+        <item>كل الفئات</item>
+    </string-array>
+
+    <!-- الألوان السائدة في Wallhaven -->
+    <string-array name="lock_glymps_wh_color_entries">
+        <item>أي لون</item>
+        <item>عنابي داكن</item>
+        <item>أحمر داكن</item>
+        <item>أحمر</item>
+        <item>قرمزي</item>
+        <item>وردي فوشيا</item>
+        <item>بنفسجي داكن</item>
+        <item>بنفسجي ملكي</item>
+        <item>نيلي</item>
+        <item>أزرق</item>
+        <item>أزرق سماوي</item>
+        <item>فيروزي فاتح</item>
+        <item>أخضر ليموني</item>
+        <item>زيتوني فاتح</item>
+        <item>أخضر داكن</item>
+        <item>زيتوني</item>
+        <item>خردلي</item>
+        <item>أصفر خردلي</item>
+        <item>أصفر</item>
+        <item>ذهبي</item>
+        <item>برتقالي</item>
+        <item>برتقالي محروق</item>
+        <item>نحاسي</item>
+        <item>بني</item>
+        <item>بني داكن</item>
+        <item>أسود</item>
+        <item>رمادي</item>
+        <item>رمادي فاتح</item>
+        <item>أبيض</item>
+        <item>رمادي فحمي</item>
+    </string-array>
+
+    <!-- مجموعات ويكيميديا كومنز -->
+    <string-array name="lock_glymps_commons_preset_entries">
+        <item>صور عالية الجودة (منسّقة)</item>
+        <item>الصور المختارة</item>
+    </string-array>
+
 </resources>
