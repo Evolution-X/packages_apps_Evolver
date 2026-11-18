@@ -822,8 +822,6 @@
     <string name="quick_settings_auto_brightness_icon_summary">Show adaptive brightness toggle next to the slider</string>
     <string name="quick_settings_brightness_slider_haptic_title">Haptic feedback</string>
     <string name="quick_settings_brightness_slider_haptic_summary">Vibrate when adjusting brightness with the slider</string>
-    <string name="qs_brightness_slider_gradient_title">Brightness slider gradient</string>
-    <string name="qs_brightness_slider_gradient_summary">Enable gradient background for the brightness slider</string>
 
     <!-- Quick settings/Animations -->
     <string name="qs_tile_animation_style_title">Tile animation</string>
@@ -881,8 +879,6 @@
     <string name="qs_show_media_player_hide">Hide</string>
     <string name="qs_show_media_player_top">Show at top</string>
     <string name="qs_show_media_player_bottom">Show at bottom</string>
-    <string name="qs_tile_gradient_title">QS tile gradient</string>
-    <string name="qs_tile_gradient_summary">Enable gradient backgrounds for QS tiles</string>
 
     <!-- QS widget -->
     <string name="qs_widget_panel_title">Show widget in QS panel</string>
@@ -1304,8 +1300,23 @@
     <string name="video_wallpaper_category_summary">Set animated wallpapers (MP4, GIF, WebP)</string>
 
     <!-- Gradient styles -->
-    <string name="gradient_settings_title">Gradient customization</string>
-    <string name="gradient_settings_summary">Apply gradient colors to system elements</string>
+    <string name="gradient_settings_title">Gradients customization</string>
+    <string name="gradient_settings_summary">Apply gradient colors to various system elements</string>
+    <string name="gradient_elements_category">System elements</string>
+    <string name="gradient_colors_category">Gradient colors</string>
+    <string name="qs_tile_gradient_title">QS tiles gradient</string>
+    <string name="qs_tile_gradient_summary">Enable gradient backgrounds for QS tiles</string>
+    <string name="qs_brightness_slider_gradient_title">QS brightness slider gradient</string>
+    <string name="qs_brightness_slider_gradient_summary">Enable gradient backgrounds for QS brightness slider</string>
+    <string name="volume_slider_gradient_title">Volume slider gradient</string>
+    <string name="volume_slider_gradient_summary">Enable gradient backgrounds for volume slider</string>
+    <string name="custom_gradient_color_mode_title">Gradient color mode</string>
+    <string name="custom_gradient_color_mode_auto">Auto mode</string>
+    <string name="custom_gradient_color_mode_custom">Custom mode</string>
+    <string name="custom_gradient_start_color_title">Gradient start color</string>
+    <string name="custom_gradient_end_color_title">Gradient end color</string>
+    <string name="custom_gradient_angle_title">Gradient angle</string>
+    <string name="custom_gradient_angle_summary">Rotates the gradient counter-clockwise. At 0° it flows from start to end, along the fill direction for sliders</string>
 
     <!-- Liquid Glass -->
     <string name="liquid_glass_title">Liquid Glass</string>
@@ -1320,15 +1331,6 @@
     <string name="liquid_glass_shade_category">Shade</string>
     <string name="liquid_glass_dual_tone_title">Dual tone shade</string>
     <string name="liquid_glass_dual_tone_summary">A faint tint behind notifications, so they stand apart from Quick Settings</string>
-    <string name="gradient_elements_category">System elements</string>
-    <string name="gradient_colors_category">Gradient colors</string>
-    <string name="volume_slider_gradient_title">Volume slider gradient</string>
-    <string name="volume_slider_gradient_summary">Enable gradient background for the volume slider</string>
-    <string name="custom_gradient_color_mode_title">Gradient color mode</string>
-    <string name="custom_gradient_color_mode_auto">Auto</string>
-    <string name="custom_gradient_color_mode_custom">Custom</string>
-    <string name="custom_gradient_start_color_title">Start color</string>
-    <string name="custom_gradient_end_color_title">End color</string>
 
     <!-- Fonts -->
     <string name="font_styles_title">Font styles</string>
