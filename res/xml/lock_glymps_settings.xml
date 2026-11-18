@@ -182,6 +182,16 @@
             android:summary="@string/lock_glymps_apply_now_summary" />
 
         <Preference
+            android:key="lock_glymps_save_current"
+            android:title="@string/lock_glymps_save_current_title"
+            android:summary="@string/lock_glymps_save_current_summary" />
+
+        <Preference
+            android:key="lock_glymps_ban_current"
+            android:title="@string/lock_glymps_ban_current_title"
+            android:summary="@string/lock_glymps_ban_current_summary" />
+
+        <Preference
             android:key="lock_glymps_clear_cache"
             android:title="@string/lock_glymps_clear_cache_title"
             android:summary="@string/lock_glymps_clear_cache_summary" />

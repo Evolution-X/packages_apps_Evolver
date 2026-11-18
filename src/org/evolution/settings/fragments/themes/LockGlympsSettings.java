@@ -66,6 +66,8 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_CUSTOM_URLS = "lock_glymps_custom_urls";
     private static final String KEY_CLEAR_CACHE = "lock_glymps_clear_cache";
     private static final String KEY_APPLY_NOW = "lock_glymps_apply_now";
+    private static final String KEY_SAVE_CURRENT = "lock_glymps_save_current";
+    private static final String KEY_BAN_CURRENT = "lock_glymps_ban_current";
     private static final String KEY_FOLDER_INFO = "lock_glymps_folder_info";
     // UI-only taste keys (persisted inside the JSON blob, not Settings.System).
     private static final String KEY_TASTE_LOCK_TOPICS = "lock_glymps_taste_lock_topics";
@@ -94,6 +96,8 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private Preference mCustomUrlsPreference;
     private Preference mClearCachePreference;
     private Preference mApplyNowPreference;
+    private Preference mSaveCurrentPreference;
+    private Preference mBanCurrentPreference;
     private Preference mFolderInfoPreference;
     private Preference mCurrentInfoPreference;
     private Preference mTasteLockTopics;
@@ -185,6 +189,22 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         if (mApplyNowPreference != null) {
             mApplyNowPreference.setOnPreferenceClickListener(pref -> {
                 applyNow(getActivity());
+                return true;
+            });
+        }
+
+        mSaveCurrentPreference = findPreference(KEY_SAVE_CURRENT);
+        if (mSaveCurrentPreference != null) {
+            mSaveCurrentPreference.setOnPreferenceClickListener(pref -> {
+                saveCurrent();
+                return true;
+            });
+        }
+
+        mBanCurrentPreference = findPreference(KEY_BAN_CURRENT);
+        if (mBanCurrentPreference != null) {
+            mBanCurrentPreference.setOnPreferenceClickListener(pref -> {
+                banCurrent();
                 return true;
             });
         }
@@ -579,7 +599,16 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         }
         String provider = providerName(current.optString("provider"));
         String attribution = current.optString("attribution");
-        if (attribution.isEmpty()) {
+        long time = current.optLong("time", 0);
+        if (time > 0) {
+            String applied = DateUtils.getRelativeTimeSpanString(time).toString();
+            mCurrentInfoPreference.setSummary(getString(
+                    R.string.lock_glymps_status_format,
+                    provider,
+                    applied,
+                    current.optInt("success", 0),
+                    current.optInt("fail", 0)));
+        } else if (attribution.isEmpty()) {
             mCurrentInfoPreference.setSummary(
                     getString(R.string.lock_glymps_current_summary_empty));
         } else {
@@ -699,6 +728,60 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         if (mHandler != null) {
             mHandler.postDelayed(this::updateCurrentInfo, 3000);
         }
+    }
+
+    /** Sends SAVE_CURRENT and confirms the result the engine writes back. */
+    private void saveCurrent() {
+        Context context = getActivity();
+        if (context == null) return;
+        sendCommand(context, "SAVE_CURRENT");
+        android.widget.Toast.makeText(context,
+            R.string.lock_glymps_saving_toast,
+            android.widget.Toast.LENGTH_SHORT).show();
+        if (mHandler != null) {
+            mHandler.postDelayed(() -> {
+                Context ctx = getActivity();
+                if (ctx == null) return;
+                JSONObject current = readCurrent(ctx);
+                long savedAt = current == null ? 0 : current.optLong("savedAt", 0);
+                boolean ok = savedAt > System.currentTimeMillis() - 20000L;
+                android.widget.Toast.makeText(ctx,
+                    ok ? R.string.lock_glymps_saved_toast
+                       : R.string.lock_glymps_save_failed_toast,
+                    android.widget.Toast.LENGTH_SHORT).show();
+            }, 2000);
+        }
+    }
+
+    /** Sends BAN_CURRENT so the bag never offers this wallpaper again. */
+    private void banCurrent() {
+        Context context = getActivity();
+        if (context == null) return;
+        sendCommand(context, "BAN_CURRENT");
+        if (mHandler != null) {
+            mHandler.postDelayed(() -> {
+                Context ctx = getActivity();
+                if (ctx == null) return;
+                JSONObject current = readCurrent(ctx);
+                long bannedAt = current == null ? 0 : current.optLong("bannedAt", 0);
+                boolean ok = bannedAt > System.currentTimeMillis() - 20000L;
+                android.widget.Toast.makeText(ctx,
+                    ok ? R.string.lock_glymps_banned_toast
+                       : R.string.lock_glymps_ban_failed_toast,
+                    android.widget.Toast.LENGTH_SHORT).show();
+                if (ok) {
+                    schedulePreviewRefresh();
+                }
+            }, 2000);
+        }
+    }
+
+    private void sendCommand(Context context, String action) {
+        Intent intent = new Intent();
+        intent.setClassName("com.android.systemui",
+            "com.android.systemui.lockglymps.LockGlympsService");
+        intent.setAction(action);
+        context.startService(intent);
     }
 
     private void notifyServiceToRefresh(Context context) {

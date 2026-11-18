@@ -1709,6 +1709,16 @@
     <string name="lock_glymps_current_title">About this wallpaper</string>
     <string name="lock_glymps_current_summary_empty">No wallpaper applied yet</string>
     <string name="lock_glymps_current_summary_format">%1$s \u2022 %2$s</string>
+    <string name="lock_glymps_status_format">%1$s • %2$s • %3$d applied, %4$d failed</string>
+    <string name="lock_glymps_save_current_title">Save to gallery</string>
+    <string name="lock_glymps_save_current_summary">Keep the current wallpaper in Pictures/Glymps</string>
+    <string name="lock_glymps_ban_current_title">Never show this again</string>
+    <string name="lock_glymps_ban_current_summary">Skip this wallpaper when picking the next one</string>
+    <string name="lock_glymps_saving_toast">Saving…</string>
+    <string name="lock_glymps_saved_toast">Saved to Pictures/Glymps</string>
+    <string name="lock_glymps_save_failed_toast">Could not save the wallpaper</string>
+    <string name="lock_glymps_banned_toast">This wallpaper will not be picked again</string>
+    <string name="lock_glymps_ban_failed_toast">Nothing to hide yet</string>
     <string name="lock_glymps_current_detail_format">Source: %1$s\nImage: %2$s\nLicense: %3$s\nApplied: %4$s</string>
     <string name="lock_glymps_current_open">Open source page</string>
     <string name="lock_glymps_current_no_page">No source page available</string>

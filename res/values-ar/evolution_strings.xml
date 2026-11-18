@@ -1562,6 +1562,16 @@
     <string name="lock_glymps_current_title">عن هذه الخلفية</string>
     <string name="lock_glymps_current_summary_empty">لم تُطبَّق أي خلفية بعد</string>
     <string name="lock_glymps_current_summary_format">%1$s \u2022 %2$s</string>
+    <string name="lock_glymps_status_format">%1$s • %2$s • %3$d ناجحة، %4$d فاشلة</string>
+    <string name="lock_glymps_save_current_title">حفظ في المعرض</string>
+    <string name="lock_glymps_save_current_summary">احفظ الخلفية الحالية في Pictures/Glymps</string>
+    <string name="lock_glymps_ban_current_title">لا تُظهرها مرة أخرى</string>
+    <string name="lock_glymps_ban_current_summary">تخطَّ هذه الخلفية عند اختيار الخلفية التالية</string>
+    <string name="lock_glymps_saving_toast">جارٍ الحفظ…</string>
+    <string name="lock_glymps_saved_toast">حُفظت في Pictures/Glymps</string>
+    <string name="lock_glymps_save_failed_toast">تعذّر حفظ الخلفية</string>
+    <string name="lock_glymps_banned_toast">لن تُختار هذه الخلفية مرة أخرى</string>
+    <string name="lock_glymps_ban_failed_toast">لا توجد خلفية لإخفائها بعد</string>
     <string name="lock_glymps_current_detail_format">المصدر: %1$s\nالصورة: %2$s\nالرخصة: %3$s\nطُبِّقت: %4$s</string>
     <string name="lock_glymps_current_open">فتح صفحة المصدر</string>
     <string name="lock_glymps_current_no_page">لا توجد صفحة مصدر متاحة</string>
