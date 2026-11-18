@@ -19,18 +19,24 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.ImageDecoder;
+import android.media.AudioManager;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.media.MediaFormat;
+import android.media.Spatializer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.SystemProperties;
+import android.text.TextUtils;
+import android.view.Display;
 import android.widget.Toast;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
@@ -64,7 +70,21 @@ public class MediaCodecSettings extends SettingsPreferenceFragment {
     private static final String KEY_AUDIO_DECODERS = "media_codec_audio_decoders";
     private static final String KEY_AUDIO_ENCODERS = "media_codec_audio_encoders";
     private static final String KEY_IMAGE_FORMATS = "media_codec_image_formats";
+    private static final String KEY_DISPLAY_AUDIO = "media_display_audio";
+    private static final String KEY_TRANSCODE_ENABLED = "media_transcode_enabled";
+    private static final String KEY_TRANSCODE_ASSUME = "media_transcode_assume";
+    private static final String KEY_TRANSCODE_NOTIFICATION = "media_transcode_notification";
     private static final String KEY_COPY_REPORT = "media_codec_copy_report";
+
+    /**
+     * The same system properties Settings > Developer options > Media transcoding writes.
+     * They are read by MediaProvider and the transcoding service, so the switches below
+     * change real behaviour rather than storing a duplicate preference.
+     */
+    private static final String PROP_TRANSCODE_ENABLED = "persist.sys.fuse.transcode_enabled";
+    private static final String PROP_TRANSCODE_DEFAULT = "persist.sys.fuse.transcode_default";
+    private static final String PROP_TRANSCODE_NOTIFICATION =
+            "persist.sys.fuse.transcode_notification";
 
     /** Still-image MIME types worth reporting, in the order users meet them. */
     private static final String[] IMAGE_MIMES = {
@@ -95,6 +115,9 @@ public class MediaCodecSettings extends SettingsPreferenceFragment {
                 return true;
             });
         }
+
+        bindTranscoding();
+        bindDisplayAndAudio();
 
         mExecutor = Executors.newSingleThreadExecutor();
         mExecutor.execute(this::loadCodecs);
@@ -334,6 +357,95 @@ public class MediaCodecSettings extends SettingsPreferenceFragment {
             builder.append(" \u00b7 ").append(getString(R.string.media_codec_badge_hdr10));
         }
         return builder.toString();
+    }
+
+    private void bindTranscoding() {
+        bindPropertySwitch(KEY_TRANSCODE_ENABLED, PROP_TRANSCODE_ENABLED, true, false);
+        bindPropertySwitch(KEY_TRANSCODE_ASSUME, PROP_TRANSCODE_DEFAULT, false, true);
+        bindPropertySwitch(KEY_TRANSCODE_NOTIFICATION, PROP_TRANSCODE_NOTIFICATION, false, false);
+    }
+
+    private void bindPropertySwitch(String key, String property, boolean defaultOn,
+            boolean inverted) {
+        Preference preference = findPreference(key);
+        if (!(preference instanceof SwitchPreferenceCompat)) return;
+        SwitchPreferenceCompat toggle = (SwitchPreferenceCompat) preference;
+        boolean stored = SystemProperties.getBoolean(property, defaultOn);
+        toggle.setChecked(inverted ? !stored : stored);
+        toggle.setOnPreferenceChangeListener((pref, value) -> {
+            boolean checked = (Boolean) value;
+            try {
+                SystemProperties.set(property, String.valueOf(inverted ? !checked : checked));
+                return true;
+            } catch (RuntimeException e) {
+                Context context = getActivity();
+                if (context != null) {
+                    Toast.makeText(context, R.string.media_codec_write_failed,
+                            Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+        });
+    }
+
+    private void bindDisplayAndAudio() {
+        Context context = getActivity();
+        PreferenceScreen screen = getPreferenceScreen();
+        if (context == null || screen == null) return;
+        PreferenceCategory category = screen.findPreference(KEY_DISPLAY_AUDIO);
+        if (category == null) return;
+        category.removeAll();
+
+        Display display = context.getDisplay();
+        if (display != null) {
+            Display.HdrCapabilities hdr = display.getHdrCapabilities();
+            List<String> types = new ArrayList<>();
+            for (int type : hdr.getSupportedHdrTypes()) {
+                String label = hdrTypeLabel(type);
+                if (label != null) types.add(label);
+            }
+            addRow(context, category, getString(R.string.media_hdr_types),
+                    types.isEmpty() ? getString(R.string.media_hdr_none)
+                            : TextUtils.join(" \u00b7 ", types));
+            if (hdr.getDesiredMaxLuminance() > 0) {
+                addRow(context, category, getString(R.string.media_hdr_luminance),
+                        getString(R.string.media_hdr_luminance_value,
+                                hdr.getDesiredMaxLuminance(),
+                                hdr.getDesiredMaxAverageLuminance()));
+            }
+        }
+
+        AudioManager audio = context.getSystemService(AudioManager.class);
+        if (audio != null) {
+            addRow(context, category, getString(R.string.media_audio_output),
+                    getString(R.string.media_audio_output_value,
+                            audio.getProperty(AudioManager.PROPERTY_OUTPUT_SAMPLE_RATE),
+                            audio.getProperty(AudioManager.PROPERTY_OUTPUT_FRAMES_PER_BUFFER)));
+            Spatializer spatializer = audio.getSpatializer();
+            addRow(context, category, getString(R.string.media_spatial_audio),
+                    spatializer != null && spatializer.isAvailable()
+                            ? getString(R.string.media_spatial_available)
+                            : getString(R.string.media_spatial_unavailable));
+        }
+    }
+
+    private static String hdrTypeLabel(int type) {
+        switch (type) {
+            case Display.HdrCapabilities.HDR_TYPE_HDR10: return "HDR10";
+            case Display.HdrCapabilities.HDR_TYPE_HDR10_PLUS: return "HDR10+";
+            case Display.HdrCapabilities.HDR_TYPE_HLG: return "HLG";
+            case Display.HdrCapabilities.HDR_TYPE_DOLBY_VISION: return "Dolby Vision";
+            default: return null;
+        }
+    }
+
+    private void addRow(Context context, PreferenceCategory category, String title,
+            String summary) {
+        Preference row = new Preference(context);
+        row.setTitle(title);
+        row.setSummary(summary);
+        row.setSelectable(false);
+        category.addPreference(row);
     }
 
     // ------------------------------------------------------------------ dialogs

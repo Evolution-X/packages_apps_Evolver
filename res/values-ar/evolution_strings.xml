@@ -1554,4 +1554,24 @@
     <string name="media_codec_copy_details">نسخ</string>
     <string name="media_codec_close">إغلاق</string>
 
+    <!-- Media transcoding and display/audio capabilities -->
+    <string name="media_transcoding_title">تحويل الفيديو</string>
+    <string name="media_transcode_enabled">تحويل الفيديوهات غير المدعومة</string>
+    <string name="media_transcode_enabled_summary">حوّل تسجيلات HEVC أو HDR إلى AVC عندما لا يستطيع تطبيق ما تشغيلها</string>
+    <string name="media_transcode_assume">افتراض دعم التطبيقات للصيغ الحديثة</string>
+    <string name="media_transcode_assume_summary">عند الإيقاف، تُحوّل الفيديوهات للتطبيقات التي لا تُصرّح بالدعم</string>
+    <string name="media_transcode_notification">إظهار إشعار التحويل</string>
+    <string name="media_transcode_notification_summary">أبلِغ أثناء تحويل فيديو في الخلفية</string>
+    <string name="media_display_audio_title">العرض والصوت</string>
+    <string name="media_hdr_types">دعم HDR في الشاشة</string>
+    <string name="media_hdr_none">لا يُبلّغ عن شاشة HDR</string>
+    <string name="media_hdr_luminance">أقصى سطوع</string>
+    <string name="media_hdr_luminance_value">%1$.0f / %2$.0f شمعة</string>
+    <string name="media_audio_output">مخرج الصوت</string>
+    <string name="media_audio_output_value">%1$s هرتز · %2$s إطار لكل مخزن</string>
+    <string name="media_spatial_audio">الصوت المكاني</string>
+    <string name="media_spatial_available">متاح</string>
+    <string name="media_spatial_unavailable">غير متاح</string>
+    <string name="media_codec_write_failed">تعذّر تغيير هذا الإعداد</string>
+
 </resources>

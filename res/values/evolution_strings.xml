@@ -1693,4 +1693,24 @@
     <string name="media_codec_copy_details">Copy</string>
     <string name="media_codec_close">Close</string>
 
+    <!-- Media transcoding and display/audio capabilities -->
+    <string name="media_transcoding_title">Video transcoding</string>
+    <string name="media_transcode_enabled">Transcode unsupported videos</string>
+    <string name="media_transcode_enabled_summary">Convert HEVC or HDR recordings to AVC when an app cannot play them</string>
+    <string name="media_transcode_assume">Assume apps support modern formats</string>
+    <string name="media_transcode_assume_summary">When off, videos are transcoded for apps that do not declare support</string>
+    <string name="media_transcode_notification">Show transcoding notification</string>
+    <string name="media_transcode_notification_summary">Notify while a video is converted in the background</string>
+    <string name="media_display_audio_title">Display and audio</string>
+    <string name="media_hdr_types">HDR display support</string>
+    <string name="media_hdr_none">No HDR display reported</string>
+    <string name="media_hdr_luminance">Peak luminance</string>
+    <string name="media_hdr_luminance_value">%1$.0f / %2$.0f nits</string>
+    <string name="media_audio_output">Audio output</string>
+    <string name="media_audio_output_value">%1$s Hz · %2$s frames per buffer</string>
+    <string name="media_spatial_audio">Spatial audio</string>
+    <string name="media_spatial_available">Available</string>
+    <string name="media_spatial_unavailable">Not available</string>
+    <string name="media_codec_write_failed">Could not change this setting</string>
+
 </resources>
