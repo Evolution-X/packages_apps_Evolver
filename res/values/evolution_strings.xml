@@ -1354,6 +1354,7 @@
     <string name="toast_invalid_emoji_file">Invalid emoji font file</string>
     <string name="toast_emoji_font_too_old">A newer version of this emoji font is already installed</string>
     <string name="toast_emoji_not_installed">Add a custom emoji font first</string>
+    <string name="toast_emoji_busy">Another emoji change is still running</string>
     <string name="emoji_restart_title">Restart to apply emoji</string>
     <string name="emoji_restart_message">These emoji replace the system emoji in every app that uses the system font. Restarting now restarts SystemUI and closes all running apps so they pick up the new emoji. If you restart later, each app switches the next time it starts.</string>
     <string name="emoji_restart_now">Restart now</string>
@@ -1361,6 +1362,11 @@
     <string name="emoji_apps_reset_short">Reset apps</string>
     <string name="emoji_apps_confirm">This copies your emoji font over every emoji font stored in app data, stops Facebook and Messenger from downloading their own, clears the caches of those apps and Gboard, and turns off the Google Play services font provider. Affected apps are force stopped. Run it again after those apps update.</string>
     <string name="emoji_apps_reset_button">Reset</string>
+    <string name="emoji_apps_restore">Restore third-party apps</string>
+    <string name="emoji_apps_restore_short">Restore apps</string>
+    <string name="emoji_apps_restore_confirm">If apps such as Gboard, Facebook or Messenger still show emoji from a font you removed, this deletes every emoji font stored in app data so each app fetches its own again. It lets Facebook and Messenger download their own again, clears the caches of those apps and Gboard, and turns the Google Play services font provider back on. Affected apps are force stopped.</string>
+    <string name="emoji_apps_restore_button">Restore</string>
+    <string name="emoji_apps_restored">Apps that had a copied emoji font now fetch their own again.</string>
     <plurals name="emoji_apps_done">
         <item quantity="one">Replaced %1$d emoji font in app data. Apps that use downloadable emoji now fall back to the system emoji.</item>
         <item quantity="other">Replaced %1$d emoji fonts in app data. Apps that use downloadable emoji now fall back to the system emoji.</item>
