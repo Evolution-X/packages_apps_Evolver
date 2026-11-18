@@ -409,4 +409,17 @@
     <!-- Max visible notification icons -->
     <!-- Ongoing progress bar chip in statusbar -->
     <!-- Squiggle animation -->
+    <!-- Liquid Glass -->
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Unscharfe Oberflächen als Glas mit leuchtendem Rand darstellen</string>
+    <string name="liquid_glass_use_title">Liquid Glass verwenden</string>
+    <string name="liquid_glass_use_summary">Die milchigen Oberflächen des Systems, etwa die Karten der Dynamic Island, in Glas verwandeln</string>
+    <string name="liquid_glass_style_title">Stil</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Brechung</string>
+    <string name="liquid_glass_refraction_summary">Wie weit sich der Glasrand in die unmittelbar dahinterliegende Umgebung krümmt</string>
+    <string name="liquid_glass_shade_category">Benachrichtigungsleiste</string>
+    <string name="liquid_glass_dual_tone_title">Zweifarbige Tönung</string>
+    <string name="liquid_glass_dual_tone_summary">Eine dezente Tönung hinter Benachrichtigungen, damit sie sich von den Schnelleinstellungen abheben</string>
 </resources>
