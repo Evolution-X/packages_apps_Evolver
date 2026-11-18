@@ -22,11 +22,13 @@ import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * Talks to the custom emoji API of [FontManager]. The framework stores the font and puts it in
@@ -63,6 +65,28 @@ class ExternalEmojiInstaller(context: Context) {
          * halfway and skip the restart prompt that follows.
          */
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+
+        private val busy = AtomicBoolean(false)
+
+        /** Whether an operation started by [runExclusive] is still running. */
+        val isBusy: Boolean get() = busy.get()
+
+        /**
+         * Runs [block] in [scope] unless another emoji operation is still running. They all
+         * rewrite the same fonts and app files, so a second tap on a button must not start a
+         * second one halfway through the first. Returns whether [block] started.
+         */
+        fun runExclusive(block: suspend () -> Unit): Boolean {
+            if (!busy.compareAndSet(false, true)) return false
+            scope.launch {
+                try {
+                    block()
+                } finally {
+                    busy.set(false)
+                }
+            }
+            return true
+        }
     }
 
     enum class Result { SUCCESS, FAILED, INVALID_FONT, UPDATER_DISABLED, NOT_INSTALLED }
