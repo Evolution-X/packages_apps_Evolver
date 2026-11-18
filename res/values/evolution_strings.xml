@@ -1653,4 +1653,44 @@
     <string name="ts_rkp_native_unavailable">The native provisioning helper is unavailable or incompatible with this firmware</string>
     <string name="ts_rkp_native_transport">The native provisioning service stopped unexpectedly. Automatic provisioning is paused.</string>
     <string name="ts_rkp_invalid_response">The device returned an invalid provisioning response. The existing keybox was kept.</string>
+    <!-- Media & codecs -->
+    <string name="media_title">Media &amp; codecs</string>
+    <string name="media_summary">Codecs, formats and HDR support on this device</string>
+    <string name="media_codec_summary_title">Codec overview</string>
+    <string name="media_codec_summary_value">%1$d decoders · %2$d encoders · %3$d hardware</string>
+    <string name="media_codec_video_decoders">Video decoders</string>
+    <string name="media_codec_video_encoders">Video encoders</string>
+    <string name="media_codec_audio_decoders">Audio decoders</string>
+    <string name="media_codec_audio_encoders">Audio encoders</string>
+    <string name="media_codec_image_formats">Image formats</string>
+    <string name="media_codec_copy_report">Copy full report</string>
+    <string name="media_codec_report_copied">Codec report copied</string>
+    <string name="media_codec_badge_hardware">Hardware</string>
+    <string name="media_codec_badge_software">Software</string>
+    <string name="media_codec_badge_vendor">Vendor</string>
+    <string name="media_codec_badge_hdr10">HDR10</string>
+    <string name="media_codec_image_supported">Supported</string>
+    <string name="media_codec_image_unsupported">Not supported</string>
+    <string name="media_codec_empty">None reported by the platform</string>
+    <string name="media_codec_label_mime">MIME type</string>
+    <string name="media_codec_label_codec">Codec</string>
+    <string name="media_codec_label_type">Type</string>
+    <string name="media_codec_label_acceleration">Acceleration</string>
+    <string name="media_codec_label_size">Max size</string>
+    <string name="media_codec_label_fps">Frame rate</string>
+    <string name="media_codec_label_hdr10">HDR10</string>
+    <string name="media_codec_label_channels">Channels</string>
+    <string name="media_codec_label_sample_rate">Sample rate</string>
+    <string name="media_codec_label_bitrate">Bitrate</string>
+    <string name="media_codec_label_profiles">Profiles</string>
+    <string name="media_codec_details_type_decoder">Decoder</string>
+    <string name="media_codec_details_type_encoder">Encoder</string>
+    <string name="media_codec_details_size">%1$d×%2$d</string>
+    <string name="media_codec_details_fps">up to %1$d fps</string>
+    <string name="media_codec_details_bitrate">%1$d–%2$d bps</string>
+    <string name="media_codec_value_yes">Yes</string>
+    <string name="media_codec_value_no">No</string>
+    <string name="media_codec_copy_details">Copy</string>
+    <string name="media_codec_close">Close</string>
+
 </resources>
