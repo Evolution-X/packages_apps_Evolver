@@ -43,6 +43,9 @@ public class WallpaperPreviewPreference extends Preference {
     private TextView mLockLabel;
     private TextView mHomeLabel;
     private MaterialButton mApplyButton;
+    private MaterialButton mSaveButton;
+    private MaterialButton mHideButton;
+    private OnActionListener mActionListener;
     private MaterialCardView mLockCard;
     private MaterialCardView mHomeCard;
 
@@ -54,12 +57,23 @@ public class WallpaperPreviewPreference extends Preference {
     private Bitmap mHomeWallpaper;
     private boolean mAttached;
 
+    /** Lets the settings screen run save/hide through its own feedback paths. */
+    public interface OnActionListener {
+        void onSaveCurrent();
+
+        void onHideCurrent();
+    }
+
     public WallpaperPreviewPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setLayoutResource(R.layout.preference_wallpaper_preview);
         mExecutor = Executors.newSingleThreadExecutor();
         mHandler = new Handler(Looper.getMainLooper());
         mWallpaperManager = WallpaperManager.getInstance(context);
+    }
+
+    public void setOnActionListener(OnActionListener listener) {
+        mActionListener = listener;
     }
 
     @Override
@@ -82,6 +96,24 @@ public class WallpaperPreviewPreference extends Preference {
 
         if (mApplyButton != null) {
             mApplyButton.setOnClickListener(v -> applyNewWallpaper());
+        }
+
+        mSaveButton = (MaterialButton) holder.findViewById(R.id.save_current_button);
+        if (mSaveButton != null) {
+            mSaveButton.setOnClickListener(v -> {
+                if (mActionListener != null) {
+                    mActionListener.onSaveCurrent();
+                }
+            });
+        }
+
+        mHideButton = (MaterialButton) holder.findViewById(R.id.hide_current_button);
+        if (mHideButton != null) {
+            mHideButton.setOnClickListener(v -> {
+                if (mActionListener != null) {
+                    mActionListener.onHideCurrent();
+                }
+            });
         }
 
         loadWallpaperPreviews();
@@ -176,6 +208,11 @@ public class WallpaperPreviewPreference extends Preference {
         mLockLabel = null;
         mHomeLabel = null;
         mApplyButton = null;
+        mSaveButton = null;
+        mHideButton = null;
+        // mActionListener survives: PreferenceFragmentCompat detaches and
+        // re-attaches the same preferences when the view is recreated, and the
+        // host only registers once from onCreatePreferences.
         mLockCard = null;
         mHomeCard = null;
         mLockWallpaper = null;

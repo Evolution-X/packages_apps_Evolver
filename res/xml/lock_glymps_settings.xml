@@ -127,6 +127,16 @@
             android:defaultValue="quality"
             android:dependency="lock_glymps_enabled" />
 
+        <Preference
+            android:key="lock_glymps_day_night"
+            android:title="@string/lock_glymps_day_night_title"
+            android:dependency="lock_glymps_enabled" />
+
+        <Preference
+            android:key="lock_glymps_night_topics"
+            android:title="@string/lock_glymps_night_topics_title"
+            android:dependency="lock_glymps_enabled" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

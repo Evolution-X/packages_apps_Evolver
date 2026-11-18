@@ -1709,6 +1709,12 @@
     <string name="lock_glymps_current_title">About this wallpaper</string>
     <string name="lock_glymps_current_summary_empty">No wallpaper applied yet</string>
     <string name="lock_glymps_current_summary_format">%1$s \u2022 %2$s</string>
+    <string name="lock_glymps_day_night_title">Day and night taste</string>
+    <string name="lock_glymps_day_night_on">On · night topics apply from 18:00 to 06:00</string>
+    <string name="lock_glymps_day_night_off">Off · one taste for the whole day</string>
+    <string name="lock_glymps_night_topics_title">Night topics</string>
+    <string name="lock_glymps_night_topics_message">Keywords used from 18:00 to 06:00</string>
+    <string name="lock_glymps_cache_summary_format">%1$d wallpapers · %2$.1f MB cached</string>
     <string name="lock_glymps_status_format">%1$s • %2$s • %3$d applied, %4$d failed</string>
     <string name="lock_glymps_save_current_title">Save to gallery</string>
     <string name="lock_glymps_save_current_summary">Keep the current wallpaper in Pictures/Glymps</string>

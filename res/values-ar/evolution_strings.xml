@@ -1562,6 +1562,12 @@
     <string name="lock_glymps_current_title">عن هذه الخلفية</string>
     <string name="lock_glymps_current_summary_empty">لم تُطبَّق أي خلفية بعد</string>
     <string name="lock_glymps_current_summary_format">%1$s \u2022 %2$s</string>
+    <string name="lock_glymps_day_night_title">ذوق الليل والنهار</string>
+    <string name="lock_glymps_day_night_on">مفعّل · كلمات الليل من 18:00 إلى 06:00</string>
+    <string name="lock_glymps_day_night_off">متوقف · ذوق واحد طوال اليوم</string>
+    <string name="lock_glymps_night_topics_title">كلمات الليل</string>
+    <string name="lock_glymps_night_topics_message">كلمات مفتاحية تُستخدم من 18:00 إلى 06:00</string>
+    <string name="lock_glymps_cache_summary_format">%1$d خلفية · %2$.1f م.ب مخزّنة</string>
     <string name="lock_glymps_status_format">%1$s • %2$s • %3$d ناجحة، %4$d فاشلة</string>
     <string name="lock_glymps_save_current_title">حفظ في المعرض</string>
     <string name="lock_glymps_save_current_summary">احفظ الخلفية الحالية في Pictures/Glymps</string>

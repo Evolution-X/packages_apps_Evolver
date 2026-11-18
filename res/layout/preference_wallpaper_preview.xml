@@ -155,4 +155,33 @@
         app:cornerRadius="14dp"
         style="@style/Widget.Material3.Button" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_current_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:text="@string/lock_glymps_save_current_title"
+            android:textAppearance="@style/TextAppearance.SettingsLib.LabelLarge"
+            app:cornerRadius="14dp"
+            style="@style/Widget.Material3.Button.TonalButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hide_current_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:text="@string/lock_glymps_ban_current_title"
+            android:textAppearance="@style/TextAppearance.SettingsLib.LabelLarge"
+            app:cornerRadius="14dp"
+            style="@style/Widget.Material3.Button.TonalButton" />
+
+    </LinearLayout>
+
 </LinearLayout>

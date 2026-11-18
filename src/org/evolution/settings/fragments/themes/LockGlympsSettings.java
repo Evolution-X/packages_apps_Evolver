@@ -69,6 +69,8 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private static final String KEY_SAVE_CURRENT = "lock_glymps_save_current";
     private static final String KEY_BAN_CURRENT = "lock_glymps_ban_current";
     private static final String KEY_FOLDER_INFO = "lock_glymps_folder_info";
+    private static final String KEY_DAY_NIGHT = "lock_glymps_day_night";
+    private static final String KEY_NIGHT_TOPICS = "lock_glymps_night_topics";
     // UI-only taste keys (persisted inside the JSON blob, not Settings.System).
     private static final String KEY_TASTE_LOCK_TOPICS = "lock_glymps_taste_lock_topics";
     private static final String KEY_TASTE_LOCK_CATEGORIES = "lock_glymps_taste_lock_categories";
@@ -100,6 +102,8 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
     private Preference mBanCurrentPreference;
     private Preference mFolderInfoPreference;
     private Preference mCurrentInfoPreference;
+    private Preference mDayNightPreference;
+    private Preference mNightTopicsPreference;
     private Preference mTasteLockTopics;
     private ListPreference mTasteLockCategories;
     private ListPreference mTasteLockColor;
@@ -225,6 +229,36 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             });
         }
 
+        mDayNightPreference = findPreference(KEY_DAY_NIGHT);
+        if (mDayNightPreference != null) {
+            mDayNightPreference.setOnPreferenceClickListener(pref -> {
+                toggleDayNight();
+                return true;
+            });
+        }
+
+        mNightTopicsPreference = findPreference(KEY_NIGHT_TOPICS);
+        if (mNightTopicsPreference != null) {
+            mNightTopicsPreference.setOnPreferenceClickListener(pref -> {
+                showNightTopicsDialog();
+                return true;
+            });
+        }
+
+        if (mPreviewPreference != null) {
+            mPreviewPreference.setOnActionListener(new WallpaperPreviewPreference.OnActionListener() {
+                @Override
+                public void onSaveCurrent() {
+                    saveCurrent();
+                }
+
+                @Override
+                public void onHideCurrent() {
+                    banCurrent();
+                }
+            });
+        }
+
         mTasteLockTopics = findPreference(KEY_TASTE_LOCK_TOPICS);
         if (mTasteLockTopics != null) {
             mTasteLockTopics.setOnPreferenceClickListener(pref -> {
@@ -251,6 +285,7 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
 
         updateProviderDependentPrefs();
         updateTasteSummaries();
+        updateDayNightSummary();
         updateCurrentInfo();
     }
 
@@ -416,6 +451,79 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
             String topics = tasteString(JSON_HOME, "topics");
             mTasteHomeTopics.setSummary(topics.isEmpty() ? unset : topics);
         }
+    }
+
+    private boolean isDayNightEnabled() {
+        return mTaste != null && mTaste.optBoolean("dayNight", false);
+    }
+
+    private void toggleDayNight() {
+        Context context = getActivity();
+        if (context == null) return;
+        if (mTaste == null) {
+            mTaste = new JSONObject();
+        }
+        try {
+            mTaste.put("dayNight", !isDayNightEnabled());
+        } catch (Exception e) {
+            return;
+        }
+        saveTaste(context);
+        updateDayNightSummary();
+    }
+
+    private void updateDayNightSummary() {
+        if (mDayNightPreference != null) {
+            mDayNightPreference.setSummary(getString(isDayNightEnabled()
+                    ? R.string.lock_glymps_day_night_on
+                    : R.string.lock_glymps_day_night_off));
+        }
+        if (mNightTopicsPreference != null) {
+            JSONObject night = mTaste == null ? null : mTaste.optJSONObject("night");
+            String topics = night == null ? "" : night.optString("topics", "");
+            mNightTopicsPreference.setSummary(topics.isEmpty()
+                    ? getString(R.string.lock_glymps_taste_unset)
+                    : topics);
+            mNightTopicsPreference.setVisible(isDayNightEnabled());
+        }
+    }
+
+    private void showNightTopicsDialog() {
+        Context context = getActivity();
+        if (context == null) return;
+        JSONObject night = mTaste == null ? null : mTaste.optJSONObject("night");
+        String current = night == null ? "" : night.optString("topics", "");
+        ExpressiveDialogs.showTextInputDialog(
+            context,
+            getString(R.string.lock_glymps_night_topics_title),
+            getString(R.string.lock_glymps_night_topics_message),
+            current,
+            getString(R.string.menu_save),
+            getString(R.string.menu_cancel),
+            true,
+            false,
+            5,
+            10,
+            getString(R.string.lock_glymps_taste_hint),
+            inputText -> {
+                Context ctx = getActivity();
+                if (ctx == null) return;
+                if (mTaste == null) {
+                    mTaste = new JSONObject();
+                }
+                JSONObject nightTaste = mTaste.optJSONObject("night");
+                try {
+                    if (nightTaste == null) {
+                        nightTaste = new JSONObject();
+                        mTaste.put("night", nightTaste);
+                    }
+                    nightTaste.put("topics", inputText.trim());
+                } catch (Exception e) {
+                    return;
+                }
+                saveTaste(ctx);
+                updateDayNightSummary();
+            });
     }
 
     private void showTopicsDialog(String target) {
@@ -614,6 +722,13 @@ public class LockGlympsSettings extends SettingsPreferenceFragment
         } else {
             mCurrentInfoPreference.setSummary(
                     getString(R.string.lock_glymps_current_summary_format, provider, attribution));
+        }
+
+        if (mClearCachePreference != null && current.has("cacheCount")) {
+            mClearCachePreference.setSummary(getString(
+                    R.string.lock_glymps_cache_summary_format,
+                    current.optInt("cacheCount", 0),
+                    current.optDouble("cacheMb", 0)));
         }
     }
 
