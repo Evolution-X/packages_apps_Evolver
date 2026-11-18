@@ -29,7 +29,6 @@ import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PixelAmbientIndicationDetector;
 import org.evolution.settings.utils.PreferenceUtils;
-import org.evolution.settings.utils.SystemUtils;
 
 @SearchIndexable
 public class LockScreen extends SettingsPreferenceFragment implements
@@ -103,7 +102,6 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mSmartspace.setOnPreferenceChangeListener(this);
 
         mWeather = findPreference(KEY_WEATHER);
-        mWeather.setOnPreferenceChangeListener(this);
 
         updateWeatherSettings();
     }
@@ -111,11 +109,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mSmartspace) {
+            mSmartspace.setChecked((Boolean) newValue);
             updateWeatherSettings();
-            SystemUtils.showSystemUiRestartDialog(getContext());
-            return true;
-        } else if (preference == mWeather) {
-            SystemUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;
