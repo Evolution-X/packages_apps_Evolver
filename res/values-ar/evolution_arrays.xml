@@ -274,4 +274,8 @@
         <item>@string/shade_color_style_tinted</item>
     </string-array>
 
+    <string-array name="liquid_glass_style_entries">
+        <item>@string/liquid_glass_style_ios</item>
+        <item>@string/liquid_glass_style_coloros</item>
+    </string-array>
 </resources>
