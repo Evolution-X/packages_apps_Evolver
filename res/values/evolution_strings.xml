@@ -1713,4 +1713,7 @@
     <string name="media_spatial_unavailable">Not available</string>
     <string name="media_codec_write_failed">Could not change this setting</string>
 
+    <string name="media_open_tools_title">Open media tools</string>
+    <string name="media_open_tools_summary">Compress a video or export the SDR copy of a photo</string>
+    <string name="media_tools_missing">Media tools are not installed</string>
 </resources>

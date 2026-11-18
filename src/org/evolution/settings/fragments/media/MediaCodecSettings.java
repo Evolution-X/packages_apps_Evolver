@@ -15,9 +15,11 @@
  */
 package org.evolution.settings.fragments.media;
 
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.ImageDecoder;
 import android.media.AudioManager;
 import android.media.MediaCodecInfo;
@@ -74,6 +76,7 @@ public class MediaCodecSettings extends SettingsPreferenceFragment {
     private static final String KEY_TRANSCODE_ENABLED = "media_transcode_enabled";
     private static final String KEY_TRANSCODE_ASSUME = "media_transcode_assume";
     private static final String KEY_TRANSCODE_NOTIFICATION = "media_transcode_notification";
+    private static final String KEY_OPEN_TOOLS = "media_open_tools";
     private static final String KEY_COPY_REPORT = "media_codec_copy_report";
 
     /**
@@ -112,6 +115,14 @@ public class MediaCodecSettings extends SettingsPreferenceFragment {
                 if (context != null) {
                     copyText(context, mReport, R.string.media_codec_report_copied);
                 }
+                return true;
+            });
+        }
+
+        Preference tools = screen.findPreference(KEY_OPEN_TOOLS);
+        if (tools != null) {
+            tools.setOnPreferenceClickListener(preference -> {
+                openMediaTools();
                 return true;
             });
         }
@@ -446,6 +457,20 @@ public class MediaCodecSettings extends SettingsPreferenceFragment {
         row.setSummary(summary);
         row.setSelectable(false);
         category.addPreference(row);
+    }
+
+    /** Opens the sandboxed companion app; Settings must never decode media itself. */
+    private void openMediaTools() {
+        Context context = getActivity();
+        if (context == null) return;
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setClassName("org.evolution.mediatools",
+                "org.evolution.mediatools.MainActivity");
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(context, R.string.media_tools_missing, Toast.LENGTH_SHORT).show();
+        }
     }
 
     // ------------------------------------------------------------------ dialogs
