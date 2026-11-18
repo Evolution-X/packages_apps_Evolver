@@ -46,6 +46,37 @@
     <string name="themes_udfps_animation_summary">Đặt kiểu hiệu ứng cảm biến vân tay</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Hiệu ứng khởi động</string>
+    <string name="boot_animation_style_unknown">Không rõ</string>
+    <string name="boot_animation_custom_pick">Chọn tệp ZIP hoạt ảnh khởi động</string>
+    <string name="boot_animation_custom_replace">Nhấn để chọn tệp ZIP khác</string>
+
+    <string name="boot_animation_target_boot">Khởi động</string>
+    <string name="boot_animation_target_shutdown">Tắt máy</string>
+    <string name="boot_animation_style_random">Ngẫu nhiên</string>
+    <string name="boot_animation_random_note">Một hoạt ảnh đã cài khác nhau mỗi lần khởi động</string>
+    <string name="boot_animation_shutdown_default">Mặc định (hệ thống)</string>
+    <string name="boot_animation_shutdown_no_default">Bản dựng này không có hoạt ảnh tắt máy</string>
+    <string name="boot_animation_shutdown_custom_pick">Chọn tệp ZIP hoạt ảnh tắt máy</string>
+    <string name="boot_animation_shutdown_custom_replace">Nhấn để chọn tệp ZIP khác</string>
+    <string name="boot_animation_part_indicator">Phần %1$d/%2$d \u00b7 Vòng %3$d</string>
+    <string name="boot_animation_details_parts">%1$d phần \u00b7 %2$d khung hình</string>
+    <string name="boot_animation_badge_sound">Âm thanh</string>
+    <string name="boot_animation_badge_trim">Cắt</string>
+    <string name="boot_animation_badge_dynamic">Màu động</string>
+    <string name="boot_animation_badge_progress">Tiến trình</string>
+    <string name="boot_animation_aspect_warning">Tỷ lệ khung hình của hoạt ảnh không khớp với màn hình này và sẽ hiển thị với viền đen.</string>
+    <string name="boot_animation_fullscreen_play">Phát</string>
+    <string name="boot_animation_fullscreen_pause">Tạm dừng</string>
+    <string name="boot_animation_fullscreen_close">Đóng</string>
+    <string name="boot_animation_delete_row_title">Xóa hoạt ảnh tùy chỉnh</string>
+    <string name="boot_animation_delete_row_summary">Xóa tệp ZIP đã cài và khôi phục lựa chọn mặc định</string>
+    <string name="boot_animation_delete_title">Xóa hoạt ảnh tùy chỉnh?</string>
+    <string name="boot_animation_delete_message">Hoạt ảnh khởi động tùy chỉnh sẽ bị xóa khỏi /data/misc/bootanim và kiểu mặc định sẽ được chọn.</string>
+    <string name="boot_animation_delete_message_shutdown">Hoạt ảnh tắt máy tùy chỉnh sẽ bị xóa khỏi /data/misc/bootanim và hoạt ảnh hệ thống sẽ được khôi phục.</string>
+    <string name="boot_animation_delete_confirm">Xóa</string>
+    <string name="boot_animation_delete_cancel">Hủy</string>
+    <string name="boot_animation_delete_done">Đã xóa hoạt ảnh tùy chỉnh</string>
+
     <string name="boot_animation_applied_error">Không thể áp dụng boot animation</string>
     <string name="boot_animation_preview_title">Xem trước hoạt ảnh khởi động</string>
     <string name="boot_animation_no_preview">Không có bản xem trước</string>

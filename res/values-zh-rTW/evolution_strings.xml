@@ -53,6 +53,36 @@
     <string name="themes_udfps_animation_summary">設定自訂指紋辨識動畫樣式</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">開機動畫</string>
+    <string name="boot_animation_custom_pick">選擇開機動畫 ZIP</string>
+    <string name="boot_animation_custom_replace">輕觸以選擇其他 ZIP</string>
+
+    <string name="boot_animation_target_boot">開機</string>
+    <string name="boot_animation_target_shutdown">關機</string>
+    <string name="boot_animation_style_random">隨機</string>
+    <string name="boot_animation_random_note">每次開機時使用不同的已安裝動畫</string>
+    <string name="boot_animation_shutdown_default">標準（系統）</string>
+    <string name="boot_animation_shutdown_no_default">此版本不包含關機動畫</string>
+    <string name="boot_animation_shutdown_custom_pick">選擇關機動畫 ZIP</string>
+    <string name="boot_animation_shutdown_custom_replace">輕觸以選擇其他 ZIP</string>
+    <string name="boot_animation_part_indicator">第 %1$d/%2$d 部分 \u00b7 循環 %3$d</string>
+    <string name="boot_animation_details_parts">%1$d 個部分 \u00b7 %2$d 個畫格</string>
+    <string name="boot_animation_badge_sound">音效</string>
+    <string name="boot_animation_badge_trim">裁剪</string>
+    <string name="boot_animation_badge_dynamic">動態色彩</string>
+    <string name="boot_animation_badge_progress">進度</string>
+    <string name="boot_animation_aspect_warning">動畫的長寬比與此螢幕不符，將顯示黑邊。</string>
+    <string name="boot_animation_fullscreen_play">播放</string>
+    <string name="boot_animation_fullscreen_pause">暫停</string>
+    <string name="boot_animation_fullscreen_close">關閉</string>
+    <string name="boot_animation_delete_row_title">移除自訂動畫</string>
+    <string name="boot_animation_delete_row_summary">刪除已安裝的 ZIP 並還原預設選擇</string>
+    <string name="boot_animation_delete_title">要移除自訂動畫嗎？</string>
+    <string name="boot_animation_delete_message">自訂開機動畫將從 /data/misc/bootanim 刪除，並選取預設樣式。</string>
+    <string name="boot_animation_delete_message_shutdown">自訂關機動畫將從 /data/misc/bootanim 刪除，並還原系統動畫。</string>
+    <string name="boot_animation_delete_confirm">刪除</string>
+    <string name="boot_animation_delete_cancel">取消</string>
+    <string name="boot_animation_delete_done">已移除自訂動畫</string>
+
     <string name="boot_animation_applied_error">套用boot animation失敗</string>
     <string name="boot_animation_preview_title">開機動畫預覽</string>
     <string name="boot_animation_no_preview">無可用預覽</string>

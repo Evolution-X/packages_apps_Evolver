@@ -59,6 +59,35 @@
     <string name="dialog_blur_summary">Розмивайте фон системних діалогових вікон і спливаючих повідомлень</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Анімація завантаження</string>
+    <string name="boot_animation_style_unknown">Невідомо</string>
+
+    <string name="boot_animation_target_boot">Завантаження</string>
+    <string name="boot_animation_target_shutdown">Вимкнення</string>
+    <string name="boot_animation_style_random">Випадково</string>
+    <string name="boot_animation_random_note">Різна встановлена анімація щоразу під час завантаження</string>
+    <string name="boot_animation_shutdown_default">Стандартна (системна)</string>
+    <string name="boot_animation_shutdown_no_default">У цій збірці немає анімації вимкнення</string>
+    <string name="boot_animation_shutdown_custom_pick">Вибрати ZIP-файл анімації вимкнення</string>
+    <string name="boot_animation_shutdown_custom_replace">Торкніться, щоб вибрати інший ZIP</string>
+    <string name="boot_animation_part_indicator">Частина %1$d/%2$d \u00b7 Цикл %3$d</string>
+    <string name="boot_animation_details_parts">%1$d частин \u00b7 %2$d кадрів</string>
+    <string name="boot_animation_badge_sound">Звук</string>
+    <string name="boot_animation_badge_trim">Обрізання</string>
+    <string name="boot_animation_badge_dynamic">Динамічні кольори</string>
+    <string name="boot_animation_badge_progress">Прогрес</string>
+    <string name="boot_animation_aspect_warning">Співвідношення сторін анімації не відповідає цьому екрану, тому вона відображатиметься з чорними смугами.</string>
+    <string name="boot_animation_fullscreen_play">Відтворити</string>
+    <string name="boot_animation_fullscreen_pause">Пауза</string>
+    <string name="boot_animation_fullscreen_close">Закрити</string>
+    <string name="boot_animation_delete_row_title">Видалити власну анімацію</string>
+    <string name="boot_animation_delete_row_summary">Видаляє встановлений ZIP і відновлює вибір за замовчуванням</string>
+    <string name="boot_animation_delete_title">Видалити власну анімацію?</string>
+    <string name="boot_animation_delete_message">Власну анімацію завантаження буде видалено з /data/misc/bootanim, і вибрано стандартний стиль.</string>
+    <string name="boot_animation_delete_message_shutdown">Власну анімацію вимкнення буде видалено з /data/misc/bootanim, і відновлено системну анімацію.</string>
+    <string name="boot_animation_delete_confirm">Видалити</string>
+    <string name="boot_animation_delete_cancel">Скасувати</string>
+    <string name="boot_animation_delete_done">Власну анімацію видалено</string>
+
     <string name="boot_animation_applied_error">Не вдалося застосувати анімацію завантаження</string>
     <string name="boot_animation_preview_title">Попередній перегляд анімації завантаження</string>
     <string name="boot_animation_no_preview">Попередній перегляд недоступний</string>

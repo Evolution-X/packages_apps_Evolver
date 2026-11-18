@@ -53,6 +53,37 @@
     <string name="themes_udfps_animation_summary">UDFPS animasyon stilini ayarlayın</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Açılış animasyonu</string>
+    <string name="boot_animation_style_unknown">Bilinmiyor</string>
+    <string name="boot_animation_custom_pick">Açılış animasyonu ZIP\'i seç</string>
+    <string name="boot_animation_custom_replace">Farklı bir ZIP seçmek için dokun</string>
+
+    <string name="boot_animation_target_boot">Açılış</string>
+    <string name="boot_animation_target_shutdown">Kapatma</string>
+    <string name="boot_animation_style_random">Rastgele</string>
+    <string name="boot_animation_random_note">Her açılışta farklı bir yüklü animasyon</string>
+    <string name="boot_animation_shutdown_default">Stok (sistem)</string>
+    <string name="boot_animation_shutdown_no_default">Bu yapıda kapatma animasyonu yok</string>
+    <string name="boot_animation_shutdown_custom_pick">Kapatma animasyonu ZIP\'i seç</string>
+    <string name="boot_animation_shutdown_custom_replace">Farklı bir ZIP seçmek için dokun</string>
+    <string name="boot_animation_part_indicator">Bölüm %1$d/%2$d \u00b7 Döngü %3$d</string>
+    <string name="boot_animation_details_parts">%1$d bölüm \u00b7 %2$d kare</string>
+    <string name="boot_animation_badge_sound">Ses</string>
+    <string name="boot_animation_badge_trim">Kırpma</string>
+    <string name="boot_animation_badge_dynamic">Dinamik renkler</string>
+    <string name="boot_animation_badge_progress">İlerleme</string>
+    <string name="boot_animation_aspect_warning">Animasyonun en-boy oranı bu ekranla eşleşmiyor ve siyah çubuklarla gösterilecek.</string>
+    <string name="boot_animation_fullscreen_play">Oynat</string>
+    <string name="boot_animation_fullscreen_pause">Duraklat</string>
+    <string name="boot_animation_fullscreen_close">Kapat</string>
+    <string name="boot_animation_delete_row_title">Özel animasyonu kaldır</string>
+    <string name="boot_animation_delete_row_summary">Yüklü ZIP\'i siler ve varsayılan seçimi geri yükler</string>
+    <string name="boot_animation_delete_title">Özel animasyon kaldırılsın mı?</string>
+    <string name="boot_animation_delete_message">Özel açılış animasyonu /data/misc/bootanim konumundan silinecek ve varsayılan stil seçilecek.</string>
+    <string name="boot_animation_delete_message_shutdown">Özel kapatma animasyonu /data/misc/bootanim konumundan silinecek ve stok animasyon geri yüklenecek.</string>
+    <string name="boot_animation_delete_confirm">Sil</string>
+    <string name="boot_animation_delete_cancel">İptal</string>
+    <string name="boot_animation_delete_done">Özel animasyon kaldırıldı</string>
+
     <string name="boot_animation_applied_error">Açılış animasyonu uygulanamadı</string>
     <string name="boot_animation_preview_title">Açılış animasyonu önizlemesi</string>
     <string name="boot_animation_no_preview">Önizleme mevcut değil</string>

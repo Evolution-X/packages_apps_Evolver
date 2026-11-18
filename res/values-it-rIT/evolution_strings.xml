@@ -53,6 +53,37 @@
     <string name="themes_udfps_animation_summary">Imposta l\'animazione dell\'icona UDFPS</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animazione di avvio</string>
+    <string name="boot_animation_style_unknown">Sconosciuto</string>
+    <string name="boot_animation_custom_pick">Scegli uno ZIP per l\'animazione di avvio</string>
+    <string name="boot_animation_custom_replace">Tocca per scegliere un altro ZIP</string>
+
+    <string name="boot_animation_target_boot">Avvio</string>
+    <string name="boot_animation_target_shutdown">Spegnimento</string>
+    <string name="boot_animation_style_random">Casuale</string>
+    <string name="boot_animation_random_note">Un\'animazione installata diversa a ogni avvio</string>
+    <string name="boot_animation_shutdown_default">Predefinita (sistema)</string>
+    <string name="boot_animation_shutdown_no_default">Questa versione non include un\'animazione di spegnimento</string>
+    <string name="boot_animation_shutdown_custom_pick">Scegli uno ZIP per l\'animazione di spegnimento</string>
+    <string name="boot_animation_shutdown_custom_replace">Tocca per scegliere un altro ZIP</string>
+    <string name="boot_animation_part_indicator">Parte %1$d/%2$d \u00b7 Ciclo %3$d</string>
+    <string name="boot_animation_details_parts">%1$d parti \u00b7 %2$d fotogrammi</string>
+    <string name="boot_animation_badge_sound">Audio</string>
+    <string name="boot_animation_badge_trim">Ritaglio</string>
+    <string name="boot_animation_badge_dynamic">Colori dinamici</string>
+    <string name="boot_animation_badge_progress">Avanzamento</string>
+    <string name="boot_animation_aspect_warning">Le proporzioni dell\'animazione non corrispondono a questo schermo e verranno mostrate con bande nere.</string>
+    <string name="boot_animation_fullscreen_play">Riproduci</string>
+    <string name="boot_animation_fullscreen_pause">Pausa</string>
+    <string name="boot_animation_fullscreen_close">Chiudi</string>
+    <string name="boot_animation_delete_row_title">Rimuovi animazione personalizzata</string>
+    <string name="boot_animation_delete_row_summary">Elimina lo ZIP installato e ripristina la selezione predefinita</string>
+    <string name="boot_animation_delete_title">Rimuovere l\'animazione personalizzata?</string>
+    <string name="boot_animation_delete_message">L\'animazione di avvio personalizzata verrà eliminata da /data/misc/bootanim e verrà selezionato lo stile predefinito.</string>
+    <string name="boot_animation_delete_message_shutdown">L\'animazione di spegnimento personalizzata verrà eliminata da /data/misc/bootanim e verrà ripristinata quella di sistema.</string>
+    <string name="boot_animation_delete_confirm">Elimina</string>
+    <string name="boot_animation_delete_cancel">Annulla</string>
+    <string name="boot_animation_delete_done">Animazione personalizzata rimossa</string>
+
     <string name="boot_animation_applied_error">Impossibile applicare l\'animazione di avvio</string>
     <string name="boot_animation_preview_title">Anteprima dell\'animazione di avvio</string>
     <string name="boot_animation_no_preview">Anteprima non disponibile</string>

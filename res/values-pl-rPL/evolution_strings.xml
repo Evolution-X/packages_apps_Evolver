@@ -59,6 +59,33 @@
     <string name="dialog_blur_summary">Rozmyj tło dialogów systemowych i komunikatów</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animacja startowa</string>
+    <string name="boot_animation_target_boot">Rozruch</string>
+    <string name="boot_animation_target_shutdown">Wyłączanie</string>
+    <string name="boot_animation_style_random">Losowa</string>
+    <string name="boot_animation_random_note">Inna zainstalowana animacja przy każdym rozruchu</string>
+    <string name="boot_animation_shutdown_default">Domyślna (systemowa)</string>
+    <string name="boot_animation_shutdown_no_default">Ta kompilacja nie zawiera animacji wyłączania</string>
+    <string name="boot_animation_shutdown_custom_pick">Wybierz ZIP animacji wyłączania</string>
+    <string name="boot_animation_shutdown_custom_replace">Dotknij, aby wybrać inny ZIP</string>
+    <string name="boot_animation_part_indicator">Część %1$d/%2$d \u00b7 Pętla %3$d</string>
+    <string name="boot_animation_details_parts">%1$d części \u00b7 %2$d klatek</string>
+    <string name="boot_animation_badge_sound">Dźwięk</string>
+    <string name="boot_animation_badge_trim">Przycięcie</string>
+    <string name="boot_animation_badge_dynamic">Dynamiczne kolory</string>
+    <string name="boot_animation_badge_progress">Postęp</string>
+    <string name="boot_animation_aspect_warning">Proporcje animacji nie pasują do tego ekranu i zostaną wyświetlone z czarnymi pasami.</string>
+    <string name="boot_animation_fullscreen_play">Odtwórz</string>
+    <string name="boot_animation_fullscreen_pause">Wstrzymaj</string>
+    <string name="boot_animation_fullscreen_close">Zamknij</string>
+    <string name="boot_animation_delete_row_title">Usuń niestandardową animację</string>
+    <string name="boot_animation_delete_row_summary">Usuwa zainstalowany ZIP i przywraca domyślny wybór</string>
+    <string name="boot_animation_delete_title">Usunąć niestandardową animację?</string>
+    <string name="boot_animation_delete_message">Niestandardowa animacja rozruchu zostanie usunięta z /data/misc/bootanim i wybrany zostanie domyślny styl.</string>
+    <string name="boot_animation_delete_message_shutdown">Niestandardowa animacja wyłączania zostanie usunięta z /data/misc/bootanim i przywrócona zostanie animacja systemowa.</string>
+    <string name="boot_animation_delete_confirm">Usuń</string>
+    <string name="boot_animation_delete_cancel">Anuluj</string>
+    <string name="boot_animation_delete_done">Usunięto niestandardową animację</string>
+
     <string name="boot_animation_applied_error">Nie udało się zastosować animacji startowej</string>
     <string name="boot_animation_preview_title">Podgląd animacji startowej</string>
     <string name="boot_animation_no_preview">Brak dostępnego podglądu</string>

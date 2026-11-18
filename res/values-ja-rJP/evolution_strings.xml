@@ -59,6 +59,35 @@
     <string name="dialog_blur_summary">システムダイアログとトーストの背景をぼかす</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">起動アニメーション</string>
+    <string name="boot_animation_style_unknown">不明</string>
+
+    <string name="boot_animation_target_boot">起動</string>
+    <string name="boot_animation_target_shutdown">電源オフ</string>
+    <string name="boot_animation_style_random">ランダム</string>
+    <string name="boot_animation_random_note">起動するたびに異なるインストール済みアニメーション</string>
+    <string name="boot_animation_shutdown_default">標準 (システム)</string>
+    <string name="boot_animation_shutdown_no_default">このビルドにはシャットダウン アニメーションが含まれていません</string>
+    <string name="boot_animation_shutdown_custom_pick">シャットダウン アニメーションの ZIP を選択</string>
+    <string name="boot_animation_shutdown_custom_replace">タップして別の ZIP を選択</string>
+    <string name="boot_animation_part_indicator">パート %1$d/%2$d \u00b7 ループ %3$d</string>
+    <string name="boot_animation_details_parts">%1$d パート \u00b7 %2$d フレーム</string>
+    <string name="boot_animation_badge_sound">サウンド</string>
+    <string name="boot_animation_badge_trim">トリム</string>
+    <string name="boot_animation_badge_dynamic">動的な色</string>
+    <string name="boot_animation_badge_progress">進行状況</string>
+    <string name="boot_animation_aspect_warning">アニメーションのアスペクト比がこの画面と一致しないため、黒い帯が表示されます。</string>
+    <string name="boot_animation_fullscreen_play">再生</string>
+    <string name="boot_animation_fullscreen_pause">一時停止</string>
+    <string name="boot_animation_fullscreen_close">閉じる</string>
+    <string name="boot_animation_delete_row_title">カスタム アニメーションを削除</string>
+    <string name="boot_animation_delete_row_summary">インストールされた ZIP を削除し、既定の選択に戻します</string>
+    <string name="boot_animation_delete_title">カスタム アニメーションを削除しますか?</string>
+    <string name="boot_animation_delete_message">カスタム起動アニメーションは /data/misc/bootanim から削除され、既定のスタイルが選択されます。</string>
+    <string name="boot_animation_delete_message_shutdown">カスタム シャットダウン アニメーションは /data/misc/bootanim から削除され、標準アニメーションに戻ります。</string>
+    <string name="boot_animation_delete_confirm">削除</string>
+    <string name="boot_animation_delete_cancel">キャンセル</string>
+    <string name="boot_animation_delete_done">カスタム アニメーションを削除しました</string>
+
     <string name="boot_animation_applied_error">ブートアニメーションの適用に失敗しました</string>
     <string name="boot_animation_preview_title">ブートアニメーションのプレビュー</string>
     <string name="boot_animation_no_preview">プレビューは利用できません</string>

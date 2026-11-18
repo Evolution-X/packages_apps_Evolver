@@ -53,6 +53,35 @@
     <string name="themes_udfps_animation_summary">UDFPS 애니메이션 스타일을 설정합니다</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">부트 애니메이션</string>
+    <string name="boot_animation_style_unknown">알 수 없음</string>
+
+    <string name="boot_animation_target_boot">부팅</string>
+    <string name="boot_animation_target_shutdown">전원 끄기</string>
+    <string name="boot_animation_style_random">무작위</string>
+    <string name="boot_animation_random_note">부팅할 때마다 다른 설치된 애니메이션</string>
+    <string name="boot_animation_shutdown_default">기본(시스템)</string>
+    <string name="boot_animation_shutdown_no_default">이 빌드에는 종료 애니메이션이 없습니다</string>
+    <string name="boot_animation_shutdown_custom_pick">종료 애니메이션 ZIP 선택</string>
+    <string name="boot_animation_shutdown_custom_replace">탭하여 다른 ZIP 선택</string>
+    <string name="boot_animation_part_indicator">파트 %1$d/%2$d \u00b7 반복 %3$d</string>
+    <string name="boot_animation_details_parts">%1$d개 파트 \u00b7 %2$d개 프레임</string>
+    <string name="boot_animation_badge_sound">소리</string>
+    <string name="boot_animation_badge_trim">자르기</string>
+    <string name="boot_animation_badge_dynamic">동적 색상</string>
+    <string name="boot_animation_badge_progress">진행률</string>
+    <string name="boot_animation_aspect_warning">애니메이션의 화면 비율이 이 화면과 맞지 않아 검은 여백이 표시됩니다.</string>
+    <string name="boot_animation_fullscreen_play">재생</string>
+    <string name="boot_animation_fullscreen_pause">일시정지</string>
+    <string name="boot_animation_fullscreen_close">닫기</string>
+    <string name="boot_animation_delete_row_title">사용자 지정 애니메이션 제거</string>
+    <string name="boot_animation_delete_row_summary">설치된 ZIP을 삭제하고 기본 선택으로 복원합니다</string>
+    <string name="boot_animation_delete_title">사용자 지정 애니메이션을 제거할까요?</string>
+    <string name="boot_animation_delete_message">사용자 지정 부팅 애니메이션이 /data/misc/bootanim에서 삭제되고 기본 스타일이 선택됩니다.</string>
+    <string name="boot_animation_delete_message_shutdown">사용자 지정 종료 애니메이션이 /data/misc/bootanim에서 삭제되고 시스템 애니메이션이 복원됩니다.</string>
+    <string name="boot_animation_delete_confirm">삭제</string>
+    <string name="boot_animation_delete_cancel">취소</string>
+    <string name="boot_animation_delete_done">사용자 지정 애니메이션 제거됨</string>
+
     <string name="boot_animation_applied_error">부팅 애니메이션을 적용하는 데 실패했습니다.</string>
     <string name="boot_animation_preview_title">부팅 애니메이션 미리보기</string>
     <string name="boot_animation_no_preview">미리보기 없음</string>

@@ -53,6 +53,37 @@
     <string name="themes_udfps_animation_summary">Ange animationsstil för UDFPS</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Startanimering</string>
+    <string name="boot_animation_style_unknown">Okänd</string>
+    <string name="boot_animation_custom_pick">Välj en ZIP med startanimering</string>
+    <string name="boot_animation_custom_replace">Tryck för att välja en annan ZIP</string>
+
+    <string name="boot_animation_target_boot">Start</string>
+    <string name="boot_animation_target_shutdown">Stäng av</string>
+    <string name="boot_animation_style_random">Slumpmässig</string>
+    <string name="boot_animation_random_note">En annan installerad animering vid varje start</string>
+    <string name="boot_animation_shutdown_default">Standard (system)</string>
+    <string name="boot_animation_shutdown_no_default">Den här versionen innehåller ingen avstängningsanimering</string>
+    <string name="boot_animation_shutdown_custom_pick">Välj en ZIP med avstängningsanimering</string>
+    <string name="boot_animation_shutdown_custom_replace">Tryck för att välja en annan ZIP</string>
+    <string name="boot_animation_part_indicator">Del %1$d/%2$d \u00b7 Upprepning %3$d</string>
+    <string name="boot_animation_details_parts">%1$d delar \u00b7 %2$d bildrutor</string>
+    <string name="boot_animation_badge_sound">Ljud</string>
+    <string name="boot_animation_badge_trim">Beskärning</string>
+    <string name="boot_animation_badge_dynamic">Dynamiska färger</string>
+    <string name="boot_animation_badge_progress">Förlopp</string>
+    <string name="boot_animation_aspect_warning">Animeringens bildförhållande matchar inte skärmen och visas med svarta fält.</string>
+    <string name="boot_animation_fullscreen_play">Spela</string>
+    <string name="boot_animation_fullscreen_pause">Pausa</string>
+    <string name="boot_animation_fullscreen_close">Stäng</string>
+    <string name="boot_animation_delete_row_title">Ta bort anpassad animering</string>
+    <string name="boot_animation_delete_row_summary">Tar bort den installerade ZIP-filen och återställer standardvalet</string>
+    <string name="boot_animation_delete_title">Ta bort anpassad animering?</string>
+    <string name="boot_animation_delete_message">Den anpassade startanimeringen tas bort från /data/misc/bootanim och standardstilen väljs.</string>
+    <string name="boot_animation_delete_message_shutdown">Den anpassade avstängningsanimeringen tas bort från /data/misc/bootanim och systemanimeringen återställs.</string>
+    <string name="boot_animation_delete_confirm">Ta bort</string>
+    <string name="boot_animation_delete_cancel">Avbryt</string>
+    <string name="boot_animation_delete_done">Anpassad animering borttagen</string>
+
     <string name="boot_animation_applied_error">Det gick inte att använda startanimeringen</string>
     <string name="boot_animation_preview_title">Förhandsgranskning av startanimeringen</string>
     <string name="boot_animation_no_preview">Ingen förhandsvisning tillgänglig</string>

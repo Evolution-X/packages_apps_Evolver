@@ -57,6 +57,33 @@
     <string name="themes_udfps_animation_summary">Setel gaya animasi Sidik Jari Dalam Layar</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animasi boot</string>
+    <string name="boot_animation_target_boot">Boot</string>
+    <string name="boot_animation_target_shutdown">Matikan</string>
+    <string name="boot_animation_style_random">Acak</string>
+    <string name="boot_animation_random_note">Animasi terpasang yang berbeda setiap boot</string>
+    <string name="boot_animation_shutdown_default">Bawaan (sistem)</string>
+    <string name="boot_animation_shutdown_no_default">Build ini tidak menyertakan animasi mematikan</string>
+    <string name="boot_animation_shutdown_custom_pick">Pilih ZIP animasi mematikan</string>
+    <string name="boot_animation_shutdown_custom_replace">Ketuk untuk memilih ZIP lain</string>
+    <string name="boot_animation_part_indicator">Bagian %1$d/%2$d \u00b7 Ulang %3$d</string>
+    <string name="boot_animation_details_parts">%1$d bagian \u00b7 %2$d bingkai</string>
+    <string name="boot_animation_badge_sound">Suara</string>
+    <string name="boot_animation_badge_trim">Potong</string>
+    <string name="boot_animation_badge_dynamic">Warna dinamis</string>
+    <string name="boot_animation_badge_progress">Kemajuan</string>
+    <string name="boot_animation_aspect_warning">Rasio aspek animasi tidak cocok dengan layar ini dan akan ditampilkan dengan bilah hitam.</string>
+    <string name="boot_animation_fullscreen_play">Putar</string>
+    <string name="boot_animation_fullscreen_pause">Jeda</string>
+    <string name="boot_animation_fullscreen_close">Tutup</string>
+    <string name="boot_animation_delete_row_title">Hapus animasi khusus</string>
+    <string name="boot_animation_delete_row_summary">Menghapus ZIP terpasang dan memulihkan pilihan default</string>
+    <string name="boot_animation_delete_title">Hapus animasi khusus?</string>
+    <string name="boot_animation_delete_message">Animasi boot khusus akan dihapus dari /data/misc/bootanim dan gaya default akan dipilih.</string>
+    <string name="boot_animation_delete_message_shutdown">Animasi mematikan khusus akan dihapus dari /data/misc/bootanim dan animasi bawaan akan dipulihkan.</string>
+    <string name="boot_animation_delete_confirm">Hapus</string>
+    <string name="boot_animation_delete_cancel">Batal</string>
+    <string name="boot_animation_delete_done">Animasi khusus dihapus</string>
+
     <string name="boot_animation_applied_error">Animasi boot gagal diterapkan</string>
     <string name="boot_animation_preview_title">Pratinjau animasi boot</string>
     <string name="boot_animation_no_preview">Tidak ada pratinjau yang tersedia</string>

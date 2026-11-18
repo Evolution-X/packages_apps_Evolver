@@ -59,6 +59,33 @@
     <string name="dialog_blur_summary">Desfoca o fundo dos diálogos do sistema e dos avisos rápidos</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Animação de inicialização</string>
+    <string name="boot_animation_target_boot">Inicialização</string>
+    <string name="boot_animation_target_shutdown">Desligar</string>
+    <string name="boot_animation_style_random">Aleatória</string>
+    <string name="boot_animation_random_note">Uma animação instalada diferente a cada inicialização</string>
+    <string name="boot_animation_shutdown_default">Padrão (sistema)</string>
+    <string name="boot_animation_shutdown_no_default">Esta compilação não inclui animação de desligamento</string>
+    <string name="boot_animation_shutdown_custom_pick">Escolher um ZIP de animação de desligamento</string>
+    <string name="boot_animation_shutdown_custom_replace">Toque para escolher outro ZIP</string>
+    <string name="boot_animation_part_indicator">Parte %1$d/%2$d \u00b7 Repetição %3$d</string>
+    <string name="boot_animation_details_parts">%1$d partes \u00b7 %2$d quadros</string>
+    <string name="boot_animation_badge_sound">Som</string>
+    <string name="boot_animation_badge_trim">Corte</string>
+    <string name="boot_animation_badge_dynamic">Cores dinâmicas</string>
+    <string name="boot_animation_badge_progress">Progresso</string>
+    <string name="boot_animation_aspect_warning">A proporção da animação não corresponde a esta tela e será exibida com faixas pretas.</string>
+    <string name="boot_animation_fullscreen_play">Reproduzir</string>
+    <string name="boot_animation_fullscreen_pause">Pausar</string>
+    <string name="boot_animation_fullscreen_close">Fechar</string>
+    <string name="boot_animation_delete_row_title">Remover animação personalizada</string>
+    <string name="boot_animation_delete_row_summary">Exclui o ZIP instalado e restaura a seleção padrão</string>
+    <string name="boot_animation_delete_title">Remover a animação personalizada?</string>
+    <string name="boot_animation_delete_message">A animação de inicialização personalizada será excluída de /data/misc/bootanim e o estilo padrão será selecionado.</string>
+    <string name="boot_animation_delete_message_shutdown">A animação de desligamento personalizada será excluída de /data/misc/bootanim e a animação do sistema será restaurada.</string>
+    <string name="boot_animation_delete_confirm">Excluir</string>
+    <string name="boot_animation_delete_cancel">Cancelar</string>
+    <string name="boot_animation_delete_done">Animação personalizada removida</string>
+
     <string name="boot_animation_applied_error">Falha ao aplicar animação de inicialização</string>
     <string name="boot_animation_preview_title">Pré-visualização da animação de inicialização</string>
     <string name="boot_animation_no_preview">Nenhuma pré-visualização disponível</string>

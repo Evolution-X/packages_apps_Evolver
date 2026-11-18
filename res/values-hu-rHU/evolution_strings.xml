@@ -53,6 +53,36 @@
     <string name="themes_udfps_animation_summary">Itt állíthatja be az ujjlenyomat-animáció stílusát</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">Bootanimáció</string>
+    <string name="boot_animation_custom_pick">Indítási animáció ZIP kiválasztása</string>
+    <string name="boot_animation_custom_replace">Koppintson egy másik ZIP kiválasztásához</string>
+
+    <string name="boot_animation_target_boot">Indítás</string>
+    <string name="boot_animation_target_shutdown">Kikapcsolás</string>
+    <string name="boot_animation_style_random">Véletlen</string>
+    <string name="boot_animation_random_note">Minden indításkor más telepített animáció</string>
+    <string name="boot_animation_shutdown_default">Normál (rendszer)</string>
+    <string name="boot_animation_shutdown_no_default">Ez a kiadás nem tartalmaz kikapcsolási animációt</string>
+    <string name="boot_animation_shutdown_custom_pick">Kikapcsolási animáció ZIP kiválasztása</string>
+    <string name="boot_animation_shutdown_custom_replace">Koppintson egy másik ZIP kiválasztásához</string>
+    <string name="boot_animation_part_indicator">%1$d/%2$d. rész \u00b7 %3$d. ismétlés</string>
+    <string name="boot_animation_details_parts">%1$d rész \u00b7 %2$d képkocka</string>
+    <string name="boot_animation_badge_sound">Hang</string>
+    <string name="boot_animation_badge_trim">Vágás</string>
+    <string name="boot_animation_badge_dynamic">Dinamikus színek</string>
+    <string name="boot_animation_badge_progress">Folyamat</string>
+    <string name="boot_animation_aspect_warning">Az animáció képaránya nem egyezik a képernyővel, ezért fekete sávokkal jelenik meg.</string>
+    <string name="boot_animation_fullscreen_play">Lejátszás</string>
+    <string name="boot_animation_fullscreen_pause">Szüneteltetés</string>
+    <string name="boot_animation_fullscreen_close">Bezárás</string>
+    <string name="boot_animation_delete_row_title">Egyéni animáció eltávolítása</string>
+    <string name="boot_animation_delete_row_summary">Törli a telepített ZIP-et, és visszaállítja az alapértelmezett kiválasztást</string>
+    <string name="boot_animation_delete_title">Eltávolítja az egyéni animációt?</string>
+    <string name="boot_animation_delete_message">Az egyéni indítási animáció törlődik a /data/misc/bootanim mappából, és az alapértelmezett stílus lesz kiválasztva.</string>
+    <string name="boot_animation_delete_message_shutdown">Az egyéni kikapcsolási animáció törlődik a /data/misc/bootanim mappából, és a rendszer animációja áll vissza.</string>
+    <string name="boot_animation_delete_confirm">Törlés</string>
+    <string name="boot_animation_delete_cancel">Mégse</string>
+    <string name="boot_animation_delete_done">Egyéni animáció eltávolítva</string>
+
     <string name="boot_animation_applied_error">A bootanimáció nem alkalmazható</string>
     <string name="boot_animation_preview_title">A Boot-animáció előnézete</string>
     <string name="boot_animation_no_preview">Nincs előnézeti kép</string>

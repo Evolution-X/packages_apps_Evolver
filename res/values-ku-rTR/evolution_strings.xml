@@ -53,10 +53,40 @@
     <string name="themes_udfps_animation_summary">دیاریکردنی شێوازی جووڵەی پەنجەمۆری ژێر ڕوونما</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">جووڵەی کارپێکردن (Boot animation)</string>
+    <string name="boot_animation_custom_pick">ZIPی ئەنیمەیشنی دەستپێکردن هەڵبژێرە</string>
+    <string name="boot_animation_custom_replace">بۆ هەڵبژاردنی ZIPێکی تر دەست بنێ</string>
+
+    <string name="boot_animation_target_boot">دەستپێکردن</string>
+    <string name="boot_animation_target_shutdown">کوژاندنەوە</string>
+    <string name="boot_animation_style_random">هەڵکەوتوو</string>
+    <string name="boot_animation_random_note">هەر جارە ئەنیمەیشنێکی جیاوازی دامەزراو لە کاتی دەستپێکردن</string>
+    <string name="boot_animation_shutdown_default">بنەڕەت (سیستەم)</string>
+    <string name="boot_animation_shutdown_no_default">ئەم وەشانە ئەنیمەیشنی کوژاندنەوەی نییە</string>
+    <string name="boot_animation_shutdown_custom_pick">ZIPی ئەنیمەیشنی کوژاندنەوە هەڵبژێرە</string>
+    <string name="boot_animation_shutdown_custom_replace">بۆ هەڵبژاردنی ZIPێکی تر دەست بنێ</string>
+    <string name="boot_animation_part_indicator">بەش %1$d/%2$d \u00b7 خول %3$d</string>
+    <string name="boot_animation_details_parts">%1$d بەش \u00b7 %2$d چوارچێوە</string>
+    <string name="boot_animation_badge_sound">دەنگ</string>
+    <string name="boot_animation_badge_trim">بڕین</string>
+    <string name="boot_animation_badge_dynamic">ڕەنگە دینامیکییەکان</string>
+    <string name="boot_animation_badge_progress">پێشکەوتن</string>
+    <string name="boot_animation_aspect_warning">ڕێژەی لای ئەنیمەیشنەکە لەگەڵ ئەم شاشەیە ناگونجێت و بە هێڵی ڕەش پیشان دەدرێت.</string>
+    <string name="boot_animation_fullscreen_play">لێدان</string>
+    <string name="boot_animation_fullscreen_pause">وەستان</string>
+    <string name="boot_animation_fullscreen_close">داخستن</string>
+    <string name="boot_animation_delete_row_title">ئەنیمەیشنی تایبەت لابەرە</string>
+    <string name="boot_animation_delete_row_summary">ZIPی دامەزراو دەسڕێتەوە و هەڵبژاردنی بنەڕەت دەگەڕێنرێتەوە</string>
+    <string name="boot_animation_delete_title">ئەنیمەیشنی تایبەت لاببرێت؟</string>
+    <string name="boot_animation_delete_message">ئەنیمەیشنی دەستپێکردنی تایبەت لە /data/misc/bootanim دەسڕێتەوە و شێوازی بنەڕەت هەڵدەبژێردرێت.</string>
+    <string name="boot_animation_delete_message_shutdown">ئەنیمەیشنی کوژاندنەوەی تایبەت لە /data/misc/bootanim دەسڕێتەوە و ئەنیمەیشنی سیستەم دەگەڕێنرێتەوە.</string>
+    <string name="boot_animation_delete_confirm">سڕینەوە</string>
+    <string name="boot_animation_delete_cancel">پاشگەزبوونەوە</string>
+    <string name="boot_animation_delete_done">ئەنیمەیشنی تایبەت لابرا</string>
+
     <string name="boot_animation_applied_error">جێبەجێکردنی جووڵەی کارپێکردن سەرکەوتوو نەبوو</string>
     <string name="boot_animation_preview_title">بینینی جووڵەی کارپێکردن</string>
     <string name="boot_animation_no_preview">پێشبینین بەردەست نییە</string>
-    <string name="boot_animation_style_unknown">Unknown</string>
+    <string name="boot_animation_style_unknown">نەزانراو</string>
     <!-- Themes/Monet Engine -->
     <string name="monet_engine_style_tonal_spot">خاڵی تۆنال (Tonal Spot)</string>
     <string name="monet_engine_style_vibrant">گەشاوە</string>
