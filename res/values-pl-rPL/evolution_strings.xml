@@ -1243,18 +1243,18 @@
     <string name="gradient_settings_title">Personalizacja gradientu</string>
     <string name="gradient_settings_summary">Zastosuj kolory gradientowe do elementów systemowych</string>
     <!-- Liquid Glass -->
-    <string name="liquid_glass_title">Płynne szkło</string>
-    <string name="liquid_glass_summary">Rysuj rozmyte powierzchnie jako szkło z oświetloną krawędzią</string>
-    <string name="liquid_glass_use_title">Użyj płynnego szkła</string>
-    <string name="liquid_glass_use_summary">Zmień matowe powierzchnie systemu, takie jak karty wyspy dynamicznej, na szklane</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Rysuj rozmyte powierzchnie jak szkło ze świecącą krawędzią</string>
+    <string name="liquid_glass_use_title">Używaj Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Zamień matowe powierzchnie systemu, takie jak karty Dynamic Island, w szkło</string>
     <string name="liquid_glass_style_title">Styl</string>
     <string name="liquid_glass_style_ios">iOS</string>
     <string name="liquid_glass_style_coloros">ColorOS</string>
     <string name="liquid_glass_refraction_title">Załamanie</string>
-    <string name="liquid_glass_refraction_summary">Jak bardzo krawędź szkła załamuje to, co znajduje się tuż za nim</string>
-    <string name="liquid_glass_shade_category">Cieniowanie</string>
-    <string name="liquid_glass_dual_tone_title">Dwutonowy odcień</string>
-    <string name="liquid_glass_dual_tone_summary">Delikatne zabarwienie tła powiadomień, dzięki któremu wyróżniają się na tle szybkich ustawień</string>
+    <string name="liquid_glass_refraction_summary">Jak mocno krawędź szkła zagina to, co znajduje się tuż za nią</string>
+    <string name="liquid_glass_shade_category">Panel powiadomień</string>
+    <string name="liquid_glass_dual_tone_title">Panel dwukolorowy</string>
+    <string name="liquid_glass_dual_tone_summary">Delikatny odcień za powiadomieniami, aby odróżniały się od szybkich ustawień</string>
     <string name="gradient_elements_category">Elementy systemu</string>
     <string name="gradient_colors_category">Kolory gradientu</string>
     <string name="volume_slider_gradient_title">Gradient suwaka głośności</string>

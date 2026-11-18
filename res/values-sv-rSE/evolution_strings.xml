@@ -1319,4 +1319,16 @@
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Zoomning av bakgrundsbild</string>
     <string name="wallpaper_zoom_summary">Stäng av för att visa bakgrundsbilden utan extra zoomning</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Rita suddiga ytor som glas med en lysande kant</string>
+    <string name="liquid_glass_use_title">Använd Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Gör systemets frostade ytor, som Dynamic Island-korten, till glas</string>
+    <string name="liquid_glass_style_title">Stil</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Brytning</string>
+    <string name="liquid_glass_refraction_summary">Hur mycket glaskanten böjer det som ligger precis bakom</string>
+    <string name="liquid_glass_shade_category">Aviseringspanel</string>
+    <string name="liquid_glass_dual_tone_title">Tvåtonspanel</string>
+    <string name="liquid_glass_dual_tone_summary">En svag ton bakom aviseringar så att de skiljer sig från Snabbinställningar</string>
 </resources>

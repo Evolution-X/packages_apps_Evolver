@@ -1470,4 +1470,16 @@
     <string name="ts_rkp_native_unavailable">네이티브 프로비저닝 도우미를 사용할 수 없거나, 해당 펌웨어와 호환되지 않습니다.</string>
     <string name="ts_rkp_native_transport">기본 프로비저닝 서비스가 예기치 않게 중지되었습니다. 자동 프로비저닝이 일시 중지되었습니다.</string>
     <string name="ts_rkp_invalid_response">장치가 유효하지 않은 프로비저닝 응답을 반환했습니다. 기존 키박스는 그대로 유지되었습니다.</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">흐린 표면을 빛나는 테두리가 있는 유리처럼 그립니다</string>
+    <string name="liquid_glass_use_title">Liquid Glass 사용</string>
+    <string name="liquid_glass_use_summary">Dynamic Island 카드 등 시스템의 반투명 표면을 유리로 바꿉니다</string>
+    <string name="liquid_glass_style_title">스타일</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">굴절</string>
+    <string name="liquid_glass_refraction_summary">유리 테두리가 바로 뒤의 배경을 얼마나 굴절시키는지</string>
+    <string name="liquid_glass_shade_category">알림 패널</string>
+    <string name="liquid_glass_dual_tone_title">2색 알림 패널</string>
+    <string name="liquid_glass_dual_tone_summary">알림 뒤에 은은한 색조를 더해 빠른 설정과 구분합니다</string>
 </resources>

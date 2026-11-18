@@ -1242,17 +1242,17 @@
     <string name="gradient_settings_summary">システム要素にグラデーションカラーを適用する</string>
     <!-- Liquid Glass -->
     <string name="liquid_glass_title">Liquid Glass</string>
-    <string name="liquid_glass_summary">ぼやけた表面を、縁が光るガラスとして描く</string>
-    <string name="liquid_glass_use_title">Liquid Glassを使用</string>
-    <string name="liquid_glass_use_summary">Dynamic Islandのカードなど、システムのすりガラス状の表面を、ガラスの質感に変更</string>
+    <string name="liquid_glass_summary">ぼやけた表面を、縁が光るガラスとして描画します</string>
+    <string name="liquid_glass_use_title">Liquid Glass を使用</string>
+    <string name="liquid_glass_use_summary">Dynamic Island のカードなど、システムのすりガラス表面をガラスに変えます</string>
     <string name="liquid_glass_style_title">スタイル</string>
     <string name="liquid_glass_style_ios">iOS</string>
     <string name="liquid_glass_style_coloros">ColorOS</string>
     <string name="liquid_glass_refraction_title">屈折</string>
-    <string name="liquid_glass_refraction_summary">グラスの縁が、そのすぐ向こうにあるものの中で、どれほど曲がっているか</string>
-    <string name="liquid_glass_shade_category">シェード</string>
-    <string name="liquid_glass_dual_tone_title">デュアルトーンシェード</string>
-    <string name="liquid_glass_dual_tone_summary">通知の背景にうっすらと色をつけ、クイック設定と区別しやすくする</string>
+    <string name="liquid_glass_refraction_summary">ガラスの縁が、すぐ後ろにあるものをどれだけ曲げるか</string>
+    <string name="liquid_glass_shade_category">通知シェード</string>
+    <string name="liquid_glass_dual_tone_title">2 トーンのシェード</string>
+    <string name="liquid_glass_dual_tone_summary">通知の背後に淡い色合いを付け、クイック設定と区別します</string>
     <string name="gradient_elements_category">システムの要素</string>
     <string name="gradient_colors_category">グラデーションの色</string>
     <string name="volume_slider_gradient_title">音量スライダーのグラデーション</string>

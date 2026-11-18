@@ -1319,4 +1319,16 @@
     <string name="screenshot_clipboard_only_summary">將螢幕截圖複製至剪貼簿，而不儲存至儲存空間</string>
     <string name="hide_status_bar_in_screenshot_title">螢幕截圖中隱藏狀態列</string>
     <string name="hide_status_bar_in_screenshot_summary">從全螢幕截圖中裁切掉狀態列區域</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">將模糊表面繪製為帶發光邊緣的玻璃</string>
+    <string name="liquid_glass_use_title">使用 Liquid Glass</string>
+    <string name="liquid_glass_use_summary">將系統的霧面表面（例如動態島卡片）變成玻璃</string>
+    <string name="liquid_glass_style_title">樣式</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">折射</string>
+    <string name="liquid_glass_refraction_summary">玻璃邊緣對其後方景物造成的彎曲程度</string>
+    <string name="liquid_glass_shade_category">通知欄</string>
+    <string name="liquid_glass_dual_tone_title">雙色調通知欄</string>
+    <string name="liquid_glass_dual_tone_summary">在通知後方加上淡雅色調，使其與快速設定有所區別</string>
 </resources>

@@ -556,4 +556,16 @@
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Bloqueo de sensor por paquete</string>
     <string name="sensor_block_summary">Bloquear el acceso a ciertos sensores para algunas apps para ahorrar batería</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Dibuja las superficies desenfocadas como cristal con un borde iluminado</string>
+    <string name="liquid_glass_use_title">Usar Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Convierte en cristal las superficies esmeriladas del sistema, como las tarjetas de la Isla Dinámica</string>
+    <string name="liquid_glass_style_title">Estilo</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Refracción</string>
+    <string name="liquid_glass_refraction_summary">Cuánto se curva el borde del cristal en lo que queda justo detrás</string>
+    <string name="liquid_glass_shade_category">Panel de notificaciones</string>
+    <string name="liquid_glass_dual_tone_title">Panel de doble tono</string>
+    <string name="liquid_glass_dual_tone_summary">Un tenue matiz detrás de las notificaciones para que se distingan de los Ajustes rápidos</string>
 </resources>

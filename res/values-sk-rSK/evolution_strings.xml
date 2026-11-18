@@ -257,4 +257,16 @@
     <!-- Custom seekbar -->
     <!-- Units -->
     <string name="unit_seconds">sekundy</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Vykresliť rozmazané povrchy ako sklo so svietiacim okrajom</string>
+    <string name="liquid_glass_use_title">Používať Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Premeňte matné povrchy systému, napríklad karty Dynamic Island, na sklo</string>
+    <string name="liquid_glass_style_title">Štýl</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Lom</string>
+    <string name="liquid_glass_refraction_summary">Ako veľmi okraj skla ohýba to, čo je tesne za ním</string>
+    <string name="liquid_glass_shade_category">Panel oznámení</string>
+    <string name="liquid_glass_dual_tone_title">Dvojtónový panel</string>
+    <string name="liquid_glass_dual_tone_summary">Jemný nádych za oznámeniami, aby sa odlíšili od rýchlych nastavení</string>
 </resources>

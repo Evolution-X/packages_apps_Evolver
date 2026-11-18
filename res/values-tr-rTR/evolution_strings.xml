@@ -1310,4 +1310,16 @@
     <string name="screenshot_clipboard_only_summary">Depolamak yerine ekran görüntüsünü panoya kopyala</string>
     <string name="hide_status_bar_in_screenshot_title">Ekran görüntülerinde durum çubuğunu gizle</string>
     <string name="hide_status_bar_in_screenshot_summary">Tam ekran görüntülerinden durum çubuğu alanını kırp</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Bulanık yüzeyleri parlayan kenarlı cam olarak çiz</string>
+    <string name="liquid_glass_use_title">Liquid Glass kullan</string>
+    <string name="liquid_glass_use_summary">Sistemin Dynamic Island kartları gibi buzlu yüzeylerini cama dönüştür</string>
+    <string name="liquid_glass_style_title">Stil</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Kırılma</string>
+    <string name="liquid_glass_refraction_summary">Cam kenarının hemen arkasındaki görüntüyü ne kadar büktüğü</string>
+    <string name="liquid_glass_shade_category">Bildirim paneli</string>
+    <string name="liquid_glass_dual_tone_title">İki tonlu panel</string>
+    <string name="liquid_glass_dual_tone_summary">Bildirimlerin arkasına, Hızlı Ayarlar\'dan ayrılmaları için hafif bir renk tonu ekle</string>
 </resources>

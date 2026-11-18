@@ -1475,4 +1475,16 @@ Update otomatis dijadwalkan pada %2$s.</string>
     <string name="ts_rkp_native_unavailable">Helper native provisioning tak tersedia atau kompatibel dengan firmware ini</string>
     <string name="ts_rkp_native_transport">Layanan provisioning native berhenti tak terduga. Proivisioning otomatis dijeda.</string>
     <string name="ts_rkp_invalid_response">Perangkat mengembalikan respons provisioning yang tak valid. Keybox sekarang tak diubah</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Gambar permukaan buram sebagai kaca dengan tepi bercahaya</string>
+    <string name="liquid_glass_use_title">Gunakan Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Ubah permukaan buram sistem, seperti kartu Dynamic Island, menjadi kaca</string>
+    <string name="liquid_glass_style_title">Gaya</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Pembiasan</string>
+    <string name="liquid_glass_refraction_summary">Seberapa jauh tepi kaca membiaskan apa yang berada tepat di belakangnya</string>
+    <string name="liquid_glass_shade_category">Panel notifikasi</string>
+    <string name="liquid_glass_dual_tone_title">Panel dua nada</string>
+    <string name="liquid_glass_dual_tone_summary">Warna tipis di belakang notifikasi agar berbeda dari Setelan Cepat</string>
 </resources>

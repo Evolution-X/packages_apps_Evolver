@@ -1268,4 +1268,16 @@
     <!-- Custom power menu style -->
     <string name="global_actions_use_compose_dialog_title">Menù di alimentazione ridisegnato</string>
     <string name="global_actions_use_compose_dialog_summary">Usa il nuovo menù di alimentazione con una disposizione di riquadri personalizzabile e trascinabile. Disattivalo per usare il menù di alimentazione classico.</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Disegna le superfici sfocate come vetro con un bordo illuminato</string>
+    <string name="liquid_glass_use_title">Usa Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Trasforma in vetro le superfici smerigliate del sistema, come le schede di Dynamic Island</string>
+    <string name="liquid_glass_style_title">Stile</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Rifrazione</string>
+    <string name="liquid_glass_refraction_summary">Quanto il bordo del vetro curva ciò che si trova appena dietro</string>
+    <string name="liquid_glass_shade_category">Pannello delle notifiche</string>
+    <string name="liquid_glass_dual_tone_title">Pannello a due toni</string>
+    <string name="liquid_glass_dual_tone_summary">Una leggera tinta dietro le notifiche, per distinguerle dalle Impostazioni rapide</string>
 </resources>

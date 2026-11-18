@@ -1339,4 +1339,16 @@ Beállítás:
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Háttérkép-zoomolás</string>
     <string name="wallpaper_zoom_summary">Ha kikapcsolja, nem tud extrán belenagyítani a háttérképbe</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Az elmosott felületek üvegként való megjelenítése világító peremmel</string>
+    <string name="liquid_glass_use_title">Liquid Glass használata</string>
+    <string name="liquid_glass_use_summary">A rendszer matt felületeinek, például a Dynamic Island kártyáinak üveggé alakítása</string>
+    <string name="liquid_glass_style_title">Stílus</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Törés</string>
+    <string name="liquid_glass_refraction_summary">Mennyire hajlítja az üveg pereme a közvetlenül mögötte lévő tartalmat</string>
+    <string name="liquid_glass_shade_category">Értesítési panel</string>
+    <string name="liquid_glass_dual_tone_title">Kéttónusú panel</string>
+    <string name="liquid_glass_dual_tone_summary">Halvány színezet az értesítések mögött, hogy elváljanak a gyorsbeállításoktól</string>
 </resources>

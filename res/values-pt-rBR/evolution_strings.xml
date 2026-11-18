@@ -1243,17 +1243,17 @@
     <string name="gradient_settings_summary">Aplicar cores em gradiente aos elementos do sistema</string>
     <!-- Liquid Glass -->
     <string name="liquid_glass_title">Liquid Glass</string>
-    <string name="liquid_glass_summary">Desenha superfícies desfocadas como vidro, com uma borda iluminada</string>
+    <string name="liquid_glass_summary">Desenhe superfícies desfocadas como vidro com uma borda iluminada</string>
     <string name="liquid_glass_use_title">Usar Liquid Glass</string>
-    <string name="liquid_glass_use_summary">Transforma as superfícies foscas do sistema, como os cartões da Dynamic Island, em vidro</string>
+    <string name="liquid_glass_use_summary">Transforme as superfícies fosqueadas do sistema, como os cartões da Ilha Dinâmica, em vidro</string>
     <string name="liquid_glass_style_title">Estilo</string>
     <string name="liquid_glass_style_ios">iOS</string>
     <string name="liquid_glass_style_coloros">ColorOS</string>
     <string name="liquid_glass_refraction_title">Refração</string>
-    <string name="liquid_glass_refraction_summary">Quanto a borda do vidro distorce o que está logo atrás dela</string>
-    <string name="liquid_glass_shade_category">Sombreado</string>
-    <string name="liquid_glass_dual_tone_title">Sombreado em dois tons</string>
-    <string name="liquid_glass_dual_tone_summary">Uma leve tonalidade atrás das notificações, para que se destaquem das Configurações rápidas</string>
+    <string name="liquid_glass_refraction_summary">O quanto a borda do vidro curva o que está logo atrás</string>
+    <string name="liquid_glass_shade_category">Painel de notificações</string>
+    <string name="liquid_glass_dual_tone_title">Painel em dois tons</string>
+    <string name="liquid_glass_dual_tone_summary">Um leve tom atrás das notificações para diferenciá-las das Configurações rápidas</string>
     <string name="gradient_elements_category">Elementos do sistema</string>
     <string name="gradient_colors_category">Cores do gradiente</string>
     <string name="volume_slider_gradient_title">Gradiente do controle deslizante de volume</string>

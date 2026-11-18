@@ -308,4 +308,16 @@
     <string name="systemui_restart_title">Redémarrage de SystemUi requis</string>
     <string name="systemui_restart_message">Pour que les changements prennent effet, SystemUi doit être redémarré. Redémarrer maintenant ?</string>
     <string name="systemui_restart_not_now">Plus tard</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Afficher les surfaces floutées comme du verre avec un bord éclairé</string>
+    <string name="liquid_glass_use_title">Utiliser Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Transformez les surfaces givrées du système, comme les cartes de Dynamic Island, en verre</string>
+    <string name="liquid_glass_style_title">Style</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Réfraction</string>
+    <string name="liquid_glass_refraction_summary">Dans quelle mesure le bord du verre courbe ce qui se trouve juste derrière lui</string>
+    <string name="liquid_glass_shade_category">Panneau de notifications</string>
+    <string name="liquid_glass_dual_tone_title">Panneau à deux tons</string>
+    <string name="liquid_glass_dual_tone_summary">Une légère teinte derrière les notifications pour les distinguer des réglages rapides</string>
 </resources>

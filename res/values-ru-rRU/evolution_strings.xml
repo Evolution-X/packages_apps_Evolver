@@ -559,4 +559,16 @@
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Блокировка сенсоров по-пакетно</string>
     <string name="sensor_block_summary">Заблокировать доступ к датчикам для некоторых приложений для экономии заряда батареи</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Отображать размытые поверхности как стекло со светящейся кромкой</string>
+    <string name="liquid_glass_use_title">Использовать Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Превращайте матовые поверхности системы, например карточки Dynamic Island, в стекло</string>
+    <string name="liquid_glass_style_title">Стиль</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">Преломление</string>
+    <string name="liquid_glass_refraction_summary">Насколько кромка стекла искривляет то, что находится сразу за ней</string>
+    <string name="liquid_glass_shade_category">Панель уведомлений</string>
+    <string name="liquid_glass_dual_tone_title">Двухцветная панель</string>
+    <string name="liquid_glass_dual_tone_summary">Лёгкий оттенок за уведомлениями, чтобы они отличались от быстрых настроек</string>
 </resources>

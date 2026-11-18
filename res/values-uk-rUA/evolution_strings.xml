@@ -1241,18 +1241,18 @@
     <string name="gradient_settings_title">Градієнтна кастомізація</string>
     <string name="gradient_settings_summary">Застосувати градієнт кольорів до системних елементів</string>
     <!-- Liquid Glass -->
-    <string name="liquid_glass_title">Рідке скло</string>
-    <string name="liquid_glass_summary">Відображайте розмиті поверхні як скло з підсвіченим краєм</string>
-    <string name="liquid_glass_use_title">Використовуйте рідке скло</string>
-    <string name="liquid_glass_use_summary">Перетворіть матові поверхні в системі — наприклад картки в Dynamic Island — на скляні.</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">Відображати розмиті поверхні як скло з підсвіченим краєм</string>
+    <string name="liquid_glass_use_title">Використовувати Liquid Glass</string>
+    <string name="liquid_glass_use_summary">Перетворюйте матові поверхні системи, як-от картки Dynamic Island, на скло</string>
     <string name="liquid_glass_style_title">Стиль</string>
     <string name="liquid_glass_style_ios">iOS</string>
     <string name="liquid_glass_style_coloros">ColorOS</string>
     <string name="liquid_glass_refraction_title">Заломлення</string>
-    <string name="liquid_glass_refraction_summary">Наскільки край келиха вигинається в те, що лежить одразу за ним</string>
-    <string name="liquid_glass_shade_category">Тінь</string>
-    <string name="liquid_glass_dual_tone_title">Двоколірний відтінок</string>
-    <string name="liquid_glass_dual_tone_summary">Легкий відтінок позаду сповіщень, щоб вони виділялися на тлі швидких налаштувань</string>
+    <string name="liquid_glass_refraction_summary">Наскільки край скла викривляє те, що розташоване безпосередньо за ним</string>
+    <string name="liquid_glass_shade_category">Панель сповіщень</string>
+    <string name="liquid_glass_dual_tone_title">Двоколірна панель</string>
+    <string name="liquid_glass_dual_tone_summary">Легкий відтінок за сповіщеннями, щоб вони вирізнялися з-поміж швидких налаштувань</string>
     <string name="gradient_elements_category">Системні елементи</string>
     <string name="gradient_colors_category">Кльори градієнта</string>
     <string name="volume_slider_gradient_title">Градієнт повзунка гучності</string>

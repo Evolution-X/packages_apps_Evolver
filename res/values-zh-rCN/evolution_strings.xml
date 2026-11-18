@@ -1322,4 +1322,16 @@
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">壁纸缩放</string>
     <string name="wallpaper_zoom_summary">关闭以显示壁纸而不需要额外缩放</string>
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">将模糊表面绘制为带发光边缘的玻璃</string>
+    <string name="liquid_glass_use_title">使用 Liquid Glass</string>
+    <string name="liquid_glass_use_summary">将系统的磨砂表面（例如灵动岛卡片）变为玻璃</string>
+    <string name="liquid_glass_style_title">样式</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">折射</string>
+    <string name="liquid_glass_refraction_summary">玻璃边缘对其后方景物产生的弯曲程度</string>
+    <string name="liquid_glass_shade_category">通知栏</string>
+    <string name="liquid_glass_dual_tone_title">双色调通知栏</string>
+    <string name="liquid_glass_dual_tone_summary">在通知后方添加淡雅色调，使其与快捷设置区分开</string>
 </resources>
