@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The Evolution X Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/media_title">
+
+    <Preference
+        android:key="media_codec_summary"
+        android:title="@string/media_codec_summary_title"
+        android:selectable="false" />
+
+    <PreferenceCategory
+        android:key="media_codec_video_decoders"
+        android:title="@string/media_codec_video_decoders" />
+
+    <PreferenceCategory
+        android:key="media_codec_video_encoders"
+        android:title="@string/media_codec_video_encoders" />
+
+    <PreferenceCategory
+        android:key="media_codec_audio_decoders"
+        android:title="@string/media_codec_audio_decoders" />
+
+    <PreferenceCategory
+        android:key="media_codec_audio_encoders"
+        android:title="@string/media_codec_audio_encoders" />
+
+    <PreferenceCategory
+        android:key="media_codec_image_formats"
+        android:title="@string/media_codec_image_formats" />
+
+    <Preference
+        android:key="media_codec_copy_report"
+        android:title="@string/media_codec_copy_report"
+        android:persistent="false" />
+
+</PreferenceScreen>

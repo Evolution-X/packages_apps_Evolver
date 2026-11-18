@@ -1527,4 +1527,44 @@
     <string name="liquid_glass_shade_category">لوحة الإشعارات</string>
     <string name="liquid_glass_dual_tone_title">تظليل ثنائي اللون</string>
     <string name="liquid_glass_dual_tone_summary">تلوين خفيف خلف الإشعارات لتمييزها عن الإعدادات السريعة</string>
+    <!-- Media & codecs -->
+    <string name="media_title">الوسائط والكوديك</string>
+    <string name="media_summary">الكوديكات والصيغ ودعم HDR على هذا الجهاز</string>
+    <string name="media_codec_summary_title">نظرة عامة على الكوديك</string>
+    <string name="media_codec_summary_value">%1$d مفكك · %2$d مُرمّز · %3$d عتادي</string>
+    <string name="media_codec_video_decoders">مفككات الفيديو</string>
+    <string name="media_codec_video_encoders">مُرمّزات الفيديو</string>
+    <string name="media_codec_audio_decoders">مفككات الصوت</string>
+    <string name="media_codec_audio_encoders">مُرمّزات الصوت</string>
+    <string name="media_codec_image_formats">صيغ الصور</string>
+    <string name="media_codec_copy_report">نسخ التقرير الكامل</string>
+    <string name="media_codec_report_copied">تم نسخ تقرير الكوديك</string>
+    <string name="media_codec_badge_hardware">عتادي</string>
+    <string name="media_codec_badge_software">برمجي</string>
+    <string name="media_codec_badge_vendor">من البائع</string>
+    <string name="media_codec_badge_hdr10">HDR10</string>
+    <string name="media_codec_image_supported">مدعومة</string>
+    <string name="media_codec_image_unsupported">غير مدعومة</string>
+    <string name="media_codec_empty">لا شيء يُبلّغ عنه النظام</string>
+    <string name="media_codec_label_mime">نوع MIME</string>
+    <string name="media_codec_label_codec">الكوديك</string>
+    <string name="media_codec_label_type">النوع</string>
+    <string name="media_codec_label_acceleration">التسريع</string>
+    <string name="media_codec_label_size">أقصى حجم</string>
+    <string name="media_codec_label_fps">معدل الإطارات</string>
+    <string name="media_codec_label_hdr10">HDR10</string>
+    <string name="media_codec_label_channels">القنوات</string>
+    <string name="media_codec_label_sample_rate">معدل العينات</string>
+    <string name="media_codec_label_bitrate">معدل البت</string>
+    <string name="media_codec_label_profiles">البروفايلات</string>
+    <string name="media_codec_details_type_decoder">مفكك</string>
+    <string name="media_codec_details_type_encoder">مُرمّز</string>
+    <string name="media_codec_details_size">%1$d×%2$d</string>
+    <string name="media_codec_details_fps">حتى %1$d إطارًا/ث</string>
+    <string name="media_codec_details_bitrate">%1$d–%2$d بت/ث</string>
+    <string name="media_codec_value_yes">نعم</string>
+    <string name="media_codec_value_no">لا</string>
+    <string name="media_codec_copy_details">نسخ</string>
+    <string name="media_codec_close">إغلاق</string>
+
 </resources>

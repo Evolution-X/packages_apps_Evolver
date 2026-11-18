@@ -67,6 +67,14 @@
             android:icon="@drawable/ic_evolver_power_menu"
             android:fragment="org.evolution.settings.fragments.powermenu.PowerMenu"/>
 
+        <!-- Media & codecs -->
+        <Preference
+            android:key="media"
+            android:title="@string/media_title"
+            android:summary="@string/media_summary"
+            android:icon="@drawable/ic_evolver_media"
+            android:fragment="org.evolution.settings.fragments.media.MediaCodecSettings"/>
+
         <!-- Miscellaneous -->
         <Preference
             android:key="miscellaneous"
