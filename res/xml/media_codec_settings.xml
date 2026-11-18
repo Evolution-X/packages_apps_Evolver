@@ -32,6 +32,48 @@
         android:key="media_codec_image_formats"
         android:title="@string/media_codec_image_formats" />
 
+    <PreferenceCategory
+        android:key="media_transcoding"
+        android:title="@string/media_transcoding_title">
+
+        <SwitchPreferenceCompat
+            android:key="media_transcode_override"
+            android:title="@string/media_transcode_override"
+            android:summary="@string/media_transcode_override_summary"
+            android:persistent="false" />
+
+        <SwitchPreferenceCompat
+            android:key="media_transcode_enabled"
+            android:title="@string/media_transcode_enabled"
+            android:summary="@string/media_transcode_enabled_summary"
+            android:dependency="media_transcode_override"
+            android:persistent="false" />
+
+        <SwitchPreferenceCompat
+            android:key="media_transcode_assume"
+            android:title="@string/media_transcode_assume"
+            android:summary="@string/media_transcode_assume_summary"
+            android:dependency="media_transcode_override"
+            android:persistent="false" />
+
+        <SwitchPreferenceCompat
+            android:key="media_transcode_notification"
+            android:title="@string/media_transcode_notification"
+            android:summary="@string/media_transcode_notification_summary"
+            android:persistent="false" />
+
+        <SwitchPreferenceCompat
+            android:key="media_transcode_cache"
+            android:title="@string/media_transcode_cache"
+            android:summary="@string/media_transcode_cache_summary"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="media_display_audio"
+        android:title="@string/media_display_audio_title" />
+
     <Preference
         android:key="media_codec_copy_report"
         android:title="@string/media_codec_copy_report"
