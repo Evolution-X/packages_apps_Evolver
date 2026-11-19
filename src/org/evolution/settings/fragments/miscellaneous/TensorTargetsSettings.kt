@@ -60,10 +60,13 @@ import com.android.settings.widget.scrollbar
 import com.android.settingslib.spa.framework.theme.SettingsSpace
 import com.android.settings.SettingsPreferenceFragment
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 private const val TENSOR_TARGETS_KEY = "tensor_targets"
+private const val TENSOR_SPOOF_EXPIRES_KEY = "pi_tensor_spoof_expires_at"
+private const val TIMED_SPOOF_DURATION_MS = 60L * 60L * 1000L
 
 // TensorTargetEntry kept for any external references (e.g. tests), but the
 // internal list now uses AppListEntry (isSelected = targeted).
@@ -113,6 +116,17 @@ private fun TensorTargetsContent(context: android.content.Context) {
                 context.contentResolver, Settings.Secure.PI_TENSOR_SPOOF, 0) == 1,
         )
     }
+    // Timed mode deadline (wall clock, epoch millis). 0 means "stay on until turned off".
+    // AxSpoofManager enforces the deadline in system_server; the countdown below keeps an
+    // open screen in sync with it.
+    var expiresAt by remember {
+        mutableStateOf(
+            Settings.Secure.getLong(context.contentResolver, TENSOR_SPOOF_EXPIRES_KEY, 0L),
+        )
+    }
+    var nowMs by remember { mutableStateOf(System.currentTimeMillis()) }
+    val timedActive = expiresAt > nowMs
+
     var searchQuery by remember { mutableStateOf("") }
     var showSystemApps by remember { mutableStateOf(false) }
     var isLoading by remember { mutableStateOf(true) }
@@ -147,6 +161,17 @@ private fun TensorTargetsContent(context: android.content.Context) {
         val current = allApps.filter { it.isSelected }.map { it.packageName }.toSet()
         writeTargetsSet(current)
         stopPackage(activityManager, packageName)
+    }
+
+    fun armTimedSpoof() {
+        val deadline = System.currentTimeMillis() + TIMED_SPOOF_DURATION_MS
+        Settings.Secure.putLong(context.contentResolver, TENSOR_SPOOF_EXPIRES_KEY, deadline)
+        expiresAt = deadline
+    }
+
+    fun clearTimedSpoof() {
+        Settings.Secure.putLong(context.contentResolver, TENSOR_SPOOF_EXPIRES_KEY, 0L)
+        expiresAt = 0L
     }
 
     // -----------------------------------------------------------------------
@@ -199,6 +224,28 @@ private fun TensorTargetsContent(context: android.content.Context) {
         }
     }
 
+    // Countdown for the timed mode, and the in-screen fallback that mirrors AxSpoofManager
+    // when the deadline passes while this screen is open.
+    LaunchedEffect(expiresAt) {
+        if (expiresAt <= 0L) return@LaunchedEffect
+        while (true) {
+            val now = System.currentTimeMillis()
+            nowMs = now
+            if (now >= expiresAt) break
+            delay(1_000L)
+        }
+        Settings.Secure.putInt(
+            context.contentResolver, Settings.Secure.PI_TENSOR_SPOOF, 0)
+        clearTimedSpoof()
+        globalEnabled = false
+        scope.launch(Dispatchers.IO) {
+            killPackages(
+                activityManager,
+                allApps.filter { it.isSelected }.map { it.packageName }.toSet(),
+            )
+        }
+    }
+
     val activeCount = allApps.count { it.isSelected }
 
     // -----------------------------------------------------------------------
@@ -232,6 +279,12 @@ private fun TensorTargetsContent(context: android.content.Context) {
                         Settings.Secure.PI_TENSOR_SPOOF,
                         if (checked) 1 else 0,
                     )
+                    if (checked) {
+                        // A timed session that is already armed restarts its one-hour window.
+                        if (expiresAt > 0L) armTimedSpoof()
+                    } else {
+                        clearTimedSpoof()
+                    }
                     scope.launch(Dispatchers.IO) {
                         killPackages(activityManager, allApps.filter { it.isSelected }
                             .map { it.packageName }.toSet())
@@ -248,6 +301,36 @@ private fun TensorTargetsContent(context: android.content.Context) {
             }
 
             Spacer(modifier = Modifier.height(SettingsSpace.extraSmall6))
+
+            ExpressiveSwitchRow(
+                titleText = stringResource(R.string.tensor_spoof_timed_title),
+                summaryText = if (timedActive) {
+                    stringResource(
+                        R.string.tensor_spoof_timed_remaining,
+                        ((expiresAt - nowMs + 59_999L) / 60_000L).coerceAtLeast(1L).toInt(),
+                    )
+                } else {
+                    stringResource(R.string.tensor_spoof_timed_summary_off)
+                },
+                isChecked = timedActive,
+                onChange = { timed ->
+                    if (timed) {
+                        armTimedSpoof()
+                        if (!globalEnabled) {
+                            globalEnabled = true
+                            Settings.Secure.putInt(
+                                context.contentResolver,
+                                Settings.Secure.PI_TENSOR_SPOOF,
+                                1,
+                            )
+                        }
+                    } else {
+                        clearTimedSpoof()
+                    }
+                },
+            )
+
+            Spacer(modifier = Modifier.height(SettingsSpace.extraSmall4))
 
             ExpressiveAnimatedVisibility(visible = globalEnabled) {
                 Column {
