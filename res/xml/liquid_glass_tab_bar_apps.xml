@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/liquid_glass_tab_bars_apps_title">
+
+    <!-- Filled with the launcher apps when the screen opens -->
+    <PreferenceCategory
+        android:key="liquid_glass_tab_bars_apps_category" />
+
+</PreferenceScreen>

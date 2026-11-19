@@ -1331,6 +1331,14 @@
     <string name="liquid_glass_shade_category">Shade</string>
     <string name="liquid_glass_dual_tone_title">Dual tone shade</string>
     <string name="liquid_glass_dual_tone_summary">A faint tint behind notifications, so they stand apart from Quick Settings</string>
+    <string name="liquid_glass_tab_bars_category">In apps</string>
+    <string name="liquid_glass_tab_bars_title">Glass tab bars</string>
+    <string name="liquid_glass_tab_bars_summary">Float the bottom bars of apps as an iOS style glass capsule</string>
+    <string name="liquid_glass_tab_bars_apps_title">Choose apps</string>
+    <string name="liquid_glass_tab_bars_apps_summary">Turn glass off for an app, or let its content run under the bar</string>
+    <string name="liquid_glass_tab_bar_mode_off">Off</string>
+    <string name="liquid_glass_tab_bar_mode_glass">Glass</string>
+    <string name="liquid_glass_tab_bar_mode_float">Float</string>
 
     <!-- Fonts -->
     <string name="font_styles_title">Font styles</string>
