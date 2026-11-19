@@ -77,23 +77,14 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.NestedScrollingChildHelper
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
-import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
 import com.android.settings.widget.scrollbar
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 import kotlin.math.roundToInt
 import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
 import org.evolution.settings.fragments.miscellaneous.insetFocusRing
-import org.evolution.settings.utils.SystemUtils
 
 class ClockPickerFragment : Fragment() {
-
-    private lateinit var themeUtils: ThemeUtils
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        themeUtils = ThemeUtils.getInstance(requireContext())
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -135,22 +126,7 @@ class ClockPickerFragment : Fragment() {
         )
         if (clockStyle == current) return
 
-        Settings.Secure.putIntForUser(
-            ctx.contentResolver,
-            Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_STYLE,
-            clockStyle,
-            UserHandle.USER_CURRENT
-        )
-        updateClockOverlays(clockStyle)
-        SystemUtils.restartSystemUI(ctx)
-    }
-
-    private fun updateClockOverlays(clockStyle: Int) {
-        themeUtils.setOverlayEnabled(
-            "android.theme.customization.smartspace",
-            if (clockStyle != 0) "com.android.systemui.hide.smartspace" else "com.android.systemui",
-            "com.android.systemui"
-        )
+        ClockUtils.applyClockStyle(ctx, clockStyle)
     }
 }
 
