@@ -27,7 +27,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceManager
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
-import org.evolution.settings.utils.SystemUtils
+import java.util.concurrent.Executors
 
 class LockClockFontsPreference @JvmOverloads constructor(
     context: Context,
@@ -87,27 +87,13 @@ class LockClockFontsPreference @JvmOverloads constructor(
     }
 
     private fun applyFont(ctx: Context, old: String, pkg: String) {
-        ctx.showChoiceDialog(
-            title = ctx.getString(R.string.systemui_restart_title),
-            message = ctx.getString(R.string.systemui_restart_message),
-            confirmText = ctx.getString(R.string.action_yes),
-            laterText = ctx.getString(R.string.systemui_restart_not_now),
-            onConfirm = {
-                applyOverlayInBackground(
-                    old, pkg,
-                    onFailed = {
-                        Toast.makeText(ctx, R.string.toast_failed_apply_font, Toast.LENGTH_SHORT).show()
-                    }
-                ) {
-                    SystemUtils.restartSystemUI(ctx)
-                }
+        applyOverlayInBackground(
+            old, pkg,
+            onFailed = {
+                updateSummary()
+                Toast.makeText(ctx, R.string.toast_failed_apply_font, Toast.LENGTH_SHORT).show()
             },
-            onLater = {
-                mainHandler.post {
-                    themeUtils.setOverlayEnabled(CATEGORY, old, old)
-                    themeUtils.setOverlayEnabled(CATEGORY, pkg, "android")
-                }
-            },
+            onDone = { updateSummary() }
         )
     }
 
@@ -117,7 +103,7 @@ class LockClockFontsPreference @JvmOverloads constructor(
         onFailed: () -> Unit,
         onDone: () -> Unit
     ) {
-        Thread({
+        overlayExecutor.execute {
             try {
                 themeUtils.setOverlayEnabled(CATEGORY, oldPkg, oldPkg)
                 themeUtils.setOverlayEnabled(CATEGORY, newPkg, "android")
@@ -126,7 +112,7 @@ class LockClockFontsPreference @JvmOverloads constructor(
                 Log.e(TAG, "Failed to apply lock clock font overlay", e)
                 mainHandler.post { onFailed() }
             }
-        }, "LockClockFontOverlay").start()
+        }
     }
 
     private fun getAppliedPkg(): String {
@@ -159,6 +145,8 @@ class LockClockFontsPreference @JvmOverloads constructor(
     companion object {
         private const val TAG = "LockClockFontsPreference"
         private const val CATEGORY = "android.theme.customization.lockscreen_clock_font"
+
+        private val overlayExecutor = Executors.newSingleThreadExecutor()
 
         private fun getLabelSafe(context: Context, pkg: String): String {
             return try {
