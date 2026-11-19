@@ -888,6 +888,9 @@
     <string name="tensor_targets_none_configured">لا توجد تطبيقات مستهدفة</string>
     <string name="tensor_targets_count">تم استهداف %1$d من التطبيقات</string>
     <string name="tensor_targets_empty_description">ستبلغ التطبيقات المحددة عن ميزات عتاد Tensor لفتح وظائف الذكاء الاصطناعي وميزات Pixel الحصرية</string>
+    <string name="tensor_spoof_timed_title">مؤقت (ساعة واحدة)</string>
+    <string name="tensor_spoof_timed_summary_off">يبقى مفعّلًا حتى توقفه يدويًا</string>
+    <string name="tensor_spoof_timed_remaining">يتبقى %1$d دقيقة</string>
     <string name="user_selectable_app_spoofing_title">انتحال التطبيقات والألعاب</string>
     <string name="user_selectable_app_spoofing_summary">انتحال خصائص الجهاز لتطبيقات وألعاب محددة</string>
     <string name="user_select_spoofing_profile_title">اختيار ملف انتحال</string>
