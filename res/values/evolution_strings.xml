@@ -345,6 +345,7 @@
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Show Google Smartspace when available</string>
+    <string name="lockscreen_smartspace_custom_clock_info">Not available while a custom clock style is enabled</string>
 
     <!-- Lock screen/Depth wallpaper -->
     <string name="depthwall_file_header_select_title">Select Depth wallpaper subject</string>
