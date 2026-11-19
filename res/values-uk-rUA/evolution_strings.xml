@@ -813,6 +813,13 @@
     <string name="quick_settings_header_file_select_title">Вибрати зображення</string>
     <string name="quick_settings_header_file_select_summary">Виберіть власне зображення або анімований GIF-файл</string>
     <string name="quick_settings_header_needs_gallery">Потрібен додаток-галерея</string>
+    <string name="qs_header_preview_title">Попередній перегляд шапки</string>
+    <string name="qs_header_preview_summary">Зведіть або розведіть пальці для масштабування й перетягніть для зміни положення або скористайтеся повзунками. Зміни миттєво застосовуються до швидких налаштувань.</string>
+    <string name="qs_header_preview_empty">Імпортуйте зображення або виберіть статичну шапку з OmniStyle, щоб налаштувати її обрізання.</string>
+    <string name="qs_header_preview_zoom_value">Масштаб: %1$d%%</string>
+    <string name="qs_header_preview_horizontal_value">Горизонтальне положення: %1$d%%</string>
+    <string name="qs_header_preview_vertical_value">Вертикальне положення: %1$d%%</string>
+    <string name="qs_header_preview_reset">Скинути</string>
     <string name="quick_settings_header_offset_title">Зміщення зображення заголовка</string>
     <string name="quick_settings_header_offset_summary">Налаштуйте розмір зображення заголовка</string>
     <string name="quick_settings_header_file_failed">Не вдалося завантажити вибране зображення</string>
@@ -829,6 +836,11 @@
     <string name="quick_settings_footer_edit_icon_title">Піктограма редагування плиток</string>
     <string name="quick_settings_footer_show_power_menu_title">Меню живлення</string>
     <string name="quick_settings_footer_settings_icon_title">Ярлик налаштувань</string>
+    <string name="qs_header_clock_style_title">Стиль годинника в шапці швидких налаштувань</string>
+    <string name="qs_header_style1">Чіп</string>
+    <string name="qs_header_style2">Oxygen</string>
+    <string name="qs_header_style3">Аналоговий</string>
+    <string name="qs_header_style4">Простий</string>
     <string name="qs_compact_media_player_mode_title">Компактний медіаплеєр</string>
     <string name="qs_compact_media_player_mode_summary">Використовуйте компактний режим для медіаплеєра швидких налаштувань</string>
     <string name="qs_show_media_player_title">Положення медіаплеєра</string>
@@ -1004,6 +1016,9 @@
     <string name="tensor_targets_none_configured">Немає цільових додатків</string>
     <string name="tensor_targets_count">Цільових програм %1$d</string>
     <string name="tensor_targets_empty_description">Вибрані додатки повідомлять про функціонал Tensor для розблокування функцій AI і Pixel-exclusive</string>
+    <string name="tensor_spoof_timed_title">Тимчасово (1 година)</string>
+    <string name="tensor_spoof_timed_summary_off">Залишається ввімкненим, доки Ви не вимкнете його</string>
+    <string name="tensor_spoof_timed_remaining">Залишилося %1$d хв.</string>
     <string name="user_selectable_app_spoofing_title">Додаток та ігрові Spoofing</string>
     <string name="user_selectable_app_spoofing_summary">Імітувати властивості пристрою для певних програм та ігор</string>
     <string name="user_select_spoofing_profile_title">Виберіть профіль Spoofing</string>
@@ -1568,4 +1583,7 @@
     <string name="ts_rkp_native_unavailable">Вбудований допоміжний засіб для налаштування недоступний або несумісний із цією мікропрограмою</string>
     <string name="ts_rkp_native_transport">Служба нативного надання ресурсів несподівано зупинилася. Автоматичне надання ресурсів призупинено.</string>
     <string name="ts_rkp_invalid_response">Пристрій повернув неприпустиму відповідь на запит щодо ініціалізації. Наявне сховище ключів було збережено.</string>
+    <!-- Lockscreen lock icon -->
+    <string name="lockscreen_hide_lock_icon_title">Приховати значок замка</string>
+    <string name="lockscreen_hide_lock_icon_summary">Приховувати значки блокування та розблокування на екрані блокування, залишаючи видимим значок відбитка пальця</string>
 </resources>
