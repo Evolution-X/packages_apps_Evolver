@@ -860,6 +860,13 @@
     <string name="quick_settings_header_file_select_title">Select image</string>
     <string name="quick_settings_header_file_select_summary">Select a custom image or animated GIF</string>
     <string name="quick_settings_header_needs_gallery">A gallery app is required</string>
+    <string name="qs_header_preview_title">Header preview</string>
+    <string name="qs_header_preview_summary">Pinch to zoom and drag to reposition, or use the sliders. Changes apply to Quick Settings immediately.</string>
+    <string name="qs_header_preview_empty">Import an image or select a static header from OmniStyle to adjust its crop.</string>
+    <string name="qs_header_preview_zoom_value">Zoom: %1$d%%</string>
+    <string name="qs_header_preview_horizontal_value">Horizontal position: %1$d%%</string>
+    <string name="qs_header_preview_vertical_value">Vertical position: %1$d%%</string>
+    <string name="qs_header_preview_reset">Reset</string>
     <string name="quick_settings_header_offset_title">Header image offset</string>
     <string name="quick_settings_header_offset_summary">Adjust the header image size</string>
     <string name="quick_settings_header_file_failed">Couldn\'t load the selected image</string>
