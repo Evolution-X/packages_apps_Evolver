@@ -214,6 +214,7 @@
     <string name="lockscreen_custom_clock_layout_category_title">Size and position</string>
     <string name="lockscreen_custom_clock_animation_category_title">Animation</string>
     <string name="lockscreen_custom_clock_browse_all_clocks">Browse all clocks</string>
+    <string name="lockscreen_custom_clock_applied"><xliff:g id="clock_name" example="OnePlus Clock">%1$s</xliff:g> applied</string>
 
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">Size</string>
