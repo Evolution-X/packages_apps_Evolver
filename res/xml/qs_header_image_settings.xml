@@ -25,6 +25,10 @@
         android:summary="@string/quick_settings_header_image_summary"
         android:defaultValue="false" />
 
+    <org.evolution.settings.preferences.QsHeaderImagePreviewPreference
+        android:key="qs_header_image_preview"
+        android:dependency="status_bar_custom_header" />
+
     <org.evolution.settings.preferences.PickerListPreference
         android:key="qs_header_provider"
         android:title="@string/quick_settings_header_provider_title"
