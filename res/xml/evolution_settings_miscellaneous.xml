@@ -143,6 +143,19 @@
             android:summary="@string/hide_status_bar_in_screenshot_summary"
             android:defaultValue="false" />
 
+        <!-- Screen capture -->
+        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
+            android:key="hide_screen_capture_status"
+            android:title="@string/hide_screen_capture_status_title"
+            android:summary="@string/hide_screen_capture_status_summary"
+            android:defaultValue="false" />
+
+        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
+            android:key="window_ignore_secure"
+            android:title="@string/miscellaneous_ignore_window_secure_title"
+            android:summary="@string/miscellaneous_ignore_window_secure_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -190,18 +203,6 @@
             android:title="@string/miscellaneous_screenshot_flash_title"
             android:summary="@string/miscellaneous_screenshot_flash_summary"
             android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
-            android:key="window_ignore_secure"
-            android:title="@string/miscellaneous_ignore_window_secure_title"
-            android:summary="@string/miscellaneous_ignore_window_secure_summary"
-            android:defaultValue="false" />
-
-        <org.evolution.settings.preferences.GlobalSettingSwitchPreference
-            android:key="hide_screen_capture_status"
-            android:title="@string/hide_screen_capture_status_title"
-            android:summary="@string/hide_screen_capture_status_summary"
-            android:defaultValue="false" />
 
     </PreferenceCategory>
 
