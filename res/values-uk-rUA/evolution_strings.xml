@@ -199,9 +199,12 @@
     <string name="lockscreen_custom_clock_layout_category_title">Розмір і положення</string>
     <string name="lockscreen_custom_clock_animation_category_title">Анімація</string>
     <string name="lockscreen_custom_clock_browse_all_clocks">Переглянути всі годинники</string>
+    <string name="lockscreen_custom_clock_applied">Застосовано <xliff:g id="clock_name" example="OnePlus Clock">%1$s</xliff:g></string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">Розмір</string>
     <string name="clock_size_summary">Масштабувати годинник екрана блокування (50–150%)</string>
+    <string name="lockscreen_custom_clock_dynamic_size_title">Динамічний розмір годинника</string>
+    <string name="lockscreen_custom_clock_dynamic_size_summary">Збільшуйте годинник, коли на екрані блокування немає сповіщень або медіавмісту. Стилі з дуже великим годинником зберігають свій розмір.</string>
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">Колір обкладинки альбому</string>
     <string name="clock_album_art_color_summary">Перевизначити колір годинника з палітром альбому при відтворенні мультимедіа</string>
@@ -316,6 +319,7 @@
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Розумне місце (Smartspace)</string>
     <string name="lockscreen_smartspace_summary">Показувати Google Smartspace за наявності</string>
+    <string name="lockscreen_smartspace_custom_clock_info">Не доступно, поки користувацький стиль годинника увімкнено</string>
     <!-- Lock screen/Depth wallpaper -->
     <string name="depthwall_file_header_select_title">Вибрати шпалери з ефектом глибини</string>
     <string name="depthwall_file_header_select_summary">Вибрати зображення для шпалер з ефектом глибини зі сховища.</string>
@@ -777,8 +781,6 @@
     <string name="quick_settings_auto_brightness_icon_summary">Показати адаптивну яскравість перемикання поруч із повзунком</string>
     <string name="quick_settings_brightness_slider_haptic_title">Вібровідгук</string>
     <string name="quick_settings_brightness_slider_haptic_summary">Вібрувати при налаштуванні яскравості з повзунка</string>
-    <string name="qs_brightness_slider_gradient_title">Градієнт повзунка яскравості</string>
-    <string name="qs_brightness_slider_gradient_summary">Увімкнути градієнтний фон для повзунка яскравості</string>
     <!-- Quick settings/Animations -->
     <string name="qs_tile_animation_style_title">Анімація плитки</string>
     <string name="qs_tile_animation_style_bounce">Відскок</string>
@@ -833,8 +835,6 @@
     <string name="qs_show_media_player_hide">Приховати</string>
     <string name="qs_show_media_player_top">Показати зверху</string>
     <string name="qs_show_media_player_bottom">Показати внизу</string>
-    <string name="qs_tile_gradient_title">Градієнт плитки QS</string>
-    <string name="qs_tile_gradient_summary">Увімкнути градієнти для плиток швидких налаштувань</string>
     <!-- QS widget -->
     <string name="qs_widget_panel_title">Показувати віджети в панелі швидких налаштувань</string>
     <string name="qs_widget_panel_summary">Показувати мультимедіа і гучність, яскравість віджету в панелі швидких налаштувань</string>
@@ -1238,8 +1238,23 @@
     <string name="video_wallpaper_category_title">Відеошпалери</string>
     <string name="video_wallpaper_category_summary">Встановити анімовані шпалери (MP4, GIF, WebP)</string>
     <!-- Gradient styles -->
-    <string name="gradient_settings_title">Градієнтна кастомізація</string>
-    <string name="gradient_settings_summary">Застосувати градієнт кольорів до системних елементів</string>
+    <string name="gradient_settings_title">Налаштування градієнтів</string>
+    <string name="gradient_settings_summary">Застосувати градієнт кольорів до різних системних елементів</string>
+    <string name="gradient_elements_category">Системні елементи</string>
+    <string name="gradient_colors_category">Кльори градієнта</string>
+    <string name="qs_tile_gradient_title">Градієнт плиток швидких налаштувань</string>
+    <string name="qs_tile_gradient_summary">Увімкнути градієнти для плиток швидких налаштувань</string>
+    <string name="qs_brightness_slider_gradient_title">Градієнт повзунка яскравості QS</string>
+    <string name="qs_brightness_slider_gradient_summary">Увімкнути градієнт тла для повзунка яскравості QS</string>
+    <string name="volume_slider_gradient_title">Градієнт повзунка гучності</string>
+    <string name="volume_slider_gradient_summary">Увімкнути градієнт тла для повзунка гучності</string>
+    <string name="custom_gradient_color_mode_title">Градієнтний колірний режим</string>
+    <string name="custom_gradient_color_mode_auto">Автоматичний режим</string>
+    <string name="custom_gradient_color_mode_custom">Користувацький режим</string>
+    <string name="custom_gradient_start_color_title">Градієнт початкового кольору</string>
+    <string name="custom_gradient_end_color_title">Градієнт кінцевого кольору</string>
+    <string name="custom_gradient_angle_title">Градієнтний кут</string>
+    <string name="custom_gradient_angle_summary">Обертає градієнт проти годинникової стрілки. На 0° він тече від початку до кінця, вздовж напрямку заповнення слайдерів</string>
     <!-- Liquid Glass -->
     <string name="liquid_glass_title">Рідке скло</string>
     <string name="liquid_glass_summary">Відображайте розмиті поверхні як скло з підсвіченим краєм</string>
@@ -1253,15 +1268,14 @@
     <string name="liquid_glass_shade_category">Тінь</string>
     <string name="liquid_glass_dual_tone_title">Двоколірний відтінок</string>
     <string name="liquid_glass_dual_tone_summary">Легкий відтінок позаду сповіщень, щоб вони виділялися на тлі швидких налаштувань</string>
-    <string name="gradient_elements_category">Системні елементи</string>
-    <string name="gradient_colors_category">Кльори градієнта</string>
-    <string name="volume_slider_gradient_title">Градієнт повзунка гучності</string>
-    <string name="volume_slider_gradient_summary">Увімкнути градієнтне тло для повзунка гучності</string>
-    <string name="custom_gradient_color_mode_title">Градієнтний колірний режим</string>
-    <string name="custom_gradient_color_mode_auto">Автоматично</string>
-    <string name="custom_gradient_color_mode_custom">Персоналізація</string>
-    <string name="custom_gradient_start_color_title">Початковий колір</string>
-    <string name="custom_gradient_end_color_title">Кінцевий колір</string>
+    <string name="liquid_glass_tab_bars_category">В додатках</string>
+    <string name="liquid_glass_tab_bars_title">Скляні панелі вкладок</string>
+    <string name="liquid_glass_tab_bars_summary">Розмістіть нижні панелі програм у вигляді скляної капсули в стилі iOS</string>
+    <string name="liquid_glass_tab_bars_apps_title">Виберіть застосунки</string>
+    <string name="liquid_glass_tab_bars_apps_summary">Вимкнути скло для додатку або дозволити його вміст під панеллю</string>
+    <string name="liquid_glass_tab_bar_mode_off">Вимкнути</string>
+    <string name="liquid_glass_tab_bar_mode_glass">Скло</string>
+    <string name="liquid_glass_tab_bar_mode_float">Плаваючий елемент</string>
     <!-- Fonts -->
     <string name="font_styles_title">Стиль шрифту</string>
     <string name="font_styles_summary">Зміна стилю системного шрифту</string>
@@ -1283,6 +1297,7 @@
     <string name="toast_invalid_emoji_file">Недійсний файл шрифту емодзі</string>
     <string name="toast_emoji_font_too_old">Встановлена новіша версія шрифту для смайликів</string>
     <string name="toast_emoji_not_installed">Спочатку додайте власний шрифт емодзі</string>
+    <string name="toast_emoji_busy">Ще одна зміна емодзі все ще триває</string>
     <string name="emoji_restart_title">Перезапустіть, щоб застосувати емодзі</string>
     <string name="emoji_restart_message">Ці емодзі замінюють системні емодзі в усіх програмах, що використовують системний шрифт. Якщо виконати перезапуск зараз, буде перезапущено інтерфейс системи (SystemUI) і закрито всі запущені програми, щоб вони підхопили нові емодзі. Якщо ж перезапустити пристрій пізніше, кожна програма оновиться під час наступного запуску.</string>
     <string name="emoji_restart_now">Перезавантажити зараз</string>
@@ -1290,6 +1305,11 @@
     <string name="emoji_apps_reset_short">Скидання додатків</string>
     <string name="emoji_apps_confirm">Цей процес копіює ваш шрифт емодзі, замінюючи ним усі шрифти емодзі, що зберігаються в даних програм; блокує завантаження власних шрифтів програмами Facebook і Messenger; очищує кеш цих програм, а також клавіатури Gboard; і вимикає постачальника шрифтів у сервісах Google Play. Робота відповідних програм примусово завершується. Виконайте цю процедуру повторно після оновлення вказаних програм.</string>
     <string name="emoji_apps_reset_button">Скинути</string>
+    <string name="emoji_apps_restore">Відновити сторонні програми</string>
+    <string name="emoji_apps_restore_short">Відновити програми</string>
+    <string name="emoji_apps_restore_confirm">Якщо в таких програмах, як Gboard, Facebook або Messenger, все ще відображаються емодзі зі шрифту, який ви видалили, ця дія видалить усі шрифти емодзі, що зберігаються в даних програм, змушуючи кожну з них завантажити їх заново. Це дозволяє Facebook і Messenger повторно завантажити власні шрифти, очищує кеш цих програм та Gboard, а також знову вмикає функцію надання шрифтів через сервіси Google Play. Робота відповідних програм буде примусово зупинена.</string>
+    <string name="emoji_apps_restore_button">Відновити</string>
+    <string name="emoji_apps_restored">Додатки, у яких було скопійовано шрифт емодзі, тепер знову завантажують власний.</string>
     <plurals name="emoji_apps_done">
         <item quantity="one">Замінено шрифт емодзі %1$d у даному застосунку. У застосунку, який використовує
 завантажувані емодзі, тепер застосовуються системні емодзі.</item>
