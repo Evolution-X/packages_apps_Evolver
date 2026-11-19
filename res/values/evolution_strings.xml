@@ -1030,7 +1030,7 @@
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignore wallpaper dimming requests</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Block all apps from dimming the wallpaper, forcing dim level to 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignore secure window flags</string>
-    <string name="miscellaneous_ignore_window_secure_summary">Remove screenshot and screen recording restrictions for all apps. May expose private content</string>
+    <string name="miscellaneous_ignore_window_secure_summary">Allow screenshots and screen recording of protected content without hiding detection. May expose private content.</string>
     <string name="miscellaneous_screenshot_flash_title">Show screenshot flash</string>
     <string name="miscellaneous_screenshot_flash_summary">Briefly flash the screen when a screenshot is taken</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Unlimited screen record</string>
@@ -1595,7 +1595,7 @@
 
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Hide screen capture status</string>
-    <string name="hide_screen_capture_status_summary">Hide screen capture/record status from apps. Useful but may risk privacy. Restart apps to apply.</string>
+    <string name="hide_screen_capture_status_summary">Hide screen capture/record status from apps and allow capturing protected content. Useful but may risk privacy.</string>
 
     <!-- Dynamic island -->
     <string name="status_bar_dynamic_island_title">Dynamic island</string>
