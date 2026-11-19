@@ -846,7 +846,7 @@
     <string name="miscellaneous_block_wallpaper_dimming_title">تجاهل طلبات تعتيم الخلفية</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">منع جميع التطبيقات من تعتيم الخلفية وإجبار مستوى التعتيم على 0</string>
     <string name="miscellaneous_ignore_window_secure_title">تجاهل علامات النوافذ الآمنة</string>
-    <string name="miscellaneous_ignore_window_secure_summary">إزالة قيود لقطات الشاشة وتسجيل الشاشة لجميع التطبيقات. قد يكشف ذلك محتوى خاصًا</string>
+    <string name="miscellaneous_ignore_window_secure_summary">السماح بلقطات الشاشة وتسجيل المحتوى المحمي دون إخفاء الكشف. قد يكشف محتوى خاصًا.</string>
     <string name="miscellaneous_screenshot_flash_title">إظهار وميض لقطة الشاشة</string>
     <string name="miscellaneous_screenshot_flash_summary">إظهار وميض قصير على الشاشة عند التقاط لقطة شاشة</string>
     <string name="miscellaneous_block_screenshot_detection_title">حظر اكتشاف لقطات الشاشة</string>
@@ -1418,7 +1418,7 @@
     <string name="wallpaper_zoom_title">تكبير الخلفية</string>
     <string name="wallpaper_zoom_summary">أطفئه لعرض الخلفية دون تكبير إضافي</string>
     <string name="hide_screen_capture_status_title">إخفاء حالة التقاط الشاشة</string>
-    <string name="hide_screen_capture_status_summary">إخفاء حالة التقاط/تسجيل الشاشة عن التطبيقات. مفيد لكن قد يهدد الخصوصية. أعد تشغيل التطبيقات للتطبيق.</string>
+    <string name="hide_screen_capture_status_summary">إخفاء حالة التقاط/تسجيل الشاشة والسماح بالتقاط المحتوى المحمي. مفيد لكن قد يهدد الخصوصية.</string>
     <string name="status_bar_dynamic_island_title">الجزيرة الديناميكية</string>
     <string name="status_bar_dynamic_island_summary">ضبط الجزيرة واختيار الميزات التي يمكن أن تظهر فيها</string>
     <string name="dynamic_island_footer_title">حول الجزيرة الديناميكية</string>
