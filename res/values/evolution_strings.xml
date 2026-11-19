@@ -1059,6 +1059,9 @@
     <string name="tensor_targets_none_configured">No apps targeted</string>
     <string name="tensor_targets_count">%1$d apps targeted</string>
     <string name="tensor_targets_empty_description">Selected apps will report Tensor hardware features to unlock AI and Pixel-exclusive functionality</string>
+    <string name="tensor_spoof_timed_title">Temporary (1 hour)</string>
+    <string name="tensor_spoof_timed_summary_off">Stays on until you turn it off</string>
+    <string name="tensor_spoof_timed_remaining">%1$d min remaining</string>
     <string name="user_selectable_app_spoofing_title">App and game spoofing</string>
     <string name="user_selectable_app_spoofing_summary">Spoof device properties for specific apps and games</string>
     <string name="user_select_spoofing_profile_title">Select spoofing profile</string>
