@@ -200,9 +200,12 @@
     <string name="lockscreen_custom_clock_layout_category_title">Tamanho e posição</string>
     <string name="lockscreen_custom_clock_animation_category_title">Animação</string>
     <string name="lockscreen_custom_clock_browse_all_clocks">Veja todos os relógios</string>
+    <string name="lockscreen_custom_clock_applied"><xliff:g id="clock_name" example="OnePlus Clock">%1$s</xliff:g> aplicado</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">Tamanho</string>
     <string name="clock_size_summary">Escala do relógio da tela de bloqueio (50-150%)</string>
+    <string name="lockscreen_custom_clock_dynamic_size_title">Tamanho dinâmico do relógio</string>
+    <string name="lockscreen_custom_clock_dynamic_size_summary">Aumenta o relógio quando não há notificações nem mídia na tela de bloqueio. Estilos de relógio muito grandes mantêm o tamanho</string>
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">Seguir a cor da capa do álbum</string>
     <string name="clock_album_art_color_summary">Substituir a cor do relógio pela paleta da capa do álbum durante a reprodução</string>
@@ -317,6 +320,7 @@
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Mostrar Google Smartspace quando disponível</string>
+    <string name="lockscreen_smartspace_custom_clock_info">Indisponível enquanto um estilo de relógio personalizado estiver ativado</string>
     <!-- Lock screen/Depth wallpaper -->
     <string name="depthwall_file_header_select_title">Selecionar o objeto principal do papel de parede com profundidade</string>
     <string name="depthwall_file_header_select_summary">Selecionar a imagem do objeto principal do papel de parede com profundidade do armazenamento.</string>
@@ -778,8 +782,6 @@
     <string name="quick_settings_auto_brightness_icon_summary">Mostrar a chave de brilho adaptável ao lado do controle deslizante</string>
     <string name="quick_settings_brightness_slider_haptic_title">Feedback tátil</string>
     <string name="quick_settings_brightness_slider_haptic_summary">Vibrar ao ajustar o brilho com o controle deslizante</string>
-    <string name="qs_brightness_slider_gradient_title">Gradiente do controle deslizante de brilho</string>
-    <string name="qs_brightness_slider_gradient_summary">Ativar o fundo gradiente para o controle deslizante de brilho</string>
     <!-- Quick settings/Animations -->
     <string name="qs_tile_animation_style_title">Animação de bloco</string>
     <string name="qs_tile_animation_style_bounce">Quicar</string>
@@ -812,6 +814,13 @@
     <string name="quick_settings_header_file_select_title">Selecionar imagem</string>
     <string name="quick_settings_header_file_select_summary">Selecionar uma imagem personalizada ou GIF animado</string>
     <string name="quick_settings_header_needs_gallery">É necessário um app de galeria</string>
+    <string name="qs_header_preview_title">Pré-visualização do cabeçalho</string>
+    <string name="qs_header_preview_summary">Use pinça para dar zoom e arraste para reposicionar, ou use os controles deslizantes. As alterações são aplicadas imediatamente às Configurações rápidas.</string>
+    <string name="qs_header_preview_empty">Importe uma imagem ou selecione um cabeçalho estático do OmniStyle para ajustar o recorte.</string>
+    <string name="qs_header_preview_zoom_value">Zoom: %1$d%%</string>
+    <string name="qs_header_preview_horizontal_value">Posição horizontal: %1$d%%</string>
+    <string name="qs_header_preview_vertical_value">Posição vertical: %1$d%%</string>
+    <string name="qs_header_preview_reset">Redefinir</string>
     <string name="quick_settings_header_offset_title">Deslocamento da imagem do cabeçalho</string>
     <string name="quick_settings_header_offset_summary">Ajustar o tamanho da imagem do cabeçalho</string>
     <string name="quick_settings_header_file_failed">Não foi possível carregar a imagem selecionada</string>
@@ -828,14 +837,17 @@
     <string name="quick_settings_footer_edit_icon_title">Ícone de editar blocos</string>
     <string name="quick_settings_footer_show_power_menu_title">Atalho do menu liga/desliga</string>
     <string name="quick_settings_footer_settings_icon_title">Atalho de configurações</string>
+    <string name="qs_header_clock_style_title">Estilo do relógio do cabeçalho das Configurações rápidas</string>
+    <string name="qs_header_style1">Chip</string>
+    <string name="qs_header_style2">Oxygen</string>
+    <string name="qs_header_style3">Analógico</string>
+    <string name="qs_header_style4">Simples</string>
     <string name="qs_compact_media_player_mode_title">Reprodutor de mídia compacto</string>
     <string name="qs_compact_media_player_mode_summary">Usar o modo compacto no reprodutor de mídia das Configurações rápidas</string>
     <string name="qs_show_media_player_title">Posição do reprodutor de mídia</string>
     <string name="qs_show_media_player_hide">Ocultar</string>
     <string name="qs_show_media_player_top">Mostrar na parte superior</string>
     <string name="qs_show_media_player_bottom">Mostrar na parte inferior</string>
-    <string name="qs_tile_gradient_title">Gradiente dos blocos</string>
-    <string name="qs_tile_gradient_summary">Ativar fundos em gradiente para os blocos</string>
     <!-- QS widget -->
     <string name="qs_widget_panel_title">Mostrar widget no painel de Configurações rápidas</string>
     <string name="qs_widget_panel_summary">Mostrar mídia e volume, widget de brilho nas Configurações rápidas</string>
@@ -1005,6 +1017,9 @@
     <string name="tensor_targets_none_configured">Nenhum app de destino</string>
     <string name="tensor_targets_count">%1$d apps de destino</string>
     <string name="tensor_targets_empty_description">Os apps selecionados informarão recursos de hardware do Tensor para desbloquear funcionalidades exclusivas de IA e Pixel</string>
+    <string name="tensor_spoof_timed_title">Temporário (1 hora)</string>
+    <string name="tensor_spoof_timed_summary_off">Permanece ativado até você desativar</string>
+    <string name="tensor_spoof_timed_remaining">%1$d min restantes</string>
     <string name="user_selectable_app_spoofing_title">Falsificação de apps e jogos</string>
     <string name="user_selectable_app_spoofing_summary">Falsificar propriedades do dispositivo para apps e jogos específicos</string>
     <string name="user_select_spoofing_profile_title">Selecionar perfil de falsificação</string>
@@ -1241,6 +1256,21 @@
     <!-- Gradient styles -->
     <string name="gradient_settings_title">Personalização de gradiente</string>
     <string name="gradient_settings_summary">Aplicar cores em gradiente aos elementos do sistema</string>
+    <string name="gradient_elements_category">Elementos do sistema</string>
+    <string name="gradient_colors_category">Cores do gradiente</string>
+    <string name="qs_tile_gradient_title">Gradiente dos blocos</string>
+    <string name="qs_tile_gradient_summary">Ativar fundos em gradiente para os blocos</string>
+    <string name="qs_brightness_slider_gradient_title">Gradiente do controle deslizante de brilho</string>
+    <string name="qs_brightness_slider_gradient_summary">Ativar o fundo gradiente para o controle deslizante de brilho</string>
+    <string name="volume_slider_gradient_title">Gradiente do controle deslizante de volume</string>
+    <string name="volume_slider_gradient_summary">Ativar o fundo em gradiente para o controle deslizante de volume</string>
+    <string name="custom_gradient_color_mode_title">Modo de cor do gradiente</string>
+    <string name="custom_gradient_color_mode_auto">Automático</string>
+    <string name="custom_gradient_color_mode_custom">Personalizado</string>
+    <string name="custom_gradient_start_color_title">Cor inicial</string>
+    <string name="custom_gradient_end_color_title">Cor final</string>
+    <string name="custom_gradient_angle_title">Ângulo do gradiente</string>
+    <string name="custom_gradient_angle_summary">Gira o gradiente no sentido anti-horário. Em 0° ele flui do início ao fim, na direção de preenchimento dos controles deslizantes</string>
     <!-- Liquid Glass -->
     <string name="liquid_glass_title">Liquid Glass</string>
     <string name="liquid_glass_summary">Desenha superfícies desfocadas como vidro, com uma borda iluminada</string>
@@ -1254,15 +1284,14 @@
     <string name="liquid_glass_shade_category">Sombreado</string>
     <string name="liquid_glass_dual_tone_title">Sombreado em dois tons</string>
     <string name="liquid_glass_dual_tone_summary">Uma leve tonalidade atrás das notificações, para que se destaquem das Configurações rápidas</string>
-    <string name="gradient_elements_category">Elementos do sistema</string>
-    <string name="gradient_colors_category">Cores do gradiente</string>
-    <string name="volume_slider_gradient_title">Gradiente do controle deslizante de volume</string>
-    <string name="volume_slider_gradient_summary">Ativar o fundo em gradiente para o controle deslizante de volume</string>
-    <string name="custom_gradient_color_mode_title">Modo de cor do gradiente</string>
-    <string name="custom_gradient_color_mode_auto">Automático</string>
-    <string name="custom_gradient_color_mode_custom">Personalizado</string>
-    <string name="custom_gradient_start_color_title">Cor inicial</string>
-    <string name="custom_gradient_end_color_title">Cor final</string>
+    <string name="liquid_glass_tab_bars_category">Em apps</string>
+    <string name="liquid_glass_tab_bars_title">Barras de abas de vidro</string>
+    <string name="liquid_glass_tab_bars_summary">Faz as barras inferiores dos apps flutuarem como uma cápsula de vidro estilo iOS</string>
+    <string name="liquid_glass_tab_bars_apps_title">Escolher apps</string>
+    <string name="liquid_glass_tab_bars_apps_summary">Desative o vidro em um app ou deixe o conteúdo passar por baixo da barra</string>
+    <string name="liquid_glass_tab_bar_mode_off">Desativado</string>
+    <string name="liquid_glass_tab_bar_mode_glass">Vidro</string>
+    <string name="liquid_glass_tab_bar_mode_float">Flutuante</string>
     <!-- Fonts -->
     <string name="font_styles_title">Estilos de fonte</string>
     <string name="font_styles_summary">Alterar o estilo da fonte do sistema</string>
@@ -1284,6 +1313,7 @@
     <string name="toast_invalid_emoji_file">Arquivo de fonte emoji inválido</string>
     <string name="toast_emoji_font_too_old">Uma versão mais recente desta fonte de emoji já está instalada</string>
     <string name="toast_emoji_not_installed">Adicione uma fonte de emoji personalizada primeiro</string>
+    <string name="toast_emoji_busy">Outra alteração de emoji ainda está em andamento</string>
     <string name="emoji_restart_title">Reinicie para aplicar os emoji</string>
     <string name="emoji_restart_message">Esses emoji substituem os emoji do sistema em todos os apps que usam a fonte do sistema. Reiniciar agora reinicia a interface do sistema e fecha todos os apps em execução para que eles carreguem os novos emoji. Se você reiniciar depois, cada app passará a usá-los na próxima vez em que for aberto.</string>
     <string name="emoji_restart_now">Reiniciar agora</string>
@@ -1291,6 +1321,11 @@
     <string name="emoji_apps_reset_short">Redefinir apps</string>
     <string name="emoji_apps_confirm">Isso copia sua fonte de emoji sobre todas as fontes de emoji armazenadas nos dados dos apps, impede que o Facebook e o Messenger baixem as próprias fontes, limpa o cache desses apps e do Gboard e desativa o provedor de fontes dos Serviços do Google Play. Os apps afetados são forçados a parar. Execute novamente após a atualização desses apps.</string>
     <string name="emoji_apps_reset_button">Redefinir</string>
+    <string name="emoji_apps_restore">Restaurar apps de terceiros</string>
+    <string name="emoji_apps_restore_short">Restaurar apps</string>
+    <string name="emoji_apps_restore_confirm">Se apps como Gboard, Facebook ou Messenger ainda mostrarem emoji de uma fonte que você removeu, isso exclui todas as fontes de emoji armazenadas nos dados dos apps para que cada app busque a sua novamente. Permite que o Facebook e o Messenger baixem as suas novamente, limpa o cache desses apps e do Gboard e reativa o provedor de fontes dos serviços do Google Play. Os apps afetados são forçados a parar.</string>
+    <string name="emoji_apps_restore_button">Restaurar</string>
+    <string name="emoji_apps_restored">Os apps que tinham uma fonte de emoji copiada agora buscam a sua novamente.</string>
     <plurals name="emoji_apps_done">
         <item quantity="one">Foi substituída %1$d fonte de emoji nos dados dos apps. Os apps que usam emoji baixáveis agora voltam a usar os emoji do sistema.</item>
         <item quantity="other">Foram substituídas %1$d fontes de emoji nos dados dos apps. Os apps que usam emoji baixáveis agora voltam a usar os emoji do sistema.</item>
@@ -1546,4 +1581,7 @@
     <string name="ts_rkp_native_unavailable">O auxiliar de provisionamento nativo está indisponível ou é incompatível com este firmware</string>
     <string name="ts_rkp_native_transport">O serviço de provisionamento nativo parou inesperadamente. O provisionamento automático está pausado.</string>
     <string name="ts_rkp_invalid_response">O dispositivo retornou uma resposta de provisionamento inválida. A keybox existente foi mantida.</string>
+    <!-- Lockscreen lock icon -->
+    <string name="lockscreen_hide_lock_icon_title">Ocultar ícone de cadeado</string>
+    <string name="lockscreen_hide_lock_icon_summary">Oculta os ícones de bloqueio e desbloqueio na tela de bloqueio, mantendo o ícone de impressão digital visível</string>
 </resources>
