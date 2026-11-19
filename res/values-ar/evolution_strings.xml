@@ -1514,19 +1514,6 @@
         <item quantity="other">تم استبدال %1$d من خطوط الرموز التعبيرية في بيانات التطبيقات. التطبيقات التي تستخدم رموزًا تعبيرية قابلة للتنزيل ستعود الآن إلى رموز النظام.</item>
     </plurals>
 
-    <!-- Liquid Glass -->
-    <string name="liquid_glass_title">Liquid Glass</string>
-    <string name="liquid_glass_summary">عرض الأسطح الضبابية كزجاج بحافة مضيئة</string>
-    <string name="liquid_glass_use_title">استخدام Liquid Glass</string>
-    <string name="liquid_glass_use_summary">حوّل أسطح النظام الضبابية، مثل بطاقات الجزيرة الديناميكية، إلى زجاج</string>
-    <string name="liquid_glass_style_title">النمط</string>
-    <string name="liquid_glass_style_ios">iOS</string>
-    <string name="liquid_glass_style_coloros">ColorOS</string>
-    <string name="liquid_glass_refraction_title">الانكسار</string>
-    <string name="liquid_glass_refraction_summary">مدى انحناء حافة الزجاج فيما يقع خلفها مباشرةً</string>
-    <string name="liquid_glass_shade_category">لوحة الإشعارات</string>
-    <string name="liquid_glass_dual_tone_title">تظليل ثنائي اللون</string>
-    <string name="liquid_glass_dual_tone_summary">تلوين خفيف خلف الإشعارات لتمييزها عن الإعدادات السريعة</string>
     <!-- Media & codecs -->
     <string name="media_title">الوسائط والكوديك</string>
     <string name="media_summary">الكوديكات والصيغ ودعم HDR على هذا الجهاز</string>
@@ -1591,4 +1578,17 @@
     <string name="media_spatial_unavailable">غير متاح</string>
     <string name="media_codec_write_failed">تعذّر تغيير هذا الإعداد</string>
 
+    <!-- Liquid Glass -->
+    <string name="liquid_glass_title">Liquid Glass</string>
+    <string name="liquid_glass_summary">عرض الأسطح الضبابية كزجاج بحافة مضيئة</string>
+    <string name="liquid_glass_use_title">استخدام Liquid Glass</string>
+    <string name="liquid_glass_use_summary">حوّل أسطح النظام الضبابية، مثل بطاقات الجزيرة الديناميكية، إلى زجاج</string>
+    <string name="liquid_glass_style_title">النمط</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">الانكسار</string>
+    <string name="liquid_glass_refraction_summary">مدى انحناء حافة الزجاج فيما يقع خلفها مباشرةً</string>
+    <string name="liquid_glass_shade_category">لوحة الإشعارات</string>
+    <string name="liquid_glass_dual_tone_title">تظليل ثنائي اللون</string>
+    <string name="liquid_glass_dual_tone_summary">تلوين خفيف خلف الإشعارات لتمييزها عن الإعدادات السريعة</string>
 </resources>
