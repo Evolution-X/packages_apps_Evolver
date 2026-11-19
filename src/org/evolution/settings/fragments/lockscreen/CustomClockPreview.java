@@ -82,6 +82,8 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
     List<Preference> customOnlyPrefs = new ArrayList<>();
 
     private int mClockPosition = 0;
+    private int mAppliedClock = 0;
+    private boolean mSyncingPager = false;
 
     private Handler mHandler = new Handler();
 
@@ -251,6 +253,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
             Settings.Secure.putIntForUser(
                     getContext().getContentResolver(), Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
         }
+        mAppliedClock = mClockPosition;
         viewPager.setCurrentItem(mClockPosition);
 
         applyFab.setOnClickListener(v -> {
@@ -260,6 +263,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
             if (mClockPosition != currentClock) {
                 ClockUtils.applyClockStyle(ctx, mClockPosition);
             }
+            mAppliedClock = mClockPosition;
         });
 
         View browseButton = clockPreviewPref.findViewById(R.id.browse_clocks_button);
@@ -291,7 +295,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
             @Override
             public void onPageSelected(int position) {
                 mClockPosition = position;
-                if (viewPager != null) {
+                if (viewPager != null && !mSyncingPager) {
                     viewPager.performHapticFeedback(android.view.HapticFeedbackConstants.CLOCK_TICK);
                 }
                 updateClockName(position);
@@ -301,6 +305,19 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
 
         updateClockName(mClockPosition);
         updateClockPrefs(clockPreviewPref);
+    }
+
+    private void syncWithAppliedClock() {
+        if (viewPager == null) return;
+        int applied = Settings.Secure.getIntForUser(getContext().getContentResolver(),
+                Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
+        if (applied == mAppliedClock || applied < 0 || applied >= CLOCK_LAYOUTS.length) return;
+
+        mAppliedClock = applied;
+        mClockPosition = applied;
+        mSyncingPager = true;
+        viewPager.setCurrentItem(applied, false);
+        mSyncingPager = false;
     }
 
     private void updateClockName(int position) {
@@ -323,6 +340,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment implements Pr
     @Override
     public void onResume() {
         super.onResume();
+        syncWithAppliedClock();
         updateClockName(mClockPosition);
         updateClockPrefs(clockPreviewPref);
         updateClockColorSummary();
