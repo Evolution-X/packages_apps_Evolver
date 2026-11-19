@@ -58,4 +58,25 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="liquid_glass_tab_bars_category"
+        android:title="@string/liquid_glass_tab_bars_category">
+
+        <!-- Glass tab bars -->
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="liquid_glass_tab_bars"
+            android:title="@string/liquid_glass_tab_bars_title"
+            android:summary="@string/liquid_glass_tab_bars_summary"
+            android:defaultValue="false" />
+
+        <!-- Apps -->
+        <Preference
+            android:key="liquid_glass_tab_bars_apps"
+            android:title="@string/liquid_glass_tab_bars_apps_title"
+            android:summary="@string/liquid_glass_tab_bars_apps_summary"
+            android:dependency="liquid_glass_tab_bars"
+            android:fragment="org.evolution.settings.fragments.themes.LiquidGlassTabBarApps" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
