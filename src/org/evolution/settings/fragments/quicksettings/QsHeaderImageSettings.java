@@ -44,6 +44,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import org.evolution.settings.preferences.QsHeaderImagePreviewPreference;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -86,6 +88,7 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
     private ListPreference mDaylightHeaderPack;
     private ListPreference mHeaderProvider;
     private Preference mFileHeader;
+    private QsHeaderImagePreviewPreference mPreview;
     private boolean mBrowseAvailable;
 
     @Override
@@ -98,6 +101,7 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
         mHeaderProvider = (ListPreference) findPreference(CUSTOM_HEADER_PROVIDER);
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
         mFileHeader = findPreference(FILE_HEADER_SELECT);
+        mPreview = findPreference("qs_header_image_preview");
 
         mHeaderProvider.setOnPreferenceChangeListener(this);
         mDaylightHeaderPack.setOnPreferenceChangeListener(this);
@@ -122,6 +126,19 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
         }
         mHeaderProvider.setValue(providerName);
         updateProviderUi(providerName);
+        if (mPreview != null) mPreview.resumePreview();
+    }
+
+    @Override
+    public void onPause() {
+        if (mPreview != null) mPreview.pausePreview();
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (mPreview != null) mPreview.releasePreview();
+        super.onDestroyView();
     }
 
     @Override
@@ -257,6 +274,12 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT, 142, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_ZOOM, 100, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_POSITION_X, 500, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_POSITION_Y, 500, UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -361,6 +384,13 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
                     sir.xmlResId = R.xml.qs_header_image_settings;
                     result.add(sir);
                     return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = new ArrayList<>(super.getNonIndexableKeys(context));
+                    keys.add("qs_header_image_preview");
+                    return keys;
                 }
             };
 }
