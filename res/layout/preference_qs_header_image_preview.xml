@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2024-2026 Lunaris AOSP
+    SPDX-License-Identifier: Apache-2.0
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/qs_header_preview_title"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_marginBottom="8dp" />
+
+    <FrameLayout
+        android:id="@+id/qs_header_preview_frame"
+        android:layout_width="match_parent"
+        android:layout_height="142dp"
+        android:background="?android:attr/colorBackground"
+        android:clipChildren="true"
+        android:layout_marginBottom="12dp">
+
+        <com.android.internal.widget.QsHeaderImageView
+            android:id="@+id/qs_header_preview_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/qs_header_preview_title" />
+
+        <View
+            android:id="@+id/qs_header_preview_fade"
+            android:layout_width="match_parent"
+            android:layout_height="79dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/qs_header_preview_fade"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:id="@+id/qs_header_preview_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/qs_header_preview_empty"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="?android:attr/textColorSecondary" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/qs_header_preview_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/qs_header_preview_summary"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/qs_header_preview_zoom_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/qs_header_preview_zoom"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        <SeekBar
+            android:id="@+id/qs_header_preview_zoom"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:max="300" />
+
+        <TextView
+            android:id="@+id/qs_header_preview_horizontal_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/qs_header_preview_horizontal"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        <SeekBar
+            android:id="@+id/qs_header_preview_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:max="1000" />
+
+        <TextView
+            android:id="@+id/qs_header_preview_vertical_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/qs_header_preview_vertical"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        <SeekBar
+            android:id="@+id/qs_header_preview_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:max="1000" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/qs_header_preview_reset"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:minWidth="96dp"
+            android:minHeight="48dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+            android:textSize="16sp"
+            android:text="@string/qs_header_preview_reset" />
+    </LinearLayout>
+</LinearLayout>
