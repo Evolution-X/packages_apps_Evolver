@@ -199,9 +199,12 @@
     <string name="lockscreen_custom_clock_layout_category_title">サイズと位置</string>
     <string name="lockscreen_custom_clock_animation_category_title">アニメーション</string>
     <string name="lockscreen_custom_clock_browse_all_clocks">すべての時計を見る</string>
+    <string name="lockscreen_custom_clock_applied"><xliff:g id="clock_name" example="OnePlus Clock">%1$s</xliff:g> が適用されました</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">サイズ</string>
     <string name="clock_size_summary">ロック画面の時計の大きさを変更する (50–150%)</string>
+    <string name="lockscreen_custom_clock_dynamic_size_title">ダイナミック時計サイズ</string>
+    <string name="lockscreen_custom_clock_dynamic_size_summary">ロック画面に通知やメディアがない場合に時計を大きく表示します。非常に大きな時計スタイルはサイズを維持します</string>
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">アルバムアートの色をフォロー</string>
     <string name="clock_album_art_color_summary">メディア再生時にアルバムアートパレットで時計の色を上書きする</string>
@@ -316,6 +319,7 @@
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">スマートスペース</string>
     <string name="lockscreen_smartspace_summary">利用可能な場合に Google スマートスペースを表示する</string>
+    <string name="lockscreen_smartspace_custom_clock_info">カスタム時計スタイルが有効になっている間は利用できません</string>
     <!-- Lock screen/Depth wallpaper -->
     <string name="depthwall_file_header_select_title">深度壁紙のを選択</string>
     <string name="depthwall_file_header_select_summary">ストレージから深度壁紙画像を選択します。</string>
@@ -777,8 +781,6 @@
     <string name="quick_settings_auto_brightness_icon_summary">スライダーの横に明るさの自動調整ボタンを表示する</string>
     <string name="quick_settings_brightness_slider_haptic_title">触覚フィードバック</string>
     <string name="quick_settings_brightness_slider_haptic_summary">スライダーで明るさを調整したときに振動させる</string>
-    <string name="qs_brightness_slider_gradient_title">明るさスライダーのグラデーション</string>
-    <string name="qs_brightness_slider_gradient_summary">明るさスライダーの背景にグラデーションを有効にする</string>
     <!-- Quick settings/Animations -->
     <string name="qs_tile_animation_style_title">タイルのアニメーション</string>
     <string name="qs_tile_animation_style_bounce">弾む</string>
@@ -811,6 +813,13 @@
     <string name="quick_settings_header_file_select_title">画像を選択</string>
     <string name="quick_settings_header_file_select_summary">カスタム画像またはアニメーション GIF を選択してください</string>
     <string name="quick_settings_header_needs_gallery">ギャラリーアプリが必要です</string>
+    <string name="qs_header_preview_title">ヘッダーのプレビュー</string>
+    <string name="qs_header_preview_summary">ピンチでズーム、ドラッグで位置調整が可能です。スライダーを使うこともできます。変更内容はクイック設定に即座に反映されます。</string>
+    <string name="qs_header_preview_empty">画像を読み込むか、OmniStyleから静的なヘッダーを選択して、その切り抜き範囲を調整します。</string>
+    <string name="qs_header_preview_zoom_value">ズーム: %1$d%%</string>
+    <string name="qs_header_preview_horizontal_value">水平位置: %1$d%%</string>
+    <string name="qs_header_preview_vertical_value">縦位置: %1$d%%</string>
+    <string name="qs_header_preview_reset">リセット</string>
     <string name="quick_settings_header_offset_title">ヘッダー画像のオフセット</string>
     <string name="quick_settings_header_offset_summary">ヘッダー画像のサイズを調整する</string>
     <string name="quick_settings_header_file_failed">選択した画像を読み込めませんでした</string>
@@ -827,14 +836,17 @@
     <string name="quick_settings_footer_edit_icon_title">タイルの編集アイコン</string>
     <string name="quick_settings_footer_show_power_menu_title">電源メニューのショートカット</string>
     <string name="quick_settings_footer_settings_icon_title">設定のショートカット</string>
+    <string name="qs_header_clock_style_title">クイック設定ヘッダーの時計スタイル</string>
+    <string name="qs_header_style1">チップ</string>
+    <string name="qs_header_style2">OxygenOS</string>
+    <string name="qs_header_style3">アナログ</string>
+    <string name="qs_header_style4">シンプル</string>
     <string name="qs_compact_media_player_mode_title">コンパクトなプレイヤー</string>
     <string name="qs_compact_media_player_mode_summary">クイック設定のメディアプレイヤーにコンパクトモードを使用する</string>
     <string name="qs_show_media_player_title">プレイヤーの位置</string>
     <string name="qs_show_media_player_hide">非表示</string>
     <string name="qs_show_media_player_top">上部に表示</string>
     <string name="qs_show_media_player_bottom">下部に表示</string>
-    <string name="qs_tile_gradient_title">クイック設定のグラデーション</string>
-    <string name="qs_tile_gradient_summary">クイック設定の背景にグラデーションを適用します</string>
     <!-- QS widget -->
     <string name="qs_widget_panel_title">クイック設定パネルにウィジェットを表示する</string>
     <string name="qs_widget_panel_summary">QS パネルにメディア、音量、明るさのウィジェットを表示する</string>
@@ -1004,6 +1016,9 @@
     <string name="tensor_targets_none_configured">ターゲットアプリはありません</string>
     <string name="tensor_targets_count">%1$d 個のアプリを偽装中</string>
     <string name="tensor_targets_empty_description">選択したアプリは Tensor ハードウェア機能を報告し、AI や Pixel 限定の機能をアンロックします</string>
+    <string name="tensor_spoof_timed_title">一時的（1時間）</string>
+    <string name="tensor_spoof_timed_summary_off">電源を切るまでオンのままにします</string>
+    <string name="tensor_spoof_timed_remaining">%1$d 分</string>
     <string name="user_selectable_app_spoofing_title">アプリとゲームの偽装</string>
     <string name="user_selectable_app_spoofing_summary">特定のアプリやゲームに対してデバイス情報を偽装します</string>
     <string name="user_select_spoofing_profile_title">偽装プロファイルを選択</string>
@@ -1240,6 +1255,21 @@
     <!-- Gradient styles -->
     <string name="gradient_settings_title">グラデーションのカスタマイズ</string>
     <string name="gradient_settings_summary">システム要素にグラデーションカラーを適用する</string>
+    <string name="gradient_elements_category">システムの要素</string>
+    <string name="gradient_colors_category">グラデーションの色</string>
+    <string name="qs_tile_gradient_title">クイック設定のグラデーション</string>
+    <string name="qs_tile_gradient_summary">クイック設定の背景にグラデーションを適用します</string>
+    <string name="qs_brightness_slider_gradient_title">明るさスライダーのグラデーション</string>
+    <string name="qs_brightness_slider_gradient_summary">明るさスライダーの背景にグラデーションを有効にする</string>
+    <string name="volume_slider_gradient_title">音量スライダーのグラデーション</string>
+    <string name="volume_slider_gradient_summary">音量スライダーの背景にグラデーションを有効にする</string>
+    <string name="custom_gradient_color_mode_title">グラデーションの色モード</string>
+    <string name="custom_gradient_color_mode_auto">自動</string>
+    <string name="custom_gradient_color_mode_custom">カスタム</string>
+    <string name="custom_gradient_start_color_title">開始色</string>
+    <string name="custom_gradient_end_color_title">終了色</string>
+    <string name="custom_gradient_angle_title">グラデーションの角度</string>
+    <string name="custom_gradient_angle_summary">グラデーションを反時計回りに回転させます。0°の場合、グラデーションは始点から終点へと流れます（スライダーの塗りつぶし方向と同じ向きです）</string>
     <!-- Liquid Glass -->
     <string name="liquid_glass_title">Liquid Glass</string>
     <string name="liquid_glass_summary">ぼやけた表面を、縁が光るガラスとして描く</string>
@@ -1253,15 +1283,14 @@
     <string name="liquid_glass_shade_category">シェード</string>
     <string name="liquid_glass_dual_tone_title">デュアルトーンシェード</string>
     <string name="liquid_glass_dual_tone_summary">通知の背景にうっすらと色をつけ、クイック設定と区別しやすくする</string>
-    <string name="gradient_elements_category">システムの要素</string>
-    <string name="gradient_colors_category">グラデーションの色</string>
-    <string name="volume_slider_gradient_title">音量スライダーのグラデーション</string>
-    <string name="volume_slider_gradient_summary">音量スライダーの背景にグラデーションを有効にする</string>
-    <string name="custom_gradient_color_mode_title">グラデーションの色モード</string>
-    <string name="custom_gradient_color_mode_auto">自動</string>
-    <string name="custom_gradient_color_mode_custom">カスタム</string>
-    <string name="custom_gradient_start_color_title">開始色</string>
-    <string name="custom_gradient_end_color_title">終了色</string>
+    <string name="liquid_glass_tab_bars_category">アプリ内</string>
+    <string name="liquid_glass_tab_bars_title">ガラスのタブバー</string>
+    <string name="liquid_glass_tab_bars_summary">アプリのボトムバーを、iOS風のガラスのカプセルとして浮かせて表示する</string>
+    <string name="liquid_glass_tab_bars_apps_title">アプリを選択</string>
+    <string name="liquid_glass_tab_bars_apps_summary">アプリに対してガラスをオフにするか、あるいはそのコンテンツがバーの下に表示されるようにする</string>
+    <string name="liquid_glass_tab_bar_mode_off">OFF</string>
+    <string name="liquid_glass_tab_bar_mode_glass">ガラス</string>
+    <string name="liquid_glass_tab_bar_mode_float">フローティング</string>
     <!-- Fonts -->
     <string name="font_styles_title">フォントスタイル</string>
     <string name="font_styles_summary">システムフォントのスタイルを変更する</string>
@@ -1283,6 +1312,7 @@
     <string name="toast_invalid_emoji_file">無効な絵文字フォントファイル</string>
     <string name="toast_emoji_font_too_old">この絵文字フォントの新しいバージョンは既にインストールされています</string>
     <string name="toast_emoji_not_installed">先にカスタム絵文字フォントを追加してください</string>
+    <string name="toast_emoji_busy">別の絵文字変更がまだ進行中です</string>
     <string name="emoji_restart_title">絵文字を適用するには再起動してください</string>
     <string name="emoji_restart_message">システムフォントを使用しているすべてのアプリで、標準の絵文字がこの絵文字に置き換わります。今すぐ再起動するとシステムUIが再起動し、新しい絵文字を反映するために実行中のアプリがすべて終了します。後で再起動する場合は、各アプリの次回起動時に切り替わります。</string>
     <string name="emoji_restart_now">今すぐ再起動</string>
@@ -1290,6 +1320,11 @@
     <string name="emoji_apps_reset_short">アプリをリセット</string>
     <string name="emoji_apps_confirm">アプリデータ内に保存されているすべての絵文字フォントにカスタム絵文字フォントを上書きコピーし、FacebookとMessengerによる独自絵文字のダウンロードを停止します。また、対象アプリとGboardのキャッシュを消去し、Google Play開発者サービスのフォントプロバイダを無効にします。影響を受けるアプリは強制停止されます。これらのアプリがアップデートされた場合は、再度実行してください。</string>
     <string name="emoji_apps_reset_button">リセット</string>
+    <string name="emoji_apps_restore">サードパーティのアプリをリセット</string>
+    <string name="emoji_apps_restore_short">アプリを復元</string>
+    <string name="emoji_apps_restore_confirm">Gboard、Facebook、Messengerなどのアプリで、削除したはずのフォントに含まれる絵文字が依然として表示される場合、この操作を行うことで、アプリデータ内に保存されているすべての絵文字フォントが削除され、各アプリが改めてフォントを取得し直すようになります。具体的には、FacebookやMessengerが独自のフォントを再ダウンロードできるようになるほか、それらのアプリおよびGboardのキャッシュが消去され、Google Play開発者サービスのフォント提供機能が有効に戻ります。なお、対象となるアプリは強制停止されます。</string>
+    <string name="emoji_apps_restore_button">復元</string>
+    <string name="emoji_apps_restored">コピーされた絵文字フォントを持つアプリが再度取得されるようになりました。</string>
     <plurals name="emoji_apps_done">
         <item quantity="other">アプリデータ内の %1$d 個の絵文字フォントを置き換えました。ダウンロード可能な絵文字を使用するアプリでは、システムの絵文字が使用されるようになります。</item>
     </plurals>
@@ -1544,4 +1579,7 @@
     <string name="ts_rkp_native_unavailable">標準のプロビジョニング補助機能が利用できないか、このファームウェアに対応していません</string>
     <string name="ts_rkp_native_transport">標準のプロビジョニング機能が予期せず停止しました。自動プロビジョニングは一時停止中です。</string>
     <string name="ts_rkp_invalid_response">端末から無効なプロビジョニング応答が返されました。既存のキーボックスが維持されます。</string>
+    <!-- Lockscreen lock icon -->
+    <string name="lockscreen_hide_lock_icon_title">ロックアイコンを非表示</string>
+    <string name="lockscreen_hide_lock_icon_summary">ロック画面で、指紋アイコンは表示したまま、ロックおよびロック解除のアイコンを非表示にする</string>
 </resources>
