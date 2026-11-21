@@ -18,7 +18,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.produceState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
@@ -28,6 +29,8 @@ import androidx.preference.PreferenceManager
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
 import java.util.concurrent.Executors
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class LockClockFontsPreference @JvmOverloads constructor(
     context: Context,
@@ -60,8 +63,13 @@ class LockClockFontsPreference @JvmOverloads constructor(
         val time = pickerClockText(ctx)
         val options = pkgs.map { pkg ->
             PickerOption(label = if (pkg == "android") "Default" else getLabelSafe(ctx, pkg)) {
-                // Loaded when the row scrolls into view, not for the whole list up front.
-                val family = remember(pkg) { getTypefaceSafe(ctx, pkg)?.let { FontFamily(it) } }
+                // Loaded when the row scrolls into view, not for the whole list up front, and off
+                // the main thread because a typeface means opening the overlay's resources.
+                val family by produceState<FontFamily?>(initialValue = null, pkg) {
+                    value = withContext(Dispatchers.IO) {
+                        getTypefaceSafe(ctx, pkg)?.let { FontFamily(it) }
+                    }
+                }
                 Text(
                     text = time,
                     style = MaterialTheme.typography.titleMedium,
