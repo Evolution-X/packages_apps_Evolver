@@ -51,11 +51,15 @@ class FontsPickerPreference @JvmOverloads constructor(
     private val mainHandler = Handler(Looper.getMainLooper())
 
     private val themeUtils = ThemeUtils.getInstance(context)
-    private val pkgs: List<String> = themeUtils.getOverlayPackagesForCategory(CATEGORY, "android")
-        .let { all ->
-            val (default, rest) = all.partition { it == "android" }
-            default + rest.sortedBy { getLabelSafe(context, it).lowercase() }
-        }
+    private val allPkgs: List<String> = themeUtils.getOverlayPackagesForCategory(CATEGORY, "android")
+
+    // A label is a package manager lookup, so read each one once instead of at every comparison.
+    private val labels: Map<String, String> =
+        allPkgs.filter { it != "android" }.associateWith { getLabelSafe(context, it) }
+
+    private val pkgs: List<String> = allPkgs.partition { it == "android" }.let { (default, rest) ->
+        default + rest.sortedBy { labels.getValue(it).lowercase() }
+    }
 
     private var fontPickerLauncher: ActivityResultLauncher<Array<String>>? = null
     private var pendingCustomFontTypeface: Typeface? = null
@@ -104,7 +108,7 @@ class FontsPickerPreference @JvmOverloads constructor(
             pkgs.forEach { pkg ->
                 add(
                     PickerOption(
-                        label = if (pkg == "android") "Default" else getLabelSafe(ctx, pkg),
+                        label = if (pkg == "android") "Default" else labels[pkg] ?: getLabelSafe(ctx, pkg),
                         labelFontFamily = { getTypefaceSafe(ctx, pkg)?.let { FontFamily(it) } },
                     )
                 )
@@ -226,7 +230,7 @@ class FontsPickerPreference @JvmOverloads constructor(
             hasCustomFont -> customFontName
             else -> {
                 val applied = getAppliedPkg()
-                if (applied == "android") "Default" else getLabelSafe(context, applied)
+                if (applied == "android") "Default" else labels[applied] ?: getLabelSafe(context, applied)
             }
         }
     }
