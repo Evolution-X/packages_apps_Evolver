@@ -75,5 +75,18 @@
                 style="@style/QsStylePreviewThumbTitle"
                 android:text="@string/qs_panel_style_nothingos" />
         </LinearLayout>
+
+        <LinearLayout
+            style="@style/QsStylePreviewThumbItem">
+
+            <org.evolution.settings.fragments.quicksettings.QsStylePreviewView
+                android:id="@+id/qs_style_thumb_remix"
+                style="@style/QsStylePreviewThumb" />
+
+            <TextView
+                android:id="@+id/qs_style_thumb_remix_title"
+                style="@style/QsStylePreviewThumbTitle"
+                android:text="@string/qs_panel_style_remix" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
