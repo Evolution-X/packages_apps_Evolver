@@ -28,6 +28,7 @@
     <string name="themes_monet_colors_category">Monet والألوان</string>
     <string name="themes_visual_effects_category">المؤثرات المرئية</string>
     <string name="lock_screen_clock_category">الساعة</string>
+    <string name="lock_screen_media_category">الوسائط</string>
     <string name="lock_screen_charging_effects_category">تأثيرات الشحن</string>
     <string name="status_bar_features_category">الميزات</string>
     <!-- Themes -->
@@ -150,7 +151,7 @@
     <string name="pulse_renderer_retro_vu_meter">مقياس VU كلاسيكي</string>
     <string name="pulse_renderer_minimal_wave">موجة بسيطة</string>
     <string name="pulse_renderer_sparkle">بريق</string>
-    <string name="pulse_renderer_matrix">Matrix</string>
+    <string name="pulse_renderer_matrix">مصفوفة</string>
     <string name="pulse_renderer_particle">جسيمات</string>
     <string name="pulse_renderer_waveform">شكل موجي</string>
     <string name="pulse_renderer_dot_wave">موجة نقطية</string>
@@ -229,6 +230,7 @@
     <string name="ringer">الرنين</string>
     <string name="bt">بلوتوث</string>
     <string name="hotspot">نقطة الاتصال</string>
+    <string name="wallet">المحفظة</string>
     <string name="qr_scanner">ماسح رمز QR</string>
     <!-- Lockscreen Widgets Styles -->
     <string name="lockscreen_widgets_style_title">نمط أدوات شاشة القفل</string>
@@ -363,6 +365,7 @@
     <string name="status_bar_icons_category">الأيقونات</string>
     <string name="status_bar_tuner_title">ضبط شريط الحالة</string>
     <string name="status_bar_tuner_summary">اختر أيقونات النظام التي يمكن إظهارها</string>
+    <string name="status_bar_colored_icons_title">أيقونات ملوّنة</string>
     <string name="status_bar_colored_icons_summary">استخدام أيقونات المشغّل لإشعارات التطبيقات</string>
     <string name="status_bar_notif_count_title">عدد الإشعارات</string>
     <string name="status_bar_notif_count_summary">عرض عدد الإشعارات المعلقة على أيقونة كل تطبيق</string>
@@ -453,6 +456,7 @@
     <string name="status_bar_clock_bold_summary">عرض ساعة شريط الحالة بخط عريض</string>
     <string name="statusbar_clock_chip_title">شريحة خلفية الساعة</string>
     <string name="solid_accent">لون تمييز مصمت</string>
+    <string name="outline">حد خارجي</string>
     <string name="solid_accent_gradient">تدرج مصمت بلون التمييز</string>
     <string name="solid_gradient">تدرج مصمت (جانبي)</string>
     <string name="solid_gradient_corner">تدرج مصمت بلون التمييز (حاد)</string>
@@ -486,13 +490,23 @@
     <string name="status_bar_logo_style_adidas">أديداس</string>
     <string name="status_bar_logo_style_alien">فضائي</string>
     <string name="status_bar_logo_style_apple">أبل</string>
+    <string name="status_bar_logo_style_avengers">Avengers</string>
+    <string name="status_bar_logo_style_batman">Batman</string>
     <string name="status_bar_logo_style_batman_tdk">Batman: The Dark Knight</string>
+    <string name="status_bar_logo_style_beats">Beats</string>
     <string name="status_bar_logo_style_biohazard">المخاطر الحيوية</string>
     <string name="status_bar_logo_style_blackberry">BlackBerry</string>
+    <string name="status_bar_logo_style_cannabis">قنب</string>
     <string name="status_bar_logo_style_emoticon_cool">رمز تعبيري: رائع</string>
     <string name="status_bar_logo_style_emoticon_devil">رمز تعبيري: شيطان</string>
+    <string name="status_bar_logo_style_fire">نار</string>
     <string name="status_bar_logo_style_heart">قلب</string>
+    <string name="status_bar_logo_style_nike">Nike</string>
+    <string name="status_bar_logo_style_pacman">Pac-Man</string>
+    <string name="status_bar_logo_style_puma">Puma</string>
+    <string name="status_bar_logo_style_rog">ROG</string>
     <string name="status_bar_logo_style_spiderman">Spider-Man</string>
+    <string name="status_bar_logo_style_superman">Superman</string>
     <string name="status_bar_logo_style_windows">ويندوز</string>
     <string name="status_bar_logo_style_xbox">Xbox</string>
     <string name="status_bar_logo_style_ghost">شبح</string>
@@ -504,6 +518,7 @@
     <string name="status_bar_logo_style_tux">Tux</string>
     <string name="status_bar_logo_style_ubuntu">Ubuntu</string>
     <string name="status_bar_logo_style_mint">Linux Mint</string>
+    <string name="status_bar_logo_style_amogus">Amogus</string>
     <string name="status_bar_logo_style_custom">صورة مخصصة</string>
     <!-- Custom image logo style -->
     <string name="status_bar_logo_custom_image_title">اختيار صورة شعار مخصصة</string>
@@ -693,6 +708,7 @@
     <string name="qs_brightness_slider_shape_title">شكل شريط السطوع</string>
     <string name="media_waveform_seekbar_title">شريط تقدم بشكل موجي</string>
     <string name="media_waveform_seekbar_summary">إظهار تأثير موجي متحرك لتقدم تشغيل الوسائط</string>
+    <string name="floating_rotation_button_title">زر تدوير عائم</string>
     <string name="floating_rotation_button_summary">إظهار زر عائم للتدوير عند تغير اتجاه الجهاز</string>
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">واجهة</string>
@@ -752,6 +768,7 @@
     <string name="shape_just_icons">أيقونات فقط</string>
     <string name="shape_pokesign">Pokésign</string>
     <string name="shape_ninja">نينجا</string>
+    <string name="shape_outline_style">حد خارجي</string>
     <string name="shape_dotted_circle">دائرة (منقطة)</string>
     <string name="shape_squaremedo">Squaremedo</string>
     <!-- Quick settings/Brightness slider -->
@@ -1433,6 +1450,7 @@
     <string name="flashlight_on_call_ignore_dnd_summary">الوميض حتى عندما يكون وضع «عدم الإزعاج» نشطًا</string>
     <string name="flashlight_on_call_rate_title">معدل الوميض</string>
     <!-- Charging animation -->
+    <string name="charging_animation_title">حركة الشحن</string>
     <string name="charging_animation_summary">إظهار مؤثرات مرئية أثناء الشحن على شاشة القفل أو AOD</string>
     <string name="charging_animation_style_title">نوع التأثير</string>
     <string name="charging_plug_animation_category_title">حركة التوصيل بالشاحن</string>
@@ -1483,6 +1501,7 @@
     <string name="wallpaper_zoom_title">تكبير الخلفية</string>
     <string name="wallpaper_zoom_summary">أطفئه لعرض الخلفية دون تكبير إضافي</string>
     <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">إخفاء حالة التقاط الشاشة</string>
     <string name="hide_screen_capture_status_summary">إخفاء حالة التقاط/تسجيل الشاشة والسماح بالتقاط المحتوى المحمي. مفيد لكن قد يهدد الخصوصية.</string>
     <!-- Dynamic island -->
     <string name="status_bar_dynamic_island_title">الجزيرة الديناميكية</string>
@@ -1494,6 +1513,7 @@
     <string name="dynamic_island_media_controls_summary">عرض عناصر التحكم في التشغيل وصورة الغلاف في الجزيرة</string>
     <string name="dynamic_island_screen_recording_title">تسجيل الشاشة</string>
     <string name="dynamic_island_screen_recording_summary">عرض مؤقت التسجيل وعناصر التحكم في الجزيرة</string>
+    <string name="dynamic_island_alarms_title">المنبهات</string>
     <string name="dynamic_island_alarms_summary">عرض منبهك التالي أو إشعار المنبه النشط في الجزيرة</string>
     <string name="dynamic_island_charging_title">البطـارية متوسطة</string>
     <string name="dynamic_island_charging_summary">عرض مستوى البطارية في الجزيرة أثناء توصيل الشاحن، مع تفاصيل الشحن عند النقر</string>
@@ -1503,6 +1523,7 @@
     <string name="dynamic_island_hotspot_summary">عرض عدد الأجهزة المتصلة بنقطة اتصالك في الجزيرة</string>
     <string name="dynamic_island_vpn_title">VPN</string>
     <string name="dynamic_island_vpn_summary">عرض الجزيرة عند اتصال شبكة VPN</string>
+    <string name="dynamic_island_calls_title">المكالمات</string>
     <string name="dynamic_island_calls_summary">عرض المكالمات الواردة والجارية في الجزيرة</string>
     <string name="dynamic_island_flashlight_title">شعلة</string>
     <string name="dynamic_island_flashlight_summary">عرض حالة المصباح في الجزيرة عند تفعيله</string>
