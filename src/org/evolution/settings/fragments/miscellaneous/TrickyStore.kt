@@ -1461,7 +1461,9 @@ class TrickyStore : SettingsPreferenceFragment() {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 while (isActive) {
                     refreshDuckRkp()
-                    delay(1500)
+                    // Poll tightly only while a run is in flight; the screen is otherwise idle
+                    // and five seconds are enough to pick up scheduled or finished work.
+                    delay(if (ui.rkpBusy) 1_000L else 5_000L)
                 }
             }
         }
@@ -1498,8 +1500,15 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     private fun duckRkpStatus(state: Bundle?, owner: Boolean): String {
         if (!owner) return getString(R.string.ts_rkp_owner_only)
-        if (state == null || !state.getBoolean("available")) {
-            return getString(R.string.ts_rkp_unavailable)
+        if (state == null) return getString(R.string.ts_rkp_unavailable)
+        if (!state.getBoolean("available")) {
+            // Name the reason instead of one generic line; the status field is additive and
+            // older frameworks simply omit it.
+            return getString(when (state.getString("status")) {
+                "service_missing" -> R.string.ts_rkp_unsupported
+                "backend_unavailable" -> R.string.ts_rkp_native_unavailable
+                else -> R.string.ts_rkp_unavailable
+            })
         }
         if (state.getBoolean("imported")) return getString(R.string.ts_rkp_imported)
         if (!state.getBoolean("enabled")) return getString(R.string.ts_rkp_disabled)
@@ -1548,7 +1557,8 @@ class TrickyStore : SettingsPreferenceFragment() {
             getString(R.string.ts_rkp_unsupported)
         "network_error" -> getString(R.string.ts_rkp_network_error)
         "submission_unknown" -> getString(R.string.ts_rkp_submission_unknown)
-        "certificate_invalid", "stored_key_invalid" -> getString(R.string.ts_rkp_invalid_chain)
+        "certificate_invalid", "stored_key_invalid", "chain_invalid", "untrusted_root",
+        "no_key_match", "cert_expired" -> getString(R.string.ts_rkp_invalid_chain)
         "timeout", "native_timeout" -> getString(R.string.ts_rkp_timeout)
         "canceled" -> getString(R.string.ts_rkp_canceled)
         "save_failed" -> getString(R.string.ts_rkp_save_failed)
