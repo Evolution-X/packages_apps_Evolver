@@ -56,6 +56,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_HEADER_CLOCK_STYLE = "qs_header_clock_style";
     private static final String KEY_QS_NOTHING_COLOR_STYLE = "qs_nothing_color_style";
     private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
+    private static final String KEY_QS_REMIX_STYLE = "qs_remix_style";
+    private static final int PANEL_STYLE_REMIX = 4;
     private static final String KEY_QS_PANEL_STYLE_PREVIEW = "qs_panel_style_preview";
 //    private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
 //    private static final String KEY_QS_TILE_ALTERNATE_COLOR = "qs_tile_alternate_color";
@@ -80,6 +82,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mVolumeSliderMode;
     private Preference mQsColorOSMediaArtFill;
     private Preference mQsNothingColorStyle;
+    private Preference mQsRemixStyle;
     private Preference mQsTileIconShape;
     private Preference mQsTileShape;
 //    private SecureSettingListPreference mQsShowMediaPlayer;
@@ -174,6 +177,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsColorOSMediaArtFill = findPreference(KEY_QS_COLOROS_MEDIA_ART_FILL);
         mQsNothingColorStyle = findPreference(KEY_QS_NOTHING_COLOR_STYLE);
         mQsNothingColorStyle.setOnPreferenceChangeListener(this);
+        mQsRemixStyle = findPreference(KEY_QS_REMIX_STYLE);
         mQsHeaderClockStyle = findPreference(KEY_QS_HEADER_CLOCK_STYLE);
         mQsHeaderClockStyle.setOnPreferenceChangeListener(this);
 
@@ -220,7 +224,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private void updatePanelStylePreview(int panelStyle) {
         if (mQsStylePreview != null) {
-            mQsStylePreview.setStyle(panelStyle);
+            // The preview has no Remix drawing, so it keeps the default card.
+            mQsStylePreview.setStyle(panelStyle == PANEL_STYLE_REMIX ? 0 : panelStyle);
         }
         for (int i = 0; i < mQsStyleThumbs.length; i++) {
             if (mQsStyleThumbs[i] != null) {
@@ -264,11 +269,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         boolean isClassic = panelStyle == 1;
         boolean isColorOS = panelStyle == 2;
         boolean isNothingOS = panelStyle == 3;
+        boolean isRemix = panelStyle == PANEL_STYLE_REMIX;
 
         // ColorOS pins the tile shapes, but still lets the labels be hidden.
         // NothingOS pins both the shapes and the labels.
         if (mQsTileShape != null) {
-            mQsTileShape.setVisible(!isClassic && !isColorOS && !isNothingOS);
+            mQsTileShape.setVisible(!isClassic && !isColorOS && !isNothingOS && !isRemix);
         }
         if (mQsTileIconShape != null) {
             mQsTileIconShape.setVisible(isClassic);
@@ -281,6 +287,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
         if (mQsNothingColorStyle != null) {
             mQsNothingColorStyle.setVisible(isNothingOS);
+        }
+        // The Remix style picks its own tile shapes, so only its look is offered.
+        if (mQsRemixStyle != null) {
+            mQsRemixStyle.setVisible(isRemix);
         }
     }
 
