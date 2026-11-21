@@ -7,7 +7,6 @@ package org.evolution.settings.preferences
 
 import android.content.Context
 import android.content.pm.PackageManager
-import android.content.res.Resources
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Handler
@@ -69,7 +68,7 @@ class FontsPickerPreference @JvmOverloads constructor(
 
     private val customTypeface: Typeface by lazy {
         ExternalFontInstaller(context).loadInstalledTypeface()
-            ?: Typeface.create(ExternalFontInstaller.DEFAULT_FONT_FAMILY, Typeface.NORMAL)
+            ?: Typeface.getSystemDefaultTypeface(ExternalFontInstaller.DEFAULT_FONT_FAMILY)
     }
 
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
@@ -321,12 +320,16 @@ class FontsPickerPreference @JvmOverloads constructor(
     }
 
     private fun getTypefaceSafe(context: Context, pkg: String): Typeface? {
+        // The default font is the always-on Google Sans Flex overlay's family.
+        if (pkg == "android") {
+            return Typeface.getSystemDefaultTypeface(ExternalFontInstaller.DEFAULT_FONT_FAMILY)
+        }
         return try {
-            val pm = context.packageManager
-            val res = if (pkg == "android") Resources.getSystem() else pm.getResourcesForApplication(pkg)
+            val res = context.packageManager.getResourcesForApplication(pkg)
             val id = res.getIdentifier("config_bodyFontFamily", "string", pkg)
             if (id == 0) return null
-            Typeface.create(res.getString(id), Typeface.NORMAL)
+            // Typeface.create() would hand back the font in use for names like "google-sans".
+            Typeface.getSystemDefaultTypeface(res.getString(id))
         } catch (e: Exception) {
             Log.e(TAG, "Typeface load failed for pkg: $pkg", e)
             null
