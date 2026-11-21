@@ -37,6 +37,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,6 +54,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
 import com.android.settings.widget.scrollbar
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
 import org.evolution.settings.fragments.miscellaneous.ExpressiveDialog
 import org.evolution.settings.fragments.miscellaneous.ExpressiveTextButton
@@ -107,7 +111,8 @@ private fun Context.findActivity(): Activity? {
 /**
  * One row of a picker. [icon] is drawn in the row's content colour before the label, [trailing]
  * after it (a preview button, say), and [labelFontFamily] renders the label in its own font. It
- * is a provider so a long list only loads the fonts that scroll into view.
+ * is a provider so a long list only loads the fonts that scroll into view, and it runs off the
+ * main thread because a typeface can mean opening an overlay's resources.
  */
 class PickerOption(
     val label: String,
@@ -258,7 +263,11 @@ private fun PickerOptionRow(option: PickerOption, selected: Boolean, onClick: ()
                 ) { icon() }
                 Spacer(Modifier.size(12.dp))
             }
-            val family = remember(option) { option.labelFontFamily?.invoke() }
+            val family by produceState<FontFamily?>(initialValue = null, option) {
+                value = option.labelFontFamily?.let { provider ->
+                    withContext(Dispatchers.IO) { provider() }
+                }
+            }
             Text(
                 text = option.label,
                 style = MaterialTheme.typography.bodyLarge,
