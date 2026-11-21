@@ -26,6 +26,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.UserHandle
 import android.provider.Settings
+import android.view.View
 import androidx.preference.Preference
 import androidx.preference.ListPreference
 import com.android.internal.logging.nano.MetricsProto
@@ -34,7 +35,6 @@ import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.Utils
-import com.android.settingslib.widget.LayoutPreference
 import com.android.settingslib.search.SearchIndexable
 
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference
@@ -70,7 +70,6 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         private const val STYLE_DIGITAL_MATRIX = 6
         private const val STYLE_GEOFLOW = 7
 
-        private const val KEY_PREVIEW = "charging_preview"
         private const val KEY_STYLE = "charging_animation_style"
         private const val KEY_COLOR_MODE = "charging_color_mode"
         private const val KEY_RIPPLE_OPACITY = "charging_ripple_opacity"
@@ -99,8 +98,6 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         val SEARCH_INDEX_DATA_PROVIDER = object : BaseSearchIndexProvider(R.xml.charging_animation_settings) {
             override fun getNonIndexableKeys(context: Context): List<String> {
                 val keys = super.getNonIndexableKeys(context).toMutableList()
-                keys.add(KEY_PREVIEW)
-                
                 val style = Settings.System.getInt(
                     context.contentResolver,
                     "charging_animation_style",
@@ -118,8 +115,6 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.charging_animation_settings)
 
-        preview = findPreference<LayoutPreference>(KEY_PREVIEW)
-            ?.findViewById(R.id.charging_preview)
         animationStylePref = findPreference("charging_animation_style")
         rippleOpacityPref = findPreference("charging_ripple_opacity")
         glowIntensityPref = findPreference("charging_glow_intensity")
@@ -128,6 +123,13 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         animationStylePref?.onPreferenceChangeListener = this
 
         updatePreferenceVisibility()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Pinned above the list, so the preview stays in view while the options scroll.
+        preview = setPinnedHeaderView(R.layout.charging_animation_preview)
+            .findViewById(R.id.charging_preview)
     }
 
     override fun onStart() {
