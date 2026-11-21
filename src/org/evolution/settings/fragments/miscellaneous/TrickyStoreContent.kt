@@ -15,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CloudDownload
 import androidx.compose.material.icons.rounded.DeleteOutline
 import androidx.compose.material.icons.rounded.FileOpen
+import androidx.compose.material.icons.rounded.Save
 import androidx.compose.material.icons.rounded.VpnKey
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -77,6 +78,7 @@ internal interface TsActions {
     fun onEnabledChange(enabled: Boolean)
     fun onFetchKeybox()
     fun onImportKeybox()
+    fun onExportKeybox()
     fun onDeleteKeybox()
     fun onCheckRevocation()
     fun onManageTargets()
@@ -160,6 +162,14 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
                                 stringResource(R.string.action_import),
                                 Icons.Rounded.FileOpen,
                                 onClick = actions::onImportKeybox,
+                            ),
+                        )
+                        add(
+                            ExpressiveAction(
+                                stringResource(R.string.action_export),
+                                Icons.Rounded.Save,
+                                enabled = state.keyboxExists,
+                                onClick = actions::onExportKeybox,
                             ),
                         )
                         if (!state.rkpEnabled) {
