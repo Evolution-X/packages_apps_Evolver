@@ -30,7 +30,7 @@
 
     <!-- Themes - Lock/Unlock Sounds -->
     <string-array name="themes_lock_unlock_sounds_entries" translatable="false">
-        <item>Default</item>
+        <item>@string/default_value</item>
         <item>Amazon Fire</item>
         <item>Asus Zenfone Max</item>
         <item>Essential PH-1</item>
@@ -1022,7 +1022,7 @@
 
     <!-- Plug-in charging animation -->
     <string-array name="charging_plug_animation_entries" translatable="false">
-        <item>Default</item>
+        <item>@string/default_value</item>
         <item>One UI capsule</item>
         <item>HyperOS bubbles</item>
         <item>OriginOS orb</item>
