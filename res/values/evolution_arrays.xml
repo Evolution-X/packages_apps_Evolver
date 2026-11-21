@@ -1128,6 +1128,22 @@
     </string-array>
 
     <!-- QS Panel style -->
+    <!-- QS panel style preview tile names -->
+    <string-array name="qs_style_preview_labels" translatable="false">
+        <item>Internet</item>
+        <item>Bluetooth</item>
+        <item>Flashlight</item>
+        <item>Do Not Disturb</item>
+        <item>Auto-rotate</item>
+        <item>Dark theme</item>
+        <item>Hotspot</item>
+        <item>Airplane mode</item>
+        <item>Data Saver</item>
+        <item>NFC</item>
+        <item>Sync</item>
+        <item>Scan QR code</item>
+    </string-array>
+
     <string-array name="qs_panel_style_entries" translatable="false">
         <item>@string/qs_panel_style_card</item>
         <item>@string/qs_panel_style_classic</item>

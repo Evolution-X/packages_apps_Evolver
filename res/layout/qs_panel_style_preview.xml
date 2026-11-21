@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="8dp">
+
+    <org.evolution.settings.fragments.quicksettings.QsStylePreviewView
+        android:id="@+id/qs_style_preview"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            style="@style/QsStylePreviewThumbItem">
+
+            <org.evolution.settings.fragments.quicksettings.QsStylePreviewView
+                android:id="@+id/qs_style_thumb_card"
+                style="@style/QsStylePreviewThumb" />
+
+            <TextView
+                android:id="@+id/qs_style_thumb_card_title"
+                style="@style/QsStylePreviewThumbTitle"
+                android:text="@string/qs_panel_style_card" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/QsStylePreviewThumbItem">
+
+            <org.evolution.settings.fragments.quicksettings.QsStylePreviewView
+                android:id="@+id/qs_style_thumb_classic"
+                style="@style/QsStylePreviewThumb" />
+
+            <TextView
+                android:id="@+id/qs_style_thumb_classic_title"
+                style="@style/QsStylePreviewThumbTitle"
+                android:text="@string/qs_panel_style_classic" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/QsStylePreviewThumbItem">
+
+            <org.evolution.settings.fragments.quicksettings.QsStylePreviewView
+                android:id="@+id/qs_style_thumb_coloros"
+                style="@style/QsStylePreviewThumb" />
+
+            <TextView
+                android:id="@+id/qs_style_thumb_coloros_title"
+                style="@style/QsStylePreviewThumbTitle"
+                android:text="@string/qs_panel_style_coloros" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/QsStylePreviewThumbItem">
+
+            <org.evolution.settings.fragments.quicksettings.QsStylePreviewView
+                android:id="@+id/qs_style_thumb_nothingos"
+                style="@style/QsStylePreviewThumb" />
+
+            <TextView
+                android:id="@+id/qs_style_thumb_nothingos_title"
+                style="@style/QsStylePreviewThumbTitle"
+                android:text="@string/qs_panel_style_nothingos" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
