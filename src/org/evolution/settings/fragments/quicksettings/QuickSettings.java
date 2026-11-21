@@ -77,7 +77,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mBrightnessSliderPosition;
     private ListPreference mQsPanelStyle;
     private QsStylePreviewView mQsStylePreview;
-    private final QsStylePreviewView[] mQsStyleThumbs = new QsStylePreviewView[4];
+    private final QsStylePreviewView[] mQsStyleThumbs = new QsStylePreviewView[5];
     private ListPreference mShowBrightnessSlider;
     private ListPreference mVolumeSliderMode;
     private Preference mQsColorOSMediaArtFill;
@@ -178,6 +178,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQsNothingColorStyle = findPreference(KEY_QS_NOTHING_COLOR_STYLE);
         mQsNothingColorStyle.setOnPreferenceChangeListener(this);
         mQsRemixStyle = findPreference(KEY_QS_REMIX_STYLE);
+        if (mQsRemixStyle != null) {
+            mQsRemixStyle.setOnPreferenceChangeListener(this);
+        }
         mQsHeaderClockStyle = findPreference(KEY_QS_HEADER_CLOCK_STYLE);
         mQsHeaderClockStyle.setOnPreferenceChangeListener(this);
 
@@ -196,13 +199,17 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         final int nothingColors = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_NOTHING_COLOR_STYLE, QsStylePreviewView.NOTHING_COLORS_FLAT,
                 UserHandle.USER_CURRENT);
+        final int remixLook = Settings.System.getIntForUser(resolver,
+                KEY_QS_REMIX_STYLE, QsStylePreviewView.LOOK_STOCK, UserHandle.USER_CURRENT);
         final int[] thumbIds = {
             R.id.qs_style_thumb_card, R.id.qs_style_thumb_classic,
             R.id.qs_style_thumb_coloros, R.id.qs_style_thumb_nothingos,
+            R.id.qs_style_thumb_remix,
         };
         final int[] titleIds = {
             R.id.qs_style_thumb_card_title, R.id.qs_style_thumb_classic_title,
             R.id.qs_style_thumb_coloros_title, R.id.qs_style_thumb_nothingos_title,
+            R.id.qs_style_thumb_remix_title,
         };
         for (int i = 0; i < mQsStyleThumbs.length; i++) {
             final int style = i;
@@ -211,6 +218,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             thumb.setMini(true);
             thumb.setStyle(style);
             thumb.setNothingColorStyle(nothingColors);
+            thumb.setRemixLook(remixLook);
             thumb.setContentDescription(title.getText());
             thumb.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
             thumb.setOnClickListener(v -> selectPanelStyle(style));
@@ -218,14 +226,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         }
         if (mQsStylePreview != null) {
             mQsStylePreview.setNothingColorStyle(nothingColors);
+            mQsStylePreview.setRemixLook(remixLook);
         }
         updatePanelStylePreview(panelStyle);
     }
 
     private void updatePanelStylePreview(int panelStyle) {
         if (mQsStylePreview != null) {
-            // The preview has no Remix drawing, so it keeps the default card.
-            mQsStylePreview.setStyle(panelStyle == PANEL_STYLE_REMIX ? 0 : panelStyle);
+            mQsStylePreview.setStyle(panelStyle);
         }
         for (int i = 0; i < mQsStyleThumbs.length; i++) {
             if (mQsStyleThumbs[i] != null) {
@@ -241,6 +249,17 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         for (QsStylePreviewView thumb : mQsStyleThumbs) {
             if (thumb != null) {
                 thumb.setNothingColorStyle(nothingColors);
+            }
+        }
+    }
+
+    private void updatePanelStylePreviewLook(int look) {
+        if (mQsStylePreview != null) {
+            mQsStylePreview.setRemixLook(look);
+        }
+        for (QsStylePreviewView thumb : mQsStyleThumbs) {
+            if (thumb != null) {
+                thumb.setRemixLook(look);
             }
         }
     }
@@ -310,6 +329,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             updatePanelStylePrefs(value);
             updatePanelStylePreview(value);
+            return true;
+        } else if (preference == mQsRemixStyle) {
+            updatePanelStylePreviewLook(Integer.parseInt((String) newValue));
             return true;
         } else if (preference == mQsNothingColorStyle) {
             updatePanelStylePreviewColors(Integer.parseInt((String) newValue));
