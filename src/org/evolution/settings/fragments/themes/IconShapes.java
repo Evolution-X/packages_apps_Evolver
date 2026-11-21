@@ -51,6 +51,7 @@ public class IconShapes extends SettingsPreferenceFragment {
     private static final String TAG = "IconShapes";
 
     private RecyclerView mRecyclerView;
+    private Adapter mAdapter;
     private ThemeUtils mThemeUtils;
     private final String mCategory = ICON_SHAPE_KEY;
     private List<String> mPkgs;
@@ -70,7 +71,8 @@ public class IconShapes extends SettingsPreferenceFragment {
         View view = inflater.inflate(R.layout.item_view, container, false);
         mRecyclerView = view.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 3));
-        mRecyclerView.setAdapter(new Adapter(requireContext(), mPkgs, mThemeUtils, mCategory, mRecyclerView));
+        mAdapter = new Adapter(requireContext(), mPkgs, mThemeUtils, mCategory, mRecyclerView);
+        mRecyclerView.setAdapter(mAdapter);
         return view;
     }
 
@@ -95,6 +97,10 @@ public class IconShapes extends SettingsPreferenceFragment {
             mRecyclerView.setAdapter(null);
             mRecyclerView = null;
         }
+        if (mAdapter != null) {
+            mAdapter.shutdown();
+            mAdapter = null;
+        }
     }
 
     @Override
@@ -103,6 +109,18 @@ public class IconShapes extends SettingsPreferenceFragment {
     }
 
     public static class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {
+        /** What a tile shows for a package. */
+        private static final class Preview {
+            final Drawable shape;
+            final String label;
+
+            Preview(Drawable shape, String label) {
+                this.shape = shape;
+                this.label = label;
+            }
+        }
+
+        private final PreviewLoader<String, Preview> mLoader = new PreviewLoader<>(64);
         private final WeakReference<Context> contextRef;
         private final List<String> mPkgs;
         private final ThemeUtils mThemeUtils;
@@ -140,13 +158,14 @@ public class IconShapes extends SettingsPreferenceFragment {
             if (context == null) return;
 
             String pkg = mPkgs.get(position);
-            Drawable drawable = mThemeUtils.createShapeDrawable(pkg);
-            if (drawable != null) {
-                holder.image.setBackground(drawable);
+            boolean cached = mLoader.show(holder.itemView, pkg, () -> loadPreview(pkg), preview -> {
+                holder.image.setBackground(PreviewLoader.copy(preview.shape));
+                holder.name.setText(preview.label);
+            });
+            if (!cached) {
+                holder.image.setBackground(null);
+                holder.name.setText("android".equals(pkg) ? "Default" : "");
             }
-
-            String label = getLabel(context, pkg);
-            holder.name.setText("android".equals(pkg) ? "Default" : label);
 
             boolean isDefault = "android".equals(mAppliedPkg) && "android".equals(pkg);
             int color = ColorUtils.setAlphaComponent(
@@ -181,6 +200,23 @@ public class IconShapes extends SettingsPreferenceFragment {
                 super(itemView);
                 name = itemView.findViewById(R.id.option_label);
                 image = itemView.findViewById(R.id.option_thumbnail);
+            }
+        }
+
+        void shutdown() {
+            mLoader.shutdown();
+        }
+
+        // Runs in the background: the shape comes from the overlay's resources.
+        private Preview loadPreview(String pkg) {
+            Context context = contextRef.get();
+            if (context == null) return null;
+            try {
+                return new Preview(mThemeUtils.createShapeDrawable(pkg),
+                        "android".equals(pkg) ? "Default" : getLabel(context, pkg));
+            } catch (RuntimeException e) {
+                Log.e(TAG, "Preview load failed for pkg: " + pkg, e);
+                return null;
             }
         }
 
