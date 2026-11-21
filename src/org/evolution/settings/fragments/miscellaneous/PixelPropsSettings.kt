@@ -165,7 +165,7 @@ private fun PixelPropsContent(context: android.content.Context) {
 
     fun readTargetsSet(): Set<String> {
         val raw = Settings.Secure.getString(context.contentResolver, PP_TARGETS_KEY)
-        if (raw.isNullOrBlank()) return PixelDeviceRepository.DEFAULT_PP_TARGETS
+            ?: return PixelDeviceRepository.DEFAULT_PP_TARGETS
         return raw.split(",").filter { it.isNotBlank() }.toSet()
     }
 
