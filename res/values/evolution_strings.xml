@@ -1164,6 +1164,7 @@
     <string name="ts_no_keybox">No keybox installed</string>
     <string name="ts_keybox_installed">Keybox installed</string>
     <string name="ts_keybox_imported">Keybox imported successfully</string>
+    <string name="ts_keybox_exported">Keybox saved</string>
     <string name="ts_keybox_extract_failed">Could not read a keybox from that file: %s</string>
     <string name="ts_wipe_playstore_message">Play Store caches integrity verdicts. Clear its data now so the new keybox takes effect right away? This will sign you out and clear its local cache and download queue.</string>
     <string name="ts_delete_keybox_title">Delete keybox?</string>
@@ -1483,6 +1484,7 @@
     <string name="action_apply">Apply</string>
     <string name="action_delete">Delete</string>
     <string name="action_import">Import</string>
+    <string name="action_export">Export</string>
     <string name="action_yes">Yes</string>
     <string name="action_reset">Reset</string>
     <string name="action_search_apps">Search apps</string>
