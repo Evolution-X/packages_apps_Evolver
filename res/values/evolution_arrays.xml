@@ -1149,6 +1149,7 @@
         <item>@string/qs_panel_style_classic</item>
         <item>@string/qs_panel_style_coloros</item>
         <item>@string/qs_panel_style_nothingos</item>
+        <item>@string/qs_panel_style_remix</item>
     </string-array>
 
     <string-array name="qs_panel_style_values" translatable="false">
@@ -1156,6 +1157,39 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="qs_remix_style_entries" translatable="false">
+        <item>@string/qs_remix_style_stock</item>
+        <item>@string/qs_remix_style_remix</item>
+        <item>@string/qs_remix_style_compact</item>
+        <item>@string/qs_remix_style_glass</item>
+        <item>@string/qs_remix_style_circles</item>
+        <item>@string/qs_remix_style_classic</item>
+        <item>@string/qs_remix_style_cards</item>
+        <item>@string/qs_remix_style_neon</item>
+        <item>@string/qs_remix_style_bento</item>
+        <item>@string/qs_remix_style_shapes</item>
+        <item>@string/qs_remix_style_blueprint</item>
+        <item>@string/qs_remix_style_duo</item>
+        <item>@string/qs_remix_style_soft</item>
+    </string-array>
+
+    <string-array name="qs_remix_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
     </string-array>
 
     <string-array name="qs_nothing_color_style_entries" translatable="false">

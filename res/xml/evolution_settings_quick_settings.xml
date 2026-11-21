@@ -169,6 +169,13 @@
             android:defaultValue="0" />
 
         <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="qs_remix_style"
+            android:title="@string/qs_remix_style_title"
+            android:entries="@array/qs_remix_style_entries"
+            android:entryValues="@array/qs_remix_style_values"
+            android:defaultValue="0" />
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_tile_shape"
             android:title="@string/quick_settings_tile_shape_title"
             android:entries="@array/quick_settings_tile_shape_entries"
