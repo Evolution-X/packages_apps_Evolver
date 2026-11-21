@@ -1477,9 +1477,11 @@ class TrickyStore : SettingsPreferenceFragment() {
             })
         }
         if (state.getBoolean("active")) {
+            val expires = state.getLong("expires_at")
+            val renewAt = state.getLong("renew_at")
             return getString(R.string.ts_rkp_ready,
-                formatTime(state.getLong("expires_at")),
-                formatTime(state.getLong("renew_at")))
+                formatTime(expires),
+                formatTime(if (renewAt > 0) renewAt else expires))
         }
         if (state.getBoolean("waiting_for_network")) {
             return getString(R.string.ts_rkp_waiting_network)
