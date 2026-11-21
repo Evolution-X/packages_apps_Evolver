@@ -155,6 +155,12 @@
             android:summary="@string/qs_widget_slider_corner_summary"
             android:defaultValue="false" />-->
 
+        <com.android.settingslib.widget.LayoutPreference
+            android:key="qs_panel_style_preview"
+            android:layout="@layout/qs_panel_style_preview"
+            android:selectable="false"
+            settings:searchable="false" />
+
         <org.evolution.settings.preferences.SystemSettingListPreference
             android:key="qs_panel_style"
             android:title="@string/qs_panel_style_title"
