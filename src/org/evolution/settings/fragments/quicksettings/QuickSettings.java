@@ -11,8 +11,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -26,7 +24,6 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-import com.android.settingslib.widget.LayoutPreference;
 
 import java.util.List;
 
@@ -52,19 +49,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_COMPACT_MEDIA_PLAYER_ENABLED = "qs_compact_media_player_mode";
     private static final String KEY_MEDIA_WAVEFORM_SEEKBAR = "media_waveform_seekbar";
-    private static final String KEY_QS_COLOROS_MEDIA_ART_FILL = "qs_coloros_media_art_fill";
     private static final String KEY_QS_HEADER_CLOCK_STYLE = "qs_header_clock_style";
-    private static final String KEY_QS_NOTHING_COLOR_STYLE = "qs_nothing_color_style";
-    private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
-    private static final String KEY_QS_REMIX_STYLE = "qs_remix_style";
-    private static final int PANEL_STYLE_REMIX = 4;
-    private static final String KEY_QS_PANEL_STYLE_PREVIEW = "qs_panel_style_preview";
+    private static final String KEY_QS_PANEL_STYLE_PAGE = "qs_panel_style_page";
 //    private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
 //    private static final String KEY_QS_TILE_ALTERNATE_COLOR = "qs_tile_alternate_color";
     private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
-    private static final String KEY_QS_TILE_ICON_SHAPE = "qs_tile_icon_shape";
-    private static final String KEY_QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
-    private static final String KEY_QS_TILE_SHAPE = "qs_tile_shape";
 //    private static final String KEY_QS_WIDGET_IOS_MUSIC = "qs_widget_ios_music";
 //    private static final String KEY_QS_WIDGET_PANEL = "qs_widget_panel";
 //    private static final String KEY_QS_WIDGET_SLIDER_CORNER = "qs_widget_slider_corner";
@@ -75,21 +64,13 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //    private static final String KEY_SINGLE_QS_TONE_ENABLED = "single_qs_tone_enabled";
 
     private ListPreference mBrightnessSliderPosition;
-    private ListPreference mQsPanelStyle;
-    private QsStylePreviewView mQsStylePreview;
-    private final QsStylePreviewView[] mQsStyleThumbs = new QsStylePreviewView[5];
+    private Preference mQsPanelStylePage;
     private ListPreference mShowBrightnessSlider;
     private ListPreference mVolumeSliderMode;
-    private Preference mQsColorOSMediaArtFill;
-    private Preference mQsNothingColorStyle;
-    private Preference mQsRemixStyle;
-    private Preference mQsTileIconShape;
-    private Preference mQsTileShape;
 //    private SecureSettingListPreference mQsShowMediaPlayer;
     private SwitchPreferenceCompat mBrightnessSliderHaptic;
 //    private SwitchPreferenceCompat mQsTileAlternateColor;
     private SwitchPreferenceCompat mQsTileHaptic;
-    private SwitchPreferenceCompat mQsTileLabelHide;
     private SwitchPreferenceCompat mShowAutoBrightness;
     private SwitchPreferenceCompat mShowRingerMode;
     private SystemSettingListPreference mQsHeaderClockStyle;
@@ -169,109 +150,31 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //        mQsTileAlternateColor = findPreference(KEY_QS_TILE_ALTERNATE_COLOR);
 //        mQsTileAlternateColor.setOnPreferenceChangeListener(this);
 
-        mQsPanelStyle = findPreference(KEY_QS_PANEL_STYLE);
-        mQsPanelStyle.setOnPreferenceChangeListener(this);
-        mQsTileShape = findPreference(KEY_QS_TILE_SHAPE);
-        mQsTileIconShape = findPreference(KEY_QS_TILE_ICON_SHAPE);
-        mQsTileLabelHide = findPreference(KEY_QS_TILE_LABEL_HIDE);
-        mQsColorOSMediaArtFill = findPreference(KEY_QS_COLOROS_MEDIA_ART_FILL);
-        mQsNothingColorStyle = findPreference(KEY_QS_NOTHING_COLOR_STYLE);
-        mQsNothingColorStyle.setOnPreferenceChangeListener(this);
-        mQsRemixStyle = findPreference(KEY_QS_REMIX_STYLE);
-        if (mQsRemixStyle != null) {
-            mQsRemixStyle.setOnPreferenceChangeListener(this);
-        }
+        mQsPanelStylePage = findPreference(KEY_QS_PANEL_STYLE_PAGE);
         mQsHeaderClockStyle = findPreference(KEY_QS_HEADER_CLOCK_STYLE);
         mQsHeaderClockStyle.setOnPreferenceChangeListener(this);
+    }
 
-        int panelStyle = Settings.System.getIntForUser(resolver,
+    @Override
+    public void onResume() {
+        super.onResume();
+        updatePanelStyleSummary();
+    }
+
+    /** Shows the panel style that is picked on its own page. */
+    private void updatePanelStyleSummary() {
+        if (mQsPanelStylePage == null) {
+            return;
+        }
+        final int style = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
-        updatePanelStylePrefs(panelStyle);
-        bindPanelStylePreview(resolver, panelStyle);
-    }
-
-    private void bindPanelStylePreview(ContentResolver resolver, int panelStyle) {
-        final LayoutPreference previewPref = findPreference(KEY_QS_PANEL_STYLE_PREVIEW);
-        if (previewPref == null) {
-            return;
-        }
-        mQsStylePreview = previewPref.findViewById(R.id.qs_style_preview);
-        final int nothingColors = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_NOTHING_COLOR_STYLE, QsStylePreviewView.NOTHING_COLORS_FLAT,
-                UserHandle.USER_CURRENT);
-        final int remixLook = Settings.System.getIntForUser(resolver,
-                KEY_QS_REMIX_STYLE, QsStylePreviewView.LOOK_STOCK, UserHandle.USER_CURRENT);
-        final int[] thumbIds = {
-            R.id.qs_style_thumb_card, R.id.qs_style_thumb_classic,
-            R.id.qs_style_thumb_coloros, R.id.qs_style_thumb_nothingos,
-            R.id.qs_style_thumb_remix,
-        };
-        final int[] titleIds = {
-            R.id.qs_style_thumb_card_title, R.id.qs_style_thumb_classic_title,
-            R.id.qs_style_thumb_coloros_title, R.id.qs_style_thumb_nothingos_title,
-            R.id.qs_style_thumb_remix_title,
-        };
-        for (int i = 0; i < mQsStyleThumbs.length; i++) {
-            final int style = i;
-            final QsStylePreviewView thumb = previewPref.findViewById(thumbIds[i]);
-            final TextView title = previewPref.findViewById(titleIds[i]);
-            thumb.setMini(true);
-            thumb.setStyle(style);
-            thumb.setNothingColorStyle(nothingColors);
-            thumb.setRemixLook(remixLook);
-            thumb.setContentDescription(title.getText());
-            thumb.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
-            thumb.setOnClickListener(v -> selectPanelStyle(style));
-            mQsStyleThumbs[i] = thumb;
-        }
-        if (mQsStylePreview != null) {
-            mQsStylePreview.setNothingColorStyle(nothingColors);
-            mQsStylePreview.setRemixLook(remixLook);
-        }
-        updatePanelStylePreview(panelStyle);
-    }
-
-    private void updatePanelStylePreview(int panelStyle) {
-        if (mQsStylePreview != null) {
-            mQsStylePreview.setStyle(panelStyle);
-        }
-        for (int i = 0; i < mQsStyleThumbs.length; i++) {
-            if (mQsStyleThumbs[i] != null) {
-                mQsStyleThumbs[i].setSelected(i == panelStyle);
+        final String[] values = getResources().getStringArray(R.array.qs_panel_style_values);
+        final String[] entries = getResources().getStringArray(R.array.qs_panel_style_entries);
+        for (int i = 0; i < values.length && i < entries.length; i++) {
+            if (values[i].equals(String.valueOf(style))) {
+                mQsPanelStylePage.setSummary(entries[i]);
+                return;
             }
-        }
-    }
-
-    private void updatePanelStylePreviewColors(int nothingColors) {
-        if (mQsStylePreview != null) {
-            mQsStylePreview.setNothingColorStyle(nothingColors);
-        }
-        for (QsStylePreviewView thumb : mQsStyleThumbs) {
-            if (thumb != null) {
-                thumb.setNothingColorStyle(nothingColors);
-            }
-        }
-    }
-
-    private void updatePanelStylePreviewLook(int look) {
-        if (mQsStylePreview != null) {
-            mQsStylePreview.setRemixLook(look);
-        }
-        for (QsStylePreviewView thumb : mQsStyleThumbs) {
-            if (thumb != null) {
-                thumb.setRemixLook(look);
-            }
-        }
-    }
-
-    /** Picks a panel style from a thumbnail, as the list preference does. */
-    private void selectPanelStyle(int style) {
-        final String value = String.valueOf(style);
-        if (mQsPanelStyle == null || value.equals(mQsPanelStyle.getValue())) {
-            return;
-        }
-        if (mQsPanelStyle.callChangeListener(value)) {
-            mQsPanelStyle.setValue(value);
         }
     }
 
@@ -284,35 +187,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 //        mQsShowMediaPlayer.setVisible(!enabled);
 //    }
 
-    private void updatePanelStylePrefs(int panelStyle) {
-        boolean isClassic = panelStyle == 1;
-        boolean isColorOS = panelStyle == 2;
-        boolean isNothingOS = panelStyle == 3;
-        boolean isRemix = panelStyle == PANEL_STYLE_REMIX;
-
-        // ColorOS pins the tile shapes, but still lets the labels be hidden.
-        // NothingOS pins both the shapes and the labels.
-        if (mQsTileShape != null) {
-            mQsTileShape.setVisible(!isClassic && !isColorOS && !isNothingOS && !isRemix);
-        }
-        if (mQsTileIconShape != null) {
-            mQsTileIconShape.setVisible(isClassic);
-        }
-        if (mQsTileLabelHide != null) {
-            mQsTileLabelHide.setVisible(isClassic || isColorOS);
-        }
-        if (mQsColorOSMediaArtFill != null) {
-            mQsColorOSMediaArtFill.setVisible(isColorOS);
-        }
-        if (mQsNothingColorStyle != null) {
-            mQsNothingColorStyle.setVisible(isNothingOS);
-        }
-        // The Remix style picks its own tile shapes, so only its look is offered.
-        if (mQsRemixStyle != null) {
-            mQsRemixStyle.setVisible(isRemix);
-        }
-    }
-
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mShowBrightnessSlider) {
@@ -324,17 +198,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
             mShowRingerMode.setEnabled(value > 0);
-            return true;
-        } else if (preference == mQsPanelStyle) {
-            int value = Integer.parseInt((String) newValue);
-            updatePanelStylePrefs(value);
-            updatePanelStylePreview(value);
-            return true;
-        } else if (preference == mQsRemixStyle) {
-            updatePanelStylePreviewLook(Integer.parseInt((String) newValue));
-            return true;
-        } else if (preference == mQsNothingColorStyle) {
-            updatePanelStylePreviewColors(Integer.parseInt((String) newValue));
             return true;
         } else if (preference == mCompactMediaPlayer
                 || preference == mBrightnessSliderHaptic
