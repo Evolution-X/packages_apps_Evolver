@@ -17,7 +17,14 @@
 package org.evolution.settings.fragments.lockscreen
 
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.database.ContentObserver
+import android.os.BatteryManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.UserHandle
 import android.provider.Settings
 import androidx.preference.Preference
 import androidx.preference.ListPreference
@@ -26,6 +33,8 @@ import com.android.internal.util.evolution.VibrationUtils
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
+import com.android.settingslib.Utils
+import com.android.settingslib.widget.LayoutPreference
 import com.android.settingslib.search.SearchIndexable
 
 import org.evolution.settings.preferences.SystemSettingSeekBarPreference
@@ -39,6 +48,16 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
     private var glowIntensityPref: SystemSettingSeekBarPreference? = null
     private var arcCountPref: SystemSettingSeekBarPreference? = null
 
+    private var preview: ChargingPreviewView? = null
+    private var previewStyle = -1
+    private var previewColorMode = -1
+    private val previewHandler = Handler(Looper.getMainLooper())
+    private val previewObserver = object : ContentObserver(previewHandler) {
+        override fun onChange(selfChange: Boolean) {
+            syncPreview()
+        }
+    }
+
     companion object {
         const val TAG = "ChargingAnimationSettings"
 
@@ -50,6 +69,17 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         private const val STYLE_NEBULA = 5
         private const val STYLE_DIGITAL_MATRIX = 6
         private const val STYLE_GEOFLOW = 7
+
+        private const val KEY_PREVIEW = "charging_preview"
+        private const val KEY_STYLE = "charging_animation_style"
+        private const val KEY_COLOR_MODE = "charging_color_mode"
+        private const val KEY_RIPPLE_OPACITY = "charging_ripple_opacity"
+        private const val KEY_GLOW_INTENSITY = "charging_glow_intensity"
+        private const val KEY_ARC_COUNT = "charging_arc_count"
+        private const val PREVIEW_RESTART_MS = 350L
+        private val PREVIEW_KEYS = arrayOf(
+            KEY_STYLE, KEY_COLOR_MODE, KEY_RIPPLE_OPACITY, KEY_GLOW_INTENSITY, KEY_ARC_COUNT
+        )
         
         private fun getHiddenKeysForStyle(style: Int): List<String> {
             return when (style) {
@@ -69,6 +99,7 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         val SEARCH_INDEX_DATA_PROVIDER = object : BaseSearchIndexProvider(R.xml.charging_animation_settings) {
             override fun getNonIndexableKeys(context: Context): List<String> {
                 val keys = super.getNonIndexableKeys(context).toMutableList()
+                keys.add(KEY_PREVIEW)
                 
                 val style = Settings.System.getInt(
                     context.contentResolver,
@@ -87,6 +118,8 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.charging_animation_settings)
 
+        preview = findPreference<LayoutPreference>(KEY_PREVIEW)
+            ?.findViewById(R.id.charging_preview)
         animationStylePref = findPreference("charging_animation_style")
         rippleOpacityPref = findPreference("charging_ripple_opacity")
         glowIntensityPref = findPreference("charging_glow_intensity")
@@ -96,6 +129,59 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
 
         updatePreferenceVisibility()
     }
+
+    override fun onStart() {
+        super.onStart()
+        for (key in PREVIEW_KEYS) {
+            contentResolver.registerContentObserver(
+                Settings.System.getUriFor(key), false, previewObserver
+            )
+        }
+        previewStyle = -1
+        previewColorMode = -1
+        syncPreview()
+        preview?.show()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        contentResolver.unregisterContentObserver(previewObserver)
+        previewHandler.removeCallbacksAndMessages(null)
+        preview?.hide()
+    }
+
+    // The preview plays whether or not the animation is switched on, so a style can be
+    // judged before it is enabled. A new style or color mode restarts it, as the view only
+    // starts its animators when it is shown.
+    private fun syncPreview() {
+        val view = preview ?: return
+        val style = readInt(KEY_STYLE, 0).coerceIn(0, 7)
+        val colorMode = readInt(KEY_COLOR_MODE, 0).coerceIn(0, 2)
+        val level = requireContext()
+            .registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+            ?.getIntExtra(BatteryManager.EXTRA_LEVEL, 50) ?: 50
+
+        view.accentColor = Utils.getColorAccentDefaultColor(requireContext())
+        view.batteryLevel = level
+        view.animationStyle = style
+        view.colorMode = colorMode
+        view.rippleOpacity = readInt(KEY_RIPPLE_OPACITY, 60) / 100f
+        view.glowIntensity = readInt(KEY_GLOW_INTENSITY, 80) / 100f
+        view.arcCount = readInt(KEY_ARC_COUNT, 3)
+
+        val restart = previewStyle != -1 &&
+            (style != previewStyle || colorMode != previewColorMode)
+        previewStyle = style
+        previewColorMode = colorMode
+        if (restart) {
+            previewHandler.removeCallbacksAndMessages(null)
+            view.hide()
+            previewHandler.postDelayed({ view.show() }, PREVIEW_RESTART_MS)
+        }
+    }
+
+    private fun readInt(key: String, default: Int): Int =
+        Settings.System.getIntForUser(contentResolver, key, default, UserHandle.USER_CURRENT)
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         if (preference.key != null) {
