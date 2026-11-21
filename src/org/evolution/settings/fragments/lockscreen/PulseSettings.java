@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.view.View;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -53,7 +54,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String KEY_PULSE_ROUND_OUTPUT = Settings.Secure.PULSE_ROUNDED_BARS;
     private static final String KEY_PULSE_HEIGHT = Settings.Secure.PULSE_HEIGHT_MULTIPLIER;
     private static final String KEY_PULSE_BAR_COUNT = Settings.Secure.PULSE_BAR_COUNT;
-    private static final String KEY_PULSE_PREVIEW = "pulse_preview";
 
     private SecureSettingSwitchPreference mPulseShowOnMediaPlayer;
     private SecureSettingSwitchPreference mPulseShowOnAmbient;
@@ -65,7 +65,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private SwitchPreferenceCompat mPulseRoundOutput;
     private SecureSettingSeekBarPreference mPulseHeight;
     private SecureSettingSeekBarPreference mPulseBarCount;
-    private Preference mPulsePreview;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,7 +82,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mPulseRoundOutput = findPreference(KEY_PULSE_ROUND_OUTPUT);
         mPulseHeight = findPreference(KEY_PULSE_HEIGHT);
         mPulseBarCount = findPreference(KEY_PULSE_BAR_COUNT);
-        mPulsePreview = findPreference(KEY_PULSE_PREVIEW);
 
         if (mPulseRenderer != null) {
             mPulseRenderer.setOnPreferenceChangeListener(this);
@@ -108,6 +106,13 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         if (mPulseShowOnAmbient != null) {
             updateAmbientPreference(!willShowOnMediaPlayer());
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // Pinned above the list, so the preview stays in view while the options scroll.
+        setPinnedHeaderView(R.layout.pulse_preview);
     }
 
     @Override
@@ -183,9 +188,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                     samplesFixed = true;
                     supportsColoring = true;
                 }
-            }
-            if (mPulsePreview != null) {
-                mPulsePreview.setVisible(PulsePreviewView.supports(rendererValue));
             }
             mPulseHeight.setVisible(!showOnMediaPlayerEnabled && !heightFixed);
             mPulseBarCount.setVisible(!samplesFixed);
