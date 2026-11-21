@@ -70,6 +70,7 @@ import org.json.JSONException;
 public class NavigationBarIcons extends SettingsPreferenceFragment {
 
     private RecyclerView mRecyclerView;
+    private Adapter mAdapter;
     private ThemeUtils mThemeUtils;
     private String mCategory = "android.theme.customization.navbar";
 
@@ -99,10 +100,23 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
-        Adapter mAdapter = new Adapter(getActivity());
+        mAdapter = new Adapter(getActivity());
         mRecyclerView.setAdapter(mAdapter);
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mRecyclerView != null) {
+            mRecyclerView.setAdapter(null);
+            mRecyclerView = null;
+        }
+        if (mAdapter != null) {
+            mAdapter.shutdown();
+            mAdapter = null;
+        }
     }
 
     @Override
@@ -129,13 +143,50 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
         super.onResume();
     }
 
+    /** What a row shows for a package. */
+    private static final class Preview {
+        final Drawable back;
+        final Drawable home;
+        final Drawable recent;
+        final String label;
+
+        Preview(Drawable back, Drawable home, Drawable recent, String label) {
+            this.back = back;
+            this.home = home;
+            this.recent = recent;
+            this.label = label;
+        }
+    }
+
     public class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {
         Context context;
         String mSelectedPkg;
-        String mAppliedPkg;
+        private final PreviewLoader<String, Preview> mLoader = new PreviewLoader<>(64);
 
         public Adapter(Context context) {
             this.context = context;
+            mSelectedPkg = mThemeUtils.getOverlayInfos(mCategory, mLauncherPackage).stream()
+                .filter(info -> info.isEnabled())
+                .map(info -> info.packageName)
+                .findFirst()
+                .orElse(mLauncherPackage);
+        }
+
+        void shutdown() {
+            mLoader.shutdown();
+        }
+
+        // Runs in the background: the icons come from the overlay's resources.
+        private Preview loadPreview(String navPkg) {
+            try {
+                return new Preview(
+                        getDrawable(context, navPkg, "ic_sysbar_back"),
+                        getDrawable(context, navPkg, "ic_sysbar_home"),
+                        getDrawable(context, navPkg, "ic_sysbar_recent"),
+                        mLauncherPackage.equals(navPkg) ? "Default" : getLabel(context, navPkg));
+            } catch (RuntimeException e) {
+                return null;
+            }
         }
 
         @Override
@@ -149,26 +200,20 @@ public class NavigationBarIcons extends SettingsPreferenceFragment {
         public void onBindViewHolder(CustomViewHolder holder, final int position) {
             String navPkg = mPkgs.get(position);
 
-            holder.image1.setBackgroundDrawable(getDrawable(holder.image1.getContext(), navPkg, "ic_sysbar_back"));
-            holder.image2.setBackgroundDrawable(getDrawable(holder.image2.getContext(), navPkg, "ic_sysbar_home"));
-            holder.image3.setBackgroundDrawable(getDrawable(holder.image3.getContext(), navPkg, "ic_sysbar_recent"));
-
-            String currentPackageName = mThemeUtils.getOverlayInfos(mCategory, mLauncherPackage).stream()
-                .filter(info -> info.isEnabled())
-                .map(info -> info.packageName)
-                .findFirst()
-                .orElse(mLauncherPackage);
-
-            holder.name.setText(mLauncherPackage.equals(navPkg) ? "Default" : getLabel(holder.name.getContext(), navPkg));
-
-            if (currentPackageName.equals(navPkg)) {
-                mAppliedPkg = navPkg;
-                if (mSelectedPkg == null) {
-                    mSelectedPkg = navPkg;
-                }
+            boolean cached = mLoader.show(holder.itemView, navPkg, () -> loadPreview(navPkg), preview -> {
+                holder.image1.setBackground(PreviewLoader.copy(preview.back));
+                holder.image2.setBackground(PreviewLoader.copy(preview.home));
+                holder.image3.setBackground(PreviewLoader.copy(preview.recent));
+                holder.name.setText(preview.label);
+            });
+            if (!cached) {
+                holder.image1.setBackground(null);
+                holder.image2.setBackground(null);
+                holder.image3.setBackground(null);
+                holder.name.setText(mLauncherPackage.equals(navPkg) ? "Default" : "");
             }
 
-            holder.itemView.setActivated(navPkg == mSelectedPkg);
+            holder.itemView.setActivated(navPkg.equals(mSelectedPkg));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
