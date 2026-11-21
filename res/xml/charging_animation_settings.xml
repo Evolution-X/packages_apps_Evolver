@@ -20,6 +20,13 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/charging_animation_title">
 
+    <!-- Live preview -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="charging_preview"
+        android:layout="@layout/charging_animation_preview"
+        android:selectable="false"
+        settings:allowDividerBelow="false" />
+
     <!-- Enable/Disable -->
     <lineageos.preference.SystemSettingMainSwitchPreference
         android:key="charging_animation_enabled"
