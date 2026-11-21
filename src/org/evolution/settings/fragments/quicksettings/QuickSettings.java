@@ -11,6 +11,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -24,6 +26,7 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settingslib.widget.LayoutPreference;
 
 import java.util.List;
 
@@ -53,6 +56,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QS_HEADER_CLOCK_STYLE = "qs_header_clock_style";
     private static final String KEY_QS_NOTHING_COLOR_STYLE = "qs_nothing_color_style";
     private static final String KEY_QS_PANEL_STYLE = "qs_panel_style";
+    private static final String KEY_QS_PANEL_STYLE_PREVIEW = "qs_panel_style_preview";
 //    private static final String KEY_QS_SHOW_MEDIA_PLAYER = "qs_show_media_player";
 //    private static final String KEY_QS_TILE_ALTERNATE_COLOR = "qs_tile_alternate_color";
     private static final String KEY_QS_TILE_HAPTIC = "qs_tile_haptic";
@@ -70,6 +74,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     private ListPreference mBrightnessSliderPosition;
     private ListPreference mQsPanelStyle;
+    private QsStylePreviewView mQsStylePreview;
+    private final QsStylePreviewView[] mQsStyleThumbs = new QsStylePreviewView[4];
     private ListPreference mShowBrightnessSlider;
     private ListPreference mVolumeSliderMode;
     private Preference mQsColorOSMediaArtFill;
@@ -175,6 +181,75 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         int panelStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
         updatePanelStylePrefs(panelStyle);
+        bindPanelStylePreview(resolver, panelStyle);
+    }
+
+    private void bindPanelStylePreview(ContentResolver resolver, int panelStyle) {
+        final LayoutPreference previewPref = findPreference(KEY_QS_PANEL_STYLE_PREVIEW);
+        if (previewPref == null) {
+            return;
+        }
+        mQsStylePreview = previewPref.findViewById(R.id.qs_style_preview);
+        final int nothingColors = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_NOTHING_COLOR_STYLE, QsStylePreviewView.NOTHING_COLORS_FLAT,
+                UserHandle.USER_CURRENT);
+        final int[] thumbIds = {
+            R.id.qs_style_thumb_card, R.id.qs_style_thumb_classic,
+            R.id.qs_style_thumb_coloros, R.id.qs_style_thumb_nothingos,
+        };
+        final int[] titleIds = {
+            R.id.qs_style_thumb_card_title, R.id.qs_style_thumb_classic_title,
+            R.id.qs_style_thumb_coloros_title, R.id.qs_style_thumb_nothingos_title,
+        };
+        for (int i = 0; i < mQsStyleThumbs.length; i++) {
+            final int style = i;
+            final QsStylePreviewView thumb = previewPref.findViewById(thumbIds[i]);
+            final TextView title = previewPref.findViewById(titleIds[i]);
+            thumb.setMini(true);
+            thumb.setStyle(style);
+            thumb.setNothingColorStyle(nothingColors);
+            thumb.setContentDescription(title.getText());
+            thumb.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
+            thumb.setOnClickListener(v -> selectPanelStyle(style));
+            mQsStyleThumbs[i] = thumb;
+        }
+        if (mQsStylePreview != null) {
+            mQsStylePreview.setNothingColorStyle(nothingColors);
+        }
+        updatePanelStylePreview(panelStyle);
+    }
+
+    private void updatePanelStylePreview(int panelStyle) {
+        if (mQsStylePreview != null) {
+            mQsStylePreview.setStyle(panelStyle);
+        }
+        for (int i = 0; i < mQsStyleThumbs.length; i++) {
+            if (mQsStyleThumbs[i] != null) {
+                mQsStyleThumbs[i].setSelected(i == panelStyle);
+            }
+        }
+    }
+
+    private void updatePanelStylePreviewColors(int nothingColors) {
+        if (mQsStylePreview != null) {
+            mQsStylePreview.setNothingColorStyle(nothingColors);
+        }
+        for (QsStylePreviewView thumb : mQsStyleThumbs) {
+            if (thumb != null) {
+                thumb.setNothingColorStyle(nothingColors);
+            }
+        }
+    }
+
+    /** Picks a panel style from a thumbnail, as the list preference does. */
+    private void selectPanelStyle(int style) {
+        final String value = String.valueOf(style);
+        if (mQsPanelStyle == null || value.equals(mQsPanelStyle.getValue())) {
+            return;
+        }
+        if (mQsPanelStyle.callChangeListener(value)) {
+            mQsPanelStyle.setValue(value);
+        }
     }
 
 //    private void updateWidgetPanelDependencies() {
@@ -229,16 +304,20 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int current = Settings.System.getIntForUser(resolver,
                     Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
             updatePanelStylePrefs(value);
+            updatePanelStylePreview(value);
             if (value != current) {
                 SystemUtils.showSystemUiRestartDialog(getActivity());
             }
+            return true;
+        } else if (preference == mQsNothingColorStyle) {
+            updatePanelStylePreviewColors(Integer.parseInt((String) newValue));
+            SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         } else if (preference == mCompactMediaPlayer
                 || preference == mBrightnessSliderHaptic
                 || preference == mMediaWaveformSeekBar
                 || preference == mQsColorOSMediaArtFill
-                || preference == mQsHeaderClockStyle
-                || preference == mQsNothingColorStyle) {
+                || preference == mQsHeaderClockStyle) {
             SystemUtils.showSystemUiRestartDialog(getActivity());
             return true;
         }
