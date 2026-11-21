@@ -108,4 +108,19 @@
 
     </PreferenceCategory>
 
+    <!-- Plug-in animation -->
+    <PreferenceCategory
+        android:key="charging_plug_animation_category"
+        android:title="@string/charging_plug_animation_category_title">
+
+        <org.evolution.settings.preferences.SystemSettingListPreference
+            android:key="charging_plug_animation"
+            android:title="@string/charging_plug_animation_title"
+            android:summary="%s"
+            android:entries="@array/charging_plug_animation_entries"
+            android:entryValues="@array/charging_plug_animation_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
