@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Evolver -->
     <string name="evolver_dashboard_title">Evolver</string>
-    <string name="evolver_dashboard_summary">핵심은 Pixel입니다. 디자인으로 완성한 당신의 것</string>
+    <string name="evolver_dashboard_summary">본질은 픽셀. 디자인은 당신을 위한 것</string>
     <!-- Categories -->
     <string name="themes_title">테마</string>
     <string name="themes_summary">Monet 엔진, 폰트, 아이콘, 애니메이션</string>
@@ -46,11 +46,17 @@
     <string name="themes_navigation_bar_icons_summary">내비게이션 바 아이콘 스타일 설정</string>
     <string name="themes_udfps_icon_title">UDFPS 아이콘</string>
     <string name="themes_udfps_icon_summary">UDFPS 아이콘 스타일 설정</string>
-    <string name="themes_screen_off_animation_title">화면 꺼짐 애니메이션</string>
-    <string name="themes_screen_off_animation_crt">CRT</string>
-    <string name="themes_screen_off_animation_scale">스케일</string>
+    <string name="screen_off_animation_title">화면 꺼짐 애니메이션</string>
+    <string name="screen_off_animation_colorfade">컬러페이드</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">스케일</string>
+    <string name="screen_off_animation_iris">조리개</string>
+    <string name="screen_off_animation_desaturate">채도 낮추기</string>
+    <string name="screen_off_animation_shutter">셔터</string>
     <string name="themes_udfps_animation_title">화면 지문 인식 애니메이션</string>
     <string name="themes_udfps_animation_summary">UDFPS 애니메이션 스타일을 설정합니다</string>
+    <string name="dialog_blur_title">대화창 및 토스트 메시지 블러 처리</string>
+    <string name="dialog_blur_summary">시스템 대화 상자 및 토스트의 배경을 흐리게 처리합니다.</string>
     <!-- Themes/Boot animation -->
     <string name="themes_boot_animation_title">부트 애니메이션</string>
     <string name="boot_animation_applied_error">부팅 애니메이션을 적용하는 데 실패했습니다.</string>
@@ -192,9 +198,13 @@
     <string name="lockscreen_custom_clock_gradient_category_title">그라데이션</string>
     <string name="lockscreen_custom_clock_layout_category_title">크기 및 위치</string>
     <string name="lockscreen_custom_clock_animation_category_title"></string>
+    <string name="lockscreen_custom_clock_browse_all_clocks">모든 시계 살펴보기</string>
+    <string name="lockscreen_custom_clock_applied"><xliff:g id="clock_name" example="OnePlus Clock">%1$s</xliff:g> 적용됨</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">크기</string>
     <string name="clock_size_summary">잠금 화면 시계 크기를 50~150%로 조정하세요.</string>
+    <string name="lockscreen_custom_clock_dynamic_size_title">동적 시계 크기</string>
+    <string name="lockscreen_custom_clock_dynamic_size_summary">잠금 화면에 알림이나 미디어가 없을 때 시계를 확대합니다. 아주 큰 시계 스타일은 그대로 유지됩니다.</string>
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">앨범 아트 색상을 따라가세요</string>
     <string name="clock_album_art_color_summary">미디어가 재생 중일 때 앨범 아트 팔레트로 시계 색상을 변경합니다.</string>
@@ -309,6 +319,7 @@
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">Smartspace</string>
     <string name="lockscreen_smartspace_summary">Google Smartspace를 사용할 수 있을 경우 표시합니다.</string>
+    <string name="lockscreen_smartspace_custom_clock_info">사용자 지정 시계 스타일이 활성화된 동안에는 사용할 수 없습니다.</string>
     <!-- Lock screen/Depth wallpaper -->
     <string name="depthwall_file_header_select_title">깊이감 있는 배경화면 주제를 선택하세요</string>
     <string name="depthwall_file_header_select_summary">저장소에서 심도 배경화면 피사체 이미지 선택.</string>
@@ -702,8 +713,11 @@
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">인터페이스</string>
     <string name="qs_panel_style_title">QS 패널 스타일</string>
+    <string name="qs_style_preview_on">켜기</string>
+    <string name="qs_style_preview_off">끄기</string>
     <string name="qs_panel_style_card">카드</string>
     <string name="qs_panel_style_classic">클래식</string>
+    <string name="qs_remix_style_title">리믹스 스타일</string>
     <string name="quick_settings_layout_category_title">레이아웃</string>
     <string name="quick_settings_tile_label_hide_title">라벨 숨기기</string>
     <string name="quick_settings_tile_label_hide_summary">타일에서만 아이콘 표시</string>
@@ -770,8 +784,6 @@
     <string name="quick_settings_auto_brightness_icon_summary">슬라이더 옆에 적응형 밝기 토글을 표시합니다.</string>
     <string name="quick_settings_brightness_slider_haptic_title">햅틱 피드백</string>
     <string name="quick_settings_brightness_slider_haptic_summary">슬라이더로 밝기를 조절할 때 진동합니다.</string>
-    <string name="qs_brightness_slider_gradient_title">밝기 슬라이더 그라디언트</string>
-    <string name="qs_brightness_slider_gradient_summary">빠른 설정 밝기 조절 슬라이더에 그라데이션 배경 활성화</string>
     <!-- Quick settings/Animations -->
     <string name="qs_tile_animation_style_title">타일 애니메이션</string>
     <string name="qs_tile_animation_style_bounce">튕기기</string>
@@ -804,6 +816,13 @@
     <string name="quick_settings_header_file_select_title">이미지 선택</string>
     <string name="quick_settings_header_file_select_summary">사용자 지정 이미지 또는 애니메이션 GIF를 선택하세요.</string>
     <string name="quick_settings_header_needs_gallery">갤러리 앱이 필요합니다</string>
+    <string name="qs_header_preview_title">헤더 미리보기</string>
+    <string name="qs_header_preview_summary">손가락으로 집어 확대·축소하고 드래그하여 위치를 조정하거나, 슬라이더를 사용하세요. 변경 사항은 \'빠른 설정\'에 즉시 적용됩니다.</string>
+    <string name="qs_header_preview_empty">이미지를 가져오거나 OmniStyle에서 정적 헤더를 선택하여 해당 이미지의 자르기 영역을 조정하세요.</string>
+    <string name="qs_header_preview_zoom_value">확대/축소: %1$d%%</string>
+    <string name="qs_header_preview_horizontal_value">가로 위치: %1$d%%</string>
+    <string name="qs_header_preview_vertical_value">수직 위치: %1$d%%</string>
+    <string name="qs_header_preview_reset">초기화</string>
     <string name="quick_settings_header_offset_title">헤더 이미지 오프셋</string>
     <string name="quick_settings_header_offset_summary">헤더 이미지 크기를 조정하세요</string>
     <string name="quick_settings_header_file_failed">선택한 이미지를 불러올 수 없습니다.</string>
@@ -820,14 +839,17 @@
     <string name="quick_settings_footer_edit_icon_title">타일 아이콘 편집</string>
     <string name="quick_settings_footer_show_power_menu_title">전원 메뉴 바로 가기</string>
     <string name="quick_settings_footer_settings_icon_title">설정 바로가기</string>
+    <string name="qs_header_clock_style_title">QS 헤더 클록 스타일</string>
+    <string name="qs_header_style1">칩</string>
+    <string name="qs_header_style2">Oxygen</string>
+    <string name="qs_header_style3">아날로그</string>
+    <string name="qs_header_style4">간결하게</string>
     <string name="qs_compact_media_player_mode_title">소형 미디어 플레이어</string>
     <string name="qs_compact_media_player_mode_summary">미디어 플레이어의 빠른 설정을 위해 간편 모드를 사용하세요.</string>
     <string name="qs_show_media_player_title">미디어 플레이어 위치</string>
     <string name="qs_show_media_player_hide">숨기기</string>
     <string name="qs_show_media_player_top">맨 위에 표시</string>
     <string name="qs_show_media_player_bottom">맨 아래에 표시</string>
-    <string name="qs_tile_gradient_title">QS 타일 그라디언트</string>
-    <string name="qs_tile_gradient_summary">빠른 설정 타일에 그라데이션 배경 활성화</string>
     <!-- QS widget -->
     <string name="qs_widget_panel_title">QS 패널에 위젯 표시</string>
     <string name="qs_widget_panel_summary">빠른 설정 패널에 미디어 및 볼륨, 밝기 위젯을 표시합니다.</string>
@@ -868,6 +890,12 @@
     <!-- Notifications/Edge light -->
     <string name="edge_light_title">엣지 라이트 알림</string>
     <string name="edge_light_summary">알림이 깜빡일 때 화면 가장자리를 밝게 표시합니다.</string>
+    <string name="edge_light_display_mode_title">표시 모드</string>
+    <string name="edge_light_trigger_unlock_only_title">잠금 해제 시에만 작동하는 엣지 라이트 트리거링</string>
+    <string name="edge_light_trigger_unlock_only_description">이 기능을 활성화하면, 알림이 올 때가 아니라 기기가 잠금 해제되었을 때만 에지 라이트가 작동합니다.</string>
+    <string name="edge_light_display_mode_lockscreen">잠금 화면에만 표시</string>
+    <string name="edge_light_display_mode_unlocked">잠금 해제된 기기만 해당</string>
+    <string name="edge_light_display_mode_both">모두</string>
     <string name="edge_light_color_mode_title">색상 모드</string>
     <string name="edge_light_pulse_count_title">Pulse 카운트</string>
     <string name="edge_light_pulse_count_summary">엣지 라이트 펄스 수</string>
@@ -883,6 +911,42 @@
     <string name="edge_light_animation_effect_sparkle">스파클</string>
     <string name="edge_light_animation_effect_chase">체이스</string>
     <string name="edge_light_animation_effect_comet">혜성</string>
+    <string name="edge_light_design_chase_around">주변을 쫓다</string>
+    <string name="edge_light_design_mirror_rain">거울 비</string>
+    <string name="edge_light_design_corner_out">코너 아웃</string>
+    <string name="edge_light_design_fire_dance">불의 춤</string>
+    <string name="edge_light_design_side_ripples">측면 잔물결</string>
+    <string name="edge_light_design_flat_ripples">평평한 잔물결</string>
+    <string name="edge_light_design_flat_bars">평철</string>
+    <string name="edge_light_design_side_bars">사이드바</string>
+    <string name="edge_light_design_flat_streaks">평탄한 구간들</string>
+    <string name="edge_light_design_side_streaks">측면 줄무늬</string>
+    <string name="edge_light_design_side_flutter">측면 떨림</string>
+    <string name="edge_light_design_flat_flutter">플랫 플러터</string>
+    <string name="edge_light_design_flat_waves">잔잔한 파도</string>
+    <string name="edge_light_design_side_waves">사이드 웨이브</string>
+    <string name="edge_light_design_waves_around">주변의 파동</string>
+    <string name="edge_light_design_lights_around">주변의 불빛들</string>
+    <string name="edge_light_design_bars_around">주변 술집들</string>
+    <string name="edge_light_design_side_braids">옆으로 땋은 머리</string>
+    <string name="edge_light_design_side_lights">측면 조명</string>
+    <string name="edge_light_design_serial_lights">직렬 연결 조명</string>
+    <string name="edge_light_design_serials_around">주변의 연재물들</string>
+    <string name="edge_light_design_snow_particles">눈 입자</string>
+    <string name="edge_light_design_bubble_particles">거품 입자</string>
+    <string name="edge_light_design_dot_particles">점 입자</string>
+    <string name="edge_light_design_strings_around">주변의 현들</string>
+    <string name="edge_light_animation_speed_title">애니메이션 속도</string>
+    <string name="edge_light_animation_speed_summary">엣지 디자인은 얼마나 빠르게 변화하는가</string>
+    <string name="edge_light_design_length_title">길이 설계</string>
+    <string name="edge_light_design_length_summary">흔적의 길이와 입자가 도달하는 범위</string>
+    <string name="edge_light_design_size_title">디자인 크기</string>
+    <string name="edge_light_design_size_summary">막대와 파동의 높이, 또는 입자의 크기</string>
+    <string name="edge_light_design_density_title">설계 밀도</string>
+    <string name="edge_light_design_density_summary">빛, 막대, 파동 또는 입자의 개수</string>
+    <string name="edge_light_animation_direction_title">애니메이션 방향</string>
+    <string name="edge_light_direction_normal">기본</string>
+    <string name="edge_light_direction_reversed">반전</string>
     <string name="edge_light_spread_title">글로우 퍼짐</string>
     <string name="edge_light_spread_summary">빛이 가장자리에서 얼마나 안쪽으로 뻗어 있는가</string>
     <string name="edge_light_intensity_title">발광 강도</string>
@@ -955,6 +1019,9 @@
     <string name="tensor_targets_none_configured">타겟팅된 앱 없음</string>
     <string name="tensor_targets_count">%1$d 앱 타겟팅됨</string>
     <string name="tensor_targets_empty_description">선택된 앱은 Tensor 하드웨어 기능을 보고하여 AI 및 Pixel 전용 기능을 활성화합니다.</string>
+    <string name="tensor_spoof_timed_title">일시적(1시간)</string>
+    <string name="tensor_spoof_timed_summary_off">끌 때까지 켜져 있습니다</string>
+    <string name="tensor_spoof_timed_remaining">%1$d분 남음</string>
     <string name="user_selectable_app_spoofing_title">앱 및 게임 스푸핑</string>
     <string name="user_selectable_app_spoofing_summary">특정 앱 및 게임에 대한 기기 속성을 위조합니다.</string>
     <string name="user_select_spoofing_profile_title">스푸핑 프로필을 선택하세요</string>
@@ -1004,10 +1071,12 @@
     <string name="pif_wipe_playstore_title">플레이 스토어 데이터를 삭제하시겠습니까?</string>
     <string name="pif_wipe_playstore_message">이 지문 인식 기능은 Play Store를 새로 시작한 상태에서 사용하는 것이 가장 좋습니다. Play Store 앱 데이터를 지금 삭제하시겠습니까? 이렇게 하면 로그아웃되고 로컬 캐시와 다운로드 대기열이 모두 삭제됩니다.</string>
     <string name="pif_wipe_confirm">기록 지우기</string>
+    <string name="spoof_choice_select">선택</string>
     <string name="pif_deleted">Deleted %s</string>
     <string name="pif_failed">%s 실패</string>
     <string name="pif_select_device">기기 선택</string>
     <string name="pif_recommended_suffix">추천</string>
+    <string name="pif_device_suggested">%1$s · 추천</string>
     <string name="pif_footer_body">Canary 지문은 하루에 최대 한 번 확인되며, 만료일까지 약 2주 이내로 남으면 자동으로 교체됩니다. Canary 설정은 출시일로부터 약 6주 후 만료되며, 만료일은 활성 설정 요약에 표시됩니다.\n\n수동 설정 방법:\n1. \"Pixel Canary 지문 가져오기(Fetch Pixel Canary fingerprint)\"를 누른 다음 기기를 선택합니다.\n2. 기기가 검색되지 않으면 신뢰할 수 있는 출처에서 정상 작동하는 PIF 설정을 가져옵니다. 설정 파일은 제공되지 않습니다.\n3. Play Integrity 상태를 다시 확인합니다.\n\n새 설정을 가져오기 전에 항상 활성 설정을 삭제하세요. 만료된 PIF 설정을 불러오면 유효한 keybox가 있더라도 TrickyStore의 강한 무결성(Strong Integrity) 검증이 실패합니다.\n\n고급 스푸핑 설정:\n• Play Store 지문 스푸핑(Play Store fingerprint spoof) — 별도의 안내가 없다면 비활성화 상태로 두세요. FINGERPRINT 값을 Play Store에 맞춰 스푸핑할 필요는 거의 없으며, 문제를 일으킬 수 있습니다.\n• Play Store에 SDK 스푸핑(Spoof SDK to Play Store) — Play Store에 SDK 32로 표시하여 Android 13 이전의 기존 판정 경로를 강제로 사용하게 합니다. Play Store 동작에 문제가 생길 수 있으므로 테스트 목적이 아니라면 비활성화 상태로 두세요.\n• 빌드 필드 및 시스템 속성 스푸핑(Spoof build fields and system properties) — 활성화 상태로 두세요. 이 설정은 DroidGuard에 지문 정보를 제공합니다.\n• 키스토어 제공자 스푸핑(Spoof keystore provider) — keybox를 사용 중이라면 비활성화 상태로 두세요. 이 설정은 keybox 증명(attestation)을 우회하기 때문입니다.\n• ROM 서명 스푸핑(Spoof ROM signature) — 실험적 기능입니다.
 </string>
     <string name="pif_invalid_fingerprint">잘못된 지문 형식입니다</string>
@@ -1042,6 +1111,8 @@
     <string name="ts_no_keybox">Keybox가 설치되지 않음</string>
     <string name="ts_keybox_installed">Keybox 설치됨</string>
     <string name="ts_keybox_imported">Keybox를 성공적으로 가져왔습니다</string>
+    <string name="ts_keybox_exported">키박스 저장됨</string>
+    <string name="ts_keybox_extract_failed">해당 파일에서 키박스를 읽을 수 없었습니다: %s</string>
     <string name="ts_wipe_playstore_message">Play 스토어는 무결성 판정 결과를 캐시합니다. 새로운 키박스(keybox)가 즉시 적용되도록 지금 데이터를 삭제하시겠습니까? 이렇게 하면 로그아웃 처리되며, 로컬 캐시와 다운로드 대기열이 삭제됩니다.</string>
     <string name="ts_delete_keybox_title">Keybox를 삭제하시겠습니까?</string>
     <string name="ts_delete_keybox_message">Keybox 파일이 영구적으로 삭제됩니다.</string>
@@ -1192,6 +1263,10 @@
     <string name="gradient_settings_summary">시스템 요소에 그라데이션 색상을 적용합니다.</string>
     <string name="gradient_elements_category">시스템 요소</string>
     <string name="gradient_colors_category">그라데이션 색상</string>
+    <string name="qs_tile_gradient_title">QS 타일 그라디언트</string>
+    <string name="qs_tile_gradient_summary">빠른 설정 타일에 그라데이션 배경 활성화</string>
+    <string name="qs_brightness_slider_gradient_title">밝기 슬라이더 그라디언트</string>
+    <string name="qs_brightness_slider_gradient_summary">빠른 설정 밝기 조절 슬라이더에 그라데이션 배경 활성화</string>
     <string name="volume_slider_gradient_title">볼륨 조절 슬라이더 그라데이션</string>
     <string name="volume_slider_gradient_summary">볼륨 슬라이더에 그라데이션 배경을 활성화합니다.</string>
     <string name="custom_gradient_color_mode_title">그라데이션 색상 모드</string>
@@ -1199,6 +1274,29 @@
     <string name="custom_gradient_color_mode_custom">사용자 지정</string>
     <string name="custom_gradient_start_color_title">초기 색상</string>
     <string name="custom_gradient_end_color_title">최종 색상</string>
+    <string name="custom_gradient_angle_title">기울기 각도</string>
+    <string name="custom_gradient_angle_summary">그라데이션을 반시계 방향으로 회전시킵니다. 0°일 때는 시작점에서 끝점 방향으로, 슬라이더의 채우기 방향을 따라 흐릅니다.</string>
+    <!-- Liquid Glass -->
+    <string name="liquid_glass_title">리퀴드 글래스</string>
+    <string name="liquid_glass_summary">흐릿한 표면을 가장자리가 빛나는 유리처럼 표현하세요.</string>
+    <string name="liquid_glass_use_title">리퀴드 글라스를 사용하세요</string>
+    <string name="liquid_glass_use_summary">다이내믹 아일랜드 카드와 같이 시스템 내 반투명한 표면들을 유리 질감으로 바꾸세요.</string>
+    <string name="liquid_glass_style_title">스타일</string>
+    <string name="liquid_glass_style_ios">iOS</string>
+    <string name="liquid_glass_style_coloros">ColorOS</string>
+    <string name="liquid_glass_refraction_title">굴절</string>
+    <string name="liquid_glass_refraction_summary">유리잔 가장자리가 그 바로 너머에 놓인 것 속으로 얼마나 휘어 들어가는지</string>
+    <string name="liquid_glass_shade_category">그늘</string>
+    <string name="liquid_glass_dual_tone_title">듀얼 톤 셰이드</string>
+    <string name="liquid_glass_dual_tone_summary">알림 뒤에 은은한 색조를 더해, 빠른 설정과 구분되도록 했습니다.</string>
+    <string name="liquid_glass_tab_bars_category">앱 내에서</string>
+    <string name="liquid_glass_tab_bars_title">유리 질감 탭 바</string>
+    <string name="liquid_glass_tab_bars_summary">앱 하단 바를 iOS 스타일의 유리 캡슐 형태로 띄워 배치하세요.</string>
+    <string name="liquid_glass_tab_bars_apps_title">앱 선택</string>
+    <string name="liquid_glass_tab_bars_apps_summary">특정 앱에 대해 글래스(Glass)를 끄거나, 해당 앱의 콘텐츠가 바(bar) 아래에서 표시되도록 설정할 수 있습니다.</string>
+    <string name="liquid_glass_tab_bar_mode_off">끄기</string>
+    <string name="liquid_glass_tab_bar_mode_glass">유리</string>
+    <string name="liquid_glass_tab_bar_mode_float">Float</string>
     <!-- Fonts -->
     <string name="font_styles_title">글꼴 스타일</string>
     <string name="font_styles_summary">시스템 글꼴 스타일을 변경하세요</string>
@@ -1219,6 +1317,26 @@
     <string name="toast_emoji_slots_full">사용 가능한 이모지 폰트 슬롯이 없습니다. 기본 제공 스타일 중 하나를 선택하여 초기화한 후 다시 시도해 보세요.</string>
     <string name="toast_invalid_emoji_file">유효하지 않은 이모지 폰트 파일</string>
     <string name="toast_emoji_font_too_old">이 이모지 폰트의 더 새로운 버전이 이미 설치되어 있습니다</string>
+    <string name="toast_emoji_not_installed">먼저 사용자 지정 이모지 폰트를 추가하세요.</string>
+    <string name="toast_emoji_busy">또 다른 이모지 변경 작업이 여전히 진행 중입니다.</string>
+    <string name="emoji_restart_title">이모지를 적용하려면 다시 시작하세요.</string>
+    <string name="emoji_restart_message">이 이모지는 시스템 폰트를 사용하는 모든 앱에서 기존 시스템 이모지를 대체합니다. 지금 다시 시작하면 SystemUI가 재시작되고 실행 중인 모든 앱이 종료되므로, 새로운 이모지가 즉시 적용됩니다. 나중에 다시 시작할 경우, 각 앱은 다음에 실행될 때 새로운 이모지로 전환됩니다.</string>
+    <string name="emoji_restart_now">지금 다시 시작</string>
+    <string name="emoji_apps_reset">타사 앱 재설정</string>
+    <string name="emoji_apps_reset_short">앱 초기화</string>
+    <string name="emoji_apps_confirm">이 작업은 사용자의 이모지 폰트를 앱 데이터에 저장된 기존의 모든 이모지 폰트 위치에 복사해 덮어씁니다. 또한 Facebook과 Messenger가 자체 이모지 폰트를 다운로드하지 못하도록 차단하고, 해당 앱들과 Gboard의 캐시를 삭제하며, Google Play 서비스의 폰트 제공 기능을 비활성화합니다. 영향을 받는 앱들은 강제 종료됩니다. 앱이 업데이트된 후에는 이 작업을 다시 실행해 주십시오.</string>
+    <string name="emoji_apps_reset_button">초기화</string>
+    <string name="emoji_apps_restore">타사 앱 복원</string>
+    <string name="emoji_apps_restore_short">앱 복원</string>
+    <string name="emoji_apps_restore_confirm">Gboard, Facebook, Messenger와 같은 앱에서 삭제한 폰트의 이모지가 여전히 표시되는 경우, 이 작업을 수행하면 앱 데이터에 저장된 모든 이모지 폰트가 삭제되어 각 앱이 폰트를 새로 불러오게 됩니다. 이 과정을 통해 Facebook과 Messenger는 자체 폰트를 다시 다운로드하게 되며, 해당 앱들과 Gboard의 캐시가 삭제되고, Google Play 서비스의 폰트 제공 기능이 다시 활성화됩니다. 영향을 받는 앱들은 강제 종료됩니다.</string>
+    <string name="emoji_apps_restore_button">복원</string>
+    <string name="emoji_apps_restored">복사한 이모티콘 글꼴을 사용하던 앱들이 이제 다시 자체 글꼴을 가져옵니다.</string>
+    <plurals name="emoji_apps_done">
+        <item quantity="other">하나
+앱 데이터 내의 이모지 글꼴 %1$d개를 교체했습니다. 이제 다운로드 가능한 이모지를 사용하는 앱은 시스템 이모지를 대신 사용하게 됩니다.
+기타
+앱 데이터 내의 이모지 글꼴 %1$d개를 교체했습니다. 이제 다운로드 가능한 이모지를 사용하는 앱은 시스템 이모지를 대신 사용하게 됩니다.</item>
+    </plurals>
     <string name="custom_system_theme_title">테마</string>
     <string name="custom_system_theme_summary">테마와 아이콘 팩을 사용하여 시스템 외관을 맞춤 설정하세요</string>
     <!-- About -->
@@ -1277,6 +1395,7 @@
     <string name="action_apply">적용</string>
     <string name="action_delete">삭제</string>
     <string name="action_import">가져오기</string>
+    <string name="action_export">내보내기</string>
     <string name="action_yes">네</string>
     <string name="action_reset">초기화</string>
     <string name="action_search_apps">앱 검색</string>
@@ -1333,6 +1452,8 @@
     <string name="charging_animation_title">충전 애니메이션</string>
     <string name="charging_animation_summary">잠금 화면 또는 AOD에서 충전 중 시각 효과를 표시합니다.</string>
     <string name="charging_animation_style_title">효과:</string>
+    <string name="charging_plug_animation_category_title">플러그인 애니메이션</string>
+    <string name="charging_plug_animation_title">플러그인 애니메이션</string>
     <string name="charging_ripple_opacity_title">리플 불투명도</string>
     <string name="charging_ripple_opacity_summary">잔물결 무늬 가시성 조정</string>
     <string name="charging_glow_intensity_title">발광 강도</string>
@@ -1470,4 +1591,7 @@
     <string name="ts_rkp_native_unavailable">네이티브 프로비저닝 도우미를 사용할 수 없거나, 해당 펌웨어와 호환되지 않습니다.</string>
     <string name="ts_rkp_native_transport">기본 프로비저닝 서비스가 예기치 않게 중지되었습니다. 자동 프로비저닝이 일시 중지되었습니다.</string>
     <string name="ts_rkp_invalid_response">장치가 유효하지 않은 프로비저닝 응답을 반환했습니다. 기존 키박스는 그대로 유지되었습니다.</string>
+    <!-- Lockscreen lock icon -->
+    <string name="lockscreen_hide_lock_icon_title">자물쇠 아이콘 숨기기</string>
+    <string name="lockscreen_hide_lock_icon_summary">잠금 화면에서 잠금 및 잠금 해제 아이콘은 숨기되, 지문 아이콘은 계속 표시되도록 하세요.</string>
 </resources>
