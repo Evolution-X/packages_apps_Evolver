@@ -713,8 +713,11 @@
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Інтерфейс</string>
     <string name="qs_panel_style_title">Стиль панелі швидких налаштувань</string>
+    <string name="qs_style_preview_on">Увімкнути</string>
+    <string name="qs_style_preview_off">Вимкнути</string>
     <string name="qs_panel_style_card">Картка</string>
     <string name="qs_panel_style_classic">Класичний</string>
+    <string name="qs_remix_style_title">Стиль «ремікс»</string>
     <string name="quick_settings_layout_category_title">Макет</string>
     <string name="quick_settings_tile_label_hide_title">Приховати підписи</string>
     <string name="quick_settings_tile_label_hide_summary">Показувати іконку тільки на плитці</string>
@@ -1107,6 +1110,8 @@
     <string name="ts_no_keybox">Не встановлено жодного набору ключів</string>
     <string name="ts_keybox_installed">Keybox встановлено</string>
     <string name="ts_keybox_imported">Keybox успішно імпортовано</string>
+    <string name="ts_keybox_exported">Keybox збережено</string>
+    <string name="ts_keybox_extract_failed">Не вдалося зчитати keybox із цього файлу: %s</string>
     <string name="ts_wipe_playstore_message">Play Store кешує вердикти цілісності. Очистити його дані зараз, щоб новий keybox почав діяти негайно? Це призведе до виходу з акаунта та очистить його локальний кеш і чергу завантажень.</string>
     <string name="ts_delete_keybox_title">Видалити Keybox?</string>
     <string name="ts_delete_keybox_message">Цей файл конфігурації буде остаточно видалено.</string>
@@ -1390,6 +1395,7 @@
     <string name="action_apply">Застосувати</string>
     <string name="action_delete">Видалити</string>
     <string name="action_import">Iмпорт</string>
+    <string name="action_export">Експортувати</string>
     <string name="action_yes">Так</string>
     <string name="action_reset">Скинути</string>
     <string name="action_search_apps">Пошук додатків</string>
@@ -1446,6 +1452,8 @@
     <string name="charging_animation_title">Анімація заряджання</string>
     <string name="charging_animation_summary">Відображати візуальні ефекти під час заряджання на екрані блокування або на екрані AOD</string>
     <string name="charging_animation_style_title">Тип ефекту</string>
+    <string name="charging_plug_animation_category_title">Анімація підключення зарядного пристрою</string>
+    <string name="charging_plug_animation_title">Анімація підключення зарядного пристрою</string>
     <string name="charging_ripple_opacity_title">Прозорість пульсації</string>
     <string name="charging_ripple_opacity_summary">Налаштування видимості хвиль</string>
     <string name="charging_glow_intensity_title">Інтенсивність світіння</string>
