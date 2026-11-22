@@ -1192,6 +1192,22 @@
         <item>13</item>
     </string-array>
 
+    <string-array name="qs_remix_style_summaries">
+        <item>The tiles of the build, unchanged</item>
+        <item>Brightness in an accent card. Tiles fill with an accent gradient</item>
+        <item>Shorter tiles. More of them on one screen</item>
+        <item>See-through outlined tiles that glow in your accent when on</item>
+        <item>Round toggles with labels. Wide tiles become cards</item>
+        <item>Bare icons with labels, five across, a thin slider</item>
+        <item>Big cards with the state under each name, three across</item>
+        <item>Outlined tiles that glow in your accent when on</item>
+        <item>Big rounded blocks filled with your accent, labels under the small ones</item>
+        <item>Round toggles that grow lobes when on, five across</item>
+        <item>Hairline outlines and monospace caps</item>
+        <item>Split tiles. The icon half lights up and toggles</item>
+        <item>Raised tiles that press in when on</item>
+    </string-array>
+
     <string-array name="qs_nothing_color_style_entries" translatable="false">
         <item>@string/qs_nothing_color_style_flat</item>
         <item>@string/qs_nothing_color_style_translucent</item>

@@ -21,12 +21,10 @@
         android:entryValues="@array/qs_panel_style_values"
         android:defaultValue="0" />
 
-    <org.evolution.settings.preferences.SystemSettingListPreference
+    <!-- The rows of the looks are added by QsPanelStyleSettings. -->
+    <PreferenceCategory
         android:key="qs_remix_style"
-        android:title="@string/qs_remix_style_title"
-        android:entries="@array/qs_remix_style_entries"
-        android:entryValues="@array/qs_remix_style_values"
-        android:defaultValue="0" />
+        android:title="@string/qs_remix_style_title" />
 
     <org.evolution.settings.preferences.SystemSettingListPreference
         android:key="qs_tile_shape"

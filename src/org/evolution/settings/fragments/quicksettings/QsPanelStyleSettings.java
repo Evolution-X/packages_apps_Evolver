@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
@@ -22,6 +23,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.LayoutPreference;
+
+import java.util.ArrayList;
 
 @SearchIndexable
 public class QsPanelStyleSettings extends SettingsPreferenceFragment implements
@@ -47,6 +50,7 @@ public class QsPanelStyleSettings extends SettingsPreferenceFragment implements
     private Preference mQsColorOSMediaArtFill;
     private Preference mQsNothingColorStyle;
     private Preference mQsRemixStyle;
+    private final ArrayList<QsRemixLookPreference> mRemixLooks = new ArrayList<>();
     private Preference mQsTileIconShape;
     private Preference mQsTileLabelHide;
     private Preference mQsTileShape;
@@ -67,9 +71,7 @@ public class QsPanelStyleSettings extends SettingsPreferenceFragment implements
         mQsNothingColorStyle = findPreference(KEY_QS_NOTHING_COLOR_STYLE);
         mQsNothingColorStyle.setOnPreferenceChangeListener(this);
         mQsRemixStyle = findPreference(KEY_QS_REMIX_STYLE);
-        if (mQsRemixStyle != null) {
-            mQsRemixStyle.setOnPreferenceChangeListener(this);
-        }
+        addRemixLooks(resolver);
 
         final int panelStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT);
@@ -93,6 +95,43 @@ public class QsPanelStyleSettings extends SettingsPreferenceFragment implements
                 KEY_QS_REMIX_STYLE, QsStylePreviewView.LOOK_STOCK, UserHandle.USER_CURRENT));
         mQsStylePreview.setStyle(Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_STYLE, 0, UserHandle.USER_CURRENT));
+    }
+
+    // One row per look, each drawn with its own preview, so a look can be told apart without
+    // picking it first.
+    private void addRemixLooks(ContentResolver resolver) {
+        if (!(mQsRemixStyle instanceof PreferenceCategory)) {
+            return;
+        }
+        final PreferenceCategory category = (PreferenceCategory) mQsRemixStyle;
+        final String[] values = getResources().getStringArray(R.array.qs_remix_style_values);
+        final String[] entries = getResources().getStringArray(R.array.qs_remix_style_entries);
+        final String[] summaries = getResources().getStringArray(R.array.qs_remix_style_summaries);
+        final int current = Settings.System.getIntForUser(resolver, KEY_QS_REMIX_STYLE,
+                QsStylePreviewView.LOOK_STOCK, UserHandle.USER_CURRENT);
+        for (int i = 0; i < values.length && i < entries.length && i < summaries.length; i++) {
+            final int look = Integer.parseInt(values[i]);
+            final QsRemixLookPreference row = new QsRemixLookPreference(getPrefContext(), look);
+            row.setKey("qs_remix_look_" + look);
+            row.setTitle(entries[i]);
+            row.setSummary(summaries[i]);
+            row.setChecked(look == current);
+            row.setOnPreferenceClickListener(pref -> {
+                selectRemixLook(look);
+                return true;
+            });
+            category.addPreference(row);
+            mRemixLooks.add(row);
+        }
+    }
+
+    private void selectRemixLook(int look) {
+        Settings.System.putIntForUser(getContext().getContentResolver(), KEY_QS_REMIX_STYLE,
+                look, UserHandle.USER_CURRENT);
+        for (QsRemixLookPreference row : mRemixLooks) {
+            row.setChecked(row.getLook() == look);
+        }
+        updatePanelStylePreviewLook(look);
     }
 
     private void bindStyleThumbs(ContentResolver resolver, int panelStyle) {
@@ -210,9 +249,6 @@ public class QsPanelStyleSettings extends SettingsPreferenceFragment implements
             final int value = Integer.parseInt((String) newValue);
             updatePanelStylePrefs(value);
             updatePanelStylePreview(value);
-            return true;
-        } else if (preference == mQsRemixStyle) {
-            updatePanelStylePreviewLook(Integer.parseInt((String) newValue));
             return true;
         } else if (preference == mQsNothingColorStyle) {
             updatePanelStylePreviewColors(Integer.parseInt((String) newValue));
