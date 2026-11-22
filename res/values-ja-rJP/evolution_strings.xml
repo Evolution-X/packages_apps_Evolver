@@ -1450,6 +1450,10 @@
     <string name="charging_animation_style_title">効果の種類</string>
     <string name="charging_plug_animation_category_title">プラグインアニメーション</string>
     <string name="charging_plug_animation_title">プラグインアニメーション</string>
+    <string name="charging_preview_mode_lock">ロック画面</string>
+    <string name="charging_preview_mode_plug">プラグイン</string>
+    <string name="charging_plug_default_hint">デフォルトのプラグインアニメーションはロック画面で再生されるため、ここではプレビューされません</string>
+    <string name="charging_plug_preview_label">中程度</string>
     <string name="charging_ripple_opacity_title">リップルの不透明度</string>
     <string name="charging_ripple_opacity_summary">リップル波の視認性を調整する</string>
     <string name="charging_glow_intensity_title">グローの強度</string>
