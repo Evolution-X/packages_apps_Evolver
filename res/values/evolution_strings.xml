@@ -1563,6 +1563,10 @@
     <string name="charging_animation_style_title">Effect type</string>
     <string name="charging_plug_animation_category_title">Plug-in animation</string>
     <string name="charging_plug_animation_title">Plug-in animation</string>
+    <string name="charging_preview_mode_lock">Lock screen</string>
+    <string name="charging_preview_mode_plug">Plug-in</string>
+    <string name="charging_plug_default_hint">The default plug-in animation plays on the lock screen and is not previewed here</string>
+    <string name="charging_plug_preview_label">Charging</string>
     <string name="charging_ripple_opacity_title">Ripple opacity</string>
     <string name="charging_ripple_opacity_summary">Adjust ripple wave visibility</string>
     <string name="charging_glow_intensity_title">Glow intensity</string>
