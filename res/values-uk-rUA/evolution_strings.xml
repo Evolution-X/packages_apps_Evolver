@@ -1454,6 +1454,10 @@
     <string name="charging_animation_style_title">Тип ефекту</string>
     <string name="charging_plug_animation_category_title">Анімація підключення зарядного пристрою</string>
     <string name="charging_plug_animation_title">Анімація підключення зарядного пристрою</string>
+    <string name="charging_preview_mode_lock">Екран блокування</string>
+    <string name="charging_preview_mode_plug">Плагін</string>
+    <string name="charging_plug_default_hint">Стандартна анімація підключення відтворюється на екрані блокування і тут не відображається.</string>
+    <string name="charging_plug_preview_label">Заряджається</string>
     <string name="charging_ripple_opacity_title">Прозорість пульсації</string>
     <string name="charging_ripple_opacity_summary">Налаштування видимості хвиль</string>
     <string name="charging_glow_intensity_title">Інтенсивність світіння</string>
