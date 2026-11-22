@@ -49,4 +49,8 @@
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
     </style>
 
+    <!-- The Settings theme does not define the Material 3 attributes (text appearance, shapes,
+         chip colors) that Widget.Material3.Chip.* reads, so the chip crashes on inflate. -->
+    <style name="ThemeOverlay.Evolver.Chip" parent="Theme.Material3.DayNight.NoActionBar" />
+
 </resources>
