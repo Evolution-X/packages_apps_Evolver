@@ -715,8 +715,11 @@
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">Interfejs</string>
     <string name="qs_panel_style_title">Styl panelu szybkich ustawień</string>
+    <string name="qs_style_preview_on">Włącz</string>
+    <string name="qs_style_preview_off">Wyłącz</string>
     <string name="qs_panel_style_card">Karta</string>
     <string name="qs_panel_style_classic">Klasyczny</string>
+    <string name="qs_remix_style_title">Styl remiksu</string>
     <string name="quick_settings_layout_category_title">Układ</string>
     <string name="quick_settings_tile_label_hide_title">Ukryj etykietę</string>
     <string name="quick_settings_tile_label_hide_summary">Pokaż tylko ikonę w kafelku</string>
@@ -979,7 +982,7 @@
     <string name="miscellaneous_block_wallpaper_dimming_title">Ignoruj żądania przyciemnienia tapety</string>
     <string name="miscellaneous_block_wallpaper_dimming_summary">Zablokuj wszystkim aplikacjom możliwość przyciemniania tapety, wymuszając poziom przyciemnienia na 0</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignoruj flagi zabezpieczonego okna</string>
-    <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji. Może to spowodować ujawnienie prywatnych treści</string>
+    <string name="miscellaneous_ignore_window_secure_summary">Usuń ograniczenia dotyczące zrzutów ekranu i nagrywania ekranu dla wszystkich aplikacji.\nMoże to spowodować ujawnienie prywatnych treści</string>
     <string name="miscellaneous_screenshot_flash_title">Pokaż podświetlenie zrzutu ekranu</string>
     <string name="miscellaneous_screenshot_flash_summary">Krótko podświetl ekran podczas robienia zrzutu ekranu</string>
     <string name="miscellaneous_unlimit_screenrecord_title">Nieograniczone nagrywanie ekranu</string>
@@ -1109,6 +1112,8 @@
     <string name="ts_no_keybox">Nie zainstalowano zestawu kluczy</string>
     <string name="ts_keybox_installed">Zainstalowano zestaw kluczy</string>
     <string name="ts_keybox_imported">Zestaw kluczy zaimportowano pomyślnie</string>
+    <string name="ts_keybox_exported">Zestaw kluczy zapisany</string>
+    <string name="ts_keybox_extract_failed">Nie można odczytać zestawu kluczy z tego pliku: %s</string>
     <string name="ts_wipe_playstore_message">Sklep Google Play buforuje werdykty integralności. Wyczyścić jego dane teraz, aby nowy zestaw kluczy zaczął działać natychmiast? \nSpowoduje to wylogowanie oraz wyczyszczenie lokalnej pamięci podręcznej i kolejki pobierania.</string>
     <string name="ts_delete_keybox_title">Usunąć zestaw kluczy?</string>
     <string name="ts_delete_keybox_message">Ten plik zestawu kluczy zostanie trwale usunięty.</string>
@@ -1393,6 +1398,7 @@
     <string name="action_apply">Zastosuj</string>
     <string name="action_delete">Usuń</string>
     <string name="action_import">Importuj</string>
+    <string name="action_export">Eksportuj</string>
     <string name="action_yes">Tak</string>
     <string name="action_reset">Resetuj</string>
     <string name="action_search_apps">Wyszukaj aplikacje</string>
@@ -1449,6 +1455,12 @@
     <string name="charging_animation_title">Animacja ładowania</string>
     <string name="charging_animation_summary">Pokaż efekty wizualne podczas ładowania na ekranie blokady lub ekran zawsze włączony</string>
     <string name="charging_animation_style_title">Typ efektu</string>
+    <string name="charging_plug_animation_category_title">Wtyczka animacji</string>
+    <string name="charging_plug_animation_title">Wtyczka animacji</string>
+    <string name="charging_preview_mode_lock">Ekran blokady</string>
+    <string name="charging_preview_mode_plug">Wtyczka</string>
+    <string name="charging_plug_default_hint">Domyślna wtyczka animacji jest odtwarzana na ekranie blokady i nie można jej tu zobaczyć w podglądzie</string>
+    <string name="charging_plug_preview_label">Ładowanie</string>
     <string name="charging_ripple_opacity_title">Krycie fal</string>
     <string name="charging_ripple_opacity_summary">Dostosuj widoczność fali</string>
     <string name="charging_glow_intensity_title">Intensywność blasku</string>
@@ -1496,7 +1508,7 @@
     <string name="wallpaper_zoom_summary">Wyłącz, aby wyświetlić tapetę bez dodatkowego powiększenia</string>
     <!-- Hide screen capture status -->
     <string name="hide_screen_capture_status_title">Ukryj status przechwytywania ekranu</string>
-    <string name="hide_screen_capture_status_summary">Ukryj przed aplikacjami stan rejestrowania lub przechwytywania ekranu. Funkcja przydatna, lecz może wiązać się z ryzykiem dla prywatności. Zrestartuj aplikacje, aby zmiany zaczęły obowiązywać.</string>
+    <string name="hide_screen_capture_status_summary">Ukryj przed aplikacjami stan rejestrowania lub przechwytywania ekranu.\nFunkcja przydatna, lecz może wiązać się z ryzykiem dla prywatności.\nZrestartuj aplikacje, aby zmiany zaczęły obowiązywać.</string>
     <!-- Dynamic island -->
     <string name="status_bar_dynamic_island_title">Wyspa dynamiczna</string>
     <string name="status_bar_dynamic_island_summary">Skonfiguruj wyspę i wybierz, które funkcje mogą się na niej pojawić</string>
