@@ -1422,6 +1422,15 @@
     <string name="font_apply_restart_later">Apply, restart later</string>
     <string name="font_apply_reboot_now">Apply and reboot</string>
     <string name="font_apply_reboot_later">Apply, reboot later</string>
+    <string name="font_pending_systemui_title">Restart SystemUI to finish</string>
+    <string name="font_pending_reboot_title">Reboot to finish</string>
+    <string name="font_pending_systemui_body">Apps already use %1$s. The status bar, lock screen and quick settings switch after SystemUI restarts.</string>
+    <string name="font_pending_reboot_body">%1$s is used everywhere after a reboot.</string>
+    <string name="font_pending_systemui_action">Restart SystemUI</string>
+    <string name="font_summary_pending_systemui">%1$s · SystemUI restart pending</string>
+    <string name="font_summary_pending_reboot">%1$s · reboot pending</string>
+    <string name="font_replace">Replace font</string>
+    <string name="font_remove">Remove font</string>
     <string name="sound_preview_play">Play preview</string>
     <string name="sound_preview_stop">Stop preview</string>
     <string name="reboot_required_custom_font_title">Reboot required for custom font</string>
