@@ -15,11 +15,16 @@ import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.internal.util.evolution.ThemeUtils.FONT_KEY
@@ -44,6 +49,12 @@ class FontController(private val context: Context) {
     private val themeUtils = ThemeUtils.getInstance(context)
     private val mainHandler = Handler(Looper.getMainLooper())
 
+    /** True while a font is being applied or installed; the pages hold Apply back meanwhile. */
+    var busy by mutableStateOf(false)
+        private set
+
+    private val defaultLabel: String get() = context.getString(R.string.font_default)
+
     fun customFontName(): String =
         Settings.Secure.getString(context.contentResolver, CUSTOM_FONT_NAME) ?: ""
 
@@ -57,7 +68,7 @@ class FontController(private val context: Context) {
         val custom = customFontName()
         if (custom.isNotEmpty()) return custom
         val applied = appliedPackage()
-        return if (applied == "android") DEFAULT_LABEL else labelOf(applied)
+        return if (applied == "android") defaultLabel else labelOf(applied)
     }
 
     /** The custom font first, then the default, then the overlays by name. Blocks on lookups. */
@@ -75,7 +86,7 @@ class FontController(private val context: Context) {
                     ExternalFontInstaller(context).loadInstalledTypeface() ?: typefaceOf("android")
                 ))
             }
-            add(StyleOption("android", DEFAULT_LABEL, typefaceOf("android"), FontCategory.SANS))
+            add(StyleOption("android", defaultLabel, typefaceOf("android"), FontCategory.SANS))
             overlays.forEach {
                 add(StyleOption(it, labels.getValue(it), typefaceOf(it), CATEGORIES[it]))
             }
@@ -84,22 +95,26 @@ class FontController(private val context: Context) {
 
     /**
      * Switches from the font [old] (a package, or [CUSTOM_KEY]) to the overlay [pkg]. Leaving a
-     * custom font removes it and needs a reboot; an overlay swap only restarts SystemUI.
+     * custom font removes it and needs a reboot; an overlay swap only restarts SystemUI. [label]
+     * names the font in the dialog.
      */
-    fun apply(ctx: Context, old: String, pkg: String, onChanged: () -> Unit) {
+    fun apply(ctx: Context, old: String, pkg: String, label: String, onChanged: () -> Unit) {
+        if (busy) return
         val reboot = old == CUSTOM_KEY
         ctx.showChoiceDialog(
             title = ctx.getString(
                 if (reboot) R.string.reboot_required_title else R.string.systemui_restart_title
             ),
             message = ctx.getString(
-                if (reboot) R.string.reboot_required_message else R.string.systemui_restart_message
+                if (reboot) R.string.font_apply_reboot_message
+                else R.string.font_apply_systemui_message,
+                label
             ),
             confirmText = ctx.getString(
-                if (reboot) R.string.action_reboot_now else R.string.action_yes
+                if (reboot) R.string.font_apply_reboot_now else R.string.font_apply_restart_now
             ),
             laterText = ctx.getString(
-                if (reboot) R.string.action_later else R.string.systemui_restart_not_now
+                if (reboot) R.string.font_apply_reboot_later else R.string.font_apply_restart_later
             ),
             onConfirm = {
                 applyOverlayInBackground(
@@ -121,15 +136,22 @@ class FontController(private val context: Context) {
                 }
             },
             onLater = {
+                busy = true
                 Thread({
-                    if (reboot) ExternalFontInstaller(ctx).resetFontUpdates()
-                    mainHandler.post {
-                        if (reboot) clearCustomFontState()
-                        themeUtils.setOverlayEnabled(
-                            CATEGORY, if (reboot) appliedPackage() else old, old
-                        )
-                        themeUtils.setOverlayEnabled(CATEGORY, pkg, "android")
-                        onChanged()
+                    try {
+                        if (reboot) ExternalFontInstaller(ctx).resetFontUpdates()
+                        mainHandler.post {
+                            busy = false
+                            if (reboot) clearCustomFontState()
+                            themeUtils.setOverlayEnabled(
+                                CATEGORY, if (reboot) appliedPackage() else old, old
+                            )
+                            themeUtils.setOverlayEnabled(CATEGORY, pkg, "android")
+                            onChanged()
+                        }
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Failed to apply font overlay", e)
+                        mainHandler.post { busy = false }
                     }
                 }, "FontOverlay").start()
             },
@@ -138,9 +160,15 @@ class FontController(private val context: Context) {
 
     /** Loads the picked font file, shows a preview of it and installs it once confirmed. */
     fun importFont(uri: Uri, scope: CoroutineScope, onChanged: () -> Unit) {
+        if (busy) return
         val installer = ExternalFontInstaller(context)
+        busy = true
         scope.launch {
-            val typeface = installer.loadTypefaceFromUri(uri)
+            val typeface = try {
+                installer.loadTypefaceFromUri(uri)
+            } finally {
+                busy = false
+            }
             if (typeface == null) {
                 Toast.makeText(context, R.string.toast_invalid_font_file, Toast.LENGTH_SHORT).show()
                 return@launch
@@ -172,6 +200,12 @@ class FontController(private val context: Context) {
                             style = MaterialTheme.typography.bodyLarge.copy(fontSize = 18.sp),
                             fontFamily = FontFamily(typeface),
                         )
+                        Text(
+                            text = stringResource(R.string.font_install_message),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(top = 16.dp),
+                        )
                     }
                 },
                 confirmButton = {
@@ -195,24 +229,60 @@ class FontController(private val context: Context) {
         scope: CoroutineScope,
         onChanged: () -> Unit
     ) {
+        launchInstall(scope, onChanged) { installer.installFontFromUri(uri) }
+    }
+
+    /** Runs [install] with [busy] set, then shows what came of it. */
+    private fun launchInstall(
+        scope: CoroutineScope,
+        onChanged: () -> Unit,
+        install: suspend () -> InstallResult
+    ) {
+        if (busy) return
+        busy = true
         scope.launch {
-            val postScriptName = installer.installFontFromUri(uri) ?: return@launch
-            finishInstall(postScriptName, onChanged)
+            try {
+                finishInstall(install(), onChanged)
+            } finally {
+                busy = false
+            }
         }
     }
 
-    /** Installs a font file that is already on the device, such as a downloaded one. */
+    /**
+     * Installs a font file that is already on the device, such as a downloaded one, once the
+     * user has read what installing does. An imported font gets the same text in its preview.
+     */
     fun installFile(file: File, scope: CoroutineScope, onChanged: () -> Unit) {
         val installer = ExternalFontInstaller(context)
-        scope.launch {
-            val postScriptName = installer.installFontFromFile(file) ?: return@launch
-            finishInstall(postScriptName, onChanged)
-        }
+        context.showChoiceDialog(
+            title = context.getString(R.string.add_font),
+            message = context.getString(R.string.font_install_message),
+            confirmText = context.getString(R.string.add_font),
+            laterText = context.getString(android.R.string.cancel),
+            onConfirm = {
+                launchInstall(scope, onChanged) { installer.installFontFromFile(file) }
+            },
+            onLater = {},
+        )
     }
 
     // A custom font is read at boot, so it asks for a reboot once it is installed.
-    private fun finishInstall(postScriptName: String, onChanged: () -> Unit) {
-        Settings.Secure.putString(context.contentResolver, CUSTOM_FONT_NAME, postScriptName)
+    private fun finishInstall(result: InstallResult, onChanged: () -> Unit) {
+        val installed = when (result) {
+            is InstallResult.Installed -> result
+            is InstallResult.Failed -> {
+                Toast.makeText(
+                    context,
+                    ExternalFontInstaller.errorMessage(context, result.code),
+                    Toast.LENGTH_LONG
+                ).show()
+                return
+            }
+        }
+        Settings.Secure.putString(
+            context.contentResolver, CUSTOM_FONT_NAME, installed.postScriptName
+        )
         onChanged()
         context.showChoiceDialog(
             title = context.getString(R.string.reboot_required_title),
@@ -232,15 +302,22 @@ class FontController(private val context: Context) {
         onFailed: () -> Unit,
         onDone: () -> Unit
     ) {
+        busy = true
         Thread({
             try {
                 if (resetCustom) ExternalFontInstaller(ctx).resetFontUpdates()
                 themeUtils.setOverlayEnabled(CATEGORY, oldPkg, oldPkg)
                 themeUtils.setOverlayEnabled(CATEGORY, newPkg, "android")
-                mainHandler.post { onDone() }
+                mainHandler.post {
+                    busy = false
+                    onDone()
+                }
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to apply font overlay", e)
-                mainHandler.post { onFailed() }
+                mainHandler.post {
+                    busy = false
+                    onFailed()
+                }
             }
         }, "FontOverlay").start()
     }
@@ -277,7 +354,6 @@ class FontController(private val context: Context) {
         private const val TAG = "FontController"
         private const val CATEGORY = FONT_KEY
         private const val CUSTOM_FONT_NAME = "custom_font_name"
-        private const val DEFAULT_LABEL = "Default"
 
         /** Key of the installed custom font in [StyleOption] and [appliedKey]. */
         const val CUSTOM_KEY = "__custom_font__"

@@ -25,7 +25,6 @@ import android.os.ServiceManager
 import android.os.UserHandle
 import android.provider.Settings
 import android.util.Log
-import android.widget.Toast
 import com.android.internal.statusbar.IStatusBarService
 import com.android.internal.util.evolution.ThemeUtils
 import com.android.settings.R
@@ -38,6 +37,14 @@ import java.io.FileOutputStream
 import java.io.InputStream
 import java.nio.channels.FileChannel
 
+/** What an install gave: the font's PostScript name, or why it failed. */
+sealed interface InstallResult {
+    data class Installed(val postScriptName: String) : InstallResult
+
+    /** [code] is a FontManager.RESULT_* value, or [RESULT_UNREADABLE] or [RESULT_EXCEPTION]. */
+    data class Failed(val code: Int) : InstallResult
+}
+
 class ExternalFontInstaller(private val context: Context) {
 
     companion object {
@@ -45,10 +52,36 @@ class ExternalFontInstaller(private val context: Context) {
         private const val CUSTOM_FONT_FILE = "cust_font.ttf"
         private const val TEMP_PREVIEW_FONT = "preview_font.ttf"
         const val MAX_FONT_BYTES = 32L * 1024L * 1024L
+
+        /** Our own codes, kept clear of FontManager's RESULT_* values (-1..-9, -10001..). */
+        const val RESULT_EXCEPTION = -20000
+        const val RESULT_UNREADABLE = -20001
         private const val OVERLAY_CATEGORY_FONT = "android.theme.customization.font"
         private const val DEFAULT_FONT_PACKAGE = "android"
         const val DEFAULT_FONT_FAMILY = "google-sans-flex"
         private const val DEFAULT_FONT_OVERLAY = "com.android.theme.font.googlesansflex"
+
+        /** User-facing explanation of why [InstallResult.Failed] happened. */
+        fun errorMessage(context: Context, code: Int): String {
+            val maxMb = (MAX_FONT_BYTES / (1024L * 1024L)).toInt()
+            return when (code) {
+                FontManager.RESULT_ERROR_FONT_UPDATER_DISABLED ->
+                    context.getString(R.string.font_error_updater_disabled)
+                FontManager.RESULT_ERROR_INVALID_FONT_FILE ->
+                    context.getString(R.string.font_error_invalid_file, maxMb)
+                FontManager.RESULT_ERROR_INVALID_FONT_NAME ->
+                    context.getString(R.string.font_error_invalid_name)
+                FontManager.RESULT_ERROR_DOWNGRADING ->
+                    context.getString(R.string.font_error_downgrading)
+                FontManager.RESULT_ERROR_VERIFICATION_FAILURE ->
+                    context.getString(R.string.font_error_verification)
+                FontManager.RESULT_ERROR_FAILED_TO_WRITE_FONT_FILE,
+                FontManager.RESULT_ERROR_FAILED_UPDATE_CONFIG ->
+                    context.getString(R.string.font_error_storage)
+                RESULT_UNREADABLE -> context.getString(R.string.font_error_unreadable, maxMb)
+                else -> context.getString(R.string.font_install_failed, code)
+            }
+        }
 
         fun rebootDevice() {
             runCatching {
@@ -87,28 +120,25 @@ class ExternalFontInstaller(private val context: Context) {
         savedFontFile()?.let { Typeface.createFromFile(it) }
     }.getOrNull()
 
-    suspend fun installFontFromUri(uri: Uri): String? =
+    suspend fun installFontFromUri(uri: Uri): InstallResult =
         installCachedFont(copyUriToCache(uri, CUSTOM_FONT_FILE))
 
     /** Same as [installFontFromUri] for a font file that is already on the device. */
-    suspend fun installFontFromFile(file: File): String? =
+    suspend fun installFontFromFile(file: File): InstallResult =
         installCachedFont(copyFileToCache(file, CUSTOM_FONT_FILE))
 
-    private suspend fun installCachedFont(copied: File?): String? {
-        val fontFile = copied ?: run {
-            showToast(R.string.toast_failed_apply_font)
-            return null
-        }
+    private suspend fun installCachedFont(copied: File?): InstallResult {
+        val fontFile = copied ?: return InstallResult.Failed(RESULT_UNREADABLE)
 
         val postScriptName = extractPostScriptName(fontFile) ?: run {
-            showToast(R.string.toast_invalid_font_file)
             fontFile.delete()
-            return null
+            return InstallResult.Failed(FontManager.RESULT_ERROR_INVALID_FONT_FILE)
         }
 
-        if (!applyFontToSystem(fontFile)) {
+        val code = installCustomFont(fontFile)
+        if (code != FontManager.RESULT_SUCCESS) {
             fontFile.delete()
-            return null
+            return InstallResult.Failed(code)
         }
 
         withContext(Dispatchers.IO) {
@@ -119,7 +149,7 @@ class ExternalFontInstaller(private val context: Context) {
         }
         updateThemeOverlays()
         cleanupPreviewFont()
-        return postScriptName
+        return InstallResult.Installed(postScriptName)
     }
 
     private suspend fun copyUriToCache(uri: Uri, fileName: String): File? =
@@ -190,19 +220,15 @@ class ExternalFontInstaller(private val context: Context) {
         Log.e(TAG, "Failed to inspect font file", it)
     }.getOrNull()
 
-    private fun applyFontToSystem(fontFile: File): Boolean {
-        return runCatching {
-            val result = ParcelFileDescriptor.open(fontFile, ParcelFileDescriptor.MODE_READ_ONLY)
+    /** Hands the file to FontManager, off the main thread. Returns its RESULT_* code. */
+    private suspend fun installCustomFont(fontFile: File): Int = withContext(Dispatchers.IO) {
+        runCatching {
+            ParcelFileDescriptor.open(fontFile, ParcelFileDescriptor.MODE_READ_ONLY)
                 .use { fontManager.installCustomFont(it) }
-
-            if (result != FontManager.RESULT_SUCCESS) {
-                Log.e(TAG, "installCustomFont failed with result $result")
-                showToast(R.string.toast_failed_apply_font)
-                false
-            } else true
-        }.getOrElse {
+        }.onFailure {
             Log.e(TAG, "Failed to update system font", it)
-            false
+        }.getOrDefault(RESULT_EXCEPTION).also {
+            if (it != FontManager.RESULT_SUCCESS) Log.e(TAG, "installCustomFont failed with $it")
         }
     }
 
@@ -230,10 +256,6 @@ class ExternalFontInstaller(private val context: Context) {
                 userId
             )
         }.onFailure { Log.e(TAG, "Failed to persist custom font overlay", it) }
-    }
-
-    private fun showToast(resId: Int) {
-        Toast.makeText(context, resId, Toast.LENGTH_SHORT).show()
     }
 
     /** Removes the custom text font. The custom emoji font is separate and stays. Blocking. */
