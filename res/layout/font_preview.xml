@@ -10,6 +10,7 @@
     style="@style/PreviewStageHost">
 
     <org.evolution.settings.utils.PreviewStage
+        android:id="@+id/font_preview_stage"
         android:layout_width="match_parent"
         android:layout_height="@dimen/preview_stage_height_regular"
         android:background="@android:color/black"
@@ -43,6 +44,7 @@
                 android:textSize="13sp" />
 
             <LinearLayout
+                android:id="@+id/font_preview_notification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
