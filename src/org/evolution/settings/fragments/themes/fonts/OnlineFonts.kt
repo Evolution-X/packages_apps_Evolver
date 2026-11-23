@@ -58,9 +58,13 @@ internal fun String.isItalic(): Boolean = endsWith("i")
 
 internal fun String.weight(): Int = removeSuffix("i").toIntOrNull() ?: 400
 
-/** Categories as fonts.google.com names them; null means all of them. */
+/**
+ * Categories as fonts.google.com names them; null means no category. [ALL] shows every family
+ * and [SAVED] the ones kept on the device.
+ */
 internal enum class OnlineFontCategory(val apiName: String?, val labelRes: Int) {
     ALL(null, R.string.font_filter_all),
+    SAVED(null, R.string.font_filter_saved),
     SANS_SERIF("Sans Serif", R.string.font_filter_sans),
     SERIF("Serif", R.string.font_filter_serif),
     DISPLAY("Display", R.string.font_filter_display),
@@ -278,7 +282,8 @@ internal object GoogleFontsCatalog {
 /**
  * The online font list, the previews of its cards and the files of the styles that are tried
  * or installed. All of it is cache: the list is refreshed once a day, and previews and styles
- * are dropped, least recently used first, once they pass a size limit.
+ * are dropped, least recently used first, once they pass a size limit. Styles that were saved
+ * are the exception, see [SavedFontStore].
  */
 internal class OnlineFontRepository(context: Context) {
 
@@ -286,6 +291,7 @@ internal class OnlineFontRepository(context: Context) {
     private val root = File(this.context.cacheDir, ROOT_DIR)
     private val previewDir = File(root, PREVIEW_DIR)
     private val fileDir = File(root, FILE_DIR)
+    private val savedStore = SavedFontStore(this.context)
 
     /** The list from the last fetch, at once; null before the first one. */
     suspend fun savedFamilies(): List<OnlineFont>? = withContext(Dispatchers.IO) {
@@ -315,7 +321,8 @@ internal class OnlineFontRepository(context: Context) {
                 file.setLastModified(System.currentTimeMillis())
                 load(file)
             } else {
-                null
+                // A saved style draws the card without a network.
+                savedStore.anyFile(font.family)?.let(::loadKept)
             }
         }
         if (local != null) return local.also { previews.put(key, it) }
@@ -359,6 +366,17 @@ internal class OnlineFontRepository(context: Context) {
                 return@withContext cached
             }
             fileDir.mkdirs()
+            // A saved style is copied into the cache, so what the caller gets is the same
+            // file as for a download and removing the saved style can't pull it away.
+            savedStore.file(font.family, variant)?.let { saved ->
+                val temp = File(fileDir, "${cached.name}.${System.nanoTime()}.part")
+                try {
+                    saved.copyTo(temp, overwrite = true)
+                    if (temp.renameTo(cached)) return@withContext cached
+                } finally {
+                    temp.delete()
+                }
+            }
             GoogleFontsCatalog.fetchVariant(font, variant, cached) {
                 if (job?.isActive == false) throw CancellationException()
                 onProgress(it)
@@ -366,6 +384,22 @@ internal class OnlineFontRepository(context: Context) {
             cached
         }
     }
+
+    /** The styles kept on the device, the one saved last first. */
+    suspend fun saved(): List<SavedFont> = withContext(Dispatchers.IO) { savedStore.all() }
+
+    /** Keeps [variant] of [font], which [file] holds, until it is removed. Returns the list. */
+    suspend fun save(font: OnlineFont, variant: String, file: File): List<SavedFont> =
+        withContext(Dispatchers.IO) { savedStore.save(font, variant, file) }
+
+    /** Forgets a saved style. Returns the list. */
+    suspend fun unsave(font: OnlineFont, variant: String): List<SavedFont> =
+        withContext(Dispatchers.IO) { savedStore.remove(font.family, variant) }
+
+    /** Like [load] but leaves the file alone, which isn't the cache's to delete. */
+    private fun loadKept(file: File): Typeface? = runCatching { Typeface.createFromFile(file) }
+        .getOrNull()
+        ?.takeUnless { it === Typeface.DEFAULT }
 
     /** Null when the file isn't a font the system can draw, which also deletes it. */
     fun load(file: File): Typeface? = runCatching { Typeface.createFromFile(file) }
