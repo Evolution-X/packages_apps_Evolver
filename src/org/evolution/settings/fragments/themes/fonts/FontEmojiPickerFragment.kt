@@ -89,6 +89,7 @@ import com.android.settings.R
 import com.android.settings.core.SubSettingLauncher
 import com.android.settings.widget.scrollbar
 import com.android.settingslib.spa.framework.theme.SettingsTheme
+import com.android.settingslib.spa.widget.ui.Footer
 import java.util.Date
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -426,6 +427,13 @@ private fun FontEmojiPickerScreen(
                         onClick = { onEmojiApps(hasCustom) }
                     )
                 }
+            }
+            item(key = "footer", span = { GridItemSpan(maxLineSpan) }) {
+                Footer(
+                    stringResource(
+                        if (emojiTab) R.string.emoji_picker_footer else R.string.font_picker_footer
+                    )
+                )
             }
         }
     }
