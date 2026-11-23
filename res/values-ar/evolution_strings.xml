@@ -1157,7 +1157,6 @@
     <string name="never">أبدًا</string>
     <string name="boot_animation_applied">تم تطبيق حركة الإقلاع</string>
     <string name="reboot_required_title">إعادة التشغيل مطلوبة</string>
-    <string name="reboot_required_message">يلزم إعادة تشغيل الجهاز لتطبيق تغييرات الخط. هل تريد إعادة التشغيل الآن؟</string>
     <string name="action_later">لاحقًا</string>
     <string name="hardware_keys_action_nothing">بدون إجراء</string>
     <string name="hardware_keys_action_menu">فتح/إغلاق القائمة</string>
@@ -1381,12 +1380,9 @@
     <string name="add_emoji_font">إضافة خط رموز تعبيرية</string>
     <string name="emoji_preview_dialog_title">معاينة الرموز التعبيرية</string>
     <string name="emoji_preview_coverage">أحدث الرموز التعبيرية (Unicode 15 و16) في هذا الخط: %1$d من %2$d</string>
-    <string name="reboot_required_custom_emoji_title">يلزم إعادة تشغيل لتطبيق تغييرات الرموز التعبيرية. إعادة التشغيل الآن؟</string>
     <string name="toast_failed_apply_emoji">تعذّر تطبيق خط الرموز التعبيرية</string>
     <string name="toast_emoji_updater_disabled">تحديثات الخطوط معطلة على هذا الجهاز</string>
-    <string name="toast_emoji_slots_full">لا توجد خانة فارغة لخط الرموز التعبيرية. اختر نمطًا مدمجًا لإعادة ضبطه ثم أعد المحاولة</string>
     <string name="toast_invalid_emoji_file">ملف خط رموز تعبيرية غير صالح</string>
-    <string name="toast_emoji_font_too_old">إصدار أحدث من خط الرموز التعبيرية هذا مثبت بالفعل</string>
     <string name="toast_emoji_not_installed">أضف خط رموز تعبيرية مخصصًا أولاً</string>
     <string name="emoji_restart_title">إعادة التشغيل لتطبيق الرموز التعبيرية</string>
     <string name="emoji_restart_message">تحل هذه الرموز التعبيرية محل رموز النظام في كل تطبيق يستخدم خط النظام. تؤدي إعادة التشغيل الآن إلى إعادة تشغيل واجهة النظام (SystemUI) وإغلاق جميع التطبيقات قيد التشغيل لتطبيق الرموز الجديدة. وإذا أعدت التشغيل لاحقًا، فسيتحول كل تطبيق عند بدء تشغيله التالي.</string>

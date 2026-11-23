@@ -1448,12 +1448,9 @@
     <string name="emoji_preview_dialog_title">Emoji preview</string>
     <string name="emoji_preview_sample" translatable="false">😀 🎉 ❤️ 👍🏽 🏳️‍🌈</string>
     <string name="emoji_preview_coverage">Newest emoji (Unicode 15 and 16) in this font: %1$d of %2$d</string>
-    <string name="reboot_required_custom_emoji_title">A reboot is required to apply emoji changes. Reboot now?</string>
     <string name="toast_failed_apply_emoji">Failed to apply emoji font</string>
     <string name="toast_emoji_updater_disabled">Font updates are disabled on this device</string>
-    <string name="toast_emoji_slots_full">No free emoji font slot. Pick a built-in style to reset it, then try again</string>
     <string name="toast_invalid_emoji_file">Invalid emoji font file</string>
-    <string name="toast_emoji_font_too_old">A newer version of this emoji font is already installed</string>
     <string name="toast_emoji_not_installed">Add a custom emoji font first</string>
     <string name="toast_emoji_busy">Another emoji change is still running</string>
     <string name="emoji_restart_title">Restart to apply emoji</string>
@@ -1572,7 +1569,6 @@
     <string name="never">Never</string>
     <string name="boot_animation_applied">Boot animation applied</string>
     <string name="reboot_required_title">Reboot required</string>
-    <string name="reboot_required_message">A reboot is required to apply font changes. Reboot now?</string>
     <string name="action_later">Later</string>
 
     <!-- Hardware key actions (shared by buttons, gestures) -->
@@ -1644,7 +1640,6 @@
     <string name="emoji_custom_label">Custom: %1$s</string>
     <string name="emoji_download_size">Download · %1$s</string>
     <string name="emoji_downloaded_size">Downloaded · %1$s</string>
-    <string name="emoji_downloading">Downloading… %1$d%%</string>
     <string name="emoji_delete_download">Delete download</string>
     <string name="emoji_catalog_error">Couldn\'t load the online emoji styles. Check your connection.</string>
     <string name="emoji_catalog_retry">Retry</string>
