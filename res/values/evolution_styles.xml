@@ -58,8 +58,23 @@
         <item name="android:paddingBottom">@dimen/preview_stage_padding_vertical</item>
     </style>
 
-    <!-- The Settings theme does not define the Material 3 attributes (text appearance, shapes,
-         chip colors) that Widget.Material3.Chip.* reads, so the chip crashes on inflate. -->
-    <style name="ThemeOverlay.Evolver.Chip" parent="Theme.Material3.DayNight.NoActionBar" />
+    <!-- Plain TextView chips. A Material Chip needs the Material 3 theme attributes, which the
+         Settings theme does not define, so the charging pages draw their own. -->
+    <style name="ChargingChip">
+        <item name="android:background">@drawable/charging_chip_background</item>
+        <item name="android:textColor">@color/charging_chip_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingStart">@dimen/charging_chip_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/charging_chip_padding_horizontal</item>
+    </style>
+
+    <style name="ChargingChip.Stage">
+        <item name="android:background">@drawable/charging_stage_chip_background</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 
 </resources>

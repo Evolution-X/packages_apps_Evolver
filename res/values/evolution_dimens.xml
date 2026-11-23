@@ -12,6 +12,9 @@
     <dimen name="preview_stage_padding_horizontal">16dp</dimen>
     <dimen name="preview_stage_padding_vertical">8dp</dimen>
     <dimen name="preview_stage_gap">8dp</dimen>
+    <dimen name="charging_chip_height">32dp</dimen>
+    <dimen name="charging_chip_corner_radius">16dp</dimen>
+    <dimen name="charging_chip_padding_horizontal">14dp</dimen>
     <dimen name="preview_stage_height_compact">112dp</dimen>
     <dimen name="preview_stage_height_regular">200dp</dimen>
     <dimen name="preview_stage_height_tall">240dp</dimen>
