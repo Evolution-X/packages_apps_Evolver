@@ -35,6 +35,7 @@ import org.json.JSONObject
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.io.InputStream
 import java.nio.channels.FileChannel
 
 class ExternalFontInstaller(private val context: Context) {
@@ -43,7 +44,7 @@ class ExternalFontInstaller(private val context: Context) {
         private const val TAG = "ExternalFontInstaller"
         private const val CUSTOM_FONT_FILE = "cust_font.ttf"
         private const val TEMP_PREVIEW_FONT = "preview_font.ttf"
-        private const val MAX_FONT_BYTES = 32L * 1024L * 1024L
+        const val MAX_FONT_BYTES = 32L * 1024L * 1024L
         private const val OVERLAY_CATEGORY_FONT = "android.theme.customization.font"
         private const val DEFAULT_FONT_PACKAGE = "android"
         const val DEFAULT_FONT_FAMILY = "google-sans-flex"
@@ -86,8 +87,15 @@ class ExternalFontInstaller(private val context: Context) {
         savedFontFile()?.let { Typeface.createFromFile(it) }
     }.getOrNull()
 
-    suspend fun installFontFromUri(uri: Uri): String? {
-        val fontFile = copyUriToCache(uri, CUSTOM_FONT_FILE) ?: run {
+    suspend fun installFontFromUri(uri: Uri): String? =
+        installCachedFont(copyUriToCache(uri, CUSTOM_FONT_FILE))
+
+    /** Same as [installFontFromUri] for a font file that is already on the device. */
+    suspend fun installFontFromFile(file: File): String? =
+        installCachedFont(copyFileToCache(file, CUSTOM_FONT_FILE))
+
+    private suspend fun installCachedFont(copied: File?): String? {
+        val fontFile = copied ?: run {
             showToast(R.string.toast_failed_apply_font)
             return null
         }
@@ -115,29 +123,37 @@ class ExternalFontInstaller(private val context: Context) {
     }
 
     private suspend fun copyUriToCache(uri: Uri, fileName: String): File? =
+        copyToCache(fileName) {
+            context.contentResolver.openFileDescriptor(uri, "r")
+                ?.let { ParcelFileDescriptor.AutoCloseInputStream(it) }
+        }
+
+    private suspend fun copyFileToCache(source: File, fileName: String): File? =
+        copyToCache(fileName) { source.inputStream() }
+
+    // [open] runs inside the try, so a source that can't be opened gives null like any other
+    // failure to copy.
+    private suspend fun copyToCache(fileName: String, open: () -> InputStream?): File? =
         withContext(Dispatchers.IO) {
             val cacheFile = File(context.cacheDir, fileName)
             val tempFile = File(context.cacheDir, "$fileName.tmp")
             try {
                 tempFile.delete()
-                val pfd = context.contentResolver.openFileDescriptor(uri, "r")
-                    ?: return@withContext null
-                pfd.use { descriptor ->
-                    FileInputStream(descriptor.fileDescriptor).use { input ->
-                        FileOutputStream(tempFile, false).use { output ->
-                            val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
-                            var total = 0L
-                            while (true) {
-                                val read = input.read(buffer)
-                                if (read < 0) break
-                                total += read
-                                if (total > MAX_FONT_BYTES) {
-                                    throw IllegalArgumentException("Font file exceeds size limit")
-                                }
-                                output.write(buffer, 0, read)
+                val source = open() ?: return@withContext null
+                source.use { input ->
+                    FileOutputStream(tempFile, false).use { output ->
+                        val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+                        var total = 0L
+                        while (true) {
+                            val read = input.read(buffer)
+                            if (read < 0) break
+                            total += read
+                            if (total > MAX_FONT_BYTES) {
+                                throw IllegalArgumentException("Font file exceeds size limit")
                             }
-                            output.flush()
+                            output.write(buffer, 0, read)
                         }
+                        output.flush()
                     }
                 }
 
@@ -154,7 +170,7 @@ class ExternalFontInstaller(private val context: Context) {
                 }
                 cacheFile
             } catch (e: Exception) {
-                Log.e(TAG, "Failed to copy URI to cache", e)
+                Log.e(TAG, "Failed to copy font to cache", e)
                 tempFile.delete()
                 null
             }
