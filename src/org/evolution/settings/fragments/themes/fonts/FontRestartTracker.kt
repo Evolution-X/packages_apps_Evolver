@@ -16,16 +16,16 @@ internal enum class RestartKind { SYSTEMUI, REBOOT }
 internal data class PendingRestart(val kind: RestartKind, val fontLabel: String)
 
 /**
- * Remembers that a font change still needs a SystemUI restart or a reboot, after "later" was
+ * Remembers that a font or emoji change still needs a SystemUI restart or a reboot, after "later" was
  * chosen in the dialog. It is kept in preferences, so the page, the Themes summary and a
  * restarted Settings all see it. It clears itself once the device has rebooted or SystemUI
  * is running in a new process.
  */
-internal class FontRestartTracker(context: Context) {
+internal class FontRestartTracker(context: Context, prefsName: String = PREFS) {
 
     private val context: Context = context.applicationContext
     private val prefs: SharedPreferences =
-        this.context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        this.context.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
 
     fun pending(): PendingRestart? {
         val kind = prefs.getString(KEY_KIND, null)

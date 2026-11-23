@@ -149,8 +149,10 @@ class FontEmojiPickerFragment : Fragment() {
                     fonts = fontData.value,
                     emoji = emojiData.value,
                     fontBusy = fonts.busy,
-                    pending = fonts.pending,
-                    onRestartNow = { fonts.restartNow(requireContext()) },
+                    fontPending = fonts.pending,
+                    emojiPending = emoji.pending,
+                    onRestartFont = { fonts.restartNow(requireContext()) },
+                    onRestartEmoji = { emoji.restartPendingNow(requireContext()) },
                     onApplyFont = { option ->
                         fonts.apply(
                             requireContext(),
@@ -189,6 +191,7 @@ class FontEmojiPickerFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         fonts.refreshPending()
+        emoji.refreshPending()
         reload()
     }
 
@@ -222,8 +225,10 @@ private fun FontEmojiPickerScreen(
     fonts: TabData,
     emoji: TabData,
     fontBusy: Boolean,
-    pending: PendingRestart?,
-    onRestartNow: () -> Unit,
+    fontPending: PendingRestart?,
+    emojiPending: PendingRestart?,
+    onRestartFont: () -> Unit,
+    onRestartEmoji: () -> Unit,
     onApplyFont: (StyleOption) -> Unit,
     onApplyEmoji: (StyleOption) -> Unit,
     onAddFont: () -> Unit,
@@ -304,9 +309,10 @@ private fun FontEmojiPickerScreen(
                 .nestedScroll(nestedScrollInterop)
                 .scrollbar(gridState.scrollIndicatorState, Orientation.Vertical)
         ) {
-            if (!emojiTab && pending != null) {
+            val pending = if (emojiTab) emojiPending else fontPending
+            if (pending != null) {
                 item(key = "pending", span = { GridItemSpan(maxLineSpan) }) {
-                    PendingBanner(pending, onRestartNow)
+                    PendingBanner(pending, emojiTab, if (emojiTab) onRestartEmoji else onRestartFont)
                 }
             }
             if (!emojiTab) {
@@ -560,7 +566,7 @@ private fun StyleCard(
 
 /** Says that a restart or reboot was put off, and does it. */
 @Composable
-private fun PendingBanner(pending: PendingRestart, onRestart: () -> Unit) {
+private fun PendingBanner(pending: PendingRestart, emoji: Boolean, onRestart: () -> Unit) {
     val reboot = pending.kind == RestartKind.REBOOT
     val clickSound = rememberClickSound()
     Card(
@@ -574,15 +580,21 @@ private fun PendingBanner(pending: PendingRestart, onRestart: () -> Unit) {
         Column(modifier = Modifier.fillMaxWidth().padding(14.dp)) {
             Text(
                 text = stringResource(
-                    if (reboot) R.string.font_pending_reboot_title
-                    else R.string.font_pending_systemui_title
+                    when {
+                        reboot -> R.string.font_pending_reboot_title
+                        emoji -> R.string.emoji_pending_title
+                        else -> R.string.font_pending_systemui_title
+                    }
                 ),
                 style = MaterialTheme.typography.titleSmall
             )
             Text(
                 text = stringResource(
-                    if (reboot) R.string.font_pending_reboot_body
-                    else R.string.font_pending_systemui_body,
+                    when {
+                        reboot -> R.string.font_pending_reboot_body
+                        emoji -> R.string.emoji_pending_body
+                        else -> R.string.font_pending_systemui_body
+                    },
                     pending.fontLabel
                 ),
                 style = MaterialTheme.typography.bodyMedium,
@@ -597,8 +609,11 @@ private fun PendingBanner(pending: PendingRestart, onRestart: () -> Unit) {
             ) {
                 Text(
                     stringResource(
-                        if (reboot) R.string.action_reboot_now
-                        else R.string.font_pending_systemui_action
+                        when {
+                            reboot -> R.string.action_reboot_now
+                            emoji -> R.string.emoji_restart_now
+                            else -> R.string.font_pending_systemui_action
+                        }
                     )
                 )
             }

@@ -17,6 +17,9 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -49,6 +52,11 @@ class EmojiController(private val context: Context) {
 
     private val mainHandler = Handler(Looper.getMainLooper())
     private val installer by lazy { ExternalEmojiInstaller(context) }
+    private val tracker = FontRestartTracker(context, "emoji_picker_state")
+
+    /** A restart or reboot that was put off and still has to happen, or null. */
+    internal var pending by mutableStateOf<PendingRestart?>(tracker.pending())
+        private set
 
     private val entries: Array<String> =
         context.resources.getStringArray(R.array.emoji_style_entries)
@@ -57,11 +65,39 @@ class EmojiController(private val context: Context) {
 
     /** Sets the summary of [pref] to the bundled style at once, then to the custom font if any. */
     fun bindSummary(pref: Preference) {
-        pref.summary = styleLabel()
+        pref.summary = withPending(styleLabel())
         Thread({
             val name = installer.installedName()
-            if (name.isNotEmpty()) mainHandler.post { pref.summary = customLabel(name) }
+            if (name.isNotEmpty()) mainHandler.post { pref.summary = withPending(customLabel(name)) }
         }, "EmojiState").start()
+    }
+
+    private fun withPending(label: String): String = when (tracker.pending()?.kind) {
+        RestartKind.SYSTEMUI -> context.getString(R.string.font_summary_pending_systemui, label)
+        RestartKind.REBOOT -> context.getString(R.string.font_summary_pending_reboot, label)
+        null -> label
+    }
+
+    /** Re-reads the pending state, which clears itself once the restart has happened. */
+    fun refreshPending() {
+        pending = tracker.pending()
+    }
+
+    /** Does the restart or reboot that was put off. */
+    fun restartPendingNow(ctx: Context) {
+        when (pending?.kind ?: return) {
+            RestartKind.REBOOT -> ExternalFontInstaller.rebootDevice()
+            RestartKind.SYSTEMUI -> {
+                tracker.clear()
+                pending = null
+                restartNow(ctx)
+            }
+        }
+    }
+
+    private fun markPending(kind: RestartKind, label: String) {
+        tracker.markPending(kind, label)
+        pending = tracker.pending()
     }
 
     /** The custom font first, then the bundled styles. Blocks on binder calls. */
@@ -107,7 +143,7 @@ class EmojiController(private val context: Context) {
             }
             onChanged()
             if (hadCustom) {
-                showRebootDialog(ctx)
+                showRebootDialog(ctx, values.indexOf(value).let { if (it < 0) "" else entries[it] })
             } else {
                 SystemRestartUtils.showSystemRestartDialog(ctx)
             }
@@ -212,7 +248,8 @@ class EmojiController(private val context: Context) {
             val result = installer.installPreview()
             onChanged()
             if (result == ExternalEmojiInstaller.Result.SUCCESS) {
-                if (isScreenAlive()) showRestartDialog(context)
+                val label = withContext(Dispatchers.IO) { customLabel(installer.installedName()) }
+                if (isScreenAlive()) showRestartDialog(context, label)
             } else {
                 showResult(result)
             }
@@ -224,26 +261,26 @@ class EmojiController(private val context: Context) {
         return !activity.isFinishing && !activity.isDestroyed
     }
 
-    private fun showRebootDialog(ctx: Context) {
+    private fun showRebootDialog(ctx: Context, label: String) {
         ctx.showChoiceDialog(
             title = ctx.getString(R.string.reboot_required_title),
             message = ctx.getString(R.string.reboot_required_custom_emoji_title),
             confirmText = ctx.getString(R.string.action_reboot_now),
             laterText = ctx.getString(R.string.action_later),
             onConfirm = { ExternalFontInstaller.rebootDevice() },
-            onLater = {},
+            onLater = { markPending(RestartKind.REBOOT, label) },
         )
     }
 
     /** SystemUI picks the font up when it restarts; running apps when their process does. */
-    private fun showRestartDialog(ctx: Context) {
+    private fun showRestartDialog(ctx: Context, label: String) {
         ctx.showChoiceDialog(
             title = ctx.getString(R.string.emoji_restart_title),
             message = ctx.getString(R.string.emoji_restart_message),
             confirmText = ctx.getString(R.string.emoji_restart_now),
             laterText = ctx.getString(R.string.action_later),
             onConfirm = { restartNow(ctx) },
-            onLater = {},
+            onLater = { markPending(RestartKind.SYSTEMUI, label) },
         )
     }
 
