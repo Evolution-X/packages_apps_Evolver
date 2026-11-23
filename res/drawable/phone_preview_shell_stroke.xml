@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!-- Drawn as the foreground of a view clipped to the shell outline. A stroke is centered on its
+     path, so inset the path by half the stroke width to keep the whole stroke inside the clip. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:inset="@dimen/phone_preview_shell_stroke_inset">
+    <shape android:shape="rectangle">
+        <stroke
+            android:width="@dimen/phone_preview_shell_stroke_width"
+            android:color="?android:attr/textColorPrimary" />
+        <corners android:radius="@dimen/phone_preview_shell_corner_radius" />
+    </shape>
+</inset>
