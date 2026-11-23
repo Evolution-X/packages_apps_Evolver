@@ -204,9 +204,10 @@ class TrickyStore : SettingsPreferenceFragment() {
         if (result.resultCode != Activity.RESULT_OK) return@registerForActivityResult
         val uri = result.data?.data ?: return@registerForActivityResult
         val ctx = requireContext()
+        val generated = ui.rkpActive
         lifecycleScope.launch {
             try {
-                val xml = withContext(Dispatchers.IO) { exportableKeybox(ctx) }
+                val xml = withContext(Dispatchers.IO) { exportableKeybox(ctx, generated) }
                 withContext(Dispatchers.IO) {
                     ctx.contentResolver.openOutputStream(uri)?.use { stream ->
                         stream.write(xml.toByteArray(Charsets.UTF_8))
@@ -225,8 +226,13 @@ class TrickyStore : SettingsPreferenceFragment() {
      * The stored keybox, reduced to the document Tricky Store loads. The same
      * check runs on import, so a saved file is accepted on another phone.
      */
-    private fun exportableKeybox(context: Context): String {
-        val stored = Settings.Secure.getString(context.contentResolver, KEYBOX_KEY)
+    private fun exportableKeybox(context: Context, generated: Boolean): String {
+        // Device RKP keeps its keybox in the framework, not in Settings.
+        val stored = if (generated) {
+            ActivityManager.getService().spoofTrickyStoreKeyBox
+        } else {
+            Settings.Secure.getString(context.contentResolver, KEYBOX_KEY)
+        }
         val decoded = TrickyStoreService.decodeKeybox(stored ?: "")
             ?: throw IllegalArgumentException("No keybox is stored")
         val xml = KeyBoxManager.extract(decoded.toByteArray(Charsets.UTF_8))

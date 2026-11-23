@@ -168,7 +168,7 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
                             ExpressiveAction(
                                 stringResource(R.string.action_export),
                                 Icons.Rounded.Save,
-                                enabled = state.keyboxExists,
+                                enabled = state.keyboxExists || state.rkpActive,
                                 onClick = actions::onExportKeybox,
                             ),
                         )
