@@ -19,5 +19,9 @@ data class StyleOption(
     val key: String,
     val label: String,
     val typeface: Typeface?,
-    val category: FontCategory? = null
+    val category: FontCategory? = null,
+    val download: DownloadInfo? = null
 )
+
+/** An online style: its download [sizeBytes], and whether the file is on the device yet. */
+data class DownloadInfo(val sizeBytes: Long, val downloaded: Boolean)
