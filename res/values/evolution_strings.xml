@@ -1392,6 +1392,15 @@
     <string name="font_filter_display">Display</string>
     <string name="font_filter_script">Script</string>
     <string name="font_filter_mono">Mono</string>
+    <string name="font_filter_handwriting">Handwriting</string>
+    <string name="font_online_title">Google Fonts</string>
+    <string name="font_online_search">Search fonts</string>
+    <string name="font_online_loading">Loading fonts…</string>
+    <string name="font_online_error">Couldn\'t load the font list. Check your connection.</string>
+    <string name="font_online_retry">Retry</string>
+    <string name="font_online_empty">No fonts match your search</string>
+    <string name="font_online_progress">%1$d%%</string>
+    <string name="font_online_style_italic">%1$s Italic</string>
     <string name="font_sample_glyphs" translatable="false">Aa</string>
     <string name="sound_preview_play">Play preview</string>
     <string name="sound_preview_stop">Stop preview</string>

@@ -1651,4 +1651,17 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <!-- Google Fonts weights 100 to 900, in order -->
+    <string-array name="font_online_weight_names">
+        <item>Thin</item>
+        <item>Extra Light</item>
+        <item>Light</item>
+        <item>Regular</item>
+        <item>Medium</item>
+        <item>Semi Bold</item>
+        <item>Bold</item>
+        <item>Extra Bold</item>
+        <item>Black</item>
+    </string-array>
 </resources>
