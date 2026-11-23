@@ -1385,6 +1385,7 @@
     <string name="font_preview_quote">Fear is the enemy of innovation.</string>
     <string name="add_font">Add font</string>
     <string name="font_applied">Applied</string>
+    <string name="font_applying">Applying…</string>
     <string name="font_tab_emoji">Emoji</string>
     <string name="font_filter_all">All</string>
     <string name="font_filter_sans">Sans</string>
@@ -1401,7 +1402,24 @@
     <string name="font_online_empty">No fonts match your search</string>
     <string name="font_online_progress">%1$d%%</string>
     <string name="font_online_style_italic">%1$s Italic</string>
-    <string name="font_sample_glyphs" translatable="false">Aa</string>
+    <!-- Two letters, capital and small, that show the shape of a font; use ones from your script -->
+    <string name="font_sample_glyphs">Aa</string>
+    <string name="font_default">Default</string>
+    <string name="font_install_message">This font is used for system and app text until you pick another one. Only this file\'s style is installed, so bold and italic text is generated from it. The font style goes back to Default, and a reboot is needed to apply it everywhere.</string>
+    <string name="font_error_updater_disabled">Custom fonts aren\'t available on this device. They need fs-verity support in the kernel and on the data partition.</string>
+    <string name="font_error_invalid_file">This file isn\'t a font the system can use. Only .ttf and .otf fonts of up to %1$d MB work.</string>
+    <string name="font_error_invalid_name">This font has no PostScript name, so the system can\'t register it.</string>
+    <string name="font_error_downgrading">The system already has a newer version of this font.</string>
+    <string name="font_error_verification">The system couldn\'t protect the font file with fs-verity, so it was not installed.</string>
+    <string name="font_error_storage">The system couldn\'t save the font. Check that there is free storage and try again.</string>
+    <string name="font_error_unreadable">Couldn\'t read this font file. Fonts must be .ttf or .otf files of up to %1$d MB.</string>
+    <string name="font_install_failed">Couldn\'t install the font (error %1$d)</string>
+    <string name="font_apply_systemui_message">Apps switch to %1$s right away. The status bar, lock screen and quick settings switch after SystemUI restarts.</string>
+    <string name="font_apply_reboot_message">This removes your custom font and switches to %1$s. A reboot is needed before every app uses the new font.</string>
+    <string name="font_apply_restart_now">Apply and restart SystemUI</string>
+    <string name="font_apply_restart_later">Apply, restart later</string>
+    <string name="font_apply_reboot_now">Apply and reboot</string>
+    <string name="font_apply_reboot_later">Apply, reboot later</string>
     <string name="sound_preview_play">Play preview</string>
     <string name="sound_preview_stop">Stop preview</string>
     <string name="reboot_required_custom_font_title">Reboot required for custom font</string>

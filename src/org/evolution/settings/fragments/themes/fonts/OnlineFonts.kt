@@ -299,7 +299,7 @@ internal class OnlineFontRepository(context: Context) {
     }
 
     /** Already-loaded preview, for the first frame of a card. */
-    fun cachedPreview(font: OnlineFont): Typeface? = previews.get(font.family)
+    fun cachedPreview(font: OnlineFont): Typeface? = previews.get(previewKey(font))
 
     /**
      * The family name (plus the "Aa" sample) in the font itself: from the cached cut, else a
@@ -307,7 +307,8 @@ internal class OnlineFontRepository(context: Context) {
      * [resetFailures] is called.
      */
     suspend fun preview(font: OnlineFont): Typeface? {
-        previews.get(font.family)?.let { return it }
+        val key = previewKey(font)
+        previews.get(key)?.let { return it }
         val file = previewFile(font)
         val local = withContext(Dispatchers.IO) {
             if (file.isUsable()) {
@@ -317,26 +318,33 @@ internal class OnlineFontRepository(context: Context) {
                 null
             }
         }
-        if (local != null) return local.also { previews.put(font.family, it) }
+        if (local != null) return local.also { previews.put(key, it) }
         if (font.family in failedPreviews) return null
         return previewLimit.withPermit {
             withContext(Dispatchers.IO) {
-                previews.get(font.family) ?: runCatching {
+                previews.get(key) ?: runCatching {
                     GoogleFontsCatalog.fetchPreview(font, previewText(font), file)
                     load(file) ?: error("Unusable preview for ${font.family}")
                 }.onFailure {
                     Log.w(TAG, "Preview of ${font.family} unavailable: $it")
                     failedPreviews += font.family
-                }.getOrNull()?.also { previews.put(font.family, it) }
+                }.getOrNull()?.also { previews.put(key, it) }
             }
         }
     }
 
-    private fun previewFile(font: OnlineFont) =
-        File(previewDir, "${onlineFontFileName(font.family)}.ttf")
+    // The cut holds only the sample's glyphs, and a translation can change them, so a cut is
+    // kept per sample text.
+    private fun previewKey(font: OnlineFont) = font.family + previewSample()
 
-    private fun previewText(font: OnlineFont) =
-        font.family + context.getString(R.string.font_sample_glyphs)
+    private fun previewSample() = context.getString(R.string.font_sample_glyphs)
+
+    private fun previewFile(font: OnlineFont): File {
+        val sample = Integer.toHexString(previewSample().hashCode())
+        return File(previewDir, "${onlineFontFileName(font.family)}-$sample.ttf")
+    }
+
+    private fun previewText(font: OnlineFont) = font.family + previewSample()
 
     /**
      * One style for previewing and installing: the cached file, else downloaded now. Throws
