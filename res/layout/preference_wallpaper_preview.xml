@@ -47,7 +47,7 @@
                 android:id="@+id/lock_wallpaper_card"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="@dimen/preview_card_corner_radius"
                 app:cardElevation="2dp"
                 app:strokeWidth="1dp"
                 app:strokeColor="?android:attr/colorControlHighlight">
@@ -98,7 +98,7 @@
                 android:id="@+id/home_wallpaper_card"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:cardCornerRadius="14dp"
+                app:cardCornerRadius="@dimen/preview_card_corner_radius"
                 app:cardElevation="2dp"
                 app:strokeWidth="1dp"
                 app:strokeColor="?android:attr/colorControlHighlight">
@@ -152,7 +152,7 @@
         app:icon="@drawable/ic_refresh"
         app:iconGravity="textStart"
         app:iconTint="?android:attr/textColorPrimaryInverse"
-        app:cornerRadius="14dp"
+        app:cornerRadius="@dimen/preview_card_corner_radius"
         style="@style/Widget.Material3.Button" />
 
 </LinearLayout>

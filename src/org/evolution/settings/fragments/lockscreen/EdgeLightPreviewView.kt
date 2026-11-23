@@ -56,8 +56,8 @@ class EdgeLightPreviewView @JvmOverloads constructor(
     private var rainbow = false
     private var color = Color.WHITE
     private val cornerRadii = FloatArray(8) {
-        (resources.getDimension(R.dimen.edge_light_preview_shell_corner_radius) -
-            resources.getDimension(R.dimen.edge_light_preview_shell_content_inset)).coerceAtLeast(0f)
+        (resources.getDimension(R.dimen.phone_preview_shell_corner_radius) -
+            resources.getDimension(R.dimen.phone_preview_shell_content_inset)).coerceAtLeast(0f)
     }
 
     init {

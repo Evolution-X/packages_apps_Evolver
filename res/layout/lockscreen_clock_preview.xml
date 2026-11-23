@@ -27,15 +27,15 @@
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="190dp"
-                android:layout_height="380dp"
-                android:padding="6dp"
+                android:layout_width="@dimen/phone_preview_screen_width"
+                android:layout_height="@dimen/phone_preview_screen_height"
+                android:padding="@dimen/phone_preview_shell_content_inset"
                 android:scaleType="fitCenter"
                 android:layout_gravity="center"
-                app:cardCornerRadius="28dp"
+                app:cardCornerRadius="@dimen/phone_preview_shell_corner_radius"
                 app:cardElevation="2dp"
                 app:strokeColor="?android:attr/textColorPrimary"
-                app:strokeWidth="3dp">
+                app:strokeWidth="@dimen/phone_preview_shell_stroke_width">
 
                 <FrameLayout
                     android:layout_width="match_parent"

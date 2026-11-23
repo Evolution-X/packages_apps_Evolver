@@ -23,11 +23,11 @@
             android:layout_width="@dimen/phone_preview_screen_width"
             android:layout_height="@dimen/phone_preview_screen_height"
             android:layout_gravity="start|center"
-            android:padding="@dimen/edge_light_preview_shell_content_inset"
-            app:cardCornerRadius="@dimen/edge_light_preview_shell_corner_radius"
+            android:padding="@dimen/phone_preview_shell_content_inset"
+            app:cardCornerRadius="@dimen/phone_preview_shell_corner_radius"
             app:cardElevation="2dp"
             app:strokeColor="@color/edge_light_preview_shell_stroke"
-            app:strokeWidth="3dp">
+            app:strokeWidth="@dimen/phone_preview_shell_stroke_width">
 
             <FrameLayout
                 android:layout_width="match_parent"
