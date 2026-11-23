@@ -32,6 +32,7 @@ import org.evolution.settings.fragments.miscellaneous.expressiveVerticalScroll
 import org.evolution.settings.preferences.showChoiceDialog
 import org.evolution.settings.preferences.showComposeDialog
 import org.evolution.settings.utils.SystemUtils
+import java.io.File
 
 /**
  * Reads and changes the system font: the font overlays, plus a user-picked font file that is
@@ -196,17 +197,31 @@ class FontController(private val context: Context) {
     ) {
         scope.launch {
             val postScriptName = installer.installFontFromUri(uri) ?: return@launch
-            Settings.Secure.putString(context.contentResolver, CUSTOM_FONT_NAME, postScriptName)
-            onChanged()
-            context.showChoiceDialog(
-                title = context.getString(R.string.reboot_required_title),
-                message = context.getString(R.string.reboot_required_custom_font_title),
-                confirmText = context.getString(R.string.action_reboot_now),
-                laterText = context.getString(R.string.action_later),
-                onConfirm = { ExternalFontInstaller.rebootDevice() },
-                onLater = {},
-            )
+            finishInstall(postScriptName, onChanged)
         }
+    }
+
+    /** Installs a font file that is already on the device, such as a downloaded one. */
+    fun installFile(file: File, scope: CoroutineScope, onChanged: () -> Unit) {
+        val installer = ExternalFontInstaller(context)
+        scope.launch {
+            val postScriptName = installer.installFontFromFile(file) ?: return@launch
+            finishInstall(postScriptName, onChanged)
+        }
+    }
+
+    // A custom font is read at boot, so it asks for a reboot once it is installed.
+    private fun finishInstall(postScriptName: String, onChanged: () -> Unit) {
+        Settings.Secure.putString(context.contentResolver, CUSTOM_FONT_NAME, postScriptName)
+        onChanged()
+        context.showChoiceDialog(
+            title = context.getString(R.string.reboot_required_title),
+            message = context.getString(R.string.reboot_required_custom_font_title),
+            confirmText = context.getString(R.string.action_reboot_now),
+            laterText = context.getString(R.string.action_later),
+            onConfirm = { ExternalFontInstaller.rebootDevice() },
+            onLater = {},
+        )
     }
 
     private fun applyOverlayInBackground(
