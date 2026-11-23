@@ -25,7 +25,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.sp
 import androidx.preference.Preference
-import com.android.internal.util.evolution.SystemRestartUtils
 import com.android.settings.R
 import com.android.settingslib.development.SystemPropPoker
 import java.io.File
@@ -124,14 +123,14 @@ class EmojiController(private val context: Context) {
     }
 
     /**
-     * Switches to the bundled style [value]. Leaving a custom font ([hadCustom]) removes it and
-     * needs a reboot; a bundled style only restarts SystemUI. Does nothing while another emoji
-     * operation runs.
+     * Switches to the bundled style [value]. Either way, a bundled style is read at boot, so this
+     * ends in the reboot dialog, which can be put off. Leaving a custom font ([hadCustom])
+     * removes it first. Does nothing while another emoji operation runs.
      */
     fun apply(ctx: Context, value: String, hadCustom: Boolean, onChanged: () -> Unit) {
         runExclusive {
             // Also puts back the emoji files that applying a custom font overwrote in apps such
-            // as Gboard. Must finish before the restart dialog, or a quick reboot cuts it off.
+            // as Gboard. Must finish before the reboot dialog, or a quick reboot cuts it off.
             val result = withContext(Dispatchers.IO) { installer.clear() }
             if (hadCustom && result != ExternalEmojiInstaller.Result.SUCCESS) {
                 showResult(result)
@@ -142,11 +141,7 @@ class EmojiController(private val context: Context) {
                 SystemPropPoker.getInstance().poke()
             }
             onChanged()
-            if (hadCustom) {
-                showRebootDialog(ctx, values.indexOf(value).let { if (it < 0) "" else entries[it] })
-            } else {
-                SystemRestartUtils.showSystemRestartDialog(ctx)
-            }
+            showRebootDialog(ctx, values.indexOf(value).let { if (it < 0) "" else entries[it] })
         }
     }
 
