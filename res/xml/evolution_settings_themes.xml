@@ -13,10 +13,11 @@
         android:title="@string/themes_fonts_category">
 
         <!-- Font style -->
-        <org.evolution.settings.preferences.FontsPickerPreference
+        <Preference
             android:key="system_font"
             android:title="@string/font_styles_title"
-            android:summary="@string/font_styles_summary" />
+            android:summary="@string/font_styles_summary"
+            android:fragment="org.evolution.settings.fragments.themes.fonts.FontsPickerFragment" />
 
         <!-- Emoji style -->
         <org.evolution.settings.preferences.EmojiStylePickerPreference
