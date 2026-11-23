@@ -1404,6 +1404,8 @@
     <string name="font_online_style_italic">%1$s Italic</string>
     <!-- Two letters, capital and small, that show the shape of a font; use ones from your script -->
     <string name="font_sample_glyphs">Aa</string>
+    <string name="font_sample_hint">Try your own text</string>
+    <string name="font_sample_clear">Clear text</string>
     <string name="font_default">Default</string>
     <string name="font_install_message">This font is used for system and app text until you pick another one. Only this file\'s style is installed, so bold and italic text is generated from it. The font style goes back to Default, and a reboot is needed to apply it everywhere.</string>
     <string name="font_error_updater_disabled">Custom fonts aren\'t available on this device. They need fs-verity support in the kernel and on the data partition.</string>

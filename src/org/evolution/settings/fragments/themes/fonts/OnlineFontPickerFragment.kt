@@ -62,6 +62,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontFamily
@@ -210,9 +211,12 @@ private fun OnlineFontPickerScreen(
         onDispose { nestedScrollInterop.stop() }
     }
     val navBarBottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    val gridState = rememberLazyGridState()
+    val compact = rememberCompactOnScroll(gridState)
 
     Column(modifier = Modifier.fillMaxSize()) {
         OnlineStage(
+            compact = compact,
             font = font,
             state = load,
             previewTypeface = font?.let { repo.cachedPreview(it) },
@@ -232,7 +236,6 @@ private fun OnlineFontPickerScreen(
             }
         )
 
-        val gridState = rememberLazyGridState()
         LazyVerticalGrid(
             state = gridState,
             columns = GridCells.Adaptive(150.dp),
@@ -320,6 +323,7 @@ private fun OnlineFontPickerScreen(
  */
 @Composable
 private fun OnlineStage(
+    compact: Boolean,
     font: OnlineFont?,
     state: State<LoadState>,
     previewTypeface: Typeface?,
@@ -369,6 +373,7 @@ private fun OnlineStage(
                 this.typeface = typeface
                 setText(R.string.font_preview_quote)
             }
+            view.setStageCompact(compact)
             updateChips(
                 view.findViewById(R.id.font_filter_scroll),
                 view.findViewById(R.id.font_filter_chips),
@@ -433,7 +438,8 @@ private fun OnlineFontCard(
                     text = stringResource(R.string.font_sample_glyphs),
                     style = MaterialTheme.typography.headlineMedium,
                     fontFamily = family,
-                    maxLines = 1
+                    maxLines = 1,
+                    modifier = Modifier.clearAndSetSemantics { }
                 )
             }
             Text(

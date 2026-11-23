@@ -32,19 +32,24 @@ import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -63,8 +68,10 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -89,6 +96,7 @@ import org.evolution.settings.fragments.miscellaneous.rememberClickSound
 
 private const val TAB_FONTS = 0
 private const val TAB_EMOJI = 1
+private const val MAX_SAMPLE_LENGTH = 40
 
 /** What one tab lists, and which of it is applied. */
 private class TabData(val options: List<StyleOption>, val appliedKey: String)
@@ -220,6 +228,7 @@ private fun FontEmojiPickerScreen(
     var fontPreview by rememberSaveable { mutableStateOf<String?>(null) }
     var emojiPreview by rememberSaveable { mutableStateOf<String?>(null) }
     var filter by rememberSaveable { mutableStateOf<FontCategory?>(null) }
+    var sample by rememberSaveable { mutableStateOf("") }
 
     val emojiTab = tab == TAB_EMOJI
     val data = if (emojiTab) emoji else fonts
@@ -234,6 +243,12 @@ private fun FontEmojiPickerScreen(
             return
         }
     val busy = fontBusy && !emojiTab
+
+    val glyphs = stringResource(R.string.font_sample_glyphs)
+    val cardSample = sample.ifBlank { glyphs }
+    val gridState = rememberLazyGridState()
+    // The emoji preview is the notification, which the compact stage hides.
+    val compact = rememberCompactOnScroll(gridState) && !emojiTab
 
     val hostView = LocalView.current
     val nestedScrollInterop = remember(hostView) { ComposeToViewNestedScrollBridge(hostView) }
@@ -262,12 +277,13 @@ private fun FontEmojiPickerScreen(
             canApply = !busy && shown.key != data.appliedKey && shown.key != customKey,
             filters = if (emojiTab) emptyList() else filters,
             filter = filter,
+            sample = sample,
+            compact = compact,
             onFilter = { filter = it },
             onTab = { tab = it },
             onApply = { if (emojiTab) onApplyEmoji(shown) else onApplyFont(shown) }
         )
 
-        val gridState = rememberLazyGridState()
         LazyVerticalGrid(
             state = gridState,
             columns = GridCells.Adaptive(150.dp),
@@ -281,10 +297,33 @@ private fun FontEmojiPickerScreen(
                 .nestedScroll(nestedScrollInterop)
                 .scrollbar(gridState.scrollIndicatorState, Orientation.Vertical)
         ) {
+            if (!emojiTab) {
+                item(key = "sample", span = { GridItemSpan(maxLineSpan) }) {
+                    OutlinedTextField(
+                        value = sample,
+                        onValueChange = { sample = it.take(MAX_SAMPLE_LENGTH) },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true,
+                        leadingIcon = { Icon(Icons.Default.Edit, contentDescription = null) },
+                        trailingIcon = {
+                            if (sample.isNotEmpty()) {
+                                IconButton(onClick = { sample = "" }) {
+                                    Icon(
+                                        Icons.Default.Close,
+                                        contentDescription = stringResource(R.string.font_sample_clear)
+                                    )
+                                }
+                            }
+                        },
+                        placeholder = { Text(stringResource(R.string.font_sample_hint)) }
+                    )
+                }
+            }
             items(visible, key = { "${tab}_${it.key}" }) { option ->
                 StyleCard(
                     option = option,
                     emoji = emojiTab,
+                    sample = cardSample,
                     previewed = option.key == shown.key,
                     applied = option.key == data.appliedKey,
                     onClick = {
@@ -337,6 +376,8 @@ private fun PreviewStage(
     canApply: Boolean,
     filters: List<FontCategory?>,
     filter: FontCategory?,
+    sample: String,
+    compact: Boolean,
     onFilter: (FontCategory?) -> Unit,
     onTab: (Int) -> Unit,
     onApply: () -> Unit
@@ -378,12 +419,17 @@ private fun PreviewStage(
             }
             view.findViewById<TextView>(R.id.font_preview_body).apply {
                 this.typeface = typeface
-                setText(if (emojiTab) R.string.emoji_preview_sample else R.string.font_preview_quote)
+                text = when {
+                    emojiTab -> context.getString(R.string.emoji_preview_sample)
+                    sample.isBlank() -> context.getString(R.string.font_preview_quote)
+                    else -> sample
+                }
                 setTextSize(TypedValue.COMPLEX_UNIT_SP, if (emojiTab) 22f else 12f)
             }
             view.findViewById<TextView>(R.id.font_tab_fonts).isSelected = !emojiTab
             view.findViewById<TextView>(R.id.font_tab_emoji).isSelected = emojiTab
             updateFilterChips(view, filters, filter) { latestOnFilter(it) }
+            view.setStageCompact(compact)
             view.findViewById<TextView>(R.id.font_preview_apply).apply {
                 setText(
                     when {
@@ -404,12 +450,14 @@ private fun PreviewStage(
 private fun StyleCard(
     option: StyleOption,
     emoji: Boolean,
+    sample: String,
     previewed: Boolean,
     applied: Boolean,
     onClick: () -> Unit
 ) {
     val family = remember(option.typeface) { option.typeface?.let { FontFamily(it) } }
     val clickSound = rememberClickSound()
+    val appliedState = stringResource(R.string.font_applied)
     Card(
         onClick = {
             clickSound()
@@ -419,7 +467,10 @@ private fun StyleCard(
             .fillMaxWidth()
             .height(112.dp)
             .insetFocusRing(ExpressiveCorners.single)
-            .semantics { selected = previewed },
+            .semantics {
+                selected = previewed
+                if (applied) stateDescription = appliedState
+            },
         shape = ExpressiveCorners.single,
         border = if (previewed) BorderStroke(2.dp, MaterialTheme.colorScheme.primary) else null,
         colors = CardDefaults.cardColors(
@@ -436,8 +487,7 @@ private fun StyleCard(
                 verticalAlignment = Alignment.Top
             ) {
                 Text(
-                    text = if (emoji) EmojiController.PREVIEW_EMOJI
-                    else stringResource(R.string.font_sample_glyphs),
+                    text = if (emoji) EmojiController.PREVIEW_EMOJI else sample,
                     style = if (emoji) {
                         MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp)
                     } else {
@@ -445,7 +495,8 @@ private fun StyleCard(
                     },
                     fontFamily = family,
                     maxLines = 1,
-                    modifier = Modifier.weight(1f)
+                    // The sample glyphs are decoration; the card is read by its label.
+                    modifier = Modifier.weight(1f).clearAndSetSemantics { }
                 )
                 if (applied) {
                     Icon(
