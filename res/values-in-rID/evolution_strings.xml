@@ -1217,12 +1217,9 @@
     <string name="add_emoji_font">Tambahkan font emoji</string>
     <string name="emoji_preview_dialog_title">Pratinjau emoji</string>
     <string name="emoji_preview_coverage">Emoji terbaru (Unicode 15 dan 16) dalam font ini: %1$d dari %2$d</string>
-    <string name="reboot_required_custom_emoji_title">Mulai ulang diperlukan agar perubahan emoji diterapkan. Mulai ulang sekarang?</string>
     <string name="toast_failed_apply_emoji">Gagal menerapkan font emoji</string>
     <string name="toast_emoji_updater_disabled">Pembaruan font dinonaktifkan pada perangkat ini</string>
-    <string name="toast_emoji_slots_full">Tidak ada slot untuk font emoji gratis. Pilih gaya bawaan untuk mengatur ulang, lalu coba lagi</string>
     <string name="toast_invalid_emoji_file">Berkas font emoji tidak valid</string>
-    <string name="toast_emoji_font_too_old">Versi yang lebih baru dari font emoji ini sudah terinstal</string>
     <string name="custom_system_theme_title">Tema</string>
     <string name="custom_system_theme_summary">Sesuaikan tampilan sistem dengan tema dan paket ikon</string>
     <!-- About -->
@@ -1294,7 +1291,6 @@
     <string name="never">Jangan pernah</string>
     <string name="boot_animation_applied">Animasi boot telah diterapkan</string>
     <string name="reboot_required_title">Mulai ulang diperlukan</string>
-    <string name="reboot_required_message">Mulai ulang diperlukan agar perubahan font diterapkan. Mulai ulang sekarang?</string>
     <string name="action_later">Nanti</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
     <string name="hardware_keys_action_nothing">Tidak ada tindakan</string>

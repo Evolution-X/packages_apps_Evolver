@@ -1306,12 +1306,9 @@
     <string name="add_emoji_font">Adicionar fonte de emoji</string>
     <string name="emoji_preview_dialog_title">Pré-visualização de emoji</string>
     <string name="emoji_preview_coverage">Emoji mais recentes (Unicode 15 e 16) nesta fonte: %1$d de %2$d</string>
-    <string name="reboot_required_custom_emoji_title">É necessário reiniciar o dispositivo para aplicar as alterações de emoji. Reiniciar agora?</string>
     <string name="toast_failed_apply_emoji">Falha ao aplicar fonte de emoji</string>
     <string name="toast_emoji_updater_disabled">As atualizações de fonte estão desativadas neste dispositivo</string>
-    <string name="toast_emoji_slots_full">Sem slot de fonte para emojis. Escolha um estilo embutido para redefini-lo, e tente novamente</string>
     <string name="toast_invalid_emoji_file">Arquivo de fonte emoji inválido</string>
-    <string name="toast_emoji_font_too_old">Uma versão mais recente desta fonte de emoji já está instalada</string>
     <string name="toast_emoji_not_installed">Adicione uma fonte de emoji personalizada primeiro</string>
     <string name="toast_emoji_busy">Outra alteração de emoji ainda está em andamento</string>
     <string name="emoji_restart_title">Reinicie para aplicar os emoji</string>
@@ -1401,7 +1398,6 @@
     <string name="never">Nunca</string>
     <string name="boot_animation_applied">Animação de inicialização aplicada</string>
     <string name="reboot_required_title">É necessário reiniciar</string>
-    <string name="reboot_required_message">É necessário reiniciar para aplicar alterações de fonte. Reiniciar agora?</string>
     <string name="action_later">Mais tarde</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
     <string name="hardware_keys_action_nothing">Nenhuma ação</string>

@@ -1305,12 +1305,9 @@
     <string name="add_emoji_font">絵文字フォントを追加</string>
     <string name="emoji_preview_dialog_title">絵文字のプレビュー</string>
     <string name="emoji_preview_coverage">このフォントに含まれる最新の絵文字(Unicode 15および16)：%1$d個(全%2$d個中)</string>
-    <string name="reboot_required_custom_emoji_title">絵文字の変更を適用するには再起動が必要です。今すぐ再起動しますか？</string>
     <string name="toast_failed_apply_emoji">絵文字の適用に失敗しました</string>
     <string name="toast_emoji_updater_disabled">この端末ではフォントの更新は無効になっています</string>
-    <string name="toast_emoji_slots_full">無料の絵文字フォントスロットがありません。組み込みスタイルを選択してリセットしてから、もう一度やり直してください</string>
     <string name="toast_invalid_emoji_file">無効な絵文字フォントファイル</string>
-    <string name="toast_emoji_font_too_old">この絵文字フォントの新しいバージョンは既にインストールされています</string>
     <string name="toast_emoji_not_installed">先にカスタム絵文字フォントを追加してください</string>
     <string name="toast_emoji_busy">別の絵文字変更がまだ進行中です</string>
     <string name="emoji_restart_title">絵文字を適用するには再起動してください</string>
@@ -1399,7 +1396,6 @@
     <string name="never">なし</string>
     <string name="boot_animation_applied">ブートアニメーションを適用しました</string>
     <string name="reboot_required_title">再起動が必要です</string>
-    <string name="reboot_required_message">フォントの変更を適用するには再起動が必要です。今すぐ再起動しますか？</string>
     <string name="action_later">後で</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
     <string name="hardware_keys_action_nothing">なし</string>
