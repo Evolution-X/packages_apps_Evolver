@@ -48,7 +48,7 @@ class ExternalEmojiInstaller(context: Context) {
         private const val INSTALLED_EMOJI_DIR = "/data/fonts/emoji"
 
         /** Same limit as UpdatableFontDir.MAX_CUSTOM_EMOJI_FILE_SIZE. */
-        private const val MAX_EMOJI_BYTES = 128L * 1024L * 1024L
+        const val MAX_EMOJI_BYTES = 128L * 1024L * 1024L
 
         // Earlier builds kept their own copy of the font and its name.
         private const val LEGACY_EMOJI_FILE = "cust_emoji.ttf"
@@ -220,6 +220,22 @@ class ExternalEmojiInstaller(context: Context) {
         }.onFailure { Log.e(TAG, "installCustomEmoji failed", it) }
             .getOrDefault(RESULT_EXCEPTION)
         resultFor(code).also { if (it == Result.SUCCESS) file.delete() }
+    }
+
+    /**
+     * Installs the emoji font in [file], such as a downloaded one, as the system emoji. The file
+     * is copied first, so it stays where it is for the next switch.
+     */
+    suspend fun installFile(file: File): Result = withContext(Dispatchers.IO) {
+        val copy = File(context.cacheDir, TEMP_PREVIEW_EMOJI)
+        val copied = runCatching { file.copyTo(copy, overwrite = true) }
+            .onFailure { Log.e(TAG, "Failed to copy emoji font", it) }
+            .isSuccess
+        if (!copied) {
+            copy.delete()
+            return@withContext Result.FAILED
+        }
+        installPreview()
     }
 
     /** Removes the custom emoji font. Blocking; call off the main thread. */
