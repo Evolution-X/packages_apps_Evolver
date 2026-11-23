@@ -7,12 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    style="@style/Widget.Evolver.PreviewStageHost">
+    style="@style/PreviewStageHost">
 
     <org.evolution.settings.utils.PreviewStage
         android:layout_width="match_parent"
         android:layout_height="@dimen/preview_stage_height_regular"
-        android:background="@android:color/black">
+        android:background="@android:color/black"
+        app:previewBackdrop="wallpaper">
 
         <org.evolution.settings.fragments.lockscreen.ChargingPreviewView
             android:id="@+id/charging_preview"

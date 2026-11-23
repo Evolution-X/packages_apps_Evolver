@@ -29,4 +29,12 @@
         <attr name="deviceConfigDefault" format="boolean" />
     </declare-styleable>
 
+    <!-- What a PreviewStage draws behind its content. -->
+    <declare-styleable name="PreviewStage">
+        <attr name="previewBackdrop" format="enum">
+            <enum name="none" value="0" />
+            <enum name="wallpaper" value="1" />
+        </attr>
+    </declare-styleable>
+
 </resources>
