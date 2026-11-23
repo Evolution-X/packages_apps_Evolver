@@ -33,9 +33,6 @@ import org.evolution.settings.preferences.showChoiceDialog
 import org.evolution.settings.preferences.showComposeDialog
 import org.evolution.settings.utils.SystemUtils
 
-/** One entry of the font picker: the default, an installed overlay or the custom font. */
-data class FontOption(val key: String, val label: String, val typeface: Typeface?)
-
 /**
  * Reads and changes the system font: the font overlays, plus a user-picked font file that is
  * installed through [ExternalFontInstaller]. An installed custom font wins over any overlay, so
@@ -63,7 +60,7 @@ class FontController(private val context: Context) {
     }
 
     /** The custom font first, then the default, then the overlays by name. Blocks on lookups. */
-    fun loadOptions(): List<FontOption> {
+    fun loadOptions(): List<StyleOption> {
         val packages = themeUtils.getOverlayPackagesForCategory(CATEGORY, "android")
         val labels = packages.filter { it != "android" }.associateWith { labelOf(it) }
         val overlays = packages.filter { it != "android" }
@@ -71,14 +68,14 @@ class FontController(private val context: Context) {
         return buildList {
             val custom = customFontName()
             if (custom.isNotEmpty()) {
-                add(FontOption(
+                add(StyleOption(
                     CUSTOM_KEY,
                     custom,
                     ExternalFontInstaller(context).loadInstalledTypeface() ?: typefaceOf("android")
                 ))
             }
-            add(FontOption("android", DEFAULT_LABEL, typefaceOf("android")))
-            overlays.forEach { add(FontOption(it, labels.getValue(it), typefaceOf(it))) }
+            add(StyleOption("android", DEFAULT_LABEL, typefaceOf("android")))
+            overlays.forEach { add(StyleOption(it, labels.getValue(it), typefaceOf(it))) }
         }
     }
 
@@ -265,7 +262,7 @@ class FontController(private val context: Context) {
         private const val CUSTOM_FONT_NAME = "custom_font_name"
         private const val DEFAULT_LABEL = "Default"
 
-        /** Key of the installed custom font in [FontOption] and [appliedKey]. */
+        /** Key of the installed custom font in [StyleOption] and [appliedKey]. */
         const val CUSTOM_KEY = "__custom_font__"
     }
 }
