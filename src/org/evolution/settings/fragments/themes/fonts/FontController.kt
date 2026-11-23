@@ -327,9 +327,11 @@ class FontController(private val context: Context) {
     }
 
     private fun typefaceOf(pkg: String): Typeface? {
-        // The default font is the always-on Google Sans Flex overlay's family.
+        // The default font is the stock body font, Google Sans Flex.
         if (pkg == "android") {
-            return Typeface.getSystemDefaultTypeface(ExternalFontInstaller.DEFAULT_FONT_FAMILY)
+            // Not the live font table: it holds the custom font while one is installed.
+            return StockFontFiles.defaultTypeface()
+                ?: Typeface.getSystemDefaultTypeface(ExternalFontInstaller.DEFAULT_FONT_FAMILY)
         }
         return try {
             val res = context.packageManager.getResourcesForApplication(pkg)
