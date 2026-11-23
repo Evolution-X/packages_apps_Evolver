@@ -377,7 +377,7 @@ private class ClockPreviewFrame(context: Context) : FrameLayout(context) {
     }
 }
 
-private class ComposeToViewNestedScrollBridge(
+internal class ComposeToViewNestedScrollBridge(
     view: View
 ) : NestedScrollConnection {
 

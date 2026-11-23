@@ -29,6 +29,7 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 
 import org.evolution.settings.fragments.themes.IconShapeController;
+import org.evolution.settings.fragments.themes.fonts.FontController;
 import org.evolution.settings.preferences.SoundPickerPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
@@ -42,6 +43,7 @@ public class Themes extends SettingsPreferenceFragment {
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_visual_effects_category";
     private static final String KEY_BOOT_ANIMATION = "boot_animation";
     private static final String KEY_ICON_SHAPE = "android.theme.customization.adaptive_icon_shape";
+    private static final String KEY_FONT = "system_font";
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_LOCK_SOUND = "lock_sound";
     private static final String KEY_NAVBAR_ICONS = "android.theme.customization.navbar";
@@ -116,6 +118,7 @@ public class Themes extends SettingsPreferenceFragment {
         }
 
         updateBootAnimationSummary();
+        updateFontSummary();
         updateIconShapeSummary();
         updateShadeStyleState();
     }
@@ -138,6 +141,12 @@ public class Themes extends SettingsPreferenceFragment {
         pref.setSummary(new BootAnimationController(getContext(), KEY_BOOT_ANIMATION).getSummary());
     }
 
+    private void updateFontSummary() {
+        Preference pref = findPreference(KEY_FONT);
+        if (pref == null) return;
+        pref.setSummary(new FontController(getContext()).getSummary());
+    }
+
     private void updateIconShapeSummary() {
         Preference pref = findPreference(KEY_ICON_SHAPE);
         if (pref == null) return;
@@ -148,6 +157,7 @@ public class Themes extends SettingsPreferenceFragment {
     public void onResume() {
         super.onResume();
         updateBootAnimationSummary();
+        updateFontSummary();
         updateIconShapeSummary();
         updateShadeStyleState();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
