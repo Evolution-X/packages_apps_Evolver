@@ -46,6 +46,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -155,6 +156,8 @@ private fun OnlineFontPickerScreen(
     var downloadAttempt by remember { mutableIntStateOf(0) }
     var category by rememberSaveable { mutableIntStateOf(0) }
     var query by rememberSaveable { mutableStateOf("") }
+    // Google lists most popular first; A to Z is easier when the name is known.
+    var sortAz by rememberSaveable { mutableStateOf(false) }
     var selected by rememberSaveable { mutableStateOf<String?>(null) }
     var variant by rememberSaveable { mutableStateOf<String?>(null) }
     val load = remember { mutableStateOf<LoadState>(LoadState.Idle) }
@@ -211,7 +214,7 @@ private fun OnlineFontPickerScreen(
     val categoryLabels = remember { categories.map { context.getString(it.labelRes) } }
     val savedNames = remember(saved) { saved.mapTo(HashSet()) { it.font.family } }
     val savedTab = categories[category] == OnlineFontCategory.SAVED
-    val visible = remember(list, saved, category, query) {
+    val visible = remember(list, saved, category, query, sortAz) {
         val chosen = categories[category]
         val needle = query.trim()
         // Saved ones come from the device, so they show whether or not the list loaded.
@@ -219,6 +222,8 @@ private fun OnlineFontPickerScreen(
         source.filter {
             (chosen.apiName == null || it.category == chosen.apiName) &&
                 (needle.isEmpty() || it.family.contains(needle, ignoreCase = true))
+        }.let { found ->
+            if (sortAz) found.sortedWith(compareBy(String.CASE_INSENSITIVE_ORDER) { it.family }) else found
         }
     }
 
@@ -285,7 +290,20 @@ private fun OnlineFontPickerScreen(
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
                     leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-                    placeholder = { Text(stringResource(R.string.font_online_search)) }
+                    placeholder = { Text(stringResource(R.string.font_online_search)) },
+                    trailingIcon = {
+                        TextButton(onClick = {
+                            clickSound()
+                            sortAz = !sortAz
+                        }) {
+                            Text(
+                                stringResource(
+                                    if (sortAz) R.string.font_online_sort_az
+                                    else R.string.font_online_sort_popular
+                                )
+                            )
+                        }
+                    }
                 )
             }
             if (font != null && style != null) {
