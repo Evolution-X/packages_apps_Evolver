@@ -7,6 +7,11 @@
     <!-- Oval preview size -->
     <dimen name="oval_notification_size">26dp</dimen>
 
+    <!-- Live preview stages, shared by the pinned previews -->
+    <dimen name="preview_stage_corner_radius">28dp</dimen>
+    <dimen name="preview_stage_padding_horizontal">16dp</dimen>
+    <dimen name="preview_stage_padding_vertical">8dp</dimen>
+
     <!-- Edge light -->
     <dimen name="phone_preview_hardware_corner_radius">1.0999756dip</dimen>
     <dimen name="phone_preview_hardware_power_above_volume_dy">-48.0dip</dimen>
