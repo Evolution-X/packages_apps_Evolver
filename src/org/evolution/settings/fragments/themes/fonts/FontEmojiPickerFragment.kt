@@ -40,9 +40,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -147,6 +149,8 @@ class FontEmojiPickerFragment : Fragment() {
                     fonts = fontData.value,
                     emoji = emojiData.value,
                     fontBusy = fonts.busy,
+                    pending = fonts.pending,
+                    onRestartNow = { fonts.restartNow(requireContext()) },
                     onApplyFont = { option ->
                         fonts.apply(
                             requireContext(),
@@ -184,6 +188,7 @@ class FontEmojiPickerFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        fonts.refreshPending()
         reload()
     }
 
@@ -217,6 +222,8 @@ private fun FontEmojiPickerScreen(
     fonts: TabData,
     emoji: TabData,
     fontBusy: Boolean,
+    pending: PendingRestart?,
+    onRestartNow: () -> Unit,
     onApplyFont: (StyleOption) -> Unit,
     onApplyEmoji: (StyleOption) -> Unit,
     onAddFont: () -> Unit,
@@ -297,6 +304,11 @@ private fun FontEmojiPickerScreen(
                 .nestedScroll(nestedScrollInterop)
                 .scrollbar(gridState.scrollIndicatorState, Orientation.Vertical)
         ) {
+            if (!emojiTab && pending != null) {
+                item(key = "pending", span = { GridItemSpan(maxLineSpan) }) {
+                    PendingBanner(pending, onRestartNow)
+                }
+            }
             if (!emojiTab) {
                 item(key = "sample", span = { GridItemSpan(maxLineSpan) }) {
                     OutlinedTextField(
@@ -324,6 +336,12 @@ private fun FontEmojiPickerScreen(
                     option = option,
                     emoji = emojiTab,
                     sample = cardSample,
+                    onReplace = if (!emojiTab && option.key == FontController.CUSTOM_KEY) {
+                        onAddFont
+                    } else null,
+                    onRemove = if (!emojiTab && option.key == FontController.CUSTOM_KEY) {
+                        { data.options.firstOrNull { it.key == "android" }?.let(onApplyFont) }
+                    } else null,
                     previewed = option.key == shown.key,
                     applied = option.key == data.appliedKey,
                     onClick = {
@@ -453,6 +471,8 @@ private fun StyleCard(
     sample: String,
     previewed: Boolean,
     applied: Boolean,
+    onReplace: (() -> Unit)?,
+    onRemove: (() -> Unit)?,
     onClick: () -> Unit
 ) {
     val family = remember(option.typeface) { option.typeface?.let { FontFamily(it) } }
@@ -498,6 +518,25 @@ private fun StyleCard(
                     // The sample glyphs are decoration; the card is read by its label.
                     modifier = Modifier.weight(1f).clearAndSetSemantics { }
                 )
+                // The installed custom font can be swapped for another file or taken out.
+                if (onReplace != null) {
+                    IconButton(onClick = onReplace, modifier = Modifier.size(28.dp)) {
+                        Icon(
+                            Icons.Default.Edit,
+                            contentDescription = stringResource(R.string.font_replace),
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                }
+                if (onRemove != null) {
+                    IconButton(onClick = onRemove, modifier = Modifier.size(28.dp)) {
+                        Icon(
+                            Icons.Default.Delete,
+                            contentDescription = stringResource(R.string.font_remove),
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                }
                 if (applied) {
                     Icon(
                         Icons.Default.CheckCircle,
@@ -515,6 +554,54 @@ private fun StyleCard(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
+        }
+    }
+}
+
+/** Says that a restart or reboot was put off, and does it. */
+@Composable
+private fun PendingBanner(pending: PendingRestart, onRestart: () -> Unit) {
+    val reboot = pending.kind == RestartKind.REBOOT
+    val clickSound = rememberClickSound()
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = ExpressiveCorners.single,
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+            contentColor = MaterialTheme.colorScheme.onTertiaryContainer
+        )
+    ) {
+        Column(modifier = Modifier.fillMaxWidth().padding(14.dp)) {
+            Text(
+                text = stringResource(
+                    if (reboot) R.string.font_pending_reboot_title
+                    else R.string.font_pending_systemui_title
+                ),
+                style = MaterialTheme.typography.titleSmall
+            )
+            Text(
+                text = stringResource(
+                    if (reboot) R.string.font_pending_reboot_body
+                    else R.string.font_pending_systemui_body,
+                    pending.fontLabel
+                ),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 4.dp)
+            )
+            Button(
+                onClick = {
+                    clickSound()
+                    onRestart()
+                },
+                modifier = Modifier.padding(top = 8.dp)
+            ) {
+                Text(
+                    stringResource(
+                        if (reboot) R.string.action_reboot_now
+                        else R.string.font_pending_systemui_action
+                    )
+                )
+            }
         }
     }
 }

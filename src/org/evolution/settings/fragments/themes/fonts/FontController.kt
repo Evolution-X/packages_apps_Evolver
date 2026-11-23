@@ -53,6 +53,12 @@ class FontController(private val context: Context) {
     var busy by mutableStateOf(false)
         private set
 
+    private val tracker = FontRestartTracker(context)
+
+    /** A restart or reboot that was put off and still has to happen, or null. */
+    internal var pending by mutableStateOf<PendingRestart?>(tracker.pending())
+        private set
+
     private val defaultLabel: String get() = context.getString(R.string.font_default)
 
     fun customFontName(): String =
@@ -66,9 +72,38 @@ class FontController(private val context: Context) {
 
     fun getSummary(): String {
         val custom = customFontName()
-        if (custom.isNotEmpty()) return custom
-        val applied = appliedPackage()
-        return if (applied == "android") defaultLabel else labelOf(applied)
+        val name = when {
+            custom.isNotEmpty() -> custom
+            appliedPackage() == "android" -> defaultLabel
+            else -> labelOf(appliedPackage())
+        }
+        return when (tracker.pending()?.kind) {
+            RestartKind.SYSTEMUI -> context.getString(R.string.font_summary_pending_systemui, name)
+            RestartKind.REBOOT -> context.getString(R.string.font_summary_pending_reboot, name)
+            null -> name
+        }
+    }
+
+    /** Re-reads the pending state, which clears itself once the restart has happened. */
+    fun refreshPending() {
+        pending = tracker.pending()
+    }
+
+    /** Does the restart or reboot that was put off. */
+    fun restartNow(ctx: Context) {
+        when (pending?.kind ?: return) {
+            RestartKind.REBOOT -> ExternalFontInstaller.rebootDevice()
+            RestartKind.SYSTEMUI -> {
+                tracker.clear()
+                pending = null
+                SystemUtils.restartSystemUI(ctx)
+            }
+        }
+    }
+
+    private fun markPending(kind: RestartKind, label: String) {
+        tracker.markPending(kind, label)
+        pending = tracker.pending()
     }
 
     /** The custom font first, then the default, then the overlays by name. Blocks on lookups. */
@@ -142,6 +177,10 @@ class FontController(private val context: Context) {
                         if (reboot) ExternalFontInstaller(ctx).resetFontUpdates()
                         mainHandler.post {
                             busy = false
+                            // Written first: switching the overlay recreates the activity.
+                            markPending(
+                                if (reboot) RestartKind.REBOOT else RestartKind.SYSTEMUI, label
+                            )
                             if (reboot) clearCustomFontState()
                             themeUtils.setOverlayEnabled(
                                 CATEGORY, if (reboot) appliedPackage() else old, old
@@ -290,7 +329,7 @@ class FontController(private val context: Context) {
             confirmText = context.getString(R.string.action_reboot_now),
             laterText = context.getString(R.string.action_later),
             onConfirm = { ExternalFontInstaller.rebootDevice() },
-            onLater = {},
+            onLater = { markPending(RestartKind.REBOOT, installed.postScriptName) },
         )
     }
 
