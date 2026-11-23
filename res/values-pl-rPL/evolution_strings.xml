@@ -1307,12 +1307,9 @@
     <string name="add_emoji_font">Dodaj czcionkę emoji</string>
     <string name="emoji_preview_dialog_title">Podgląd emoji</string>
     <string name="emoji_preview_coverage">Najnowsze emoji (Unicode 15 i 16) w tej czcionce: %1$d %2$d</string>
-    <string name="reboot_required_custom_emoji_title">Wymagany jest restart urządzenia, aby wprowadzić zmiany dotyczące emoji. Zrestartować teraz?</string>
     <string name="toast_failed_apply_emoji">Nie udało się zastosować czcionki emoji</string>
     <string name="toast_emoji_updater_disabled">Aktualizacje czcionek są wyłączone na tym urządzeniu</string>
-    <string name="toast_emoji_slots_full">Brak wolnego miejsca na czcionkę emoji. Wybierz wbudowany styl, aby zresetować ustawienia, a następnie spróbuj ponownie</string>
     <string name="toast_invalid_emoji_file">Nieprawidłowy plik czcionki emoji</string>
-    <string name="toast_emoji_font_too_old">Nowsza wersja tej czcionki emoji jest już zainstalowana</string>
     <string name="toast_emoji_not_installed">Najpierw dodaj niestandardową czcionkę emoji</string>
     <string name="toast_emoji_busy">Inna zmiana emoji jest nadal w toku</string>
     <string name="emoji_restart_title">Zrestartuj, aby zastosować emoji</string>
@@ -1406,7 +1403,6 @@
     <string name="never">Nigdy</string>
     <string name="boot_animation_applied">Animacja startowa została zastosowana</string>
     <string name="reboot_required_title">Wymagany restart</string>
-    <string name="reboot_required_message">Wymagany jest restart, aby zastosować zmianę czcionki. Zrestartować teraz?</string>
     <string name="action_later">Później</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
     <string name="hardware_keys_action_nothing">Brak aktywności</string>

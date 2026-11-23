@@ -1213,12 +1213,9 @@
     <string name="add_emoji_font">이모지 폰트 추가하기</string>
     <string name="emoji_preview_dialog_title">이모지 미리보기</string>
     <string name="emoji_preview_coverage">이 글꼴에 포함된 최신 이모지(유니코드 15 및 16): %2$d개 중 %1$d개</string>
-    <string name="reboot_required_custom_emoji_title">이모지 변경 사항을 적용하려면 재부팅이 필요합니다. 지금 재부팅하시겠습니까?</string>
     <string name="toast_failed_apply_emoji">이모지 폰트를 적용하는 데 실패했습니다.</string>
     <string name="toast_emoji_updater_disabled">이 기기에서는 글꼴 업데이트가 비활성화되어 있습니다</string>
-    <string name="toast_emoji_slots_full">사용 가능한 이모지 폰트 슬롯이 없습니다. 기본 제공 스타일 중 하나를 선택하여 초기화한 후 다시 시도해 보세요.</string>
     <string name="toast_invalid_emoji_file">유효하지 않은 이모지 폰트 파일</string>
-    <string name="toast_emoji_font_too_old">이 이모지 폰트의 더 새로운 버전이 이미 설치되어 있습니다</string>
     <string name="custom_system_theme_title">테마</string>
     <string name="custom_system_theme_summary">테마와 아이콘 팩을 사용하여 시스템 외관을 맞춤 설정하세요</string>
     <!-- About -->
@@ -1290,7 +1287,6 @@
     <string name="never">사용 안 함</string>
     <string name="boot_animation_applied">부팅 애니메이션이 적용되었습니다</string>
     <string name="reboot_required_title">재시작 필요</string>
-    <string name="reboot_required_message">글꼴 변경 사항을 적용하려면 재부팅이 필요합니다. 지금 재부팅하시겠습니까?</string>
     <string name="action_later">나중에</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
     <string name="hardware_keys_action_nothing">동작 없음</string>
