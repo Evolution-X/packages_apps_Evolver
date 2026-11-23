@@ -12,15 +12,21 @@
     <org.evolution.settings.utils.PreviewStage
         android:layout_width="match_parent"
         android:layout_height="@dimen/preview_stage_height_regular"
-        android:background="@android:color/black"
-        app:previewBackdrop="wallpaper">
+        android:background="@android:color/black">
 
-        <org.evolution.settings.fragments.lockscreen.ChargingPreviewView
-            android:id="@+id/charging_preview"
+        <org.evolution.settings.utils.LockScreenPreviewLayer
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@null"
-            android:importantForAccessibility="no" />
+            android:importantForAccessibility="no">
+
+            <org.evolution.settings.fragments.lockscreen.ChargingPreviewView
+                android:id="@+id/charging_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:importantForAccessibility="no" />
+
+        </org.evolution.settings.utils.LockScreenPreviewLayer>
 
         <FrameLayout
             android:id="@+id/charging_plug_stage"
