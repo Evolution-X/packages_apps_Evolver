@@ -70,6 +70,29 @@
             </LinearLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="@dimen/preview_stage_gap"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/font_tab_fonts"
+                style="@style/ChargingChip.Stage"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/charging_chip_height"
+                android:text="@string/themes_fonts_category" />
+
+            <TextView
+                android:id="@+id/font_tab_emoji"
+                style="@style/ChargingChip.Stage"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/charging_chip_height"
+                android:layout_marginStart="@dimen/preview_stage_gap"
+                android:text="@string/font_tab_emoji" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/font_preview_apply"
             style="@style/ChargingChip.Stage"

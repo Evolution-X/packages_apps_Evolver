@@ -29,6 +29,7 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 
 import org.evolution.settings.fragments.themes.IconShapeController;
+import org.evolution.settings.fragments.themes.fonts.EmojiController;
 import org.evolution.settings.fragments.themes.fonts.FontController;
 import org.evolution.settings.preferences.SoundPickerPreference;
 import org.evolution.settings.preferences.SystemPropertySwitchPreference;
@@ -43,6 +44,7 @@ public class Themes extends SettingsPreferenceFragment {
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_visual_effects_category";
     private static final String KEY_BOOT_ANIMATION = "boot_animation";
     private static final String KEY_ICON_SHAPE = "android.theme.customization.adaptive_icon_shape";
+    private static final String KEY_EMOJI = "persist.sys.ax_emoji_style";
     private static final String KEY_FONT = "system_font";
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_LOCK_SOUND = "lock_sound";
@@ -119,6 +121,7 @@ public class Themes extends SettingsPreferenceFragment {
 
         updateBootAnimationSummary();
         updateFontSummary();
+        updateEmojiSummary();
         updateIconShapeSummary();
         updateShadeStyleState();
     }
@@ -147,6 +150,12 @@ public class Themes extends SettingsPreferenceFragment {
         pref.setSummary(new FontController(getContext()).getSummary());
     }
 
+    private void updateEmojiSummary() {
+        Preference pref = findPreference(KEY_EMOJI);
+        if (pref == null) return;
+        new EmojiController(getContext()).bindSummary(pref);
+    }
+
     private void updateIconShapeSummary() {
         Preference pref = findPreference(KEY_ICON_SHAPE);
         if (pref == null) return;
@@ -158,6 +167,7 @@ public class Themes extends SettingsPreferenceFragment {
         super.onResume();
         updateBootAnimationSummary();
         updateFontSummary();
+        updateEmojiSummary();
         updateIconShapeSummary();
         updateShadeStyleState();
         PreferenceUtils.reloadCustomPrimarySwitches(getPreferenceScreen());
