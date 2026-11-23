@@ -104,4 +104,19 @@
 
     </org.evolution.settings.utils.PreviewStage>
 
+    <HorizontalScrollView
+        android:id="@+id/font_filter_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/preview_stage_gap"
+        android:scrollbars="none"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/font_filter_chips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
 </LinearLayout>
