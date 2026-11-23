@@ -51,27 +51,23 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.Evolver.Chip"
             android:layout_gravity="top|start"
             android:layout_margin="@dimen/preview_stage_gap"
             android:orientation="horizontal">
 
-            <com.google.android.material.chip.Chip
+            <TextView
                 android:id="@+id/charging_mode_lock"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/ChargingChip.Stage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checkable="true"
-                android:checked="true"
+                android:layout_height="@dimen/charging_chip_height"
                 android:text="@string/charging_preview_mode_lock" />
 
-            <com.google.android.material.chip.Chip
+            <TextView
                 android:id="@+id/charging_mode_plug"
-                style="@style/Widget.Material3.Chip.Filter"
+                style="@style/ChargingChip.Stage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/charging_chip_height"
                 android:layout_marginStart="@dimen/preview_stage_gap"
-                android:checkable="true"
                 android:text="@string/charging_preview_mode_plug" />
         </LinearLayout>
 
@@ -83,15 +79,11 @@
         android:layout_marginTop="@dimen/preview_stage_gap"
         android:scrollbars="none">
 
-        <com.google.android.material.chip.ChipGroup
+        <LinearLayout
             android:id="@+id/charging_style_chips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.Evolver.Chip"
-            app:chipSpacingHorizontal="8dp"
-            app:singleLine="true"
-            app:singleSelection="true"
-            app:selectionRequired="true" />
+            android:orientation="horizontal" />
     </HorizontalScrollView>
 
 </LinearLayout>
