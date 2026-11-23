@@ -154,15 +154,13 @@ public class QsStylePreviewView extends View {
             final Drawable icon = context.getDrawable(ICONS[i]);
             mIcons[i] = icon != null ? icon.mutate() : null;
         }
+        // The thumbnails round themselves; the full preview is clipped by its PreviewStage.
         setOutlineProvider(new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
-                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(),
-                        mMini ? 14 * mDensity : getResources().getDimension(
-                                R.dimen.preview_stage_corner_radius));
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), 14 * mDensity);
             }
         });
-        setClipToOutline(true);
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
     }
 
@@ -191,6 +189,7 @@ public class QsStylePreviewView extends View {
 
     public void setMini(boolean mini) {
         mMini = mini;
+        setClipToOutline(mini);
         invalidateOutline();
         invalidate();
     }
