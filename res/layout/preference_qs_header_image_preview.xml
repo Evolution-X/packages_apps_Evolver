@@ -107,9 +107,9 @@
             android:layout_height="48dp"
             android:max="1000" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/qs_header_preview_reset"
-            style="@style/Widget.Material3.Button.TextButton"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -118,7 +118,6 @@
             android:minHeight="48dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
             android:textSize="16sp"
             android:text="@string/qs_header_preview_reset" />
     </LinearLayout>
