@@ -8,6 +8,7 @@ package org.evolution.settings.fragments.themes.fonts
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.text.format.Formatter
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +51,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -67,6 +69,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
@@ -163,13 +166,19 @@ class FontEmojiPickerFragment : Fragment() {
                         )
                     },
                     onApplyEmoji = { option ->
-                        emoji.apply(
-                            requireContext(),
-                            option.key,
-                            hadCustom = emojiData.value.appliedKey == EmojiController.CUSTOM_KEY,
-                            onChanged = ::reload
-                        )
+                        if (option.key == EmojiController.STOCK_KEY) {
+                            emoji.applyStock(::reload)
+                        } else {
+                            emoji.applyOnline(option.key, ::reload)
+                        }
                     },
+                    onDownloadEmoji = { option -> emoji.download(option.key, ::reload) },
+                    onDeleteEmojiDownload = { option ->
+                        emoji.deleteDownload(option.key, ::reload)
+                    },
+                    emojiDownloading = emoji.downloading,
+                    emojiCatalogFailed = emoji.catalogFailed,
+                    onRetryEmojiCatalog = { emoji.refreshCatalog(force = true, onChanged = ::reload) },
                     onAddFont = { if (!fonts.busy) fontLauncher.launch(FONT_TYPES) },
                     onBrowseOnline = {
                         SubSettingLauncher(requireContext())
@@ -193,6 +202,7 @@ class FontEmojiPickerFragment : Fragment() {
         fonts.refreshPending()
         emoji.refreshPending()
         reload()
+        emoji.refreshCatalog(onChanged = ::reload)
     }
 
     private fun reload() {
@@ -231,6 +241,11 @@ private fun FontEmojiPickerScreen(
     onRestartEmoji: () -> Unit,
     onApplyFont: (StyleOption) -> Unit,
     onApplyEmoji: (StyleOption) -> Unit,
+    onDownloadEmoji: (StyleOption) -> Unit,
+    onDeleteEmojiDownload: (StyleOption) -> Unit,
+    emojiDownloading: Pair<String, Float>?,
+    emojiCatalogFailed: Boolean,
+    onRetryEmojiCatalog: () -> Unit,
     onAddFont: () -> Unit,
     onBrowseOnline: () -> Unit,
     onAddEmoji: () -> Unit,
@@ -286,7 +301,8 @@ private fun FontEmojiPickerScreen(
             option = shown,
             applied = shown.key == data.appliedKey,
             busy = busy,
-            canApply = !busy && shown.key != data.appliedKey && shown.key != customKey,
+            canApply = !busy && shown.key != data.appliedKey && shown.key != customKey &&
+                shown.download?.downloaded != false,
             filters = if (emojiTab) emptyList() else filters,
             filter = filter,
             sample = sample,
@@ -345,15 +361,40 @@ private fun FontEmojiPickerScreen(
                     onReplace = if (!emojiTab && option.key == FontController.CUSTOM_KEY) {
                         onAddFont
                     } else null,
-                    onRemove = if (!emojiTab && option.key == FontController.CUSTOM_KEY) {
-                        { data.options.firstOrNull { it.key == "android" }?.let(onApplyFont) }
-                    } else null,
+                    onRemove = when {
+                        !emojiTab && option.key == FontController.CUSTOM_KEY -> {
+                            { data.options.firstOrNull { it.key == "android" }?.let(onApplyFont) }
+                        }
+                        // A downloaded style can be deleted, but not while it is the system's.
+                        emojiTab && option.download?.downloaded == true &&
+                            option.key != data.appliedKey -> {
+                            { onDeleteEmojiDownload(option) }
+                        }
+                        else -> null
+                    },
+                    downloadProgress = emojiDownloading?.takeIf { it.first == option.key }?.second,
                     previewed = option.key == shown.key,
                     applied = option.key == data.appliedKey,
                     onClick = {
-                        if (emojiTab) emojiPreview = option.key else fontPreview = option.key
+                        if (emojiTab) {
+                            emojiPreview = option.key
+                            // Tapping a style that isn't on the device yet fetches it.
+                            if (option.download?.downloaded == false) onDownloadEmoji(option)
+                        } else {
+                            fontPreview = option.key
+                        }
                     }
                 )
+            }
+            if (emojiTab && emojiCatalogFailed) {
+                item(key = "catalog_failed", span = { GridItemSpan(maxLineSpan) }) {
+                    ActionCard(
+                        label = stringResource(R.string.emoji_catalog_error) + " " +
+                            stringResource(R.string.emoji_catalog_retry),
+                        icon = Icons.Default.Refresh,
+                        onClick = onRetryEmojiCatalog
+                    )
+                }
             }
             item(key = "add") {
                 ActionCard(
@@ -374,7 +415,7 @@ private fun FontEmojiPickerScreen(
                 }
             }
             if (emojiTab) {
-                val hasCustom = emoji.options.any { it.key == EmojiController.CUSTOM_KEY }
+                val hasCustom = EmojiController.isInstalledFont(emoji.appliedKey)
                 item(key = "apps") {
                     ActionCard(
                         label = stringResource(
@@ -479,8 +520,10 @@ private fun StyleCard(
     applied: Boolean,
     onReplace: (() -> Unit)?,
     onRemove: (() -> Unit)?,
+    downloadProgress: Float?,
     onClick: () -> Unit
 ) {
+    val context = LocalContext.current
     val family = remember(option.typeface) { option.typeface?.let { FontFamily(it) } }
     val clickSound = rememberClickSound()
     val appliedState = stringResource(R.string.font_applied)
@@ -538,7 +581,9 @@ private fun StyleCard(
                     IconButton(onClick = onRemove, modifier = Modifier.size(28.dp)) {
                         Icon(
                             Icons.Default.Delete,
-                            contentDescription = stringResource(R.string.font_remove),
+                            contentDescription = stringResource(
+                                if (emoji) R.string.emoji_delete_download else R.string.font_remove
+                            ),
                             modifier = Modifier.size(18.dp)
                         )
                     }
@@ -560,6 +605,28 @@ private fun StyleCard(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
+            val download = option.download
+            if (download != null) {
+                if (downloadProgress != null) {
+                    LinearProgressIndicator(
+                        progress = { downloadProgress },
+                        modifier = Modifier.fillMaxWidth().padding(top = 4.dp)
+                    )
+                } else {
+                    val size = Formatter.formatShortFileSize(context, download.sizeBytes)
+                    Text(
+                        text = stringResource(
+                            if (download.downloaded) R.string.emoji_downloaded_size
+                            else R.string.emoji_download_size,
+                            size
+                        ),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+            }
         }
     }
 }
