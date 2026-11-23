@@ -50,7 +50,7 @@
     </style>
 
     <!-- The pinned header around a PreviewStage -->
-    <style name="Widget.Evolver.PreviewStageHost">
+    <style name="PreviewStageHost">
         <item name="android:background">?android:attr/colorBackground</item>
         <item name="android:paddingStart">@dimen/preview_stage_padding_horizontal</item>
         <item name="android:paddingTop">@dimen/preview_stage_padding_vertical</item>
