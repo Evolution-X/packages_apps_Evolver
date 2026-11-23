@@ -464,11 +464,6 @@ class EmojiController(private val context: Context) {
         SystemPropPoker.getInstance().poke()
     }
 
-    private fun typefaceOf(file: File?): Typeface? {
-        if (file == null || !file.canRead()) return null
-        return runCatching { Typeface.Builder(file).build() }.getOrNull()
-    }
-
     companion object {
         private const val TAG = "EmojiController"
 
