@@ -51,7 +51,7 @@ class ExternalFontInstaller(private val context: Context) {
         private const val TAG = "ExternalFontInstaller"
         private const val CUSTOM_FONT_FILE = "cust_font.ttf"
         private const val TEMP_PREVIEW_FONT = "preview_font.ttf"
-        const val MAX_FONT_BYTES = 32L * 1024L * 1024L
+        const val MAX_FONT_BYTES = 64L * 1024L * 1024L
 
         /** Our own codes, kept clear of FontManager's RESULT_* values (-1..-9, -10001..). */
         const val RESULT_EXCEPTION = -20000
