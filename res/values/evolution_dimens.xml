@@ -15,6 +15,8 @@
     <dimen name="preview_stage_height_compact">112dp</dimen>
     <dimen name="preview_stage_height_regular">200dp</dimen>
     <dimen name="preview_stage_height_tall">240dp</dimen>
+    <!-- The corner radius of the smaller previews drawn inside a list or a card -->
+    <dimen name="preview_card_corner_radius">14dp</dimen>
 
     <!-- Edge light -->
     <dimen name="phone_preview_hardware_corner_radius">1.0999756dip</dimen>
@@ -27,6 +29,7 @@
     <dimen name="phone_preview_screen_width">190.0dip</dimen>
     <dimen name="edge_light_preview_punchhole_margin_top">10.0dip</dimen>
     <dimen name="edge_light_preview_punchhole_size">9.0dip</dimen>
-    <dimen name="edge_light_preview_shell_content_inset">6.0dip</dimen>
-    <dimen name="edge_light_preview_shell_corner_radius">28.0dip</dimen>
+    <dimen name="phone_preview_shell_content_inset">6.0dip</dimen>
+    <dimen name="phone_preview_shell_stroke_width">3.0dip</dimen>
+    <dimen name="phone_preview_shell_corner_radius">@dimen/preview_stage_corner_radius</dimen>
 </resources>

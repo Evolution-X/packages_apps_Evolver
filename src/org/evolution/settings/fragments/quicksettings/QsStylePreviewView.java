@@ -125,6 +125,8 @@ public class QsStylePreviewView extends View {
     private final int mVivid;
     private final int mVividInk;
     private final float mDensity;
+    // The corner radius of the thumbnails.
+    private final float mCardRadius;
     private int mStyle = CARD;
     private int mNothingColors = NOTHING_COLORS_FLAT;
     private int mRemixLook = LOOK_STOCK;
@@ -138,6 +140,7 @@ public class QsStylePreviewView extends View {
     public QsStylePreviewView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mDensity = getResources().getDisplayMetrics().density;
+        mCardRadius = getResources().getDimension(R.dimen.preview_card_corner_radius);
         mFade.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         mPrimary = context.getColor(android.R.color.system_accent1_200);
         mOnPrimary = context.getColor(android.R.color.system_accent1_800);
@@ -158,7 +161,7 @@ public class QsStylePreviewView extends View {
         setOutlineProvider(new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
-                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), 14 * mDensity);
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), mCardRadius);
             }
         });
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
@@ -229,7 +232,9 @@ public class QsStylePreviewView extends View {
             mPaint.setColor(mPrimary);
             mRect.set(0, 0, w, h);
             mRect.inset(1.25f * mDensity, 1.25f * mDensity);
-            canvas.drawRoundRect(mRect, 13 * mDensity, 13 * mDensity, mPaint);
+            // Just inside the thumbnail's own corners.
+            final float r = mCardRadius - mDensity;
+            canvas.drawRoundRect(mRect, r, r, mPaint);
             mPaint.setStyle(Paint.Style.FILL);
         }
     }
