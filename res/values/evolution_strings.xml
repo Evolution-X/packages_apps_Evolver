@@ -1400,6 +1400,12 @@
     <string name="font_online_error">Couldn\'t load the font list. Check your connection.</string>
     <string name="font_online_retry">Retry</string>
     <string name="font_online_empty">No fonts match your search</string>
+    <string name="font_filter_saved">Saved</string>
+    <string name="font_online_save">Save for offline use</string>
+    <string name="font_online_unsave">Remove from saved</string>
+    <string name="font_online_save_failed">Couldn\'t save the font</string>
+    <string name="font_online_saved_marker">Saved</string>
+    <string name="font_online_saved_empty">Nothing saved yet. Pick a font and tap Save for offline use to keep that style on this device.</string>
     <string name="font_online_progress">%1$d%%</string>
     <string name="font_online_style_italic">%1$s Italic</string>
     <!-- Two letters, capital and small, that show the shape of a font; use ones from your script -->
