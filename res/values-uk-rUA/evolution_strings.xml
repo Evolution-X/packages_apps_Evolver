@@ -1378,12 +1378,9 @@
     <string name="add_emoji_font">Додати шрифт емодзі</string>
     <string name="emoji_preview_dialog_title">Попередній перегляд емодзі</string>
     <string name="emoji_preview_coverage">Нові emoji (Unicode 15 і 16) у цьому шрифті: %1$d від %2$d</string>
-    <string name="reboot_required_custom_emoji_title">Для застосування змін емодзі потрібне перезавантаження. Перезавантажити зараз?</string>
     <string name="toast_failed_apply_emoji">Не вдалося застосувати шрифт емодзі</string>
     <string name="toast_emoji_updater_disabled">Оновлення шрифтів вимкнено на цьому пристрої</string>
-    <string name="toast_emoji_slots_full">Вільний слот для емодзі відсутній. Оберіть вбудований стиль для скидання, а потім повторіть спробу</string>
     <string name="toast_invalid_emoji_file">Недійсний файл шрифту емодзі</string>
-    <string name="toast_emoji_font_too_old">Встановлена новіша версія шрифту для смайликів</string>
     <string name="toast_emoji_not_installed">Спочатку додайте власний шрифт емодзі</string>
     <string name="toast_emoji_busy">Ще одна зміна емодзі все ще триває</string>
     <string name="emoji_restart_title">Перезапустіть, щоб застосувати емодзі</string>
@@ -1479,7 +1476,6 @@
     <string name="never">Ніколи</string>
     <string name="boot_animation_applied">Анімація завантаження застосована</string>
     <string name="reboot_required_title">Потрібне перезавантаження</string>
-    <string name="reboot_required_message">Щоб застосувати зміни шрифту, потрібне перезавантаження. Перезавантажити зараз?</string>
     <string name="action_later">Пізніше</string>
     <!-- Hardware key actions (shared by buttons, gestures) -->
     <string name="hardware_keys_action_nothing">Жодної дії</string>
