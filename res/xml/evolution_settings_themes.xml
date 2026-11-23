@@ -17,12 +17,17 @@
             android:key="system_font"
             android:title="@string/font_styles_title"
             android:summary="@string/font_styles_summary"
-            android:fragment="org.evolution.settings.fragments.themes.fonts.FontsPickerFragment" />
+            android:fragment="org.evolution.settings.fragments.themes.fonts.FontEmojiPickerFragment" />
 
         <!-- Emoji style -->
-        <org.evolution.settings.preferences.EmojiStylePickerPreference
+        <Preference
             android:key="persist.sys.ax_emoji_style"
-            android:title="@string/emoji_style_title" />
+            android:title="@string/emoji_style_title"
+            android:fragment="org.evolution.settings.fragments.themes.fonts.FontEmojiPickerFragment">
+            <extra
+                android:name="tab"
+                android:value="emoji" />
+        </Preference>
 
     </PreferenceCategory>
 
