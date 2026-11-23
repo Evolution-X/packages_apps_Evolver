@@ -34,5 +34,6 @@
     <dimen name="edge_light_preview_punchhole_size">9.0dip</dimen>
     <dimen name="phone_preview_shell_content_inset">6.0dip</dimen>
     <dimen name="phone_preview_shell_stroke_width">3.0dip</dimen>
+    <dimen name="phone_preview_shell_stroke_inset">1.5dip</dimen>
     <dimen name="phone_preview_shell_corner_radius">@dimen/preview_stage_corner_radius</dimen>
 </resources>
