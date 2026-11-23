@@ -8,6 +8,7 @@ package org.evolution.settings.fragments.themes.fonts
 import android.content.res.Resources
 import android.graphics.Typeface
 import android.os.Bundle
+import android.widget.Toast
 import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
@@ -34,23 +36,27 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -79,6 +85,7 @@ import java.io.File
 import java.util.Date
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.evolution.settings.fragments.lockscreen.ClockUtils
 import org.evolution.settings.fragments.lockscreen.ComposeToViewNestedScrollBridge
@@ -151,6 +158,11 @@ private fun OnlineFontPickerScreen(
     var selected by rememberSaveable { mutableStateOf<String?>(null) }
     var variant by rememberSaveable { mutableStateOf<String?>(null) }
     val load = remember { mutableStateOf<LoadState>(LoadState.Idle) }
+    // Styles kept on the device, which also work without a network.
+    var saved by remember { mutableStateOf<List<SavedFont>>(emptyList()) }
+    val scope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit) { saved = repo.saved() }
 
     // The saved list shows at once; a missing or day-old one is fetched behind it.
     LaunchedEffect(listAttempt) {
@@ -171,6 +183,7 @@ private fun OnlineFontPickerScreen(
 
     val list = families
     val font = list?.firstOrNull { it.family == selected }
+        ?: saved.firstOrNull { it.font.family == selected }?.font
     val style = font?.let { f -> variant?.takeIf { it in f.variants } ?: f.defaultVariant }
 
     // Starts over when another family or style is picked, which cancels a download in progress.
@@ -196,14 +209,29 @@ private fun OnlineFontPickerScreen(
     val context = LocalContext.current
     val categories = remember { OnlineFontCategory.values().toList() }
     val categoryLabels = remember { categories.map { context.getString(it.labelRes) } }
-    val visible = remember(list, category, query) {
-        val api = categories[category].apiName
+    val savedNames = remember(saved) { saved.mapTo(HashSet()) { it.font.family } }
+    val savedTab = categories[category] == OnlineFontCategory.SAVED
+    val visible = remember(list, saved, category, query) {
+        val chosen = categories[category]
         val needle = query.trim()
-        list.orEmpty().filter {
-            (api == null || it.category == api) &&
+        // Saved ones come from the device, so they show whether or not the list loaded.
+        val source = if (chosen == OnlineFontCategory.SAVED) saved.map { it.font } else list.orEmpty()
+        source.filter {
+            (chosen.apiName == null || it.category == chosen.apiName) &&
                 (needle.isEmpty() || it.family.contains(needle, ignoreCase = true))
         }
     }
+
+    // Without a list there is nothing to browse, but what was saved can still be used.
+    LaunchedEffect(failed, saved.isNotEmpty()) {
+        if (failed && saved.isNotEmpty() && category == OnlineFontCategory.ALL.ordinal) {
+            category = OnlineFontCategory.SAVED.ordinal
+        }
+    }
+
+    val ready by remember { derivedStateOf { load.value is LoadState.Ready } }
+    val styleSaved = font != null && style != null &&
+        saved.any { it.font.family == font.family && style in it.variants }
 
     val hostView = LocalView.current
     val clickSound = rememberClickSound()
@@ -260,27 +288,82 @@ private fun OnlineFontPickerScreen(
                     placeholder = { Text(stringResource(R.string.font_online_search)) }
                 )
             }
-            when {
-                failed && list == null -> item(key = "error", span = { GridItemSpan(maxLineSpan) }) {
-                    Column(
-                        modifier = Modifier.fillMaxWidth().padding(24.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        Text(
-                            text = stringResource(R.string.font_online_error),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Button(onClick = {
+            if (font != null && style != null) {
+                item(key = "save", span = { GridItemSpan(maxLineSpan) }) {
+                    OutlinedButton(
+                        // A saved style can always be removed; one that isn't saved needs its file.
+                        enabled = ready || styleSaved,
+                        onClick = {
                             clickSound()
-                            listAttempt++
-                        }) {
-                            Text(stringResource(R.string.font_online_retry))
-                        }
+                            scope.launch {
+                                val state = load.value
+                                try {
+                                    saved = if (styleSaved) {
+                                        repo.unsave(font, style)
+                                    } else if (state is LoadState.Ready) {
+                                        repo.save(font, style, state.file)
+                                    } else {
+                                        saved
+                                    }
+                                } catch (e: CancellationException) {
+                                    throw e
+                                } catch (e: Exception) {
+                                    Toast.makeText(
+                                        context, R.string.font_online_save_failed, Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(
+                            Icons.Default.Star,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Text(
+                            text = stringResource(
+                                if (styleSaved) R.string.font_online_unsave else R.string.font_online_save
+                            ),
+                            modifier = Modifier.padding(start = 8.dp)
+                        )
                     }
                 }
-                list == null -> item(key = "loading", span = { GridItemSpan(maxLineSpan) }) {
+            }
+            when {
+                // The saved ones are on the device, so they show without the list.
+                savedTab && visible.isEmpty() -> item(key = "empty", span = { GridItemSpan(maxLineSpan) }) {
+                    Text(
+                        text = stringResource(
+                            if (query.isBlank()) R.string.font_online_saved_empty
+                            else R.string.font_online_empty
+                        ),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.fillMaxWidth().padding(24.dp)
+                    )
+                }
+                !savedTab && failed && list == null ->
+                    item(key = "error", span = { GridItemSpan(maxLineSpan) }) {
+                        Column(
+                            modifier = Modifier.fillMaxWidth().padding(24.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Text(
+                                text = stringResource(R.string.font_online_error),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            Button(onClick = {
+                                clickSound()
+                                listAttempt++
+                            }) {
+                                Text(stringResource(R.string.font_online_retry))
+                            }
+                        }
+                    }
+                !savedTab && list == null -> item(key = "loading", span = { GridItemSpan(maxLineSpan) }) {
                     Column(
                         modifier = Modifier.fillMaxWidth().padding(24.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
@@ -307,6 +390,7 @@ private fun OnlineFontPickerScreen(
                         font = option,
                         repo = repo,
                         previewed = option.family == font?.family,
+                        saved = option.family in savedNames,
                         onClick = {
                             selected = option.family
                             variant = null
@@ -414,6 +498,7 @@ private fun OnlineFontCard(
     font: OnlineFont,
     repo: OnlineFontRepository,
     previewed: Boolean,
+    saved: Boolean,
     onClick: () -> Unit
 ) {
     // The family name and "Aa" in the family itself, fetched when the card scrolls into view.
@@ -447,6 +532,14 @@ private fun OnlineFontCard(
                     maxLines = 1,
                     modifier = Modifier.clearAndSetSemantics { }
                 )
+                if (saved) {
+                    Icon(
+                        Icons.Default.Star,
+                        contentDescription = stringResource(R.string.font_online_saved_marker),
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(16.dp).align(Alignment.TopEnd)
+                    )
+                }
             }
             Text(
                 text = font.family,
