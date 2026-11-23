@@ -6,20 +6,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/colorBackground"
     android:orientation="vertical"
-    android:paddingStart="@dimen/preview_stage_padding_horizontal"
-    android:paddingTop="@dimen/preview_stage_padding_vertical"
-    android:paddingEnd="@dimen/preview_stage_padding_horizontal"
-    android:paddingBottom="@dimen/preview_stage_padding_vertical">
+    style="@style/Widget.Evolver.PreviewStageHost">
 
-    <com.google.android.material.card.MaterialCardView
+    <org.evolution.settings.utils.PreviewStage
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:cardBackgroundColor="@android:color/black"
-        app:cardCornerRadius="@dimen/preview_stage_corner_radius"
-        app:cardElevation="0dp"
-        app:strokeWidth="0dp">
+        android:layout_height="@dimen/preview_stage_height_regular"
+        android:background="@android:color/black">
 
         <org.evolution.settings.fragments.lockscreen.ChargingPreviewView
             android:id="@+id/charging_preview"
@@ -53,7 +46,7 @@
             android:layout_height="wrap_content"
             android:theme="@style/ThemeOverlay.Evolver.Chip"
             android:layout_gravity="top|start"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/preview_stage_gap"
             android:orientation="horizontal">
 
             <com.google.android.material.chip.Chip
@@ -70,17 +63,17 @@
                 style="@style/Widget.Material3.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/preview_stage_gap"
                 android:checkable="true"
                 android:text="@string/charging_preview_mode_plug" />
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </org.evolution.settings.utils.PreviewStage>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/preview_stage_gap"
         android:scrollbars="none">
 
         <com.google.android.material.chip.ChipGroup

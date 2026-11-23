@@ -11,6 +11,10 @@
     <dimen name="preview_stage_corner_radius">28dp</dimen>
     <dimen name="preview_stage_padding_horizontal">16dp</dimen>
     <dimen name="preview_stage_padding_vertical">8dp</dimen>
+    <dimen name="preview_stage_gap">8dp</dimen>
+    <dimen name="preview_stage_height_compact">112dp</dimen>
+    <dimen name="preview_stage_height_regular">200dp</dimen>
+    <dimen name="preview_stage_height_tall">240dp</dimen>
 
     <!-- Edge light -->
     <dimen name="phone_preview_hardware_corner_radius">1.0999756dip</dimen>
