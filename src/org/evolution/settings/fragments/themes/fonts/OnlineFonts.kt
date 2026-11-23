@@ -406,7 +406,7 @@ internal class OnlineFontRepository(context: Context) {
         private const val ROOT_DIR = "online_fonts"
         private const val PREVIEW_DIR = "previews"
         private const val FILE_DIR = "files"
-        private const val MAX_STYLE_CACHE_BYTES = 64L * 1024L * 1024L
+        private const val MAX_STYLE_CACHE_BYTES = 128L * 1024L * 1024L
         private const val MAX_PREVIEW_CACHE_BYTES = 16L * 1024L * 1024L
         private const val STALE_PART_MS = 60L * 60L * 1000L
 
