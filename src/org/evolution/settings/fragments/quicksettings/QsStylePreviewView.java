@@ -158,7 +158,8 @@ public class QsStylePreviewView extends View {
             @Override
             public void getOutline(View view, Outline outline) {
                 outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(),
-                        (mMini ? 14 : 28) * mDensity);
+                        mMini ? 14 * mDensity : getResources().getDimension(
+                                R.dimen.preview_stage_corner_radius));
             }
         });
         setClipToOutline(true);
