@@ -13,6 +13,7 @@ import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemProperties
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
@@ -40,34 +41,40 @@ import org.evolution.settings.preferences.showComposeDialog
 import org.evolution.settings.utils.SystemUtils
 
 /**
- * Reads and changes the emoji style: the bundled styles from persist.sys.ax_emoji_style, plus a
- * user-picked emoji font installed as the top priority und-Zsye fallback. An installed custom font
- * wins over any bundled style, so picking a bundled style removes it first.
- *
- * The custom font goes through the framework's emoji API and takes effect once SystemUI and the
- * running apps restart. A bundled style is read at boot, so changing it still asks for a reboot.
+ * Reads and changes the emoji style. Stock is the system emoji; every other style is an emoji
+ * font installed through the framework's custom emoji API: one downloaded from the online
+ * catalog, or one the person picked from a file. The framework puts it in front of the system
+ * emoji fallbacks, so it takes effect once SystemUI and the running apps restart.
  */
 class EmojiController(private val context: Context) {
 
     private val mainHandler = Handler(Looper.getMainLooper())
     private val installer by lazy { ExternalEmojiInstaller(context) }
     private val tracker = FontRestartTracker(context, "emoji_picker_state")
+    private val online by lazy { OnlineEmojiStore(context) }
+    private var catalogLoading = false
+
+    /** The online style being downloaded, with how far it is (0..1), or null. */
+    internal var downloading by mutableStateOf<Pair<String, Float>?>(null)
+        private set
+
+    /** Whether the online catalog could not be loaded and there is no saved one to show. */
+    internal var catalogFailed by mutableStateOf(false)
+        private set
 
     /** A restart or reboot that was put off and still has to happen, or null. */
     internal var pending by mutableStateOf<PendingRestart?>(tracker.pending())
         private set
 
-    private val entries: Array<String> =
-        context.resources.getStringArray(R.array.emoji_style_entries)
-    private val values: Array<String> =
-        context.resources.getStringArray(R.array.emoji_style_values)
-
-    /** Sets the summary of [pref] to the bundled style at once, then to the custom font if any. */
+    /** Sets the summary of [pref] to Stock at once, then to the installed font if any. */
     fun bindSummary(pref: Preference) {
-        pref.summary = withPending(styleLabel())
+        pref.summary = withPending(context.getString(R.string.emoji_style_stock))
         Thread({
             val name = installer.installedName()
-            if (name.isNotEmpty()) mainHandler.post { pref.summary = withPending(customLabel(name)) }
+            if (name.isNotEmpty()) {
+                val label = online.installedEntry(name)?.name ?: customLabel(name)
+                mainHandler.post { pref.summary = withPending(label) }
+            }
         }, "EmojiState").start()
     }
 
@@ -99,22 +106,52 @@ class EmojiController(private val context: Context) {
         pending = tracker.pending()
     }
 
-    /** The custom font first, then the bundled styles. Blocks on binder calls. */
+    /**
+     * The custom font first, then Stock, then the online styles: those that are downloaded
+     * with their own look, the others as a download. Blocks on binder calls.
+     */
     fun loadOptions(): List<StyleOption> {
         installer.dropLegacyInstall()
+        dropLegacyStyle()
         val name = installer.installedName()
         val file = if (name.isNotEmpty()) installer.installedFile() else null
+        val styles = online.saved()
+        // A font installed from the catalog is the card of that style, not a custom font.
+        val fromCatalog = online.installedEntry(name)
         return buildList {
-            if (name.isNotEmpty()) add(StyleOption(CUSTOM_KEY, customLabel(name), typefaceOf(file)))
-            entries.forEachIndexed { i, entry ->
-                add(StyleOption(values[i], entry, typefaceOf(STYLE_FONTS[values[i]]?.let(::File))))
+            if (name.isNotEmpty() && fromCatalog == null) {
+                add(StyleOption(CUSTOM_KEY, customLabel(name), typefaceOf(file)))
+            }
+            add(
+                StyleOption(
+                    STOCK_KEY,
+                    context.getString(R.string.emoji_style_stock),
+                    typefaceOf(File(STOCK_EMOJI))
+                )
+            )
+            styles.forEach { style ->
+                val local = if (online.isDownloaded(style)) online.file(style) else null
+                add(
+                    StyleOption(
+                        key = ONLINE_PREFIX + style.id,
+                        label = style.name,
+                        typeface = typefaceOf(local),
+                        download = DownloadInfo(style.size, local != null)
+                    )
+                )
             }
         }
     }
 
-    /** [CUSTOM_KEY] while a custom font is installed, else the bundled style. Blocks. */
-    fun appliedKey(): String =
-        if (installer.installedName().isNotEmpty()) CUSTOM_KEY else values[styleIndex()]
+    /**
+     * [CUSTOM_KEY] while a custom font is installed, the key of the online style it was
+     * installed from, else [STOCK_KEY]. Blocks.
+     */
+    fun appliedKey(): String {
+        val name = installer.installedName()
+        if (name.isEmpty()) return STOCK_KEY
+        return online.installedEntry(name)?.let { ONLINE_PREFIX + it.id } ?: CUSTOM_KEY
+    }
 
     /** Whether another emoji operation is running, which is also said to the person. */
     fun ensureIdle(): Boolean {
@@ -123,25 +160,24 @@ class EmojiController(private val context: Context) {
     }
 
     /**
-     * Switches to the bundled style [value]. Either way, a bundled style is read at boot, so this
-     * ends in the reboot dialog, which can be put off. Leaving a custom font ([hadCustom])
-     * removes it first. Does nothing while another emoji operation runs.
+     * Goes back to the stock emoji by removing the installed font, which also puts back the
+     * emoji files that applying a font overwrote in apps such as Gboard. Like installing one it
+     * ends in the restart dialog, which can be put off. Does nothing while another emoji
+     * operation runs.
      */
-    fun apply(ctx: Context, value: String, hadCustom: Boolean, onChanged: () -> Unit) {
+    fun applyStock(onChanged: () -> Unit) {
         runExclusive {
-            // Also puts back the emoji files that applying a custom font overwrote in apps such
-            // as Gboard. Must finish before the reboot dialog, or a quick reboot cuts it off.
+            // Must finish before the restart dialog, or a quick restart cuts it off.
             val result = withContext(Dispatchers.IO) { installer.clear() }
-            if (hadCustom && result != ExternalEmojiInstaller.Result.SUCCESS) {
+            if (result != ExternalEmojiInstaller.Result.SUCCESS) {
                 showResult(result)
                 return@runExclusive
             }
-            withContext(Dispatchers.IO) {
-                SystemProperties.set(KEY, value)
-                SystemPropPoker.getInstance().poke()
-            }
+            online.clearInstalled()
             onChanged()
-            showRebootDialog(ctx, values.indexOf(value).let { if (it < 0) "" else entries[it] })
+            if (isScreenAlive()) {
+                showRestartDialog(context, context.getString(R.string.emoji_style_stock))
+            }
         }
     }
 
@@ -164,6 +200,89 @@ class EmojiController(private val context: Context) {
             showPreviewDialog(typeface, installer.previewCoverage(), onChanged)
         }
     }
+
+    /**
+     * Loads the online catalog when the saved one is missing or a day old, or at once when
+     * [force] is set, then calls [onChanged]. Leaves a saved catalog alone when the network
+     * fails.
+     */
+    fun refreshCatalog(force: Boolean = false, onChanged: () -> Unit) {
+        if (catalogLoading) return
+        catalogLoading = true
+        ExternalEmojiInstaller.scope.launch {
+            val failed = withContext(Dispatchers.IO) {
+                if (!force && !online.isStale()) return@withContext false
+                runCatching { online.refresh() }
+                    .onFailure { Log.w(TAG, "Emoji catalog unavailable", it) }
+                    .isFailure && online.saved().isEmpty()
+            }
+            catalogLoading = false
+            catalogFailed = failed
+            onChanged()
+        }
+    }
+
+    /** Downloads the online style [key] and keeps it, one download at a time. */
+    fun download(key: String, onChanged: () -> Unit) {
+        if (downloading != null) {
+            toast(R.string.toast_emoji_busy)
+            return
+        }
+        downloading = key to 0f
+        ExternalEmojiInstaller.scope.launch {
+            val error = withContext(Dispatchers.IO) {
+                val style = styleFor(key) ?: return@withContext R.string.emoji_error_download
+                runCatching {
+                    OnlineEmojiCatalog.download(style, online.file(style)) { downloading = key to it }
+                }.exceptionOrNull()?.let {
+                    Log.w(TAG, "Download of $key failed", it)
+                    if (it is OnlineEmojiCatalog.ChecksumException) {
+                        R.string.emoji_error_checksum
+                    } else {
+                        R.string.emoji_error_download
+                    }
+                }
+            }
+            downloading = null
+            if (error != null) toast(error)
+            onChanged()
+        }
+    }
+
+    /** Deletes the downloaded file of the online style [key], which can be downloaded again. */
+    fun deleteDownload(key: String, onChanged: () -> Unit) {
+        ExternalEmojiInstaller.scope.launch {
+            withContext(Dispatchers.IO) { styleFor(key)?.let(online::delete) }
+            onChanged()
+        }
+    }
+
+    /**
+     * Installs the downloaded online style [key] as the system emoji. Like a custom font it
+     * takes effect once SystemUI and the running apps restart, which can be put off.
+     */
+    fun applyOnline(key: String, onChanged: () -> Unit) {
+        runExclusive {
+            val style = withContext(Dispatchers.IO) {
+                styleFor(key)?.takeIf { online.isDownloaded(it) }
+            }
+            if (style == null) {
+                toast(R.string.emoji_error_download)
+                return@runExclusive
+            }
+            val result = installer.installFile(online.file(style))
+            if (result == ExternalEmojiInstaller.Result.SUCCESS) {
+                withContext(Dispatchers.IO) { online.markInstalled(style, installer.installedName()) }
+                onChanged()
+                if (isScreenAlive()) showRestartDialog(context, style.name)
+            } else {
+                showResult(result)
+            }
+        }
+    }
+
+    private fun styleFor(key: String): OnlineEmoji? =
+        online.saved().firstOrNull { ONLINE_PREFIX + it.id == key }
 
     /** Copies the custom emoji font into the apps, after asking. */
     fun confirmResetApps(ctx: Context) {
@@ -243,6 +362,7 @@ class EmojiController(private val context: Context) {
             val result = installer.installPreview()
             onChanged()
             if (result == ExternalEmojiInstaller.Result.SUCCESS) {
+                online.clearInstalled()
                 val label = withContext(Dispatchers.IO) { customLabel(installer.installedName()) }
                 if (isScreenAlive()) showRestartDialog(context, label)
             } else {
@@ -254,17 +374,6 @@ class EmojiController(private val context: Context) {
     private fun isScreenAlive(): Boolean {
         val activity = context as? Activity ?: return false
         return !activity.isFinishing && !activity.isDestroyed
-    }
-
-    private fun showRebootDialog(ctx: Context, label: String) {
-        ctx.showChoiceDialog(
-            title = ctx.getString(R.string.reboot_required_title),
-            message = ctx.getString(R.string.reboot_required_custom_emoji_title),
-            confirmText = ctx.getString(R.string.action_reboot_now),
-            laterText = ctx.getString(R.string.action_later),
-            onConfirm = { ExternalFontInstaller.rebootDevice() },
-            onLater = { markPending(RestartKind.REBOOT, label) },
-        )
     }
 
     /** SystemUI picks the font up when it restarts; running apps when their process does. */
@@ -310,6 +419,7 @@ class EmojiController(private val context: Context) {
         runExclusive {
             val result = withContext(Dispatchers.IO) { installer.clear() }
             if (result == ExternalEmojiInstaller.Result.SUCCESS) {
+                online.clearInstalled()
                 Toast.makeText(context, R.string.emoji_apps_restored, Toast.LENGTH_LONG).show()
             } else {
                 showResult(result)
@@ -337,11 +447,6 @@ class EmojiController(private val context: Context) {
         Toast.makeText(context, resId, Toast.LENGTH_SHORT).show()
     }
 
-    private fun styleIndex(): Int =
-        values.indexOf(SystemProperties.get(KEY, DEFAULT_STYLE)).let { if (it < 0) 0 else it }
-
-    private fun styleLabel(): String = entries[styleIndex()]
-
     private fun customLabel(name: String): String = context.getString(R.string.emoji_custom_label, name)
 
     private fun typefaceOf(file: File?): Typeface? {
@@ -349,23 +454,41 @@ class EmojiController(private val context: Context) {
         return runCatching { Typeface.Builder(file).build() }.getOrNull()
     }
 
+    /**
+     * Builds that bundled the emoji styles kept the choice in a property that nothing reads
+     * now. Put it back to Stock, which is what the framework already shows.
+     */
+    private fun dropLegacyStyle() {
+        if (SystemProperties.get(LEGACY_STYLE_PROP, STOCK_KEY) == STOCK_KEY) return
+        SystemProperties.set(LEGACY_STYLE_PROP, STOCK_KEY)
+        SystemPropPoker.getInstance().poke()
+    }
+
+    private fun typefaceOf(file: File?): Typeface? {
+        if (file == null || !file.canRead()) return null
+        return runCatching { Typeface.Builder(file).build() }.getOrNull()
+    }
+
     companion object {
-        private const val KEY = "persist.sys.ax_emoji_style"
-        private const val DEFAULT_STYLE = "android"
+        private const val TAG = "EmojiController"
+
+        // Set by builds that bundled the emoji styles, which no longer exist.
+        private const val LEGACY_STYLE_PROP = "persist.sys.ax_emoji_style"
+        private const val STOCK_EMOJI = "/system/fonts/NotoColorEmoji.ttf"
+
+        /** Key of the stock emoji in [StyleOption] and [appliedKey]. */
+        const val STOCK_KEY = "android"
 
         /** Key of the installed custom font in [StyleOption] and [appliedKey]. */
         const val CUSTOM_KEY = "__custom_emoji__"
 
+        /** Prefix of the key of an online style in [StyleOption] and [appliedKey]. */
+        const val ONLINE_PREFIX = "online:"
+
+        /** Whether [key] is an installed font rather than the stock emoji. */
+        fun isInstalledFont(key: String) = key == CUSTOM_KEY || key.startsWith(ONLINE_PREFIX)
+
         // Grinning face, heart eyes, party popper, red heart, thumbs up.
         const val PREVIEW_EMOJI = "\uD83D\uDE00\uD83D\uDE0D\uD83C\uDF89\u2764\uFE0F\uD83D\uDC4D"
-
-        // Font behind each emoji_style_values entry, for the previews only.
-        private val STYLE_FONTS = mapOf(
-            "android" to "/system/fonts/NotoColorEmoji.ttf",
-            "ios" to "/product/fonts/LunarisIosEmoji.ttf",
-            "samsung" to "/product/fonts/SamsungColorEmoji.ttf",
-            "swiftui" to "/product/fonts/SwiftUIEmoji.ttf",
-            "facebook" to "/product/fonts/FacebookEmoji.ttf",
-        )
     }
 }

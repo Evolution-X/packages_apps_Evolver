@@ -1634,6 +1634,14 @@
     <string name="emoji_style_title">Emoji style</string>
     <string name="emoji_style_stock">Stock</string>
     <string name="emoji_custom_label">Custom: %1$s</string>
+    <string name="emoji_download_size">Download · %1$s</string>
+    <string name="emoji_downloaded_size">Downloaded · %1$s</string>
+    <string name="emoji_downloading">Downloading… %1$d%%</string>
+    <string name="emoji_delete_download">Delete download</string>
+    <string name="emoji_catalog_error">Couldn\'t load the online emoji styles. Check your connection.</string>
+    <string name="emoji_catalog_retry">Retry</string>
+    <string name="emoji_error_download">Couldn\'t download the emoji font. Check your connection and try again.</string>
+    <string name="emoji_error_checksum">The downloaded emoji font didn\'t match the expected file. Try again later.</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
