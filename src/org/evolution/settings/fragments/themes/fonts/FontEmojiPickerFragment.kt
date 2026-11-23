@@ -12,6 +12,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -196,6 +197,7 @@ private fun FontEmojiPickerScreen(
     var tab by rememberSaveable { mutableIntStateOf(startTab) }
     var fontPreview by rememberSaveable { mutableStateOf<String?>(null) }
     var emojiPreview by rememberSaveable { mutableStateOf<String?>(null) }
+    var filter by rememberSaveable { mutableStateOf<FontCategory?>(null) }
 
     val emojiTab = tab == TAB_EMOJI
     val data = if (emojiTab) emoji else fonts
@@ -209,6 +211,16 @@ private fun FontEmojiPickerScreen(
     DisposableEffect(nestedScrollInterop) {
         onDispose { nestedScrollInterop.stop() }
     }
+    // All, then each category that has a font in it.
+    val filters = remember(fonts.options) {
+        listOf<FontCategory?>(null) +
+            FontCategory.values().filter { c -> fonts.options.any { it.category == c } }
+    }
+    val visible = if (emojiTab || filter == null) {
+        data.options
+    } else {
+        data.options.filter { it.category == filter }
+    }
     val navBarBottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val customKey = if (emojiTab) EmojiController.CUSTOM_KEY else FontController.CUSTOM_KEY
 
@@ -218,6 +230,9 @@ private fun FontEmojiPickerScreen(
             option = shown,
             applied = shown.key == data.appliedKey,
             canApply = shown.key != data.appliedKey && shown.key != customKey,
+            filters = if (emojiTab) emptyList() else filters,
+            filter = filter,
+            onFilter = { filter = it },
             onTab = { tab = it },
             onApply = { if (emojiTab) onApplyEmoji(shown) else onApplyFont(shown) }
         )
@@ -236,7 +251,7 @@ private fun FontEmojiPickerScreen(
                 .nestedScroll(nestedScrollInterop)
                 .scrollbar(gridState.scrollIndicatorState, Orientation.Vertical)
         ) {
-            items(data.options, key = { "${tab}_${it.key}" }) { option ->
+            items(visible, key = { "${tab}_${it.key}" }) { option ->
                 StyleCard(
                     option = option,
                     emoji = emojiTab,
@@ -280,11 +295,15 @@ private fun PreviewStage(
     option: StyleOption,
     applied: Boolean,
     canApply: Boolean,
+    filters: List<FontCategory?>,
+    filter: FontCategory?,
+    onFilter: (FontCategory?) -> Unit,
     onTab: (Int) -> Unit,
     onApply: () -> Unit
 ) {
     val latestOnApply by rememberUpdatedState(onApply)
     val latestOnTab by rememberUpdatedState(onTab)
+    val latestOnFilter by rememberUpdatedState(onFilter)
     AndroidView(
         modifier = Modifier.fillMaxWidth(),
         factory = { ctx ->
@@ -321,6 +340,7 @@ private fun PreviewStage(
             }
             view.findViewById<TextView>(R.id.font_tab_fonts).isSelected = !emojiTab
             view.findViewById<TextView>(R.id.font_tab_emoji).isSelected = emojiTab
+            updateFilterChips(view, filters, filter) { latestOnFilter(it) }
             view.findViewById<TextView>(R.id.font_preview_apply).apply {
                 setText(if (applied) R.string.font_applied else R.string.apply)
                 isSelected = canApply
@@ -423,4 +443,48 @@ private fun ActionCard(label: String, icon: ImageVector, onClick: () -> Unit) {
             }
         }
     }
+}
+
+/**
+ * One chip per category with a font in it, so a look can be picked without scrolling the grid.
+ * The row is only shown on the font tab, and only when there is more than one chip.
+ */
+private fun updateFilterChips(
+    view: View,
+    filters: List<FontCategory?>,
+    filter: FontCategory?,
+    onFilter: (FontCategory?) -> Unit
+) {
+    view.findViewById<View>(R.id.font_filter_scroll).visibility =
+        if (filters.size > 1) View.VISIBLE else View.GONE
+    val group = view.findViewById<LinearLayout>(R.id.font_filter_chips)
+    // Chips are only rebuilt when the categories change, not on every selection.
+    if (group.tag != filters) {
+        group.tag = filters
+        group.removeAllViews()
+        val res = group.resources
+        val inflater = LayoutInflater.from(group.context)
+        filters.forEach { category ->
+            val chip = inflater.inflate(R.layout.charging_style_chip, group, false) as TextView
+            chip.setText(
+                when (category) {
+                    null -> R.string.font_filter_all
+                    FontCategory.SANS -> R.string.font_filter_sans
+                    FontCategory.SERIF -> R.string.font_filter_serif
+                    FontCategory.DISPLAY -> R.string.font_filter_display
+                    FontCategory.SCRIPT -> R.string.font_filter_script
+                    FontCategory.MONO -> R.string.font_filter_mono
+                }
+            )
+            chip.setOnClickListener { onFilter(category) }
+            group.addView(
+                chip,
+                LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    res.getDimensionPixelSize(R.dimen.charging_chip_height)
+                ).apply { marginEnd = res.getDimensionPixelSize(R.dimen.preview_stage_gap) }
+            )
+        }
+    }
+    for (i in 0 until group.childCount) group.getChildAt(i).isSelected = filters[i] == filter
 }

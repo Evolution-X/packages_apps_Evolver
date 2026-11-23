@@ -74,8 +74,10 @@ class FontController(private val context: Context) {
                     ExternalFontInstaller(context).loadInstalledTypeface() ?: typefaceOf("android")
                 ))
             }
-            add(StyleOption("android", DEFAULT_LABEL, typefaceOf("android")))
-            overlays.forEach { add(StyleOption(it, labels.getValue(it), typefaceOf(it))) }
+            add(StyleOption("android", DEFAULT_LABEL, typefaceOf("android"), FontCategory.SANS))
+            overlays.forEach {
+                add(StyleOption(it, labels.getValue(it), typefaceOf(it), CATEGORIES[it]))
+            }
         }
     }
 
@@ -264,5 +266,65 @@ class FontController(private val context: Context) {
 
         /** Key of the installed custom font in [StyleOption] and [appliedKey]. */
         const val CUSTOM_KEY = "__custom_font__"
+
+        // The look of each bundled font overlay, picked from how it renders. A font that is not
+        // listed, such as one added later, only shows under All.
+        private val CATEGORIES = mapOf(
+            "com.android.theme.font.atkinsonhyperlegible" to FontCategory.SANS,
+            "com.android.theme.font.bariol" to FontCategory.SANS,
+            "com.android.theme.font.cagliostro" to FontCategory.SANS,
+            "com.android.theme.font.cocon" to FontCategory.SANS,
+            "com.android.theme.font.comfortaa" to FontCategory.SANS,
+            "com.android.theme.font.evosans" to FontCategory.SANS,
+            "com.android.theme.font.evolve" to FontCategory.SANS,
+            "com.android.theme.font.exotwo" to FontCategory.SANS,
+            "com.android.theme.font.generalsans" to FontCategory.SANS,
+            "com.android.theme.font.harmonysans" to FontCategory.SANS,
+            "com.android.theme.font.ibmplex" to FontCategory.SANS,
+            "org.lineageos.overlay.font.lato" to FontCategory.SANS,
+            "com.android.theme.font.linotte" to FontCategory.SANS,
+            "com.android.theme.font.nokiapure" to FontCategory.SANS,
+            "com.android.theme.font.nunito" to FontCategory.SANS,
+            "com.android.theme.font.ohmyfont" to FontCategory.SANS,
+            "com.android.theme.font.oneuisans" to FontCategory.SANS,
+            "com.android.theme.font.oneplussans" to FontCategory.SANS,
+            "com.android.theme.font.oneplusslate" to FontCategory.SANS,
+            "com.android.theme.font.opendyslexic" to FontCategory.SANS,
+            "com.android.theme.font.oswald" to FontCategory.SANS,
+            "com.android.theme.font.play" to FontCategory.SANS,
+            "com.android.theme.font.poppins" to FontCategory.SANS,
+            "org.voltage.theme.font.recursive_linear" to FontCategory.SANS,
+            "com.android.theme.font.reemkufi" to FontCategory.SANS,
+            "com.android.theme.font.robotocondensed" to FontCategory.SANS,
+            "com.android.theme.font.rookery" to FontCategory.SANS,
+            "org.lineageos.overlay.font.rubik" to FontCategory.SANS,
+            "com.android.theme.font.samsungone" to FontCategory.SANS,
+            "com.android.theme.font.sanfrancisco" to FontCategory.SANS,
+            "com.android.theme.font.sansserifpro" to FontCategory.SANS,
+            "com.android.theme.font.sonysketch" to FontCategory.SANS,
+            "com.android.theme.font.SpaceGrotesk" to FontCategory.SANS,
+            "com.android.theme.font.storopia" to FontCategory.SANS,
+            "com.android.theme.font.ubuntu" to FontCategory.SANS,
+            "com.android.theme.font.volte" to FontCategory.SANS,
+            "com.android.theme.font.amarante" to FontCategory.SERIF,
+            "com.android.theme.font.quando" to FontCategory.SERIF,
+            "com.android.theme.font.surfer" to FontCategory.SERIF,
+            "com.android.theme.font.accuratist" to FontCategory.DISPLAY,
+            "com.android.theme.font.aclonica" to FontCategory.DISPLAY,
+            "com.android.theme.font.comicsans" to FontCategory.DISPLAY,
+            "com.android.theme.font.cookierun" to FontCategory.DISPLAY,
+            "com.android.theme.font.coolstory" to FontCategory.DISPLAY,
+            "com.android.theme.font.dtsans" to FontCategory.DISPLAY,
+            "com.android.theme.font.fifa2018" to FontCategory.DISPLAY,
+            "com.android.theme.font.mercy" to FontCategory.DISPLAY,
+            "com.android.theme.font.nothingdot" to FontCategory.DISPLAY,
+            "com.android.theme.font.papyrus" to FontCategory.DISPLAY,
+            "org.voltage.theme.font.recursive_casual" to FontCategory.DISPLAY,
+            "com.android.theme.font.cooljazz" to FontCategory.SCRIPT,
+            "com.android.theme.font.grandhotel" to FontCategory.SCRIPT,
+            "com.android.theme.font.redressed" to FontCategory.SCRIPT,
+            "com.android.theme.font.rosemary" to FontCategory.SCRIPT,
+            "com.android.theme.font.dtmono" to FontCategory.MONO,
+        )
     }
 }
