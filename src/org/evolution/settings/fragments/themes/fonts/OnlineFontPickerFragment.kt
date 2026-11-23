@@ -78,9 +78,11 @@ import java.util.Date
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.evolution.settings.fragments.lockscreen.ClockUtils
 import org.evolution.settings.fragments.lockscreen.ComposeToViewNestedScrollBridge
 import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
 import org.evolution.settings.fragments.miscellaneous.insetFocusRing
+import org.evolution.settings.fragments.miscellaneous.rememberClickSound
 
 /** Where the download of the selected style stands, for the Apply button and the preview. */
 private sealed interface LoadState {
@@ -117,6 +119,7 @@ class OnlineFontPickerFragment : Fragment() {
             SettingsTheme {
                 OnlineFontPickerScreen(
                     repo = repo,
+                    busy = fonts.busy,
                     onInstall = { file ->
                         fonts.installFile(file, this@OnlineFontPickerFragment.lifecycleScope) {}
                     }
@@ -132,7 +135,11 @@ class OnlineFontPickerFragment : Fragment() {
 }
 
 @Composable
-private fun OnlineFontPickerScreen(repo: OnlineFontRepository, onInstall: (File) -> Unit) {
+private fun OnlineFontPickerScreen(
+    repo: OnlineFontRepository,
+    busy: Boolean,
+    onInstall: (File) -> Unit
+) {
     var families by remember { mutableStateOf<List<OnlineFont>?>(null) }
     var failed by remember { mutableStateOf(false) }
     var listAttempt by remember { mutableIntStateOf(0) }
@@ -197,6 +204,7 @@ private fun OnlineFontPickerScreen(repo: OnlineFontRepository, onInstall: (File)
     }
 
     val hostView = LocalView.current
+    val clickSound = rememberClickSound()
     val nestedScrollInterop = remember(hostView) { ComposeToViewNestedScrollBridge(hostView) }
     DisposableEffect(nestedScrollInterop) {
         onDispose { nestedScrollInterop.stop() }
@@ -214,6 +222,7 @@ private fun OnlineFontPickerScreen(repo: OnlineFontRepository, onInstall: (File)
             categories = categoryLabels,
             category = category,
             onCategory = { category = it },
+            busy = busy,
             onApply = {
                 when (val state = load.value) {
                     is LoadState.Ready -> onInstall(state.file)
@@ -259,7 +268,10 @@ private fun OnlineFontPickerScreen(repo: OnlineFontRepository, onInstall: (File)
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
-                        Button(onClick = { listAttempt++ }) {
+                        Button(onClick = {
+                            clickSound()
+                            listAttempt++
+                        }) {
                             Text(stringResource(R.string.font_online_retry))
                         }
                     }
@@ -317,6 +329,7 @@ private fun OnlineStage(
     categories: List<String>,
     category: Int,
     onCategory: (Int) -> Unit,
+    busy: Boolean,
     onApply: () -> Unit
 ) {
     val latestOnApply by rememberUpdatedState(onApply)
@@ -335,8 +348,11 @@ private fun OnlineStage(
                         Date()
                     )
                 view.findViewById<View>(R.id.font_tabs).visibility = View.GONE
-                view.findViewById<TextView>(R.id.font_preview_apply)
-                    .setOnClickListener { latestOnApply() }
+                // The view plays the click sound itself; the haptic tick is the clock picker's.
+                view.findViewById<TextView>(R.id.font_preview_apply).setOnClickListener {
+                    ClockUtils.performClickFeedback(it, confirm = true)
+                    latestOnApply()
+                }
             }
         },
         update = { view ->
@@ -371,9 +387,9 @@ private fun OnlineStage(
                     is LoadState.Loading ->
                         context.getString(R.string.font_online_progress, (load.progress * 100).toInt())
                     LoadState.Failed -> context.getString(R.string.font_online_retry)
-                    else -> context.getString(R.string.apply)
+                    else -> context.getString(if (busy) R.string.font_applying else R.string.apply)
                 }
-                val enabled = ready || load == LoadState.Failed
+                val enabled = !busy && (ready || load == LoadState.Failed)
                 isSelected = enabled
                 isEnabled = enabled
                 alpha = if (enabled) 1f else 0.6f
@@ -394,8 +410,12 @@ private fun OnlineFontCard(
         value = repo.preview(font) ?: value
     }
     val family = remember(typeface) { typeface?.let { FontFamily(it) } }
+    val clickSound = rememberClickSound()
     Card(
-        onClick = onClick,
+        onClick = {
+            clickSound()
+            onClick()
+        },
         modifier = Modifier
             .fillMaxWidth()
             .height(112.dp)

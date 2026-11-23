@@ -42,6 +42,7 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -80,9 +81,11 @@ import java.util.Date
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.evolution.settings.fragments.lockscreen.ClockUtils
 import org.evolution.settings.fragments.lockscreen.ComposeToViewNestedScrollBridge
 import org.evolution.settings.fragments.miscellaneous.ExpressiveCorners
 import org.evolution.settings.fragments.miscellaneous.insetFocusRing
+import org.evolution.settings.fragments.miscellaneous.rememberClickSound
 
 private const val TAB_FONTS = 0
 private const val TAB_EMOJI = 1
@@ -135,8 +138,15 @@ class FontEmojiPickerFragment : Fragment() {
                     startTab = startTab,
                     fonts = fontData.value,
                     emoji = emojiData.value,
+                    fontBusy = fonts.busy,
                     onApplyFont = { option ->
-                        fonts.apply(requireContext(), fontData.value.appliedKey, option.key, ::reload)
+                        fonts.apply(
+                            requireContext(),
+                            fontData.value.appliedKey,
+                            option.key,
+                            option.label,
+                            ::reload
+                        )
                     },
                     onApplyEmoji = { option ->
                         emoji.apply(
@@ -146,7 +156,7 @@ class FontEmojiPickerFragment : Fragment() {
                             onChanged = ::reload
                         )
                     },
-                    onAddFont = { fontLauncher.launch(FONT_TYPES) },
+                    onAddFont = { if (!fonts.busy) fontLauncher.launch(FONT_TYPES) },
                     onBrowseOnline = {
                         SubSettingLauncher(requireContext())
                             .setDestination(OnlineFontPickerFragment::class.java.name)
@@ -198,6 +208,7 @@ private fun FontEmojiPickerScreen(
     startTab: Int,
     fonts: TabData,
     emoji: TabData,
+    fontBusy: Boolean,
     onApplyFont: (StyleOption) -> Unit,
     onApplyEmoji: (StyleOption) -> Unit,
     onAddFont: () -> Unit,
@@ -215,7 +226,14 @@ private fun FontEmojiPickerScreen(
     val previewKey = if (emojiTab) emojiPreview else fontPreview
     val shown = data.options.firstOrNull { it.key == (previewKey ?: data.appliedKey) }
         ?: data.options.firstOrNull()
-        ?: return
+        ?: run {
+            // Until the first load is in, there is nothing to preview or pick.
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
+            return
+        }
+    val busy = fontBusy && !emojiTab
 
     val hostView = LocalView.current
     val nestedScrollInterop = remember(hostView) { ComposeToViewNestedScrollBridge(hostView) }
@@ -240,7 +258,8 @@ private fun FontEmojiPickerScreen(
             emojiTab = emojiTab,
             option = shown,
             applied = shown.key == data.appliedKey,
-            canApply = shown.key != data.appliedKey && shown.key != customKey,
+            busy = busy,
+            canApply = !busy && shown.key != data.appliedKey && shown.key != customKey,
             filters = if (emojiTab) emptyList() else filters,
             filter = filter,
             onFilter = { filter = it },
@@ -314,6 +333,7 @@ private fun PreviewStage(
     emojiTab: Boolean,
     option: StyleOption,
     applied: Boolean,
+    busy: Boolean,
     canApply: Boolean,
     filters: List<FontCategory?>,
     filter: FontCategory?,
@@ -339,8 +359,11 @@ private fun PreviewStage(
                     .setOnClickListener { latestOnTab(TAB_FONTS) }
                 view.findViewById<TextView>(R.id.font_tab_emoji)
                     .setOnClickListener { latestOnTab(TAB_EMOJI) }
-                view.findViewById<TextView>(R.id.font_preview_apply)
-                    .setOnClickListener { latestOnApply() }
+                // The view plays the click sound itself; the haptic tick is the clock picker's.
+                view.findViewById<TextView>(R.id.font_preview_apply).setOnClickListener {
+                    ClockUtils.performClickFeedback(it, confirm = true)
+                    latestOnApply()
+                }
             }
         },
         update = { view ->
@@ -362,7 +385,13 @@ private fun PreviewStage(
             view.findViewById<TextView>(R.id.font_tab_emoji).isSelected = emojiTab
             updateFilterChips(view, filters, filter) { latestOnFilter(it) }
             view.findViewById<TextView>(R.id.font_preview_apply).apply {
-                setText(if (applied) R.string.font_applied else R.string.apply)
+                setText(
+                    when {
+                        busy -> R.string.font_applying
+                        applied -> R.string.font_applied
+                        else -> R.string.apply
+                    }
+                )
                 isSelected = canApply
                 isEnabled = canApply
                 alpha = if (canApply) 1f else 0.6f
@@ -380,8 +409,12 @@ private fun StyleCard(
     onClick: () -> Unit
 ) {
     val family = remember(option.typeface) { option.typeface?.let { FontFamily(it) } }
+    val clickSound = rememberClickSound()
     Card(
-        onClick = onClick,
+        onClick = {
+            clickSound()
+            onClick()
+        },
         modifier = Modifier
             .fillMaxWidth()
             .height(112.dp)
@@ -437,8 +470,12 @@ private fun StyleCard(
 
 @Composable
 private fun ActionCard(label: String, icon: ImageVector, onClick: () -> Unit) {
+    val clickSound = rememberClickSound()
     Card(
-        onClick = onClick,
+        onClick = {
+            clickSound()
+            onClick()
+        },
         modifier = Modifier
             .fillMaxWidth()
             .height(112.dp)
