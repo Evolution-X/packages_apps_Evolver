@@ -2,9 +2,8 @@
 <!--
      SPDX-License-Identifier: Apache-2.0
 -->
-<com.google.android.material.chip.Chip
+<TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Widget.Material3.Chip.Filter"
+    style="@style/ChargingChip"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:checkable="true" />
+    android:layout_height="@dimen/charging_chip_height" />

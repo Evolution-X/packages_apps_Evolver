@@ -29,7 +29,9 @@ import android.provider.Settings
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.preference.Preference
 import androidx.preference.ListPreference
@@ -40,8 +42,6 @@ import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.Utils
 import com.android.settingslib.search.SearchIndexable
-import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
 
 import org.evolution.settings.fragments.lockscreen.chargingstyles.ChargingStyleView
 import org.evolution.settings.fragments.lockscreen.chargingstyles.HyperBubblesView
@@ -64,15 +64,14 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
     private var preview: ChargingPreviewView? = null
     private var plugStage: FrameLayout? = null
     private var plugHint: TextView? = null
-    private var styleChips: ChipGroup? = null
-    private var modeLock: Chip? = null
-    private var modePlug: Chip? = null
+    private var styleChips: LinearLayout? = null
+    private var modeLock: TextView? = null
+    private var modePlug: TextView? = null
     private var plugMode = false
     private var started = false
     private var plugPlaying = false
     private var plugView: ChargingStyleView? = null
     private var previewPlug = -1
-    private var syncingChips = false
     private val plugHandler = Handler(Looper.getMainLooper())
     private var previewStyle = -1
     private var previewColorMode = -1
@@ -176,28 +175,18 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         modePlug = header.findViewById(R.id.charging_mode_plug)
 
         // The two mode chips act as a toggle: one is always on.
-        modeLock?.setOnCheckedChangeListener { _, checked ->
-            if (checked && plugMode) {
-                setPlugMode(false)
-            } else if (!checked && !plugMode) {
-                modeLock?.isChecked = true
-            }
-        }
-        modePlug?.setOnCheckedChangeListener { _, checked ->
-            if (checked && !plugMode) {
-                setPlugMode(true)
-            } else if (!checked && plugMode) {
-                modePlug?.isChecked = true
-            }
-        }
+        modeLock?.setOnClickListener { if (plugMode) setPlugMode(false) }
+        modePlug?.setOnClickListener { if (!plugMode) setPlugMode(true) }
         plugMode = false
+        modeLock?.isSelected = true
+        modePlug?.isSelected = false
         rebuildChips()
     }
 
     private fun setPlugMode(plug: Boolean) {
         plugMode = plug
-        modeLock?.isChecked = !plug
-        modePlug?.isChecked = plug
+        modeLock?.isSelected = !plug
+        modePlug?.isSelected = plug
         preview?.visibility = if (plug) View.GONE else View.VISIBLE
         plugStage?.visibility = if (plug) View.VISIBLE else View.GONE
         plugHint?.visibility = View.GONE
@@ -221,20 +210,18 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
             if (plugMode) R.array.charging_plug_animation_entries
             else R.array.charging_animation_style_entries
         )
-        syncingChips = true
         group.removeAllViews()
         val inflater = LayoutInflater.from(group.context)
         entries.forEachIndexed { index, title ->
-            val chip = inflater.inflate(R.layout.charging_style_chip, group, false) as Chip
-            chip.id = View.generateViewId()
+            val chip = inflater.inflate(R.layout.charging_style_chip, group, false) as TextView
             chip.text = title
             chip.tag = index
-            chip.setOnCheckedChangeListener { _, checked ->
-                if (checked && !syncingChips) pickStyle(index)
-            }
-            group.addView(chip)
+            chip.setOnClickListener { pickStyle(index) }
+            group.addView(chip, LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                resources.getDimensionPixelSize(R.dimen.charging_chip_height)
+            ).apply { marginEnd = resources.getDimensionPixelSize(R.dimen.preview_stage_gap) })
         }
-        syncingChips = false
         syncChips()
     }
 
@@ -242,13 +229,10 @@ class ChargingAnimationSettings : SettingsPreferenceFragment(),
         val group = styleChips ?: return
         val current = if (plugMode) readInt(KEY_PLUG, PLUG_DEFAULT).coerceIn(0, 4)
         else readInt(KEY_STYLE, 0).coerceIn(0, 7)
-        syncingChips = true
         for (i in 0 until group.childCount) {
-            val chip = group.getChildAt(i) as Chip
-            val selected = chip.tag == current
-            if (chip.isChecked != selected) chip.isChecked = selected
+            val chip = group.getChildAt(i)
+            chip.isSelected = chip.tag == current
         }
-        syncingChips = false
     }
 
     // Goes through the list preference, so what it shows and the options that depend on the
