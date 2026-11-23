@@ -6,19 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/colorBackground"
-    android:paddingStart="@dimen/preview_stage_padding_horizontal"
-    android:paddingTop="@dimen/preview_stage_padding_vertical"
-    android:paddingEnd="@dimen/preview_stage_padding_horizontal"
-    android:paddingBottom="@dimen/preview_stage_padding_vertical">
+    style="@style/Widget.Evolver.PreviewStageHost">
 
-    <com.google.android.material.card.MaterialCardView
+    <org.evolution.settings.utils.PreviewStage
         android:layout_width="match_parent"
-        android:layout_height="112dp"
-        app:cardBackgroundColor="@android:color/black"
-        app:cardCornerRadius="@dimen/preview_stage_corner_radius"
-        app:cardElevation="0dp"
-        app:strokeWidth="0dp">
+        android:layout_height="@dimen/preview_stage_height_compact"
+        android:background="@android:color/black">
 
         <org.evolution.settings.fragments.lockscreen.PulsePreviewView
             android:id="@+id/pulse_preview"
@@ -28,6 +21,6 @@
             android:contentDescription="@null"
             android:importantForAccessibility="no" />
 
-    </com.google.android.material.card.MaterialCardView>
+    </org.evolution.settings.utils.PreviewStage>
 
 </FrameLayout>
