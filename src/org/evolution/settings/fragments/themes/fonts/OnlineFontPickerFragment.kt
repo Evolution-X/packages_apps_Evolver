@@ -74,6 +74,7 @@ import androidx.lifecycle.lifecycleScope
 import com.android.settings.R
 import com.android.settings.widget.scrollbar
 import com.android.settingslib.spa.framework.theme.SettingsTheme
+import com.android.settingslib.spa.widget.ui.Footer
 import java.io.File
 import java.util.Date
 import kotlinx.coroutines.CancellationException
@@ -311,6 +312,11 @@ private fun OnlineFontPickerScreen(
                             variant = null
                         }
                     )
+                }
+            }
+            if (list != null) {
+                item(key = "footer", span = { GridItemSpan(maxLineSpan) }) {
+                    Footer(stringResource(R.string.online_fonts_footer))
                 }
             }
         }

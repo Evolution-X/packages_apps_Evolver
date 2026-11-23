@@ -1640,6 +1640,9 @@
     <string name="emoji_delete_download">Delete download</string>
     <string name="emoji_catalog_error">Couldn\'t load the online emoji styles. Check your connection.</string>
     <string name="emoji_catalog_retry">Retry</string>
+    <string name="emoji_picker_footer">Emoji styles are downloaded from Evolution X\'s theme repository and kept on the device, so you can switch between them without downloading again. You can also add your own .ttf emoji font of up to 128 MB, for example from an emoji Magisk module (system/fonts/NotoColorEmoji.ttf). Any emoji a font lacks still come from the system emoji.</string>
+    <string name="font_picker_footer">Font styles provided by the system are listed first. To use your own, tap Add font and choose a .ttf or .otf file of up to 64 MB, or download one from Google Fonts. A custom font is used for all system and app text that uses the standard UI fonts, and a reboot is needed to apply it everywhere.</string>
+    <string name="online_fonts_footer">Fonts come from Google Fonts and are free to use. Tap one to download and preview it, pick another style with the chips, then tap Apply. Only the chosen style is installed, and a reboot is needed to apply it everywhere.</string>
     <string name="emoji_error_download">Couldn\'t download the emoji font. Check your connection and try again.</string>
     <string name="emoji_error_checksum">The downloaded emoji font didn\'t match the expected file. Try again later.</string>
     <string name="emoji_style_ios">iOS</string>
