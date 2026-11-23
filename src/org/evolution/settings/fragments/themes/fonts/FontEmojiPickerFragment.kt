@@ -39,6 +39,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -70,7 +71,9 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import com.android.settings.R
+import com.android.settings.core.SubSettingLauncher
 import com.android.settings.widget.scrollbar
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 import java.util.Date
@@ -144,6 +147,13 @@ class FontEmojiPickerFragment : Fragment() {
                         )
                     },
                     onAddFont = { fontLauncher.launch(FONT_TYPES) },
+                    onBrowseOnline = {
+                        SubSettingLauncher(requireContext())
+                            .setDestination(OnlineFontPickerFragment::class.java.name)
+                            .setTitleRes(R.string.font_online_title)
+                            .setSourceMetricsCategory(MetricsEvent.EVOLVER)
+                            .launch()
+                    },
                     onAddEmoji = { if (emoji.ensureIdle()) emojiLauncher.launch(EMOJI_TYPES) },
                     onEmojiApps = { hasCustom ->
                         if (hasCustom) emoji.confirmResetApps(requireContext())
@@ -191,6 +201,7 @@ private fun FontEmojiPickerScreen(
     onApplyFont: (StyleOption) -> Unit,
     onApplyEmoji: (StyleOption) -> Unit,
     onAddFont: () -> Unit,
+    onBrowseOnline: () -> Unit,
     onAddEmoji: () -> Unit,
     onEmojiApps: (hasCustom: Boolean) -> Unit
 ) {
@@ -270,6 +281,15 @@ private fun FontEmojiPickerScreen(
                     icon = Icons.Default.Add,
                     onClick = if (emojiTab) onAddEmoji else onAddFont
                 )
+            }
+            if (!emojiTab) {
+                item(key = "online") {
+                    ActionCard(
+                        label = stringResource(R.string.font_online_title),
+                        icon = Icons.Default.Search,
+                        onClick = onBrowseOnline
+                    )
+                }
             }
             if (emojiTab) {
                 val hasCustom = emoji.options.any { it.key == EmojiController.CUSTOM_KEY }
