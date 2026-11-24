@@ -7,6 +7,7 @@
 
 package org.evolution.settings.fragments.miscellaneous
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.VerticalDivider
@@ -131,12 +132,14 @@ enum class ExpressiveTone { Positive, Warning, Negative, Neutral }
  * scroll so it stays put while the content moves.
  */
 @Composable
-fun Modifier.expressiveVerticalScroll(): Modifier {
-    val state = rememberScrollState()
-    return this
-        .scrollbar(state.scrollIndicatorState, Orientation.Vertical)
-        .verticalScroll(state)
-}
+fun Modifier.expressiveVerticalScroll(): Modifier =
+    expressiveVerticalScroll(rememberScrollState())
+
+/** Same, for a caller that keeps the [state] to follow how far the content has scrolled. */
+@Composable
+fun Modifier.expressiveVerticalScroll(state: ScrollState): Modifier = this
+    .scrollbar(state.scrollIndicatorState, Orientation.Vertical)
+    .verticalScroll(state)
 
 /** Scrollable page body shared by the Expressive screens. */
 @Composable
