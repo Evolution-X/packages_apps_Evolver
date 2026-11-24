@@ -34,10 +34,12 @@ import com.android.settings.R;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
@@ -63,6 +65,8 @@ public class BootAnimationUtils {
     public static final String NAME_DEFAULT = "default";
     public static final String NAME_CUSTOM = "custom";
     public static final String CUSTOM_PATH = "/data/misc/bootanim/bootanimation.zip";
+    /** Where the styles downloaded from the online catalog are kept, as bootanimation_[name].zip. */
+    public static final String DOWNLOAD_DIR = "/data/misc/bootanim/styles";
 
     private static final String MEDIA_DIR = "/product/media/";
     private static final String DEFAULT_PATH = MEDIA_DIR + "bootanimation.zip";
@@ -121,12 +125,35 @@ public class BootAnimationUtils {
         return path != null && new File(path).isFile() ? name : NAME_DEFAULT;
     }
 
-    /** Zip file for a style name, or null if the name is not valid. */
+    /**
+     * Creates [dir] and lets bootanimation, which runs as another user, read from it. An app's
+     * umask would otherwise leave it closed to everyone else.
+     */
+    public static void prepareDownloadDir(File dir) throws IOException {
+        if (!dir.isDirectory() && !dir.mkdirs() && !dir.isDirectory()) {
+            throw new IOException("Can't create " + dir);
+        }
+        dir.setReadable(true, false);
+        dir.setExecutable(true, false);
+    }
+
+    /**
+     * Zip file for a style name, or null if the name is not valid. A style that is not in the
+     * build is looked for in [DOWNLOAD_DIR], the same way BootAnimation.cpp does.
+     */
     public static String getPathForName(String name) {
         if (NAME_DEFAULT.equals(name)) return DEFAULT_PATH;
         if (NAME_CUSTOM.equals(name)) return CUSTOM_PATH;
         if (!isValidName(name)) return null;
-        return MEDIA_DIR + NAMED_PREFIX + name + NAMED_SUFFIX;
+        String file = NAMED_PREFIX + name + NAMED_SUFFIX;
+        String builtIn = MEDIA_DIR + file;
+        return new File(builtIn).isFile() ? builtIn : DOWNLOAD_DIR + "/" + file;
+    }
+
+    /** True when the style is in the build, which a download can't replace or delete. */
+    public static boolean isBuiltIn(String name) {
+        return NAME_DEFAULT.equals(name) || NAME_CUSTOM.equals(name) || (isValidName(name)
+                && new File(MEDIA_DIR + NAMED_PREFIX + name + NAMED_SUFFIX).isFile());
     }
 
     /**
@@ -135,6 +162,14 @@ public class BootAnimationUtils {
      * and custom last. A new style only needs its zip in the build.
      */
     public static List<String> getStyleNames(Context context) {
+        return getStyleNames(context, Collections.emptyList());
+    }
+
+    /**
+     * Same, and the styles of the online catalog that are not on the device yet are offered
+     * too, in [online]. Styles that were downloaded are found in [DOWNLOAD_DIR].
+     */
+    public static List<String> getStyleNames(Context context, Collection<String> online) {
         String[] known = context.getResources()
                 .getStringArray(R.array.themes_boot_animation_values);
         List<String> names = new ArrayList<>();
@@ -142,25 +177,39 @@ public class BootAnimationUtils {
         for (String name : known) {
             if (NAME_DEFAULT.equals(name) || NAME_CUSTOM.equals(name)) continue;
             String path = getPathForName(name);
-            if (path != null && new File(path).isFile()) names.add(name);
+            if (online.contains(name) || (path != null && new File(path).isFile())) {
+                names.add(name);
+            }
         }
-        File[] files = new File(MEDIA_DIR).listFiles();
-        if (files != null) {
-            Arrays.sort(files);
-            for (File file : files) {
-                String fileName = file.getName();
-                if (!fileName.startsWith(NAMED_PREFIX) || !fileName.endsWith(NAMED_SUFFIX)) {
-                    continue;
-                }
-                String name = fileName.substring(NAMED_PREFIX.length(),
-                        fileName.length() - NAMED_SUFFIX.length());
-                if (isValidName(name) && !NAME_CUSTOM.equals(name) && !names.contains(name)) {
-                    names.add(name);
-                }
+        addNamedFiles(names, new File(MEDIA_DIR));
+        addNamedFiles(names, new File(DOWNLOAD_DIR));
+        List<String> rest = new ArrayList<>(online);
+        Collections.sort(rest);
+        for (String name : rest) {
+            if (isValidName(name) && !NAME_DEFAULT.equals(name) && !NAME_CUSTOM.equals(name)
+                    && !names.contains(name)) {
+                names.add(name);
             }
         }
         names.add(NAME_CUSTOM);
         return names;
+    }
+
+    private static void addNamedFiles(List<String> names, File dir) {
+        File[] files = dir.listFiles();
+        if (files == null) return;
+        Arrays.sort(files);
+        for (File file : files) {
+            String fileName = file.getName();
+            if (!fileName.startsWith(NAMED_PREFIX) || !fileName.endsWith(NAMED_SUFFIX)) {
+                continue;
+            }
+            String name = fileName.substring(NAMED_PREFIX.length(),
+                    fileName.length() - NAMED_SUFFIX.length());
+            if (isValidName(name) && !NAME_CUSTOM.equals(name) && !names.contains(name)) {
+                names.add(name);
+            }
+        }
     }
 
     /** Display name of a style; styles without an entry get their file name tidied up. */

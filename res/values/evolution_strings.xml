@@ -69,6 +69,14 @@
     <string name="boot_animation_style_unknown">Unknown</string>
     <string name="boot_animation_custom_pick">Choose a boot animation zip</string>
     <string name="boot_animation_custom_replace">Tap to choose a different zip</string>
+    <string name="boot_animation_download_size">Download · %1$s</string>
+    <string name="boot_animation_downloaded_size">Downloaded · %1$s</string>
+    <string name="boot_animation_downloading">Downloading · %1$d%%</string>
+    <string name="boot_animation_delete_download">Delete download</string>
+    <string name="boot_animation_catalog_retry">Retry</string>
+    <string name="boot_animation_catalog_error">Couldn\'t load the online boot animations. Check your connection.</string>
+    <string name="boot_animation_error_download">Couldn\'t download the boot animation. Check your connection and try again.</string>
+    <string name="boot_animation_error_checksum">The downloaded boot animation didn\'t match the expected file. Try again later.</string>
 
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">Color customization</string>

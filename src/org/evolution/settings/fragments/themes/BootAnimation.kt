@@ -21,6 +21,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.text.format.Formatter
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -46,8 +47,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.outlined.Animation
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.Download
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -140,7 +145,25 @@ class BootAnimation : Fragment() {
 @Composable
 private fun BootAnimationScreen(context: android.content.Context) {
     val scope = rememberCoroutineScope()
-    val styles = remember { BootAnimationUtils.getStyleNames(context) }
+    val store = remember { OnlineBootAnimationStore(context) }
+    var catalog by remember { mutableStateOf(emptyList<OnlineBootAnimation>()) }
+    var catalogFailed by remember { mutableStateOf(false) }
+    // Bumped when a download is added or deleted, so the lists are read from the disk again
+    var downloadsVersion by remember { mutableStateOf(0) }
+    var downloading by remember { mutableStateOf<Pair<String, Float>?>(null) }
+    val styles = remember(catalog, downloadsVersion) {
+        BootAnimationUtils.getStyleNames(context, catalog.map { it.id })
+    }
+    val onlineInfo = remember(catalog, downloadsVersion) {
+        catalog.associate { entry ->
+            val builtIn = BootAnimationUtils.isBuiltIn(entry.id)
+            val downloaded = !builtIn && store.isDownloaded(entry)
+            entry.id to OnlineInfo(entry.name, entry.size, builtIn || downloaded, downloaded)
+        }
+    }
+    // Set while the screen is shown, a download that finishes later is kept but not applied
+    val alive = remember { booleanArrayOf(true) }
+    DisposableEffect(Unit) { onDispose { alive[0] = false } }
 
     var selectedName by remember { mutableStateOf(BootAnimationUtils.getEffectiveName()) }
     var customInstalled by remember {
@@ -158,6 +181,7 @@ private fun BootAnimationScreen(context: android.content.Context) {
             launch(Dispatchers.IO) {
                 semaphore.withPermit {
                     val thumb = loadThumbnailForStyle(context, name)
+                        ?: loadOnlinePreview(context, store, catalog.firstOrNull { it.id == name })
                     withContext(Dispatchers.Main) { thumbnails[name] = thumb }
                 }
             }
@@ -175,6 +199,23 @@ private fun BootAnimationScreen(context: android.content.Context) {
         }
     }
 
+    fun refreshCatalog(force: Boolean = false) {
+        scope.launch {
+            val loaded = withContext(Dispatchers.IO) {
+                if (!force && !store.isStale()) {
+                    true
+                } else {
+                    runCatching { store.refresh() }
+                        .onFailure { Log.w(TAG, "Online boot animations unavailable", it) }
+                        .isSuccess
+                }
+            }
+            val saved = withContext(Dispatchers.IO) { store.saved() }
+            if (saved != catalog) catalog = saved
+            catalogFailed = !loaded && saved.isEmpty()
+        }
+    }
+
     fun applyStyle(name: String) {
         try {
             SystemProperties.set(BootAnimationUtils.PROP_NAME, name)
@@ -184,6 +225,52 @@ private fun BootAnimationScreen(context: android.content.Context) {
         } catch (e: Exception) {
             Log.e(TAG, "Failed to set boot animation style", e)
             Toast.makeText(context, R.string.boot_animation_applied_error, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // Fetches an online style and, when the screen is still shown, applies it. One at a time.
+    fun downloadAndApply(entry: OnlineBootAnimation) {
+        if (downloading != null) return
+        downloading = entry.id to 0f
+        OnlineBootAnimationCatalog.scope.launch {
+            val error = try {
+                OnlineBootAnimationCatalog.download(entry, store.file(entry)) {
+                    downloading = entry.id to it
+                }
+                0
+            } catch (e: OnlineBootAnimationCatalog.ChecksumException) {
+                Log.w(TAG, "Checksum mismatch for ${entry.id}", e)
+                R.string.boot_animation_error_checksum
+            } catch (e: Exception) {
+                Log.w(TAG, "Download of ${entry.id} failed", e)
+                R.string.boot_animation_error_download
+            }
+            val thumb = if (error == 0) loadThumbnailForStyle(context, entry.id) else null
+            withContext(Dispatchers.Main) {
+                downloading = null
+                if (error != 0) {
+                    Toast.makeText(context, error, Toast.LENGTH_LONG).show()
+                } else {
+                    downloadsVersion++
+                    if (thumb != null) thumbnails[entry.id] = thumb
+                    if (alive[0]) {
+                        applyStyle(entry.id)
+                        Toast.makeText(context, R.string.boot_animation_applied, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
+        }
+    }
+
+    fun deleteDownload(entry: OnlineBootAnimation) {
+        scope.launch {
+            val preview = withContext(Dispatchers.IO) {
+                store.delete(entry)
+                loadOnlinePreview(context, store, entry)
+            }
+            thumbnails[entry.id] = preview
+            downloadsVersion++
         }
     }
 
@@ -284,7 +371,11 @@ private fun BootAnimationScreen(context: android.content.Context) {
     ) { uri -> uri?.let { handleCustomPick(it) } }
 
     // Initial load
-    LaunchedEffect(Unit) { loadPreview(selectedName) }
+    LaunchedEffect(Unit) {
+        loadPreview(selectedName)
+        catalog = withContext(Dispatchers.IO) { store.saved() }
+        refreshCatalog()
+    }
 
     Scaffold(containerColor = Color.Transparent) { innerPadding ->
         Column(
@@ -312,8 +403,16 @@ private fun BootAnimationScreen(context: android.content.Context) {
                 selectedName = selectedName,
                 customInstalled = customInstalled,
                 thumbnails = thumbnails,
+                onlineInfo = onlineInfo,
+                downloading = downloading,
+                catalogFailed = catalogFailed,
+                onRetryCatalog = { refreshCatalog(force = true) },
+                onDelete = { name -> catalog.firstOrNull { it.id == name }?.let(::deleteDownload) },
                 onSelect = { name ->
                     when {
+                        // Not on the device yet, so fetch it first
+                        onlineInfo[name]?.downloaded == false ->
+                            catalog.firstOrNull { it.id == name }?.let(::downloadAndApply)
                         name != BootAnimationUtils.NAME_CUSTOM -> applyStyle(name)
                         // Use the installed zip; tapping it again picks a replacement
                         customInstalled && selectedName != name -> applyStyle(name)
@@ -458,23 +557,77 @@ private fun StyleSelectorCard(
     selectedName: String,
     customInstalled: Boolean,
     thumbnails: Map<String, Drawable?>,
+    onlineInfo: Map<String, OnlineInfo>,
+    downloading: Pair<String, Float>?,
+    catalogFailed: Boolean,
+    onRetryCatalog: () -> Unit,
+    onDelete: (String) -> Unit,
     onSelect: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
+    // Styles the app has a translated name for; online ones that are new use the catalog's
+    val knownNames = remember {
+        context.resources.getStringArray(R.array.themes_boot_animation_values).toSet()
+    }
     ExpressiveGroup(title = "", modifier = modifier, horizontalInset = 0.dp) {
         styles.forEach { name ->
             item {
                 val isCustom = name == BootAnimationUtils.NAME_CUSTOM
+                val info = onlineInfo[name]
+                val progress = downloading?.takeIf { it.first == name }?.second
                 ExpressiveChoiceRow(
-                    title = BootAnimationUtils.getLabel(context, name),
+                    title = if (info != null && name !in knownNames) {
+                        info.label
+                    } else {
+                        BootAnimationUtils.getLabel(context, name)
+                    },
                     selected = selectedName == name,
                     onClick = { onSelect(name) },
                     summary = when {
+                        progress != null -> stringResource(
+                            R.string.boot_animation_downloading, (progress * 100).toInt(),
+                        )
+                        info != null && !info.downloaded -> stringResource(
+                            R.string.boot_animation_download_size,
+                            Formatter.formatShortFileSize(context, info.sizeBytes),
+                        )
+                        info != null && info.deletable -> stringResource(
+                            R.string.boot_animation_downloaded_size,
+                            Formatter.formatShortFileSize(context, info.sizeBytes),
+                        )
                         !isCustom -> null
                         !customInstalled -> stringResource(R.string.boot_animation_custom_pick)
                         selectedName == name ->
                             stringResource(R.string.boot_animation_custom_replace)
+                        else -> null
+                    },
+                    trailing = when {
+                        progress != null -> ({
+                            CircularProgressIndicator(
+                                progress = { progress },
+                                modifier = Modifier.size(24.dp),
+                                strokeWidth = 2.dp,
+                            )
+                        })
+                        info != null && !info.downloaded -> ({
+                            Icon(
+                                imageVector = Icons.Outlined.Download,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        })
+                        // A downloaded style can be deleted, but not while it is the one in use
+                        info != null && info.deletable && selectedName != name -> ({
+                            IconButton(onClick = { onDelete(name) }) {
+                                Icon(
+                                    imageVector = Icons.Outlined.Delete,
+                                    contentDescription =
+                                        stringResource(R.string.boot_animation_delete_download),
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
+                        })
                         else -> null
                     },
                     leading = {
@@ -487,7 +640,37 @@ private fun StyleSelectorCard(
                 )
             }
         }
+        if (catalogFailed) {
+            item {
+                ExpressiveChoiceRow(
+                    title = stringResource(R.string.boot_animation_catalog_retry),
+                    selected = false,
+                    onClick = onRetryCatalog,
+                    summary = stringResource(R.string.boot_animation_catalog_error),
+                )
+            }
+        }
     }
+}
+
+/** What an online style adds to its row: [label] from the catalog, its size and state. */
+private data class OnlineInfo(
+    val label: String,
+    val sizeBytes: Long,
+    /** On the device, either built in or downloaded. */
+    val downloaded: Boolean,
+    /** A download of ours that can be deleted again. */
+    val deletable: Boolean,
+)
+
+/** The preview picture of an online style that is not on the device. Blocking. */
+private fun loadOnlinePreview(
+    context: android.content.Context,
+    store: OnlineBootAnimationStore,
+    entry: OnlineBootAnimation?,
+): Drawable? {
+    if (entry == null || store.isDownloaded(entry)) return null
+    return store.preview(entry)?.let { BitmapDrawable(context.resources, it) }
 }
 
 @Composable
