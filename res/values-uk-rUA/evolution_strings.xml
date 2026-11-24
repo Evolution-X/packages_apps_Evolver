@@ -64,6 +64,14 @@
     <string name="boot_animation_no_preview">Попередній перегляд недоступний</string>
     <string name="boot_animation_custom_pick">Виберіть zip-архів для завантаження</string>
     <string name="boot_animation_custom_replace">Натисніть щоб вибрати інший zip</string>
+    <string name="boot_animation_download_size">Завантаження · %1$s</string>
+    <string name="boot_animation_downloaded_size">Завантажено · %1$s</string>
+    <string name="boot_animation_downloading">Завантаження · %1$d%%</string>
+    <string name="boot_animation_delete_download">Видалити завантажене</string>
+    <string name="boot_animation_catalog_retry">Повторити спробу</string>
+    <string name="boot_animation_catalog_error">Не вдалося завантажити анімації завантаження з мережі. Перевірте підключення.</string>
+    <string name="boot_animation_error_download">Не вдалося завантажити анімацію завантаження. Перевірте з’єднання та спробуйте ще раз.</string>
+    <string name="boot_animation_error_checksum">Анімація завантаження не відповідає очікуваному файлу. Спробуйте ще раз пізніше.</string>
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">Налаштування кольору</string>
     <string name="color_settings_category">Налаштування кольорів</string>
@@ -553,6 +561,10 @@
     <string name="dynamic_bar_keyguard_enable">Динамічна панель на екрані блокування</string>
     <string name="dynamic_bar_keyguard_enable_summary">Замініть індикацію блокування клавіатури на динамічну панель на екрані блокування</string>
     <string name="dynamic_bar_keyguard_battery_chip">Інформація про акумулятор на екрані блокування</string>
+    <string name="dynamic_bar_haptics">Тактильний відгук при натисканні</string>
+    <string name="dynamic_bar_haptics_summary">Легко вібрувати під час прикладання чіпа</string>
+    <string name="dynamic_bar_chip_morph">Морфінг-анімація</string>
+    <string name="dynamic_bar_chip_morph_summary">Розгорніть чіп у панель, а при закритті — згорніть його назад</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Ніколи не відображати</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Показувати під час зарядження</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Завжди відображати</string>
