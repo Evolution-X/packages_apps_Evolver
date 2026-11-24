@@ -599,6 +599,8 @@
     <string name="dynamic_bar_keyguard_enable">Dynamic Bar on lock screen</string>
     <string name="dynamic_bar_keyguard_enable_summary">Replace the keyguard indication with a Dynamic Bar chip on the lock screen</string>
     <string name="dynamic_bar_keyguard_battery_chip">Battery info on lock screen</string>
+    <string name="dynamic_bar_haptics">Tap haptics</string>
+    <string name="dynamic_bar_haptics_summary">Vibrate subtly when tapping the chip</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Never show</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Only when charging</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Always show</string>
