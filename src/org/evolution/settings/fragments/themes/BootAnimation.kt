@@ -26,6 +26,7 @@ import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -34,15 +35,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FolderOpen
@@ -67,6 +66,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -74,8 +74,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -377,71 +380,96 @@ private fun BootAnimationScreen(context: android.content.Context) {
         refreshCatalog()
     }
 
+    val scrollState = rememberScrollState()
+    // The stage is full height at the top of the list and compact once the list has scrolled. It
+    // only grows back at the very top, so a list that barely scrolls can't flip it back and forth.
+    val density = LocalDensity.current
+    var compact by remember { mutableStateOf(false) }
+    LaunchedEffect(scrollState, density) {
+        val threshold = with(density) { STAGE_COMPACT_AFTER.roundToPx() }
+        snapshotFlow { scrollState.value }.collect { value ->
+            if (value > threshold) compact = true else if (value == 0) compact = false
+        }
+    }
+    val stageHeight by animateDpAsState(
+        targetValue = if (compact) STAGE_COMPACT_HEIGHT else STAGE_HEIGHT,
+        label = "stageHeight",
+    )
+
     Scaffold(containerColor = Color.Transparent) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
-                .expressiveVerticalScroll(),
+                .padding(innerPadding),
         ) {
-            // ── Preview card ─────────────────────────────────────────────────
-            PreviewCard(
+            // ── Pinned preview stage ─────────────────────────────────────────
+            PreviewStage(
                 previewDrawable = previewDrawable,
                 isLoading = isLoadingPreview,
                 selectedName = BootAnimationUtils.getLabel(context, selectedName),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp)
-                    .padding(top = 16.dp),
+                    .padding(top = 8.dp, bottom = 16.dp)
+                    .height(stageHeight),
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // ── Style selector list ───────────────────────────────────────────
-            StyleSelectorCard(
-                styles = styles,
-                selectedName = selectedName,
-                customInstalled = customInstalled,
-                thumbnails = thumbnails,
-                onlineInfo = onlineInfo,
-                downloading = downloading,
-                catalogFailed = catalogFailed,
-                onRetryCatalog = { refreshCatalog(force = true) },
-                onDelete = { name -> catalog.firstOrNull { it.id == name }?.let(::deleteDownload) },
-                onSelect = { name ->
-                    when {
-                        // Not on the device yet, so fetch it first
-                        onlineInfo[name]?.downloaded == false ->
-                            catalog.firstOrNull { it.id == name }?.let(::downloadAndApply)
-                        name != BootAnimationUtils.NAME_CUSTOM -> applyStyle(name)
-                        // Use the installed zip; tapping it again picks a replacement
-                        customInstalled && selectedName != name -> applyStyle(name)
-                        else -> fileLauncher.launch(
-                            arrayOf(
-                                "application/zip",
-                                "application/x-zip-compressed",
-                                "application/octet-stream",
-                            )
-                        )
-                    }
-                },
+            // ── Style selector list, scrolls under the stage ─────────────────
+            Column(
                 modifier = Modifier
+                    .weight(1f)
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-            )
+                    .expressiveVerticalScroll(scrollState),
+            ) {
+                StyleSelectorCard(
+                    styles = styles,
+                    selectedName = selectedName,
+                    customInstalled = customInstalled,
+                    thumbnails = thumbnails,
+                    onlineInfo = onlineInfo,
+                    downloading = downloading,
+                    catalogFailed = catalogFailed,
+                    onRetryCatalog = { refreshCatalog(force = true) },
+                    onDelete = { name -> catalog.firstOrNull { it.id == name }?.let(::deleteDownload) },
+                    onSelect = { name ->
+                        when {
+                            // Not on the device yet, so fetch it first
+                            onlineInfo[name]?.downloaded == false ->
+                                catalog.firstOrNull { it.id == name }?.let(::downloadAndApply)
+                            name != BootAnimationUtils.NAME_CUSTOM -> applyStyle(name)
+                            // Use the installed zip; tapping it again picks a replacement
+                            customInstalled && selectedName != name -> applyStyle(name)
+                            else -> fileLauncher.launch(
+                                arrayOf(
+                                    "application/zip",
+                                    "application/x-zip-compressed",
+                                    "application/octet-stream",
+                                )
+                            )
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                )
 
-            Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(32.dp))
+            }
         }
     }
 }
 
 // ---------------------------------------------------------------------------
-// Preview card — clean, no tinted background
+// Preview stage — pinned above the list, the animation fitted to it
 // ---------------------------------------------------------------------------
+
+private val STAGE_HEIGHT = 260.dp
+private val STAGE_COMPACT_HEIGHT = 140.dp
+private val STAGE_COMPACT_AFTER = 48.dp
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-private fun PreviewCard(
+private fun PreviewStage(
     previewDrawable: Drawable?,
     isLoading: Boolean,
     selectedName: String,
@@ -449,100 +477,68 @@ private fun PreviewCard(
 ) {
     // Colour of the part being played, like the boot animation clears to it
     var previewBackground by remember(previewDrawable) { mutableStateOf<Color?>(null) }
-    Surface(
-        modifier = modifier,
-        shape = ExpressiveCorners.single,
-        color = MaterialTheme.colorScheme.surfaceContainerHigh,
-        tonalElevation = 0.dp,
+    val description = stringResource(R.string.boot_animation_preview_title)
+    Box(
+        modifier = modifier
+            .clip(ExpressiveCorners.preview)
+            .background(previewBackground ?: Color.Black)
+            .semantics(mergeDescendants = true) {
+                contentDescription = "$description, $selectedName"
+            },
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            // Header row
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Box(
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.secondaryContainer),
-                    contentAlignment = Alignment.Center,
+        AnimatedContent(
+            targetState = isLoading to previewDrawable,
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center,
+            transitionSpec = {
+                fadeIn(tween(300)) togetherWith fadeOut(tween(200))
+            },
+            label = "preview",
+        ) { (loading, drawable) ->
+            when {
+                loading -> LoadingIndicator(modifier = Modifier.size(36.dp))
+                drawable != null -> AnimationPreviewView(
+                    drawable = drawable,
+                    onBackground = { previewBackground = it },
+                    modifier = Modifier.fillMaxSize(),
+                )
+                else -> Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier.fillMaxSize(),
                 ) {
                     Icon(
                         imageVector = Icons.Outlined.Animation,
                         contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                        modifier = Modifier.size(20.dp),
+                        modifier = Modifier.size(32.dp),
+                        tint = Color.White.copy(alpha = 0.3f),
                     )
-                }
-                Spacer(modifier = Modifier.width(12.dp))
-                Column {
+                    Spacer(modifier = Modifier.height(6.dp))
                     Text(
-                        text = stringResource(R.string.boot_animation_preview_title),
-                        style = MaterialTheme.typography.titleSmall,
-                        color = MaterialTheme.colorScheme.onSurface,
-                    )
-                    Text(
-                        text = selectedName,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
+                        text = stringResource(R.string.boot_animation_no_preview),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = Color.White.copy(alpha = 0.3f),
                     )
                 }
             }
+        }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Preview viewport — phone-ish 9:16 cropped to a reasonable height
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth(0.55f)        // narrow like a phone screen
-                    .aspectRatio(9f / 16f)
-                    .clip(ExpressiveCorners.preview)
-                    .background(previewBackground ?: Color.Black),
-                contentAlignment = Alignment.Center,
-            ) {
-                AnimatedContent(
-                    targetState = isLoading to previewDrawable,
-                    transitionSpec = {
-                        fadeIn(tween(300)) togetherWith fadeOut(tween(200))
-                    },
-                    label = "preview",
-                ) { (loading, drawable) ->
-                    when {
-                        loading -> LoadingIndicator(modifier = Modifier.size(36.dp))
-                        drawable != null -> AnimationPreviewView(
-                            drawable = drawable,
-                            onBackground = { previewBackground = it },
-                            modifier = Modifier.fillMaxSize(),
-                        )
-                        else -> Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center,
-                            modifier = Modifier.fillMaxSize(),
-                        ) {
-                            Icon(
-                                imageVector = Icons.Outlined.Animation,
-                                contentDescription = null,
-                                modifier = Modifier.size(32.dp),
-                                tint = Color.White.copy(alpha = 0.3f),
-                            )
-                            Spacer(modifier = Modifier.height(6.dp))
-                            Text(
-                                text = stringResource(R.string.boot_animation_no_preview),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = Color.White.copy(alpha = 0.3f),
-                            )
-                        }
-                    }
-                }
-            }
+        // Dark pill so the name reads on whatever colour the animation clears to
+        Surface(
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .padding(12.dp),
+            shape = CircleShape,
+            color = Color.Black.copy(alpha = 0.5f),
+        ) {
+            Text(
+                text = selectedName,
+                style = MaterialTheme.typography.labelMedium,
+                color = Color.White,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+            )
         }
     }
 }
