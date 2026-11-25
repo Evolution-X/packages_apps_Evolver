@@ -16,7 +16,7 @@
     <string name="status_bar_summary">ジェスチャー、アイコン、ロゴ、余白</string>
     <string name="quick_settings_title">クイック設定</string>
     <string name="quick_settings_summary">インターフェース、明るさスライダー、レイアウト</string>
-    <string name="notifications_summary">ポップアップ通知、透過、音</string>
+    <string name="notifications_summary">ポップアップ通知、透過、通知音</string>
     <string name="power_menu_title">電源メニュー</string>
     <string name="power_menu_summary">ロック画面のアクション</string>
     <string name="miscellaneous_title">その他</string>
@@ -39,13 +39,13 @@
     <string name="themes_unlock_sound_title">ロック解除時の音</string>
     <string name="themes_fonts_category">フォント</string>
     <string name="themes_lock_screen_clock_font_title">ロック画面の時計のフォント</string>
-    <string name="themes_lock_screen_clock_font_summary">ロック画面の時計のフォントスタイルを設定する</string>
+    <string name="themes_lock_screen_clock_font_summary">ロック画面の時計のフォントスタイルを設定します</string>
     <string name="themes_icons_category">アイコン</string>
     <string name="themes_icon_shape_title">アイコンの形状</string>
     <string name="themes_navigation_bar_icons_title">ナビゲーションバーアイコン</string>
-    <string name="themes_navigation_bar_icons_summary">ナビゲーションバーアイコンのスタイルを設定する</string>
+    <string name="themes_navigation_bar_icons_summary">ナビゲーションバーアイコンのスタイルを設定します</string>
     <string name="themes_udfps_icon_title">画面内指紋認証アイコン</string>
-    <string name="themes_udfps_icon_summary">画面内指紋認証のアイコンスタイルを設定する</string>
+    <string name="themes_udfps_icon_summary">画面内指紋認証のアイコンスタイルを設定します</string>
     <string name="screen_off_animation_title">画面消灯時のアニメーション</string>
     <string name="screen_off_animation_colorfade">色のフェード</string>
     <string name="screen_off_animation_crt">ブラウン管</string>
@@ -54,7 +54,7 @@
     <string name="screen_off_animation_desaturate">彩度を下げる</string>
     <string name="screen_off_animation_shutter">シャッター</string>
     <string name="themes_udfps_animation_title">画面内指紋認証のアニメーション</string>
-    <string name="themes_udfps_animation_summary">画面内指紋認証アニメーションを設定する</string>
+    <string name="themes_udfps_animation_summary">画面内指紋認証アニメーションを設定します</string>
     <string name="dialog_blur_title">ダイアログとトーストのぼかし</string>
     <string name="dialog_blur_summary">システムダイアログとトーストの背景をぼかす</string>
     <!-- Themes/Boot animation -->
@@ -64,6 +64,14 @@
     <string name="boot_animation_no_preview">プレビューは利用できません</string>
     <string name="boot_animation_custom_pick">起動アニメーションの zip ファイルを選択してください</string>
     <string name="boot_animation_custom_replace">タップして別のzipを選択</string>
+    <string name="boot_animation_download_size">ダウンロード・ %1$s</string>
+    <string name="boot_animation_downloaded_size">ダウンロード済み · %1$s</string>
+    <string name="boot_animation_downloading">ダウンロード中：%1$d%%</string>
+    <string name="boot_animation_delete_download">ダウンロードを削除</string>
+    <string name="boot_animation_catalog_retry">再試行</string>
+    <string name="boot_animation_catalog_error">オンラインの起動アニメーションを読み込めませんでした。接続を確認してください。</string>
+    <string name="boot_animation_error_download">起動アニメーションをダウンロードできませんでした。接続を確認して再度お試し下さい。</string>
+    <string name="boot_animation_error_checksum">ダウンロードした起動アニメーションが、想定されていたファイルと一致しませんでした。後でもう一度試してください。</string>
     <!-- Themes/Monet Settings -->
     <string name="monet_settings_title">色のカスタマイズ</string>
     <string name="color_settings_category">色設定</string>
@@ -109,7 +117,7 @@
     <string name="tone_shift_dark_desc">コントラストに関係なく、すべてのライトモードカラーライター(+)または暗い(−)をシフトします。</string>
     <!-- Secondary seed -->
     <string name="secondary_seed_category">セカンダリシードの色</string>
-    <string name="use_secondary_seed_title">セカンダリシードを有効にする</string>
+    <string name="use_secondary_seed_title">セカンダリシードを有効</string>
     <string name="use_secondary_seed_desc">2トーンテーマのために別のシードカラーからセカンダリと第三色のパレットを駆動します。</string>
     <string name="secondary_seed_color_title">セカンダリシードの色</string>
     <!-- Lock screen -->
@@ -117,32 +125,32 @@
     <string name="face_unlock_animation_title">顔認証のアニメーション</string>
     <string name="face_unlock_animation_summary">顔認証によるロック解除時に、スキャン中・成功・失敗のアニメーションを表示します</string>
     <string name="lock_screen_charging_stats_title">充電ステータス</string>
-    <string name="lock_screen_charging_stats_summary">充電中はロック画面に充電器の最大電流/電圧/バッテリー温度を表示する</string>
+    <string name="lock_screen_charging_stats_summary">充電中はロック画面に充電器の最大電流/電圧/バッテリー温度を表示</string>
     <string name="lock_screen_charging_time_title">充電の時間</string>
-    <string name="lock_screen_charging_time_summary">フル充電までの推定残り時間を表示する</string>
+    <string name="lock_screen_charging_time_summary">フル充電までの推定残り時間を表示</string>
     <string name="lock_screen_fingerprint_category">指紋</string>
     <string name="lock_screen_fingerprint_ripple_title">波紋のアニメーション</string>
-    <string name="lock_screen_fingerprint_ripple_summary">指紋認証のロック解除時に波紋効果を表示する</string>
+    <string name="lock_screen_fingerprint_ripple_summary">指紋認証のロック解除時に波紋効果を表示</string>
     <string name="lock_screen_fingerprint_success_vibration_title">認証成功時の振動</string>
     <string name="lock_screen_fingerprint_success_vibration_summary">指紋認証成功時に振動させる</string>
     <string name="lock_screen_fingerprint_error_vibration_title">認証エラー時の振動</string>
     <string name="lock_screen_fingerprint_error_vibration_summary">指紋認証が失敗した際に振動させる</string>
     <!-- Lock screen/Pulse music visualizer -->
     <string name="pulse_settings_title">Pulse ビジュアライザー</string>
-    <string name="pulse_settings_summary">音楽再生時にロック画面にバービジュアライザーを表示する</string>
+    <string name="pulse_settings_summary">音楽再生時にロック画面にバービジュアライザーを表示</string>
     <string name="pulse_bass_haptics_title">低音ハプティクス</string>
     <string name="pulse_bass_haptics_none">低音のピーク時に振動させない</string>
     <string name="pulse_bass_haptics_running">Pulse 表示中のみ振動させる</string>
     <string name="pulse_bass_haptics_always">メディア再生中は常に振動させる</string>
     <string name="pulse_bass_haptics_disabled_amplitude">振幅キャプチャモードでは使用できません</string>
     <string name="pulse_rounded_bars_title">角丸バー</string>
-    <string name="pulse_rounded_bars_summary">ビジュアライザーのバーの角を丸くする</string>
+    <string name="pulse_rounded_bars_summary">ビジュアライザーのバーの角を丸くします</string>
     <string name="pulse_color">ビジュアライザーの色</string>
     <string name="pulse_color_lavalamp">ラーヴァランプ</string>
     <string name="pulse_color_album">アルバムアート</string>
     <string name="pulse_color_accent">アクセントカラー</string>
     <string name="pulse_bar_count_title">バーの数</string>
-    <string name="pulse_bar_count_summary">ビジュアライザーに表示されるバーの数を設定する</string>
+    <string name="pulse_bar_count_summary">ビジュアライザーに表示されるバーの数を設定します</string>
     <string name="pulse_bar_count_units">バー</string>
     <string name="pulse_renderer">ビジュアライザーのスタイル</string>
     <string name="pulse_renderer_solid">ソリッドライン</string>
@@ -162,9 +170,9 @@
     <string name="pulse_show_on_ambient_summary">常に画面を ON にしている際やアンビエントモードでビジュアライザーを表示する。無効にするとロック画面のみ表示されます。</string>
     <string name="pulse_show_on_ambient_disabled_player">メディアプレーヤーの背景が有効な場合、ビジュアライザーはアンビエント表示では使用できません</string>
     <string name="pulse_show_on_media_player_title">メディアプレーヤーの背景に表示</string>
-    <string name="pulse_show_on_media_player_summary">ロック画面とクイック設定のメディアプレーヤーの背景にビジュアライザーを表示する</string>
+    <string name="pulse_show_on_media_player_summary">ロック画面とクイック設定のメディアプレーヤーの背景にビジュアライザーを表示</string>
     <string name="pulse_height_multiplier_title">Pulse の高さ</string>
-    <string name="pulse_height_multiplier_summary">ビジュアライザーの高さを調整する</string>
+    <string name="pulse_height_multiplier_summary">ビジュアライザーの高さを調整します</string>
     <!-- Lockscreen Clock Highlight Guide -->
     <string name="ls_clock_title">ロック画面の時計</string>
     <string name="ls_clock_summary">時計のスタイルとウィジェットを設定</string>
@@ -172,7 +180,7 @@
     <string name="clock_styles_disclaimer_message">時計の文字やウィジェットをご利用いただくために、以下の設定を行ってください：\n\n• ロック画面の「スマートスペース」を無効にする\n• ロック画面の天気を無効にする\n• 大きな時計のスタイルを無効にする\n\nこれらの設定は、ロック画面の設定から変更できます。</string>
     <!-- Lock screen/Custom clock -->
     <string name="lockscreen_custom_clock_style_title">カスタム時計スタイル</string>
-    <string name="lockscreen_custom_clock_style_summary">ロック画面の時計のスタイルを設定する</string>
+    <string name="lockscreen_custom_clock_style_summary">ロック画面の時計のスタイルを設定します</string>
     <string name="lockscreen_custom_clock_style_highlight_text">左右にスワイプして時計スタイルをプレビューできます</string>
     <string name="lockscreen_custom_clock_style_info">カスタム時計スタイルはAOSPの時計スタイルをカスタム時計に置き換えます。ロック画面のウィジェットは無効になります。代わりにカスタムの天候を有効にして使用できます。</string>
     <string name="lockscreen_custom_clock_opacity_title">時計の不透明度</string>
@@ -181,9 +189,9 @@
     <string name="lockscreen_custom_clock_frame_margin_top_summary">カスタム時計スタイルの高さを調整します</string>
     <string name="lockscreen_custom_clock_color_mode_title">色のモード</string>
     <string name="lockscreen_custom_clock_aod_anim_title">AODアニメーション</string>
-    <string name="lockscreen_custom_clock_aod_anim_summary">カスタム時計スタイルの AOD アニメーションを設定する</string>
+    <string name="lockscreen_custom_clock_aod_anim_summary">カスタム時計スタイルの AOD アニメーションを設定します</string>
     <string name="lockscreen_custom_clock_wobble_on_charge_title">ウェーブチャージ効果</string>
-    <string name="lockscreen_custom_clock_wobble_on_charge_summary">充電器に接続したときに時計に「ぐらつき」効果を表示する</string>
+    <string name="lockscreen_custom_clock_wobble_on_charge_summary">充電器に接続したときに時計にぐらつき効果を表示します</string>
     <string name="lockscreen_custom_clock_frame_margin_start_title">水平オフセット</string>
     <string name="lockscreen_custom_clock_frame_margin_start_summary">左/右の位置</string>
     <string name="lockscreen_custom_clock_gradient_enabled_title">グラデーションの文字</string>
@@ -202,19 +210,19 @@
     <string name="lockscreen_custom_clock_applied"><xliff:g id="clock_name" example="OnePlus Clock">%1$s</xliff:g> が適用されました</string>
     <!-- Lockscreen Clock Size -->
     <string name="clock_size_title">サイズ</string>
-    <string name="clock_size_summary">ロック画面の時計の大きさを変更する (50–150%)</string>
+    <string name="clock_size_summary">ロック画面の時計の大きさを変更 します(50–150%)</string>
     <string name="lockscreen_custom_clock_dynamic_size_title">ダイナミック時計サイズ</string>
     <string name="lockscreen_custom_clock_dynamic_size_summary">ロック画面に通知やメディアがない場合に時計を大きく表示します。非常に大きな時計スタイルはサイズを維持します</string>
     <!-- Lockscreen clock: album art color override -->
     <string name="clock_album_art_color_title">アルバムアートの色をフォロー</string>
-    <string name="clock_album_art_color_summary">メディア再生時にアルバムアートパレットで時計の色を上書きする</string>
+    <string name="clock_album_art_color_summary">メディア再生時にアルバムアートパレットで時計の色を上書きします</string>
     <!-- Lockscreen widgets -->
     <string name="lockscreen_widgets_title">ウィジェット</string>
     <string name="lockscreen_widgets_enabled_title">ロック画面のウィジェットを有効化</string>
     <string name="lockscreen_widgets_enabled_summary">ロック画面にウィジェットを追加します</string>
     <string name="lockscreen_display_widgets_title">デバイス情報ウィジェット</string>
     <string name="lockscreen_widgets_color_mode_title">ウィジェットのカラーモード</string>
-    <string name="lockscreen_display_widgets_summary">デバイス情報ウィジェットをロック画面に表示する</string>
+    <string name="lockscreen_display_widgets_summary">デバイス情報ウィジェットをロック画面に表示</string>
     <string name="main_custom_widgets1">大きなウィジェット 1</string>
     <string name="main_custom_widgets2">大きなウィジェット 2</string>
     <string name="custom_widgets1">小さなウィジェット 1</string>
@@ -241,15 +249,15 @@
     <string name="lockscreen_widgets_style5">正方形のぼかし</string>
     <string name="lockscreen_widgets_style6">角丸バー</string>
     <string name="lockscreen_widgets_transparency_title">半透明の透明度</string>
-    <string name="lockscreen_widgets_transparency_summary">半透明スタイルのウィジェットの不透明度を設定する</string>
+    <string name="lockscreen_widgets_transparency_summary">半透明スタイルのウィジェットの不透明度を設定します</string>
     <!-- Lockscreen Weather -->
     <string name="custom_clock_weather_title">ロック画面の天気</string>
-    <string name="custom_clock_weather_summary">ロック画面の時計に天気を表示する</string>
+    <string name="custom_clock_weather_summary">ロック画面の時計に天気を表示します</string>
     <!-- Lock screen/Media art -->
     <string name="ls_media_art_title">メディアカバーアート</string>
     <string name="ls_media_art_summary">利用可能な場合はカバーアートを表示する</string>
     <string name="ls_media_art_status_bar_above_title">カバーアートの上のステータスバー</string>
-    <string name="ls_media_art_status_bar_above_summary">バッテリー、モバイルデータ、時計をカバーアートの上に表示する</string>
+    <string name="ls_media_art_status_bar_above_summary">バッテリー、モバイルデータ、時計をカバーアートの上に表示します</string>
     <string name="ls_media_art_filter_title">カバーアートのフィルター</string>
     <string name="ls_media_art_filter_none">なし</string>
     <string name="ls_media_art_filter_blur">ぼかし</string>
@@ -259,14 +267,14 @@
     <string name="ls_media_art_filter_invert">反転</string>
     <string name="ls_media_art_filter_grayblur">グレースケールとぼかし</string>
     <string name="ls_media_art_fade_level_title">カバーアートのフェードレベル</string>
-    <string name="ls_media_art_fade_level_summary">メディアカバーアートのフェードレベルを設定する</string>
+    <string name="ls_media_art_fade_level_summary">メディアカバーアートのフェードレベルを設定します</string>
     <string name="ls_media_art_blur_level_title">カバーアートのぼかしレベル</string>
     <string name="ls_media_art_blur_level_summary">ぼかしフィルター適用時のぼかしの強さ</string>
     <string name="ls_media_art_pixel_size_title">メディアアートのピクセルサイズ</string>
-    <string name="ls_media_art_pixel_size_summary">ロック画面に表示されるメディアアートのピクセルサイズを調整する</string>
+    <string name="ls_media_art_pixel_size_summary">ロック画面に表示されるメディアアートのピクセルサイズを調整します</string>
     <!-- AOD Media Settings -->
     <string name="show_on_aod_title">AOD に表示</string>
-    <string name="show_on_aod_summary">常時表示ディスプレイにメディアのアートワークを表示する</string>
+    <string name="show_on_aod_summary">常時表示ディスプレイにメディアのアートワークを表示します</string>
     <string name="aod_brightness_title">AOD の明るさ</string>
     <!-- Lock screen/Now Playing -->
     <string name="nowplaying_title">Now Playing</string>
@@ -284,24 +292,24 @@
     <string name="nowplaying_pixel_native_summary">このデバイスでは、Pixelのアンビエント表示機能を通じて、すでに「Now Playing」が標準で提供されています</string>
     <!-- Lock screen/Weather -->
     <string name="weather_settings_title">天気の設定</string>
-    <string name="weather_settings_summary">アイコンパックと天気サービスを設定する</string>
+    <string name="weather_settings_summary">アイコンパックと天気サービスを設定します</string>
     <string name="lockscreen_weather_category">天気</string>
     <string name="lockscreen_weather_title">天気</string>
-    <string name="lockscreen_weather_summary">ロック画面に現在の天気を表示する</string>
+    <string name="lockscreen_weather_summary">ロック画面に現在の天気を表示します</string>
     <string name="lockscreen_weather_enabled_info">天気サービスを有効にする必要があります</string>
     <string name="lockscreen_weather_location_title">場所を表示</string>
-    <string name="lockscreen_weather_location_summary">現在の天気の場所を表示する</string>
+    <string name="lockscreen_weather_location_summary">現在の天気の場所を表示</string>
     <string name="lockscreen_weather_text_title">状態を表示</string>
-    <string name="lockscreen_weather_text_summary">現在の天気の状態を表示する</string>
+    <string name="lockscreen_weather_text_summary">現在の天気の状態を表示</string>
     <string name="lockscreen_weather_wind_info_title">風の情報</string>
-    <string name="lockscreen_weather_wind_info_summary">現在の風速と風向きを表示する</string>
+    <string name="lockscreen_weather_wind_info_summary">現在の風速と風向きを表示</string>
     <string name="lockscreen_weather_humidity_info_title">湿度の情報</string>
-    <string name="lockscreen_weather_humidity_info_summary">現在の湿度の割合を表示する</string>
+    <string name="lockscreen_weather_humidity_info_summary">現在の湿度の割合を表示</string>
     <!-- Lock screen/AOD -->
     <string name="lockscreen_custom_image_enabled_title">AOD の画像</string>
     <string name="lockscreen_custom_image_title">AOD の画像を選択</string>
-    <string name="lockscreen_custom_image_summary">常時表示ディスプレイのカスタム画像を設定する</string>
-    <string name="lockscreen_custom_image_pick_summary">ギャラリーから画像を選択する</string>
+    <string name="lockscreen_custom_image_summary">常時表示ディスプレイのカスタム画像を設定します</string>
+    <string name="lockscreen_custom_image_pick_summary">ギャラリーから画像を選択</string>
     <string name="ambient_display_category_title">アンビエント表示</string>
     <string name="ambient_bottom_title">AOD 下部のコンテンツ</string>
     <string name="ambient_battery_disable_title">無効</string>
@@ -310,15 +318,15 @@
     <string name="ambient_battery_cpu_battery_temperature_title">バッテリー残量、温度 (バッテリーとCPU)</string>
     <string name="ambient_user_name_title">ユーザー名</string>
     <string name="display_icon_title">アイコン</string>
-    <string name="display_icon_summary">残量と温度と一緒にアイコンを表示する</string>
+    <string name="display_icon_summary">残量と温度と一緒にアイコンを表示します</string>
     <string name="ambient_wallpaper_title">アンビエント壁紙</string>
-    <string name="doze_always_on_wallpaper_summary">アンビエント表示にロック画面の壁紙を表示する</string>
+    <string name="doze_always_on_wallpaper_summary">アンビエント表示にロック画面の壁紙を表示します</string>
     <!-- Lock screen/Scrim -->
     <string name="keyguard_scrim_transparent_title">透明なロック画面のスクリム</string>
     <string name="keyguard_scrim_transparent_summary">ロック画面の壁紙の減光レイヤーを隠す</string>
     <!-- Lock screen/Smartspace -->
     <string name="lockscreen_smartspace_title">スマートスペース</string>
-    <string name="lockscreen_smartspace_summary">利用可能な場合に Google スマートスペースを表示する</string>
+    <string name="lockscreen_smartspace_summary">利用可能な場合に Google スマートスペースを表示します</string>
     <string name="lockscreen_smartspace_custom_clock_info">カスタム時計スタイルが有効になっている間は利用できません</string>
     <!-- Lock screen/Depth wallpaper -->
     <string name="depthwall_file_header_select_title">深度壁紙のを選択</string>
@@ -329,9 +337,9 @@
     <string name="depth_wallpaper_bottom_fade_title">下部にフェード</string>
     <string name="depth_wallpaper_bottom_fade_summary">下部の壁紙をフェードアウトします</string>
     <string name="depth_wallpaper_fade_curve_title">フェードカーブ</string>
-    <string name="depth_wallpaper_fade_curve_summary">壁紙のフェードカーブを調整する</string>
+    <string name="depth_wallpaper_fade_curve_summary">壁紙のフェードカーブを調整します</string>
     <string name="depth_wallpaper_bottom_inset_title">下部インセット</string>
-    <string name="depth_wallpaper_bottom_inset_summary">下部の壁紙のインセットを調整する</string>
+    <string name="depth_wallpaper_bottom_inset_summary">下部の壁紙のインセットを調整します</string>
     <string name="depthwall_auto_subject_title">被写体深度を活かした自動壁紙</string>
     <string name="depthwall_auto_subject_summary">壁紙から被写体を自動的に抽出し、奥行き効果を適用します</string>
     <string name="depthwall_extract_now_title">今すぐ被写体を抽出</string>
@@ -345,7 +353,7 @@
     <string name="depthwall_spatial_effect_title">空間エフェクト</string>
     <string name="depthwall_spatial_effect_summary">端末を傾けると、ロック画面の深度壁紙に3Dの立体効果が追加されます。</string>
     <string name="depthwall_spatial_sensitivity_title">空間感度</string>
-    <string name="depthwall_spatial_sensitivity_summary">3D空間効果の移動感度を調整する</string>
+    <string name="depthwall_spatial_sensitivity_summary">3D空間効果の移動感度を調整します</string>
     <string name="dw_footer_text">奥行きのある壁紙は、iOS の壁紙の被写体切り抜きからインスピレーションを得て、ロック画面の時計の上に被写体画像を重ねます。\n\n設定方法:\n1. 被写体の後ろに配置したい背景で壁紙を設定します。\n2. ロック画面の時計の上に重ねる被写体画像を選択します。\n3. オフセットと不透明度を好みに合わせて調整します。</string>
     <!-- Status bar -->
     <string name="status_bar_triple_tap_freeform_title">3回タップでフリーフォーム</string>
@@ -353,7 +361,7 @@
     <string name="status_bar_toggle_brightness_title">明るさコントロール</string>
     <string name="status_bar_toggle_brightness_summary">ステータスバーの上をスライドして明るさを調整する</string>
     <string name="status_bar_toggle_brightness_lockscreen_title">ロック画面の輝度コントロール</string>
-    <string name="status_bar_toggle_brightness_lockscreen_summary">ロック画面のステータスバーでの明るさ調節を許可する</string>
+    <string name="status_bar_toggle_brightness_lockscreen_summary">ロック画面のステータスバーでの明るさ調節を許可します</string>
     <string name="status_bar_quick_qs_pulldown_title">クイックプルダウン</string>
     <string name="status_bar_quick_qs_pulldown_summary">ステータスバーの %1$s 端から引き下げるとクイック設定が開きます</string>
     <string name="status_bar_quick_qs_pulldown_summary_left">左</string>
@@ -553,6 +561,10 @@
     <string name="dynamic_bar_keyguard_enable">ロック画面のダイナミックバー</string>
     <string name="dynamic_bar_keyguard_enable_summary">ロック画面のインジケーターをダイナミックバーチップに置き換える</string>
     <string name="dynamic_bar_keyguard_battery_chip">ロック画面のバッテリー情報</string>
+    <string name="dynamic_bar_haptics">タップ時の触覚</string>
+    <string name="dynamic_bar_haptics_summary">チップをタップしたときに軽く振動します</string>
+    <string name="dynamic_bar_chip_morph">変形アニメーション</string>
+    <string name="dynamic_bar_chip_morph_summary">チップをパネルに拡大表示し、閉じるときに元のチップへ縮小します</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">非表示</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">充電中のみ</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">常に表示</string>
@@ -713,8 +725,11 @@
     <!-- Quick settings -->
     <string name="quick_settings_interface_category">インターフェース</string>
     <string name="qs_panel_style_title">クイック設定パネルのスタイル</string>
+    <string name="qs_style_preview_on">ON</string>
+    <string name="qs_style_preview_off">OFF</string>
     <string name="qs_panel_style_card">カード</string>
     <string name="qs_panel_style_classic">Android11</string>
+    <string name="qs_remix_style_title">リミックススタイル</string>
     <string name="quick_settings_layout_category_title">レイアウト</string>
     <string name="quick_settings_tile_label_hide_title">ラベルを非表示</string>
     <string name="quick_settings_tile_label_hide_summary">タイル内にアイコンのみを表示する</string>
@@ -1107,6 +1122,8 @@
     <string name="ts_no_keybox">キーボックスがインストールされていません</string>
     <string name="ts_keybox_installed">キーボックスがインストール済みです</string>
     <string name="ts_keybox_imported">キーボックスのインポートに成功しました</string>
+    <string name="ts_keybox_exported">キーボックスを保存しました</string>
+    <string name="ts_keybox_extract_failed">そのファイルからキーボックスを読み込めませんでした: %s</string>
     <string name="ts_wipe_playstore_message">Playストアが整合性の判定結果をキャッシュしています。新しいキーボックスをすぐに反映させるため、今すぐデータを消去しますか？ログアウトされ、ローカルキャッシュやダウンロードキューがクリアされます。</string>
     <string name="ts_delete_keybox_title">キーボックスを削除しますか？</string>
     <string name="ts_delete_keybox_message">キーボックスファイルは完全に削除されます。</string>
@@ -1297,6 +1314,60 @@
     <string name="font_preview_dialog_title">フォントのプレビュー</string>
     <string name="font_preview_quote">恐れる事は革新の敵なのだ。</string>
     <string name="add_font">フォントを追加</string>
+    <string name="font_applied">適用済み</string>
+    <string name="font_applying">適用中…</string>
+    <string name="font_tab_emoji">絵文字</string>
+    <string name="font_filter_all">全て</string>
+    <string name="font_filter_sans">サンズ</string>
+    <string name="font_filter_serif">セリフ</string>
+    <string name="font_filter_display">ディスプレイ</string>
+    <string name="font_filter_script">スクリプト</string>
+    <string name="font_filter_mono">モノラル</string>
+    <string name="font_filter_handwriting">手書き</string>
+    <string name="font_online_title">Google Fonts</string>
+    <string name="font_online_search">フォントを検索</string>
+    <string name="font_online_loading">フォントを読み込んでいます…</string>
+    <string name="font_online_error">フォント一覧を読み込めませんでした。接続を確認してください。</string>
+    <string name="font_online_retry">再試行</string>
+    <string name="font_online_empty">検索に一致するフォントがありません</string>
+    <string name="font_filter_saved">保存しました</string>
+    <string name="font_online_sort_popular">人気</string>
+    <string name="font_online_sort_az">名前順</string>
+    <string name="font_online_save">オフラインで使用するために保存</string>
+    <string name="font_online_unsave">保存済みから削除</string>
+    <string name="font_online_save_failed">フォントを保存できませんでした</string>
+    <string name="font_online_saved_marker">保存しました</string>
+    <string name="font_online_saved_empty">まだ保存されていません。フォントを選択し、オフラインで使用するために保存をタップすると、このデバイスでそのスタイルが維持されます。</string>
+    <string name="font_online_progress">%1$d%%</string>
+    <string name="font_online_style_italic">%1$s イタリック</string>
+    <!-- Two letters, capital and small, that show the shape of a font; use ones from your script -->
+    <string name="font_sample_hint">独自のテキストを試してみてください</string>
+    <string name="font_sample_clear">テキストを消去</string>
+    <string name="font_default">既定</string>
+    <string name="font_install_message">別のフォントを選択するまで、システムやアプリのテキストにこのフォントが使用されます。このファイルのスタイルのみがインストールされるため、太字や斜体もこのフォントをもとに生成されます。フォントスタイルは「デフォルト」に戻り、システム全体に適用するには再起動が必要です。</string>
+    <string name="font_error_updater_disabled">このデバイスではカスタムフォントを使用できません。カーネルと data パーティションで fs-verity がサポートされている必要があります。</string>
+    <string name="font_error_invalid_file">このファイルはシステムで使用できるフォントではありません。%1$d MB 以下の .ttf または .otf ファイルのみ使用できます。</string>
+    <string name="font_error_invalid_name">このフォントには PostScript 名がないため、システムに登録できません。このフォントには PostScript 名がないため、システムに登録できません。</string>
+    <string name="font_error_downgrading">このフォントの新しいバージョンがすでにシステムに存在します。</string>
+    <string name="font_error_verification">fs-verity でフォントファイルを保護できなかったため、インストールされませんでした。</string>
+    <string name="font_error_storage">システムはフォントを保存できませんでした。空き容量があることを確認して再度お試し下さい。</string>
+    <string name="font_error_unreadable">このフォントファイルを読み込めませんでした。 %1$d MBまでのフォントは.ttfまたは.otfファイルでなければなりません。</string>
+    <string name="font_install_failed">フォントをインストールできませんでした（ エラー%1$d ）</string>
+    <string name="font_apply_systemui_message">アプリはすぐに %1$s に切り替わります。システムUIの再起動後にステータスバー、ロック画面、クイック設定を切り替えます。</string>
+    <string name="font_apply_reboot_message">これによりカスタムフォントが削除され、 %1$sに切り替わります。すべてのアプリが新しいフォントを使用する前に再起動が必要です。</string>
+    <string name="font_apply_restart_now">適用して、今すぐシステムUIを再起動する</string>
+    <string name="font_apply_restart_later">適用して、後でシステムUIを再起動する</string>
+    <string name="font_apply_reboot_now">適用して、今すぐ再起動する</string>
+    <string name="font_apply_reboot_later">適用して、後で再起動する</string>
+    <string name="font_pending_systemui_title">システム UI を再起動して終了</string>
+    <string name="font_pending_reboot_title">再起動して終了</string>
+    <string name="font_pending_systemui_body">アプリは既に %1$sを使用しています。システムUIの再起動後にステータスバー、ロック画面、クイック設定を切り替えます。</string>
+    <string name="font_pending_reboot_body">%1$s は再起動後どこでも使用されます。</string>
+    <string name="font_pending_systemui_action">システムUIを再起動</string>
+    <string name="font_summary_pending_systemui">%1$s · システムUIの再起動を保留中</string>
+    <string name="font_summary_pending_reboot">%1$s · 再起動を保留中</string>
+    <string name="font_replace">フォントを置換する</string>
+    <string name="font_remove">フォントを削除</string>
     <string name="sound_preview_play">プレビューを再生</string>
     <string name="sound_preview_stop">プレビューを停止</string>
     <string name="reboot_required_custom_font_title">カスタムフォントには再起動が必要です</string>
@@ -1313,6 +1384,8 @@
     <string name="emoji_restart_title">絵文字を適用するには再起動してください</string>
     <string name="emoji_restart_message">システムフォントを使用しているすべてのアプリで、標準の絵文字がこの絵文字に置き換わります。今すぐ再起動するとシステムUIが再起動し、新しい絵文字を反映するために実行中のアプリがすべて終了します。後で再起動する場合は、各アプリの次回起動時に切り替わります。</string>
     <string name="emoji_restart_now">今すぐ再起動</string>
+    <string name="emoji_pending_title">絵文字を適用するには再起動してください</string>
+    <string name="emoji_pending_body">%1$s はシステムUIのシステム絵文字を置き換え、再起動後に各アプリで表示されます。今すぐ再起動すると実行中のすべてのアプリが閉じます。</string>
     <string name="emoji_apps_reset">サードパーティのアプリをリセット</string>
     <string name="emoji_apps_reset_short">アプリをリセット</string>
     <string name="emoji_apps_confirm">アプリデータ内に保存されているすべての絵文字フォントにカスタム絵文字フォントを上書きコピーし、FacebookとMessengerによる独自絵文字のダウンロードを停止します。また、対象アプリとGboardのキャッシュを消去し、Google Play開発者サービスのフォントプロバイダを無効にします。影響を受けるアプリは強制停止されます。これらのアプリがアップデートされた場合は、再度実行してください。</string>
@@ -1383,6 +1456,7 @@
     <string name="action_apply">適用</string>
     <string name="action_delete">削除</string>
     <string name="action_import">インポート</string>
+    <string name="action_export">エクスポート</string>
     <string name="action_yes">はい</string>
     <string name="action_reset">リセット</string>
     <string name="action_search_apps">アプリを検索</string>
@@ -1438,6 +1512,12 @@
     <string name="charging_animation_title">充電アニメーション</string>
     <string name="charging_animation_summary">ロック画面または AOD での充電中に視覚効果を表示する</string>
     <string name="charging_animation_style_title">効果の種類</string>
+    <string name="charging_plug_animation_category_title">プラグインアニメーション</string>
+    <string name="charging_plug_animation_title">プラグインアニメーション</string>
+    <string name="charging_preview_mode_lock">ロック画面</string>
+    <string name="charging_preview_mode_plug">プラグイン</string>
+    <string name="charging_plug_default_hint">デフォルトのプラグインアニメーションはロック画面で再生されるため、ここではプレビューされません</string>
+    <string name="charging_plug_preview_label">中程度</string>
     <string name="charging_ripple_opacity_title">リップルの不透明度</string>
     <string name="charging_ripple_opacity_summary">リップル波の視認性を調整する</string>
     <string name="charging_glow_intensity_title">グローの強度</string>
@@ -1455,6 +1535,16 @@
     <string name="emoji_style_title">絵文字のスタイル</string>
     <string name="emoji_style_stock">標準 AOSPパネル</string>
     <string name="emoji_custom_label">カスタム：%1$s</string>
+    <string name="emoji_download_size">ダウンロード・ %1$s</string>
+    <string name="emoji_downloaded_size">ダウンロード済み · %1$s</string>
+    <string name="emoji_delete_download">ダウンロードを削除</string>
+    <string name="emoji_catalog_error">オンライン絵文字スタイルを読み込めませんでした。接続を確認してください。</string>
+    <string name="emoji_catalog_retry">再試行</string>
+    <string name="emoji_picker_footer">絵文字スタイルはEvolution Xのテーマリポジトリからダウンロードされ、デバイス内に保存されます。そのため、一度ダウンロードしてしまえば、再ダウンロードすることなくスタイルを切り替えることが可能です。また、最大128MBまでの独自の絵文字フォント（.ttf形式）を追加することもできます。例えば、絵文字用Magiskモジュールに含まれるフォント（system/fonts/NotoColorEmoji.ttfなど）を利用可能です。なお、追加したフォントに含まれていない絵文字については、引き続きシステム標準の絵文字が表示されます。</string>
+    <string name="font_picker_footer">システムが提供するフォントスタイルが先頭に表示されます。独自のフォントを使用するには、「フォントを追加」をタップして 64 MB 以下の .ttf または .otf ファイルを選択するか、Google Fonts からダウンロードします。標準 UI フォントを使用するすべてのシステムやアプリのテキストにカスタムフォントが使用され、システム全体に適用するには再起動が必要です。</string>
+    <string name="online_fonts_footer">フォントは Google Fonts から提供されており、無料で使用できます。フォントをタップするとダウンロードしてプレビューでき、チップから別のスタイルを選択して「適用」をタップします。選択したスタイルのみがインストールされ、システム全体に適用するには再起動が必要です。</string>
+    <string name="emoji_error_download">絵文字フォントをダウンロードできませんでした。接続を確認して再度お試し下さい。</string>
+    <string name="emoji_error_checksum">ダウンロードした絵文字フォントが想定されたファイルと一致しませんでした。後でもう一度お試しください。</string>
     <string name="emoji_style_ios">iOS</string>
     <string name="emoji_style_samsung">Samsung</string>
     <string name="emoji_style_swiftui">SwiftUI</string>
