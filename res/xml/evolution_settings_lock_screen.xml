@@ -219,12 +219,6 @@
         android:title="@string/lock_screen_fingerprint_category">
 
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
-            android:key="enable_ripple_effect"
-            android:title="@string/lock_screen_fingerprint_ripple_title"
-            android:summary="@string/lock_screen_fingerprint_ripple_summary"
-            android:defaultValue="true" />
-
-        <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="fp_success_vibrate"
             android:title="@string/lock_screen_fingerprint_success_vibration_title"
             android:summary="@string/lock_screen_fingerprint_success_vibration_summary"
