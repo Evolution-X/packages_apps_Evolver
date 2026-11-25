@@ -1201,6 +1201,8 @@
     <string name="ts_keybox_deleted">Keybox deleted</string>
     <string name="ts_target_configuration">Target configuration</string>
     <string name="ts_manage_target_apps">Manage target apps</string>
+    <string name="ts_auto_target">Auto-add new apps</string>
+    <string name="ts_auto_target_summary">Add newly installed apps to the target list automatically. Stores, root and system tools and proxy clients are always skipped.</string>
     <string name="ts_no_targets">No target apps configured</string>
     <string name="ts_target_apps_count">%d apps configured</string>
     <string name="ts_target_apps_empty_description">No apps match your search or configuration</string>

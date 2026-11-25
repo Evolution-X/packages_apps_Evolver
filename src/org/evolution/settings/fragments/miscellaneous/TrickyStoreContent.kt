@@ -49,6 +49,7 @@ internal class TsUiState {
     var enabled by mutableStateOf(true)
     var keyboxExists by mutableStateOf(false)
     var targetCount by mutableStateOf(0)
+    var autoTarget by mutableStateOf(true)
 
     var fetchEnabled by mutableStateOf(true)
     var fetchSummary by mutableStateOf("")
@@ -82,6 +83,7 @@ internal interface TsActions {
     fun onDeleteKeybox()
     fun onCheckRevocation()
     fun onManageTargets()
+    fun onAutoTargetChange(enabled: Boolean)
     fun onImportTargets()
     fun onEditPatch()
 
@@ -237,6 +239,14 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
                                 stringResource(R.string.ts_target_apps_count, state.targetCount)
                             else stringResource(R.string.ts_no_targets),
                             onClick = actions::onManageTargets,
+                        )
+                    }
+                    item {
+                        ExpressiveSwitchRow(
+                            titleText = stringResource(R.string.ts_auto_target),
+                            summaryText = stringResource(R.string.ts_auto_target_summary),
+                            isChecked = state.autoTarget,
+                            onChange = actions::onAutoTargetChange,
                         )
                     }
                     item {

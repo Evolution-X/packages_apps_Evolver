@@ -136,6 +136,7 @@ class TrickyStore : SettingsPreferenceFragment() {
         private val CACHE_TRUST_WINDOW_MS = TimeUnit.DAYS.toMillis(7)
 
         private const val TRICKYSTORE_ENABLED_KEY    = "spoof_trickystore_enabled"
+        private const val AUTO_TARGET_KEY            = "spoof_trickystore_auto_target"
         private const val DUCK_RKP_ENABLED_KEY       = "spoof_duck_rkp_enabled"
 
         private const val VENDING_PACKAGE            = "com.android.vending"
@@ -368,6 +369,12 @@ class TrickyStore : SettingsPreferenceFragment() {
             if (enabled) refreshStatus()
         }
 
+        override fun onAutoTargetChange(enabled: Boolean) {
+            Settings.System.putInt(
+                requireContext().contentResolver, AUTO_TARGET_KEY, if (enabled) 1 else 0)
+            ui.autoTarget = enabled
+        }
+
         override fun onFetchKeybox() = fetchOfficialKeybox()
 
         override fun onImportKeybox() {
@@ -510,6 +517,7 @@ class TrickyStore : SettingsPreferenceFragment() {
             TrickyStoreAppSettings.parseTargetList(Settings.Secure.getString(resolver, TARGET_KEY)),
         )
         ui.enabled = isTrickyStoreEnabled
+        ui.autoTarget = Settings.System.getInt(resolver, AUTO_TARGET_KEY, 1) != 0
         ui.keyboxExists = keyboxExists
         ui.targetCount = targets.size
 
