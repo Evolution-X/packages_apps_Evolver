@@ -532,6 +532,11 @@ class TrickyStore : SettingsPreferenceFragment() {
             }
 
         ui.verificationSummary = buildVerificationSummary(targets)
+        ui.details = if (keyboxExists) {
+            Settings.Secure.getString(resolver, KEYBOX_KEY)
+                ?.let { TrickyStoreService.decodeKeybox(it) }
+                ?.let { KeyboxDetails.analyze(it) }
+        } else null
 
         applyRevocationUi(currentRevocationStatus, currentRevocationReason)
         updateFetchButtonState(keyboxExists)
