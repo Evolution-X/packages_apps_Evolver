@@ -1130,6 +1130,8 @@
     <string name="ts_keybox_deleted">キーボックスを削除しました</string>
     <string name="ts_target_configuration">ターゲット設定</string>
     <string name="ts_manage_target_apps">ターゲットアプリの管理</string>
+    <string name="ts_auto_target">アプリを自動的に追加</string>
+    <string name="ts_auto_target_summary">新しくインストールされたアプリをターゲットリストに自動的に追加します。ただし、ストア、Root関連ツール、システムツール、およびプロキシクライアントは常に除外されます。</string>
     <string name="ts_no_targets">ターゲットアプリが設定されていません</string>
     <string name="ts_target_apps_count">%d 個のアプリが設定済み</string>
     <string name="ts_target_apps_empty_description">検索または設定に一致するアプリはありません</string>
