@@ -1130,6 +1130,8 @@
     <string name="ts_keybox_deleted">Keybox видалено</string>
     <string name="ts_target_configuration">Цільова конфігурація</string>
     <string name="ts_manage_target_apps">Керувати цільовими програмами</string>
+    <string name="ts_auto_target">Автоматично додавати нові додатки</string>
+    <string name="ts_auto_target_summary">Автоматично додавати щойно встановлені додатки до цільового списку. Магазини додатків, root- та системні інструменти, а також проксі-клієнти завжди пропускаються.</string>
     <string name="ts_no_targets">Немає налаштованих цільових додатків</string>
     <string name="ts_target_apps_count">%d додатків налаштовано</string>
     <string name="ts_target_apps_empty_description">Жодна програма не відповідає вашому пошуку чи конфігурації</string>
