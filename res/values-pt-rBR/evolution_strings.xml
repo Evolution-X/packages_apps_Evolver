@@ -1131,6 +1131,8 @@
     <string name="ts_keybox_deleted">Keybox excluída</string>
     <string name="ts_target_configuration">Configuração de alvo</string>
     <string name="ts_manage_target_apps">Gerenciar apps de destino</string>
+    <string name="ts_auto_target">Adicionar novos aplicativos automaticamente</string>
+    <string name="ts_auto_target_summary">Adicione automaticamente à lista de destino os aplicativos recém-instalados. Lojas, ferramentas de root e de sistema, bem como clientes de proxy, são sempre ignorados.</string>
     <string name="ts_no_targets">Nenhum app de destino configurado</string>
     <string name="ts_target_apps_count">%d apps configurados</string>
     <string name="ts_target_apps_empty_description">Nenhum app corresponde à sua pesquisa ou configuração</string>
