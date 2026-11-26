@@ -618,12 +618,22 @@ fun ExpressiveValueRow(
     value: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    note: String? = null,
     onClick: (() -> Unit)? = null,
 ) {
     ExpressiveListItem(
         modifier = modifier,
         enabled = enabled,
         onClick = onClick,
+        supporting = note?.let {
+            {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        },
         overline = {
             Text(
                 text = label,
