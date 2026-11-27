@@ -27,6 +27,14 @@
             android:icon="@drawable/ic_evolver_themes"
             android:fragment="org.evolution.settings.fragments.themes.Themes"/>
 
+        <!-- Launcher -->
+        <Preference
+            android:key="launcher"
+            android:title="@string/launcher_title"
+            android:summary="@string/launcher_summary"
+            android:icon="@drawable/ic_evolver_launcher"
+            android:fragment="org.evolution.settings.fragments.launcher.Launcher"/>
+
         <!-- Lock screen -->
         <Preference
             android:key="lock_screen"

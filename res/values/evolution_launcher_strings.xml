@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <string name="launcher_title">Launcher</string>
+    <string name="launcher_summary">Home screen, folders, dock and app drawer</string>
+
+    <string name="launcher_home_category">Home screen</string>
+    <string name="launcher_folders_category">Folders</string>
+    <string name="launcher_dock_category">Dock</string>
+    <string name="launcher_drawer_category">App drawer</string>
+
+    <string name="launcher_hide_page_indicator_title">Hide page indicator</string>
+    <string name="launcher_hide_page_indicator_on_summary">Page dots are hidden</string>
+    <string name="launcher_hide_page_indicator_off_summary">Page dots are visible</string>
+
+    <string name="launcher_page_indicator_color_title">Page indicator color</string>
+    <string name="launcher_page_indicator_color_summary">Color of the home screen page dots</string>
+
+    <string name="launcher_folder_opacity_title">Folder background opacity</string>
+    <string name="launcher_folder_opacity_summary">Background opacity: %1$s. Blur folder styles may ignore this.</string>
+
+    <string name="launcher_dock_spacing_title">Dock spacing</string>
+    <string name="launcher_dock_spacing_summary">Spacing between dock icons</string>
+
+    <string name="launcher_hide_scrollbar_title">Hide app drawer scrollbar</string>
+    <string name="launcher_hide_scrollbar_summary">Hide the fast-scroll bar</string>
+
+    <string name="launcher_overlays_unavailable_title">Options unavailable</string>
+    <string name="launcher_overlays_unavailable_summary">Install the matching launcher overlays to enable these options.</string>
+    <string name="launcher_apply_failed">Could not apply the selected option.</string>
+    <string name="launcher_restart_failed">Option applied. Restart the launcher manually.</string>
+    <string name="launcher_restart_note">Changes apply immediately and restart the launcher.</string>
+
+    <string-array name="launcher_page_indicator_entries" translatable="false">
+        <item>Default</item>
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
+
+    <string-array name="launcher_page_indicator_values" translatable="false">
+        <item>default</item>
+        <item>dark</item>
+        <item>light</item>
+    </string-array>
+
+    <string-array name="launcher_folder_opacity_entries" translatable="false">
+        <item>100%</item>
+        <item>75%</item>
+        <item>50%</item>
+        <item>Transparent</item>
+    </string-array>
+
+    <string-array name="launcher_folder_opacity_values" translatable="false">
+        <item>100</item>
+        <item>75</item>
+        <item>50</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="launcher_dock_spacing_entries" translatable="false">
+        <item>Default</item>
+        <item>Compact</item>
+        <item>Wide</item>
+    </string-array>
+
+    <string-array name="launcher_dock_spacing_values" translatable="false">
+        <item>default</item>
+        <item>compact</item>
+        <item>wide</item>
+    </string-array>
+
+</resources>

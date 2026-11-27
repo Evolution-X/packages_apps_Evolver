@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/launcher_title">
+
+    <PreferenceCategory
+        android:key="launcher_home_category"
+        android:title="@string/launcher_home_category">
+
+        <SwitchPreferenceCompat
+            android:key="launcher_hide_page_indicator"
+            android:title="@string/launcher_hide_page_indicator_title"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="launcher_page_indicator_color"
+            android:title="@string/launcher_page_indicator_color_title"
+            android:summary="@string/launcher_page_indicator_color_summary"
+            android:entries="@array/launcher_page_indicator_entries"
+            android:entryValues="@array/launcher_page_indicator_values"
+            android:defaultValue="default"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="launcher_folders_category"
+        android:title="@string/launcher_folders_category">
+
+        <ListPreference
+            android:key="launcher_folder_opacity"
+            android:title="@string/launcher_folder_opacity_title"
+            android:entries="@array/launcher_folder_opacity_entries"
+            android:entryValues="@array/launcher_folder_opacity_values"
+            android:defaultValue="100"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="launcher_dock_category"
+        android:title="@string/launcher_dock_category">
+
+        <ListPreference
+            android:key="launcher_dock_spacing"
+            android:title="@string/launcher_dock_spacing_title"
+            android:summary="@string/launcher_dock_spacing_summary"
+            android:entries="@array/launcher_dock_spacing_entries"
+            android:entryValues="@array/launcher_dock_spacing_values"
+            android:defaultValue="default"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="launcher_drawer_category"
+        android:title="@string/launcher_drawer_category">
+
+        <SwitchPreferenceCompat
+            android:key="launcher_hide_scrollbar"
+            android:title="@string/launcher_hide_scrollbar_title"
+            android:summary="@string/launcher_hide_scrollbar_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="launcher_overlays_unavailable"
+        android:title="@string/launcher_overlays_unavailable_title"
+        android:summary="@string/launcher_overlays_unavailable_summary"
+        android:selectable="false"
+        android:persistent="false"
+        android:visible="false" />
+
+    <Preference
+        android:key="launcher_restart_note"
+        android:title="@string/launcher_restart_note"
+        android:selectable="false"
+        android:persistent="false" />
+</PreferenceScreen>
