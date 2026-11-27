@@ -53,6 +53,7 @@
     <string name="screen_off_animation_iris">Íris</string>
     <string name="screen_off_animation_desaturate">Dessaturar</string>
     <string name="screen_off_animation_shutter">Obturador</string>
+    <string name="screen_off_animation_blackhole">Buraco negro</string>
     <string name="themes_udfps_animation_title">Animação da impressão digital</string>
     <string name="themes_udfps_animation_summary">Definir estilo de animação da impressão digital</string>
     <string name="dialog_blur_title">Desfoque em diálogos e avisos rápidos</string>
@@ -566,6 +567,10 @@
     <string name="dynamic_bar_haptics_summary">Vibrar sutilmente ao tocar no chip</string>
     <string name="dynamic_bar_chip_morph">Animação de transformação</string>
     <string name="dynamic_bar_chip_morph_summary">Expandir o chip até o painel e encolhê-lo de volta ao fechar</string>
+    <string name="dynamic_bar_card_style">Estilo do cartão</string>
+    <string name="dynamic_bar_card_style_frosted">Vidro fosco</string>
+    <string name="dynamic_bar_card_style_shade">Igual ao painel de notificações</string>
+    <string name="dynamic_bar_card_style_black">Preto sólido</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Nunca mostrar</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Somente ao carregar</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Mostrar sempre</string>
@@ -1124,6 +1129,32 @@
     <string name="ts_keybox_installed">Keybox instalada</string>
     <string name="ts_keybox_imported">Keybox importada com sucesso</string>
     <string name="ts_keybox_exported">Keybox salva</string>
+    <!-- TrickyStore: keybox details -->
+    <string name="ts_kb_details_title">Detalhes da keybox</string>
+    <string name="ts_kb_manufacturer">Emitida para</string>
+    <string name="ts_kb_manufacturer_unknown">Não consta nos certificados</string>
+    <string name="ts_kb_source_rkp">Das informações de provisionamento RKP assinadas pelo Google</string>
+    <string name="ts_kb_source_subject">Do assunto do certificado</string>
+    <string name="ts_kb_source_subject_org">Do assunto do certificado (O=%1$s)</string>
+    <string name="ts_kb_source_org_only">Os certificados citam a organização %1$s</string>
+    <string name="ts_kb_source_none">Keyboxes emitidas pelo Google geralmente não citam o fabricante do dispositivo</string>
+    <string name="ts_kb_tee_vendor">Fornecedor do TEE</string>
+    <string name="ts_kb_security_level">Nível de segurança</string>
+    <string name="ts_kb_level_strongbox">StrongBox</string>
+    <string name="ts_kb_level_tee">TEE</string>
+    <string name="ts_kb_level_software">Software (AOSP)</string>
+    <string name="ts_kb_level_unknown">Não informado</string>
+    <string name="ts_kb_level_note">Do assunto do certificado intermediário</string>
+    <string name="ts_kb_level_software_note">Uma keybox de atestação por software não consegue passar na integridade forte</string>
+    <string name="ts_kb_root">Raiz de atestação</string>
+    <string name="ts_kb_root_unknown">Não é uma raiz de atestação conhecida do Google</string>
+    <string name="ts_kb_rkp_title">%1$s · Informações de provisionamento RKP</string>
+    <string name="ts_kb_rkp_certs">Cerca de %1$d certificados emitidos nos últimos 30 dias</string>
+    <string name="ts_kb_rkp_issue">Parcialmente ilegível: %1$s</string>
+    <string name="ts_kb_cert_attest_key">%1$s · Chave de atestação (%2$s)</string>
+    <string name="ts_kb_cert_intermediate">%1$s · Intermediário (%2$s)</string>
+    <string name="ts_kb_cert_root">%1$s · Raiz (%2$s)</string>
+    <string name="ts_kb_cert_note">Nº de série %1$s · válido de %2$s a %3$s</string>
     <string name="ts_keybox_extract_failed">Não foi possível ler uma keybox desse arquivo: %s</string>
     <string name="ts_wipe_playstore_message">A Play Store armazena em cache os veredictos de integridade. Limpar os dados dela agora para que a nova keybox entre em vigor imediatamente? Isso encerrará sua sessão e limpará o cache local e a fila de downloads.</string>
     <string name="ts_delete_keybox_title">Excluir keybox?</string>
