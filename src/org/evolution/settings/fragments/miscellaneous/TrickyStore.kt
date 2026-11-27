@@ -50,6 +50,7 @@ import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -81,6 +82,7 @@ class TrickyStore : SettingsPreferenceFragment() {
 
     // Revision of the last device RKP keybox seen by the poll loop.
     private var lastDuckRkpRevision = -1L
+    private var detailsJob: Job? = null
     // Set once the framework has reported device RKP as unavailable on this device.
     private var duckRkpUnsupported = false
 
@@ -532,14 +534,35 @@ class TrickyStore : SettingsPreferenceFragment() {
             }
 
         ui.verificationSummary = buildVerificationSummary(targets)
-        ui.details = if (keyboxExists) {
-            Settings.Secure.getString(resolver, KEYBOX_KEY)
-                ?.let { TrickyStoreService.decodeKeybox(it) }
-                ?.let { KeyboxDetails.analyze(it) }
-        } else null
+        refreshKeyboxDetails()
 
         applyRevocationUi(currentRevocationStatus, currentRevocationReason)
         updateFetchButtonState(keyboxExists)
+    }
+
+    /**
+     * Describes whichever keybox is in use. Device RKP keeps its generated keybox in
+     * the framework, not in Settings, so it is read from there while RKP is active.
+     */
+    private fun refreshKeyboxDetails() {
+        val ctx = context ?: return
+        val generated = ui.rkpActive
+        detailsJob?.cancel()
+        detailsJob = lifecycleScope.launch {
+            val details = withContext(Dispatchers.IO) {
+                runCatching {
+                    val stored = if (generated) {
+                        ActivityManager.getService().spoofTrickyStoreKeyBox
+                    } else {
+                        Settings.Secure.getString(ctx.contentResolver, KEYBOX_KEY)
+                    }
+                    stored?.takeIf { it.isNotEmpty() }
+                        ?.let { TrickyStoreService.decodeKeybox(it) }
+                        ?.let { KeyboxDetails.analyze(it) }
+                }.getOrNull()
+            }
+            if (isAdded) ui.details = details
+        }
     }
 
     private fun applyRevocationUi(status: RevocationStatus, reason: String = "") {
@@ -1492,7 +1515,11 @@ class TrickyStore : SettingsPreferenceFragment() {
         }
         if (!isAdded) return
         val revision = next?.getLong("revision", 0L) ?: -1L
+        val wasActive = ui.rkpActive
         applyDuckRkpState(next)
+        if (revision != lastDuckRkpRevision || wasActive != ui.rkpActive) {
+            refreshKeyboxDetails()
+        }
         if (next != null && lastDuckRkpRevision != -1L && revision != lastDuckRkpRevision &&
             next.getBoolean("active") && !next.getBoolean("imported")) {
             // A new generated keybox was saved; cached attestation verdicts must go.
