@@ -137,6 +137,12 @@
             android:summary="@string/show_clipboard_overlay_summary"
             android:defaultValue="true" />
 
+        <org.evolution.settings.preferences.SecureSettingSwitchPreference
+            android:key="gboard_clipboard_unlimited"
+            android:title="@string/gboard_clipboard_unlimited_title"
+            android:summary="@string/gboard_clipboard_unlimited_summary"
+            android:defaultValue="false" />
+
         <org.evolution.settings.preferences.SystemSettingSwitchPreference
             android:key="hide_status_bar_in_screenshot"
             android:title="@string/hide_status_bar_in_screenshot_title"

@@ -1795,4 +1795,7 @@
     <!-- Lockscreen lock icon -->
     <string name="lockscreen_hide_lock_icon_title">Hide lock icon</string>
     <string name="lockscreen_hide_lock_icon_summary">Hide the lock and unlock icons on the lockscreen while keeping the fingerprint icon visible</string>
+    <!-- Gboard clipboard history -->
+    <string name="gboard_clipboard_unlimited_title">Gboard clipboard history</string>
+    <string name="gboard_clipboard_unlimited_summary">Keep up to 1000 clips and stop Gboard from clearing them automatically</string>
 </resources>
