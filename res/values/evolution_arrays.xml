@@ -144,6 +144,7 @@
         <item>@string/screen_off_animation_iris</item>
         <item>@string/screen_off_animation_desaturate</item>
         <item>@string/screen_off_animation_shutter</item>
+        <item>@string/screen_off_animation_blackhole</item>
     </string-array>
 
     <string-array name="screen_off_animation_values" translatable="false">
@@ -153,6 +154,7 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
     </string-array>
 
     <!-- Status bar - Quick pulldown -->
