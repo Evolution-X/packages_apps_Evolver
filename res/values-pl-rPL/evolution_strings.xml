@@ -1684,31 +1684,31 @@
     <string name="ts_rkp_unavailable">Zdalne przydzielanie klucza telefonu jest niedostępne</string>
     <string name="ts_rkp_imported">Wyłączone, gdy zainstalowany jest zaimportowany zestaw kluczy</string>
     <string name="ts_rkp_disabled">Wyłączone. 
-\nWłącz ochronę jądra systemu urządzenia, aby autogenerować i odnawiać zestaw kluczy.</string>
+\nWłącz zdalne przydzielanie kluczy telefonu, aby autogenerować i odnawiać zestaw kluczy.</string>
     <string name="ts_rkp_idle">Autogenerowanie jest zaplanowane</string>
-    <string name="ts_rkp_fetching">Pobieranie wyzwania dostarczania…</string>
-    <string name="ts_rkp_hardware">Oczekiwanie na usługę dostarczania urządzenia…</string>
+    <string name="ts_rkp_fetching">Pobieranie wyzwania przydzielania…</string>
+    <string name="ts_rkp_hardware">Oczekiwanie na usługę przydzielania telefonu…</string>
     <string name="ts_rkp_signing">Żądanie certyfikatów od Google…</string>
     <string name="ts_rkp_validating">Sprawdzanie i zapisywanie zestawu kluczy…</string>
     <string name="ts_rkp_ready">Wygenerowany zestaw kluczy jest aktywny. 
 \nWygasa %1$s. 
 \nAutoodnowienie zaplanowano na %2$s.</string>
-    <string name="ts_rkp_active_subtitle">Zestaw kluczy ochrony jądra systemu urządzenia jest aktywny</string>
-    <string name="ts_rkp_fetch_disabled">Wyłączone, gdy ochrona jądra systemu urządzenia jest włączona. 
+    <string name="ts_rkp_active_subtitle">Zestaw kluczy zdalnego przydzielania kluczy telefonu jest aktywny</string>
+    <string name="ts_rkp_fetch_disabled">Wyłączone, gdy zdalne przydzielanie kluczy telefonu jest włączone. 
 \nWyłącz, aby korzystać z zestawu kluczy z internetu.</string>
     <string name="ts_rkp_expired">Wygenerowany zestaw kluczy wygasł. 
 \nAutowymiana nastąpi po nawiązaniu połączenia.</string>
     <string name="ts_rkp_hal_rejected">Oprogramowanie odrzuciło żądanie (kod %1$d). 
-\nŻadna zgodna metoda dostarczania nie powiodła się.</string>
-    <string name="ts_rkp_http_error">Serwer dostarczający odrzucił żądanie (HTTP %1$d)</string>
-    <string name="ts_rkp_unsupported">Telefon nie udostępnia zgodnego interfejsu dostarczającego</string>
-    <string name="ts_rkp_network_error">Nie można nawiązać połączenia z serwerem dostarczającym. 
+\nŻadna zgodna metoda przydzielania nie powiodła się.</string>
+    <string name="ts_rkp_http_error">Serwer przydzielający odrzucił żądanie (HTTP %1$d)</string>
+    <string name="ts_rkp_unsupported">Telefon nie udostępnia zgodnego interfejsu przydzielającego</string>
+    <string name="ts_rkp_network_error">Nie można nawiązać połączenia z serwerem przydzielającym. 
 \nSprawdź połączenie.</string>
     <string name="ts_rkp_submission_unknown">Odpowiedź serwera została utracona. 
 \nŻądanie mogło zostać przetworzone, nie wykonano automatycznej próby ponownego przesłania.</string>
     <string name="ts_rkp_invalid_chain">Certyfikaty zestawu kluczy nie przeszły weryfikacji. Istniejący zestaw kluczy został zachowany.</string>
-    <string name="ts_rkp_timeout">Przekroczono limit czasu dostarczania. 
-\nJeśli usługa urządzenia jest nadal zajęta, zrestartuj telefon przed ponowną próbą.</string>
+    <string name="ts_rkp_timeout">Przekroczono limit czasu przydzielania. 
+\nJeśli usługa telefonu jest nadal zajęta, zrestartuj telefon przed ponowną próbą.</string>
     <string name="ts_rkp_canceled">Żądanie anulowane z powodu zmiany konfiguracji zestawu kluczy</string>
     <string name="ts_rkp_save_failed">Nie udało się zapisać wygenerowanego zestawu kluczy</string>
     <string name="ts_rkp_action_failed">Nie udało się dokończyć operacji zestawu kluczy</string>
@@ -1716,8 +1716,8 @@
     <string name="ts_rkp_auto_paused">%1$s autodostarczanie jest wstrzymane. 
 \nUżyj opcji Generuj zestaw kluczy, aby spróbować ponownie.</string>
     <string name="ts_rkp_auto_retry">%1$s Następna automatyczna próba: %2$s.</string>
-    <string name="ts_rkp_native_unavailable">Natywny pomocnik dostarczania jest niedostępny lub niezgodny z tym oprogramowaniem</string>
-    <string name="ts_rkp_native_transport">Usługa natywnego dostarczania została nieoczekiwanie zatrzymana.
+    <string name="ts_rkp_native_unavailable">Pomocnik przydzielania jest niedostępny lub niezgodny z tym oprogramowaniem</string>
+    <string name="ts_rkp_native_transport">Usługa przydzielania została nieoczekiwanie zatrzymana.
 \nAutodostarczanie jest wstrzymane.</string>
     <string name="ts_rkp_invalid_response">Telefon zwrócił nieprawidłową odpowiedź dotyczącą przydzielania.
 \nIstniejący zestaw kluczy został zachowany.</string>
