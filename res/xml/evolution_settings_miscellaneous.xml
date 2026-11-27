@@ -131,13 +131,11 @@
             android:summary="@string/screenshot_clipboard_only_summary"
             android:defaultValue="false" />
 
-        <org.evolution.settings.preferences.SystemSettingListPreference
-            android:key="screenshot_delete_after_days"
-            android:title="@string/screenshot_delete_after_days_title"
-            android:summary="%s"
-            android:entries="@array/screenshot_delete_after_days_entries"
-            android:entryValues="@array/screenshot_delete_after_days_values"
-            android:defaultValue="0" />
+        <org.evolution.settings.preferences.ScreenshotRetentionPreference
+            android:key="screenshot_delete_after_hours"
+            android:title="@string/screenshot_delete_after_title"
+            android:summary="@string/screenshot_delete_after_summary"
+            android:defaultValue="168" />
 
         <org.evolution.settings.preferences.SecureSettingSwitchPreference
             android:key="show_clipboard_overlay"

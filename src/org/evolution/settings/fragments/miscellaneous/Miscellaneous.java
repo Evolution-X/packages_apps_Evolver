@@ -33,6 +33,7 @@ import java.util.List;
 import lineageos.providers.LineageSettings;
 
 import org.evolution.settings.preferences.CustomSeekBarPreference;
+import org.evolution.settings.preferences.ScreenshotRetentionPreference;
 import org.evolution.settings.preferences.SystemSettingSwitchPreference;
 import org.evolution.settings.utils.PreferenceUtils;
 
@@ -64,11 +65,12 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = mContext.getResources();
 
-        final ListPreference screenshotDeleteAfterDays = (ListPreference)
-                prefScreen.findPreference(ScreenshotCleanupJobService.SETTING_KEY);
-        if (screenshotDeleteAfterDays != null) {
-            screenshotDeleteAfterDays.setOnPreferenceChangeListener(this);
-            ScreenshotCleanupJobService.schedule(mContext, screenshotDeleteAfterDays.getValue());
+        final ScreenshotRetentionPreference screenshotRetention =
+                (ScreenshotRetentionPreference) prefScreen.findPreference(
+                        ScreenshotCleanupJobService.SETTING_KEY);
+        if (screenshotRetention != null) {
+            screenshotRetention.setOnPreferenceChangeListener(this);
+            ScreenshotCleanupJobService.schedule(mContext, screenshotRetention.getHours());
         }
 
         Action threeFingersSwipeAction = Action.fromSettings(getContentResolver(),
@@ -145,7 +147,7 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
             mFlashOnCallRate.setEnabled(value > 0);
             return true;
         } else if (ScreenshotCleanupJobService.SETTING_KEY.equals(preference.getKey())) {
-            ScreenshotCleanupJobService.schedule(context, (String) newValue);
+            ScreenshotCleanupJobService.schedule(context, (Integer) newValue);
             return true;
         }
         return false;

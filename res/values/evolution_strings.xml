@@ -1691,7 +1691,19 @@
     <string name="screenshot_clipboard_only_summary">Copy screenshot to clipboard instead of saving in storage</string>
     <string name="hide_status_bar_in_screenshot_title">Hide status bar in screenshots</string>
     <string name="hide_status_bar_in_screenshot_summary">Crop the status bar area out of full screenshots</string>
-    <string name="screenshot_delete_after_days_title">Delete screenshots after</string>
+    <string name="screenshot_delete_after_title">Delete screenshots after</string>
+    <string name="screenshot_delete_after_summary">Automatically delete screenshots older than the selected period</string>
+    <string name="screenshot_delete_after_decrease">Decrease retention by one hour</string>
+    <string name="screenshot_delete_after_increase">Increase retention by one hour</string>
+
+    <plurals name="screenshot_retention_hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <plurals name="screenshot_retention_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
 
     <!-- Wallpaper zoom -->
     <string name="wallpaper_zoom_title">Wallpaper zoom</string>
