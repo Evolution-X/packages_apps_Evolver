@@ -234,7 +234,7 @@ internal fun TrickyStoreContent(state: TsUiState, actions: TsActions) {
                     }
                 }
 
-                ExpressiveAnimatedVisibility(visible = state.keyboxExists && state.details != null) {
+                ExpressiveAnimatedVisibility(visible = state.details != null) {
                     state.details?.let { TsKeyboxDetails(it) }
                 }
 
