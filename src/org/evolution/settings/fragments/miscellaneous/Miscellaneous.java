@@ -23,6 +23,7 @@ import androidx.preference.SwitchPreferenceCompat;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.evolution.Utils;
 import com.android.settings.R;
+import com.android.settings.screenshots.ScreenshotCleanupJobService;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
@@ -62,6 +63,13 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         final ContentResolver resolver = mContext.getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = mContext.getResources();
+
+        final ListPreference screenshotDeleteAfterDays = (ListPreference)
+                prefScreen.findPreference(ScreenshotCleanupJobService.SETTING_KEY);
+        if (screenshotDeleteAfterDays != null) {
+            screenshotDeleteAfterDays.setOnPreferenceChangeListener(this);
+            ScreenshotCleanupJobService.schedule(mContext, screenshotDeleteAfterDays.getValue());
+        }
 
         Action threeFingersSwipeAction = Action.fromSettings(getContentResolver(),
                 LineageSettings.System.KEY_THREE_FINGERS_SWIPE_ACTION,
@@ -135,6 +143,9 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
             int value = Integer.parseInt((String) newValue);
             mFlashOnCallIgnoreDND.setEnabled(value > 1);
             mFlashOnCallRate.setEnabled(value > 0);
+            return true;
+        } else if (ScreenshotCleanupJobService.SETTING_KEY.equals(preference.getKey())) {
+            ScreenshotCleanupJobService.schedule(context, (String) newValue);
             return true;
         }
         return false;
