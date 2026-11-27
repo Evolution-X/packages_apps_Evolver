@@ -53,6 +53,7 @@
     <string name="screen_off_animation_iris">Irys</string>
     <string name="screen_off_animation_desaturate">Zmniejsz nasycenie</string>
     <string name="screen_off_animation_shutter">Migawka</string>
+    <string name="screen_off_animation_blackhole">Czarna dziura</string>
     <string name="themes_udfps_animation_title">Animacja odcisku palca</string>
     <string name="themes_udfps_animation_summary">Ustaw styl animacji odcisku palca</string>
     <string name="dialog_blur_title">Rozmycie dialogów i dymków</string>
@@ -567,6 +568,10 @@
     <string name="dynamic_bar_haptics_summary">Delikatne wibracje po naciśnięciu znacznika</string>
     <string name="dynamic_bar_chip_morph">Animacja płynnej przemiany</string>
     <string name="dynamic_bar_chip_morph_summary">Rozwiń znacznik do panelu i zmniejsz go z powrotem przy zamykaniu</string>
+    <string name="dynamic_bar_card_style">Styl karty</string>
+    <string name="dynamic_bar_card_style_frosted">Matowe szkło</string>
+    <string name="dynamic_bar_card_style_shade">Dopasuj cień powiadomień</string>
+    <string name="dynamic_bar_card_style_black">Pełny czarny</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Nigdy nie pokazuj</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Tylko podczas ładowania</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Zawsze pokazuj</string>
@@ -1126,6 +1131,32 @@
     <string name="ts_keybox_installed">Zainstalowano zestaw kluczy</string>
     <string name="ts_keybox_imported">Zestaw kluczy zaimportowano pomyślnie</string>
     <string name="ts_keybox_exported">Zestaw kluczy zapisany</string>
+    <!-- TrickyStore: keybox details -->
+    <string name="ts_kb_details_title">Szczegóły zestawu kluczy</string>
+    <string name="ts_kb_manufacturer">Wydano dla</string>
+    <string name="ts_kb_manufacturer_unknown">Brak nazwy w certyfikatach</string>
+    <string name="ts_kb_source_rkp">Z informacji o przydzielaniu zdalnych kluczy publicznych, podpisanych przez Google</string>
+    <string name="ts_kb_source_subject">Z podmiotu certyfikatu</string>
+    <string name="ts_kb_source_subject_org">Z podmiotu certyfikatu (O=%1$s)</string>
+    <string name="ts_kb_source_org_only">Certyfikaty określają nazwę organizacji %1$s</string>
+    <string name="ts_kb_source_none">Zestawy kluczy wydawane przez Google zazwyczaj nie zawierają nazwy producenta telefonu</string>
+    <string name="ts_kb_tee_vendor">Dostawca TEE</string>
+    <string name="ts_kb_security_level">Poziom bezpieczeństwa</string>
+    <string name="ts_kb_level_strongbox">Silny zestaw</string>
+    <string name="ts_kb_level_tee">TEE</string>
+    <string name="ts_kb_level_software">Oprogramowanie (AOSP)</string>
+    <string name="ts_kb_level_unknown">Nie podano</string>
+    <string name="ts_kb_level_note">Z podmiotu certyfikatu pośredniego</string>
+    <string name="ts_kb_level_software_note">Zestaw kluczy poświadczających oprogramowania nie przechodzi kontroli silnej integralności</string>
+    <string name="ts_kb_root">Główny certyfikat poświadczenia</string>
+    <string name="ts_kb_root_unknown">Nieznany główny certyfikat poświadczenia Google</string>
+    <string name="ts_kb_rkp_title">%1$s · Informacje o przydzielaniu kluczy zdalnych</string>
+    <string name="ts_kb_rkp_certs">W ciągu ostatnich 30 dni wydano około %1$d certyfikatów</string>
+    <string name="ts_kb_rkp_issue">Częściowo nieczytelne: %1$s</string>
+    <string name="ts_kb_cert_attest_key">%1$s · Klucz poświadczający (%2$s)</string>
+    <string name="ts_kb_cert_intermediate">%1$s · Pośredni (%2$s)</string>
+    <string name="ts_kb_cert_root">%1$s · Główny (%2$s)</string>
+    <string name="ts_kb_cert_note">Numer seryjny %1$s · ważny %2$s do %3$s</string>
     <string name="ts_keybox_extract_failed">Nie można odczytać zestawu kluczy z tego pliku: %s</string>
     <string name="ts_wipe_playstore_message">Sklep Google Play buforuje werdykty integralności. Wyczyścić jego dane teraz, aby nowy zestaw kluczy zaczął działać natychmiast? \nSpowoduje to wylogowanie oraz wyczyszczenie lokalnej pamięci podręcznej i kolejki pobierania.</string>
     <string name="ts_delete_keybox_title">Usunąć zestaw kluczy?</string>
@@ -1641,16 +1672,16 @@
     <string name="shade_color_style_glass">Przezroczysty, matowy panel, przez który widać tapetę</string>
     <string name="shade_color_style_tinted">Panel barwiony na wybrany kolor akcentu, z rozmyciem lub bez</string>
     <!-- Device RKP (Duck) keybox generation in TrickyStore -->
-    <string name="ts_rkp_title">Ochrona jądra systemu urządzenia · Duck</string>
-    <string name="ts_rkp_enabled">Użyj ochrony jądra systemu urządzenia</string>
-    <string name="ts_rkp_enabled_summary">Autogenerowanie zestawu kluczy i odnawianie przed upływem terminu ważności.
+    <string name="ts_rkp_title">Zdalne przydzielanie kluczy telefonu · Duck</string>
+    <string name="ts_rkp_enabled">Użyj zdalnego przydzielania kluczy telefonu</string>
+    <string name="ts_rkp_enabled_summary">Autogenerowanie zestawu kluczy i odnawianie przed wygaśnięciem.
 \nImport zestawu kluczy wyłącza tę opcję.</string>
     <string name="ts_rkp_provision">Generuj zestaw kluczy</string>
     <string name="ts_rkp_provision_summary">Zażądaj teraz wymiany lub ponów wstrzymane autoprzydzielanie. 
 \nWymagane jest zgodne oprogramowanie Qualcomm.</string>
-    <string name="ts_rkp_status">Stan dostarczania</string>
-    <string name="ts_rkp_owner_only">Zarządzaj ochroną jądra systemu urządzenia z profilu właściciela urządzenia</string>
-    <string name="ts_rkp_unavailable">Ochroną jądra systemu urządzenia jest niedostępna</string>
+    <string name="ts_rkp_status">Stan przydzielania</string>
+    <string name="ts_rkp_owner_only">Zarządzaj zdalnym przydzielaniem klucza telefonu z profilu właściciela telefonu</string>
+    <string name="ts_rkp_unavailable">Zdalne przydzielanie klucza telefonu jest niedostępne</string>
     <string name="ts_rkp_imported">Wyłączone, gdy zainstalowany jest zaimportowany zestaw kluczy</string>
     <string name="ts_rkp_disabled">Wyłączone. 
 \nWłącz ochronę jądra systemu urządzenia, aby autogenerować i odnawiać zestaw kluczy.</string>
@@ -1688,7 +1719,7 @@
     <string name="ts_rkp_native_unavailable">Natywny pomocnik dostarczania jest niedostępny lub niezgodny z tym oprogramowaniem</string>
     <string name="ts_rkp_native_transport">Usługa natywnego dostarczania została nieoczekiwanie zatrzymana.
 \nAutodostarczanie jest wstrzymane.</string>
-    <string name="ts_rkp_invalid_response">Telefon zwrócił nieprawidłową odpowiedź dotyczącą dostarczania.
+    <string name="ts_rkp_invalid_response">Telefon zwrócił nieprawidłową odpowiedź dotyczącą przydzielania.
 \nIstniejący zestaw kluczy został zachowany.</string>
     <!-- Lockscreen lock icon -->
     <string name="lockscreen_hide_lock_icon_title">Ukryj ikonę kłódki</string>
