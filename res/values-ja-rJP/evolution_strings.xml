@@ -53,6 +53,7 @@
     <string name="screen_off_animation_iris">アイリス</string>
     <string name="screen_off_animation_desaturate">彩度を下げる</string>
     <string name="screen_off_animation_shutter">シャッター</string>
+    <string name="screen_off_animation_blackhole">ブラックホール</string>
     <string name="themes_udfps_animation_title">画面内指紋認証のアニメーション</string>
     <string name="themes_udfps_animation_summary">画面内指紋認証アニメーションを設定します</string>
     <string name="dialog_blur_title">ダイアログとトーストのぼかし</string>
@@ -565,6 +566,10 @@
     <string name="dynamic_bar_haptics_summary">チップをタップしたときに軽く振動します</string>
     <string name="dynamic_bar_chip_morph">変形アニメーション</string>
     <string name="dynamic_bar_chip_morph_summary">チップをパネルに拡大表示し、閉じるときに元のチップへ縮小します</string>
+    <string name="dynamic_bar_card_style">カードのスタイル</string>
+    <string name="dynamic_bar_card_style_frosted">すりガラス</string>
+    <string name="dynamic_bar_card_style_shade">通知シェードに合わせる</string>
+    <string name="dynamic_bar_card_style_black">単色ブラック</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">非表示</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">充電中のみ</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">常に表示</string>
@@ -1123,6 +1128,32 @@
     <string name="ts_keybox_installed">キーボックスがインストール済みです</string>
     <string name="ts_keybox_imported">キーボックスのインポートに成功しました</string>
     <string name="ts_keybox_exported">キーボックスを保存しました</string>
+    <!-- TrickyStore: keybox details -->
+    <string name="ts_kb_details_title">キーボックスの詳細</string>
+    <string name="ts_kb_manufacturer">発行先</string>
+    <string name="ts_kb_manufacturer_unknown">証明書に記載なし</string>
+    <string name="ts_kb_source_rkp">Google 署名済みの RKP プロビジョニング情報から取得</string>
+    <string name="ts_kb_source_subject">証明書のサブジェクトから取得</string>
+    <string name="ts_kb_source_subject_org">証明書のサブジェクト（O=%1$s）から取得</string>
+    <string name="ts_kb_source_org_only">証明書に組織名「%1$s」が記載されています</string>
+    <string name="ts_kb_source_none">Google 発行のキーボックスには、通常デバイスメーカー名は記載されません</string>
+    <string name="ts_kb_tee_vendor">TEE ベンダー</string>
+    <string name="ts_kb_security_level">セキュリティレベル</string>
+    <string name="ts_kb_level_strongbox">StrongBox</string>
+    <string name="ts_kb_level_tee">TEE</string>
+    <string name="ts_kb_level_software">ソフトウェア (AOSP)</string>
+    <string name="ts_kb_level_unknown">記載なし</string>
+    <string name="ts_kb_level_note">中間証明書のサブジェクトから取得</string>
+    <string name="ts_kb_level_software_note">ソフトウェア構成証明のキーボックスではStrong Integrity を通過できません</string>
+    <string name="ts_kb_root">構成証明ルート</string>
+    <string name="ts_kb_root_unknown">既知の Google 構成証明ルートではありません</string>
+    <string name="ts_kb_rkp_title">%1$s · RKP プロビジョニング情報</string>
+    <string name="ts_kb_rkp_certs">過去 30 日間に約 %1$d 件の証明書が発行されました</string>
+    <string name="ts_kb_rkp_issue">一部読み取り不可: %1$s</string>
+    <string name="ts_kb_cert_attest_key">%1$s ・認証キー (%2$s)</string>
+    <string name="ts_kb_cert_intermediate">%1$s 中級（%2$s）</string>
+    <string name="ts_kb_cert_root">%1$s · Root (%2$s)</string>
+    <string name="ts_kb_cert_note">シリアル %1$s· %2$s 〜 %3$s まで有効</string>
     <string name="ts_keybox_extract_failed">そのファイルからキーボックスを読み込めませんでした: %s</string>
     <string name="ts_wipe_playstore_message">Playストアが整合性の判定結果をキャッシュしています。新しいキーボックスをすぐに反映させるため、今すぐデータを消去しますか？ログアウトされ、ローカルキャッシュやダウンロードキューがクリアされます。</string>
     <string name="ts_delete_keybox_title">キーボックスを削除しますか？</string>
