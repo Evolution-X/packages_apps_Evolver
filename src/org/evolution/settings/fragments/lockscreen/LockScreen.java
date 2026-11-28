@@ -17,7 +17,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.android.OmniJawsClient;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
@@ -29,6 +28,8 @@ import org.evolution.settings.preferences.SecureSettingSwitchPreference;
 import org.evolution.settings.utils.DeviceUtils;
 import org.evolution.settings.utils.PixelAmbientIndicationDetector;
 import org.evolution.settings.utils.PreferenceUtils;
+
+import org.omnirom.omnijaws.client.OmniJawsClient;
 
 @SearchIndexable
 public class LockScreen extends SettingsPreferenceFragment implements
